@@ -1,17 +1,8 @@
 <?php
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 declare(strict_types=1);
 
 
-=======
->>>>>>> fbc8f8e (.)
-=======
-declare(strict_types=1);
-
-
->>>>>>> 6d20fbe (.)
 return [
     'accepted' => 'Il campo :attribute deve essere accettato.',
     'active_url' => 'Il campo :attribute non è un URL valido.',

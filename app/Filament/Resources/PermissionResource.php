@@ -9,41 +9,20 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> fbc8f8e (.)
-=======
-use Override;
->>>>>>> 6d20fbe (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Modules\User\Filament\Resources\PermissionResource\Pages\CreatePermission;
 use Modules\User\Filament\Resources\PermissionResource\Pages\EditPermission;
 use Modules\User\Filament\Resources\PermissionResource\Pages\ListPermissions;
 use Modules\User\Models\Permission;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-=======
-use Modules\Xot\Filament\Resources\XotBaseResource;
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
->>>>>>> fbc8f8e (.)
-=======
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-use Modules\Xot\Filament\Resources\XotBaseResource;
->>>>>>> 6d20fbe (.)
 
 class PermissionResource extends XotBaseResource
 {
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-lock-closed';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
     protected static null|string $model = Permission::class;
 
     #[Override]
@@ -57,40 +36,12 @@ class PermissionResource extends XotBaseResource
     }
 
     #[Override]
-<<<<<<< HEAD
-=======
-    protected static ?string $model = Permission::class;
-
-    public static function getFormSchema(): array
-    {
-        return [
-            'name' => TextInput::make('name')
-                ->required()
-                ->maxLength(255),
-            'guard_name' => TextInput::make('guard_name')
-                ->required()
-                ->maxLength(255),
-            'active' => Toggle::make('active')
-                ->required(),
-        ];
-    }
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     public static function getRelations(): array
     {
         return [];
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> fbc8f8e (.)
-=======
-    #[Override]
->>>>>>> 6d20fbe (.)
     public static function getPages(): array
     {
         return [

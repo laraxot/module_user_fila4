@@ -9,14 +9,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> fbc8f8e (.)
-=======
-use Override;
->>>>>>> 6d20fbe (.)
 use Filament\Schemas\Components\Section;
 use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
 use Filament\Forms\Components\Placeholder;
@@ -48,22 +41,11 @@ class UserResource extends XotBaseResource
     //    static::$extendFormCallback = $callback;
     // }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> fbc8f8e (.)
-=======
-    #[Override]
->>>>>>> 6d20fbe (.)
     public static function getFormSchema(): array
     {
         return [
             'section01' => Section::make([
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
                 'name' => TextInput::make('name')->required(),
                 'email' => TextInput::make('email')->required()->unique(ignoreRecord: true),
                 'password' => TextInput::make('password')
@@ -79,30 +61,6 @@ class UserResource extends XotBaseResource
 
                     return $record->created_at->diffForHumans();
                 }),
-<<<<<<< HEAD
-=======
-                'name' => TextInput::make('name')
-                    ->required(),
-                'email' => TextInput::make('email')
-                    ->required()
-                    ->unique(ignoreRecord: true),
-                'password' => TextInput::make('password')
-                    ->password()
-                    ->dehydrateStateUsing(fn ($state) => ! empty($state) ? Hash::make($state) : null)
-                    ->required(fn ($livewire) => $livewire instanceof CreateUser),
-            ])->columnSpan(8),
-            'section02' => Section::make([
-                'created_at' => Placeholder::make('created_at')
-                    ->content(static function ($record) {
-                        if ($record === null || $record->created_at === null) {
-                            return new HtmlString('&mdash;');
-                        }
-                        
-                        return $record->created_at->diffForHumans();
-                    }),
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
             ])->columnSpan(4),
         ];
     }
@@ -113,10 +71,6 @@ class UserResource extends XotBaseResource
     // }
 
     /*
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
      * public static function getModel(): string
      * {
      * return config('filament-user-resource.model');
@@ -124,17 +78,6 @@ class UserResource extends XotBaseResource
      */
 
     #[Override]
-<<<<<<< HEAD
-=======
-    public static function getModel(): string
-    {
-        return config('filament-user-resource.model');
-    }
-    */
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     public function hasCombinedRelationManagerTabsWithContent(): bool
     {
         return true;

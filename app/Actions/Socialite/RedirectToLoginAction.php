@@ -26,15 +26,7 @@ class RedirectToLoginAction
         // Assert::string($route_name = config('filament-socialite.login_page_route', 'filament.admin.auth.login'));
         // Route [filament.auth.login] not defined.
         $route_name = 'login';
-<<<<<<< HEAD
-<<<<<<< HEAD
         Assert::string($message = __('user::' . $message));
-=======
-        Assert::string($message = __('user::'.$message));
->>>>>>> fbc8f8e (.)
-=======
-        Assert::string($message = __('user::' . $message));
->>>>>>> 6d20fbe (.)
         Notification::make()
             ->title($message)
             ->danger()
@@ -42,10 +34,6 @@ class RedirectToLoginAction
             ->send();
 
         // Redirect back to the login route with an error message attached
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         return redirect()
             ->route($route_name)
             ->withErrors([
@@ -53,18 +41,5 @@ class RedirectToLoginAction
                     __($message),
                 ],
             ]);
-<<<<<<< HEAD
-=======
-        return redirect()->route($route_name)
-            ->withErrors(
-                [
-                    'email' => [
-                        __($message),
-                    ],
-                ]
-            );
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     }
 }

@@ -6,13 +6,6 @@ namespace Modules\User\Filament\Resources\UserResource\Pages;
 
 use Modules\User\Filament\Resources\UserResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 class CreateUser extends XotBaseCreateRecord

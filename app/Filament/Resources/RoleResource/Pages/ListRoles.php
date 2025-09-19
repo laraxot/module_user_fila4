@@ -4,14 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> fbc8f8e (.)
-=======
-use Override;
->>>>>>> 6d20fbe (.)
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
@@ -23,22 +16,11 @@ class ListRoles extends XotBaseListRecords
 {
     protected static string $resource = RoleResource::class;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> fbc8f8e (.)
-=======
-    #[Override]
->>>>>>> 6d20fbe (.)
     public function getTableColumns(): array
     {
         return [
             'id' => TextColumn::make('id'),
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
             'name' => TextColumn::make('name')->searchable()->sortable(),
             // Tables\Columns\TextColumn::make('role'),
             'guard_name' => TextColumn::make('guard_name')->searchable()->sortable(),
@@ -47,24 +29,6 @@ class ListRoles extends XotBaseListRecords
     }
 
     #[Override]
-<<<<<<< HEAD
-=======
-            'name' => TextColumn::make('name')
-                ->searchable()
-                ->sortable(),
-            // Tables\Columns\TextColumn::make('role'),
-            'guard_name' => TextColumn::make('guard_name')
-                ->searchable()
-                ->sortable(),
-            'team_id' => TextColumn::make('team.name')
-                ->searchable()
-                ->sortable(),
-        ];
-    }
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     public function getTableFilters(): array
     {
         return [

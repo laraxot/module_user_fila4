@@ -1,35 +1,15 @@
 <?php
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 
 use App\Models\User;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\TextInput;
-<<<<<<< HEAD
-=======
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Auth\Events\Registered;
-use Livewire\Volt\Component;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Checkbox;
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 use Filament\Forms\Components\Wizard;
 use Filament\Forms\Components\Wizard\Step;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Form;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -39,28 +19,11 @@ use Livewire\Volt\Component;
 
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
-<<<<<<< HEAD
-=======
-use Illuminate\Support\HtmlString;
-use Livewire\Attributes\Validate;
-use function Laravel\Folio\{middleware, name};
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
 middleware(['guest']);
 name('register');
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 new class extends Component {
-=======
-new class extends Component
-{
->>>>>>> fbc8f8e (.)
-=======
-new class extends Component {
->>>>>>> 6d20fbe (.)
     #[Validate('required')]
     public $name = '';
 

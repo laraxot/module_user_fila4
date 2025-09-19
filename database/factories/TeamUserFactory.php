@@ -11,36 +11,16 @@ use Modules\User\Models\User;
 
 /**
  * TeamUser Factory
-<<<<<<< HEAD
-<<<<<<< HEAD
  *
  * Factory for creating TeamUser model instances for testing and seeding.
  *
-=======
- * 
- * Factory for creating TeamUser model instances for testing and seeding.
- * 
->>>>>>> fbc8f8e (.)
-=======
- *
- * Factory for creating TeamUser model instances for testing and seeding.
- *
->>>>>>> 6d20fbe (.)
  * @extends Factory<TeamUser>
  */
 class TeamUserFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
-=======
-     * 
->>>>>>> fbc8f8e (.)
-=======
-     *
->>>>>>> 6d20fbe (.)
      * @var class-string<TeamUser>
      */
     protected $model = TeamUser::class;
@@ -67,15 +47,7 @@ class TeamUserFactory extends Factory
      */
     public function forTeam(Team $team): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'team_id' => $team->id,
         ]);
     }
@@ -88,15 +60,7 @@ class TeamUserFactory extends Factory
      */
     public function forUser(User $user): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'user_id' => $user->id,
         ]);
     }
@@ -108,15 +72,7 @@ class TeamUserFactory extends Factory
      */
     public function owner(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'role' => 'owner',
         ]);
     }
@@ -128,15 +84,7 @@ class TeamUserFactory extends Factory
      */
     public function admin(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'role' => 'admin',
         ]);
     }
@@ -148,22 +96,8 @@ class TeamUserFactory extends Factory
      */
     public function member(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         return $this->state(fn(array $_attributes): array => [
             'role' => 'member',
         ]);
     }
 }
-<<<<<<< HEAD
-=======
-        return $this->state(fn (array $attributes): array => [
-            'role' => 'member',
-        ]);
-    }
-}
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)

@@ -37,25 +37,11 @@ class PasswordExpired extends Page implements HasForms
     use InteractsWithFormActions;
     use NavigationPageLabelTrait;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
     public null|string $current_password = '';
 
     public null|string $password = '';
 
     public null|string $passwordConfirmation = '';
-<<<<<<< HEAD
-=======
-    public ?string $current_password = '';
-
-    public ?string $password = '';
-
-    public ?string $passwordConfirmation = '';
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
     /**
      * @var view-string
@@ -74,16 +60,7 @@ class PasswordExpired extends Page implements HasForms
 
     public function getResetPasswordFormAction(): Action
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return Action::make('resetPassword')->submit('resetPassword');
-=======
-        return Action::make('resetPassword')
-            ->submit('resetPassword');
->>>>>>> fbc8f8e (.)
-=======
-        return Action::make('resetPassword')->submit('resetPassword');
->>>>>>> 6d20fbe (.)
     }
 
     public function hasLogo(): bool
@@ -91,15 +68,7 @@ class PasswordExpired extends Page implements HasForms
         return false;
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function resetPassword(): null|PasswordResetResponse
-=======
-    public function resetPassword(): ?PasswordResetResponse
->>>>>>> fbc8f8e (.)
-=======
-    public function resetPassword(): null|PasswordResetResponse
->>>>>>> 6d20fbe (.)
     {
         $pwd = PasswordData::make();
         $data = $this->form->getState();
@@ -111,15 +80,7 @@ class PasswordExpired extends Page implements HasForms
         }
 
         // check if current password is correct
-<<<<<<< HEAD
-<<<<<<< HEAD
         if ($user->password === null || !Hash::check($current_password, $user->password)) {
-=======
-        if ($user->password === null || ! Hash::check($current_password, $user->password)) {
->>>>>>> fbc8f8e (.)
-=======
-        if ($user->password === null || !Hash::check($current_password, $user->password)) {
->>>>>>> 6d20fbe (.)
             Notification::make()
                 ->title(__('user::otp.notifications.wrong_password.title'))
                 ->body(__('user::otp.notifications.wrong_password.body'))
@@ -141,15 +102,7 @@ class PasswordExpired extends Page implements HasForms
         }
 
         // check if both required columns exist in the database
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (!Schema::hasColumn('users', 'password_expires_at')) {
-=======
-        if (! Schema::hasColumn('users', 'password_expires_at')) {
->>>>>>> fbc8f8e (.)
-=======
-        if (!Schema::hasColumn('users', 'password_expires_at')) {
->>>>>>> 6d20fbe (.)
             Notification::make()
                 ->title(__('user::otp.notifications.column_not_found.title'))
                 ->body(__('user::otp.notifications.column_not_found.body', [
@@ -179,15 +132,7 @@ class PasswordExpired extends Page implements HasForms
         ]);
 
         // Verificare che l'utente implementi l'interfaccia UserContract prima di passarlo all'evento
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (!($user instanceof UserContract)) {
-=======
-        if (!$user instanceof UserContract) {
->>>>>>> fbc8f8e (.)
-=======
-        if (!($user instanceof UserContract)) {
->>>>>>> 6d20fbe (.)
             throw new InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
         }
 

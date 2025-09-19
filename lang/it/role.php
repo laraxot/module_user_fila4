@@ -3,27 +3,13 @@
 return array (
   'navigation' => 
   array (
-<<<<<<< HEAD
-<<<<<<< HEAD
     'label' => 'Ruoli',
     'plural_label' => 'Ruoli',
-=======
-    'name' => 'Ruoli',
-    'plural' => 'Ruoli',
->>>>>>> fbc8f8e (.)
-=======
-    'label' => 'Ruoli',
-    'plural_label' => 'Ruoli',
->>>>>>> 6d20fbe (.)
     'group' => 
     array (
       'name' => 'Gestione Utenti',
       'description' => 'Gestione dei ruoli e dei permessi associati',
     ),
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
     'sort' => 26,
     'icon' => 'heroicon-o-user-group',
     'badge' => 'Gestione ruoli e permessi',
@@ -56,30 +42,10 @@ return array (
         'min' => 'Il nome deve essere di almeno :min caratteri',
         'max' => 'Il nome non può superare i :max caratteri',
       ),
-<<<<<<< HEAD
-=======
-    'label' => 'Ruoli',
-    'sort' => 26,
-    'icon' => 'user-role-animated',
-  ),
-  'fields' => 
-  array (
-    'name' => 
-    array (
-      'label' => 'Nome Ruolo',
-      'tooltip' => 'Il nome identificativo del ruolo, es. "Admin".',
-      'placeholder' => 'Nome del ruolo',
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     ),
     'guard_name' => 
     array (
       'label' => 'Guard',
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
       'placeholder' => 'Seleziona la guardia',
       'tooltip' => 'Nome della guardia per questo ruolo, es. "web"',
       'helper_text' => 'Sistema di autenticazione utilizzato per questo ruolo',
@@ -90,40 +56,18 @@ return array (
         'api' => 'API',
         'sanctum' => 'Sanctum',
       ),
-<<<<<<< HEAD
-=======
-      'tooltip' => 'Il nome della guardia per questo ruolo, es. "web".',
-      'placeholder' => 'Nome della guardia',
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     ),
     'permissions' => 
     array (
       'label' => 'Permessi',
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
       'placeholder' => 'Seleziona i permessi',
       'tooltip' => 'Permessi associati a questo ruolo',
       'helper_text' => 'Elenco dei permessi specifici assegnati a questo ruolo',
       'help' => 'Seleziona i permessi che questo ruolo può esercitare',
-<<<<<<< HEAD
-=======
-      'tooltip' => 'Seleziona i permessi associati a questo ruolo.',
-      'placeholder' => 'Seleziona permessi',
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     ),
     'users_count' => 
     array (
       'label' => 'Numero Utenti',
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
       'tooltip' => 'Numero di utenti assegnati a questo ruolo',
       'helper_text' => 'Conteggio degli utenti che attualmente hanno questo ruolo assegnato',
     ),
@@ -134,36 +78,16 @@ return array (
       'tooltip' => 'Descrizione dettagliata del ruolo e delle sue funzioni',
       'helper_text' => 'Testo descrittivo che spiega lo scopo e le responsabilità del ruolo',
       'help' => 'Fornisci una descrizione chiara delle funzioni del ruolo',
-<<<<<<< HEAD
-=======
-      'tooltip' => 'Il numero di utenti assegnati a questo ruolo.',
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     ),
     'created_at' => 
     array (
       'label' => 'Data Creazione',
-<<<<<<< HEAD
-<<<<<<< HEAD
       'tooltip' => 'Data di creazione del ruolo',
       'helper_text' => 'Data e ora in cui il ruolo è stato creato nel sistema',
-=======
-      'tooltip' => 'La data in cui il ruolo è stato creato.',
-      'placeholder' => 'Data di creazione',
->>>>>>> fbc8f8e (.)
-=======
-      'tooltip' => 'Data di creazione del ruolo',
-      'helper_text' => 'Data e ora in cui il ruolo è stato creato nel sistema',
->>>>>>> 6d20fbe (.)
     ),
     'updated_at' => 
     array (
       'label' => 'Ultima Modifica',
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
       'tooltip' => 'Data dell\'ultima modifica del ruolo',
       'helper_text' => 'Data e ora dell\'ultimo aggiornamento del ruolo',
     ),
@@ -423,69 +347,6 @@ return array (
       'web' => 'Web',
       'api' => 'API',
       'sanctum' => 'Sanctum',
-<<<<<<< HEAD
-=======
-      'tooltip' => 'La data dell\'ultima modifica del ruolo.',
-      'placeholder' => 'Ultima modifica',
-    ),
-    'description' => 
-    array (
-      'label' => 'Descrizione',
-      'tooltip' => 'Una descrizione del ruolo e delle sue funzioni.',
-      'placeholder' => 'Descrizione del ruolo',
-    ),
-    'applyFilters' => 
-    array (
-      'label' => 'applyFilters',
-    ),
-    'toggleColumns' => 
-    array (
-      'label' => 'toggleColumns',
-    ),
-    'reorderRecords' => 
-    array (
-      'label' => 'reorderRecords',
-    ),
-    'team_id' => 
-    array (
-      'description' => 'team_id',
-      'helper_text' => 'team_id',
-      'placeholder' => 'team_id',
-      'label' => 'team_id',
-    ),
-    'detach' => 
-    array (
-      'label' => 'detach',
-    ),
-    'resetFilters' => 
-    array (
-      'label' => 'resetFilters',
-    ),
-    'edit' => 
-    array (
-      'label' => 'edit',
-    ),
-    'openFilters' => 
-    array (
-      'label' => 'openFilters',
-    ),
-    'attach' => 
-    array (
-      'label' => 'attach',
-    ),
-    'recordId' => 
-    array (
-      'description' => 'recordId',
-      'helper_text' => 'recordId',
-      'placeholder' => 'recordId',
-      'label' => 'recordId',
-    ),
-    'id' => 
-    array (
-      'label' => 'id',
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     ),
   ),
   'roles' => 
@@ -496,75 +357,5 @@ return array (
     'editor' => 'Editor',
     'user' => 'Utente',
   ),
-<<<<<<< HEAD
-<<<<<<< HEAD
   'label' => 'role',
-=======
-  'actions' => 
-  array (
-    'create' => 
-    array (
-      'label' => 'Crea Ruolo',
-      'tooltip' => 'Clicca per creare un nuovo ruolo nel sistema.',
-      'icon' => 'fa fa-plus',
-      'color' => 'success',
-    ),
-    'edit' => 
-    array (
-      'label' => 'Modifica Ruolo',
-      'tooltip' => 'Clicca per modificare il ruolo selezionato.',
-      'icon' => 'fa fa-edit',
-      'color' => 'primary',
-    ),
-    'delete' => 
-    array (
-      'label' => 'Elimina Ruolo',
-      'tooltip' => 'Clicca per eliminare questo ruolo.',
-      'icon' => 'fa fa-trash',
-      'color' => 'danger',
-    ),
-    'assign_permissions' => 
-    array (
-      'label' => 'Assegna Permessi',
-      'tooltip' => 'Clicca per assegnare permessi al ruolo.',
-      'icon' => 'fa fa-check',
-      'color' => 'info',
-    ),
-    'sync_permissions' => 
-    array (
-      'label' => 'Sincronizza Permessi',
-      'tooltip' => 'Clicca per sincronizzare i permessi con quelli di un altro sistema.',
-      'icon' => 'fa fa-sync',
-      'color' => 'warning',
-    ),
-  ),
-  'messages' => 
-  array (
-    'created' => 'Ruolo creato con successo',
-    'updated' => 'Ruolo aggiornato con successo',
-    'deleted' => 'Ruolo eliminato con successo',
-    'permissions_updated' => 'Permessi aggiornati con successo',
-    'cannot_delete_super_admin' => 'Non puoi eliminare il ruolo di Super Amministratore',
-    'role_in_use' => 'Non puoi eliminare un ruolo assegnato a degli utenti',
-  ),
-  'descriptions' => 
-  array (
-    'super_admin' => 'Accesso completo a tutte le funzionalità del sistema.',
-    'admin' => 'Accesso alla maggior parte delle funzionalità amministrative.',
-    'manager' => 'Gestione di utenti e contenuti specifici.',
-    'editor' => 'Modifica e gestione dei contenuti.',
-    'user' => 'Accesso base alle funzionalità del sistema.',
-  ),
-  'permissions_groups' => 
-  array (
-    'users' => 'Gestione Utenti',
-    'roles' => 'Gestione Ruoli',
-    'content' => 'Gestione Contenuti',
-    'settings' => 'Impostazioni',
-    'reports' => 'Report',
-  ),
->>>>>>> fbc8f8e (.)
-=======
-  'label' => 'role',
->>>>>>> 6d20fbe (.)
 );

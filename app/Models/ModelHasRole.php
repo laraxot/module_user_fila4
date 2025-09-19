@@ -4,14 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> fbc8f8e (.)
-=======
-use Override;
->>>>>>> 6d20fbe (.)
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Support\Carbon;
@@ -79,14 +72,7 @@ class ModelHasRole extends BaseMorphPivot
     }
 
     /** @return array<string, string> */
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> fbc8f8e (.)
-=======
-    #[Override]
->>>>>>> 6d20fbe (.)
     protected function casts(): array
     {
         return [
@@ -100,13 +86,6 @@ class ModelHasRole extends BaseMorphPivot
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',

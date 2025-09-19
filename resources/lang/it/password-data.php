@@ -1,17 +1,8 @@
 <?php
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 declare(strict_types=1);
 
 
-=======
->>>>>>> fbc8f8e (.)
-=======
-declare(strict_types=1);
-
-
->>>>>>> 6d20fbe (.)
 return [
     'fields' => [
         'password' => [
@@ -21,14 +12,7 @@ return [
             'validation' => [
                 'required' => 'La password è obbligatoria',
                 'min' => 'La password deve essere di almeno 8 caratteri',
-<<<<<<< HEAD
-<<<<<<< HEAD
                 'max' => 'La password non può superare i 255 caratteri',
-=======
->>>>>>> fbc8f8e (.)
-=======
-                'max' => 'La password non può superare i 255 caratteri',
->>>>>>> 6d20fbe (.)
             ],
         ],
         'password_confirmation' => [
@@ -39,14 +23,7 @@ return [
                 'required' => 'La conferma della password è obbligatoria',
                 'min' => 'La password deve essere di almeno 8 caratteri',
                 'max' => 'La password non può superare i 255 caratteri',
-<<<<<<< HEAD
-<<<<<<< HEAD
                 'same' => 'Le password non coincidono',
-=======
->>>>>>> fbc8f8e (.)
-=======
-                'same' => 'Le password non coincidono',
->>>>>>> 6d20fbe (.)
             ],
         ],
     ],

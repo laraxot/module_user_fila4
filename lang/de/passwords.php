@@ -1,17 +1,8 @@
 <?php
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 declare(strict_types=1);
 
 
-=======
->>>>>>> fbc8f8e (.)
-=======
-declare(strict_types=1);
-
-
->>>>>>> 6d20fbe (.)
 return [
     'reset' => 'La tua password è stata reimpostata.',
     'sent' => 'Ti abbiamo inviato un’email con il link per reimpostare la password.',

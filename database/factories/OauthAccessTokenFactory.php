@@ -11,36 +11,16 @@ use Modules\User\Models\User;
 
 /**
  * OauthAccessToken Factory
-<<<<<<< HEAD
-<<<<<<< HEAD
  *
  * Factory for creating OauthAccessToken model instances for testing and seeding.
  *
-=======
- * 
- * Factory for creating OauthAccessToken model instances for testing and seeding.
- * 
->>>>>>> fbc8f8e (.)
-=======
- *
- * Factory for creating OauthAccessToken model instances for testing and seeding.
- *
->>>>>>> 6d20fbe (.)
  * @extends Factory<OauthAccessToken>
  */
 class OauthAccessTokenFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
-=======
-     * 
->>>>>>> fbc8f8e (.)
-=======
-     *
->>>>>>> 6d20fbe (.)
      * @var class-string<OauthAccessToken>
      */
     protected $model = OauthAccessToken::class;
@@ -57,10 +37,6 @@ class OauthAccessTokenFactory extends Factory
             'user_id' => User::factory(),
             'client_id' => OauthClient::factory(),
             'name' => $this->faker->optional()->words(2, true),
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
             'scopes' => $this->faker->optional()->randomElements(
                 [
                     'read',
@@ -70,14 +46,6 @@ class OauthAccessTokenFactory extends Factory
                 ],
                 $this->faker->numberBetween(1, 3),
             ),
-<<<<<<< HEAD
-=======
-            'scopes' => $this->faker->optional()->randomElements([
-                'read', 'write', 'admin', 'user'
-            ], $this->faker->numberBetween(1, 3)),
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
             'revoked' => $this->faker->boolean(10), // 10% revoked
             'expires_at' => $this->faker->dateTimeBetween('now', '+1 year'),
         ];
@@ -90,15 +58,7 @@ class OauthAccessTokenFactory extends Factory
      */
     public function revoked(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'revoked' => true,
         ]);
     }
@@ -110,15 +70,7 @@ class OauthAccessTokenFactory extends Factory
      */
     public function active(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'revoked' => false,
             'expires_at' => $this->faker->dateTimeBetween('+1 day', '+1 year'),
         ]);
@@ -132,15 +84,7 @@ class OauthAccessTokenFactory extends Factory
      */
     public function forUser(User $user): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'user_id' => $user->id,
         ]);
     }
@@ -153,15 +97,7 @@ class OauthAccessTokenFactory extends Factory
      */
     public function forClient(OauthClient $client): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'client_id' => $client->id,
         ]);
     }
@@ -174,22 +110,8 @@ class OauthAccessTokenFactory extends Factory
      */
     public function withScopes(array $scopes): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         return $this->state(fn(array $_attributes): array => [
             'scopes' => $scopes,
         ]);
     }
 }
-<<<<<<< HEAD
-=======
-        return $this->state(fn (array $attributes): array => [
-            'scopes' => $scopes,
-        ]);
-    }
-}
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)

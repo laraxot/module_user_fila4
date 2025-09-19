@@ -38,25 +38,11 @@ class RoleFactory extends Factory
             'contributor' => 'Contributor',
             'analyst' => 'Analyst',
             'support' => 'Support Agent',
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
             'developer' => 'Developer',
         ];
 
         $role = $this->faker->randomElement($roles);
         $name = array_search($role, $roles, strict: true);
-<<<<<<< HEAD
-=======
-            'developer' => 'Developer'
-        ];
-
-        $role = $this->faker->randomElement($roles);
-        $name = array_search($role, $roles);
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
         return [
             'name' => $name,
@@ -71,15 +57,7 @@ class RoleFactory extends Factory
      */
     public function admin(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
-=======
-        return $this->state(fn (array $attributes) => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes) => [
->>>>>>> 6d20fbe (.)
             'name' => 'admin',
         ]);
     }
@@ -91,15 +69,7 @@ class RoleFactory extends Factory
      */
     public function manager(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
-=======
-        return $this->state(fn (array $attributes) => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes) => [
->>>>>>> 6d20fbe (.)
             'name' => 'manager',
         ]);
     }
@@ -111,15 +81,7 @@ class RoleFactory extends Factory
      */
     public function user(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
-=======
-        return $this->state(fn (array $attributes) => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes) => [
->>>>>>> 6d20fbe (.)
             'name' => 'user',
         ]);
     }
@@ -132,23 +94,8 @@ class RoleFactory extends Factory
      */
     public function withGuard(string $guard): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
-=======
-        return $this->state(fn (array $attributes) => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes) => [
->>>>>>> 6d20fbe (.)
             'guard_name' => $guard,
         ]);
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)

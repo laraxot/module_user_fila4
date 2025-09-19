@@ -21,41 +21,18 @@ class Otp extends Notification implements ShouldQueue
      *
      * @return void
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
     public function __construct(
         public UserContract $user,
         public string $code,
     ) {}
-<<<<<<< HEAD
-=======
-    public function __construct(public UserContract $user, public string $code) {}
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
     /**
      * Get the notification's delivery channels.
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
      * @param  mixed  $_notifiable L'entità da notificare
      * @return array<int, string>
      */
     public function via(mixed $_notifiable): array
-<<<<<<< HEAD
-=======
-     * @param AnonymousNotifiable $notifiable
-     * @return array
-     */
-    public function via($notifiable)
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     {
         return ['mail']; // Puoi aggiungere anche 'database', 'slack', ecc. se vuoi supportare altri canali.
     }
@@ -72,21 +49,6 @@ class Otp extends Notification implements ShouldQueue
         /** @var string */
         $app_name = config('app.name');
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return new MailMessage()
-=======
-        return (new MailMessage)
-
->>>>>>> fbc8f8e (.)
-            ->template('user::notifications.email')
-            ->subject(__('user::otp.mail.subject'))
-            ->greeting(__('user::otp.mail.greeting'))
-            ->line(__('user::otp.mail.line1', ['code' => $this->code]))
-            ->line(__('user::otp.mail.line2', ['minutes' => $pwd->otp_expiration_minutes]))
-            ->line(__('user::otp.mail.line3'))
-            ->action('vai', url('/'))
-=======
         $mailMessage = new MailMessage();
         $mailMessage = $mailMessage->template('user::notifications.email');
         $mailMessage = $mailMessage->subject(__('user::otp.mail.subject'));
@@ -97,7 +59,6 @@ class Otp extends Notification implements ShouldQueue
         $mailMessage = $mailMessage->action('vai', url('/'));
         
         return $mailMessage
->>>>>>> 6d20fbe (.)
             ->salutation(__('user::otp.mail.salutation', ['app_name' => $app_name]));
     }
 
@@ -108,15 +69,6 @@ class Otp extends Notification implements ShouldQueue
      */
     public function toArray(UserContract $notifiable)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return [];
-=======
-        return [
-        ];
->>>>>>> fbc8f8e (.)
-=======
-        return [];
->>>>>>> 6d20fbe (.)
     }
 }

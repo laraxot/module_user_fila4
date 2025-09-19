@@ -32,17 +32,7 @@ class ShowTenantListCommand extends Command
     {
         $modelClass = XotData::make()->getTenantClass();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $map = static fn(Model $row) => $row->toArray();
-=======
-        $map = static function (Model $row) {
-            return $row->toArray();
-        };
->>>>>>> fbc8f8e (.)
-=======
-        $map = static fn(Model $row) => $row->toArray();
->>>>>>> 6d20fbe (.)
 
         $rows = $modelClass::get()->map($map);
 
@@ -56,15 +46,7 @@ class ShowTenantListCommand extends Command
             $this->newLine();
         } else {
             $this->newLine();
-<<<<<<< HEAD
-<<<<<<< HEAD
             $this->warn('⚡ No Tenants [' . $modelClass . ']');
-=======
-            $this->warn('⚡ No Tenants ['.$modelClass.']');
->>>>>>> fbc8f8e (.)
-=======
-            $this->warn('⚡ No Tenants [' . $modelClass . ']');
->>>>>>> 6d20fbe (.)
             $this->newLine();
         }
     }

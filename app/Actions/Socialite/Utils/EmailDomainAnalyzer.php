@@ -33,33 +33,15 @@ final class EmailDomainAnalyzer
 
     public function hasUnrecognizedDomain(): bool
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return !$this->hasFirstPartyDomain() && !$this->hasClientDomain();
-=======
-        return ! $this->hasFirstPartyDomain() && ! $this->hasClientDomain();
->>>>>>> fbc8f8e (.)
-=======
-        return !$this->hasFirstPartyDomain() && !$this->hasClientDomain();
->>>>>>> 6d20fbe (.)
     }
 
     public function hasFirstPartyDomain(): bool
     {
         if (!isset($this->ssoUser)) {
-<<<<<<< HEAD
-<<<<<<< HEAD
             throw new RuntimeException(
                 'L\'utente SSO non è stato impostato. Utilizzare setUser() prima di chiamare questo metodo.',
             );
-=======
-            throw new RuntimeException('L\'utente SSO non è stato impostato. Utilizzare setUser() prima di chiamare questo metodo.');
->>>>>>> fbc8f8e (.)
-=======
-            throw new RuntimeException(
-                'L\'utente SSO non è stato impostato. Utilizzare setUser() prima di chiamare questo metodo.',
-            );
->>>>>>> 6d20fbe (.)
         }
 
         $email = $this->ssoUser->getEmail();
@@ -81,19 +63,9 @@ final class EmailDomainAnalyzer
     public function hasClientDomain(): bool
     {
         if (!isset($this->ssoUser)) {
-<<<<<<< HEAD
-<<<<<<< HEAD
             throw new RuntimeException(
                 'L\'utente SSO non è stato impostato. Utilizzare setUser() prima di chiamare questo metodo.',
             );
-=======
-            throw new RuntimeException('L\'utente SSO non è stato impostato. Utilizzare setUser() prima di chiamare questo metodo.');
->>>>>>> fbc8f8e (.)
-=======
-            throw new RuntimeException(
-                'L\'utente SSO non è stato impostato. Utilizzare setUser() prima di chiamare questo metodo.',
-            );
->>>>>>> 6d20fbe (.)
         }
 
         $email = $this->ssoUser->getEmail();
@@ -112,15 +84,7 @@ final class EmailDomainAnalyzer
         return $emailDomain === $configDomain;
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     private function firstPartyDomain(): null|string
-=======
-    private function firstPartyDomain(): ?string
->>>>>>> fbc8f8e (.)
-=======
-    private function firstPartyDomain(): null|string
->>>>>>> 6d20fbe (.)
     {
         $res = config(sprintf('services.%s.email_domains.first_party.tld', $this->ssoProvider));
         if (!is_string($res) && $res !== null) {
@@ -129,15 +93,7 @@ final class EmailDomainAnalyzer
         return $res;
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     private function clientDomain(): null|string
-=======
-    private function clientDomain(): ?string
->>>>>>> fbc8f8e (.)
-=======
-    private function clientDomain(): null|string
->>>>>>> 6d20fbe (.)
     {
         $domain = config(sprintf('services.%s.email_domains.client.tld', $this->ssoProvider));
         if (!is_string($domain) && $domain !== null) {

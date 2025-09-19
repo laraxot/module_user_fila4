@@ -10,36 +10,16 @@ use Modules\User\Models\User;
 
 /**
  * Notification Factory
-<<<<<<< HEAD
-<<<<<<< HEAD
  *
  * Factory for creating Notification model instances for testing and seeding.
  *
-=======
- * 
- * Factory for creating Notification model instances for testing and seeding.
- * 
->>>>>>> fbc8f8e (.)
-=======
- *
- * Factory for creating Notification model instances for testing and seeding.
- *
->>>>>>> 6d20fbe (.)
  * @extends Factory<Notification>
  */
 class NotificationFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
-=======
-     * 
->>>>>>> fbc8f8e (.)
-=======
-     *
->>>>>>> 6d20fbe (.)
      * @var class-string<Notification>
      */
     protected $model = Notification::class;
@@ -78,15 +58,7 @@ class NotificationFactory extends Factory
      */
     public function unread(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'read_at' => null,
         ]);
     }
@@ -98,15 +70,7 @@ class NotificationFactory extends Factory
      */
     public function read(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'read_at' => $this->faker->dateTimeBetween('-1 month', 'now'),
         ]);
     }
@@ -119,24 +83,12 @@ class NotificationFactory extends Factory
      */
     public function forUser(User $user): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'notifiable_type' => User::class,
             'notifiable_id' => $user->id,
         ]);
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
     /**
      * Create notification with high priority.
      *
@@ -160,32 +112,6 @@ class NotificationFactory extends Factory
             ),
         ]);
     }
-<<<<<<< HEAD
-=======
-         /**
-      * Create notification with high priority.
-      *
-      * @return static
-      */
-     public function highPriority(): static
-     {
-         return $this->state(fn (array $attributes): array => [
-             'data' => array_merge(
-                 is_array($attributes['data'] ?? null) ? $attributes['data'] : [
-                     'title' => $this->faker->sentence(4),
-                     'message' => $this->faker->text(200),
-                     'action_url' => $this->faker->optional()->url(),
-                     'priority' => 'medium',
-                 ],
-                 [
-                     'priority' => 'high',
-                 ]
-             ),
-         ]);
-     }
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
     /**
      * Create notification with specific type.
@@ -195,22 +121,8 @@ class NotificationFactory extends Factory
      */
     public function ofType(string $type): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         return $this->state(fn(array $_attributes): array => [
             'type' => $type,
         ]);
     }
 }
-<<<<<<< HEAD
-=======
-        return $this->state(fn (array $attributes): array => [
-            'type' => $type,
-        ]);
-    }
-}
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)

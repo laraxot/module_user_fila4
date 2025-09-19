@@ -33,10 +33,6 @@ class PasswordExpiryMiddleware
     public function getPasswordExpiryRoute(): string
     {
         return 'errors.password-expired';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
 
         /*
          * $route = Filament::getCurrentPanel()->generateRouteName(
@@ -48,36 +44,13 @@ class PasswordExpiryMiddleware
          *
          * return $route;
          * // */
-<<<<<<< HEAD
-=======
-        /*
-        $route = Filament::getCurrentPanel()->generateRouteName(
-            // config('password-expiry.password_expiry_route')
-            // 'password-expiry.reset-password'
-            // 'password.expired'
-            'pages.password-expired'
-        ) ?? '#';
-
-        return $route;
-        // */
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
         // return 'filament.admin.auth.password-reset.request';
     }
 
     protected function passwordHasExpired(): bool
     {
         $user = Auth::user();
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (!$user) {
-=======
-        if (! $user) {
->>>>>>> fbc8f8e (.)
-=======
-        if (!$user) {
->>>>>>> 6d20fbe (.)
             return false;
         }
 

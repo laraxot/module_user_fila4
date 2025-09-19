@@ -4,27 +4,12 @@ declare(strict_types=1);
 
 use Tests\TestCase;
 use Filament\Actions\Action;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
 use Livewire\Livewire;
 use Modules\User\Enums\UserType;
 use Modules\User\Filament\Actions\ChangePasswordAction;
 use Modules\User\Models\User;
-<<<<<<< HEAD
-=======
-use Modules\User\Filament\Actions\ChangePasswordAction;
-use Modules\User\Models\User;
-use Modules\User\Enums\UserType;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Notification;
-use Livewire\Livewire;
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
 uses(TestCase::class);
 
