@@ -1,10 +1,16 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> fbc8f8e (.)
 declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> fbc8f8e (.)
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Schema;
@@ -27,8 +33,13 @@ use Webmozart\Assert\Assert;
 class RegisterWidget extends XotBaseWidget
 {
     protected string $view = 'user::widgets.auth.register-widget';
+<<<<<<< HEAD
     protected static null|int $sort = 2;
     protected static null|string $maxHeight = '600px';
+=======
+    protected static ?int $sort = 2;
+    protected static ?string $maxHeight = '600px';
+>>>>>>> fbc8f8e (.)
 
     public static function canView(): bool
     {
@@ -44,6 +55,7 @@ class RegisterWidget extends XotBaseWidget
         ]);
     }
 
+<<<<<<< HEAD
     #[Override]
     public function getFormSchema(): array
     {
@@ -118,6 +130,89 @@ class RegisterWidget extends XotBaseWidget
     public function form(Schema $schema): Schema
     {
         return $schema->components($this->getFormSchema())->statePath('data')->operation('create');
+=======
+    public function getFormSchema(): array
+    {
+        return [
+            'user_info' => Section::make()
+                ->schema([
+                    'first_name' => TextInput::make('first_name')
+                        ->label(__('user::auth.fields.first_name'))
+                        ->required()
+                        ->string()
+                        ->minLength(2)
+                        ->maxLength(255)
+                        ->autocomplete('given-name')
+                        ->validationAttribute(__('user::auth.fields.first_name')),
+                    
+                    'last_name' => TextInput::make('last_name')
+                        ->label(__('user::auth.fields.last_name'))
+                        ->required()
+                        ->string()
+                        ->minLength(2)
+                        ->maxLength(255)
+                        ->autocomplete('family-name')
+                        ->validationAttribute(__('user::auth.fields.last_name')),
+                    
+                    'email' => TextInput::make('email')
+                        ->label(__('user::auth.fields.email'))
+                        ->required()
+                        ->email()
+                        ->maxLength(255)
+                        ->unique(User::class, 'email')
+                        ->autocomplete('email')
+                        ->validationAttribute(__('user::auth.fields.email'))
+                        ->helperText(__('user::auth.help.email')),
+                    
+                    'password_grid' => Grid::make(2)
+                        ->schema([
+                            'password' => TextInput::make('password')
+                                ->label(__('user::auth.fields.password'))
+                                ->password()
+                                ->required()
+                                ->string()
+                                ->minLength(12)
+                                ->maxLength(255)
+                                ->rules([
+                                    'required',
+                                    'string',
+                                    'min:12',
+                                    'regex:/[A-Z]/',
+                                    'regex:/[a-z]/',
+                                    'regex:/[0-9]/',
+                                    'regex:/[^A-Za-z0-9]/'
+                                ])
+                                ->validationMessages([
+                                    'password.regex' => __('user::auth.validation.password.complexity'),
+                                ])
+                                ->autocomplete('new-password')
+                                ->validationAttribute(__('user::auth.fields.password'))
+                                ->helperText(__('user::auth.help.password'))
+                                ->confirmed(),
+                            
+                            'password_confirmation' => TextInput::make('password_confirmation')
+                                ->label(__('user::auth.fields.password_confirmation'))
+                                ->password()
+                                ->required()
+                                ->string()
+                                ->minLength(12)
+                                ->maxLength(255)
+                                ->autocomplete('new-password')
+                                ->validationAttribute(__('user::auth.fields.password_confirmation'))
+                                ->dehydrated(false)
+                                ->same('password'),
+                        ]),
+                ]),
+        ];
+    }
+
+    public function form(Schema $schema): Schema
+    {
+        return $schema
+            ->components($this->getFormSchema())
+            ->statePath('data')
+            ->operation('create');
+>>>>>>> fbc8f8e (.)
     }
 
     public function submit(): void
@@ -125,14 +220,24 @@ class RegisterWidget extends XotBaseWidget
         try {
             $validatedData = $this->validateForm();
             $this->logRegistrationAttempt($validatedData);
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> fbc8f8e (.)
             $user = DB::transaction(function () use ($validatedData) {
                 $user = $this->createUser($validatedData);
                 $this->afterUserCreated($user);
                 return $user;
             });
+<<<<<<< HEAD
 
             $this->handleSuccessfulRegistration($user);
+=======
+            
+            $this->handleSuccessfulRegistration($user);
+            
+>>>>>>> fbc8f8e (.)
         } catch (ValidationException $e) {
             throw $e;
         } catch (Exception $e) {
@@ -140,6 +245,7 @@ class RegisterWidget extends XotBaseWidget
         }
     }
 
+<<<<<<< HEAD
     /**
      * @return array<string, mixed>
      */
@@ -147,22 +253,35 @@ class RegisterWidget extends XotBaseWidget
     {
         $data = $this->form->getState();
 
+=======
+    protected function validateForm(): array
+    {
+        $data = $this->form->getState();
+        
+>>>>>>> fbc8f8e (.)
         return [
             'first_name' => app(SafeStringCastAction::class)->execute($data['first_name']),
             'last_name' => app(SafeStringCastAction::class)->execute($data['last_name']),
             'email' => app(SafeStringCastAction::class)->execute($data['email']),
+<<<<<<< HEAD
             'password' => Hash::make(
                 app(SafeStringCastAction::class)->execute($data['password']),
             ),
+=======
+            'password' => Hash::make(app(SafeStringCastAction::class)->execute($data['password'])),
+>>>>>>> fbc8f8e (.)
             'type' => 'standard',
             'state' => 'pending',
             'email_verified_at' => null,
         ];
     }
 
+<<<<<<< HEAD
     /**
      * @param array<string, mixed> $data
      */
+=======
+>>>>>>> fbc8f8e (.)
     protected function logRegistrationAttempt(array $data): void
     {
         $email = app(SafeStringCastAction::class)->execute($data['email']);
@@ -173,9 +292,12 @@ class RegisterWidget extends XotBaseWidget
         ]);
     }
 
+<<<<<<< HEAD
     /**
      * @param array<string, mixed> $data
      */
+=======
+>>>>>>> fbc8f8e (.)
     protected function createUser(array $data): User
     {
         return User::create($data);
@@ -201,12 +323,20 @@ class RegisterWidget extends XotBaseWidget
         }
 
         Auth::login($user);
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> fbc8f8e (.)
         Notification::make()
             ->title(__('user::auth.registration.success'))
             ->success()
             ->send();
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> fbc8f8e (.)
         $this->redirect(route('dashboard'));
     }
 

@@ -22,6 +22,11 @@ class TenantFactory extends Factory
      */
     public function definition(): array
     {
+<<<<<<< HEAD
         return [];
+=======
+        return [
+        ];
+>>>>>>> fbc8f8e (.)
     }
 }

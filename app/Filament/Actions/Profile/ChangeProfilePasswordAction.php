@@ -28,6 +28,10 @@ class ChangeProfilePasswordAction extends Action
     {
         parent::setUp();
         $this->translateLabel()
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
             ->tooltip(__('user::user.actions.change_password'))
             ->icon('heroicon-o-key')
             ->action(static function (ProfileContract $record, array $data): void {
@@ -49,6 +53,7 @@ class ChangeProfilePasswordAction extends Action
                 ]);
                 Notification::make()->success()->title('Password changed successfully.');
             })
+<<<<<<< HEAD
             ->schema([
                 /*
                  * TextInput::make('new_password')
@@ -60,17 +65,35 @@ class ChangeProfilePasswordAction extends Action
                 TextInput::make('new_password_confirmation')
                     ->password()
                     ->rule('required', static fn($get): bool => (bool) $get('new_password'))
+=======
+            ->form([
+                /*
+                    TextInput::make('new_password')
+                        ->password()
+                        ->required()
+                        ->rule(Password::default()),
+                    */
+                PasswordData::make()->getPasswordFormComponent('new_password'),
+                TextInput::make('new_password_confirmation')
+                    ->password()
+                    ->rule('required', static fn ($get): bool => (bool) $get('new_password'))
+>>>>>>> fbc8f8e (.)
                     ->same('new_password'),
             ]);
     }
 
+<<<<<<< HEAD
     public static function getDefaultName(): null|string
+=======
+    public static function getDefaultName(): ?string
+>>>>>>> fbc8f8e (.)
     {
         return 'changePassword';
     }
 }
 
 /*
+<<<<<<< HEAD
  * Action::make('changePassword')
  * ->action(function (UserContract $user, array $data): void {
  * $user->update([
@@ -91,3 +114,25 @@ class ChangeProfilePasswordAction extends Action
  * ->icon('heroicon-o-key')
  * // ->visible(fn (User $record): bool => $record->role_id === Role::ROLE_ADMINISTRATOR)
  */
+=======
+Action::make('changePassword')
+                    ->action(function (UserContract $user, array $data): void {
+                        $user->update([
+                            'password' => Hash::make($data['new_password']),
+                        ]);
+                        Notification::make()->success()->title('Password changed successfully.');
+                    })
+                    ->form([
+                        TextInput::make('new_password')
+                            ->password()
+                            ->required()
+                            ->rule(Password::default()),
+                        TextInput::make('new_password_confirmation')
+                            ->password()
+                            ->rule('required', fn ($get): bool => (bool) $get('new_password'))
+                            ->same('new_password'),
+                    ])
+                    ->icon('heroicon-o-key')
+                // ->visible(fn (User $record): bool => $record->role_id === Role::ROLE_ADMINISTRATOR)
+*/
+>>>>>>> fbc8f8e (.)

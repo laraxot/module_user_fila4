@@ -33,15 +33,23 @@ final class EmailDomainAnalyzer
 
     public function hasUnrecognizedDomain(): bool
     {
+<<<<<<< HEAD
         return !$this->hasFirstPartyDomain() && !$this->hasClientDomain();
+=======
+        return ! $this->hasFirstPartyDomain() && ! $this->hasClientDomain();
+>>>>>>> fbc8f8e (.)
     }
 
     public function hasFirstPartyDomain(): bool
     {
         if (!isset($this->ssoUser)) {
+<<<<<<< HEAD
             throw new RuntimeException(
                 'L\'utente SSO non è stato impostato. Utilizzare setUser() prima di chiamare questo metodo.',
             );
+=======
+            throw new RuntimeException('L\'utente SSO non è stato impostato. Utilizzare setUser() prima di chiamare questo metodo.');
+>>>>>>> fbc8f8e (.)
         }
 
         $email = $this->ssoUser->getEmail();
@@ -63,9 +71,13 @@ final class EmailDomainAnalyzer
     public function hasClientDomain(): bool
     {
         if (!isset($this->ssoUser)) {
+<<<<<<< HEAD
             throw new RuntimeException(
                 'L\'utente SSO non è stato impostato. Utilizzare setUser() prima di chiamare questo metodo.',
             );
+=======
+            throw new RuntimeException('L\'utente SSO non è stato impostato. Utilizzare setUser() prima di chiamare questo metodo.');
+>>>>>>> fbc8f8e (.)
         }
 
         $email = $this->ssoUser->getEmail();
@@ -84,7 +96,11 @@ final class EmailDomainAnalyzer
         return $emailDomain === $configDomain;
     }
 
+<<<<<<< HEAD
     private function firstPartyDomain(): null|string
+=======
+    private function firstPartyDomain(): ?string
+>>>>>>> fbc8f8e (.)
     {
         $res = config(sprintf('services.%s.email_domains.first_party.tld', $this->ssoProvider));
         if (!is_string($res) && $res !== null) {
@@ -93,7 +109,11 @@ final class EmailDomainAnalyzer
         return $res;
     }
 
+<<<<<<< HEAD
     private function clientDomain(): null|string
+=======
+    private function clientDomain(): ?string
+>>>>>>> fbc8f8e (.)
     {
         $domain = config(sprintf('services.%s.email_domains.client.tld', $this->ssoProvider));
         if (!is_string($domain) && $domain !== null) {

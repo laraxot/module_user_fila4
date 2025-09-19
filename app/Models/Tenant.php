@@ -4,10 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
 use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 use Modules\User\Database\Factories\TenantFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Xot\Contracts\ProfileContract;
+=======
+use Modules\User\Database\Factories\TenantFactory;
+use Illuminate\Database\Eloquent\Builder;
+use Modules\Xot\Contracts\ProfileContract;
+use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
+>>>>>>> fbc8f8e (.)
 use Modules\Media\Models\Media;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Model;
@@ -32,6 +39,10 @@ use Modules\Xot\Contracts\UserContract;
  * @mixin IdeHelperTenant
  * @mixin \Eloquent
  */
+<<<<<<< HEAD
 class Tenant extends BaseTenant
 {
 }
+=======
+class Tenant extends BaseTenant {}
+>>>>>>> fbc8f8e (.)

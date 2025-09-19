@@ -228,5 +228,10 @@ test('it handles edge cases correctly', function (): void {
 });
 
 test('it validates assertions correctly', function (): void {
+<<<<<<< HEAD
     expect(fn() => $this->user->ownsTeam(null))->toThrow(InvalidArgumentException::class, 'Team cannot be null');
+=======
+    expect(fn () => $this->user->ownsTeam(null))
+        ->toThrow(InvalidArgumentException::class, 'Team cannot be null');
+>>>>>>> fbc8f8e (.)
 });

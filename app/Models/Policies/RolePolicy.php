@@ -20,7 +20,11 @@ class RolePolicy extends UserBasePolicy
     /**
      * Determine whether the user can view the model.
      */
+<<<<<<< HEAD
     public function view(UserContract $_user, Post $_post): bool
+=======
+    public function view(UserContract $user, Post $post): bool
+>>>>>>> fbc8f8e (.)
     {
         return true;
     }
@@ -28,7 +32,11 @@ class RolePolicy extends UserBasePolicy
     /**
      * Determine whether the user can create models.
      */
+<<<<<<< HEAD
     public function create(UserContract $_user): bool
+=======
+    public function create(UserContract $user): bool
+>>>>>>> fbc8f8e (.)
     {
         return true;
     }
@@ -36,7 +44,11 @@ class RolePolicy extends UserBasePolicy
     /**
      * Determine whether the user can update the model.
      */
+<<<<<<< HEAD
     public function update(UserContract $_user, Post $_post): bool
+=======
+    public function update(UserContract $user, Post $post): bool
+>>>>>>> fbc8f8e (.)
     {
         return true;
     }
@@ -68,7 +80,11 @@ class RolePolicy extends UserBasePolicy
     /**
      * Determine whether the user can delete the model.
      */
+<<<<<<< HEAD
     public function delete(UserContract $_user, Post $_post): bool
+=======
+    public function delete(UserContract $user, Post $post): bool
+>>>>>>> fbc8f8e (.)
     {
         return true;
     }

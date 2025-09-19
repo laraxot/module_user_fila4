@@ -43,6 +43,7 @@ interface ModelContract
     public function save(array $options = []);
 
     /*
+<<<<<<< HEAD
      * Save a new model and return the instance. Allow mass-assignment.
      *
      * @param array<string, mixed> $attributes Gli attributi da assegnare al modello
@@ -50,6 +51,15 @@ interface ModelContract
      *
      * public function forceCreate(array $attributes);
      */
+=======
+         * Save a new model and return the instance. Allow mass-assignment.
+         *
+         * @param array<string, mixed> $attributes Gli attributi da assegnare al modello
+         * @return static Il nuovo modello creato
+
+        public function forceCreate(array $attributes);
+        */
+>>>>>>> fbc8f8e (.)
 
     /**
      * Convert the model instance to an array.
@@ -73,9 +83,16 @@ interface ModelContract
      * @param  mixed  $value
      * @param  string $boolean
      * @return static
+<<<<<<< HEAD
      *
      * public function where($column, $operator = null, $value = null, $boolean = 'and');
      */
+=======
+
+    public function where($column, $operator = null, $value = null, $boolean = 'and');
+    */
+
+>>>>>>> fbc8f8e (.)
     /*
      * Execute the query and get the first result or throw an exception.
      *
@@ -83,7 +100,13 @@ interface ModelContract
      * @return \Illuminate\Database\Eloquent\Model|static
      *
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException<\Illuminate\Database\Eloquent\Model>
+<<<<<<< HEAD
      *
      * public function firstOrFail($columns = ['*']);
      */
+=======
+
+    public function firstOrFail($columns = ['*']);
+    */
+>>>>>>> fbc8f8e (.)
 }

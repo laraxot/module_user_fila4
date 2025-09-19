@@ -12,8 +12,21 @@ use Filament\Actions\ViewAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions;
 use Modules\User\Filament\Resources\TenantResource;
+<<<<<<< HEAD
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
+=======
+
+
+
+
+use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+
+
+
+
+
+>>>>>>> fbc8f8e (.)
 class EditTenant extends XotBaseEditRecord
 {
     protected static string $resource = TenantResource::class;

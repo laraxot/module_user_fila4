@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 return [
+<<<<<<< HEAD
     'account' => [
         'label' => 'Account',
         'description' => 'Gestione delle impostazioni dell\'account utente',
@@ -38,11 +39,23 @@ return [
                 'user' => 'Utente',
                 'moderator' => 'Moderatore',
                 'guest' => 'Ospite',
+=======
+    'account' => 'Account',
+    'profile' => 'Profilo',
+    'my_profile' => 'Il mio profilo',
+    'subheading' => 'Gestisci il tuo profilo.',
+    'fields' => [
+        'type' => [
+            'label' => 'Tipo',
+            'fields' => [
+                'label' => 'Tipo',
+>>>>>>> fbc8f8e (.)
             ],
         ],
         'user' => [
             'name' => [
                 'label' => 'Nome Utente',
+<<<<<<< HEAD
                 'placeholder' => 'Inserisci il nome utente',
                 'help' => 'Nome utilizzato per identificarsi nel sistema',
             ],
@@ -55,10 +68,16 @@ return [
                 'label' => 'Telefono',
                 'placeholder' => '+39 123 456 7890',
                 'help' => 'Numero di telefono per contatti',
+=======
+                'fields' => [
+                    'label' => 'Nome Utente',
+                ],
+>>>>>>> fbc8f8e (.)
             ],
         ],
         'photo' => [
             'label' => 'Foto',
+<<<<<<< HEAD
             'placeholder' => 'Carica una foto profilo',
             'help' => 'Immagine del profilo utente (formato JPG, PNG)',
         ],
@@ -170,10 +189,50 @@ return [
             'placeholder' => 'Data ultima modifica',
             'help' => 'Data dell\'ultimo aggiornamento del profilo',
         ],
+=======
+            'fields' => [
+                'label' => 'Foto',
+            ],
+        ],
+        'id' => [
+            'label' => 'id',
+        ],
+        'ente' => [
+            'label' => 'ente',
+        ],
+        'matr' => [
+            'label' => 'matr',
+        ],
+        'first_name' => [
+            'label' => 'first_name',
+            'fields' => [
+                'label' => 'first_name',
+            ],
+        ],
+        'last_name' => [
+            'label' => 'last_name',
+            'fields' => [
+                'label' => 'last_name',
+            ],
+        ],
+        'email' => [
+            'fields' => 'email',
+            'label' => [
+                'fields' => 'email',
+            ],
+        ],
+        'is_active' => [
+            'fields' => 'is_active',
+            'label' => [
+                'fields' => 'is_active',
+            ],
+        ],
+>>>>>>> fbc8f8e (.)
     ],
     'personal_info' => [
         'heading' => 'Informazioni personali',
         'subheading' => 'Gestisci le tue informazioni personali.',
+<<<<<<< HEAD
         'description' => 'Aggiorna i tuoi dati anagrafici e di contatto',
         'submit' => [
             'label' => 'Aggiorna',
@@ -333,4 +392,11 @@ return [
         'changes_saved' => 'Modifiche salvate',
         'no_changes' => 'Nessuna modifica da salvare',
     ],
+=======
+        'submit' => [
+            'label' => 'Aggiorna',
+        ],
+        'notify' => 'Profilo aggiornato correttamente!',
+    ],
+>>>>>>> fbc8f8e (.)
 ];

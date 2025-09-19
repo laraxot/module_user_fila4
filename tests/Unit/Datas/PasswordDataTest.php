@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 use Tests\TestCase;
 use Spatie\LaravelData\Data;
+<<<<<<< HEAD
 use Illuminate\Validation\Rules\Password;
 use Modules\User\Datas\PasswordData;
+=======
+use Modules\User\Datas\PasswordData;
+use Illuminate\Validation\Rules\Password;
+>>>>>>> fbc8f8e (.)
 
 uses(TestCase::class);
 
@@ -21,7 +26,11 @@ beforeEach(function (): void {
         symbols: true,
         uncompromised: true,
         compromisedThreshold: 5,
+<<<<<<< HEAD
         failMessage: 'Password non valida',
+=======
+        failMessage: 'Password non valida'
+>>>>>>> fbc8f8e (.)
     );
 });
 

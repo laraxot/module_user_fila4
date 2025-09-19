@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+<<<<<<< HEAD
 use Filament\Schemas\Schema;
 use Override;
+=======
+>>>>>>> fbc8f8e (.)
 use Filament\Forms\Components\TextInput;
 use Modules\Xot\Datas\XotData;
 use Exception;
@@ -26,6 +29,7 @@ use Webmozart\Assert\Assert;
  * Handles the password reset confirmation flow using a token
  * from the password reset email link.
  *
+<<<<<<< HEAD
  * @property Schema $form
  */
 class PasswordResetConfirmWidget extends XotBaseWidget
@@ -35,6 +39,17 @@ class PasswordResetConfirmWidget extends XotBaseWidget
     public null|string $email = null;
     public string $currentState = 'form'; // form, success, error, expired
     public null|string $errorMessage = null;
+=======
+ * @property \Filament\Schemas\Schema $form
+ */
+class PasswordResetConfirmWidget extends XotBaseWidget
+{
+    public ?array $data = [];
+    public ?string $token = null;
+    public ?string $email = null;
+    public string $currentState = 'form'; // form, success, error, expired
+    public ?string $errorMessage = null;
+>>>>>>> fbc8f8e (.)
 
     /**
      * @phpstan-ignore-next-line
@@ -44,7 +59,11 @@ class PasswordResetConfirmWidget extends XotBaseWidget
     /**
      * Mount the widget with token and optional email.
      */
+<<<<<<< HEAD
     public function mount(null|string $token = null, null|string $email = null): void
+=======
+    public function mount(?string $token = null, ?string $email = null): void
+>>>>>>> fbc8f8e (.)
     {
         $this->token = $token;
         $this->email = $email;
@@ -60,7 +79,10 @@ class PasswordResetConfirmWidget extends XotBaseWidget
      *
      * @return array<string, mixed>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+>>>>>>> fbc8f8e (.)
     public function getFormSchema(): array
     {
         return [
@@ -72,6 +94,10 @@ class PasswordResetConfirmWidget extends XotBaseWidget
                 ->disabled('form' !== $this->currentState)
                 ->extraInputAttributes(['class' => 'text-center'])
                 ->suffixIcon('heroicon-o-envelope'),
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
             'password' => TextInput::make('password')
                 ->password()
                 ->required()
@@ -80,6 +106,10 @@ class PasswordResetConfirmWidget extends XotBaseWidget
                 ->disabled('form' !== $this->currentState)
                 ->extraInputAttributes(['class' => 'text-center'])
                 ->suffixIcon('heroicon-o-key'),
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
             'password_confirmation' => TextInput::make('password_confirmation')
                 ->password()
                 ->required()
@@ -110,15 +140,24 @@ class PasswordResetConfirmWidget extends XotBaseWidget
                     'email' => $data['email'],
                     'password' => $data['password'],
                 ],
+<<<<<<< HEAD
                 function (\Illuminate\Contracts\Auth\Authenticatable $user, string $password): void {
                     // Use setAttribute to set password safely
                     /** @var \Illuminate\Database\Eloquent\Model&\Illuminate\Contracts\Auth\Authenticatable $user */
                     $user->setAttribute('password', Hash::make($password));
+=======
+                function ($user, $password) {
+                    $user->password = Hash::make($password);
+>>>>>>> fbc8f8e (.)
                     $user->setRememberToken(Str::random(60));
                     $user->save();
 
                     event(new PasswordReset($user));
+<<<<<<< HEAD
                 },
+=======
+                }
+>>>>>>> fbc8f8e (.)
             );
 
             if (Password::PASSWORD_RESET === $response) {
@@ -133,14 +172,22 @@ class PasswordResetConfirmWidget extends XotBaseWidget
 
                 // Auto-login the user after successful password reset
                 // $user = \Modules\Xot\Datas\XotData::make()->getUserClass()::where('email', $data['email'])->first();
+<<<<<<< HEAD
                 Assert::string($email = $data['email'], __FILE__ . ':' . __LINE__ . ' - ' . class_basename(__CLASS__));
+=======
+                Assert::string($email = $data['email']);
+>>>>>>> fbc8f8e (.)
                 $user = XotData::make()->getUserByEmail($email);
                 // if ($user) {
                 Auth::guard()->login($user);
                 // }
 
                 // Redirect after a short delay to show success message
+<<<<<<< HEAD
                 $this->js('setTimeout(() => { window.location.href = "' . route('login') . '"; }, 3000);');
+=======
+                $this->js('setTimeout(() => { window.location.href = "'.route('login').'"; }, 3000);');
+>>>>>>> fbc8f8e (.)
             } else {
                 /* @phpstan-ignore argument.type */
                 $this->handleResetError($response);
@@ -195,7 +242,11 @@ class PasswordResetConfirmWidget extends XotBaseWidget
     /**
      * Get the error message if any.
      */
+<<<<<<< HEAD
     public function getErrorMessage(): null|string
+=======
+    public function getErrorMessage(): ?string
+>>>>>>> fbc8f8e (.)
     {
         return $this->errorMessage;
     }
@@ -205,7 +256,11 @@ class PasswordResetConfirmWidget extends XotBaseWidget
      */
     public function shouldShowForm(): bool
     {
+<<<<<<< HEAD
         return in_array($this->currentState, ['form', 'loading'], strict: true);
+=======
+        return in_array($this->currentState, ['form', 'loading']);
+>>>>>>> fbc8f8e (.)
     }
 
     /**

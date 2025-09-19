@@ -20,8 +20,13 @@ class ValidateProviderAction
      */
     public function execute(string $provider): void
     {
+<<<<<<< HEAD
         $res = config()->has('services.' . $provider);
         if (!$res) {
+=======
+        $res = config()->has('services.'.$provider);
+        if (! $res) {
+>>>>>>> fbc8f8e (.)
             throw ProviderNotConfigured::make($provider);
         }
     }

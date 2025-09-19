@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 <div class="text-center">
     <h2 class="mt-2 text-2xl font-bold tracking-tight text-gray-900">
         {{ __('Sei sicuro di voler uscire?') }}

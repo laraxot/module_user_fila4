@@ -9,6 +9,10 @@ use Illuminate\Support\Arr;
 use Modules\User\Filament\Resources\BaseProfileResource;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 class CreateProfile extends XotBaseCreateRecord
@@ -19,7 +23,11 @@ class CreateProfile extends XotBaseCreateRecord
     {
         $user_data = Arr::except($data, ['user']);
         $extra = $data['user'] ?? [];
+<<<<<<< HEAD
         if (!is_array($extra)) {
+=======
+        if (! is_array($extra)) {
+>>>>>>> fbc8f8e (.)
             $extra = [];
         }
         $user_data = array_merge($user_data, $extra);

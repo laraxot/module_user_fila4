@@ -18,6 +18,10 @@ use Illuminate\Database\Eloquent\Builder;
  * @mixin IdeHelperPermissionUser
  * @mixin \Eloquent
  */
+<<<<<<< HEAD
 class PermissionUser extends ModelHasPermission
 {
 }
+=======
+class PermissionUser extends ModelHasPermission {}
+>>>>>>> fbc8f8e (.)

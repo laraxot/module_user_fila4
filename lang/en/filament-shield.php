@@ -1,8 +1,11 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 
+=======
+>>>>>>> fbc8f8e (.)
 return [
     'column.name' => 'Name',
     'column.guard_name' => 'Guard Name',

@@ -65,10 +65,17 @@ trait IsProfileTrait
      * Utilizza prima i dati del profilo, altrimenti ricade sul nome dell'utente.
      *
      * @param string|null $value Il valore attuale dell'attributo
+<<<<<<< HEAD
      *
      * @return string|null Il nome completo dell'utente
      */
     public function getFullNameAttribute(null|string $value): null|string
+=======
+     * 
+     * @return string|null Il nome completo dell'utente
+     */
+    public function getFullNameAttribute(?string $value): ?string
+>>>>>>> fbc8f8e (.)
     {
         if ($value !== null) {
             return $value;
@@ -92,10 +99,17 @@ trait IsProfileTrait
      * Se non presente nel profilo, lo recupera dall'utente collegato.
      *
      * @param string|null $value Il valore attuale dell'attributo
+<<<<<<< HEAD
      *
      * @return string|null Il nome dell'utente
      */
     public function getFirstNameAttribute(null|string $value): null|string
+=======
+     * 
+     * @return string|null Il nome dell'utente
+     */
+    public function getFirstNameAttribute(?string $value): ?string
+>>>>>>> fbc8f8e (.)
     {
         if ($value !== null) {
             return $value;
@@ -120,10 +134,17 @@ trait IsProfileTrait
      * Se non presente nel profilo, lo recupera dall'utente collegato.
      *
      * @param string|null $value Il valore attuale dell'attributo
+<<<<<<< HEAD
      *
      * @return string|null Il cognome dell'utente
      */
     public function getLastNameAttribute(null|string $value): null|string
+=======
+     * 
+     * @return string|null Il cognome dell'utente
+     */
+    public function getLastNameAttribute(?string $value): ?string
+>>>>>>> fbc8f8e (.)
     {
         if ($value !== null) {
             return $value;
@@ -272,6 +293,11 @@ trait IsProfileTrait
         return $tokens;
     }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fbc8f8e (.)
     /**
      * Get the user's user_name.
      * Ottiene il nome utente dal modello utente collegato.
@@ -280,6 +306,7 @@ trait IsProfileTrait
      */
     protected function userName(): Attribute
     {
+<<<<<<< HEAD
         return Attribute::make(get: function (): null|string {
             $user = $this->user;
             if ($user === null) {
@@ -287,6 +314,17 @@ trait IsProfileTrait
             }
             return $user->name;
         });
+=======
+        return Attribute::make(
+            get: function (): ?string {
+                $user = $this->user;
+                if ($user === null) {
+                    return null;
+                }
+                return $user->name;
+            }
+        );
+>>>>>>> fbc8f8e (.)
     }
 
     /**
@@ -297,10 +335,20 @@ trait IsProfileTrait
      */
     protected function avatar(): Attribute
     {
+<<<<<<< HEAD
         return Attribute::make(get: function (): string {
             $value = $this->getFirstMediaUrl('avatar');
 
             return $value;
         });
+=======
+        return Attribute::make(
+            get: function (): string {
+                $value = $this->getFirstMediaUrl('avatar');
+
+                return $value;
+            }
+        );
+>>>>>>> fbc8f8e (.)
     }
 }

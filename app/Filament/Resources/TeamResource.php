@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> fbc8f8e (.)
 use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\TextInput;
 use Modules\User\Filament\Resources\TeamResource\Pages\CreateTeam;
@@ -17,12 +20,19 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class TeamResource extends XotBaseResource
 {
+<<<<<<< HEAD
+=======
+    
+>>>>>>> fbc8f8e (.)
     /**
      * Get the model class name for this resource.
      *
      * @return class-string<Model>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+>>>>>>> fbc8f8e (.)
     public static function getModel(): string
     {
         $xot = XotData::make();
@@ -31,6 +41,7 @@ class TeamResource extends XotBaseResource
         return $xot->getTeamClass();
     }
 
+<<<<<<< HEAD
     #[Override]
     public static function getFormSchema(): array
     {
@@ -40,4 +51,20 @@ class TeamResource extends XotBaseResource
             'description' => TextInput::make('description')->maxLength(255),
         ];
     }
+=======
+    public static function getFormSchema(): array
+    {
+        return [
+            'name' => TextInput::make('name')
+                ->required()
+                ->maxLength(255),
+            'display_name' => TextInput::make('display_name')
+                ->maxLength(255),
+            'description' => TextInput::make('description')
+                ->maxLength(255),
+        ];
+    }
+
+   
+>>>>>>> fbc8f8e (.)
 }

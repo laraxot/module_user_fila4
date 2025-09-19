@@ -4,9 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+<<<<<<< HEAD
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Tables\Columns\TextColumn;
+=======
+use Filament\Tables\Columns\TextColumn;
+use Filament\Actions\Action;
+use Filament\Actions\ActionGroup;
+>>>>>>> fbc8f8e (.)
 use Filament\Tables;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Illuminate\Database\Eloquent\Builder;
@@ -15,7 +21,11 @@ use Modules\User\Models\AuthenticationLog;
 
 class RecentLoginsWidget extends BaseWidget
 {
+<<<<<<< HEAD
     protected static null|string $heading = 'Recent Logins'; // Rendi static la proprietà
+=======
+    protected static ?string $heading = 'Recent Logins'; // Rendi static la proprietà
+>>>>>>> fbc8f8e (.)
 
     protected int|string|array $columnSpan = 'full';
 
@@ -50,6 +60,11 @@ class RecentLoginsWidget extends BaseWidget
      */
     public function getTableActions(): array
     {
+<<<<<<< HEAD
         return [];
+=======
+        return [
+        ];
+>>>>>>> fbc8f8e (.)
     }
 }

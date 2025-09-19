@@ -17,21 +17,35 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Clusters\Appearance;
 
 /**
+<<<<<<< HEAD
  * @property Schema $form
+=======
+ * @property \Filament\Schemas\Schema $form
+>>>>>>> fbc8f8e (.)
  */
 class Logo extends Page implements HasForms
 {
     use InteractsWithForms;
 
+<<<<<<< HEAD
     public null|array $logoData = [];
+=======
+    public ?array $logoData = [];
+>>>>>>> fbc8f8e (.)
 
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
     protected string $view = 'user::filament.clusters.appearance.pages.logo';
 
+<<<<<<< HEAD
     protected static null|string $cluster = Appearance::class;
 
     protected static null|int $navigationSort = 1;
+=======
+    protected static ?string $cluster = Appearance::class;
+
+    protected static ?int $navigationSort = 1;
+>>>>>>> fbc8f8e (.)
 
     public function mount(): void
     {
@@ -56,8 +70,12 @@ class Logo extends Page implements HasForms
                 FileUpload::make('logo_dark'),
                 TextInput::make('logo_height')->numeric()->default(32),
                 // ])->columns(2),
+<<<<<<< HEAD
             ])
             ->columns(2)
+=======
+            ])->columns(2)
+>>>>>>> fbc8f8e (.)
             // ->model($this->getUser())
             ->statePath('logoData');
     }
@@ -67,7 +85,10 @@ class Logo extends Page implements HasForms
         try {
             $data = $this->form->getState();
             dddx($data);
+<<<<<<< HEAD
 
+=======
+>>>>>>> fbc8f8e (.)
             // $this->handleRecordUpdate($this->getUser(), $data);
         } catch (Halt $exception) {
             dddx($exception->getMessage());
@@ -87,7 +108,13 @@ class Logo extends Page implements HasForms
     protected function getUpdateLogoFormActions(): array
     {
         return [
+<<<<<<< HEAD
             Action::make('updateLogoAction')->submit('editLogoForm'),
+=======
+            Action::make('updateLogoAction')
+
+                ->submit('editLogoForm'),
+>>>>>>> fbc8f8e (.)
         ];
     }
 

@@ -9,8 +9,21 @@ use Filament\Actions\ViewAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions;
 use Modules\User\Filament\Resources\SocialProviderResource;
+<<<<<<< HEAD
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
+=======
+
+
+
+
+use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+
+
+
+
+
+>>>>>>> fbc8f8e (.)
 class EditSocialProvider extends XotBaseEditRecord
 {
     protected static string $resource = SocialProviderResource::class;

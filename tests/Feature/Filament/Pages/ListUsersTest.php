@@ -9,6 +9,7 @@ use Filament\Actions\Action;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\ExportBulkAction;
 use Illuminate\Database\Eloquent\Builder;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Enums\UserType;
 use Modules\User\Filament\Actions\ChangePasswordAction;
@@ -16,6 +17,15 @@ use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Filament\Resources\UserResource\Pages\ListUsers;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\User\Models\User;
+=======
+use Modules\User\Filament\Resources\UserResource\Pages\ListUsers;
+use Modules\User\Filament\Resources\UserResource;
+use Modules\User\Filament\Actions\ChangePasswordAction;
+use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
+use Modules\User\Models\User;
+use Modules\User\Enums\UserType;
+use Illuminate\Support\Facades\Hash;
+>>>>>>> fbc8f8e (.)
 
 uses(TestCase::class);
 
@@ -23,11 +33,17 @@ beforeEach(function (): void {
     $this->listUsersPage = new ListUsers();
 
     // Create some test users
+<<<<<<< HEAD
     $this->users = User::factory()
         ->count(3)
         ->create([
             'type' => UserType::MasterAdmin,
         ]);
+=======
+    $this->users = User::factory()->count(3)->create([
+        'type' => UserType::MasterAdmin,
+    ]);
+>>>>>>> fbc8f8e (.)
 });
 
 test('list users page has correct resource', function (): void {
@@ -35,8 +51,12 @@ test('list users page has correct resource', function (): void {
 });
 
 test('list users page extends correct base class', function (): void {
+<<<<<<< HEAD
     expect($this->listUsersPage)
         ->toBeInstanceOf(BaseListUsers::class);
+=======
+    expect($this->listUsersPage)->toBeInstanceOf(BaseListUsers::class);
+>>>>>>> fbc8f8e (.)
 });
 
 test('list users page can be instantiated', function (): void {

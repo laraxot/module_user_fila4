@@ -25,7 +25,11 @@ class UserTest extends TestCase
             'email' => 'test@example.com',
         ]);
 
+<<<<<<< HEAD
         static::assertTrue(Hash::check('password', $user->password));
+=======
+        $this->assertTrue(Hash::check('password', $user->password));
+>>>>>>> fbc8f8e (.)
     }
 
     public function test_can_create_user_with_all_fields(): void
@@ -92,7 +96,11 @@ class UserTest extends TestCase
         $restoredUser->restore();
 
         $this->assertDatabaseHas('users', ['id' => $userId]);
+<<<<<<< HEAD
         static::assertNull($restoredUser->deleted_at);
+=======
+        $this->assertNull($restoredUser->deleted_at);
+>>>>>>> fbc8f8e (.)
     }
 
     public function test_can_find_user_by_email(): void
@@ -101,8 +109,13 @@ class UserTest extends TestCase
 
         $foundUser = User::where('email', 'unique@example.com')->first();
 
+<<<<<<< HEAD
         static::assertNotNull($foundUser);
         static::assertSame($user->id, $foundUser->id);
+=======
+        $this->assertNotNull($foundUser);
+        $this->assertEquals($user->id, $foundUser->id);
+>>>>>>> fbc8f8e (.)
     }
 
     public function test_can_find_user_by_name_pattern(): void
@@ -113,8 +126,13 @@ class UserTest extends TestCase
 
         $doeUsers = User::where('name', 'like', '%Doe%')->get();
 
+<<<<<<< HEAD
         static::assertCount(2, $doeUsers);
         static::assertTrue($doeUsers->every(fn($user) => str_contains($user->name, 'Doe')));
+=======
+        $this->assertCount(2, $doeUsers);
+        $this->assertTrue($doeUsers->every(fn ($user) => str_contains($user->name, 'Doe')));
+>>>>>>> fbc8f8e (.)
     }
 
     public function test_can_find_user_by_status(): void
@@ -125,8 +143,13 @@ class UserTest extends TestCase
 
         $activeUsers = User::where('status', 'active')->get();
 
+<<<<<<< HEAD
         static::assertCount(1, $activeUsers);
         static::assertSame('active', $activeUsers->first()->status);
+=======
+        $this->assertCount(1, $activeUsers);
+        $this->assertEquals('active', $activeUsers->first()->status);
+>>>>>>> fbc8f8e (.)
     }
 
     public function test_can_find_user_by_type(): void
@@ -137,8 +160,13 @@ class UserTest extends TestCase
 
         $individualUsers = User::where('type', 'individual')->get();
 
+<<<<<<< HEAD
         static::assertCount(1, $individualUsers);
         static::assertSame('individual', $individualUsers->first()->type);
+=======
+        $this->assertCount(1, $individualUsers);
+        $this->assertEquals('individual', $individualUsers->first()->type);
+>>>>>>> fbc8f8e (.)
     }
 
     public function test_can_find_user_by_city(): void
@@ -149,8 +177,13 @@ class UserTest extends TestCase
 
         $nyUsers = User::where('city', 'New York')->get();
 
+<<<<<<< HEAD
         static::assertCount(1, $nyUsers);
         static::assertSame('New York', $nyUsers->first()->city);
+=======
+        $this->assertCount(1, $nyUsers);
+        $this->assertEquals('New York', $nyUsers->first()->city);
+>>>>>>> fbc8f8e (.)
     }
 
     public function test_can_find_user_by_registration_number(): void
@@ -159,8 +192,13 @@ class UserTest extends TestCase
 
         $foundUser = User::where('registration_number', 'REG123456')->first();
 
+<<<<<<< HEAD
         static::assertNotNull($foundUser);
         static::assertSame($user->id, $foundUser->id);
+=======
+        $this->assertNotNull($foundUser);
+        $this->assertEquals($user->id, $foundUser->id);
+>>>>>>> fbc8f8e (.)
     }
 
     public function test_can_find_user_by_phone(): void
@@ -169,8 +207,13 @@ class UserTest extends TestCase
 
         $foundUser = User::where('phone', '+1234567890')->first();
 
+<<<<<<< HEAD
         static::assertNotNull($foundUser);
         static::assertSame($user->id, $foundUser->id);
+=======
+        $this->assertNotNull($foundUser);
+        $this->assertEquals($user->id, $foundUser->id);
+>>>>>>> fbc8f8e (.)
     }
 
     public function test_can_find_user_by_language(): void
@@ -181,8 +224,13 @@ class UserTest extends TestCase
 
         $englishUsers = User::where('lang', 'en')->get();
 
+<<<<<<< HEAD
         static::assertCount(1, $englishUsers);
         static::assertSame('en', $englishUsers->first()->lang);
+=======
+        $this->assertCount(1, $englishUsers);
+        $this->assertEquals('en', $englishUsers->first()->lang);
+>>>>>>> fbc8f8e (.)
     }
 
     public function test_can_find_active_users(): void
@@ -193,8 +241,13 @@ class UserTest extends TestCase
 
         $activeUsers = User::where('is_active', true)->get();
 
+<<<<<<< HEAD
         static::assertCount(2, $activeUsers);
         static::assertTrue($activeUsers->every(fn($user) => $user->is_active));
+=======
+        $this->assertCount(2, $activeUsers);
+        $this->assertTrue($activeUsers->every(fn ($user) => $user->is_active));
+>>>>>>> fbc8f8e (.)
     }
 
     public function test_can_find_otp_users(): void
@@ -205,8 +258,13 @@ class UserTest extends TestCase
 
         $otpUsers = User::where('is_otp', true)->get();
 
+<<<<<<< HEAD
         static::assertCount(2, $otpUsers);
         static::assertTrue($otpUsers->every(fn($user) => $user->is_otp));
+=======
+        $this->assertCount(2, $otpUsers);
+        $this->assertTrue($otpUsers->every(fn ($user) => $user->is_otp));
+>>>>>>> fbc8f8e (.)
     }
 
     public function test_can_update_user(): void
@@ -225,14 +283,22 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create();
 
+<<<<<<< HEAD
         static::assertTrue($user->canAccessSocialite());
+=======
+        $this->assertTrue($user->canAccessSocialite());
+>>>>>>> fbc8f8e (.)
     }
 
     public function test_user_has_connection_attribute(): void
     {
         $user = new User();
 
+<<<<<<< HEAD
         static::assertSame('user', $user->connection);
+=======
+        $this->assertEquals('user', $user->connection);
+>>>>>>> fbc8f8e (.)
     }
 
     public function test_can_find_users_by_multiple_criteria(): void
@@ -255,10 +321,19 @@ class UserTest extends TestCase
             'city' => 'Los Angeles',
         ]);
 
+<<<<<<< HEAD
         $users = User::where('status', 'active')->where('city', 'New York')->get();
 
         static::assertCount(2, $users);
         static::assertTrue($users->every(fn($user) => $user->status === 'active' && $user->city === 'New York'));
+=======
+        $users = User::where('status', 'active')
+            ->where('city', 'New York')
+            ->get();
+
+        $this->assertCount(2, $users);
+        $this->assertTrue($users->every(fn ($user) => $user->status === 'active' && $user->city === 'New York'));
+>>>>>>> fbc8f8e (.)
     }
 
     public function test_can_handle_null_values(): void

@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 @props([
     'title' => 'Page Header Title', 
     'description' => 'Description goes here'
@@ -14,4 +17,8 @@ declare(strict_types=1);
         <h1 class="text-2xl font-medium tracking-tighter leading-tighter font-heading md:text-3xl">{{ $title }}</h1>
         <p class="mx-auto mt-1.5 text-base font-medium text-neutral-400 dark:text-slate-400 md:mt-2">{{ $description }}</p>
     </div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> fbc8f8e (.)

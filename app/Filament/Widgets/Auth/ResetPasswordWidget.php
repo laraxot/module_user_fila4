@@ -4,17 +4,28 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Override;
+=======
+>>>>>>> fbc8f8e (.)
 use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Section;
 use Illuminate\Http\RedirectResponse;
 use Filament\Forms;
+<<<<<<< HEAD
 use Filament\Forms\Components\TextInput;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
+=======
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Filament\Forms\Components\TextInput;
+use Illuminate\Support\Facades\Password;
+>>>>>>> fbc8f8e (.)
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
 
 /**
@@ -24,7 +35,11 @@ use Modules\Xot\Filament\Widgets\XotBaseWidget;
  * proper security measures, and user feedback. Follows Laraxot
  * architectural patterns and security best practices.
  *
+<<<<<<< HEAD
  * @property Schema $form Form container from XotBaseWidget
+=======
+ * @property \Filament\Schemas\Schema $form Form container from XotBaseWidget
+>>>>>>> fbc8f8e (.)
  */
 class ResetPasswordWidget extends XotBaseWidget
 {
@@ -41,9 +56,14 @@ class ResetPasswordWidget extends XotBaseWidget
      * Uses string keys for Filament form compatibility and follows
      * the pattern established in widget documentation.
      *
+<<<<<<< HEAD
      * @return array<string, Component>
      */
     #[Override]
+=======
+     * @return array<string, \Filament\Schemas\Components\Component>
+     */
+>>>>>>> fbc8f8e (.)
     public function getFormSchema(): array
     {
         return [
@@ -77,6 +97,7 @@ class ResetPasswordWidget extends XotBaseWidget
     /**
      * Configure the form for this widget.
      *
+<<<<<<< HEAD
      * @param Schema $schema
      * @return Schema
      */
@@ -86,6 +107,20 @@ class ResetPasswordWidget extends XotBaseWidget
         return $schema->components([
             Section::make()->schema($this->getFormSchema())->columns(1),
         ])->statePath('data');
+=======
+     * @param \Filament\Schemas\Schema $schema
+     * @return \Filament\Schemas\Schema
+     */
+    public function form(Schema $schema): Schema
+    {
+        return $schema
+            ->components([
+                Section::make()
+                    ->schema($this->getFormSchema())
+                    ->columns(1),
+            ])
+            ->statePath('data');
+>>>>>>> fbc8f8e (.)
     }
 
     /**
@@ -100,6 +135,7 @@ class ResetPasswordWidget extends XotBaseWidget
     {
         $data = $this->form->getState();
 
+<<<<<<< HEAD
         $reset_data = Arr::only($data, ['email', 'password', 'password_confirmation', 'token']);
         $status = Password::reset($reset_data, function (\Illuminate\Contracts\Auth\Authenticatable $user, string $password): void {
             /** @var \Illuminate\Database\Eloquent\Model&\Illuminate\Contracts\Auth\Authenticatable $user */
@@ -108,6 +144,17 @@ class ResetPasswordWidget extends XotBaseWidget
                 'remember_token' => Str::random(60),
             ])->save();
         });
+=======
+        $reset_data =Arr::only($data,['email','password','password_confirmation','token']);
+        $status = Password::reset( $reset_data,
+            function ($user, $password): void {
+                $user->forceFill([
+                    'password' => Hash::make($password),
+                    'remember_token' => Str::random(60),
+                ])->save();
+            }
+        );
+>>>>>>> fbc8f8e (.)
 
         if ($status === Password::PASSWORD_RESET) {
             session()->flash('status', __($status));

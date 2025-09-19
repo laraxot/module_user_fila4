@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> fbc8f8e (.)
 use Modules\User\Database\Factories\SocialProviderFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Tenant\Models\Traits\SushiToPhpArray;
@@ -82,6 +85,10 @@ class SocialProvider extends BaseModel
         'active' => 'boolean',
         'socialite' => 'boolean',
         'svg' => 'string',
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'created_by' => 'string',
@@ -94,7 +101,10 @@ class SocialProvider extends BaseModel
     }
 
     /** @return array<string, string> */
+<<<<<<< HEAD
     #[Override]
+=======
+>>>>>>> fbc8f8e (.)
     protected function casts(): array
     {
         return [

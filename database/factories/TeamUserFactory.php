@@ -11,16 +11,26 @@ use Modules\User\Models\User;
 
 /**
  * TeamUser Factory
+<<<<<<< HEAD
  *
  * Factory for creating TeamUser model instances for testing and seeding.
  *
+=======
+ * 
+ * Factory for creating TeamUser model instances for testing and seeding.
+ * 
+>>>>>>> fbc8f8e (.)
  * @extends Factory<TeamUser>
  */
 class TeamUserFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
+<<<<<<< HEAD
      *
+=======
+     * 
+>>>>>>> fbc8f8e (.)
      * @var class-string<TeamUser>
      */
     protected $model = TeamUser::class;
@@ -47,7 +57,11 @@ class TeamUserFactory extends Factory
      */
     public function forTeam(Team $team): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
+=======
+        return $this->state(fn (array $attributes): array => [
+>>>>>>> fbc8f8e (.)
             'team_id' => $team->id,
         ]);
     }
@@ -60,7 +74,11 @@ class TeamUserFactory extends Factory
      */
     public function forUser(User $user): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
+=======
+        return $this->state(fn (array $attributes): array => [
+>>>>>>> fbc8f8e (.)
             'user_id' => $user->id,
         ]);
     }
@@ -72,7 +90,11 @@ class TeamUserFactory extends Factory
      */
     public function owner(): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
+=======
+        return $this->state(fn (array $attributes): array => [
+>>>>>>> fbc8f8e (.)
             'role' => 'owner',
         ]);
     }
@@ -84,7 +106,11 @@ class TeamUserFactory extends Factory
      */
     public function admin(): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
+=======
+        return $this->state(fn (array $attributes): array => [
+>>>>>>> fbc8f8e (.)
             'role' => 'admin',
         ]);
     }
@@ -96,8 +122,16 @@ class TeamUserFactory extends Factory
      */
     public function member(): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
             'role' => 'member',
         ]);
     }
 }
+=======
+        return $this->state(fn (array $attributes): array => [
+            'role' => 'member',
+        ]);
+    }
+}
+>>>>>>> fbc8f8e (.)

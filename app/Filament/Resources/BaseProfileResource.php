@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+<<<<<<< HEAD
 // // use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable; // Temporaneamente commentato per compatibilità Filament 4.x
 use Override;
+=======
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
+>>>>>>> fbc8f8e (.)
 use Filament\Forms\Components\TextInput;
 use Modules\User\Filament\Resources\BaseProfileResource\Pages\ListProfiles;
 use Filament\Forms;
@@ -13,6 +17,7 @@ use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Illuminate\Database\Eloquent\Collection;
 use Modules\User\Filament\Resources\BaseProfileResource\Pages;
 use Modules\User\Models\BaseProfile;
+<<<<<<< HEAD
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
@@ -25,6 +30,27 @@ abstract class BaseProfileResource extends XotBaseResource
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-users';
 
     #[Override]
+=======
+use Modules\Xot\Filament\Resources\XotBaseResource;
+
+
+
+
+use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+
+
+
+
+
+abstract class BaseProfileResource extends XotBaseResource
+{
+    use Translatable;
+
+    protected static ?string $model = BaseProfile::class;
+
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-users';
+
+>>>>>>> fbc8f8e (.)
     public static function getFormSchema(): array
     {
         return [
@@ -50,6 +76,7 @@ abstract class BaseProfileResource extends XotBaseResource
         ];
     }
 
+<<<<<<< HEAD
     #[Override]
     public static function getRelations(): array
     {
@@ -57,6 +84,14 @@ abstract class BaseProfileResource extends XotBaseResource
     }
 
     #[Override]
+=======
+    public static function getRelations(): array
+    {
+        return [
+        ];
+    }
+
+>>>>>>> fbc8f8e (.)
     public static function getPages(): array
     {
         return [

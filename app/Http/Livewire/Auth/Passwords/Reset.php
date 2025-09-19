@@ -56,16 +56,25 @@ class Reset extends Component
                 'email' => $this->email,
                 'password' => $this->password,
             ],
+<<<<<<< HEAD
             function (\Illuminate\Contracts\Auth\Authenticatable $user, string $password): void {
                 /** @var \Illuminate\Database\Eloquent\Model&\Illuminate\Contracts\Auth\Authenticatable $user */
                 $user->setAttribute('password', Hash::make($password));
+=======
+            function ($user, $password): void {
+                $user->password = Hash::make($password);
+>>>>>>> fbc8f8e (.)
                 $user->setRememberToken(Str::random(60));
                 $user->save();
 
                 event(new PasswordReset($user));
 
                 $this->guard()->login($user);
+<<<<<<< HEAD
             },
+=======
+            }
+>>>>>>> fbc8f8e (.)
         );
 
         /* @phpstan-ignore argument.type */
@@ -90,8 +99,12 @@ class Reset extends Component
 
     public function render(): View|Factory
     {
+<<<<<<< HEAD
         app(ViewCopyAction::class)
             ->execute('user::livewire.auth.passwords.reset', 'pub_theme::livewire.auth.passwords.reset');
+=======
+        app(ViewCopyAction::class)->execute('user::livewire.auth.passwords.reset', 'pub_theme::livewire.auth.passwords.reset');
+>>>>>>> fbc8f8e (.)
         app(ViewCopyAction::class)->execute('user::layouts.auth', 'pub_theme::layouts.auth');
         app(ViewCopyAction::class)->execute('user::layouts.base', 'pub_theme::layouts.base');
 
@@ -101,7 +114,11 @@ class Reset extends Component
         $view = 'pub_theme::livewire.auth.passwords.reset';
 
         return view($view, [
+<<<<<<< HEAD
             'layout' => 'pub_theme::layouts.auth',
+=======
+            'layout' => 'pub_theme::layouts.auth'
+>>>>>>> fbc8f8e (.)
         ]);
     }
 

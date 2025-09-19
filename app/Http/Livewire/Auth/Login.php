@@ -22,7 +22,11 @@ use Modules\Xot\Actions\File\ViewCopyAction;
 /**
  * Componente Livewire per la gestione del login.
  *
+<<<<<<< HEAD
  * @property Schema $form
+=======
+ * @property \Filament\Schemas\Schema $form
+>>>>>>> fbc8f8e (.)
  */
 class Login extends Component implements HasForms, HasActions
 {
@@ -79,8 +83,14 @@ class Login extends Component implements HasForms, HasActions
                 ->suffixIcon('heroicon-m-envelope')
                 ->autofocus()
                 ->live()
+<<<<<<< HEAD
                 ->afterStateUpdated(fn($_state) => $this->validateOnly('email'))
                 ->dehydrated(),
+=======
+                ->afterStateUpdated(fn ($state) => $this->validateOnly('email'))
+                ->dehydrated(),
+
+>>>>>>> fbc8f8e (.)
             TextInput::make('password')
                 ->password()
                 ->required()
@@ -91,6 +101,10 @@ class Login extends Component implements HasForms, HasActions
                 ->minLength(8)
                 ->maxLength(255)
                 ->dehydrated(),
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
             Checkbox::make('remember')
                 ->label(__('Ricordami'))
                 ->default(false)
@@ -103,7 +117,12 @@ class Login extends Component implements HasForms, HasActions
      */
     public function form(): Schema
     {
+<<<<<<< HEAD
         return Schema::make()->components($this->getFormSchema());
+=======
+        return $this->makeForm()
+            ->components($this->getFormSchema());
+>>>>>>> fbc8f8e (.)
     }
 
     /**
@@ -145,13 +164,23 @@ class Login extends Component implements HasForms, HasActions
     protected function getRedirectUrl(): RedirectResponse
     {
         $user = Auth::user();
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> fbc8f8e (.)
         if (!$user) {
             return redirect()->to('/');
         }
 
         // Se l'utente ha ruoli admin, redirect al pannello appropriato
+<<<<<<< HEAD
         $adminRoles = $user->roles->filter(fn($role) => str_ends_with($role->name, '::admin'));
+=======
+        $adminRoles = $user->roles->filter(function ($role) {
+            return str_ends_with($role->name, '::admin');
+        });
+>>>>>>> fbc8f8e (.)
 
         if ($adminRoles->count() === 1) {
             // Un solo ruolo admin - redirect al modulo specifico

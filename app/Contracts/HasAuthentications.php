@@ -17,4 +17,8 @@ interface HasAuthentications
      * @return MorphMany
      */
     public function authentications(): MorphMany;
+<<<<<<< HEAD
 }
+=======
+} 
+>>>>>>> fbc8f8e (.)

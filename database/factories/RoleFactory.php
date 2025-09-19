@@ -38,11 +38,19 @@ class RoleFactory extends Factory
             'contributor' => 'Contributor',
             'analyst' => 'Analyst',
             'support' => 'Support Agent',
+<<<<<<< HEAD
             'developer' => 'Developer',
         ];
 
         $role = $this->faker->randomElement($roles);
         $name = array_search($role, $roles, strict: true);
+=======
+            'developer' => 'Developer'
+        ];
+
+        $role = $this->faker->randomElement($roles);
+        $name = array_search($role, $roles);
+>>>>>>> fbc8f8e (.)
 
         return [
             'name' => $name,
@@ -57,7 +65,11 @@ class RoleFactory extends Factory
      */
     public function admin(): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
+=======
+        return $this->state(fn (array $attributes) => [
+>>>>>>> fbc8f8e (.)
             'name' => 'admin',
         ]);
     }
@@ -69,7 +81,11 @@ class RoleFactory extends Factory
      */
     public function manager(): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
+=======
+        return $this->state(fn (array $attributes) => [
+>>>>>>> fbc8f8e (.)
             'name' => 'manager',
         ]);
     }
@@ -81,7 +97,11 @@ class RoleFactory extends Factory
      */
     public function user(): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
+=======
+        return $this->state(fn (array $attributes) => [
+>>>>>>> fbc8f8e (.)
             'name' => 'user',
         ]);
     }
@@ -94,8 +114,16 @@ class RoleFactory extends Factory
      */
     public function withGuard(string $guard): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
+=======
+        return $this->state(fn (array $attributes) => [
+>>>>>>> fbc8f8e (.)
             'guard_name' => $guard,
         ]);
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)

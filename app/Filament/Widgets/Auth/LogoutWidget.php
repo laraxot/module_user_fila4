@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Override;
+=======
+>>>>>>> fbc8f8e (.)
 use Exception;
 use Filament\Schemas\Components\View;
 use Filament\Actions\Action;
@@ -45,6 +48,7 @@ class LogoutWidget extends XotBaseWidget
     /**
      * Get the form schema for logout interface.
      *
+<<<<<<< HEAD
      * @return array<string, Component>
      */
     #[Override]
@@ -57,6 +61,20 @@ class LogoutWidget extends XotBaseWidget
         }
         return [
             'logout_message' => View::make($view)->columnSpanFull(),
+=======
+     * @return array<string, \Filament\Schemas\Components\Component>
+     */
+    public function getFormSchema(): array
+    {
+        $view='filament.widgets.auth.logout-message';
+        //@phpstan-ignore-next-line
+        if(!view()->exists($view)){
+            throw new Exception('View '.$view.' not found');
+        }
+        return [
+            'logout_message' => View::make($view)
+                ->columnSpanFull(),
+>>>>>>> fbc8f8e (.)
         ];
     }
 
@@ -65,7 +83,10 @@ class LogoutWidget extends XotBaseWidget
      *
      * @return array<Action>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+>>>>>>> fbc8f8e (.)
     public function getFormActions(): array
     {
         return [
@@ -110,7 +131,11 @@ class LogoutWidget extends XotBaseWidget
             ->color('danger')
             ->size('lg')
             ->extraAttributes(['class' => 'w-full justify-center'])
+<<<<<<< HEAD
             ->action($this->logout(...));
+=======
+            ->action(fn () => $this->logout());
+>>>>>>> fbc8f8e (.)
     }
 
     /**
@@ -192,8 +217,15 @@ class LogoutWidget extends XotBaseWidget
      */
     protected function redirectAfterLogout(): void
     {
+<<<<<<< HEAD
         redirect($this->getLocalizedHomeUrl())->with('success', __('user::auth.logout_success'))->send();
         exit();
+=======
+        redirect($this->getLocalizedHomeUrl())
+            ->with('success', __('user::auth.logout_success'))
+            ->send();
+        exit;
+>>>>>>> fbc8f8e (.)
     }
 
     /**
@@ -208,4 +240,8 @@ class LogoutWidget extends XotBaseWidget
             'description' => __('user::auth.logout_confirmation'),
         ];
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fbc8f8e (.)

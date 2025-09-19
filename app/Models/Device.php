@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> fbc8f8e (.)
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Xot\Contracts\ProfileContract;
@@ -103,7 +106,10 @@ class Device extends BaseModel
      *
      * @return array<string, string>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+>>>>>>> fbc8f8e (.)
     protected function casts(): array
     {
         return [
