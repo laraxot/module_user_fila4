@@ -131,8 +131,9 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static Builder|User whereIsOtp($value)
  * @method static Builder|User wherePasswordExpiresAt($value)
  * @method static Builder|User whereSurname($value)
+ * @method static static|null firstWhere($column, $operator = null, $value = null, $boolean = 'and')
  *
- * @mixin \Eloquent
+ * @mixin IdeHelperBaseUser
  */
 abstract class BaseUser extends Authenticatable implements HasName, HasTenants, UserContract, HasMedia, MustVerifyEmail
 {
@@ -438,7 +439,7 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
 
         try {
             $value = $candidate;
-            while (self::firstWhere(['name' => $value]) !== null) {
+            while (static::query()->firstWhere(['name' => $value]) !== null) {
                 $i++;
                 $value = $name . '-' . $i;
             }

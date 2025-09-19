@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Unit;
 
+use PHPUnit\Framework\TestCase;
+use Illuminate\Validation\Rules\Password;
 use Modules\User\Datas\PasswordData;
 use Modules\User\Events\AddingTeam;
 use Modules\User\Events\Login;
 use Modules\User\Events\Registered;
 use Modules\User\Events\SocialiteUserConnected;
 
-class UserModulePhpstanFixesTest extends \PHPUnit\Framework\TestCase
+class UserModulePhpstanFixesTest extends TestCase
 {
     /** @test */
     public function password_data_can_be_instantiated(): void
@@ -73,7 +75,7 @@ class UserModulePhpstanFixesTest extends \PHPUnit\Framework\TestCase
 
         $rule = $passwordData->getPasswordRule();
 
-        $this->assertInstanceOf(\Illuminate\Validation\Rules\Password::class, $rule);
+        $this->assertInstanceOf(Password::class, $rule);
     }
 
     /** @test */
