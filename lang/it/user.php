@@ -3,9 +3,13 @@
 declare(strict_types=1);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
 return [
     'navigation' => [
         'name' => 'Utenti',
@@ -19,12 +23,16 @@ return [
         'icon' => 'user-main',
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     'fields' => [
         'id' => [
             'label' => 'ID',
             'help' => 'Identificativo univoco dell\'utente',
             'tooltip' => 'ID utente',
             'helper_text' => '',
+<<<<<<< HEAD
 =======
     'model' => [
         'label' => 'Utente',
@@ -37,126 +45,188 @@ return [
             'placeholder' => 'ID utente',
             'help' => 'Identificativo univoco dell\'utente',
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         ],
         'name' => [
             'label' => 'Nome',
             'placeholder' => 'Inserisci il nome completo',
             'help' => 'Nome completo dell\'utente',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Nome e cognome dell\'utente',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Nome e cognome dell\'utente',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
         ],
         'first_name' => [
             'label' => 'Nome',
             'placeholder' => 'Inserisci il nome',
             'help' => 'Nome dell\'utente',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Nome dell\'utente',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Nome dell\'utente',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
         ],
         'last_name' => [
             'label' => 'Cognome',
             'placeholder' => 'Inserisci il cognome',
             'help' => 'Cognome dell\'utente',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Cognome dell\'utente',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Cognome dell\'utente',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
         ],
         'email' => [
             'label' => 'Email',
             'placeholder' => 'Inserisci l\'indirizzo email',
             'help' => 'Indirizzo email dell\'utente',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Email per l\'accesso e le comunicazioni',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Email per l\'accesso e le comunicazioni',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
         ],
         'password' => [
             'label' => 'Password',
             'placeholder' => 'Inserisci la password',
             'help' => 'Password per l\'accesso al sistema',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Password di accesso',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Password di accesso',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
         ],
         'password_confirmation' => [
             'label' => 'Conferma Password',
             'placeholder' => 'Conferma la password',
             'help' => 'Ripeti la password per conferma',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Conferma della password',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Conferma della password',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
         ],
         'current_password' => [
             'label' => 'Password Attuale',
             'placeholder' => 'Inserisci la password attuale',
             'help' => 'Password corrente per la verifica',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Password attuale',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Password attuale',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
         ],
         'new_password' => [
             'label' => 'Nuova Password',
             'placeholder' => 'Inserisci la nuova password',
             'help' => 'Nuova password desiderata',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Nuova password',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Nuova password',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
         ],
         'role' => [
             'label' => 'Ruolo',
             'placeholder' => 'Seleziona il ruolo',
             'help' => 'Ruolo dell\'utente nel sistema',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Ruolo e permessi',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Ruolo e permessi',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
         ],
         'roles' => [
             'label' => 'Ruoli',
             'placeholder' => 'Seleziona i ruoli',
             'help' => 'Ruoli assegnati all\'utente',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Ruoli multipli',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Ruoli multipli',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
         ],
         'permissions' => [
             'label' => 'Permessi',
             'placeholder' => 'Seleziona i permessi',
             'help' => 'Permessi specifici dell\'utente',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Permessi diretti',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Permessi diretti',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
         ],
         'status' => [
             'label' => 'Stato',
             'placeholder' => 'Seleziona lo stato',
             'help' => 'Stato dell\'account utente',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Stato dell\'utente',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Stato dell\'utente',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
             'options' => [
                 'active' => 'Attivo',
                 'inactive' => 'Inattivo',
@@ -170,10 +240,15 @@ return [
             'placeholder' => 'Seleziona il tipo',
             'help' => 'Tipo di utente',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Tipo di account',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Tipo di account',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
             'options' => [
                 'admin' => 'Amministratore',
                 'user' => 'Utente',
@@ -185,6 +260,9 @@ return [
         'last_login' => [
             'label' => 'Ultimo Accesso',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             'help' => 'Data e ora dell\'ultimo accesso',
             'tooltip' => 'Ultimo login',
             'helper_text' => '',
@@ -200,6 +278,7 @@ return [
             'help' => 'Data dell\'ultimo aggiornamento',
             'tooltip' => 'Ultimo aggiornamento',
             'helper_text' => '',
+<<<<<<< HEAD
 =======
             'placeholder' => '',
             'help' => 'Data e ora dell\'ultimo accesso',
@@ -214,26 +293,38 @@ return [
             'placeholder' => '',
             'help' => 'Data dell\'ultimo aggiornamento',
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         ],
         'avatar' => [
             'label' => 'Avatar',
             'placeholder' => 'Carica un\'immagine',
             'help' => 'Immagine del profilo',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Foto profilo',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Foto profilo',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
         ],
         'language' => [
             'label' => 'Lingua',
             'placeholder' => 'Seleziona la lingua',
             'help' => 'Lingua preferita dell\'utente',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Lingua interfaccia',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Lingua interfaccia',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
             'options' => [
                 'it' => 'Italiano',
                 'en' => 'English',
@@ -247,6 +338,9 @@ return [
             'placeholder' => 'Seleziona il fuso orario',
             'help' => 'Fuso orario dell\'utente',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             'tooltip' => 'Zona oraria',
             'helper_text' => '',
         ],
@@ -273,6 +367,7 @@ return [
             'help' => 'Data di verifica dell\'email',
             'tooltip' => 'Data verifica email',
             'helper_text' => '',
+<<<<<<< HEAD
 =======
         ],
         'password_expires_at' => [
@@ -295,52 +390,77 @@ return [
             'placeholder' => '',
             'help' => 'Data di verifica dell\'email',
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         ],
         'provider' => [
             'label' => 'Provider',
             'placeholder' => 'Inserisci il nome del provider',
             'help' => 'Provider di autenticazione (es. Google, Facebook)',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Provider OAuth',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Provider OAuth',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
         ],
         'provider_id' => [
             'label' => 'ID Provider',
             'placeholder' => 'Inserisci l\'ID del provider',
             'help' => 'ID utente nel provider esterno',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'ID provider esterno',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'ID provider esterno',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
         ],
         'provider_name' => [
             'label' => 'Nome Provider',
             'placeholder' => 'Inserisci il nome associato al provider',
             'help' => 'Nome dell\'utente nel provider',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Nome nel provider',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Nome nel provider',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
         ],
         'provider_email' => [
             'label' => 'Email Provider',
             'placeholder' => 'Inserisci l\'email del provider',
             'help' => 'Email associata al provider',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'tooltip' => 'Email nel provider',
             'helper_text' => '',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'tooltip' => 'Email nel provider',
+            'helper_text' => '',
+>>>>>>> 6d20fbe (.)
         ],
         'provider_avatar' => [
             'label' => 'Avatar Provider',
             'placeholder' => 'URL dell\'avatar',
             'help' => 'URL dell\'immagine profilo del provider',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             'tooltip' => 'Avatar del provider',
             'helper_text' => '',
         ],
@@ -355,6 +475,7 @@ return [
             'help' => 'Identificativo del dispositivo mobile',
             'tooltip' => 'ID dispositivo mobile',
             'helper_text' => '',
+<<<<<<< HEAD
 =======
         ],
         'uuid' => [
@@ -367,12 +488,17 @@ return [
             'placeholder' => '',
             'help' => 'Identificativo del dispositivo mobile',
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         ],
         'languages' => [
             'label' => 'Lingue',
             'placeholder' => 'Seleziona le lingue',
             'help' => 'Lingue supportate dal dispositivo',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             'tooltip' => 'Lingue dispositivo',
             'helper_text' => '',
         ],
@@ -396,6 +522,7 @@ return [
         ],
         'layout' => [
             'label' => 'layout',
+<<<<<<< HEAD
 =======
         ],
         'guard_name' => [
@@ -421,6 +548,8 @@ return [
             'placeholder' => '',
             'help' => 'Indica se il record è attivo',
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         ],
     ],
     'actions' => [
@@ -435,9 +564,12 @@ return [
             'tooltip' => 'Modifica l\'utente',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 42fc572 (.)
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         'delete' => [
             'label' => 'Elimina Utente',
             'icon' => 'heroicon-o-trash',
@@ -636,10 +768,13 @@ return [
         'logout_title' => 'Conferma Logout',
         'logout_confirmation' => 'Sei sicuro di voler uscire?',
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 42fc572 (.)
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     ],
     'profile' => [
         'profile' => 'Profilo',
@@ -697,10 +832,13 @@ return [
         'description' => 'Gestione degli utenti del sistema',
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 42fc572 (.)
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     'filters' => [
         'status' => [
             'label' => 'Per Stato',
@@ -752,6 +890,7 @@ return [
     ],
     'search_placeholder' => 'Cerca per nome, email o ruolo...',
 ];
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -1443,3 +1582,5 @@ return array (
 );
 >>>>>>> 199538c (.)
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)

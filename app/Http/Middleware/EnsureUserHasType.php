@@ -1,21 +1,30 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 
 namespace Modules\User\Http\Middleware;
 
 use BackedEnum;
+<<<<<<< HEAD
 =======
 namespace Modules\User\Http\Middleware;
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 /**
  * Route::put('/post/{id}', function (string $id) {
  *   // ...
@@ -24,6 +33,7 @@ use Symfony\Component\HttpFoundation\Response;
  *     // ...
  *})->middleware(EnsureUserHasRole::class.':editor,publisher');
  */
+<<<<<<< HEAD
 =======
 /** 
 * Route::put('/post/{id}', function (string $id) {
@@ -34,6 +44,8 @@ use Symfony\Component\HttpFoundation\Response;
 *})->middleware(EnsureUserHasRole::class.':editor,publisher');
 */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 class EnsureUserHasType
 {
@@ -45,6 +57,9 @@ class EnsureUserHasType
     public function handle(Request $request, Closure $next, string $type): Response
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $userType = $request->user()?->type;
 
         if ($userType instanceof BackedEnum && $userType->value === $type) {
@@ -58,6 +73,7 @@ class EnsureUserHasType
         return redirect()->route('home');
     }
 }
+<<<<<<< HEAD
 =======
         
         if ($request->user()?->type->value !== $type) {
@@ -69,3 +85,5 @@ class EnsureUserHasType
     }
 }
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)

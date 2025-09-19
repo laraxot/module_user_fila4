@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\BaseProfileResource\Pages;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Filament\Schemas\Components\Component;
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Flex;
 use Filament\Schemas\Components\Grid;
@@ -27,6 +32,9 @@ class ViewProfile extends XotBaseViewRecord
     protected static string $resource = BaseProfileResource::class;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     /**
      * @return array<string, Component>
      */
@@ -59,6 +67,7 @@ class ViewProfile extends XotBaseViewRecord
                     ImageEntry::make('image')->hiddenLabel()->grow(false),
                 ])->from('lg'),
             ]),
+<<<<<<< HEAD
 =======
 
     /**
@@ -97,6 +106,8 @@ class ViewProfile extends XotBaseViewRecord
                     ])->from('lg'),
                 ]),
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             'content' => Section::make('Content')
                 ->schema([
                     TextEntry::make('content')

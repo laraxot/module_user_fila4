@@ -6,6 +6,9 @@ namespace Modules\User\Filament\Pages\Tenancy;
 
 use Filament\Schemas\Schema;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\Tenancy\RegisterTenant as BaseRegisterTenant;
 use Filament\Support\Enums\MaxWidth;
@@ -15,6 +18,7 @@ use Modules\User\Contracts\TenantContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Traits\TransTrait;
 use Webmozart\Assert\Assert;
+<<<<<<< HEAD
 =======
 use Illuminate\Support\Str;
 use Webmozart\Assert\Assert;
@@ -26,6 +30,8 @@ use Modules\User\Contracts\TenantContract;
 use Modules\Xot\Filament\Traits\TransTrait;
 use Filament\Pages\Tenancy\RegisterTenant as BaseRegisterTenant;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 class RegisterTenant extends BaseRegisterTenant
 {
@@ -37,6 +43,9 @@ class RegisterTenant extends BaseRegisterTenant
     {
         $tenantClass = XotData::make()->getTenantClass();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $func = Str::of(__FUNCTION__)->snake()->toString();
         if (Str::startsWith($func, 'get_')) {
             $func = Str::of($func)->after('get_')->toString();
@@ -47,6 +56,7 @@ class RegisterTenant extends BaseRegisterTenant
             ->append('.' . $func)
             ->toString();
         $str = static::transClass($tenantClass, $key);
+<<<<<<< HEAD
 =======
         $func=Str::of(__FUNCTION__)->snake()->toString();
         if(Str::startsWith($func,'get_')){
@@ -55,11 +65,16 @@ class RegisterTenant extends BaseRegisterTenant
         $key=Str::of(class_basename(__CLASS__))->snake()->prepend('actions.')->append('.'.$func)->toString();
         $str= static::transClass($tenantClass,$key);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
         return $str;
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     public function form(Schema $schema): Schema
     {
         $tenantClass = XotData::make()->getTenantClass();
@@ -69,6 +84,7 @@ class RegisterTenant extends BaseRegisterTenant
             ->toString();
         $this->resource = $resource;
         return $schema->components($this->getFormSchema());
+<<<<<<< HEAD
 =======
 
 
@@ -83,6 +99,8 @@ class RegisterTenant extends BaseRegisterTenant
         return $schema
             ->components($this->getFormSchema());
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 
     public function getFormSchema(): array
@@ -101,11 +119,15 @@ class RegisterTenant extends BaseRegisterTenant
         Assert::implementsInterface($tenant, TenantContract::class);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $tenant->users()->attach(auth()->user());
 =======
         $tenant->users()
             ->attach(auth()->user());
 >>>>>>> fbc8f8e (.)
+=======
+        $tenant->users()->attach(auth()->user());
+>>>>>>> 6d20fbe (.)
 
         return $tenant;
     }

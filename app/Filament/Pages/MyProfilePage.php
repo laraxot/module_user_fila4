@@ -39,6 +39,7 @@ class MyProfilePage extends Page implements HasForms
     use InteractsWithForms;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public null|array $profileData = [];
 
     public null|array $passwordData = [];
@@ -47,6 +48,11 @@ class MyProfilePage extends Page implements HasForms
 
     public ?array $passwordData = [];
 >>>>>>> fbc8f8e (.)
+=======
+    public null|array $profileData = [];
+
+    public null|array $passwordData = [];
+>>>>>>> 6d20fbe (.)
 
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
@@ -78,11 +84,15 @@ class MyProfilePage extends Page implements HasForms
                     ->description('Update your account\'s profile information and email address.')
                     ->schema([
 <<<<<<< HEAD
+<<<<<<< HEAD
                         TextInput::make('name')->required(),
 =======
                         TextInput::make('name')
                             ->required(),
 >>>>>>> fbc8f8e (.)
+=======
+                        TextInput::make('name')->required(),
+>>>>>>> 6d20fbe (.)
                         TextInput::make('email')
                             ->email()
                             ->required()
@@ -106,6 +116,9 @@ class MyProfilePage extends Page implements HasForms
                             ->required()
                             ->currentPassword(),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                         PasswordData::make()
                             ->getPasswordFormComponent('new_password')
                             ->dehydrateStateUsing(fn (string $value): string => Hash::make($value))
@@ -121,6 +134,7 @@ class MyProfilePage extends Page implements HasForms
                          * ->live(debounce: 500)
                          * ->same('passwordConfirmation'),
                          */
+<<<<<<< HEAD
 =======
                         PasswordData::make()->getPasswordFormComponent('new_password')
                             ->dehydrateStateUsing(fn ($state): string => Hash::make($state))
@@ -138,6 +152,8 @@ class MyProfilePage extends Page implements HasForms
                             ->same('passwordConfirmation'),
                         */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
                         TextInput::make('passwordConfirmation')
                             ->password()
                             ->required()
@@ -154,14 +170,20 @@ class MyProfilePage extends Page implements HasForms
         $user = Filament::auth()->user();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         if (!($user instanceof Model)) {
             throw new Exception(
                 'The authenticated user object must be an Eloquent model to allow the profile page to update it.',
             );
+<<<<<<< HEAD
 =======
         if (! $user instanceof Model) {
             throw new Exception('The authenticated user object must be an Eloquent model to allow the profile page to update it.');
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         }
 
         return $user;
@@ -178,10 +200,14 @@ class MyProfilePage extends Page implements HasForms
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function getSubheading(): null|string
 =======
     public function getSubheading(): ?string
 >>>>>>> fbc8f8e (.)
+=======
+    public function getSubheading(): null|string
+>>>>>>> 6d20fbe (.)
     {
         return __('user::profile.subheading') ?? null;
     }
@@ -204,10 +230,14 @@ class MyProfilePage extends Page implements HasForms
     {
         return [
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             TextInput::make('name')->autofocus()->required(),
             TextInput::make('email')->required(),
         ];
 
+<<<<<<< HEAD
 =======
             TextInput::make('name')
                 ->autofocus()
@@ -216,6 +246,8 @@ class MyProfilePage extends Page implements HasForms
                 ->required(),
         ];
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         // Nota: i seguenti commenti sono stati rimossi perché non sono applicabili al metodo getFormSchema()
         // ->statePath('data')
         // ->model(auth()->user());
@@ -246,17 +278,23 @@ class MyProfilePage extends Page implements HasForms
 
         if (request()->hasSession() && array_key_exists('password', $data)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             request()
                 ->session()
                 ->put([
                     'password_hash_' . Filament::getAuthGuard() => $data['password'],
                 ]);
+<<<<<<< HEAD
 =======
             request()->session()->put([
                 'password_hash_'.Filament::getAuthGuard() => $data['password'],
             
             ]);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         }
 
         $this->editPasswordForm->fill();
@@ -284,17 +322,24 @@ class MyProfilePage extends Page implements HasForms
     {
         return [
 <<<<<<< HEAD
+<<<<<<< HEAD
             Action::make('Update')->color('primary')->submit('Update'),
 =======
             Action::make('Update')
                 ->color('primary')
                 ->submit('Update'),
 >>>>>>> fbc8f8e (.)
+=======
+            Action::make('Update')->color('primary')->submit('Update'),
+>>>>>>> 6d20fbe (.)
         ];
     }
 
     /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      * public function update()
      * {
      * auth()->user()->update(
@@ -307,6 +352,7 @@ class MyProfilePage extends Page implements HasForms
      * ->send();
      * }
      */
+<<<<<<< HEAD
 =======
     public function update()
     {
@@ -321,10 +367,13 @@ class MyProfilePage extends Page implements HasForms
     }
     */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
     protected function getUpdateProfileFormActions(): array
     {
         return [
+<<<<<<< HEAD
 <<<<<<< HEAD
             Action::make('updateProfileAction')->submit('editProfileForm'),
 =======
@@ -332,6 +381,9 @@ class MyProfilePage extends Page implements HasForms
 
                 ->submit('editProfileForm'),
 >>>>>>> fbc8f8e (.)
+=======
+            Action::make('updateProfileAction')->submit('editProfileForm'),
+>>>>>>> 6d20fbe (.)
         ];
     }
 
@@ -339,12 +391,16 @@ class MyProfilePage extends Page implements HasForms
     {
         return [
 <<<<<<< HEAD
+<<<<<<< HEAD
             Action::make('updatePasswordAction')->submit('editPasswordForm'),
 =======
             Action::make('updatePasswordAction')
 
                 ->submit('editPasswordForm'),
 >>>>>>> fbc8f8e (.)
+=======
+            Action::make('updatePasswordAction')->submit('editPasswordForm'),
+>>>>>>> 6d20fbe (.)
         ];
     }
 

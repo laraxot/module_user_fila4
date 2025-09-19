@@ -5,6 +5,9 @@ declare(strict_types=1);
 return [
     /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      * |--------------------------------------------------------------------------
      * | Messaggi di validazione
      * |--------------------------------------------------------------------------
@@ -15,6 +18,7 @@ return [
      * | questi messaggi.
      * |
      */
+<<<<<<< HEAD
 =======
     |--------------------------------------------------------------------------
     | Messaggi di validazione
@@ -27,6 +31,8 @@ return [
     |
     */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
     'accepted' => 'Il campo :attribute deve essere accettato.',
     'active_url' => 'Il campo :attribute non è un URL valido.',
@@ -117,18 +123,24 @@ return [
         'uncompromised' => 'Il :attribute fornito è apparso in una violazione di dati. Scegli un :attribute diverso, per favore.',
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     'password.letters' => 'Il campo :attribute deve contenere almeno una lettera.',
     'password.mixed' => 'Il campo :attribute deve contenere almeno una lettera maiuscola e una minuscola.',
     'password.numbers' => 'Il campo :attribute deve contenere almeno un numero.',
     'password.symbols' => 'Il campo :attribute deve contenere almeno un simbolo.',
     'password.uncompromised' => 'Il :attribute fornito è apparso in una violazione di dati. Scegli un :attribute diverso, per favore.',
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     'present' => 'Il campo :attribute deve essere presente.',
     'regex' => 'Il formato del campo :attribute non è valido.',
     'required' => 'Il campo :attribute è obbligatorio.',
@@ -153,6 +165,9 @@ return [
     'url' => 'Il formato del campo :attribute non è valido.',
     'uuid' => 'Il campo :attribute deve essere un UUID valido.',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     /*
      * |--------------------------------------------------------------------------
      * | Personalizzazione degli attributi
@@ -163,6 +178,7 @@ return [
      * | rende facile specificare un messaggio di attributo personalizzato.
      * |
      */
+<<<<<<< HEAD
 =======
 
     /*
@@ -176,14 +192,19 @@ return [
     |
     */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
     'attributes' => [
         'data.password' => 'zu',
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     'email_already_taken' => 'Questa email è già utilizzata da un altro utente.',
     'password_confirmation' => 'La conferma della password non corrisponde.',
     'password_current_required' => 'La password attuale è richiesta.',

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Tests\TestCase;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Enums\UserType;
 use Modules\User\Models\User;
@@ -12,6 +13,11 @@ use Modules\User\Models\User;
 use Modules\User\Enums\UserType;
 use Illuminate\Support\Facades\Hash;
 >>>>>>> fbc8f8e (.)
+=======
+use Illuminate\Support\Facades\Hash;
+use Modules\User\Enums\UserType;
+use Modules\User\Models\User;
+>>>>>>> 6d20fbe (.)
 
 uses(TestCase::class);
 

@@ -5,12 +5,17 @@ declare(strict_types=1);
 use Tests\TestCase;
 use Spatie\LaravelData\Data;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Validation\Rules\Password;
 use Modules\User\Datas\PasswordData;
 =======
 use Modules\User\Datas\PasswordData;
 use Illuminate\Validation\Rules\Password;
 >>>>>>> fbc8f8e (.)
+=======
+use Illuminate\Validation\Rules\Password;
+use Modules\User\Datas\PasswordData;
+>>>>>>> 6d20fbe (.)
 
 uses(TestCase::class);
 
@@ -27,10 +32,14 @@ beforeEach(function (): void {
         uncompromised: true,
         compromisedThreshold: 5,
 <<<<<<< HEAD
+<<<<<<< HEAD
         failMessage: 'Password non valida',
 =======
         failMessage: 'Password non valida'
 >>>>>>> fbc8f8e (.)
+=======
+        failMessage: 'Password non valida',
+>>>>>>> 6d20fbe (.)
     );
 });
 

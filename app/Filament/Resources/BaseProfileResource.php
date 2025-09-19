@@ -5,11 +5,16 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // // use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable; // Temporaneamente commentato per compatibilità Filament 4.x
 use Override;
 =======
 use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
 >>>>>>> fbc8f8e (.)
+=======
+// // use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable; // Temporaneamente commentato per compatibilità Filament 4.x
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Forms\Components\TextInput;
 use Modules\User\Filament\Resources\BaseProfileResource\Pages\ListProfiles;
 use Filament\Forms;
@@ -18,6 +23,9 @@ use Illuminate\Database\Eloquent\Collection;
 use Modules\User\Filament\Resources\BaseProfileResource\Pages;
 use Modules\User\Models\BaseProfile;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
@@ -30,6 +38,7 @@ abstract class BaseProfileResource extends XotBaseResource
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-users';
 
     #[Override]
+<<<<<<< HEAD
 =======
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
@@ -51,6 +60,8 @@ abstract class BaseProfileResource extends XotBaseResource
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-users';
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     public static function getFormSchema(): array
     {
         return [
@@ -77,6 +88,9 @@ abstract class BaseProfileResource extends XotBaseResource
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     public static function getRelations(): array
     {
@@ -84,6 +98,7 @@ abstract class BaseProfileResource extends XotBaseResource
     }
 
     #[Override]
+<<<<<<< HEAD
 =======
     public static function getRelations(): array
     {
@@ -92,6 +107,8 @@ abstract class BaseProfileResource extends XotBaseResource
     }
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     public static function getPages(): array
     {
         return [

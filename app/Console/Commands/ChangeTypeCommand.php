@@ -7,6 +7,9 @@ namespace Modules\User\Console\Commands;
 use Modules\Xot\Actions\Cast\SafeObjectCastAction;
 use Illuminate\Console\Command;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Illuminate\Support\Arr;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
@@ -15,6 +18,7 @@ use Webmozart\Assert\Assert;
 
 use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
+<<<<<<< HEAD
 =======
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
@@ -25,6 +29,8 @@ use Webmozart\Assert\Assert;
 use function Laravel\Prompts\text;
 use function Laravel\Prompts\select;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 /**
  * Command to change user type based on project configuration.
@@ -54,6 +60,7 @@ class ChangeTypeCommand extends Command
      * @return void
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
     public function __construct()
@@ -61,6 +68,9 @@ class ChangeTypeCommand extends Command
         parent::__construct();
     }
 >>>>>>> fbc8f8e (.)
+=======
+    
+>>>>>>> 6d20fbe (.)
 
     /**
      * Execute the console command.
@@ -72,10 +82,14 @@ class ChangeTypeCommand extends Command
         $xot = XotData::make();
         $email = text('User email?');
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
         /** @var UserContract $user */
         $user = XotData::make()->getUserByEmail($email);
 
@@ -91,19 +105,28 @@ class ChangeTypeCommand extends Command
         $childTypes = $xot->getUserChildTypes();
         /** @phpstan-ignore nullsafe.neverNull */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $typeLabel = $user->type?->getLabel() ?? 'None';
         $typeLabelString = is_string($typeLabel) ? $typeLabel : $typeLabel->toHtml();
         $this->info("Current user type: " . $typeLabelString);
 
+<<<<<<< HEAD
 =======
         $this->info("Current user type: {$user->type?->getLabel()}");
         
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         $typeClass = $xot->getUserChildTypeClass();
         /** @var array<string, string> */
         $options = [];
         foreach ($childTypes as $key => $item) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             if (
                 is_object($item) &&
                     method_exists($item, 'getLabel') &&
@@ -114,6 +137,7 @@ class ChangeTypeCommand extends Command
                 $options[$value] = (string) $item->getLabel();
             } else {
                 $options[(string) $key] = 'Unknown';
+<<<<<<< HEAD
 =======
             if (is_object($item) && method_exists($item, 'getLabel') && app(SafeObjectCastAction::class)->hasNonNullProperty($item, 'value')) {
                 $value = app(SafeObjectCastAction::class)->getStringProperty($item, 'value', '');
@@ -121,11 +145,16 @@ class ChangeTypeCommand extends Command
             } else {
                 $options[(string)$key] = 'Unknown';
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             }
         }
 
         $newType = select('Select new user type:', $options);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 
         $newTypeEnum = $typeClass::tryFrom($newType);
         Assert::notNull($newTypeEnum);
@@ -133,6 +162,7 @@ class ChangeTypeCommand extends Command
         $user->type = $newTypeEnum;
         $user->save();
 
+<<<<<<< HEAD
 =======
         
         $newTypeEnum = $typeClass::tryFrom($newType);
@@ -143,6 +173,8 @@ class ChangeTypeCommand extends Command
         $user->save();
         
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         $this->info("User type changed to '{$newTypeEnum->getLabel()}' for {$email}");
     }
 }

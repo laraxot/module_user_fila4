@@ -8,10 +8,15 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\TenantResource\RelationManagers;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Filament\Schemas\Components\Component;
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Actions\CreateAction;
@@ -27,6 +32,7 @@ use Illuminate\Support\Str;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
@@ -37,11 +43,14 @@ use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 class DomainsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'domains';
 
     /**
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @return array<string, Component>
      */
@@ -50,6 +59,11 @@ class DomainsRelationManager extends XotBaseRelationManager
      * @return array<string, \Filament\Schemas\Components\Component>
      */
 >>>>>>> fbc8f8e (.)
+=======
+     * @return array<string, Component>
+     */
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function getFormSchema(): array
     {
         return [
@@ -57,23 +71,34 @@ class DomainsRelationManager extends XotBaseRelationManager
                 ->required()
                 ->prefix('http(s)://')
 <<<<<<< HEAD
+<<<<<<< HEAD
                 ->suffix('.' . request()->getHost())
 =======
                 ->suffix('.'.request()->getHost())
 >>>>>>> fbc8f8e (.)
+=======
+                ->suffix('.' . request()->getHost())
+>>>>>>> 6d20fbe (.)
                 ->maxLength(255),
         ];
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function table(Table $table): Table
     {
         return $table
             ->recordTitleAttribute('domain')
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             ->columns([
                 TextColumn::make('domain'),
                 TextColumn::make('full-domain')->getStateUsing(
@@ -93,6 +118,7 @@ class DomainsRelationManager extends XotBaseRelationManager
                     DeleteBulkAction::make(),
                 ]),
             ]);
+<<<<<<< HEAD
 =======
             ->columns(
                 [
@@ -125,5 +151,7 @@ class DomainsRelationManager extends XotBaseRelationManager
                 ]
             );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 }

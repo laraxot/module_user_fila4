@@ -3,28 +3,37 @@
 declare(strict_types=1);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\MediaLibrary\HasMedia;
+<<<<<<< HEAD
 =======
 namespace Modules\User\Tests\Feature\UserModelTest;
 
 namespace Modules\User\Tests\Unit\Widgets;
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 use Modules\User\Models\Permission;
 use Modules\User\Models\Role;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 use Modules\User\Models\Profile;
 use Modules\User\Models\Device;
 use Modules\User\Models\AuthenticationLog;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 beforeEach(function () {
     $this->user = User::factory()->create();
@@ -37,10 +46,14 @@ describe('User Model Creation', function () {
             'name' => 'Test User',
             'first_name' => 'Test',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'last_name' => 'User',
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+            'last_name' => 'User',
+>>>>>>> 6d20fbe (.)
             'email' => 'test@example.com',
             'password' => bcrypt('password'),
             'lang' => 'it',
@@ -61,12 +74,16 @@ describe('User Model Creation', function () {
 
     it('generates uuid for id', function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect($this->user->id)->toBeString()->toHaveLength(36); // UUID format
 =======
         expect($this->user->id)
             ->toBeString()
             ->toHaveLength(36); // UUID format
 >>>>>>> fbc8f8e (.)
+=======
+        expect($this->user->id)->toBeString()->toHaveLength(36); // UUID format
+>>>>>>> 6d20fbe (.)
     });
 
     it('uses user database connection', function () {
@@ -154,11 +171,15 @@ describe('User Authentication Features', function () {
 describe('User Relationships', function () {
     it('can have teams', function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         expect($this->user->teams())->toBeInstanceOf(BelongsToMany::class);
     });
 
     it('can own teams', function () {
         expect($this->user->ownedTeams())->toBeInstanceOf(HasMany::class);
+<<<<<<< HEAD
 =======
         expect($this->user->teams())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsToMany::class);
     });
@@ -166,6 +187,8 @@ describe('User Relationships', function () {
     it('can own teams', function () {
         expect($this->user->ownedTeams())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     });
 
     it('can have current team', function () {
@@ -173,6 +196,9 @@ describe('User Relationships', function () {
         $this->user->update(['current_team_id' => $team->id]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         expect($this->user->currentTeam())->toBeInstanceOf(BelongsTo::class);
     });
 
@@ -211,6 +237,7 @@ describe('User Relationships', function () {
 
     it('can have socialite users', function () {
         expect($this->user->socialiteUsers())->toBeInstanceOf(HasMany::class);
+<<<<<<< HEAD
 =======
         expect($this->user->currentTeam())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsTo::class);
     });
@@ -250,6 +277,8 @@ describe('User Relationships', function () {
     it('can have socialite users', function () {
         expect($this->user->socialiteUsers())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     });
 });
 
@@ -330,11 +359,15 @@ describe('User Permission System', function () {
 describe('User Media Management', function () {
     it('implements HasMedia interface', function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         expect($this->user)->toBeInstanceOf(HasMedia::class);
     });
 
     it('can have media attached', function () {
         expect($this->user->media())->toBeInstanceOf(MorphMany::class);
+<<<<<<< HEAD
 =======
         expect($this->user)->toBeInstanceOf(\Spatie\MediaLibrary\HasMedia::class);
     });
@@ -342,6 +375,8 @@ describe('User Media Management', function () {
     it('can have media attached', function () {
         expect($this->user->media())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\MorphMany::class);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     });
 });
 
@@ -354,11 +389,16 @@ describe('User Scopes and Queries', function () {
         $inactiveUsers = User::where('is_active', false)->get();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect($activeUsers->every(fn($user) => $user->is_active))->toBe(true);
         expect($inactiveUsers->every(fn($user) => !$user->is_active))->toBe(true);
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+        expect($activeUsers->every(fn($user) => $user->is_active))->toBe(true);
+        expect($inactiveUsers->every(fn($user) => !$user->is_active))->toBe(true);
+>>>>>>> 6d20fbe (.)
     });
 
     it('can filter by email verified', function () {
@@ -369,11 +409,16 @@ describe('User Scopes and Queries', function () {
         $unverifiedUsers = User::whereNull('email_verified_at')->get();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect($verifiedUsers->every(fn($user) => $user->email_verified_at !== null))->toBe(true);
         expect($unverifiedUsers->every(fn($user) => $user->email_verified_at === null))->toBe(true);
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+        expect($verifiedUsers->every(fn($user) => $user->email_verified_at !== null))->toBe(true);
+        expect($unverifiedUsers->every(fn($user) => $user->email_verified_at === null))->toBe(true);
+>>>>>>> 6d20fbe (.)
     });
 
     it('can filter by language', function () {
@@ -384,11 +429,16 @@ describe('User Scopes and Queries', function () {
         $englishUsers = User::where('lang', 'en')->get();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect($italianUsers->every(fn($user) => $user->lang === 'it'))->toBe(true);
         expect($englishUsers->every(fn($user) => $user->lang === 'en'))->toBe(true);
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+        expect($italianUsers->every(fn($user) => $user->lang === 'it'))->toBe(true);
+        expect($englishUsers->every(fn($user) => $user->lang === 'en'))->toBe(true);
+>>>>>>> 6d20fbe (.)
     });
 });
 
@@ -420,7 +470,11 @@ describe('User Soft Deletes', function () {
         expect(User::withTrashed()->find($userId))->toBeNull();
     });
 <<<<<<< HEAD
+<<<<<<< HEAD
 });
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+});
+>>>>>>> 6d20fbe (.)

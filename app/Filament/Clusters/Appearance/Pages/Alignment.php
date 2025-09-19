@@ -19,25 +19,34 @@ use Modules\User\Filament\Clusters\Appearance;
 
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @property Schema $form
 =======
  * @property \Filament\Schemas\Schema $form
 >>>>>>> fbc8f8e (.)
+=======
+ * @property Schema $form
+>>>>>>> 6d20fbe (.)
  */
 class Alignment extends Page implements HasForms
 {
     use InteractsWithForms;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public null|array $data = [];
 =======
     public ?array $data = [];
 >>>>>>> fbc8f8e (.)
+=======
+    public null|array $data = [];
+>>>>>>> 6d20fbe (.)
 
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
     protected string $view = 'user::filament.clusters.appearance.pages.alignment';
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     protected static null|string $cluster = Appearance::class;
 
@@ -47,6 +56,11 @@ class Alignment extends Page implements HasForms
 
     protected static ?int $navigationSort = 4;
 >>>>>>> fbc8f8e (.)
+=======
+    protected static null|string $cluster = Appearance::class;
+
+    protected static null|int $navigationSort = 4;
+>>>>>>> 6d20fbe (.)
 
     public function mount(): void
     {
@@ -79,6 +93,9 @@ class Alignment extends Page implements HasForms
                 FileUpload::make('background'),
                 ColorPicker::make('overlay_color'),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                 TextInput::make('overlay_opacity')
                     ->numeric()
                     ->minValue(0)
@@ -86,12 +103,15 @@ class Alignment extends Page implements HasForms
                 // ])->columns(2),
             ])
             ->columns(2)
+<<<<<<< HEAD
 =======
                 TextInput::make('overlay_opacity')->numeric()->minValue(0)->maxValue(100),
 
                 // ])->columns(2),
             ])->columns(2)
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             // ->model($this->getUser())
             ->statePath('data');
     }
@@ -102,9 +122,13 @@ class Alignment extends Page implements HasForms
             $data = $this->form->getState();
             dddx($data);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
             // $this->handleRecordUpdate($this->getUser(), $data);
         } catch (Halt $exception) {
             dddx($exception->getMessage());
@@ -125,12 +149,16 @@ class Alignment extends Page implements HasForms
     {
         return [
 <<<<<<< HEAD
+<<<<<<< HEAD
             Action::make('updateAction')->submit('editForm'),
 =======
             Action::make('updateAction')
 
                 ->submit('editForm'),
 >>>>>>> fbc8f8e (.)
+=======
+            Action::make('updateAction')->submit('editForm'),
+>>>>>>> 6d20fbe (.)
         ];
     }
 

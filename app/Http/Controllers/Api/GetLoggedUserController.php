@@ -18,12 +18,16 @@ class GetLoggedUserController extends XotBaseController
     public function __invoke(Request $request): JsonResponse
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         Assert::notNull($user = $request->user(), PHP_EOL . '[' . __LINE__ . ']' . PHP_EOL . '[' . __FILE__ . ']');
 
         return JsonResponseData::from([
             'message' => 'logged user',
             'data' => $user->toArray(),
         ])->response();
+<<<<<<< HEAD
 =======
         Assert::notNull($user = $request->user(), PHP_EOL.'['.__LINE__.']'.PHP_EOL.'['.__FILE__.']');
 
@@ -34,5 +38,7 @@ class GetLoggedUserController extends XotBaseController
             ]
         )->response();
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 }

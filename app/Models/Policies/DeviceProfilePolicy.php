@@ -5,12 +5,17 @@ declare(strict_types=1);
 namespace Modules\User\Models\Policies;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\User\Models\DeviceProfile;
 use Modules\Xot\Contracts\UserContract;
 =======
 use Modules\User\Contracts\UserContract;
 use Modules\User\Models\DeviceProfile;
 >>>>>>> fbc8f8e (.)
+=======
+use Modules\User\Models\DeviceProfile;
+use Modules\Xot\Contracts\UserContract;
+>>>>>>> 6d20fbe (.)
 
 class DeviceProfilePolicy extends UserBasePolicy
 {
@@ -28,15 +33,21 @@ class DeviceProfilePolicy extends UserBasePolicy
     public function view(UserContract $user, DeviceProfile $deviceProfile): bool
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         return (
             $user->hasPermissionTo('device-profile.view') ||
             $user->id === $deviceProfile->user_id ||
             $user->hasRole('super-admin')
         );
+<<<<<<< HEAD
 =======
         return $user->id === $deviceProfile->user_id ||
                $user->hasRole('super-admin');
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 
     /**
@@ -51,6 +62,7 @@ class DeviceProfilePolicy extends UserBasePolicy
      * Determine whether the user can update the model.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function update(UserContract $user, DeviceProfile $_deviceProfile): bool
     {
         return $user->hasPermissionTo('device-profile.update') || $user->hasRole('super-admin');
@@ -60,11 +72,17 @@ class DeviceProfilePolicy extends UserBasePolicy
         return $user->id === $deviceProfile->user_id ||
                $user->hasRole('super-admin');
 >>>>>>> fbc8f8e (.)
+=======
+    public function update(UserContract $user, DeviceProfile $_deviceProfile): bool
+    {
+        return $user->hasPermissionTo('device-profile.update') || $user->hasRole('super-admin');
+>>>>>>> 6d20fbe (.)
     }
 
     /**
      * Determine whether the user can delete the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function delete(UserContract $user, DeviceProfile $_deviceProfile): bool
     {
@@ -75,11 +93,17 @@ class DeviceProfilePolicy extends UserBasePolicy
         return $user->id === $deviceProfile->user_id ||
                $user->hasRole('super-admin');
 >>>>>>> fbc8f8e (.)
+=======
+    public function delete(UserContract $user, DeviceProfile $_deviceProfile): bool
+    {
+        return $user->hasPermissionTo('device-profile.delete') || $user->hasRole('super-admin');
+>>>>>>> 6d20fbe (.)
     }
 
     /**
      * Determine whether the user can restore the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function restore(UserContract $user, DeviceProfile $_deviceProfile): bool
     {
@@ -89,6 +113,11 @@ class DeviceProfilePolicy extends UserBasePolicy
     {
         return $user->hasRole('super-admin');
 >>>>>>> fbc8f8e (.)
+=======
+    public function restore(UserContract $user, DeviceProfile $_deviceProfile): bool
+    {
+        return $user->hasPermissionTo('device-profile.restore') || $user->hasRole('super-admin');
+>>>>>>> 6d20fbe (.)
     }
 
     /**
@@ -97,9 +126,13 @@ class DeviceProfilePolicy extends UserBasePolicy
     public function forceDelete(UserContract $user, DeviceProfile $deviceProfile): bool
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $user->hasPermissionTo('device-profile.force-delete') || $user->hasRole('super-admin');
 =======
         return $user->hasRole('super-admin');
 >>>>>>> fbc8f8e (.)
+=======
+        return $user->hasPermissionTo('device-profile.force-delete') || $user->hasRole('super-admin');
+>>>>>>> 6d20fbe (.)
     }
 }

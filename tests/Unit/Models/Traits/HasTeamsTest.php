@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Support\Collection;
 =======
 namespace Modules\User\Tests\Unit\Models\Traits\HasTeamsTest;
@@ -10,6 +11,9 @@ namespace Modules\User\Tests\Unit\Models\Traits\HasTeamsTest;
 namespace Modules\User\Tests\Unit\Widgets;
 
 >>>>>>> fbc8f8e (.)
+=======
+use Illuminate\Support\Collection;
+>>>>>>> 6d20fbe (.)
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Modules\User\Models\Team;
@@ -33,10 +37,15 @@ class MockUserWithTeams extends Model
 
 beforeEach(function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
     $this->user = new MockUserWithTeams();
     $this->user->id = 1;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    $this->user = new MockUserWithTeams();
+    $this->user->id = 1;
+>>>>>>> 6d20fbe (.)
 
     // Mock del database per i test
     $this->user->setConnection('testing');
@@ -60,6 +69,9 @@ describe('HasTeams Trait', function () {
 
         // Mock della relazione teams per simulare l'appartenenza
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $this->user
             ->shouldReceive('teams->where->exists')
             ->with('team_id', $teamId)
@@ -67,17 +79,23 @@ describe('HasTeams Trait', function () {
 
         $result = $this->user->belongsToTeam($teamId);
 
+<<<<<<< HEAD
 =======
         $this->user->shouldReceive('teams->where->exists')
             ->with('team_id', $teamId)
             ->andReturn(true);
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         expect($result)->toBeTrue();
     });
 
     it('can check if user belongs to a team by Team model', function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $team = new Team();
         $team->id = 10;
 
@@ -89,6 +107,7 @@ describe('HasTeams Trait', function () {
 
         $result = $this->user->belongsToTeam($team);
 
+<<<<<<< HEAD
 =======
 
         // Mock della relazione teams per simulare l'appartenenza
@@ -97,6 +116,8 @@ describe('HasTeams Trait', function () {
             ->andReturn(true);
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         expect($result)->toBeTrue();
     });
 
@@ -105,6 +126,9 @@ describe('HasTeams Trait', function () {
 
         // Mock della relazione teams per simulare la non appartenenza
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $this->user
             ->shouldReceive('teams->where->exists')
             ->with('team_id', $teamId)
@@ -112,18 +136,24 @@ describe('HasTeams Trait', function () {
 
         $result = $this->user->belongsToTeam($teamId);
 
+<<<<<<< HEAD
 =======
         $this->user->shouldReceive('teams->where->exists')
             ->with('team_id', $teamId)
             ->andReturn(false);
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         expect($result)->toBeFalse();
     });
 
     it('handles both integer and Team model parameters', function () {
         $teamId = 15;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $team = new Team();
         $team->id = 15;
 
@@ -141,6 +171,7 @@ describe('HasTeams Trait', function () {
         $resultById = $this->user->belongsToTeam($teamId);
         $resultByModel = $this->user->belongsToTeam($team);
 
+<<<<<<< HEAD
 =======
 
         // Mock per entrambi i casi
@@ -149,6 +180,8 @@ describe('HasTeams Trait', function () {
             ->andReturn(true);
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         expect($resultById)->toBeTrue();
         expect($resultByModel)->toBeTrue();
     });
@@ -161,13 +194,19 @@ describe('HasTeams Trait', function () {
         ]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         // Mock della relazione teams per restituire la collezione
         $this->user->shouldReceive('teams->get')->andReturn($teams);
 
         $userTeams = $this->user->teams()->get();
 
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         expect($userTeams)->toHaveCount(3);
         expect($userTeams->first()->name)->toBe('Team A');
         expect($userTeams->last()->name)->toBe('Team C');
@@ -181,6 +220,9 @@ describe('HasTeams Trait', function () {
 
         // Mock della relazione teams con filtro
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $this->user
             ->shouldReceive('teams->where->get')
             ->with('is_active', true)
@@ -193,12 +235,15 @@ describe('HasTeams Trait', function () {
 
         expect($activeUserTeams)->toHaveCount(2);
         expect($activeUserTeams->every(fn($team) => $team->is_active))->toBeTrue();
+<<<<<<< HEAD
 =======
         $this->user->shouldReceive('teams->where->get')
             ->with('is_active', true)
             ->andReturn($activeTeams);
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     });
 
     it('can check team membership with timestamps', function () {
@@ -206,6 +251,9 @@ describe('HasTeams Trait', function () {
 
         // Mock della relazione teams con timestamps
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $this->user
             ->shouldReceive('teams->where->exists')
             ->with('team_id', $teamId)
@@ -213,12 +261,15 @@ describe('HasTeams Trait', function () {
 
         $result = $this->user->belongsToTeam($teamId);
 
+<<<<<<< HEAD
 =======
         $this->user->shouldReceive('teams->where->exists')
             ->with('team_id', $teamId)
             ->andReturn(true);
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         expect($result)->toBeTrue();
     });
 
@@ -227,11 +278,16 @@ describe('HasTeams Trait', function () {
 
         foreach ($teamIds as $teamId) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $this->user
                 ->shouldReceive('teams->where->exists')
 =======
             $this->user->shouldReceive('teams->where->exists')
 >>>>>>> fbc8f8e (.)
+=======
+            $this->user
+                ->shouldReceive('teams->where->exists')
+>>>>>>> 6d20fbe (.)
                 ->with('team_id', $teamId)
                 ->andReturn(true);
         }
@@ -248,11 +304,16 @@ describe('HasTeams Trait', function () {
         foreach ($invalidTeamIds as $teamId) {
             if (is_numeric($teamId) && $teamId > 0) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 $this->user
                     ->shouldReceive('teams->where->exists')
 =======
                 $this->user->shouldReceive('teams->where->exists')
 >>>>>>> fbc8f8e (.)
+=======
+                $this->user
+                    ->shouldReceive('teams->where->exists')
+>>>>>>> 6d20fbe (.)
                     ->with('team_id', $teamId)
                     ->andReturn(false);
             }
@@ -260,11 +321,16 @@ describe('HasTeams Trait', function () {
 
         // Test con ID 0 (valido ma probabilmente non esistente)
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->user
             ->shouldReceive('teams->where->exists')
 =======
         $this->user->shouldReceive('teams->where->exists')
 >>>>>>> fbc8f8e (.)
+=======
+        $this->user
+            ->shouldReceive('teams->where->exists')
+>>>>>>> 6d20fbe (.)
             ->with('team_id', 0)
             ->andReturn(false);
 
@@ -274,6 +340,9 @@ describe('HasTeams Trait', function () {
 
     it('can work with team pivot table', function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $team = new Team();
         $team->id = 30;
 
@@ -285,6 +354,7 @@ describe('HasTeams Trait', function () {
 
         $result = $this->user->belongsToTeam($team);
 
+<<<<<<< HEAD
 =======
 
         // Mock della relazione teams con pivot
@@ -293,6 +363,8 @@ describe('HasTeams Trait', function () {
             ->andReturn(true);
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         expect($result)->toBeTrue();
     });
 
@@ -300,10 +372,15 @@ describe('HasTeams Trait', function () {
         $teamsRelation = $this->user->teams();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect($teamsRelation)->toBeInstanceOf(BelongsToMany::class);
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+        expect($teamsRelation)->toBeInstanceOf(BelongsToMany::class);
+
+>>>>>>> 6d20fbe (.)
         // Verifica che la relazione usi la tabella pivot corretta
         $pivotTable = $teamsRelation->getTable();
         expect($pivotTable)->toBe('team_user');
@@ -313,14 +390,20 @@ describe('HasTeams Trait', function () {
         $teamsRelation = $this->user->teams();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         expect($teamsRelation)->toBeInstanceOf(BelongsToMany::class);
 
         // Verifica che la relazione usi le chiavi esterne corrette
         $foreignPivotKey = $teamsRelation->getForeignPivotKeyName();
         $relatedPivotKey = $teamsRelation->getRelatedPivotKeyName();
 
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         expect($foreignPivotKey)->toBe('user_id');
         expect($relatedPivotKey)->toBe('team_id');
     });
@@ -329,10 +412,15 @@ describe('HasTeams Trait', function () {
         $teamsRelation = $this->user->teams();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         expect($teamsRelation)->toBeInstanceOf(BelongsToMany::class);
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+        expect($teamsRelation)->toBeInstanceOf(BelongsToMany::class);
+
+>>>>>>> 6d20fbe (.)
         // Verifica che la relazione includa i timestamps
         $withTimestamps = $teamsRelation->withTimestamps;
         expect($withTimestamps)->toBeTrue();
@@ -342,9 +430,13 @@ describe('HasTeams Trait', function () {
 describe('HasTeams Trait Integration', function () {
     it('can be used with User model', function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $user = new User();
 =======
 >>>>>>> fbc8f8e (.)
+=======
+        $user = new User();
+>>>>>>> 6d20fbe (.)
 
         expect($user)->toHaveMethod('teams');
         expect($user)->toHaveMethod('belongsToTeam');
@@ -352,10 +444,15 @@ describe('HasTeams Trait Integration', function () {
 
     it('maintains trait functionality across different models', function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $user1 = new MockUserWithTeams();
         $user2 = new MockUserWithTeams();
 =======
 >>>>>>> fbc8f8e (.)
+=======
+        $user1 = new MockUserWithTeams();
+        $user2 = new MockUserWithTeams();
+>>>>>>> 6d20fbe (.)
 
         expect($user1)->toHaveMethod('teams');
         expect($user1)->toHaveMethod('belongsToTeam');
@@ -368,15 +465,21 @@ describe('HasTeams Trait Integration', function () {
 
         foreach ($teamIds as $teamId) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             $this->user
                 ->shouldReceive('teams->where->exists')
                 ->with('team_id', $teamId)
                 ->andReturn(($teamId % 20) === 0); // Solo i team con ID multipli di 20
+<<<<<<< HEAD
 =======
             $this->user->shouldReceive('teams->where->exists')
                 ->with('team_id', $teamId)
                 ->andReturn($teamId % 20 === 0); // Solo i team con ID multipli di 20
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         }
 
         $results = [];
@@ -396,15 +499,21 @@ describe('HasTeams Trait Integration', function () {
         ]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         // Mock della relazione teams
         $this->user->shouldReceive('teams->get')->andReturn($teams);
 
         $userTeams = $this->user->teams()->get();
 
         expect($userTeams)->toBeInstanceOf(Collection::class);
+<<<<<<< HEAD
 =======
         expect($userTeams)->toBeInstanceOf(\Illuminate\Support\Collection::class);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         expect($userTeams)->toHaveCount(2);
         expect($userTeams->pluck('name')->toArray())->toContain('Team Alpha', 'Team Beta');
     });
@@ -416,6 +525,9 @@ describe('HasTeams Trait Error Handling', function () {
 
         // Mock della relazione teams per simulare team non esistente
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $this->user
             ->shouldReceive('teams->where->exists')
             ->with('team_id', $nonExistentTeamId)
@@ -423,18 +535,24 @@ describe('HasTeams Trait Error Handling', function () {
 
         $result = $this->user->belongsToTeam($nonExistentTeamId);
 
+<<<<<<< HEAD
 =======
         $this->user->shouldReceive('teams->where->exists')
             ->with('team_id', $nonExistentTeamId)
             ->andReturn(false);
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         expect($result)->toBeFalse();
     });
 
     it('handles null team parameter gracefully', function () {
         // Mock della relazione teams per simulare parametro null
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $this->user
             ->shouldReceive('teams->where->exists')
             ->with('team_id', null)
@@ -442,12 +560,15 @@ describe('HasTeams Trait Error Handling', function () {
 
         $result = $this->user->belongsToTeam(null);
 
+<<<<<<< HEAD
 =======
         $this->user->shouldReceive('teams->where->exists')
             ->with('team_id', null)
             ->andReturn(false);
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         expect($result)->toBeFalse();
     });
 
@@ -455,15 +576,21 @@ describe('HasTeams Trait Error Handling', function () {
         $emptyTeams = collect([]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         // Mock della relazione teams per restituire collezione vuota
         $this->user->shouldReceive('teams->get')->andReturn($emptyTeams);
 
         $userTeams = $this->user->teams()->get();
 
         expect($userTeams)->toBeInstanceOf(Collection::class);
+<<<<<<< HEAD
 =======
         expect($userTeams)->toBeInstanceOf(\Illuminate\Support\Collection::class);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         expect($userTeams)->toHaveCount(0);
         expect($userTeams->isEmpty())->toBeTrue();
     });
@@ -475,6 +602,9 @@ describe('HasTeams Trait Performance', function () {
 
         foreach ($largeTeamIds as $teamId) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             $this->user
                 ->shouldReceive('teams->where->exists')
                 ->with('team_id', $teamId)
@@ -483,6 +613,7 @@ describe('HasTeams Trait Performance', function () {
 
         $startTime = microtime(true);
 
+<<<<<<< HEAD
 =======
             $this->user->shouldReceive('teams->where->exists')
                 ->with('team_id', $teamId)
@@ -490,17 +621,25 @@ describe('HasTeams Trait Performance', function () {
         }
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         $results = [];
         foreach ($largeTeamIds as $teamId) {
             $results[$teamId] = $this->user->belongsToTeam($teamId);
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $endTime = microtime(true);
         $executionTime = $endTime - $startTime;
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+        $endTime = microtime(true);
+        $executionTime = $endTime - $startTime;
+
+>>>>>>> 6d20fbe (.)
         expect($results)->toHaveCount(1000);
         expect($executionTime)->toBeLessThan(1.0); // Dovrebbe essere molto veloce
         expect($results[2])->toBeTrue();
@@ -509,6 +648,9 @@ describe('HasTeams Trait Performance', function () {
 
     it('can handle team relationship queries efficiently', function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $teams = collect(range(1, 100))->map(fn($id) => new Team(['id' => $id, 'name' => "Team {$id}"]));
 
         // Mock della relazione teams
@@ -521,11 +663,14 @@ describe('HasTeams Trait Performance', function () {
 
         $endTime = microtime(true);
         $executionTime = $endTime - $startTime;
+<<<<<<< HEAD
 =======
         $teams = collect(range(1, 100))->map(function ($id) {
             return new Team(['id' => $id, 'name' => "Team {$id}"]);
         });
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
         expect($userTeams)->toHaveCount(100);
         expect($executionTime)->toBeLessThan(0.1); // Dovrebbe essere molto veloce
@@ -533,6 +678,9 @@ describe('HasTeams Trait Performance', function () {
     });
 });
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)

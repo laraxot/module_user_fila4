@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Filament\Schemas\Components\Component;
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Schemas\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Pages\Actions\EditAction;
@@ -19,6 +24,9 @@ class ViewRole extends XotBaseViewRecord
 {
     protected static string $resource = RoleResource::class;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 
     /**
      * @return array<Component>
@@ -36,6 +44,7 @@ class ViewRole extends XotBaseViewRecord
                 TextEntry::make('created_at'),
                 TextEntry::make('updated_at'),
             ]),
+<<<<<<< HEAD
 =======
     
     /**
@@ -55,6 +64,8 @@ class ViewRole extends XotBaseViewRecord
                     TextEntry::make('updated_at'),
                 ])
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         ];
     }
 }

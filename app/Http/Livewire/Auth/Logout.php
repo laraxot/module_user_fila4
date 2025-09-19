@@ -6,6 +6,9 @@ namespace Modules\User\Http\Livewire\Auth;
 
 use Exception;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -13,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+<<<<<<< HEAD
 =======
 use Livewire\Component;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
@@ -22,6 +26,8 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 /**
  * Componente Livewire per la gestione del logout.
@@ -52,6 +58,9 @@ class Logout extends Component
             // Emetti evento pre-logout
             Event::dispatch('auth.logout.attempting', [$user]);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 
             // Esegui logout
             Auth::logout();
@@ -63,6 +72,7 @@ class Logout extends Component
             // Emetti evento post-logout
             Event::dispatch('auth.logout.successful');
 
+<<<<<<< HEAD
 =======
             
             // Esegui logout
@@ -76,31 +86,43 @@ class Logout extends Component
             Event::dispatch('auth.logout.successful');
             
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             // Log per audit
             if ($user) {
                 Log::info('User logged out successfully', [
                     'user_id' => $user->id,
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                     'email' => $user->email,
                 ]);
             }
 
+<<<<<<< HEAD
 =======
                     'email' => $user->email
                 ]);
             }
             
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             // Redirect alla pagina di login
             return redirect()->route('login');
         } catch (Exception $e) {
             Log::error('Logout failed', [
                 'error' => $e->getMessage(),
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'user_id' => Auth::id(),
 =======
                 'user_id' => Auth::id()
 >>>>>>> fbc8f8e (.)
+=======
+                'user_id' => Auth::id(),
+>>>>>>> 6d20fbe (.)
             ]);
 
             session()->flash('error', __('Si è verificato un errore durante il logout'));

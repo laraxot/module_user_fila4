@@ -7,6 +7,9 @@ namespace Modules\User\Filament\Resources\UserResource\Pages;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Filters\BaseFilter;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Override;
 use Filament\Tables;
 use Filament\Tables\Actions\Action;
@@ -20,6 +23,7 @@ use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Filament\Actions\Header\ExportXlsAction;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+<<<<<<< HEAD
 =======
 use Filament\Tables;
 use Filament\Tables\Actions\Action;
@@ -34,6 +38,8 @@ use Modules\Xot\Filament\Actions\Header\ExportXlsAction;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 abstract class BaseListUsers extends XotBaseListRecords
@@ -46,6 +52,9 @@ abstract class BaseListUsers extends XotBaseListRecords
      * @return array<string, Column>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     public function getTableColumns(): array
     {
@@ -56,6 +65,7 @@ abstract class BaseListUsers extends XotBaseListRecords
     }
 
     /**
+<<<<<<< HEAD
 =======
     public function getTableColumns(): array
     {
@@ -69,22 +79,30 @@ abstract class BaseListUsers extends XotBaseListRecords
 
      /**
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
      * Get the header actions.
      *
      * @return array<string, \Filament\Actions\Action>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     protected function getHeaderActions(): array
     {
         return [
             'export_xls' => ExportXlsAction::make('export_xls'),
+<<<<<<< HEAD
 =======
     protected function getHeaderActions(): array
     {
         return [
            'export_xls' => ExportXlsAction::make('export_xls'),
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         ];
     }
 
@@ -94,20 +112,28 @@ abstract class BaseListUsers extends XotBaseListRecords
      * @return array<BaseFilter>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function getTableFilters(): array
     {
         return [
             // Filtri disabilitati per ora, abilitare se necessario
             /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
              * Filter::make('verified')
              * ->query(static fn (Builder $query): Builder => $query->whereNotNull('email_verified_at')),
              * Filter::make('unverified')
              * ->query(static fn (Builder $query): Builder => $query->whereNull('email_verified_at')),
              */
+<<<<<<< HEAD
 =======
             Filter::make('verified')
                 ->query(static fn (Builder $query): Builder => $query->whereNotNull('email_verified_at')),
@@ -115,6 +141,8 @@ abstract class BaseListUsers extends XotBaseListRecords
                 ->query(static fn (Builder $query): Builder => $query->whereNull('email_verified_at')),
             */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         ];
     }
 
@@ -126,6 +154,9 @@ abstract class BaseListUsers extends XotBaseListRecords
      */
     /** @phpstan-ignore-next-line */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     public function getTableActions(): array
     {
@@ -145,6 +176,7 @@ abstract class BaseListUsers extends XotBaseListRecords
          * ->icon('heroicon-o-trash')
          * ->action(static fn (UserContract $user) => $user->delete());
          */
+<<<<<<< HEAD
 =======
     public function getTableActions(): array
     {
@@ -167,6 +199,8 @@ abstract class BaseListUsers extends XotBaseListRecords
             ->action(static fn (UserContract $user) => $user->delete());
         */   
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         /** @phpstan-ignore-next-line */
         return $actions;
     }
@@ -183,8 +217,11 @@ abstract class BaseListUsers extends XotBaseListRecords
         ];
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
     
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 }

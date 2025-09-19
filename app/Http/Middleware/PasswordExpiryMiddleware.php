@@ -34,6 +34,9 @@ class PasswordExpiryMiddleware
     {
         return 'errors.password-expired';
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 
         /*
          * $route = Filament::getCurrentPanel()->generateRouteName(
@@ -45,6 +48,7 @@ class PasswordExpiryMiddleware
          *
          * return $route;
          * // */
+<<<<<<< HEAD
 =======
         /*
         $route = Filament::getCurrentPanel()->generateRouteName(
@@ -57,6 +61,8 @@ class PasswordExpiryMiddleware
         return $route;
         // */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         // return 'filament.admin.auth.password-reset.request';
     }
 
@@ -64,10 +70,14 @@ class PasswordExpiryMiddleware
     {
         $user = Auth::user();
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (!$user) {
 =======
         if (! $user) {
 >>>>>>> fbc8f8e (.)
+=======
+        if (!$user) {
+>>>>>>> 6d20fbe (.)
             return false;
         }
 

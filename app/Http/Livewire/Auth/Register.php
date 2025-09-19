@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Http\Livewire\Auth;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Filament\Schemas\Schema;
 use Livewire\Features\SupportRedirects\Redirector;
 use Modules\Xot\Actions\File\ViewCopyAction;
@@ -19,6 +22,7 @@ use Modules\Xot\Datas\XotData;
 
 /**
  * @property Schema $form
+<<<<<<< HEAD
 =======
 use Livewire\Features\SupportRedirects\Redirector;
 use Modules\Xot\Actions\File\ViewCopyAction;
@@ -34,6 +38,8 @@ use Illuminate\Validation\Rules\Password as PasswordRule;
 /**
  * @property \Filament\Schemas\Schema $form
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
  */
 class Register extends Component
 {
@@ -86,17 +92,23 @@ class Register extends Component
     {
         // Copy the view templates to the pub_theme location
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         app(ViewCopyAction::class)
             ->execute('user::livewire.auth.register', 'pub_theme::livewire.auth.register');
         app(ViewCopyAction::class)->execute('user::layouts.auth', 'pub_theme::layouts.auth');
         app(ViewCopyAction::class)->execute('user::layouts.base', 'pub_theme::layouts.base');
 
+<<<<<<< HEAD
 =======
         app(ViewCopyAction::class)->execute('user::livewire.auth.register', 'pub_theme::livewire.auth.register');
         app(ViewCopyAction::class)->execute('user::layouts.auth', 'pub_theme::layouts.auth');
         app(ViewCopyAction::class)->execute('user::layouts.base', 'pub_theme::layouts.base');
         
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         /**
          * @phpstan-var view-string
          */
@@ -104,10 +116,14 @@ class Register extends Component
 
         // Return view with layout - Livewire specific implementation
 <<<<<<< HEAD
+<<<<<<< HEAD
         return view($view)->extends('pub_theme::layouts.auth');
 =======
         return view($view)
             ->extends('pub_theme::layouts.auth');
 >>>>>>> fbc8f8e (.)
+=======
+        return view($view)->extends('pub_theme::layouts.auth');
+>>>>>>> 6d20fbe (.)
     }
 }

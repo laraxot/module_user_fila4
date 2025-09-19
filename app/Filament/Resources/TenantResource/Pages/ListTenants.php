@@ -8,9 +8,13 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\TenantResource\Pages;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\TenantResource;
@@ -25,12 +29,16 @@ class ListTenants extends XotBaseListRecords
      * Definisce le colonne della tabella per la lista tenant.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     public function getTableColumns(): array
     {
         return [
             'id' => TextColumn::make('id')->searchable()->sortable(),
             'name' => TextColumn::make('name')->searchable(),
+<<<<<<< HEAD
 =======
     public function getTableColumns(): array
     {
@@ -43,6 +51,8 @@ class ListTenants extends XotBaseListRecords
                 ->searchable(),
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             'slug' => TextColumn::make('slug')
                 ->default(function ($record) {
                     if ($record === null) {

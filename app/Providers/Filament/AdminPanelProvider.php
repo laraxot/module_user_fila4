@@ -9,9 +9,13 @@ declare(strict_types=1);
 namespace Modules\User\Providers\Filament;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Navigation\MenuItem;
 use Filament\Panel;
 use Filament\Support\Facades\FilamentView;
@@ -25,14 +29,21 @@ class AdminPanelProvider extends XotBasePanelProvider
     protected string $module = 'User';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function panel(Panel $panel): Panel
     {
         $panel = parent::panel($panel);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         FilamentView::registerRenderHook('panels::auth.login.form.after', static fn(): string => Blade::render(
             "@livewire('socialite.buttons')",
         ));
@@ -55,6 +66,7 @@ class AdminPanelProvider extends XotBasePanelProvider
         FilamentView::registerRenderHook('panels::user-menu.before', static fn(): string => Blade::render(
             "@livewire('team.change')",
         ));
+<<<<<<< HEAD
 =======
         FilamentView::registerRenderHook(
             'panels::auth.login.form.after',
@@ -81,11 +93,16 @@ class AdminPanelProvider extends XotBasePanelProvider
             static fn (): string => Blade::render("@livewire('team.change')"),
         );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
         FilamentView::registerRenderHook(
             'panels::user-menu.before',
             // static fn (): string => View::make('user::badges.super-admin')->render(),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             static fn(): string => Blade::render("@livewire('profile.super-admin')"),
         );
 
@@ -95,6 +112,7 @@ class AdminPanelProvider extends XotBasePanelProvider
          * fn (): string => Blade::render('@livewire(\'team.change\')'),
          * );
          */
+<<<<<<< HEAD
 =======
             static fn (): string => Blade::render("@livewire('profile.super-admin')"),
         );
@@ -106,6 +124,8 @@ class AdminPanelProvider extends XotBasePanelProvider
         );
         */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         // $tenantId = request()->route()->parameter('tenant');
         // $profile_url = MyProfilePage::getUrl(panel: 'admin');
         // $panel->default();
@@ -118,10 +138,14 @@ class AdminPanelProvider extends XotBasePanelProvider
         //     // 'account' => MenuItem::make()->url($profile_url),
         //     MenuItem::make()
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 =======
         //
 >>>>>>> fbc8f8e (.)
+=======
+        
+>>>>>>> 6d20fbe (.)
         //         ->url(fn (): string => '#')
         //         ->icon('heroicon-m-cog-8-tooth'),
         // ]);
@@ -129,7 +153,11 @@ class AdminPanelProvider extends XotBasePanelProvider
         return $panel;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
 }

@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -17,6 +21,9 @@ use Modules\User\Filament\Resources\DeviceResource\Pages\ListDevices;
 use Modules\User\Filament\Resources\DeviceResource\RelationManagers\UsersRelationManager;
 use Modules\User\Models\Device;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
@@ -29,6 +36,7 @@ class DeviceResource extends XotBaseResource
     {
         return [
             'uuid' => TextInput::make('uuid')->label(__('user::device.fields.uuid.label'))->maxLength(255),
+<<<<<<< HEAD
 =======
 use Modules\Xot\Filament\Resources\XotBaseResource;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
@@ -44,6 +52,8 @@ class DeviceResource extends XotBaseResource
                 ->label(__('user::device.fields.uuid.label'))
                 ->maxLength(255),
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             'mobile_id' => TextInput::make('mobile_id')
                 ->label(__('user::device.fields.mobile_id.label'))
                 ->maxLength(255),
@@ -61,6 +71,9 @@ class DeviceResource extends XotBaseResource
                 ->separator(',')
                 ->reorderable(),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             'device' => TextInput::make('device')->label(__('user::device.fields.device.label'))->maxLength(255),
             'platform' => TextInput::make('platform')->label(__('user::device.fields.platform.label'))->maxLength(255),
             'browser' => TextInput::make('browser')->label(__('user::device.fields.browser.label'))->maxLength(255),
@@ -76,6 +89,7 @@ class DeviceResource extends XotBaseResource
             'is_phone' => Toggle::make('is_phone')->label(__('user::device.fields.is_phone.label')),
         ];
     }
+<<<<<<< HEAD
 =======
             'device' => TextInput::make('device')
                 ->label(__('user::device.fields.device.label'))
@@ -108,4 +122,6 @@ class DeviceResource extends XotBaseResource
 
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 }

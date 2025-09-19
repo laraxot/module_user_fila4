@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Database\Seeders;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -15,6 +18,7 @@ use Modules\User\Models\Team;
 /**
  * Seeder per il modulo User.
  *
+<<<<<<< HEAD
 =======
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -27,6 +31,8 @@ use Illuminate\Support\Facades\DB;
  * Seeder per il modulo User.
  * 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
  * Popola il database con dati di base per:
  * - Ruoli e permessi di sistema
  * - Team di default
@@ -51,10 +57,14 @@ class UserSeeder extends Seeder
             $this->seedSystemRolesAndPermissions();
             $this->seedSystemTeams();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
             $this->command->info('✅ Seeding User completato con successo!');
         } finally {
             // Riabilita i controlli di foreign key (solo per MySQL)
@@ -81,9 +91,12 @@ class UserSeeder extends Seeder
             'view users',
             'impersonate users',
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             // Role management
             'manage roles',
             'create roles',
@@ -91,9 +104,12 @@ class UserSeeder extends Seeder
             'delete roles',
             'view roles',
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             // Permission management
             'manage permissions',
             'create permissions',
@@ -101,9 +117,12 @@ class UserSeeder extends Seeder
             'delete permissions',
             'view permissions',
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             // Team management
             'manage teams',
             'create teams',
@@ -113,9 +132,12 @@ class UserSeeder extends Seeder
             'join teams',
             'leave teams',
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             // System settings
             'manage system settings',
             'view system settings',
@@ -123,9 +145,12 @@ class UserSeeder extends Seeder
             'view system logs',
             'manage backups',
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             // Analytics and reporting
             'view analytics',
             'export data',
@@ -163,10 +188,14 @@ class UserSeeder extends Seeder
         // Assegna permessi ai ruoli
         $superAdminRole->givePermissionTo(Permission::all());
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
         $systemAdminRole->givePermissionTo([
             'manage users',
             'create users',
@@ -199,12 +228,17 @@ class UserSeeder extends Seeder
         ]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->command->info('   ✓ Creati ' . count($systemPermissions) . ' permessi di sistema');
         $this->command->info('   ✓ Creati 4 ruoli di sistema (super-admin, system-admin, moderator, user)');
 =======
         $this->command->info("   ✓ Creati " . count($systemPermissions) . " permessi di sistema");
         $this->command->info("   ✓ Creati 4 ruoli di sistema (super-admin, system-admin, moderator, user)");
 >>>>>>> fbc8f8e (.)
+=======
+        $this->command->info('   ✓ Creati ' . count($systemPermissions) . ' permessi di sistema');
+        $this->command->info('   ✓ Creati 4 ruoli di sistema (super-admin, system-admin, moderator, user)');
+>>>>>>> 6d20fbe (.)
     }
 
     /**
@@ -216,6 +250,9 @@ class UserSeeder extends Seeder
 
         // Team di amministrazione
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $adminTeam = Team::factory()->create([
             'name' => 'Amministratori',
             'personal_team' => false,
@@ -248,6 +285,7 @@ class UserSeeder extends Seeder
         $this->command->info('   ✓ Creati 5 team di sistema');
     }
 }
+<<<<<<< HEAD
 =======
         $adminTeam = Team::factory()
             ->create([
@@ -288,3 +326,5 @@ class UserSeeder extends Seeder
 }
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)

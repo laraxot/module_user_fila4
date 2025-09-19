@@ -23,17 +23,23 @@ class RetrieveOauthUserAction
      * Execute the action.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     public function execute(string $provider): null|SocialiteUserContract
     {
         try {
             return Socialite::driver($provider)->user();
 
+<<<<<<< HEAD
 =======
     public function execute(string $provider): ?SocialiteUserContract
     {
         try {
             return Socialite::driver($provider)->user();
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             // SocialiteProviders\Manager\OAuth2\User
         } catch (InvalidStateException $invalidStateException) {
             InvalidState::dispatch($invalidStateException);
@@ -45,6 +51,9 @@ class RetrieveOauthUserAction
 
 /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
  * +id: "auth0|6491ce20f1ac1401362d154f"
  * +nickname: "m.sottana"
  * +name: " "
@@ -73,6 +82,7 @@ class RetrieveOauthUserAction
  * ]
  * }
  */
+<<<<<<< HEAD
 =======
 +id: "auth0|6491ce20f1ac1401362d154f"
       +nickname: "m.sottana"
@@ -103,3 +113,5 @@ class RetrieveOauthUserAction
     }
     */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)

@@ -18,19 +18,27 @@ class SingleRoleSelect extends Select
         $options = Role::all()->pluck('name', 'id')->toArray();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->options(fn(): array => $options) // Ruoli dal DB
 =======
         $this
             ->options(fn (): array => $options) // Ruoli dal DB
 >>>>>>> fbc8f8e (.)
+=======
+        $this->options(fn(): array => $options) // Ruoli dal DB
+>>>>>>> 6d20fbe (.)
             // ->searchable() // Permette la ricerca
             // ->preload() // Precarica i risultati
             ->placeholder('Select a role');
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
     // */
 
     public function getOptionValueProperty(): string
@@ -38,6 +46,9 @@ class SingleRoleSelect extends Select
         return $this->optionValueProperty;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 
     /*
      * public static function make(string $name): static
@@ -49,6 +60,7 @@ class SingleRoleSelect extends Select
      * ->placeholder('Select a role');
      * }
      */
+<<<<<<< HEAD
 =======
     /*
     public static function make(string $name): static
@@ -61,4 +73,6 @@ class SingleRoleSelect extends Select
     }
             */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 }

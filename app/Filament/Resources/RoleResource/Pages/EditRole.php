@@ -14,6 +14,7 @@ use Modules\User\Filament\Resources\RoleResource;
 use Modules\User\Models\Role;
 use Modules\User\Support\Utils;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Webmozart\Assert\Assert;
 
@@ -30,6 +31,11 @@ use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 
 >>>>>>> fbc8f8e (.)
+=======
+use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+use Webmozart\Assert\Assert;
+
+>>>>>>> 6d20fbe (.)
 class EditRole extends XotBaseEditRecord
 {
     // //
@@ -46,6 +52,9 @@ class EditRole extends XotBaseEditRecord
         $permissionModels = collect();
         Assert::isArray($data = $this->data);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $this->permissions->each(static function ($permission) use ($permissionModels, $data): void {
             $permissionModels->push(Utils::getPermissionModel()::firstOrCreate([
                 'name' => $permission,
@@ -53,6 +62,7 @@ class EditRole extends XotBaseEditRecord
             ]));
         });
         Assert::isInstanceOf($this->record, Role::class, '[' . __LINE__ . '][' . class_basename($this) . ']');
+<<<<<<< HEAD
 =======
         $this->permissions->each(
             static function ($permission) use ($permissionModels, $data): void {
@@ -68,6 +78,8 @@ class EditRole extends XotBaseEditRecord
         );
         Assert::isInstanceOf($this->record, Role::class, '['.__LINE__.']['.class_basename($this).']');
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         $this->record->syncPermissions($permissionModels);
     }
 
@@ -82,6 +94,9 @@ class EditRole extends XotBaseEditRecord
     protected function mutateFormDataBeforeSave(array $data): array
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $this->permissions = collect($data)
             ->filter(
                 static fn($_permission, $key): bool => (
@@ -89,9 +104,12 @@ class EditRole extends XotBaseEditRecord
                 ),
             )
             ->keys();
+<<<<<<< HEAD
 =======
         $this->permissions = collect($data)->filter(static fn ($permission, $key): bool => ! \in_array($key, ['name', 'guard_name', 'select_all'], false) && Str::contains($key, '_'))->keys();
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
         return Arr::only($data, ['name', 'guard_name']);
     }

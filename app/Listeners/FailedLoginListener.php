@@ -39,6 +39,9 @@ class FailedLoginListener
             $location = [];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             $log = $event
                 ->user
                 ->authentications()
@@ -49,6 +52,7 @@ class FailedLoginListener
                     'login_successful' => false,
                     'location' => $location,
                 ]);
+<<<<<<< HEAD
 =======
             $log = $event->user->authentications()->create([
                 'ip_address' => $ip,
@@ -58,6 +62,8 @@ class FailedLoginListener
                 'location' => $location,
             ]);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
             // if (config('authentication-log.notifications.failed-login.enabled')) {
             //    $failedLogin = config('authentication-log.notifications.failed-login.template') ?? FailedLogin::class;

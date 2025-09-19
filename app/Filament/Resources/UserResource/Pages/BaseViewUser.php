@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\Pages;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Override;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists;
@@ -14,6 +17,7 @@ use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 /**
  * Base class for viewing user resources.
  *
+<<<<<<< HEAD
 =======
 use Filament\Infolists\Components\TextEntry;
 use Modules\User\Filament\Resources\UserResource;
@@ -24,6 +28,8 @@ use Filament\Infolists;
  * Base class for viewing user resources.
  * 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
  * This class provides the base configuration for viewing user resources
  * across the application. It should be extended by specific user type
  * view classes rather than used directly.
@@ -38,6 +44,9 @@ abstract class BaseViewUser extends XotBaseViewRecord
      * @return array<string, mixed>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     public function getInfolistSchema(): array
     {
@@ -49,6 +58,7 @@ abstract class BaseViewUser extends XotBaseViewRecord
             'created_at' => TextEntry::make('created_at')
                 ->label(trans('user::resource.fields.created_at'))
                 ->dateTime(),
+<<<<<<< HEAD
 =======
     public function getInfolistSchema(): array
     {
@@ -70,6 +80,8 @@ abstract class BaseViewUser extends XotBaseViewRecord
                 ->dateTime(),
                 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             'updated_at' => TextEntry::make('updated_at')
                 ->label(trans('user::resource.fields.updated_at'))
                 ->dateTime(),

@@ -1,16 +1,24 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Schema;
@@ -34,12 +42,17 @@ class RegisterWidget extends XotBaseWidget
 {
     protected string $view = 'user::widgets.auth.register-widget';
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected static null|int $sort = 2;
     protected static null|string $maxHeight = '600px';
 =======
     protected static ?int $sort = 2;
     protected static ?string $maxHeight = '600px';
 >>>>>>> fbc8f8e (.)
+=======
+    protected static null|int $sort = 2;
+    protected static null|string $maxHeight = '600px';
+>>>>>>> 6d20fbe (.)
 
     public static function canView(): bool
     {
@@ -56,6 +69,9 @@ class RegisterWidget extends XotBaseWidget
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     public function getFormSchema(): array
     {
@@ -130,6 +146,7 @@ class RegisterWidget extends XotBaseWidget
     public function form(Schema $schema): Schema
     {
         return $schema->components($this->getFormSchema())->statePath('data')->operation('create');
+<<<<<<< HEAD
 =======
     public function getFormSchema(): array
     {
@@ -213,6 +230,8 @@ class RegisterWidget extends XotBaseWidget
             ->statePath('data')
             ->operation('create');
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 
     public function submit(): void
@@ -221,15 +240,20 @@ class RegisterWidget extends XotBaseWidget
             $validatedData = $this->validateForm();
             $this->logRegistrationAttempt($validatedData);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
             $user = DB::transaction(function () use ($validatedData) {
                 $user = $this->createUser($validatedData);
                 $this->afterUserCreated($user);
                 return $user;
             });
+<<<<<<< HEAD
 <<<<<<< HEAD
 
             $this->handleSuccessfulRegistration($user);
@@ -238,6 +262,10 @@ class RegisterWidget extends XotBaseWidget
             $this->handleSuccessfulRegistration($user);
             
 >>>>>>> fbc8f8e (.)
+=======
+
+            $this->handleSuccessfulRegistration($user);
+>>>>>>> 6d20fbe (.)
         } catch (ValidationException $e) {
             throw $e;
         } catch (Exception $e) {
@@ -246,6 +274,9 @@ class RegisterWidget extends XotBaseWidget
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     /**
      * @return array<string, mixed>
      */
@@ -253,16 +284,20 @@ class RegisterWidget extends XotBaseWidget
     {
         $data = $this->form->getState();
 
+<<<<<<< HEAD
 =======
     protected function validateForm(): array
     {
         $data = $this->form->getState();
         
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         return [
             'first_name' => app(SafeStringCastAction::class)->execute($data['first_name']),
             'last_name' => app(SafeStringCastAction::class)->execute($data['last_name']),
             'email' => app(SafeStringCastAction::class)->execute($data['email']),
+<<<<<<< HEAD
 <<<<<<< HEAD
             'password' => Hash::make(
                 app(SafeStringCastAction::class)->execute($data['password']),
@@ -270,6 +305,11 @@ class RegisterWidget extends XotBaseWidget
 =======
             'password' => Hash::make(app(SafeStringCastAction::class)->execute($data['password'])),
 >>>>>>> fbc8f8e (.)
+=======
+            'password' => Hash::make(
+                app(SafeStringCastAction::class)->execute($data['password']),
+            ),
+>>>>>>> 6d20fbe (.)
             'type' => 'standard',
             'state' => 'pending',
             'email_verified_at' => null,
@@ -277,11 +317,17 @@ class RegisterWidget extends XotBaseWidget
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * @param array<string, mixed> $data
      */
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    /**
+     * @param array<string, mixed> $data
+     */
+>>>>>>> 6d20fbe (.)
     protected function logRegistrationAttempt(array $data): void
     {
         $email = app(SafeStringCastAction::class)->execute($data['email']);
@@ -293,11 +339,17 @@ class RegisterWidget extends XotBaseWidget
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * @param array<string, mixed> $data
      */
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    /**
+     * @param array<string, mixed> $data
+     */
+>>>>>>> 6d20fbe (.)
     protected function createUser(array $data): User
     {
         return User::create($data);
@@ -324,19 +376,27 @@ class RegisterWidget extends XotBaseWidget
 
         Auth::login($user);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
         Notification::make()
             ->title(__('user::auth.registration.success'))
             ->success()
             ->send();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
         $this->redirect(route('dashboard'));
     }
 

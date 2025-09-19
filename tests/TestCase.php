@@ -19,7 +19,11 @@ abstract class TestCase extends BaseTestCase
         $this->artisan('module:migrate', ['module' => 'User']);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> fbc8f8e (.)
+=======
+}
+>>>>>>> 6d20fbe (.)

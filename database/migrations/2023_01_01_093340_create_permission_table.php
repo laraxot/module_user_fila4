@@ -5,11 +5,15 @@ declare(strict_types=1);
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 return new class extends XotBaseMigration {
 =======
 return new class extends XotBaseMigration
 {
 >>>>>>> fbc8f8e (.)
+=======
+return new class extends XotBaseMigration {
+>>>>>>> 6d20fbe (.)
     /**
      * Run the migrations.
      */
@@ -30,6 +34,9 @@ return new class extends XotBaseMigration
 
         if (empty($tableNames)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             throw new Exception(
                 'Error: config/permission.php not loaded. Run [php artisan config:clear] and try again.',
             );
@@ -39,6 +46,7 @@ return new class extends XotBaseMigration
             throw new Exception(
                 'Error: team_foreign_key on config/permission.php not loaded. Run [php artisan config:clear] and try again.',
             );
+<<<<<<< HEAD
 =======
             throw new Exception('Error: config/permission.php not loaded. Run [php artisan config:clear] and try again.');
         }
@@ -46,6 +54,8 @@ return new class extends XotBaseMigration
         if ($teams && empty($columnNames['team_foreign_key'] ?? null)) {
             throw new Exception('Error: team_foreign_key on config/permission.php not loaded. Run [php artisan config:clear] and try again.');
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         }
 
         /**
@@ -62,12 +72,16 @@ return new class extends XotBaseMigration
             // Verifica se l'applicazione è completamente inizializzata
             if (app()->bound('cache')) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 app('cache')->store($cache_store !== 'default' ? $cache_store : null)->forget($cache_key);
 =======
                 app('cache')
                     ->store($cache_store !== 'default' ? $cache_store : null)
                     ->forget($cache_key);
 >>>>>>> fbc8f8e (.)
+=======
+                app('cache')->store($cache_store !== 'default' ? $cache_store : null)->forget($cache_key);
+>>>>>>> 6d20fbe (.)
             }
         } catch (Exception $e) {
             // Silently ignore cache errors during package discovery
@@ -77,6 +91,9 @@ return new class extends XotBaseMigration
 
     /* -- is in xotbasemigration
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      * public function down(): void
      * {
      * $tableNames = config('permission.table_names');
@@ -92,6 +109,7 @@ return new class extends XotBaseMigration
      * Schema::drop($tableNames['permissions']);
      * }
      */
+<<<<<<< HEAD
 =======
     public function down(): void
     {
@@ -109,4 +127,6 @@ return new class extends XotBaseMigration
     }
     */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 };

@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\TeamResource\Pages;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Filament\Schemas\Components\Component;
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Schemas\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Modules\User\Filament\Resources\TeamResource;
@@ -21,6 +26,9 @@ class ViewTeam extends XotBaseViewRecord
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      * @return array<Component>
      */
     #[Override]
@@ -37,6 +45,7 @@ class ViewTeam extends XotBaseViewRecord
             ]),
         ];
     }
+<<<<<<< HEAD
 =======
      * @return array<\Filament\Schemas\Components\Component>
      */
@@ -57,4 +66,6 @@ class ViewTeam extends XotBaseViewRecord
 
    
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 }

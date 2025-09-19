@@ -12,10 +12,14 @@ use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Widgets\ChartWidget;
 <<<<<<< HEAD
+<<<<<<< HEAD
 // use Filament\Widgets\Concerns\InteractsWithPageFilters; // Temporaneamente commentato per evitare conflitti trait in Filament 4.x
 =======
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 >>>>>>> fbc8f8e (.)
+=======
+// use Filament\Widgets\Concerns\InteractsWithPageFilters; // Temporaneamente commentato per evitare conflitti trait in Filament 4.x
+>>>>>>> 6d20fbe (.)
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
 use Illuminate\Contracts\Support\Htmlable;
@@ -24,6 +28,9 @@ use Modules\User\Models\AuthenticationLog;
 use Webmozart\Assert\Assert;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 class UsersChartWidget extends ChartWidget implements HasForms, HasActions
 {
     use InteractsWithActions;
@@ -35,6 +42,7 @@ class UsersChartWidget extends ChartWidget implements HasForms, HasActions
     protected null|string $pollingInterval = null;
 
     protected static null|int $sort = 2;
+<<<<<<< HEAD
 =======
 class UsersChartWidget extends ChartWidget implements HasForms, HasActions, HasActions
 {
@@ -48,6 +56,8 @@ class UsersChartWidget extends ChartWidget implements HasForms, HasActions, HasA
 
     protected static ?int $sort = 2;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
     public function getHeading(): Htmlable|string|null
     {
@@ -77,6 +87,7 @@ class UsersChartWidget extends ChartWidget implements HasForms, HasActions, HasA
     protected function getData(): array
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         // Rimuovere chiamate di test non necessarie per ridurre overhead
         // $this->mountAction('test', ['id' => 5]);
         // $this->testAction();
@@ -84,6 +95,11 @@ class UsersChartWidget extends ChartWidget implements HasForms, HasActions, HasA
         $this->mountAction('test', ['id' => 5]);
         $this->testAction();
 >>>>>>> fbc8f8e (.)
+=======
+        // Rimuovere chiamate di test non necessarie per ridurre overhead
+        // $this->mountAction('test', ['id' => 5]);
+        // $this->testAction();
+>>>>>>> 6d20fbe (.)
 
         try {
             Assert::nullOrString($startDate = $this->pageFilters['startDate'] ?? null);
@@ -97,20 +113,29 @@ class UsersChartWidget extends ChartWidget implements HasForms, HasActions, HasA
             Assert::notNull($startDate = Carbon::createFromFormat('Y-m-d H:i:s', $startDate));
             Assert::notNull($endDate = Carbon::createFromFormat('Y-m-d H:i:s', $endDate));
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 
             // Limitare il range massimo a 90 giorni per ridurre memory usage
             if ($startDate->diffInDays($endDate, true) > 90) {
                 $startDate = $endDate->copy()->subDays(90);
+<<<<<<< HEAD
 =======
             if ($startDate->diffInDays($endDate, true) > 365) {
                 $startDate = $endDate->copy()->subDays(365);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             }
         } catch (Exception $e) {
             return [];
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         // Limitare a massimo 1000 record per evitare problemi di memoria
         $data = Trend::model(AuthenticationLog::class)
             ->dateColumn('login_at')
@@ -135,6 +160,7 @@ class UsersChartWidget extends ChartWidget implements HasForms, HasActions, HasA
          * return $value->date->format('Y-m-d');
          * })->toArray();
          */
+<<<<<<< HEAD
 =======
         $data = Trend::model(AuthenticationLog::class)
             ->dateColumn('login_at')
@@ -156,6 +182,8 @@ class UsersChartWidget extends ChartWidget implements HasForms, HasActions, HasA
         })->toArray();
         */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
         $chartData = $data->pluck('aggregate')->toArray();
         $chartLabels = $data->pluck('date')->toArray();

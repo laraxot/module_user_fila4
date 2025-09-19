@@ -57,9 +57,15 @@ use Illuminate\Database\Eloquent\Builder;
  * @mixin \Eloquent
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 class Team extends BaseTeam
 {
 }
 =======
 class Team extends BaseTeam {}
 >>>>>>> fbc8f8e (.)
+=======
+class Team extends BaseTeam
+{
+}
+>>>>>>> 6d20fbe (.)

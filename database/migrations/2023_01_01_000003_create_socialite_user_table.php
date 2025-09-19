@@ -7,11 +7,15 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 use Modules\Xot\Datas\XotData;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 return new class extends XotBaseMigration {
 =======
 return new class extends XotBaseMigration
 {
 >>>>>>> fbc8f8e (.)
+=======
+return new class extends XotBaseMigration {
+>>>>>>> 6d20fbe (.)
     /**
      * Run the migrations.
      */
@@ -21,6 +25,9 @@ return new class extends XotBaseMigration
         $userClass = $xot->getUserClass();
         // -- CREATE --
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $this->tableCreate(static function (Blueprint $table) use ($userClass): void {
             // $table->uuid('id')->primary();
             $table->id();
@@ -52,6 +59,7 @@ return new class extends XotBaseMigration
 
             // $this->updateUser($table);
         });
+<<<<<<< HEAD
 =======
         $this->tableCreate(
             static function (Blueprint $table) use ($userClass): void {
@@ -87,5 +95,7 @@ return new class extends XotBaseMigration
             }
         );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 };

@@ -9,9 +9,12 @@ use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\UserContract;
 use Illuminate\Database\Eloquent\Builder;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 use Laravel\Passport\Token as PassportToken;
 
 /**
@@ -55,9 +58,12 @@ use Laravel\Passport\Token as PassportToken;
 class OauthAccessToken extends PassportToken
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     use HasFactory;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     /** @var string */
     protected $connection = 'user';
 

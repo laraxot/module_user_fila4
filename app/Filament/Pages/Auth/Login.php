@@ -12,6 +12,7 @@ class Login extends \Filament\Auth\Pages\Login
 
     protected static string $routePath = 'newlogin';
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     /* var view-string */
     // protected static string $view = 'filament-panels::pages.auth.register';
@@ -20,5 +21,10 @@ class Login extends \Filament\Auth\Pages\Login
     // protected static string $view = 'filament-panels::pages.auth.register';
 
 >>>>>>> fbc8f8e (.)
+=======
+
+    /* var view-string */
+    // protected static string $view = 'filament-panels::pages.auth.register';
+>>>>>>> 6d20fbe (.)
     // Any customizations will go here
 }

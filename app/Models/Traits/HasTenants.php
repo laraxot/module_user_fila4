@@ -7,6 +7,9 @@ namespace Modules\User\Models\Traits;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Filament\Panel;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Collection;
@@ -20,6 +23,7 @@ use Modules\Xot\Datas\XotData;
  *
  * Provides tenant functionality for User models implementing multi-tenancy.
  *
+<<<<<<< HEAD
 =======
 use Modules\Xot\Datas\XotData;
 use Illuminate\Support\Collection;
@@ -35,6 +39,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * Provides tenant functionality for User models implementing multi-tenancy.
  * 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
  * @property TeamContract $currentTeam
  */
 trait HasTenants
@@ -54,6 +60,9 @@ trait HasTenants
      * Get tenants for the given panel.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      * @param Panel $_panel
      * @return array<Model>|Collection<int, Model>
      */
@@ -62,6 +71,7 @@ trait HasTenants
         /** @var Collection<int, Model> $tenants */
         $tenants = $this->tenants;
 
+<<<<<<< HEAD
 =======
      * @param Panel $panel
      * @return array<Model>|Collection<int, Model>
@@ -72,6 +82,8 @@ trait HasTenants
         $tenants = $this->tenants;
         
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         return $tenants;
     }
 

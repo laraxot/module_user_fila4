@@ -1,11 +1,17 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 declare(strict_types=1);
 
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+declare(strict_types=1);
+
+
+>>>>>>> 6d20fbe (.)
 return [
     'fields' => [
         'name' => [
@@ -15,9 +21,13 @@ return [
             'validation' => [
                 'required' => 'Il nome è obbligatorio',
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'max' => 'Il nome non può superare i 255 caratteri',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+                'max' => 'Il nome non può superare i 255 caratteri',
+>>>>>>> 6d20fbe (.)
             ],
         ],
         'email' => [
@@ -29,9 +39,13 @@ return [
                 'email' => 'Inserisci un\'email valida',
                 'max' => 'L\'email non può superare i 255 caratteri',
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'unique' => 'Questa email è già registrata',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+                'unique' => 'Questa email è già registrata',
+>>>>>>> 6d20fbe (.)
             ],
         ],
         'password' => [
@@ -42,9 +56,13 @@ return [
                 'required' => 'La password è obbligatoria',
                 'min' => 'La password deve essere di almeno 8 caratteri',
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'max' => 'La password non può superare i 255 caratteri',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+                'max' => 'La password non può superare i 255 caratteri',
+>>>>>>> 6d20fbe (.)
             ],
         ],
         'password_confirmation' => [
@@ -56,6 +74,9 @@ return [
                 'min' => 'La password deve essere di almeno 8 caratteri',
                 'max' => 'La password non può superare i 255 caratteri',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                 'same' => 'Le password non coincidono',
             ],
         ],
@@ -63,15 +84,21 @@ return [
             'label' => 'Ricordami',
             'help' => 'Mantieni la sessione attiva',
         ],
+<<<<<<< HEAD
 =======
             ],
         ],
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     ],
     'actions' => [
         'create' => [
             'label' => 'Nuovo Utente',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             'tooltip' => 'Crea un nuovo utente',
         ],
         'edit' => [
@@ -81,17 +108,24 @@ return [
         'delete' => [
             'label' => 'Elimina',
             'tooltip' => 'Elimina l\'utente',
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         ],
     ],
     'teams' => [
         'personal_team' => [
             'label' => 'Team Personale',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'help' => 'Il team personale dell\'utente',
 =======
 >>>>>>> fbc8f8e (.)
+=======
+            'help' => 'Il team personale dell\'utente',
+>>>>>>> 6d20fbe (.)
         ],
     ],
     'devices' => [
@@ -99,6 +133,9 @@ return [
             'uuid' => [
                 'label' => 'UUID',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                 'help' => 'Identificativo univoco del dispositivo',
             ],
             'mobile_id' => [
@@ -112,8 +149,11 @@ return [
             'device_name' => [
                 'label' => 'Nome Dispositivo',
                 'help' => 'Il nome del dispositivo',
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             ],
         ],
     ],
@@ -122,6 +162,9 @@ return [
             'name' => [
                 'label' => 'Nome',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                 'help' => 'Il nome del permesso',
             ],
             'guard_name' => [
@@ -135,8 +178,11 @@ return [
             'created_at' => [
                 'label' => 'Data Creazione',
                 'help' => 'Data di creazione del permesso',
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             ],
         ],
     ],
@@ -146,6 +192,9 @@ return [
                 'user' => [
                     'label' => 'Utente',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                     'help' => 'L\'utente che ha effettuato l\'accesso',
                 ],
                 'login_at' => [
@@ -159,8 +208,11 @@ return [
                 'user_agent' => [
                     'label' => 'User Agent',
                     'help' => 'Il browser dell\'utente',
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
                 ],
             ],
         ],

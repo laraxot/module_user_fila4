@@ -25,12 +25,16 @@ class LogoutUserAction
     public function execute(UserContract $user): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         Assert::notNull($accessToken = $user->token(), '[' . __FILE__ . '][' . __LINE__ . ']');
         /*
          * DB::table('oauth_refresh_tokens')
          * ->where('access_token_id', $accessToken->)
          * ->delete();
          */
+<<<<<<< HEAD
 =======
         Assert::notNull($accessToken = $user->token(), '['.__FILE__.']['.__LINE__.']');
         /*
@@ -39,6 +43,8 @@ class LogoutUserAction
                 ->delete();
             */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
         // Assert::methodExists($accessToken, 'delete');
         if (method_exists($accessToken, 'getKey')) {
@@ -48,18 +54,26 @@ class LogoutUserAction
         if (method_exists($accessToken, 'delete')) {
             $accessToken->delete();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
             // $user->token()->delete();
         }
 
         /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
          * MobileDeviceUser::where('user_id', $user->getKey())
          * ->update(['logout_at' => now()]);
          */
         DeviceUser::where('user_id', $user->getKey())->update(['logout_at' => now()]);
+<<<<<<< HEAD
 =======
         MobileDeviceUser::where('user_id', $user->getKey())
             ->update(['logout_at' => now()]);
@@ -67,5 +81,7 @@ class LogoutUserAction
         DeviceUser::where('user_id', $user->getKey())
             ->update(['logout_at' => now()]);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 }

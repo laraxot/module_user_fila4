@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Widgets\Auth;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Filament\Schemas\Components\Component;
 use Override;
 use Filament\Schemas\Schema;
@@ -16,6 +19,7 @@ use Modules\Xot\Filament\Widgets\XotBaseWidget;
 
 /**
  * @property Schema $form
+<<<<<<< HEAD
 =======
 use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Section;
@@ -27,6 +31,8 @@ use Filament\Forms\Components\TextInput as FormsTextInput;
 /**
  * @property \Filament\Schemas\Schema $form
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
  */
 class ForgotPasswordWidget extends XotBaseWidget
 {
@@ -36,6 +42,7 @@ class ForgotPasswordWidget extends XotBaseWidget
      * Get the form schema for this widget.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return array<string, Component>
      */
     #[Override]
@@ -43,6 +50,11 @@ class ForgotPasswordWidget extends XotBaseWidget
      * @return array<string, \Filament\Schemas\Components\Component>
      */
 >>>>>>> fbc8f8e (.)
+=======
+     * @return array<string, Component>
+     */
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function getFormSchema(): array
     {
         return [
@@ -54,6 +66,9 @@ class ForgotPasswordWidget extends XotBaseWidget
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     public function form(Schema $schema): Schema
     {
@@ -67,6 +82,7 @@ class ForgotPasswordWidget extends XotBaseWidget
                 ])
                 ->columns(1),
         ])->statePath('data');
+<<<<<<< HEAD
 =======
     public function form(Schema $schema): Schema
     {
@@ -83,6 +99,8 @@ class ForgotPasswordWidget extends XotBaseWidget
             ])
             ->statePath('data');
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 
     public function sendResetLink(): void
@@ -90,12 +108,16 @@ class ForgotPasswordWidget extends XotBaseWidget
         $data = $this->form->getState();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $status = Password::sendResetLink(['email' => $data['email']]);
 =======
         $status = Password::sendResetLink(
             ['email' => $data['email']]
         );
 >>>>>>> fbc8f8e (.)
+=======
+        $status = Password::sendResetLink(['email' => $data['email']]);
+>>>>>>> 6d20fbe (.)
 
         if ($status === Password::RESET_LINK_SENT) {
             session()->flash('status', __($status));

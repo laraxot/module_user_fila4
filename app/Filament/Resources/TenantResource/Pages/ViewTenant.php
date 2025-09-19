@@ -8,10 +8,15 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\TenantResource\Pages;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Filament\Schemas\Components\Component;
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Schemas\Components\Section;
 use Filament\Actions;
 use Filament\Infolists\Components\TextEntry;
@@ -24,6 +29,9 @@ class ViewTenant extends XotBaseViewRecord
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      * @return array<string, Component>
      */
     #[Override]
@@ -39,6 +47,7 @@ class ViewTenant extends XotBaseViewRecord
             ]),
         ];
     }
+<<<<<<< HEAD
 =======
      * @return array<string, \Filament\Schemas\Components\Component>
      */
@@ -60,4 +69,6 @@ class ViewTenant extends XotBaseViewRecord
 
     
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 }

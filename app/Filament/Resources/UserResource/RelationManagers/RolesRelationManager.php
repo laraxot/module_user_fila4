@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Filament\Schemas\Components\Component;
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Actions\AttachAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\DetachAction;
@@ -22,6 +27,7 @@ use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
@@ -32,20 +38,29 @@ use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 class RolesRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'roles';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected static null|string $recordTitleAttribute = 'name';
 =======
     protected static ?string $recordTitleAttribute = 'name';
 >>>>>>> fbc8f8e (.)
+=======
+    protected static null|string $recordTitleAttribute = 'name';
+>>>>>>> 6d20fbe (.)
 
     // protected static ?string $inverseRelationship = 'section'; // Since the inverse related model is `Category`, this is normally `category`, not `section`.
     // protected function mutateFormDataBeforeCreate(array $data): array
     // {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     // }
     /**
      * @return array<string, Component>
@@ -63,6 +78,7 @@ class RolesRelationManager extends XotBaseRelationManager
     }
 
     #[Override]
+<<<<<<< HEAD
 =======
     //
     // }
@@ -83,12 +99,17 @@ class RolesRelationManager extends XotBaseRelationManager
     }
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     public function table(Table $table): Table
     {
         $xotData = XotData::make();
 
         return $table
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             ->columns([
                 TextColumn::make('id'),
                 TextColumn::make('name'),
@@ -120,6 +141,7 @@ class RolesRelationManager extends XotBaseRelationManager
             ->toolbarActions([
                 DeleteBulkAction::make(),
             ]);
+<<<<<<< HEAD
 =======
             ->columns(
                 [
@@ -167,5 +189,7 @@ class RolesRelationManager extends XotBaseRelationManager
                 ]
             );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 }

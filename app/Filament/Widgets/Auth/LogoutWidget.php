@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Widgets\Auth;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Filament\Schemas\Components\Component;
+use Override;
+>>>>>>> 6d20fbe (.)
 use Exception;
 use Filament\Schemas\Components\View;
 use Filament\Actions\Action;
@@ -49,6 +54,9 @@ class LogoutWidget extends XotBaseWidget
      * Get the form schema for logout interface.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      * @return array<string, Component>
      */
     #[Override]
@@ -61,6 +69,7 @@ class LogoutWidget extends XotBaseWidget
         }
         return [
             'logout_message' => View::make($view)->columnSpanFull(),
+<<<<<<< HEAD
 =======
      * @return array<string, \Filament\Schemas\Components\Component>
      */
@@ -75,6 +84,8 @@ class LogoutWidget extends XotBaseWidget
             'logout_message' => View::make($view)
                 ->columnSpanFull(),
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         ];
     }
 
@@ -84,9 +95,13 @@ class LogoutWidget extends XotBaseWidget
      * @return array<Action>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function getFormActions(): array
     {
         return [
@@ -132,10 +147,14 @@ class LogoutWidget extends XotBaseWidget
             ->size('lg')
             ->extraAttributes(['class' => 'w-full justify-center'])
 <<<<<<< HEAD
+<<<<<<< HEAD
             ->action($this->logout(...));
 =======
             ->action(fn () => $this->logout());
 >>>>>>> fbc8f8e (.)
+=======
+            ->action($this->logout(...));
+>>>>>>> 6d20fbe (.)
     }
 
     /**
@@ -218,6 +237,7 @@ class LogoutWidget extends XotBaseWidget
     protected function redirectAfterLogout(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         redirect($this->getLocalizedHomeUrl())->with('success', __('user::auth.logout_success'))->send();
         exit();
 =======
@@ -226,6 +246,10 @@ class LogoutWidget extends XotBaseWidget
             ->send();
         exit;
 >>>>>>> fbc8f8e (.)
+=======
+        redirect($this->getLocalizedHomeUrl())->with('success', __('user::auth.logout_success'))->send();
+        exit();
+>>>>>>> 6d20fbe (.)
     }
 
     /**
@@ -241,7 +265,11 @@ class LogoutWidget extends XotBaseWidget
         ];
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> fbc8f8e (.)
+=======
+}
+>>>>>>> 6d20fbe (.)

@@ -31,10 +31,14 @@ class IsUserAllowedAction
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         Assert::notNull($user->getEmail(), '[' . __FILE__ . '][' . __LINE__ . ']');
 =======
         Assert::notNull($user->getEmail(), '['.__FILE__.']['.__LINE__.']');
 >>>>>>> fbc8f8e (.)
+=======
+        Assert::notNull($user->getEmail(), '[' . __FILE__ . '][' . __LINE__ . ']');
+>>>>>>> 6d20fbe (.)
         // Get the domain of the email for the specified user
         $emailDomain = Str::of($user->getEmail())
             ->afterLast('@')

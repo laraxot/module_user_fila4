@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Filament\Schemas\Components\Component;
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Actions\CreateAction;
 use Filament\Actions\ViewAction;
 use Filament\Actions\EditAction;
@@ -21,6 +26,7 @@ use Filament\Tables\Table;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
@@ -31,17 +37,23 @@ use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 class ProfileRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'profile';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     protected static null|string $recordTitleAttribute = 'first_name';
 
     /**
      * @return array<string, Component>
      */
     #[Override]
+<<<<<<< HEAD
 =======
     protected static ?string $recordTitleAttribute = 'first_name';
 
@@ -49,11 +61,14 @@ class ProfileRelationManager extends XotBaseRelationManager
      * @return array<string, \Filament\Schemas\Components\Component>
      */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     public function getFormSchema(): array
     {
         return [
             'ente' => TextInput::make('ente'),
             'matr' => TextInput::make('matr'),
+<<<<<<< HEAD
 <<<<<<< HEAD
             'first_name' => TextInput::make('first_name')->required()->maxLength(255),
 =======
@@ -61,11 +76,17 @@ class ProfileRelationManager extends XotBaseRelationManager
                 ->required()
                 ->maxLength(255),
 >>>>>>> fbc8f8e (.)
+=======
+            'first_name' => TextInput::make('first_name')->required()->maxLength(255),
+>>>>>>> 6d20fbe (.)
             'last_name' => TextInput::make('last_name'),
         ];
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     public function table(Table $table): Table
     {
@@ -89,6 +110,7 @@ class ProfileRelationManager extends XotBaseRelationManager
             ->toolbarActions([
                 DeleteBulkAction::make(),
             ]);
+<<<<<<< HEAD
 =======
     public function table(Table $table): Table
     {
@@ -124,5 +146,7 @@ class ProfileRelationManager extends XotBaseRelationManager
                 ]
             );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 }

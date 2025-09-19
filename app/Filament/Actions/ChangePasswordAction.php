@@ -33,12 +33,16 @@ class ChangePasswordAction extends Action
                     ->body(__('user::notifications.password_changed_successfully.message'));
             })
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             ->schema([
                 PasswordData::make()->getPasswordFormComponent('new_password'),
                 TextInput::make('new_password_confirmation')
                     ->password()
                     ->placeholder(__('user::fields.confirm_password.placeholder'))
                     ->rule('required', static fn($get): bool => (bool) $get('new_password'))
+<<<<<<< HEAD
 =======
             ->form([
                 PasswordData::make()->getPasswordFormComponent('new_password'),
@@ -48,15 +52,21 @@ class ChangePasswordAction extends Action
                     ->placeholder(__('user::fields.confirm_password.placeholder'))
                     ->rule('required', static fn ($get): bool => (bool) $get('new_password'))
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
                     ->same('new_password'),
             ]);
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static function getDefaultName(): null|string
 =======
     public static function getDefaultName(): ?string
 >>>>>>> fbc8f8e (.)
+=======
+    public static function getDefaultName(): null|string
+>>>>>>> 6d20fbe (.)
     {
         return 'changePassword';
     }
@@ -64,6 +74,9 @@ class ChangePasswordAction extends Action
 
 /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
  * Action::make('changePassword')
  * ->action(function (UserContract $user, array $data): void {
  * $user->update([
@@ -84,6 +97,7 @@ class ChangePasswordAction extends Action
  * ->icon('heroicon-o-key')
  * // ->visible(fn (User $record): bool => $record->role_id === Role::ROLE_ADMINISTRATOR)
  */
+<<<<<<< HEAD
 =======
 Action::make('changePassword')
                     ->action(function (UserContract $user, array $data): void {
@@ -106,3 +120,5 @@ Action::make('changePassword')
                 // ->visible(fn (User $record): bool => $record->role_id === Role::ROLE_ADMINISTRATOR)
 */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)

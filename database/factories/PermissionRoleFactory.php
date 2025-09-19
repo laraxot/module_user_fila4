@@ -6,16 +6,22 @@ namespace Modules\User\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\User\Models\Permission;
 use Modules\User\Models\PermissionRole;
 =======
 use Modules\User\Models\PermissionRole;
 use Modules\User\Models\Permission;
 >>>>>>> fbc8f8e (.)
+=======
+use Modules\User\Models\Permission;
+use Modules\User\Models\PermissionRole;
+>>>>>>> 6d20fbe (.)
 use Modules\User\Models\Role;
 
 /**
  * PermissionRole Factory
+<<<<<<< HEAD
 <<<<<<< HEAD
  *
  * Factory for creating PermissionRole model instances for testing and seeding.
@@ -25,6 +31,11 @@ use Modules\User\Models\Role;
  * Factory for creating PermissionRole model instances for testing and seeding.
  * 
 >>>>>>> fbc8f8e (.)
+=======
+ *
+ * Factory for creating PermissionRole model instances for testing and seeding.
+ *
+>>>>>>> 6d20fbe (.)
  * @extends Factory<PermissionRole>
  */
 class PermissionRoleFactory extends Factory
@@ -32,10 +43,14 @@ class PermissionRoleFactory extends Factory
     /**
      * The name of the factory's corresponding model.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
 =======
      * 
 >>>>>>> fbc8f8e (.)
+=======
+     *
+>>>>>>> 6d20fbe (.)
      * @var class-string<PermissionRole>
      */
     protected $model = PermissionRole::class;
@@ -49,6 +64,9 @@ class PermissionRoleFactory extends Factory
     {
         return [
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             'permission_id' => fn() => Permission::create([
                 'name' => fake()->unique()->slug(),
                 'guard_name' => 'web',
@@ -57,10 +75,13 @@ class PermissionRoleFactory extends Factory
                 'name' => fake()->unique()->slug(),
                 'guard_name' => 'web',
             ])->id,
+<<<<<<< HEAD
 =======
             'permission_id' => Permission::factory(),
             'role_id' => Role::factory(),
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         ];
     }
 
@@ -73,10 +94,14 @@ class PermissionRoleFactory extends Factory
     public function forPermission(Permission $permission): static
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
 =======
         return $this->state(fn (array $attributes): array => [
 >>>>>>> fbc8f8e (.)
+=======
+        return $this->state(fn(array $_attributes): array => [
+>>>>>>> 6d20fbe (.)
             'permission_id' => $permission->id,
         ]);
     }
@@ -90,11 +115,15 @@ class PermissionRoleFactory extends Factory
     public function forRole(Role $role): static
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         return $this->state(fn(array $_attributes): array => [
             'role_id' => $role->id,
         ]);
     }
 }
+<<<<<<< HEAD
 =======
         return $this->state(fn (array $attributes): array => [
             'role_id' => $role->id,
@@ -102,3 +131,5 @@ class PermissionRoleFactory extends Factory
     }
 }
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)

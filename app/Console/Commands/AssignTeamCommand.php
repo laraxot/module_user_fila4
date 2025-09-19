@@ -36,6 +36,7 @@ class AssignTeamCommand extends Command
      * @return void
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
     public function __construct()
@@ -43,6 +44,9 @@ class AssignTeamCommand extends Command
         parent::__construct();
     }
 >>>>>>> fbc8f8e (.)
+=======
+    
+>>>>>>> 6d20fbe (.)
 
     /**
      * Execute the console command.
@@ -59,11 +63,15 @@ class AssignTeamCommand extends Command
 
         /** @var array<int|string, string>|Collection<int|string, string> */
 <<<<<<< HEAD
+<<<<<<< HEAD
         $opts = $teamClass::pluck('name', 'id')->toArray();
 =======
         $opts = $teamClass::pluck('name', 'id')
             ->toArray();
 >>>>>>> fbc8f8e (.)
+=======
+        $opts = $teamClass::pluck('name', 'id')->toArray();
+>>>>>>> 6d20fbe (.)
 
         $rows = multiselect(
             label: 'What teams',
@@ -71,11 +79,15 @@ class AssignTeamCommand extends Command
             required: true,
             scroll: 10,
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         // validate: function (array $values) {
         //  return ! \in_array(\count($values), [1, 2], false)
         //    ? 'A maximum of two'
         //  : null;
         // }
+<<<<<<< HEAD
 =======
             // validate: function (array $values) {
             //  return ! \in_array(\count($values), [1, 2], false)
@@ -83,17 +95,23 @@ class AssignTeamCommand extends Command
             //  : null;
             // }
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         );
 
         $user->teams()->sync($rows);
         /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
          * foreach ($rows as $row) {
          * $role = Role::firstOrCreate(['name' => $row]);
          * $user->assignRole($role);
          * }
          */
         $this->info('Teams :' . implode(', ', $rows) . ' assigned to ' . $email);
+<<<<<<< HEAD
 =======
         foreach ($rows as $row) {
             $role = Role::firstOrCreate(['name' => $row]);
@@ -102,6 +120,8 @@ class AssignTeamCommand extends Command
         */
         $this->info('Teams :'.implode(', ', $rows).' assigned to '.$email);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
         $rows = $user->teams()->get()->toArray();
 
@@ -115,10 +135,14 @@ class AssignTeamCommand extends Command
         } else {
             $this->newLine();
 <<<<<<< HEAD
+<<<<<<< HEAD
             $this->warn('⚡ No teams [' . $teamClass . ']');
 =======
             $this->warn('⚡ No teams ['.$teamClass.']');
 >>>>>>> fbc8f8e (.)
+=======
+            $this->warn('⚡ No teams [' . $teamClass . ']');
+>>>>>>> 6d20fbe (.)
             $this->newLine();
         }
     }

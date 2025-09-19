@@ -6,6 +6,9 @@ namespace Modules\User\Actions\User;
 
 use Exception;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -17,6 +20,7 @@ use Spatie\QueueableAction\QueueableAction;
 /**
  * UpdateUserAction: Action generica per l'aggiornamento dei dati utente.
  *
+<<<<<<< HEAD
 =======
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -30,6 +34,8 @@ use Modules\Xot\Actions\Cast\SafeStringCastAction;
  * UpdateUserAction: Action generica per l'aggiornamento dei dati utente.
  * 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
  * Questa action gestisce l'aggiornamento dei dati di base dell'utente.
  * Può essere estesa dai moduli specifici per aggiungere logica personalizzata.
  */
@@ -37,9 +43,13 @@ class UpdateUserAction
 {
     use QueueableAction;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
     /**
      * Esegue l'aggiornamento dell'utente.
      *
@@ -54,6 +64,9 @@ class UpdateUserAction
         try {
             DB::beginTransaction();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 
             // Prepara i dati per l'aggiornamento
             $updateData = $this->prepareUpdateData($data);
@@ -97,6 +110,7 @@ class UpdateUserAction
     /**
      * Prepara i dati per l'aggiornamento rimuovendo campi non aggiornabili.
      *
+<<<<<<< HEAD
 =======
             
             // Prepara i dati per l'aggiornamento
@@ -143,6 +157,8 @@ class UpdateUserAction
      * Prepara i dati per l'aggiornamento rimuovendo campi non aggiornabili.
      * 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
      * @param array<string, mixed> $data
      * @return array<string, mixed>
      */
@@ -157,6 +173,7 @@ class UpdateUserAction
             'updated_at',
         ];
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         $updateData = array_diff_key($data, array_flip($excludeFields));
 
@@ -165,6 +182,11 @@ class UpdateUserAction
         $updateData = array_diff_key($data, array_flip($excludeFields));
         
 >>>>>>> fbc8f8e (.)
+=======
+
+        $updateData = array_diff_key($data, array_flip($excludeFields));
+
+>>>>>>> 6d20fbe (.)
         // Gestione speciale per la password
         if (isset($updateData['password'])) {
             if (empty($updateData['password'])) {
@@ -176,16 +198,23 @@ class UpdateUserAction
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
         // Gestione dell'email per evitare duplicati
         if (isset($updateData['email'])) {
             $email = SafeStringCastAction::cast($updateData['email']);
             $updateData['email'] = strtolower($email);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 
         return $updateData;
     }
@@ -197,6 +226,7 @@ class UpdateUserAction
      * @param array<string, mixed> $data
      * @return void
      *
+<<<<<<< HEAD
 =======
         
         return $updateData;
@@ -210,6 +240,8 @@ class UpdateUserAction
      * @return void
      * 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
      * @throws ValidationException
      */
     protected function validateUpdateData(Model $user, array $data): void
@@ -217,11 +249,16 @@ class UpdateUserAction
         // Validazione email univoca
         if (isset($data['email'])) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $existingUser = $user
                 ->newQuery()
 =======
             $existingUser = $user->newQuery()
 >>>>>>> fbc8f8e (.)
+=======
+            $existingUser = $user
+                ->newQuery()
+>>>>>>> 6d20fbe (.)
                 ->where('email', $data['email'])
                 ->where('id', '!=', $user->getKey())
                 ->first();
@@ -229,10 +266,14 @@ class UpdateUserAction
             if ($existingUser) {
                 throw ValidationException::withMessages([
 <<<<<<< HEAD
+<<<<<<< HEAD
                     'email' => __('user::validation.email_already_taken'),
 =======
                     'email' => __('user::validation.email_already_taken')
 >>>>>>> fbc8f8e (.)
+=======
+                    'email' => __('user::validation.email_already_taken'),
+>>>>>>> 6d20fbe (.)
                 ]);
             }
         }
@@ -241,11 +282,15 @@ class UpdateUserAction
         // o nelle classi che estendono questa action
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 
     /**
      * Operazioni da eseguire dopo l'aggiornamento.
      * Può essere sovrascritto dalle classi che estendono questa action.
      *
+<<<<<<< HEAD
 =======
     
     /**
@@ -253,6 +298,8 @@ class UpdateUserAction
      * Può essere sovrascritto dalle classi che estendono questa action.
      * 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
      * @param Model $user
      * @param array<string, mixed> $data
      * @return void
@@ -267,7 +314,11 @@ class UpdateUserAction
         // - Gestire relazioni
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 } 
 >>>>>>> fbc8f8e (.)
+=======
+}
+>>>>>>> 6d20fbe (.)

@@ -23,10 +23,14 @@ use Modules\Xot\Actions\File\ViewCopyAction;
  * Componente Livewire per la gestione del login.
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @property Schema $form
 =======
  * @property \Filament\Schemas\Schema $form
 >>>>>>> fbc8f8e (.)
+=======
+ * @property Schema $form
+>>>>>>> 6d20fbe (.)
  */
 class Login extends Component implements HasForms, HasActions
 {
@@ -84,6 +88,7 @@ class Login extends Component implements HasForms, HasActions
                 ->autofocus()
                 ->live()
 <<<<<<< HEAD
+<<<<<<< HEAD
                 ->afterStateUpdated(fn($_state) => $this->validateOnly('email'))
                 ->dehydrated(),
 =======
@@ -91,6 +96,10 @@ class Login extends Component implements HasForms, HasActions
                 ->dehydrated(),
 
 >>>>>>> fbc8f8e (.)
+=======
+                ->afterStateUpdated(fn($_state) => $this->validateOnly('email'))
+                ->dehydrated(),
+>>>>>>> 6d20fbe (.)
             TextInput::make('password')
                 ->password()
                 ->required()
@@ -102,9 +111,12 @@ class Login extends Component implements HasForms, HasActions
                 ->maxLength(255)
                 ->dehydrated(),
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             Checkbox::make('remember')
                 ->label(__('Ricordami'))
                 ->default(false)
@@ -118,11 +130,15 @@ class Login extends Component implements HasForms, HasActions
     public function form(): Schema
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return Schema::make()->components($this->getFormSchema());
 =======
         return $this->makeForm()
             ->components($this->getFormSchema());
 >>>>>>> fbc8f8e (.)
+=======
+        return Schema::make()->components($this->getFormSchema());
+>>>>>>> 6d20fbe (.)
     }
 
     /**
@@ -165,15 +181,20 @@ class Login extends Component implements HasForms, HasActions
     {
         $user = Auth::user();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
         if (!$user) {
             return redirect()->to('/');
         }
 
         // Se l'utente ha ruoli admin, redirect al pannello appropriato
+<<<<<<< HEAD
 <<<<<<< HEAD
         $adminRoles = $user->roles->filter(fn($role) => str_ends_with($role->name, '::admin'));
 =======
@@ -181,6 +202,9 @@ class Login extends Component implements HasForms, HasActions
             return str_ends_with($role->name, '::admin');
         });
 >>>>>>> fbc8f8e (.)
+=======
+        $adminRoles = $user->roles->filter(fn($role) => str_ends_with($role->name, '::admin'));
+>>>>>>> 6d20fbe (.)
 
         if ($adminRoles->count() === 1) {
             // Un solo ruolo admin - redirect al modulo specifico

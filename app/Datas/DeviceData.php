@@ -20,6 +20,9 @@ class DeviceData extends Data
 {
     /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      * case ApplicationVersion = 'X-App-Version';
      * case Application = 'X-Application';
      * case DeviceId = 'X-Device-Id';
@@ -56,6 +59,7 @@ class DeviceData extends Data
 
             return [$key => $item];
         })->all();
+<<<<<<< HEAD
 =======
     case ApplicationVersion = 'X-App-Version';
     case Application = 'X-Application';
@@ -97,6 +101,8 @@ class DeviceData extends Data
                 }
             )->all();
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
         return self::from($headers);
     }
@@ -124,6 +130,9 @@ class DeviceData extends Data
          * @phpstan-ignore staticMethod.nonObject
          */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $synchronization = $synchronizationClass::create([
             // $synchronization = Synchronization::create([
             'user_id' => auth()->id(),
@@ -135,6 +144,7 @@ class DeviceData extends Data
             // fulfilled_at
         ]);
         Assert::string($synchronizationId = $synchronization->id, __FILE__ . ':' . __LINE__ . ' - ' . class_basename(__CLASS__));
+<<<<<<< HEAD
 =======
         $synchronization = $synchronizationClass::create(
             [
@@ -150,6 +160,8 @@ class DeviceData extends Data
         );
         Assert::string($synchronizationId = $synchronization->id);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         $this->synchronizationId = $synchronizationId;
 
         return $this->synchronizationId;
@@ -157,14 +169,20 @@ class DeviceData extends Data
 
     /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      * public function getModel(){
      * MobileDevice::firstOrCreate();
      * }
      */
+<<<<<<< HEAD
 =======
     public function getModel(){
         MobileDevice::firstOrCreate();
     }
     */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 }

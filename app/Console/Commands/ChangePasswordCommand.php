@@ -8,21 +8,29 @@ use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 use function Laravel\Prompts\password;
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 use Modules\User\Datas\PasswordData;
 use Modules\User\Events\NewPasswordSet;
 use Modules\Xot\Datas\XotData;
 use Webmozart\Assert\Assert;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use function Laravel\Prompts\password;
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use function Laravel\Prompts\password;
+
+>>>>>>> 6d20fbe (.)
 class ChangePasswordCommand extends Command
 {
     protected $signature = 'user:change-password';
@@ -42,14 +50,20 @@ class ChangePasswordCommand extends Command
 
         // Ensure we fetched a persisted user and not a transient instance to avoid accidental insert
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         if (!$user->exists()) {
             Assert::false(
                 $user->exists(),
                 __FILE__ . ':' . __LINE__ . ' - ' . class_basename(__CLASS__) . ' - User model should exist in database before password change'
             );
+<<<<<<< HEAD
 =======
         if (null == $user || ! $user->exists) {
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             $this->error('User not found or not persisted. Please create the user first (name, email, type, etc.).');
 
             return;
@@ -67,16 +81,22 @@ class ChangePasswordCommand extends Command
         $passwordExpiryDateTime = now()->addDays($pwd_data->expires_in);
         /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
          * $user->is_otp = false;
          * $user->password = Hash::make($password);
          * $user->save();
          */
+<<<<<<< HEAD
 =======
         $user->is_otp = false;
         $user->password = Hash::make($password);
         $user->save();
         */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         $user = tap($user)->update([
             'password_expires_at' => $passwordExpiryDateTime,
             'is_otp' => false,

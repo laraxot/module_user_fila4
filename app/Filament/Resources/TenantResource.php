@@ -9,20 +9,30 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Schemas\Components\Section;
 use Modules\User\Filament\Resources\TenantResource\RelationManagers\UsersRelationManager;
 use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\TextInput;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables\Table;
+>>>>>>> 6d20fbe (.)
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\TenantResource\Pages\CreateTenant;
 use Modules\User\Filament\Resources\TenantResource\Pages\EditTenant;
@@ -31,10 +41,14 @@ use Modules\User\Filament\Resources\TenantResource\Pages\ViewTenant;
 use Modules\User\Filament\Resources\TenantResource\RelationManagers;
 use Modules\Xot\Datas\XotData;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 use Modules\Xot\Services\XotService;
 
+<<<<<<< HEAD
 =======
 use Modules\Xot\Filament\Resources\XotBaseResource;
 use Filament\Forms\Form;
@@ -45,6 +59,8 @@ use Modules\Xot\Services\XotService;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 class TenantResource extends XotBaseResource
 {
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -55,9 +71,13 @@ class TenantResource extends XotBaseResource
      * @return class-string<Model>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public static function getModel(): string
     {
         $xot = app(XotService::class);
@@ -65,15 +85,22 @@ class TenantResource extends XotBaseResource
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public static function getFormSchema(): array
     {
         return [
             Section::make()
                 ->schema([
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                     TextInput::make('name')
                         ->required()
                         ->unique(
@@ -128,6 +155,7 @@ class TenantResource extends XotBaseResource
     }
 
     #[Override]
+<<<<<<< HEAD
 =======
                         TextInput::make('name')
                             ->required()
@@ -186,6 +214,8 @@ class TenantResource extends XotBaseResource
     }
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     public static function getRelations(): array
     {
         return [
@@ -195,9 +225,13 @@ class TenantResource extends XotBaseResource
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public static function getPages(): array
     {
         return [

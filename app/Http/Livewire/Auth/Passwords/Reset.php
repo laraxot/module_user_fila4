@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Auth\Passwords;
 
+<<<<<<< HEAD
+=======
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+>>>>>>> 6d20fbe (.)
 use Livewire\Features\SupportRedirects\Redirector;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Contracts\View\View;
@@ -57,6 +62,7 @@ class Reset extends Component
                 'password' => $this->password,
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             function (\Illuminate\Contracts\Auth\Authenticatable $user, string $password): void {
                 /** @var \Illuminate\Database\Eloquent\Model&\Illuminate\Contracts\Auth\Authenticatable $user */
                 $user->setAttribute('password', Hash::make($password));
@@ -64,6 +70,11 @@ class Reset extends Component
             function ($user, $password): void {
                 $user->password = Hash::make($password);
 >>>>>>> fbc8f8e (.)
+=======
+            function (Authenticatable $user, string $password): void {
+                /** @var Model&Authenticatable $user */
+                $user->setAttribute('password', Hash::make($password));
+>>>>>>> 6d20fbe (.)
                 $user->setRememberToken(Str::random(60));
                 $user->save();
 
@@ -71,10 +82,14 @@ class Reset extends Component
 
                 $this->guard()->login($user);
 <<<<<<< HEAD
+<<<<<<< HEAD
             },
 =======
             }
 >>>>>>> fbc8f8e (.)
+=======
+            },
+>>>>>>> 6d20fbe (.)
         );
 
         /* @phpstan-ignore argument.type */
@@ -100,11 +115,16 @@ class Reset extends Component
     public function render(): View|Factory
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         app(ViewCopyAction::class)
             ->execute('user::livewire.auth.passwords.reset', 'pub_theme::livewire.auth.passwords.reset');
 =======
         app(ViewCopyAction::class)->execute('user::livewire.auth.passwords.reset', 'pub_theme::livewire.auth.passwords.reset');
 >>>>>>> fbc8f8e (.)
+=======
+        app(ViewCopyAction::class)
+            ->execute('user::livewire.auth.passwords.reset', 'pub_theme::livewire.auth.passwords.reset');
+>>>>>>> 6d20fbe (.)
         app(ViewCopyAction::class)->execute('user::layouts.auth', 'pub_theme::layouts.auth');
         app(ViewCopyAction::class)->execute('user::layouts.base', 'pub_theme::layouts.base');
 
@@ -115,10 +135,14 @@ class Reset extends Component
 
         return view($view, [
 <<<<<<< HEAD
+<<<<<<< HEAD
             'layout' => 'pub_theme::layouts.auth',
 =======
             'layout' => 'pub_theme::layouts.auth'
 >>>>>>> fbc8f8e (.)
+=======
+            'layout' => 'pub_theme::layouts.auth',
+>>>>>>> 6d20fbe (.)
         ]);
     }
 

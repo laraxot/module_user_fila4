@@ -10,9 +10,13 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Schemas\Components\Section;
 use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
 use Filament\Forms\Components\Placeholder;
@@ -45,14 +49,21 @@ abstract class BaseUserResource extends XotBaseResource
     // }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public static function getFormSchema(): array
     {
         return [
             'section01' => Section::make([
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                 'name' => TextInput::make('name')->required(),
                 'email' => TextInput::make('email')->required()->unique(ignoreRecord: true),
                 'password' => TextInput::make('password')
@@ -68,6 +79,7 @@ abstract class BaseUserResource extends XotBaseResource
 
                     return $record->created_at->diffForHumans();
                 }),
+<<<<<<< HEAD
 =======
                 'name' => TextInput::make('name')
                     ->required(),
@@ -89,6 +101,8 @@ abstract class BaseUserResource extends XotBaseResource
                         return $record->created_at->diffForHumans();
                     }),
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             ])->columnSpan(4),
         ];
     }
@@ -100,6 +114,9 @@ abstract class BaseUserResource extends XotBaseResource
 
     /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      * public static function getModel(): string
      * {
      * return config('filament-user-resource.model');
@@ -107,6 +124,7 @@ abstract class BaseUserResource extends XotBaseResource
      */
 
     #[Override]
+<<<<<<< HEAD
 =======
     public static function getModel(): string
     {
@@ -115,6 +133,8 @@ abstract class BaseUserResource extends XotBaseResource
     */
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     public function hasCombinedRelationManagerTabsWithContent(): bool
     {
         return true;

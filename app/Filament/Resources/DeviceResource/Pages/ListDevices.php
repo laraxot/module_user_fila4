@@ -6,9 +6,13 @@ namespace Modules\User\Filament\Resources\DeviceResource\Pages;
 
 use Filament\Tables\Columns\Column;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Actions\CreateAction;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
@@ -27,6 +31,9 @@ class ListDevices extends XotBaseListRecords
      * @return array<string, Column>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     public function getTableColumns(): array
     {
@@ -45,6 +52,7 @@ class ListDevices extends XotBaseListRecords
             'created_at' => TextColumn::make('created_at')->dateTime()->sortable(),
         ];
     }
+<<<<<<< HEAD
 =======
     public function getTableColumns(): array
     {
@@ -85,4 +93,6 @@ class ListDevices extends XotBaseListRecords
 
     
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 }

@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Actions\User;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -12,6 +15,7 @@ use Modules\User\Models\User;
 use Modules\Xot\Actions\String\GetPronounceablePasswordAction;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
+<<<<<<< HEAD
 =======
 use Illuminate\Support\Str;
 use Modules\User\Models\User;
@@ -20,11 +24,16 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Modules\Xot\Contracts\UserContract;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 use Spatie\QueueableAction\QueueableAction;
 
 class GetNewPasswordAction
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     use QueueableAction;
 
     public function execute(UserContract $record): string
@@ -41,6 +50,7 @@ class GetNewPasswordAction
             return [$password, $password_hash];
         });
 
+<<<<<<< HEAD
 =======
     use QueueableAction; 
     
@@ -63,6 +73,8 @@ class GetNewPasswordAction
         });
          
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         $user->forceFill([
             //'password' => Hash::make($password),
             //'password' => '$2y$12$mFdQg0jwDMG2FjemQo9y5u2SbC1G0xSNKS3gQnFO5CQ109YWHTAtG',
@@ -70,11 +82,15 @@ class GetNewPasswordAction
         ])->save();
         /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
          * $user->update([
          * 'password' => $password,
          * ]);
          */
 
+<<<<<<< HEAD
 =======
         $user->update([
             'password' => $password,
@@ -82,6 +98,8 @@ class GetNewPasswordAction
        */
         
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         return $password;
     }
 }

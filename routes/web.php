@@ -8,6 +8,9 @@ declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Modules\User\Http\Controllers\Auth\LogoutController;
 use Modules\Xot\Datas\XotData;
 
@@ -21,6 +24,7 @@ if (XotData::make()->register_pub_theme) {
 
 Route::post('/logout', LogoutController::class)->name('logout');
 
+<<<<<<< HEAD
 =======
 use Modules\Xot\Datas\XotData;
 use Modules\User\Http\Controllers\Auth\LogoutController;
@@ -36,4 +40,6 @@ if (XotData::make()->register_pub_theme) {
 
 Route::post('/logout', LogoutController::class)->name('logout');
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 //Route::get('/upgrade', 'UpgradeController');

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 # User Module Documentation
 
 **Ultima modifica**: 2025-01-15  
@@ -16,8 +19,11 @@ Il modulo User gestisce l'autenticazione, l'autorizzazione e la gestione degli u
 - **[Module Namespace Rules](../Xot/docs/module-namespace-rules.md)** - Regole namespace e migrazioni
 - **[Best Practices](../Xot/docs/best-practices.md)** - Best practices generali
 - **[Useful Links](../Xot/docs/useful-links.md)** - Link utili per lo sviluppo
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 # Modulo User
 
 ## Introduzione
@@ -130,6 +136,9 @@ User/
 
 ## Collegamenti Bidirezionali
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 - [Modulo Xot](../Xot/docs/README.md)
 - [Modulo Patient](../Patient/docs/README.md)
 - [Modulo Dental](../Dental/docs/README.md)
@@ -147,6 +156,7 @@ User/
 - [Architettura Moduli](../../docs/architecture/modules-structure.md)
 - [Convenzioni di Nomenclatura](../../docs/standards/file_naming_conventions.md)
 - [Struttura del Progetto](../Xot/docs/architecture/struttura-progetto.md)
+<<<<<<< HEAD
 =======
 - [Modulo Xot](../Xot/project_docs/README.md)
 - [Modulo Patient](../Patient/project_docs/README.md)
@@ -160,6 +170,8 @@ User/
 - [Convenzioni di Nomenclatura](../../project_docs/standards/file_naming_conventions.md)
 - [Struttura del Progetto](../Xot/project_docs/architecture/struttura-progetto.md)
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 > **Collegamenti correlati**
 > - [README.md documentazione generale](../../../docs/README.md)
@@ -307,6 +319,7 @@ Il modulo User gestisce l'autenticazione, l'autorizzazione e la gestione degli u
 
 ### Integrazioni
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [Integrazione con Xot](../Xot/docs/README.md)
 - [Integrazione con Lang](../Lang/docs/README.md)
 - [Integrazione con Notify](../Notify/docs/README.md)
@@ -315,6 +328,11 @@ Il modulo User gestisce l'autenticazione, l'autorizzazione e la gestione degli u
 - [Integrazione con Lang](../Lang/project_docs/README.md)
 - [Integrazione con Notify](../Notify/project_docs/README.md)
 >>>>>>> fbc8f8e (.)
+=======
+- [Integrazione con Xot](../Xot/docs/README.md)
+- [Integrazione con Lang](../Lang/docs/README.md)
+- [Integrazione con Notify](../Notify/docs/README.md)
+>>>>>>> 6d20fbe (.)
 
 ### Autenticazione
 - [Login Personalizzato](custom_login.md)
@@ -566,6 +584,7 @@ class UserServiceProvider extends XotBaseServiceProvider
 - Errori di traduzione 
 ## Collegamenti
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [Indice Documentazione](../../../docs/INDEX.md)
 - [README Principale](../../../README.md)
 =======
@@ -574,6 +593,10 @@ class UserServiceProvider extends XotBaseServiceProvider
 - [API Reference](../project_docs/api.md)
 - [Changelog](../project_docs/CHANGELOG.md) 
 >>>>>>> fbc8f8e (.)
+=======
+- [Indice Documentazione](../../../docs/INDEX.md)
+- [README Principale](../../../README.md)
+>>>>>>> 6d20fbe (.)
 - [API Reference](../docs/api.md)
 - [Changelog](../docs/CHANGELOG.md) 
 ## Collegamenti tra versioni di README.md
@@ -993,9 +1016,13 @@ Schema::table('teams', function (Blueprint $table) {
 - [ ] I comandi artisan sono lanciati dal path corretto o con namespace modulo
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
 ## Aggiornamenti Recenti
 
 ### 27 Gennaio 2025
@@ -1010,6 +1037,9 @@ Schema::table('teams', function (Blueprint $table) {
 ## Collegamenti
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 ## Aggiornamenti Recenti
 
 ### 27 Gennaio 2025
@@ -1031,5 +1061,8 @@ Schema::table('teams', function (Blueprint $table) {
 ## Collegamenti
 ## Collegamenti
 
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)

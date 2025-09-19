@@ -20,12 +20,16 @@ class RegisterTeam extends RegisterTenant
 
     public function getFormSchema(): array
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     {
         return [
             TextInput::make('name'),
             // ...
         ];
     }
+<<<<<<< HEAD
 =======
 {
     
@@ -38,6 +42,8 @@ class RegisterTeam extends RegisterTenant
       ];
 }
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
     /**
      * @param  array<string, mixed>  $data

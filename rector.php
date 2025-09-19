@@ -11,6 +11,7 @@ use RectorLaravel\Set\LaravelSetList;
 
 return static function (RectorConfig $rectorConfig): void {
 <<<<<<< HEAD
+<<<<<<< HEAD
     $rectorConfig->paths([
         __DIR__,
     ]);
@@ -21,6 +22,11 @@ return static function (RectorConfig $rectorConfig): void {
         ]
     );
 >>>>>>> fbc8f8e (.)
+=======
+    $rectorConfig->paths([
+        __DIR__,
+    ]);
+>>>>>>> 6d20fbe (.)
 
     // register a single rule
     // $rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
@@ -30,6 +36,9 @@ return static function (RectorConfig $rectorConfig): void {
     //    ReturnTypeFromStrictScalarReturnExprRector::class,
     // ]);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     $rectorConfig->rules([
         ReturnTypeFromStrictNativeCallRector::class,
         ReturnTypeFromStrictScalarReturnExprRector::class,
@@ -58,6 +67,7 @@ return static function (RectorConfig $rectorConfig): void {
         './vendor/',
         __DIR__ . '/vendor',
     ]);
+<<<<<<< HEAD
 =======
     $rectorConfig->rules(
         [
@@ -95,6 +105,8 @@ return static function (RectorConfig $rectorConfig): void {
         ]
     );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
     $rectorConfig->importNames();
 };
