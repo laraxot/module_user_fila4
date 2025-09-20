@@ -4,11 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-<<<<<<< HEAD
 
-=======
-use Modules\TechPlanner\Models\Profile;
->>>>>>> ceff73a (.)
 use Modules\User\Models\Traits\HasAuthenticationLogTrait;
 use Throwable;
 use Override;
@@ -135,14 +131,8 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static Builder|User whereIsOtp($value)
  * @method static Builder|User wherePasswordExpiresAt($value)
  * @method static Builder|User whereSurname($value)
-<<<<<<< HEAD
- * @method static static|null firstWhere($column, $operator = null, $value = null, $boolean = 'and')
- *
- * @mixin IdeHelperBaseUser
-=======
  *
  * @mixin \Eloquent
->>>>>>> ceff73a (.)
  */
 abstract class BaseUser extends Authenticatable implements HasName, HasTenants, UserContract, HasMedia, MustVerifyEmail
 {
@@ -273,16 +263,11 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
     #[Override]
     public function profile(): HasOne
     {
-        try {
-            /** @var class-string<Model> */
-            $profileClass = XotData::make()->getProfileClass();
+        /** @var class-string<Model> $profileClass */
+        $profileClass = XotData::make()->getProfileClass();
 
-            return $this->hasOne($profileClass);
-        } catch (Exception $e) {
-            // Fallback: se non riesce a ottenere la classe Profile, usa una relazione generica
-            // Questo evita l'errore "Target [Illuminate\Database\Eloquent\Model] is not instantiable"
-            return $this->hasOne(Profile::class);
-        }
+        /** @var HasOne<Model, $this> */
+        return $this->hasOne($profileClass);
     }
 
     /**
@@ -448,11 +433,7 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
 
         try {
             $value = $candidate;
-<<<<<<< HEAD
-            while (static::query()->firstWhere(['name' => $value]) !== null) {
-=======
             while (self::firstWhere(['name' => $value]) !== null) {
->>>>>>> ceff73a (.)
                 $i++;
                 $value = $name . '-' . $i;
             }
