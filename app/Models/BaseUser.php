@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
 
+=======
+use Modules\TechPlanner\Models\Profile;
+>>>>>>> ceff73a (.)
 use Modules\User\Models\Traits\HasAuthenticationLogTrait;
 use Throwable;
 use Override;
@@ -131,9 +135,14 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static Builder|User whereIsOtp($value)
  * @method static Builder|User wherePasswordExpiresAt($value)
  * @method static Builder|User whereSurname($value)
+<<<<<<< HEAD
  * @method static static|null firstWhere($column, $operator = null, $value = null, $boolean = 'and')
  *
  * @mixin IdeHelperBaseUser
+=======
+ *
+ * @mixin \Eloquent
+>>>>>>> ceff73a (.)
  */
 abstract class BaseUser extends Authenticatable implements HasName, HasTenants, UserContract, HasMedia, MustVerifyEmail
 {
@@ -439,7 +448,11 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
 
         try {
             $value = $candidate;
+<<<<<<< HEAD
             while (static::query()->firstWhere(['name' => $value]) !== null) {
+=======
+            while (self::firstWhere(['name' => $value]) !== null) {
+>>>>>>> ceff73a (.)
                 $i++;
                 $value = $name . '-' . $i;
             }
