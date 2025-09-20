@@ -140,7 +140,7 @@ class User extends BaseUser
      *
      * @var string
      */
-    public $connection = 'user';
+    public $connection = 'mysql';
 
     #[\Override]
     public function canAccessSocialite(): bool
