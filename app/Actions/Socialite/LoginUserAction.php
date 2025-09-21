@@ -25,7 +25,23 @@ class LoginUserAction
      */
     public function execute(SocialiteUser $socialiteUser): RedirectResponse
     {
+<<<<<<< HEAD
         Assert::notNull($user = $socialiteUser->user, '[' . __FILE__ . '][' . __LINE__ . ']');
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        Assert::notNull($user = $socialiteUser->user, '[' . __FILE__ . '][' . __LINE__ . ']');
+=======
+        Assert::notNull($user = $socialiteUser->user, '['.__FILE__.']['.__LINE__.']');
+>>>>>>> a12f125f4a (.)
+=======
+        Assert::notNull($user = $socialiteUser->user, '[' . __FILE__ . '][' . __LINE__ . ']');
+>>>>>>> b93ef594b4 (.)
+=======
+        Assert::notNull($user = $socialiteUser->user, '['.__FILE__.']['.__LINE__.']');
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         Filament::auth()->login($user);
         SocialiteUserConnected::dispatch($socialiteUser);
         // session()->regenerate();

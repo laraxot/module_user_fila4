@@ -5,7 +5,21 @@ declare(strict_types=1);
 namespace Modules\User\Support;
 
 use Illuminate\Filesystem\Filesystem;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\File;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Illuminate\Support\Facades\File;
+=======
+>>>>>>> a12f125f4a (.)
+=======
+use Illuminate\Support\Facades\File;
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 use Illuminate\Support\Str;
 use Modules\User\Contracts\HasShieldPermissions;
 use Modules\User\Datas\FilamentShieldData;
@@ -13,6 +27,20 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 use Webmozart\Assert\Assert;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+use Illuminate\Support\Facades\File;
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+use Illuminate\Support\Facades\File;
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
 use function Safe\class_implements;
 use function Safe\class_uses;
@@ -25,19 +53,67 @@ class Utils
     public static function getFilamentAuthGuard(): string
     {
         return 'web';
+<<<<<<< HEAD
 
         // Assert::string($res = config('filament.auth.guard'), 'wip');
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+        // Assert::string($res = config('filament.auth.guard'), 'wip');
+=======
+        // Assert::string($res = config('filament.auth.guard'), 'wip');
+
+>>>>>>> a12f125f4a (.)
+=======
+
+        // Assert::string($res = config('filament.auth.guard'), 'wip');
+>>>>>>> b93ef594b4 (.)
+=======
+        // Assert::string($res = config('filament.auth.guard'), 'wip');
+
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         // return $res;
     }
 
     public static function isResourcePublished(): bool
     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
         $roleResourcePath = app_path((string) Str::of('Filament\\Resources\\Shield\\RoleResource.php')->replace(
             '\\',
             '/',
         ));
+<<<<<<< HEAD
 
         $filesystem = new Filesystem();
+=======
+<<<<<<< HEAD
+
+        $filesystem = new Filesystem();
+=======
+        $roleResourcePath = app_path((string) Str::of('Filament\\Resources\\Shield\\RoleResource.php')->replace('\\', '/'));
+
+        $filesystem = new Filesystem;
+>>>>>>> a12f125f4a (.)
+=======
+
+        $filesystem = new Filesystem();
+>>>>>>> b93ef594b4 (.)
+=======
+        $roleResourcePath = app_path((string) Str::of('Filament\\Resources\\Shield\\RoleResource.php')->replace('\\', '/'));
+
+        $filesystem = new Filesystem;
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
         return $filesystem->exists($roleResourcePath);
     }
@@ -89,12 +165,34 @@ class Utils
 
     public static function isAuthProviderConfigured(): bool
     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
         return (
             in_array(
                 "BezhanSalleh\FilamentShield\Traits\HasFilamentShield",
                 class_uses(static::getAuthProviderFQCN()),
              strict: true) || in_array(HasRoles::class, class_uses(static::getAuthProviderFQCN()), strict: true)
         );
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        return in_array("BezhanSalleh\FilamentShield\Traits\HasFilamentShield", class_uses(static::getAuthProviderFQCN()))
+        || in_array(HasRoles::class, class_uses(static::getAuthProviderFQCN()));
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+        return in_array("BezhanSalleh\FilamentShield\Traits\HasFilamentShield", class_uses(static::getAuthProviderFQCN()))
+        || in_array(HasRoles::class, class_uses(static::getAuthProviderFQCN()));
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public static function isSuperAdminEnabled(): bool
@@ -239,7 +337,23 @@ class Utils
 
     public static function doesResourceHaveCustomPermissions(string $resourceClass): bool
     {
+<<<<<<< HEAD
         return in_array(HasShieldPermissions::class, class_implements($resourceClass), strict: true);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return in_array(HasShieldPermissions::class, class_implements($resourceClass), strict: true);
+=======
+        return in_array(HasShieldPermissions::class, class_implements($resourceClass));
+>>>>>>> a12f125f4a (.)
+=======
+        return in_array(HasShieldPermissions::class, class_implements($resourceClass), strict: true);
+>>>>>>> b93ef594b4 (.)
+=======
+        return in_array(HasShieldPermissions::class, class_implements($resourceClass));
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     /**

@@ -20,7 +20,23 @@ class PermissionPolicy extends UserBasePolicy
     /**
      * Determine whether the user can view the model.
      */
+<<<<<<< HEAD
     public function view(UserContract $_user, Post $_post): bool
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    public function view(UserContract $_user, Post $_post): bool
+=======
+    public function view(UserContract $user, Post $post): bool
+>>>>>>> a12f125f4a (.)
+=======
+    public function view(UserContract $_user, Post $_post): bool
+>>>>>>> b93ef594b4 (.)
+=======
+    public function view(UserContract $user, Post $post): bool
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     {
         return true;
     }
@@ -28,7 +44,23 @@ class PermissionPolicy extends UserBasePolicy
     /**
      * Determine whether the user can create models.
      */
+<<<<<<< HEAD
     public function create(UserContract $_user): bool
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    public function create(UserContract $_user): bool
+=======
+    public function create(UserContract $user): bool
+>>>>>>> a12f125f4a (.)
+=======
+    public function create(UserContract $_user): bool
+>>>>>>> b93ef594b4 (.)
+=======
+    public function create(UserContract $user): bool
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     {
         return true;
     }
@@ -36,7 +68,23 @@ class PermissionPolicy extends UserBasePolicy
     /**
      * Determine whether the user can update the model.
      */
+<<<<<<< HEAD
     public function update(UserContract $_user, Post $_post): bool
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    public function update(UserContract $_user, Post $_post): bool
+=======
+    public function update(UserContract $user, Post $post): bool
+>>>>>>> a12f125f4a (.)
+=======
+    public function update(UserContract $_user, Post $_post): bool
+>>>>>>> b93ef594b4 (.)
+=======
+    public function update(UserContract $user, Post $post): bool
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     {
         return true;
     }
@@ -44,7 +92,23 @@ class PermissionPolicy extends UserBasePolicy
     /**
      * Determine whether the user can delete the model.
      */
+<<<<<<< HEAD
     public function delete(UserContract $_user, Post $_post): bool
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    public function delete(UserContract $_user, Post $_post): bool
+=======
+    public function delete(UserContract $user, Post $post): bool
+>>>>>>> a12f125f4a (.)
+=======
+    public function delete(UserContract $_user, Post $_post): bool
+>>>>>>> b93ef594b4 (.)
+=======
+    public function delete(UserContract $user, Post $post): bool
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     {
         // return $user->ownsTeam($team);
         return true;

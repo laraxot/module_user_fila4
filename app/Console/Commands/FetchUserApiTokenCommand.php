@@ -4,7 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
+<<<<<<< HEAD
 use Modules\Xot\Contracts\UserContract;
+=======
+<<<<<<< HEAD
+use Modules\Xot\Contracts\UserContract;
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Datas\XotData;
@@ -21,7 +28,28 @@ class FetchUserApiTokenCommand extends Command
 
     protected $description = 'Fetches an OAuth Token to be able to test APIs';
 
+<<<<<<< HEAD
     
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    
+=======
+=======
+>>>>>>> origin/develop
+    public function __construct()
+    {
+        parent::__construct();
+    }
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+    
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
     public function handle(): int
     {
@@ -38,7 +66,15 @@ class FetchUserApiTokenCommand extends Command
         }
 
         $user_class = XotData::make()->getUserClass();
+<<<<<<< HEAD
         /** @var UserContract */
+=======
+<<<<<<< HEAD
+        /** @var UserContract */
+=======
+        /** @var \Modules\Xot\Contracts\UserContract */
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         $user = XotData::make()->getUserByEmail($userEmail);
 
         if ($user === null) {
@@ -50,6 +86,12 @@ class FetchUserApiTokenCommand extends Command
         $oauthScopes = ['core-technicians'];
 
         $token = $user->createToken(
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
             name: sprintf('Debug Token [%s]', Carbon::now()->format('Y-m-d H:i:s')),
             scopes: $oauthScopes,
         );
@@ -57,6 +99,39 @@ class FetchUserApiTokenCommand extends Command
         $this->info("Access token for `{$userEmail}`:");
         $this->comment($token->accessToken);
         $this->info('Scopes included: ' . implode(', ', $oauthScopes));
+<<<<<<< HEAD
+=======
+=======
+=======
+>>>>>>> origin/develop
+            name: sprintf(
+                'Debug Token [%s]',
+                Carbon::now()->format('Y-m-d H:i:s'),
+            ),
+<<<<<<< HEAD
+=======
+            name: sprintf('Debug Token [%s]', Carbon::now()->format('Y-m-d H:i:s')),
+>>>>>>> b93ef594b4 (.)
+            scopes: $oauthScopes,
+        );
+
+        $this->info("Access token for `{$userEmail}`:");
+        $this->comment($token->accessToken);
+<<<<<<< HEAD
+        $this->info('Scopes included: '.implode(', ', $oauthScopes));
+>>>>>>> a12f125f4a (.)
+=======
+        $this->info('Scopes included: ' . implode(', ', $oauthScopes));
+>>>>>>> b93ef594b4 (.)
+=======
+            scopes: $oauthScopes,
+        );
+
+        $this->info("Access token for `$userEmail`:");
+        $this->comment($token->accessToken);
+        $this->info('Scopes included: '.implode(', ', $oauthScopes));
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
         return self::SUCCESS;
     }

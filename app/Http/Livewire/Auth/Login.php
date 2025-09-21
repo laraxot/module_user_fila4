@@ -4,16 +4,33 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Auth;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
 use Filament\Actions\Contracts\HasActions;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Schemas\Schema;
 use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\View\Factory;
+<<<<<<< HEAD
+=======
+=======
+use Filament\Forms\ComponentContainer;
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+use Filament\Forms\Form;
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -22,11 +39,33 @@ use Modules\Xot\Actions\File\ViewCopyAction;
 /**
  * Componente Livewire per la gestione del login.
  *
+<<<<<<< HEAD
  * @property Schema $form
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+ * @property Schema $form
+=======
+ * @property \Filament\Schemas\Schema $form
+>>>>>>> a12f125f4a (.)
+=======
+ * @property Schema $form
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
  */
 class Login extends Component implements HasForms, HasActions
 {
     use InteractsWithActions;
+<<<<<<< HEAD
+=======
+=======
+ * @property ComponentContainer $form
+ */
+class Login extends Component implements HasForms
+{
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     use InteractsWithForms;
 
     /**
@@ -79,8 +118,30 @@ class Login extends Component implements HasForms, HasActions
                 ->suffixIcon('heroicon-m-envelope')
                 ->autofocus()
                 ->live()
+<<<<<<< HEAD
                 ->afterStateUpdated(fn($_state) => $this->validateOnly('email'))
                 ->dehydrated(),
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+                ->afterStateUpdated(fn($_state) => $this->validateOnly('email'))
+                ->dehydrated(),
+=======
+                ->afterStateUpdated(fn ($state) => $this->validateOnly('email'))
+                ->dehydrated(),
+
+>>>>>>> a12f125f4a (.)
+=======
+                ->afterStateUpdated(fn($_state) => $this->validateOnly('email'))
+                ->dehydrated(),
+>>>>>>> b93ef594b4 (.)
+=======
+                ->afterStateUpdated(fn ($state) => $this->validateOnly('email'))
+                ->dehydrated(),
+
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             TextInput::make('password')
                 ->password()
                 ->required()
@@ -91,6 +152,20 @@ class Login extends Component implements HasForms, HasActions
                 ->minLength(8)
                 ->maxLength(255)
                 ->dehydrated(),
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             Checkbox::make('remember')
                 ->label(__('Ricordami'))
                 ->default(false)
@@ -101,9 +176,31 @@ class Login extends Component implements HasForms, HasActions
     /**
      * Crea il form.
      */
+<<<<<<< HEAD
     public function form(): Schema
     {
         return Schema::make()->components($this->getFormSchema());
+=======
+<<<<<<< HEAD
+    public function form(): Schema
+    {
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return Schema::make()->components($this->getFormSchema());
+=======
+        return $this->makeForm()
+            ->components($this->getFormSchema());
+>>>>>>> a12f125f4a (.)
+=======
+        return Schema::make()->components($this->getFormSchema());
+>>>>>>> b93ef594b4 (.)
+=======
+    public function form(): Form
+    {
+        return $this->makeForm()
+            ->schema($this->getFormSchema());
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     /**
@@ -131,7 +228,15 @@ class Login extends Component implements HasForms, HasActions
             }
 
             $this->addError('email', __('Le credenziali fornite non sono corrette..'));
+<<<<<<< HEAD
         } catch (Exception $e) {
+=======
+<<<<<<< HEAD
+        } catch (Exception $e) {
+=======
+        } catch (\Exception $e) {
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             $this->addError('email', __('Si è verificato un errore durante il login. Riprova più tardi.'));
             report($e);
         }
@@ -145,13 +250,49 @@ class Login extends Component implements HasForms, HasActions
     protected function getRedirectUrl(): RedirectResponse
     {
         $user = Auth::user();
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+        
+>>>>>>> a12f125f4a (.)
+=======
+
+>>>>>>> b93ef594b4 (.)
+=======
+        
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         if (!$user) {
             return redirect()->to('/');
         }
 
         // Se l'utente ha ruoli admin, redirect al pannello appropriato
+<<<<<<< HEAD
         $adminRoles = $user->roles->filter(fn($role) => str_ends_with($role->name, '::admin'));
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        $adminRoles = $user->roles->filter(fn($role) => str_ends_with($role->name, '::admin'));
+=======
+        $adminRoles = $user->roles->filter(function ($role) {
+            return str_ends_with($role->name, '::admin');
+        });
+>>>>>>> a12f125f4a (.)
+=======
+        $adminRoles = $user->roles->filter(fn($role) => str_ends_with($role->name, '::admin'));
+>>>>>>> b93ef594b4 (.)
+=======
+        $adminRoles = $user->roles->filter(function ($role) {
+            return str_ends_with($role->name, '::admin');
+        });
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
         if ($adminRoles->count() === 1) {
             // Un solo ruolo admin - redirect al modulo specifico
@@ -172,9 +313,21 @@ class Login extends Component implements HasForms, HasActions
     /**
      * Renderizza il componente.
      *
+<<<<<<< HEAD
      * @return View|Factory
      */
     public function render(): View|Factory
+=======
+<<<<<<< HEAD
+     * @return View|Factory
+     */
+    public function render(): View|Factory
+=======
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function render(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     {
         //app(ViewCopyAction::class)->execute('user::livewire.auth.login', 'pub_theme::livewire.auth.login');
         return view('user::livewire.auth.login');

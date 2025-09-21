@@ -4,10 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
 use Modules\Xot\Actions\Factory\GetFactoryAction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\User\Database\Factories\PermissionFactory;
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -22,7 +31,15 @@ use Webmozart\Assert\Assert;
 
 /**
  * Class Permission.
+<<<<<<< HEAD
  *
+=======
+<<<<<<< HEAD
+ *
+=======
+ * 
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
  * Extends Spatie's Permission model to interact with the permission system.
  *
  * @property string                                                                    $id
@@ -34,6 +51,10 @@ use Webmozart\Assert\Assert;
  * @property string|null                                                               $updated_by
  * @property Collection<int, Role>                                                     $roles
  * @property int|null                                                                  $roles_count
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
  * @property EloquentCollection<int, Model&UserContract> $users
  * @property int|null                                                                  $users_count
  * @method static Builder|Permission newModelQuery()
@@ -55,6 +76,32 @@ use Webmozart\Assert\Assert;
  * @property PermissionRole|null $pivot
  * @mixin IdeHelperPermission
  * @method static PermissionFactory factory($count = null, $state = [])
+<<<<<<< HEAD
+=======
+=======
+ * @property EloquentCollection<int, \Illuminate\Database\Eloquent\Model&UserContract> $users
+ * @property int|null                                                                  $users_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission whereGuardName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission role($roles, $guard = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission permission($permissions)
+ * @property EloquentCollection<int, Permission> $permissions
+ * @property int|null                            $permissions_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission withoutPermission($permissions)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission withoutRole($roles, $guard = null)
+ * @property PermissionRole|null $pivot
+ * @mixin IdeHelperPermission
+ * @method static \Modules\User\Database\Factories\PermissionFactory factory($count = null, $state = [])
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
  * @mixin \Eloquent
  */
 class Permission extends SpatiePermission
@@ -125,6 +172,26 @@ class Permission extends SpatiePermission
      */
     protected static function newFactory()
     {
+<<<<<<< HEAD
         return app(GetFactoryAction::class)->execute(static::class);
     }
 }
+=======
+<<<<<<< HEAD
+        return app(GetFactoryAction::class)->execute(static::class);
+    }
+}
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+        return app(\Modules\Xot\Actions\Factory\GetFactoryAction::class)->execute(static::class);
+    }
+}
+
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)

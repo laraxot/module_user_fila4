@@ -35,7 +35,28 @@ class SuperAdminCommand extends Command
      *
      * @return void
      */
+<<<<<<< HEAD
     
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    
+=======
+=======
+>>>>>>> origin/develop
+    public function __construct()
+    {
+        parent::__construct();
+    }
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+    
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
     /**
      * Execute the console command.
@@ -48,18 +69,70 @@ class SuperAdminCommand extends Command
         $user = XotData::make()->getUserByEmail($email);
 
         // Create super-admin role with web guard
+<<<<<<< HEAD
         $role = Role::firstOrCreate(['name' => 'super-admin']);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        $role = Role::firstOrCreate(['name' => 'super-admin']);
+=======
+        $role = Role::firstOrCreate(
+            ['name' => 'super-admin']
+        );
+>>>>>>> a12f125f4a (.)
+=======
+        $role = Role::firstOrCreate(['name' => 'super-admin']);
+>>>>>>> b93ef594b4 (.)
+=======
+        $role = Role::firstOrCreate(
+            ['name' => 'super-admin']
+        );
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         $user->assignRole($role);
 
         // Create module admin roles
         $modules_opts = array_keys(Module::all());
         foreach ($modules_opts as $module) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
             $role_name = Str::lower($module) . '::admin';
             $role = Role::firstOrCreate(['name' => $role_name]);
             $user->assignRole($role);
         }
 
         $this->info('super-admin assigned to ' . $email);
+<<<<<<< HEAD
+=======
+=======
+=======
+>>>>>>> origin/develop
+            $role_name = Str::lower($module).'::admin';
+            $role = Role::firstOrCreate(
+                ['name' => $role_name]
+            );
+            $user->assignRole($role);
+        }
+
+        $this->info('super-admin assigned to '.$email);
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+            $role_name = Str::lower($module) . '::admin';
+            $role = Role::firstOrCreate(['name' => $role_name]);
+            $user->assignRole($role);
+        }
+
+        $this->info('super-admin assigned to ' . $email);
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     /**

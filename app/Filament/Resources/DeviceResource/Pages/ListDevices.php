@@ -4,8 +4,23 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\DeviceResource\Pages;
 
+<<<<<<< HEAD
 use Filament\Tables\Columns\Column;
 use Override;
+=======
+<<<<<<< HEAD
+use Filament\Tables\Columns\Column;
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Override;
+=======
+>>>>>>> a12f125f4a (.)
+=======
+use Override;
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 use Filament\Actions\CreateAction;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
@@ -21,8 +36,16 @@ class ListDevices extends XotBaseListRecords
     protected static string $resource = DeviceResource::class;
 
     /**
+<<<<<<< HEAD
      * @return array<string, Column>
      */
+=======
+<<<<<<< HEAD
+     * @return array<string, Column>
+     */
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
     #[Override]
     public function getTableColumns(): array
     {
@@ -41,4 +64,76 @@ class ListDevices extends XotBaseListRecords
             'created_at' => TextColumn::make('created_at')->dateTime()->sortable(),
         ];
     }
+<<<<<<< HEAD
+=======
+=======
+=======
+    #[Override]
+>>>>>>> b93ef594b4 (.)
+    public function getTableColumns(): array
+    {
+        return [
+            'uuid' => TextColumn::make('uuid')->searchable()->sortable(),
+            'mobile_id' => TextColumn::make('mobile_id')->searchable()->sortable(),
+            'device' => TextColumn::make('device')->searchable()->sortable(),
+            'platform' => TextColumn::make('platform')->searchable()->sortable(),
+            'browser' => TextColumn::make('browser')->searchable()->sortable(),
+            'version' => TextColumn::make('version')->searchable()->sortable(),
+            'is_robot' => IconColumn::make('is_robot')->boolean(),
+            'is_desktop' => IconColumn::make('is_desktop')->boolean(),
+            'is_mobile' => IconColumn::make('is_mobile')->boolean(),
+            'is_tablet' => IconColumn::make('is_tablet')->boolean(),
+            'is_phone' => IconColumn::make('is_phone')->boolean(),
+            'created_at' => TextColumn::make('created_at')->dateTime()->sortable(),
+        ];
+    }
+<<<<<<< HEAD
+
+    
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+     * @return array<string, \Filament\Tables\Columns\Column>
+     */
+    public function getTableColumns(): array
+    {
+        return [
+            'uuid' => TextColumn::make('uuid')
+                ->searchable()
+                ->sortable(),
+            'mobile_id' => TextColumn::make('mobile_id')
+                ->searchable()
+                ->sortable(),
+            'device' => TextColumn::make('device')
+                ->searchable()
+                ->sortable(),
+            'platform' => TextColumn::make('platform')
+                ->searchable()
+                ->sortable(),
+            'browser' => TextColumn::make('browser')
+                ->searchable()
+                ->sortable(),
+            'version' => TextColumn::make('version')
+                ->searchable()
+                ->sortable(),
+            'is_robot' => IconColumn::make('is_robot')
+                ->boolean(),
+            'is_desktop' => IconColumn::make('is_desktop')
+                ->boolean(),
+            'is_mobile' => IconColumn::make('is_mobile')
+                ->boolean(),
+            'is_tablet' => IconColumn::make('is_tablet')
+                ->boolean(),
+            'is_phone' => IconColumn::make('is_phone')
+                ->boolean(),
+            'created_at' => TextColumn::make('created_at')
+                ->dateTime()
+                ->sortable(),
+        ];
+    }
+
+    
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 }

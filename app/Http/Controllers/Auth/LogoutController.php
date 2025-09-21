@@ -5,8 +5,19 @@ declare(strict_types=1);
 /**
  * Logs out the current user and redirects to the home page.
  *
+<<<<<<< HEAD
  * @return RedirectResponse
  */
+=======
+<<<<<<< HEAD
+ * @return RedirectResponse
+ */
+=======
+ * @return \Illuminate\Http\RedirectResponse
+ */
+
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 namespace Modules\User\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;

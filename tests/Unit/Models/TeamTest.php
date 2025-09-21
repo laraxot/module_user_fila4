@@ -16,7 +16,23 @@ class TeamTest extends TestCase
     public function test_can_create_team_with_minimal_data(): void
     {
         $user = User::factory()->create();
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+        
+>>>>>>> a12f125f4a (.)
+=======
+
+>>>>>>> b93ef594b4 (.)
+=======
+        
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         $team = Team::factory()->create([
             'user_id' => $user->id,
             'name' => 'Test Team',
@@ -32,7 +48,23 @@ class TeamTest extends TestCase
     public function test_can_create_team_with_all_fields(): void
     {
         $user = User::factory()->create();
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+        
+>>>>>>> a12f125f4a (.)
+=======
+
+>>>>>>> b93ef594b4 (.)
+=======
+        
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         $teamData = [
             'user_id' => $user->id,
             'name' => 'Full Team',
@@ -80,7 +112,23 @@ class TeamTest extends TestCase
         $restoredTeam->restore();
 
         $this->assertDatabaseHas('teams', ['id' => $teamId]);
+<<<<<<< HEAD
         static::assertNull($restoredTeam->deleted_at);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertNull($restoredTeam->deleted_at);
+=======
+        $this->assertNull($restoredTeam->deleted_at);
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertNull($restoredTeam->deleted_at);
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertNull($restoredTeam->deleted_at);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_team_by_name(): void
@@ -93,8 +141,28 @@ class TeamTest extends TestCase
 
         $foundTeam = Team::where('name', 'Unique Team Name')->first();
 
+<<<<<<< HEAD
         static::assertNotNull($foundTeam);
         static::assertSame($team->id, $foundTeam->id);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertNotNull($foundTeam);
+        static::assertSame($team->id, $foundTeam->id);
+=======
+        $this->assertNotNull($foundTeam);
+        $this->assertEquals($team->id, $foundTeam->id);
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertNotNull($foundTeam);
+        static::assertSame($team->id, $foundTeam->id);
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertNotNull($foundTeam);
+        $this->assertEquals($team->id, $foundTeam->id);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_team_by_code(): void
@@ -107,8 +175,28 @@ class TeamTest extends TestCase
 
         $foundTeam = Team::where('code', 'TEAM123')->first();
 
+<<<<<<< HEAD
         static::assertNotNull($foundTeam);
         static::assertSame($team->id, $foundTeam->id);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertNotNull($foundTeam);
+        static::assertSame($team->id, $foundTeam->id);
+=======
+        $this->assertNotNull($foundTeam);
+        $this->assertEquals($team->id, $foundTeam->id);
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertNotNull($foundTeam);
+        static::assertSame($team->id, $foundTeam->id);
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertNotNull($foundTeam);
+        $this->assertEquals($team->id, $foundTeam->id);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_team_by_uuid(): void
@@ -122,8 +210,28 @@ class TeamTest extends TestCase
 
         $foundTeam = Team::where('uuid', $uuid)->first();
 
+<<<<<<< HEAD
         static::assertNotNull($foundTeam);
         static::assertSame($team->id, $foundTeam->id);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertNotNull($foundTeam);
+        static::assertSame($team->id, $foundTeam->id);
+=======
+        $this->assertNotNull($foundTeam);
+        $this->assertEquals($team->id, $foundTeam->id);
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertNotNull($foundTeam);
+        static::assertSame($team->id, $foundTeam->id);
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertNotNull($foundTeam);
+        $this->assertEquals($team->id, $foundTeam->id);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_team_by_owner_id(): void
@@ -136,8 +244,28 @@ class TeamTest extends TestCase
 
         $foundTeam = Team::where('owner_id', $user->id)->first();
 
+<<<<<<< HEAD
         static::assertNotNull($foundTeam);
         static::assertSame($team->id, $foundTeam->id);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertNotNull($foundTeam);
+        static::assertSame($team->id, $foundTeam->id);
+=======
+        $this->assertNotNull($foundTeam);
+        $this->assertEquals($team->id, $foundTeam->id);
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertNotNull($foundTeam);
+        static::assertSame($team->id, $foundTeam->id);
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertNotNull($foundTeam);
+        $this->assertEquals($team->id, $foundTeam->id);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_personal_teams(): void
@@ -154,23 +282,79 @@ class TeamTest extends TestCase
 
         $personalTeams = Team::where('personal_team', 1)->get();
 
+<<<<<<< HEAD
         static::assertCount(1, $personalTeams);
         static::assertSame(1, $personalTeams->first()->personal_team);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertCount(1, $personalTeams);
+        static::assertSame(1, $personalTeams->first()->personal_team);
+=======
+        $this->assertCount(1, $personalTeams);
+        $this->assertEquals(1, $personalTeams->first()->personal_team);
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertCount(1, $personalTeams);
+        static::assertSame(1, $personalTeams->first()->personal_team);
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertCount(1, $personalTeams);
+        $this->assertEquals(1, $personalTeams->first()->personal_team);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_teams_by_user_id(): void
     {
         $user1 = User::factory()->create();
         $user2 = User::factory()->create();
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+        
+>>>>>>> a12f125f4a (.)
+=======
+
+>>>>>>> b93ef594b4 (.)
+=======
+        
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         Team::factory()->create(['user_id' => $user1->id]);
         Team::factory()->create(['user_id' => $user1->id]);
         Team::factory()->create(['user_id' => $user2->id]);
 
         $user1Teams = Team::where('user_id', $user1->id)->get();
 
+<<<<<<< HEAD
         static::assertCount(2, $user1Teams);
         static::assertTrue($user1Teams->every(fn($team) => $team->user_id === $user1->id));
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertCount(2, $user1Teams);
+        static::assertTrue($user1Teams->every(fn($team) => $team->user_id === $user1->id));
+=======
+        $this->assertCount(2, $user1Teams);
+        $this->assertTrue($user1Teams->every(fn ($team) => $team->user_id === $user1->id));
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertCount(2, $user1Teams);
+        static::assertTrue($user1Teams->every(fn($team) => $team->user_id === $user1->id));
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertCount(2, $user1Teams);
+        $this->assertTrue($user1Teams->every(fn ($team) => $team->user_id === $user1->id));
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_teams_by_name_pattern(): void
@@ -182,8 +366,28 @@ class TeamTest extends TestCase
 
         $devTeams = Team::where('name', 'like', '%Team%')->get();
 
+<<<<<<< HEAD
         static::assertCount(3, $devTeams);
         static::assertTrue($devTeams->every(fn($team) => str_contains($team->name, 'Team')));
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertCount(3, $devTeams);
+        static::assertTrue($devTeams->every(fn($team) => str_contains($team->name, 'Team')));
+=======
+        $this->assertCount(3, $devTeams);
+        $this->assertTrue($devTeams->every(fn ($team) => str_contains($team->name, 'Team')));
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertCount(3, $devTeams);
+        static::assertTrue($devTeams->every(fn($team) => str_contains($team->name, 'Team')));
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertCount(3, $devTeams);
+        $this->assertTrue($devTeams->every(fn ($team) => str_contains($team->name, 'Team')));
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_update_team(): void
@@ -236,6 +440,12 @@ class TeamTest extends TestCase
             'personal_team' => 1,
         ]);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
         $teams = Team::where('user_id', $user->id)->where('personal_team', 0)->get();
 
         static::assertCount(1, $teams);
@@ -243,3 +453,44 @@ class TeamTest extends TestCase
         static::assertSame(0, $teams->first()->personal_team);
     }
 }
+<<<<<<< HEAD
+=======
+=======
+        $teams = Team::where('user_id', $user->id)
+            ->where('personal_team', 0)
+            ->get();
+=======
+        $teams = Team::where('user_id', $user->id)->where('personal_team', 0)->get();
+>>>>>>> b93ef594b4 (.)
+
+        static::assertCount(1, $teams);
+        static::assertSame('Development Team', $teams->first()->name);
+        static::assertSame(0, $teams->first()->personal_team);
+    }
+}
+<<<<<<< HEAD
+=======
+        $teams = Team::where('user_id', $user->id)
+            ->where('personal_team', 0)
+            ->get();
+
+        $this->assertCount(1, $teams);
+        $this->assertEquals('Development Team', $teams->first()->name);
+        $this->assertEquals(0, $teams->first()->personal_team);
+    }
+}
+>>>>>>> origin/develop
+
+
+
+
+
+
+
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)

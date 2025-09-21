@@ -18,7 +18,23 @@
 [![Teams](https://img.shields.io/badge/teams-advanced-purple.svg)](docs/teams.md)
 
 <div align="center">
+<<<<<<< HEAD
   <img src="https://raw.githubusercontent.com/laraxot/user/main/docs/assets/user-banner.png" alt="User Banner" width="800">
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+  <img src="https://raw.githubusercontent.com/laraxot/user/main/docs/assets/user-banner.png" alt="User Banner" width="800">
+=======
+  <img src="https://raw.githubusercontent.com/laraxot/user/main/project_docs/assets/user-banner.png" alt="User Banner" width="800">
+>>>>>>> a12f125f4a (.)
+=======
+  <img src="https://raw.githubusercontent.com/laraxot/user/main/docs/assets/user-banner.png" alt="User Banner" width="800">
+>>>>>>> b93ef594b4 (.)
+=======
+  <img src="https://raw.githubusercontent.com/laraxot/user/main/docs/assets/user-banner.png" alt="User Banner" width="800">
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
   <br>
   <em>🎯 Il sistema di gestione utenti più completo e sicuro per Laravel!</em>
 </div>

@@ -4,7 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Contracts;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Builder;
+=======
+<<<<<<< HEAD
+use Illuminate\Database\Eloquent\Builder;
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -27,6 +34,10 @@ use Modules\Xot\Contracts\UserContract;
  * @property int|null $team_invitations_count
  * @property int|null $users_count
  *
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
  * @method static Builder|TeamContract newModelQuery()
  * @method static Builder|TeamContract newQuery()
  * @method static Builder|TeamContract query()
@@ -36,6 +47,20 @@ use Modules\Xot\Contracts\UserContract;
  * @method static Builder|TeamContract wherePersonalTeam($value)
  * @method static Builder|TeamContract whereUpdatedAt($value)
  * @method static Builder|TeamContract whereUserId($value)
+<<<<<<< HEAD
+=======
+=======
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamContract newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamContract newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamContract query()
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamContract whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamContract whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamContract whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamContract wherePersonalTeam($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamContract whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamContract whereUserId($value)
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
  *
  * @phpstan-require-extends Model
  *
@@ -90,9 +115,33 @@ interface TeamContract extends ModelContract
 
     /* --non qui
      * Get the disk that profile photos should be stored on.
+<<<<<<< HEAD
      *
      * public function profilePhotoDisk(): string;
      */
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+     *
+     * public function profilePhotoDisk(): string;
+     */
+=======
+
+    public function profilePhotoDisk(): string;
+    */
+>>>>>>> a12f125f4a (.)
+=======
+     *
+     * public function profilePhotoDisk(): string;
+     */
+>>>>>>> b93ef594b4 (.)
+=======
+
+    public function profilePhotoDisk(): string;
+    */
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
     /**
      * Reload a fresh model instance from the database.
