@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages\Auth;
 
+<<<<<<< HEAD
 use Filament\Schemas\Schema;
+=======
+use Filament\Forms\Form;
+>>>>>>> 2805232 (.)
 use Modules\User\Datas\PasswordData;
 
 class EditProfile extends \Filament\Auth\Pages\EditProfile

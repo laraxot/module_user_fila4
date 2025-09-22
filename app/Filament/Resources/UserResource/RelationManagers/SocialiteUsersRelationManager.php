@@ -8,7 +8,11 @@ use Filament\Schemas\Components\Component;
 use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms;
+<<<<<<< HEAD
 use Filament\Schemas\Schema;
+=======
+use Filament\Forms\Form;
+>>>>>>> 2805232 (.)
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
