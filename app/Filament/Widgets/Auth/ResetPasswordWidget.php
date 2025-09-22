@@ -4,34 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
-<<<<<<< HEAD
-use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Components\Component;
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Schema;
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\RedirectResponse;
-=======
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\Model;
-use Filament\Schemas\Components\Component;
-use Override;
-use Filament\Schemas\Schema;
-use Filament\Schemas\Components\Section;
-use Illuminate\Http\RedirectResponse;
-use Filament\Forms;
-use Filament\Forms\Components\TextInput;
->>>>>>> 2805232 (.)
+use Filament\Forms\Form;
+use Filament\Forms\Form;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> 2805232 (.)
 
 /**
  * Reset password widget for user password reset functionality.
@@ -40,7 +19,7 @@ use Override;
  * proper security measures, and user feedback. Follows Laraxot
  * architectural patterns and security best practices.
  *
- * @property Schema $form Form container from XotBaseWidget
+ * @property Form $form Form container from XotBaseWidget
  */
 class ResetPasswordWidget extends XotBaseWidget
 {
@@ -82,11 +61,6 @@ class ResetPasswordWidget extends XotBaseWidget
 
     /**
      * Mount the widget and initialize the form.
-<<<<<<< HEAD
-=======
-     *
-     * @return void
->>>>>>> 2805232 (.)
      */
     public function mount(): void
     {
@@ -95,17 +69,11 @@ class ResetPasswordWidget extends XotBaseWidget
 
     /**
      * Configure the form for this widget.
-<<<<<<< HEAD
-=======
-     *
-     * @param Schema $schema
-     * @return Schema
->>>>>>> 2805232 (.)
      */
     #[Override]
-    public function form(Schema $schema): Schema
+    public function form(Form $form): Form
     {
-        return $schema->components([
+        return $form->schema([
             Section::make()->schema($this->getFormSchema())->columns(1),
         ])->statePath('data');
     }
@@ -133,10 +101,6 @@ class ResetPasswordWidget extends XotBaseWidget
 
         if ($status === Password::PASSWORD_RESET) {
             session()->flash('status', __($status));
-<<<<<<< HEAD
-
-=======
->>>>>>> 2805232 (.)
             return redirect()->route('login');
         } else {
             /** @phpstan-ignore-next-line */
