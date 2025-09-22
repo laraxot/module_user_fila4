@@ -9,6 +9,7 @@ use InvalidArgumentException;
 use Modules\Xot\Contracts\UserContract;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Components\Component;
 =======
 use Filament\Schemas\Components\Component;
@@ -16,6 +17,9 @@ use Filament\Schemas\Components\Component;
 =======
 use Filament\Schemas\Components\Component;
 >>>>>>> 041533e (.)
+=======
+use Filament\Schemas\Components\Component;
+>>>>>>> 00a34d0 (.)
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Forms\Components\TextInput;
@@ -23,11 +27,14 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 =======
 >>>>>>> a63f578 (.)
 =======
 >>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
 use Filament\Pages\Page;
@@ -36,12 +43,16 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Illuminate\Support\Facades\Schema;
 >>>>>>> a63f578 (.)
 =======
 use Illuminate\Support\Facades\Schema;
 >>>>>>> 041533e (.)
+=======
+use Illuminate\Support\Facades\Schema;
+>>>>>>> 00a34d0 (.)
 use Illuminate\Validation\Rules\Password as PasswordRule;
 use Modules\User\Datas\PasswordData;
 use Modules\User\Events\NewPasswordSet;
@@ -126,12 +137,16 @@ class PasswordExpired extends Page implements HasForms
         // check if both required columns exist in the database
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         if (!Schema::hasColumn('users', 'password_expires_at')) {
 >>>>>>> a63f578 (.)
 =======
         if (!Schema::hasColumn('users', 'password_expires_at')) {
 >>>>>>> 041533e (.)
+=======
+        if (!Schema::hasColumn('users', 'password_expires_at')) {
+>>>>>>> 00a34d0 (.)
             Notification::make()
                 ->title(__('user::otp.notifications.column_not_found.title'))
                 ->body(__('user::otp.notifications.column_not_found.body', [

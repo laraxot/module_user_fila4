@@ -11,6 +11,7 @@ namespace Modules\User\Filament\Resources;
 use Override;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Components\Section;
 =======
 use Filament\Schemas\Components\Section;
@@ -18,6 +19,9 @@ use Filament\Schemas\Components\Section;
 =======
 use Filament\Schemas\Components\Section;
 >>>>>>> 041533e (.)
+=======
+use Filament\Schemas\Components\Section;
+>>>>>>> 00a34d0 (.)
 use Modules\User\Filament\Resources\TenantResource\RelationManagers\UsersRelationManager;
 use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\ColorPicker;
@@ -25,11 +29,14 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 =======
 >>>>>>> a63f578 (.)
 =======
 >>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
