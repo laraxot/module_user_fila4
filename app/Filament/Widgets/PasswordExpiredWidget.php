@@ -6,19 +6,7 @@ namespace Modules\User\Filament\Widgets;
 
 use Override;
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Filament\Forms\Components\Component;
-=======
 use Filament\Schemas\Components\Component;
->>>>>>> a63f578 (.)
-=======
-use Filament\Schemas\Components\Component;
->>>>>>> 041533e (.)
-=======
-use Filament\Schemas\Components\Component;
->>>>>>> 00a34d0 (.)
 use Modules\User\Models\User;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
@@ -27,17 +15,7 @@ use Filament\Forms;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Form;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Filament\Forms\Form;
-=======
->>>>>>> a63f578 (.)
-=======
->>>>>>> 041533e (.)
-=======
->>>>>>> 00a34d0 (.)
+use Filament\Schemas\Schema;
 use Filament\Forms\Form as FilamentForm;
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
@@ -46,18 +24,7 @@ use Illuminate\Auth\Events\PasswordReset as PasswordResetResponseEvent;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-use Illuminate\Support\Facades\Schema;
->>>>>>> a63f578 (.)
-=======
-use Illuminate\Support\Facades\Schema;
->>>>>>> 041533e (.)
-=======
-use Illuminate\Support\Facades\Schema;
->>>>>>> 00a34d0 (.)
+use Illuminate\Support\Facades\Schema as DatabaseSchema;
 use Illuminate\Validation\Rules\Password as PasswordRule;
 use Modules\User\Datas\PasswordData;
 use Modules\User\Events\NewPasswordSet;

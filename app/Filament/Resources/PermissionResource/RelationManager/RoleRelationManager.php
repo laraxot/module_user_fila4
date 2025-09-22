@@ -8,30 +8,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\PermissionResource\RelationManager;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Filament\Forms\Components\Component;
-use Override;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
-use Filament\Forms\Form;
-=======
-=======
->>>>>>> 041533e (.)
-=======
->>>>>>> 00a34d0 (.)
 use Filament\Schemas\Components\Component;
 use Override;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> a63f578 (.)
-=======
->>>>>>> 041533e (.)
-=======
->>>>>>> 00a34d0 (.)
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
