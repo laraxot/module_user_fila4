@@ -7,10 +7,14 @@ namespace Modules\User\Filament\Widgets;
 use Override;
 use Illuminate\Database\Eloquent\Model;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Components\Component;
 =======
 use Filament\Schemas\Components\Component;
 >>>>>>> a63f578 (.)
+=======
+use Filament\Schemas\Components\Component;
+>>>>>>> 041533e (.)
 use Modules\User\Models\User;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
@@ -21,9 +25,12 @@ use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 =======
 >>>>>>> a63f578 (.)
+=======
+>>>>>>> 041533e (.)
 use Filament\Forms\Form as FilamentForm;
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
@@ -33,9 +40,13 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Illuminate\Support\Facades\Schema;
 >>>>>>> a63f578 (.)
+=======
+use Illuminate\Support\Facades\Schema;
+>>>>>>> 041533e (.)
 use Illuminate\Validation\Rules\Password as PasswordRule;
 use Modules\User\Datas\PasswordData;
 use Modules\User\Events\NewPasswordSet;

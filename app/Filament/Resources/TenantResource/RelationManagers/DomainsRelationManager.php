@@ -8,10 +8,14 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\TenantResource\RelationManagers;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Components\Component;
 =======
 use Filament\Schemas\Components\Component;
 >>>>>>> a63f578 (.)
+=======
+use Filament\Schemas\Components\Component;
+>>>>>>> 041533e (.)
 use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\TextColumn;
@@ -23,9 +27,12 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Forms;
 use Filament\Forms\Form;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 =======
 >>>>>>> a63f578 (.)
+=======
+>>>>>>> 041533e (.)
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;

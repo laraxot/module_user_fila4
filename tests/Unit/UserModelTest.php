@@ -85,7 +85,12 @@ describe('User Model', function () {
     });
 
     it('declares sensitive attributes as hidden (without serialization)', function () {
+<<<<<<< HEAD
         $hidden = new User()->getHidden();
+=======
+        $user = new User();
+        $hidden = $user->getHidden();
+>>>>>>> 041533e (.)
         expect($hidden)->toContain('password')->and($hidden)->toContain('remember_token');
     });
 

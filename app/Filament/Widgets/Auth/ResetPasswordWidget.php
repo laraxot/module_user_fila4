@@ -5,9 +5,14 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Widgets\Auth;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 use Filament\Forms\Form;
 =======
+=======
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+>>>>>>> 041533e (.)
 use Filament\Schemas\Components\Component;
 use Override;
 use Filament\Schemas\Schema;
@@ -15,7 +20,10 @@ use Filament\Schemas\Components\Section;
 use Illuminate\Http\RedirectResponse;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
+<<<<<<< HEAD
 >>>>>>> a63f578 (.)
+=======
+>>>>>>> 041533e (.)
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
@@ -30,10 +38,14 @@ use Modules\Xot\Filament\Widgets\XotBaseWidget;
  * architectural patterns and security best practices.
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @property Form $form Form container from XotBaseWidget
 =======
  * @property Schema $form Form container from XotBaseWidget
 >>>>>>> a63f578 (.)
+=======
+ * @property Schema $form Form container from XotBaseWidget
+>>>>>>> 041533e (.)
  */
 class ResetPasswordWidget extends XotBaseWidget
 {
@@ -76,10 +88,15 @@ class ResetPasswordWidget extends XotBaseWidget
     /**
      * Mount the widget and initialize the form.
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
      *
      * @return void
 >>>>>>> a63f578 (.)
+=======
+     *
+     * @return void
+>>>>>>> 041533e (.)
      */
     public function mount(): void
     {
@@ -89,12 +106,15 @@ class ResetPasswordWidget extends XotBaseWidget
     /**
      * Configure the form for this widget.
 <<<<<<< HEAD
+<<<<<<< HEAD
      */
     #[Override]
     public function form(Form $form): Form
     {
         return $form->schema([
 =======
+=======
+>>>>>>> 041533e (.)
      *
      * @param Schema $schema
      * @return Schema
@@ -103,7 +123,10 @@ class ResetPasswordWidget extends XotBaseWidget
     public function form(Schema $schema): Schema
     {
         return $schema->components([
+<<<<<<< HEAD
 >>>>>>> a63f578 (.)
+=======
+>>>>>>> 041533e (.)
             Section::make()->schema($this->getFormSchema())->columns(1),
         ])->statePath('data');
     }
@@ -122,12 +145,17 @@ class ResetPasswordWidget extends XotBaseWidget
 
         $reset_data = Arr::only($data, ['email', 'password', 'password_confirmation', 'token']);
 <<<<<<< HEAD
+<<<<<<< HEAD
         $status = Password::reset($reset_data, function (Authenticatable $user, string $password): void {
             /** @var Model&Authenticatable $user */
 =======
         $status = Password::reset($reset_data, function (\Illuminate\Contracts\Auth\Authenticatable $user, string $password): void {
             /** @var \Illuminate\Database\Eloquent\Model&\Illuminate\Contracts\Auth\Authenticatable $user */
 >>>>>>> a63f578 (.)
+=======
+        $status = Password::reset($reset_data, function (Authenticatable $user, string $password): void {
+            /** @var Model&Authenticatable $user */
+>>>>>>> 041533e (.)
             $user->forceFill([
                 'password' => Hash::make($password),
                 'remember_token' => Str::random(60),

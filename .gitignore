@@ -3,15 +3,20 @@
 # ==============================================
 # Modulo User Laraxot - Template standardizzato
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Ultimo aggiornamento: 2025-01-31
 =======
 # Ultimo aggiornamento: 2025-01-06
 >>>>>>> a63f578 (.)
+=======
+# Ultimo aggiornamento: 2025-01-06
+>>>>>>> 041533e (.)
 # ==============================================
 
 # ==============================================
 # DEPENDENCIES & PACKAGES
 # ==============================================
+<<<<<<< HEAD
 <<<<<<< HEAD
 /vendor/
 /vendor
@@ -24,6 +29,8 @@ composer.lock
 yarn-error.log
 npm-debug.log
 =======
+=======
+>>>>>>> 041533e (.)
 vendor/
 /vendor/
 node_modules/
@@ -33,7 +40,10 @@ package-lock.json
 yarn.lock
 yarn-error.log
 composer.lock
+<<<<<<< HEAD
 >>>>>>> a63f578 (.)
+=======
+>>>>>>> 041533e (.)
 
 # ==============================================
 # BUILD & COMPILED FILES
@@ -57,9 +67,13 @@ cache/
 *.swo
 *.stackdump
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 *.exe
 >>>>>>> a63f578 (.)
+=======
+*.exe
+>>>>>>> 041533e (.)
 *:Zone.Identifier
 v8-compile-cache-*
 .php-cs-fixer.cache
@@ -72,9 +86,13 @@ v8-compile-cache-*
 error_log
 npm-debug.log*
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 npm-debug.log
 >>>>>>> a63f578 (.)
+=======
+npm-debug.log
+>>>>>>> 041533e (.)
 yarn-error.log*
 lerna-debug.log*
 
@@ -146,6 +164,7 @@ docs/cache/
 
 # ==============================================
 <<<<<<< HEAD
+<<<<<<< HEAD
 # LANGUAGE FILES
 # ==============================================
 lang/lang/
@@ -160,6 +179,8 @@ database/Seeders_old/
 database/Factories_old/
 database_old/
 =======
+=======
+>>>>>>> 041533e (.)
 # OLD DIRECTORIES (LEGACY CLEANUP)
 # ==============================================
 resources/views/Components_old/
@@ -173,7 +194,10 @@ database/Factories_old
 database/Factories_
 database_old/
 database_old
+<<<<<<< HEAD
 >>>>>>> a63f578 (.)
+=======
+>>>>>>> 041533e (.)
 
 # ==============================================
 # MODULE SPECIFIC - USER
@@ -183,6 +207,7 @@ config/local.php
 config/development.php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Cache utenti
 storage/users/
 storage/profiles/
@@ -190,13 +215,18 @@ storage/avatars/
 
 # File di test utenti
 =======
+=======
+>>>>>>> 041533e (.)
 # Cache autenticazione
 storage/framework/cache/
 storage/framework/sessions/
 storage/framework/views/
 
 # File di test temporanei
+<<<<<<< HEAD
 >>>>>>> a63f578 (.)
+=======
+>>>>>>> 041533e (.)
 test_users.json
 user_test_data.csv
 
@@ -205,10 +235,14 @@ user_test_data.csv
 # ==============================================
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # File specifici del progetto
 =======
 # 🚫 File specifici del progetto
 >>>>>>> a63f578 (.)
+=======
+# 🚫 File specifici del progetto
+>>>>>>> 041533e (.)
 *.fila2
 laravel
 public_html
