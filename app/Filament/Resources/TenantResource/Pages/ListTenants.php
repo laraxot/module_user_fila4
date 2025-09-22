@@ -7,21 +7,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\Pages;
 
-<<<<<<< HEAD
 use Override;
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> a12f125f4a (.)
-=======
-use Override;
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\TenantResource;
@@ -35,46 +21,12 @@ class ListTenants extends XotBaseListRecords
     /**
      * Definisce le colonne della tabella per la lista tenant.
      */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
     #[Override]
     public function getTableColumns(): array
     {
         return [
             'id' => TextColumn::make('id')->searchable()->sortable(),
             'name' => TextColumn::make('name')->searchable(),
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> origin/develop
-    public function getTableColumns(): array
-    {
-        return [
-            'id' => TextColumn::make('id')
-                ->searchable()
-                ->sortable(),
-
-            'name' => TextColumn::make('name')
-                ->searchable(),
-
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-    #[Override]
-    public function getTableColumns(): array
-    {
-        return [
-            'id' => TextColumn::make('id')->searchable()->sortable(),
-            'name' => TextColumn::make('name')->searchable(),
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'slug' => TextColumn::make('slug')
                 ->default(function ($record) {
                     if ($record === null) {

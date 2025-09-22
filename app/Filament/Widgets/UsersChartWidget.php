@@ -4,38 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-<<<<<<< HEAD
 use Filament\Actions\Contracts\HasActions;
 use Exception;
-=======
-<<<<<<< HEAD
-use Filament\Actions\Contracts\HasActions;
-use Exception;
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Widgets\ChartWidget;
-<<<<<<< HEAD
 // use Filament\Widgets\Concerns\InteractsWithPageFilters; // Temporaneamente commentato per evitare conflitti trait in Filament 4.x
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-// use Filament\Widgets\Concerns\InteractsWithPageFilters; // Temporaneamente commentato per evitare conflitti trait in Filament 4.x
-=======
-use Filament\Widgets\Concerns\InteractsWithPageFilters;
->>>>>>> a12f125f4a (.)
-=======
-// use Filament\Widgets\Concerns\InteractsWithPageFilters; // Temporaneamente commentato per evitare conflitti trait in Filament 4.x
->>>>>>> b93ef594b4 (.)
-=======
-use Filament\Widgets\Concerns\InteractsWithPageFilters;
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
 use Illuminate\Contracts\Support\Htmlable;
@@ -43,12 +19,6 @@ use Illuminate\Support\Carbon;
 use Modules\User\Models\AuthenticationLog;
 use Webmozart\Assert\Assert;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
 class UsersChartWidget extends ChartWidget implements HasForms, HasActions
 {
     use InteractsWithActions;
@@ -60,42 +30,6 @@ class UsersChartWidget extends ChartWidget implements HasForms, HasActions
     protected null|string $pollingInterval = null;
 
     protected static null|int $sort = 2;
-<<<<<<< HEAD
-=======
-=======
-class UsersChartWidget extends ChartWidget implements HasForms, HasActions, HasActions
-=======
-class UsersChartWidget extends ChartWidget implements HasForms, HasActions
->>>>>>> b93ef594b4 (.)
-{
-    use InteractsWithActions;
-    use InteractsWithForms;
-    // use InteractsWithPageFilters; // Temporaneamente commentato per evitare conflitti trait in Filament 4.x
-
-    public string $chart_id = '';
-
-    protected null|string $pollingInterval = null;
-
-<<<<<<< HEAD
-    protected static ?int $sort = 2;
->>>>>>> a12f125f4a (.)
-=======
-    protected static null|int $sort = 2;
->>>>>>> b93ef594b4 (.)
-=======
-class UsersChartWidget extends ChartWidget implements HasForms
-{
-    use InteractsWithActions;
-    use InteractsWithForms;
-    use InteractsWithPageFilters;
-
-    public string $chart_id = '';
-
-    protected static ?string $pollingInterval = null;
-
-    protected static ?int $sort = 2;
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 
     public function getHeading(): Htmlable|string|null
     {
@@ -124,42 +58,13 @@ class UsersChartWidget extends ChartWidget implements HasForms
      */
     protected function getData(): array
     {
-<<<<<<< HEAD
         // Rimuovere chiamate di test non necessarie per ridurre overhead
         // $this->mountAction('test', ['id' => 5]);
         // $this->testAction();
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        // Rimuovere chiamate di test non necessarie per ridurre overhead
-        // $this->mountAction('test', ['id' => 5]);
-        // $this->testAction();
-=======
-        $this->mountAction('test', ['id' => 5]);
-        $this->testAction();
->>>>>>> a12f125f4a (.)
-=======
-        // Rimuovere chiamate di test non necessarie per ridurre overhead
-        // $this->mountAction('test', ['id' => 5]);
-        // $this->testAction();
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
 
         try {
             Assert::nullOrString($startDate = $this->pageFilters['startDate'] ?? null);
             Assert::nullOrString($endDate = $this->pageFilters['endDate'] ?? null);
-<<<<<<< HEAD
-=======
-=======
-        $this->mountAction('test', ['id' => 5]);
-        $this->testAction();
-
-        try {
-            Assert::nullOrString($startDate = $this->filters['startDate'] ?? null);
-            Assert::nullOrString($endDate = $this->filters['endDate'] ?? null);
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             if ($endDate === null) {
                 $endDate = Carbon::now()->format('Y-m-d H:i:s');
             }
@@ -168,38 +73,15 @@ class UsersChartWidget extends ChartWidget implements HasForms
             }
             Assert::notNull($startDate = Carbon::createFromFormat('Y-m-d H:i:s', $startDate));
             Assert::notNull($endDate = Carbon::createFromFormat('Y-m-d H:i:s', $endDate));
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
 
             // Limitare il range massimo a 90 giorni per ridurre memory usage
             if ($startDate->diffInDays($endDate, true) > 90) {
                 $startDate = $endDate->copy()->subDays(90);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-            if ($startDate->diffInDays($endDate, true) > 365) {
-                $startDate = $endDate->copy()->subDays(365);
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
             }
         } catch (Exception $e) {
             return [];
         }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
         // Limitare a massimo 1000 record per evitare problemi di memoria
         $data = Trend::model(AuthenticationLog::class)
             ->dateColumn('login_at')
@@ -224,71 +106,6 @@ class UsersChartWidget extends ChartWidget implements HasForms
          * return $value->date->format('Y-m-d');
          * })->toArray();
          */
-<<<<<<< HEAD
-=======
-=======
-=======
-        // Limitare a massimo 1000 record per evitare problemi di memoria
->>>>>>> b93ef594b4 (.)
-        $data = Trend::model(AuthenticationLog::class)
-            ->dateColumn('login_at')
-            ->between(
-                start: $startDate,
-                end: $endDate,
-            )
-            ->perDay()
-            // ->perMonth()
-            ->count()
-            ->take(1000); // Limite massimo di 1000 record
-        /*
-<<<<<<< HEAD
-=======
-            if ($startDate->diffInDays($endDate, true) > 365) {
-                $startDate = $endDate->copy()->subDays(365);
-            }
-        } catch (\Exception $e) {
-            return [];
-        }
-
-        $data = Trend::model(AuthenticationLog::class)
-            ->dateColumn('login_at')
-            ->between(start: $startDate, end: $endDate)
-            ->perDay()
-            // ->perMonth()
-            ->count();
-        /*
->>>>>>> origin/develop
-        // Update callbacks to match expected signature
-        $chartData = $data->map(function ($value) {
-            Assert::isInstanceOf($value, TrendValue::class);
-
-            return $value->aggregate;
-        })->toArray();
-        $chartLabels = $data->map(function ($value) {
-            Assert::isInstanceOf($value, TrendValue::class);
-
-            return $value->date->format('Y-m-d');
-        })->toArray();
-        */
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-         * // Update callbacks to match expected signature
-         * $chartData = $data->map(function ($value) {
-         * Assert::isInstanceOf($value, TrendValue::class);
-         *
-         * return $value->aggregate;
-         * })->toArray();
-         * $chartLabels = $data->map(function ($value) {
-         * Assert::isInstanceOf($value, TrendValue::class);
-         *
-         * return $value->date->format('Y-m-d');
-         * })->toArray();
-         */
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 
         $chartData = $data->pluck('aggregate')->toArray();
         $chartLabels = $data->pluck('date')->toArray();

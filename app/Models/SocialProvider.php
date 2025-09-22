@@ -8,25 +8,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-<<<<<<< HEAD
 use Override;
 use Modules\User\Database\Factories\SocialProviderFactory;
 use Illuminate\Database\Eloquent\Builder;
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> a12f125f4a (.)
-=======
-use Override;
->>>>>>> b93ef594b4 (.)
-use Modules\User\Database\Factories\SocialProviderFactory;
-use Illuminate\Database\Eloquent\Builder;
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 use Modules\Tenant\Models\Traits\SushiToPhpArray;
 use Modules\Xot\Contracts\ProfileContract;
 
@@ -43,10 +27,6 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string|null $client_secret
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
  * @method static SocialProviderFactory factory($count = null, $state = [])
  * @method static Builder|SocialProvider newModelQuery()
  * @method static Builder|SocialProvider newQuery()
@@ -61,46 +41,14 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|SocialProvider whereSocialite($value)
  * @method static Builder|SocialProvider whereStateless($value)
  * @method static Builder|SocialProvider whereSvg($value)
-<<<<<<< HEAD
-=======
-=======
- * @method static \Modules\User\Database\Factories\SocialProviderFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider query()
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereActive($value)
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereClientId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereClientSecret($value)
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereParameters($value)
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereScopes($value)
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereSocialite($value)
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereStateless($value)
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereSvg($value)
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
  * @property string|null $created_at
  * @property string|null $updated_at
  * @property string|null $created_by
  * @property string|null $updated_by
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
  * @method static Builder|SocialProvider whereCreatedAt($value)
  * @method static Builder|SocialProvider whereCreatedBy($value)
  * @method static Builder|SocialProvider whereUpdatedAt($value)
  * @method static Builder|SocialProvider whereUpdatedBy($value)
-<<<<<<< HEAD
-=======
-=======
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|SocialProvider whereUpdatedBy($value)
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
  * @mixin IdeHelperSocialProvider
  * @mixin \Eloquent
  */
@@ -134,20 +82,6 @@ class SocialProvider extends BaseModel
         'active' => 'boolean',
         'socialite' => 'boolean',
         'svg' => 'string',
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'created_by' => 'string',
@@ -160,21 +94,7 @@ class SocialProvider extends BaseModel
     }
 
     /** @return array<string, string> */
-<<<<<<< HEAD
     #[Override]
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
->>>>>>> a12f125f4a (.)
-=======
-    #[Override]
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     protected function casts(): array
     {
         return [

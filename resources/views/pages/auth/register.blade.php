@@ -1,52 +1,15 @@
 <?php
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
 declare(strict_types=1);
 
 
 use App\Models\User;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\TextInput;
-<<<<<<< HEAD
-=======
-=======
-=======
-declare(strict_types=1);
-
-
->>>>>>> b93ef594b4 (.)
-use App\Models\User;
-use Filament\Forms\Components\Checkbox;
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-use Filament\Forms\Components\TextInput;
->>>>>>> b93ef594b4 (.)
-=======
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Auth\Events\Registered;
-use Livewire\Volt\Component;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Checkbox;
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 use Filament\Forms\Components\Wizard;
 use Filament\Forms\Components\Wizard\Step;
 use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Form;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
+use Filament\Schemas\Schema;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -56,53 +19,11 @@ use Livewire\Volt\Component;
 
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
-<<<<<<< HEAD
-=======
-=======
-use Illuminate\Support\HtmlString;
-use Livewire\Attributes\Validate;
-use function Laravel\Folio\{middleware, name};
->>>>>>> a12f125f4a (.)
-=======
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\HtmlString;
-use Livewire\Attributes\Validate;
-use Livewire\Volt\Component;
-
-use function Laravel\Folio\middleware;
-use function Laravel\Folio\name;
->>>>>>> b93ef594b4 (.)
-=======
-use Illuminate\Support\HtmlString;
-use Livewire\Attributes\Validate;
-use function Laravel\Folio\{middleware, name};
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 
 middleware(['guest']);
 name('register');
 
-<<<<<<< HEAD
 new class extends Component {
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-new class extends Component {
-=======
-new class extends Component
-{
->>>>>>> a12f125f4a (.)
-=======
-new class extends Component {
->>>>>>> b93ef594b4 (.)
-=======
-new class extends Component
-{
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     #[Validate('required')]
     public $name = '';
 

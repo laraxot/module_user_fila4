@@ -9,14 +9,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\Pages;
 
-<<<<<<< HEAD
 use InvalidArgumentException;
-=======
-<<<<<<< HEAD
-use InvalidArgumentException;
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\Hash;
@@ -26,39 +19,6 @@ use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Models\User;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Webmozart\Assert\Assert;
-<<<<<<< HEAD
-=======
-=======
-use Webmozart\Assert\Assert;
-use Modules\User\Models\User;
-=======
->>>>>>> b93ef594b4 (.)
-use Filament\Actions\DeleteAction;
-use Filament\Resources\Pages\EditRecord;
-use Illuminate\Support\Facades\Hash;
-use Modules\User\Filament\Actions\ChangePasswordAction;
-use Modules\User\Filament\Actions\Header\ChangePasswordHeaderAction;
-use Modules\User\Filament\Resources\UserResource;
-use Modules\User\Models\User;
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-use Webmozart\Assert\Assert;
->>>>>>> b93ef594b4 (.)
-=======
-use Webmozart\Assert\Assert;
-use Modules\User\Models\User;
-use Filament\Actions\DeleteAction;
-use Illuminate\Support\Facades\Hash;
-use Filament\Resources\Pages\EditRecord;
-use Modules\User\Filament\Resources\UserResource;
-
-use Modules\User\Filament\Actions\ChangePasswordAction;
-use Modules\User\Filament\Actions\Header\ChangePasswordHeaderAction;
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 
 /**
  * Pagina per la modifica degli utenti con particolare gestione della password.
@@ -71,23 +31,7 @@ abstract class BaseEditUser extends EditRecord
     protected function mutateFormDataBeforeSave(array $data): array
     {
         Assert::isArray($data);
-<<<<<<< HEAD
         if (!array_key_exists('new_password', $data) || !filled($data['new_password'])) {
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!array_key_exists('new_password', $data) || !filled($data['new_password'])) {
-=======
-        if (! array_key_exists('new_password', $data) || ! filled($data['new_password'])) {
->>>>>>> a12f125f4a (.)
-=======
-        if (!array_key_exists('new_password', $data) || !filled($data['new_password'])) {
->>>>>>> b93ef594b4 (.)
-=======
-        if (! array_key_exists('new_password', $data) || ! filled($data['new_password'])) {
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             return $data;
         }
 
@@ -101,15 +45,7 @@ abstract class BaseEditUser extends EditRecord
         // Verifichiamo il tipo e convertiamo in modo sicuro
         if (!is_string($newPassword)) {
             if (!is_scalar($newPassword)) {
-<<<<<<< HEAD
                 throw new InvalidArgumentException('La password deve essere una stringa');
-=======
-<<<<<<< HEAD
-                throw new InvalidArgumentException('La password deve essere una stringa');
-=======
-                throw new \InvalidArgumentException('La password deve essere una stringa');
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             }
             $newPassword = (string) $newPassword;
         }

@@ -4,16 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
-<<<<<<< HEAD
 use Modules\Xot\Contracts\UserContract;
 use Illuminate\Support\Collection;
-=======
-<<<<<<< HEAD
-use Modules\Xot\Contracts\UserContract;
-use Illuminate\Support\Collection;
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 use Illuminate\Console\Command;
 use Modules\Xot\Datas\XotData;
 use Symfony\Component\Console\Input\InputOption;
@@ -42,28 +34,7 @@ class AssignTenantCommand extends Command
      *
      * @return void
      */
-<<<<<<< HEAD
     
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
-=======
-=======
->>>>>>> origin/develop
-    public function __construct()
-    {
-        parent::__construct();
-    }
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-    
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 
     /**
      * Execute the console command.
@@ -72,117 +43,34 @@ class AssignTenantCommand extends Command
     {
         $email = text('email ?');
         $user_class = XotData::make()->getUserClass();
-<<<<<<< HEAD
         /** @var UserContract */
-=======
-<<<<<<< HEAD
-        /** @var UserContract */
-=======
-        /** @var \Modules\Xot\Contracts\UserContract */
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
         $user = XotData::make()->getUserByEmail($email);
         $xot = XotData::make();
         $tenantClass = $xot->getTenantClass();
 
-<<<<<<< HEAD
         /** @var array<int|string, string>|Collection<int|string, string> */
         $opts = $tenantClass::all()->pluck('name', 'id')->toArray();
-=======
-<<<<<<< HEAD
-        /** @var array<int|string, string>|Collection<int|string, string> */
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $opts = $tenantClass::all()->pluck('name', 'id')->toArray();
-=======
-        $opts = $tenantClass::all()
-            ->pluck('name', 'id')
-            ->toArray();
->>>>>>> a12f125f4a (.)
-=======
-        $opts = $tenantClass::all()->pluck('name', 'id')->toArray();
->>>>>>> b93ef594b4 (.)
-=======
-        /** @var array<int|string, string>|\Illuminate\Support\Collection<int|string, string> */
-        $opts = $tenantClass::all()
-            ->pluck('name', 'id')
-            ->toArray();
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 
         $rows = multiselect(
             label: 'What tenant',
             options: $opts,
             required: true,
             scroll: 10,
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
         // validate: function (array $values) {
         //  return ! \in_array(\count($values), [1, 2], false)
         //    ? 'A maximum of two'
         //  : null;
         // }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/develop
-            // validate: function (array $values) {
-            //  return ! \in_array(\count($values), [1, 2], false)
-            //    ? 'A maximum of two'
-            //  : null;
-            // }
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
         );
 
         $user->tenants()->sync($rows);
         /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
          * foreach ($rows as $row) {
          * $role = Role::firstOrCreate(['name' => $row]);
          * $user->assignRole($role);
          * }
          */
         $this->info(implode(', ', $rows) . ' assigned to ' . $email);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/develop
-        foreach ($rows as $row) {
-            $role = Role::firstOrCreate(['name' => $row]);
-            $user->assignRole($role);
-        }
-        */
-        $this->info(implode(', ', $rows).' assigned to '.$email);
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     /**

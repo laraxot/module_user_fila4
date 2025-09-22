@@ -4,12 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 use Override;
@@ -17,28 +11,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Modules\User\Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Builder;
-<<<<<<< HEAD
 use Modules\Media\Models\Media;
-=======
-=======
-=======
-use Illuminate\Notifications\DatabaseNotificationCollection;
-use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
-use Override;
->>>>>>> b93ef594b4 (.)
-use Illuminate\Support\Carbon;
-use Illuminate\Database\Eloquent\Collection;
-use Modules\User\Database\Factories\UserFactory;
-use Illuminate\Database\Eloquent\Builder;
-<<<<<<< HEAD
-use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-use Modules\Media\Models\Media;
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 use Modules\Xot\Contracts\ProfileContract;
 
 /**
@@ -49,46 +22,21 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string|null $first_name
  * @property string|null $last_name
  * @property string $email
-<<<<<<< HEAD
  * @property Carbon|null $email_verified_at
-=======
-<<<<<<< HEAD
- * @property Carbon|null $email_verified_at
-=======
- * @property \Illuminate\Support\Carbon|null $email_verified_at
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
  * @property string $password
  * @property string|null $remember_token
  * @property int|null $current_team_id
  * @property string|null $profile_photo_path
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
  * @property Carbon|null $password_expires_at
-<<<<<<< HEAD
-=======
-=======
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property \Illuminate\Support\Carbon|null $password_expires_at
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
  * @property string|null $lang
  * @property bool $is_active
  * @property bool $is_otp
  * @property string|null $updated_by
  * @property string|null $created_by
  * @property string|null $deleted_by
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
  * @property Collection<int, AuthenticationLog> $authentications
  * @property int|null $authentications_count
  * @property Collection<int, OauthClient> $clients
@@ -149,71 +97,6 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property-read Collection<int, Membership> $teamUsers
  * @property-read int|null $team_users_count
  * @property-read Collection<int, \Modules\User\Models\User> $all_team_users
-<<<<<<< HEAD
-=======
-=======
- * @property \Illuminate\Database\Eloquent\Collection<int, AuthenticationLog> $authentications
- * @property int|null $authentications_count
- * @property \Illuminate\Database\Eloquent\Collection<int, OauthClient> $clients
- * @property int|null $clients_count
- * @property TenantUser $pivot
- * @property \Illuminate\Database\Eloquent\Collection<int, Device> $devices
- * @property int|null $devices_count
- * @property string|null $full_name
- * @property AuthenticationLog|null $latestAuthentication
- * @property \Illuminate\Notifications\DatabaseNotificationCollection<int, Notification> $notifications
- * @property int|null $notifications_count
- * @property \Illuminate\Database\Eloquent\Collection<int, Team> $ownedTeams
- * @property int|null $owned_teams_count
- * @property \Illuminate\Database\Eloquent\Collection<int, Permission> $permissions
- * @property int|null $permissions_count
- * @property ProfileContract|null $profile
- * @property \Illuminate\Database\Eloquent\Collection<int, Role> $roles
- * @property int|null $roles_count
- * @property Membership $membership
- * @property \Illuminate\Database\Eloquent\Collection<int, Team> $teams
- * @property int|null $teams_count
- * @property \Illuminate\Database\Eloquent\Collection<int, Tenant> $tenants
- * @property int|null $tenants_count
- * @property \Illuminate\Database\Eloquent\Collection<int, OauthAccessToken> $tokens
- * @property int|null $tokens_count
- * @method static \Modules\User\Database\Factories\UserFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|User permission($permissions, $without = false)
- * @method static \Illuminate\Database\Eloquent\Builder|User query()
- * @method static \Illuminate\Database\Eloquent\Builder|User role($roles, $guard = null, $without = false)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereCurrentTeamId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereDeletedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereFirstName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereIsActive($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereLang($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereLastName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereProfilePhotoPath($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User withoutPermission($permissions)
- * @method static \Illuminate\Database\Eloquent\Builder|User withoutRole($roles, $guard = null)
- * @property string $last_name
- * @property-read \Modules\User\Models\Team|null $currentTeam
- * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Modules\Media\Models\Media> $media
- * @property-read int|null $media_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\SocialiteUser> $socialiteUsers
- * @property-read int|null $socialite_users_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Membership> $teamUsers
- * @property-read int|null $team_users_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\User> $all_team_users
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
  * @property string|null $phone
  * @property string|null $address
  * @property string|null $city
@@ -223,10 +106,6 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string|null $moderation_data
  * @property string|null $certifications
  * @property string|null $type
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
  * @method static Builder<static>|User whereAddress($value)
  * @method static Builder<static>|User whereCertifications($value)
  * @method static Builder<static>|User whereCity($value)
@@ -238,22 +117,6 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|User whereState($value)
  * @method static Builder<static>|User whereStatus($value)
  * @method static Builder<static>|User whereType($value)
-<<<<<<< HEAD
-=======
-=======
- * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereAddress($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereCertifications($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereCity($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereIsOtp($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereModerationData($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePasswordExpiresAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePhone($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRegistrationNumber($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereState($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereType($value)
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
  * @mixin IdeHelperUser
  * @mixin \Eloquent
  */
@@ -266,21 +129,7 @@ class User extends BaseUser
      */
     public $connection = 'user';
 
-<<<<<<< HEAD
     #[Override]
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
->>>>>>> a12f125f4a (.)
-=======
-    #[Override]
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     public function canAccessSocialite(): bool
     {
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;

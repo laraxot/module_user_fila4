@@ -4,16 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
-<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
 use Exception;
-=======
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Model;
-use Exception;
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 use Illuminate\Console\Command;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
@@ -55,23 +47,7 @@ class SetCurrentTeamCommand extends Command
         $xot = XotData::make();
         $user = $xot->getUserByEmail($email);
 
-<<<<<<< HEAD
         if (!($user instanceof Model)) {
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!($user instanceof Model)) {
-=======
-        if (! $user instanceof Model) {
->>>>>>> a12f125f4a (.)
-=======
-        if (!($user instanceof Model)) {
->>>>>>> b93ef594b4 (.)
-=======
-        if (! $user instanceof \Illuminate\Database\Eloquent\Model) {
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             $this->error('Utente non trovato o non valido!');
             return;
         }
@@ -106,15 +82,7 @@ class SetCurrentTeamCommand extends Command
             $user->current_team_id = (int) $team_id;
             $user->save();
             $this->info('OK');
-<<<<<<< HEAD
         } catch (Exception $e) {
-=======
-<<<<<<< HEAD
-        } catch (Exception $e) {
-=======
-        } catch (\Exception $e) {
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             $this->error('Errore durante il salvataggio: ' . $e->getMessage());
         }
     }

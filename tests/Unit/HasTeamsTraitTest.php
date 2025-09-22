@@ -2,18 +2,9 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
 use Tests\TestCase;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Modules\User\Models\Role;
-=======
-<<<<<<< HEAD
-use Tests\TestCase;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Modules\User\Models\Role;
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 use Illuminate\Support\Collection;
 use Modules\User\Contracts\TeamContract;
 use Modules\User\Models\Team;
@@ -32,15 +23,7 @@ use Modules\User\Models\User;
  * - Metodi non-Jetstream rimossi
  */
 
-<<<<<<< HEAD
 uses(TestCase::class);
-=======
-<<<<<<< HEAD
-uses(TestCase::class);
-=======
-uses(Tests\TestCase::class);
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 
 beforeEach(function (): void {
     $this->user = User::factory()->create();
@@ -96,15 +79,7 @@ test('it correctly checks team ownership', function (): void {
 test('it uses belongs to many x for teams relationship', function (): void {
     // Verifica che la relazione teams() restituisca BelongsToMany
     $relation = $this->user->teams();
-<<<<<<< HEAD
     expect($relation)->toBeInstanceOf(BelongsToMany::class);
-=======
-<<<<<<< HEAD
-    expect($relation)->toBeInstanceOf(BelongsToMany::class);
-=======
-    expect($relation)->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsToMany::class);
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 
     // Verifica che il pivot model sia TeamUser
     expect($relation->getTable())->toBe('team_user');
@@ -130,15 +105,7 @@ test('it correctly manages current team', function (): void {
 
 test('it correctly identifies current team', function (): void {
     $this->user->switchTeam($this->personalTeam);
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     expect($this->user->isCurrentTeam($this->personalTeam))->toBeTrue();
     expect($this->user->isCurrentTeam($this->team))->toBeFalse();
 });
@@ -148,15 +115,7 @@ test('it returns all teams user owns or belongs to', function (): void {
     $this->user->teams()->attach($this->team->id, ['role' => 'member']);
 
     $allTeams = $this->user->allTeams();
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     expect($allTeams)->toBeInstanceOf(Collection::class);
     expect($allTeams)->toHaveCount(2); // personal team + member team
     expect($allTeams->contains($this->personalTeam))->toBeTrue();
@@ -165,15 +124,7 @@ test('it returns all teams user owns or belongs to', function (): void {
 
 test('it returns owned teams', function (): void {
     $ownedTeams = $this->user->ownedTeams;
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     expect($ownedTeams)->toBeInstanceOf(Collection::class);
     expect($ownedTeams)->toHaveCount(1);
     expect($ownedTeams->contains($this->personalTeam))->toBeTrue();
@@ -181,15 +132,7 @@ test('it returns owned teams', function (): void {
 
 test('it returns personal team', function (): void {
     $personalTeam = $this->user->personalTeam();
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     expect($personalTeam)->toBeInstanceOf(TeamContract::class);
     expect($personalTeam->id)->toBe($this->personalTeam->id);
     expect($personalTeam->personal_team)->toBeTrue();
@@ -198,29 +141,13 @@ test('it returns personal team', function (): void {
 test('it correctly determines team role', function (): void {
     // Test: Owner role
     $role = $this->user->teamRole($this->personalTeam);
-<<<<<<< HEAD
     expect($role)->toBeInstanceOf(Role::class);
-=======
-<<<<<<< HEAD
-    expect($role)->toBeInstanceOf(Role::class);
-=======
-    expect($role)->toBeInstanceOf(\Modules\User\Models\Role::class);
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     expect($role->name)->toBe('owner');
 
     // Test: Member role
     $this->user->teams()->attach($this->team->id, ['role' => 'admin']);
     $role = $this->user->teamRole($this->team);
-<<<<<<< HEAD
     expect($role)->toBeInstanceOf(Role::class);
-=======
-<<<<<<< HEAD
-    expect($role)->toBeInstanceOf(Role::class);
-=======
-    expect($role)->toBeInstanceOf(\Modules\User\Models\Role::class);
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     expect($role->name)->toBe('admin');
 
     // Test: No role (not member)
@@ -282,15 +209,7 @@ test('it provides utility methods', function (): void {
 
     // Test: isOwnerOrMember()
     expect($this->user->isOwnerOrMember($this->personalTeam))->toBeTrue();
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     $this->user->teams()->attach($this->team->id, ['role' => 'member']);
     expect($this->user->isOwnerOrMember($this->team))->toBeTrue();
 
@@ -309,23 +228,5 @@ test('it handles edge cases correctly', function (): void {
 });
 
 test('it validates assertions correctly', function (): void {
-<<<<<<< HEAD
     expect(fn() => $this->user->ownsTeam(null))->toThrow(InvalidArgumentException::class, 'Team cannot be null');
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    expect(fn() => $this->user->ownsTeam(null))->toThrow(InvalidArgumentException::class, 'Team cannot be null');
-=======
-    expect(fn () => $this->user->ownsTeam(null))
-        ->toThrow(InvalidArgumentException::class, 'Team cannot be null');
->>>>>>> a12f125f4a (.)
-=======
-    expect(fn() => $this->user->ownsTeam(null))->toThrow(InvalidArgumentException::class, 'Team cannot be null');
->>>>>>> b93ef594b4 (.)
-=======
-    expect(fn () => $this->user->ownsTeam(null))
-        ->toThrow(\InvalidArgumentException::class, 'Team cannot be null');
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 });

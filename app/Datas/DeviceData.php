@@ -19,14 +19,6 @@ use Webmozart\Assert\Assert;
 class DeviceData extends Data
 {
     /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
      * case ApplicationVersion = 'X-App-Version';
      * case Application = 'X-Application';
      * case DeviceId = 'X-Device-Id';
@@ -35,10 +27,6 @@ class DeviceData extends Data
      * case SynchronizationId = 'X-Synchronization-Identifier';
      */
     public null|string $appVersion = null;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
 
     // = 'X-App-Version';
     public null|string $application = null;
@@ -67,91 +55,6 @@ class DeviceData extends Data
 
             return [$key => $item];
         })->all();
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> origin/develop
-    case ApplicationVersion = 'X-App-Version';
-    case Application = 'X-Application';
-    case DeviceId = 'X-Device-Id';
-    case NotificationCode = 'X-Notification-Code';
-    case OperatingSystem = 'X-Operating-System';
-    case SynchronizationId = 'X-Synchronization-Identifier';
-    */
-    public ?string $appVersion = null;
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
-
-    // = 'X-App-Version';
-    public null|string $application = null;
-
-    // = 'X-Application';
-    public null|string $deviceId = null;
-
-    // = 'X-Device-Id';
-    public null|string $notificationCode = null;
-
-    // = 'X-Notification-Code';
-    public null|string $operatingSystem = null;
-
-    // = 'X-Operating-System';
-    public null|string $synchronizationId = null; // = 'X-Synchronization-Identifier';
-
-    public static function make(): self
-    {
-        $headers = collect(request()->header())->mapWithKeys(static function ($item, $key): array {
-            if (Str::startsWith($key, 'X-')) {
-                // $key = Str::afterFirst($key, 'X-');
-                $key = Str::after($key, 'X-');
-            }
-
-            $key = Str::camel($key);
-
-<<<<<<< HEAD
-                    return [$key => $item];
-                }
-            )->all();
->>>>>>> a12f125f4a (.)
-=======
-            return [$key => $item];
-        })->all();
->>>>>>> b93ef594b4 (.)
-=======
-
-    // = 'X-App-Version';
-    public ?string $application = null;
-
-    // = 'X-Application';
-    public ?string $deviceId = null;
-
-    // = 'X-Device-Id';
-    public ?string $notificationCode = null;
-
-    // = 'X-Notification-Code';
-    public ?string $operatingSystem = null;
-
-    // = 'X-Operating-System';
-    public ?string $synchronizationId = null; // = 'X-Synchronization-Identifier';
-
-    public static function make(): self
-    {
-        $headers = collect(request()->header())
-            ->mapWithKeys(
-                static function ($item, $key): array {
-                    if (Str::startsWith($key, 'X-')) {
-                        // $key = Str::afterFirst($key, 'X-');
-                        $key = Str::after($key, 'X-');
-                    }
-
-                    $key = Str::camel($key);
-
-                    return [$key => $item];
-                }
-            )->all();
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 
         return self::from($headers);
     }
@@ -178,14 +81,6 @@ class DeviceData extends Data
         /**
          * @phpstan-ignore staticMethod.nonObject
          */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
         $synchronization = $synchronizationClass::create([
             // $synchronization = Synchronization::create([
             'user_id' => auth()->id(),
@@ -197,65 +92,14 @@ class DeviceData extends Data
             // fulfilled_at
         ]);
         Assert::string($synchronizationId = $synchronization->id, __FILE__ . ':' . __LINE__ . ' - ' . class_basename(__CLASS__));
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/develop
-        $synchronization = $synchronizationClass::create(
-            [
-                // $synchronization = Synchronization::create([
-                'user_id' => auth()->id(),
-                'mobile_device_id' => $this->deviceId,
-                'application' => $this->application ?? 'No-Set',
-                'application_version' => $this->appVersion ?? 'No-Set',
-                'api_name' => $apiName,
-                'called_at' => Carbon::now(),
-                // fulfilled_at
-            ]
-        );
-        Assert::string($synchronizationId = $synchronization->id);
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
         $this->synchronizationId = $synchronizationId;
 
         return $this->synchronizationId;
     }
 
     /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
      * public function getModel(){
      * MobileDevice::firstOrCreate();
      * }
      */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/develop
-    public function getModel(){
-        MobileDevice::firstOrCreate();
-    }
-    */
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 }
