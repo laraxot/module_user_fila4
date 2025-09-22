@@ -28,11 +28,7 @@ use Modules\User\Database\Factories\AuthenticationFactory;
  * @property string $authenticatable_id The ID of the authenticatable model
  * @property Carbon|null $created_at When the record was created
  * @property Carbon|null $updated_at When the record was last updated
-<<<<<<< HEAD
  * @property-read Model|\Eloquent $authenticatable The authenticatable model instance
-=======
- * @property-read Model $authenticatable The authenticatable model instance
->>>>>>> 44e65d8 (.)
  *
  * @method static Builder<static>|Authentication newModelQuery()
  * @method static Builder<static>|Authentication newQuery()
@@ -51,10 +47,7 @@ use Modules\User\Database\Factories\AuthenticationFactory;
  * @method static Builder<static>|Authentication whereAuthenticatableId($value)
  *
  * @mixin IdeHelperAuthentication
-<<<<<<< HEAD
  * @mixin \Eloquent
-=======
->>>>>>> 44e65d8 (.)
  */
 class Authentication extends Model
 {

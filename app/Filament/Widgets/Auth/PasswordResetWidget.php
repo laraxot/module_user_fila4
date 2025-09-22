@@ -9,10 +9,6 @@ use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms;
-<<<<<<< HEAD
-=======
-use Filament\Forms\Form;
->>>>>>> 44e65d8 (.)
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Session;

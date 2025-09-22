@@ -53,19 +53,11 @@ use Webmozart\Assert\Assert;
  * @property string|null $created_by
  * @method static Builder|Role whereCreatedBy($value)
  * @method static Builder|Role whereUpdatedBy($value)
-<<<<<<< HEAD
  * @mixin Eloquent
  * @method static Builder|Role withoutPermission($permissions)
  * @property PermissionRole|null $pivot
  * @mixin IdeHelperRole
  * @mixin \Eloquent
-=======
- * @method static Builder|Role withoutPermission($permissions)
- * @method static static firstOrCreate(array $attributes, array $values = [])
- * @method static static updateOrCreate(array $attributes, array $values = [])
- * @property PermissionRole|null $pivot
- * @mixin IdeHelperRole
->>>>>>> 44e65d8 (.)
  */
 class Role extends SpatieRole
 {

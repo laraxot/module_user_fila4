@@ -31,11 +31,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
  * @property string|null $created_by
-<<<<<<< HEAD
  * @property Model|\Eloquent $authenticatable
-=======
- * @property Model $authenticatable
->>>>>>> 44e65d8 (.)
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  * @method static AuthenticationLogFactory factory($count = null, $state = [])
@@ -57,10 +53,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @method static Builder|AuthenticationLog whereUpdatedBy($value)
  * @method static Builder|AuthenticationLog whereUserAgent($value)
  * @mixin IdeHelperAuthenticationLog
-<<<<<<< HEAD
  * @mixin \Eloquent
-=======
->>>>>>> 44e65d8 (.)
  */
 class AuthenticationLog extends BaseModel
 {

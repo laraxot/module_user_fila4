@@ -16,11 +16,7 @@ use Filament\Actions\DetachAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DetachBulkAction;
 use Filament\Actions\DeleteBulkAction;
-<<<<<<< HEAD
 use Filament\Schemas\Schema;
-=======
-use Filament\Forms\Form;
->>>>>>> 44e65d8 (.)
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;

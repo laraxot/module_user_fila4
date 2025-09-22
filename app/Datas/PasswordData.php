@@ -10,11 +10,7 @@ namespace Modules\User\Datas;
 
 use RuntimeException;
 use InvalidArgumentException;
-<<<<<<< HEAD
 use Filament\Forms\Components\Component;
-=======
-use Filament\Schemas\Components\Component;
->>>>>>> 44e65d8 (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TextInput as FilamentTextInput;
 use Filament\Forms\Components\TextInput as FormsTextInput;
