@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages\Tenancy;
 
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\Tenancy\RegisterTenant as BaseRegisterTenant;
 use Filament\Support\Enums\MaxWidth;
@@ -38,7 +38,7 @@ class RegisterTenant extends BaseRegisterTenant
         return $str;
     }
 
-    public function form(Schema $schema): Schema
+    public function form(\Filament\Schemas\Schema $form): \Filament\Schemas\Schema
     {
         $tenantClass = XotData::make()->getTenantClass();
         $resource = Str::of($tenantClass)
@@ -46,7 +46,7 @@ class RegisterTenant extends BaseRegisterTenant
             ->append('Resource')
             ->toString();
         $this->resource = $resource;
-        return $schema->components($this->getFormSchema());
+        return $form->components($this->getFormSchema());
     }
 
     public function getFormSchema(): array

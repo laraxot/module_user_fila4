@@ -73,7 +73,7 @@ class SocialProvider extends BaseModel
         // 'client_secret',// => env('FACEBOOK_CLIENT_SECRET'),
     ];
 
-    protected array $schema = [
+    protected array $form = [
         'id' => 'integer',
         'name' => 'string',
         'scopes' => 'json',

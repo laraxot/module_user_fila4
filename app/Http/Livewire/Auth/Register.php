@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Auth;
 
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 use Livewire\Features\SupportRedirects\Redirector;
 use Modules\Xot\Actions\File\ViewCopyAction;
 use Modules\Xot\Contracts\UserContract;
@@ -17,7 +17,7 @@ use Livewire\Component;
 use Modules\Xot\Datas\XotData;
 
 /**
- * @property Schema $form
+ * @property Form $form
  */
 class Register extends Component
 {

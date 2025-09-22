@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\BaseProfileResource\Pages;
 
+use Filament\Schemas\Components\Group;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Component;
 use Override;
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Flex;
-use Filament\Schemas\Components\Grid;
-use Filament\Schemas\Components\Group;
+use Filament\Forms\Components\Flex;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Actions\DeleteAction;
 use Filament\Infolists\Components;

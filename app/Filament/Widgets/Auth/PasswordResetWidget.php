@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Placeholder;
@@ -21,7 +21,7 @@ use Modules\Xot\Filament\Widgets\XotBaseWidget;
  * Handles password reset request flow using Filament forms
  * with improved UX and validation.
  *
- * @property Schema $form
+ * @property Form $form
  */
 class PasswordResetWidget extends XotBaseWidget
 {

@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+use Filament\Forms\Form;
+
 use Filament\Schemas\Components\Component;
 use Override;
 use Illuminate\Database\Eloquent\Model;
 use Exception;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Form as FilamentForm;
+use Filament\Schemas\Schema as FilamentForm;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Checkbox;
@@ -21,7 +21,7 @@ use Modules\Xot\Filament\Widgets\XotBaseWidget;
  * - Facilmente estendibile (2FA, captcha, login social)
  *
  * @property array<string, mixed>|null $data
- * @property Schema $form
+ * @property Form $form
  */
 class LoginWidget extends XotBaseWidget
 {

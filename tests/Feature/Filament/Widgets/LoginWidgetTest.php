@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Tests\TestCase;
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
@@ -31,12 +31,12 @@ test('it can render widget', function (): void {
 });
 
 test('it has correct form schema', function (): void {
-    $schema = $this->widget->getFormSchema();
+    $form = $this->widget->getFormSchema();
 
-    expect($schema)->toHaveCount(3);
+    expect($form)->toHaveCount(3);
 
     // Check that the schema contains components with the expected names
-    $componentNames = array_map(fn($component) => $component->getName(), $schema);
+    $componentNames = array_map(fn($component) => $component->getName(), $form);
     expect($componentNames)->toContain('email');
     expect($componentNames)->toContain('password');
     expect($componentNames)->toContain('remember');

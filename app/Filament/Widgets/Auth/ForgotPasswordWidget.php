@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+use Filament\Forms\Form;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Component;
 use Override;
-use Filament\Schemas\Schema;
-use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TextInput as FormsTextInput;
 use Illuminate\Support\Facades\Password;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
 
 /**
- * @property Schema $form
+ * @property Form $form
  */
 class ForgotPasswordWidget extends XotBaseWidget
 {
@@ -34,21 +34,6 @@ class ForgotPasswordWidget extends XotBaseWidget
                 ->required()
                 ->maxLength(255),
         ];
-    }
-
-    #[Override]
-    public function form(Schema $schema): Schema
-    {
-        return $schema->components([
-            Section::make()
-                ->schema([
-                    TextInput::make('email')
-                        ->email()
-                        ->required()
-                        ->maxLength(255),
-                ])
-                ->columns(1),
-        ])->statePath('data');
     }
 
     public function sendResetLink(): void

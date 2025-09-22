@@ -6,7 +6,6 @@ namespace Modules\User\Http\Livewire\Auth;
 
 use Filament\Actions\Contracts\HasActions;
 use Filament\Actions\Concerns\InteractsWithActions;
-use Filament\Schemas\Schema;
 use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\View\Factory;
@@ -22,7 +21,7 @@ use Modules\Xot\Actions\File\ViewCopyAction;
 /**
  * Componente Livewire per la gestione del login.
  *
- * @property Schema $form
+ * @property Form $form
  */
 class Login extends Component implements HasForms, HasActions
 {
@@ -101,7 +100,7 @@ class Login extends Component implements HasForms, HasActions
     /**
      * Crea il form.
      */
-    public function form(): Schema
+    public function form(): \Filament\Forms\Form
     {
         return Schema::make()->components($this->getFormSchema());
     }

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+use Filament\Schemas\Components\Component;
 use Override;
 use Illuminate\Database\Eloquent\Model;
-use Filament\Schemas\Components\Component;
 use Modules\User\Models\User;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
@@ -15,8 +15,8 @@ use Filament\Forms;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Schemas\Schema;
-use Filament\Forms\Form as FilamentForm;
+use Filament\Forms\Form;
+use Filament\Schemas\Schema as FilamentForm;
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
 use Filament\Widgets\Widget;
@@ -38,7 +38,7 @@ use Webmozart\Assert\Assert;
 /**
  * Widget for handling expired password reset.
  *
- * @property \Filament\Schemas\Schema $form
+ * @property \Filament\Forms\Form $form
  * @property string|null $current_password
  * @property string|null $password
  * @property string|null $passwordConfirmation

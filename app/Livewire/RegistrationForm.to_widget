@@ -28,7 +28,7 @@ class RegistrationForm extends Component
         $this->form->fill();
     }
 
-    public function form(Form $form): Form
+    public function form(\Filament\Schemas\Schema $schema): \Filament\Schemas\Schema
     {
         return $form
             ->schema([

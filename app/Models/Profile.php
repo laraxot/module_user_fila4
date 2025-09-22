@@ -91,7 +91,7 @@ class Profile extends BaseProfile implements HasMedia
      *
      * @var list<string>
      */
-    protected $schemalessAttributes = [
+    protected $formlessAttributes = [
         'extra',
     ];
 

@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages\Auth;
 
+use Filament\Schemas\Components\Component;
 use Illuminate\Database\Eloquent\Model;
 use InvalidArgumentException;
 use Modules\Xot\Contracts\UserContract;
-use Filament\Schemas\Components\Component;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
 use Filament\Pages\Page;
@@ -28,9 +28,9 @@ use Modules\Xot\Filament\Traits\NavigationPageLabelTrait;
 use Webmozart\Assert\Assert;
 
 /**
- * @property \Filament\Schemas\Schema $form
- * @property \Filament\Schemas\Schema $editProfileForm
- * @property \Filament\Schemas\Schema $editPasswordForm
+ * @property \Filament\Forms\Form $form
+ * @property \Filament\Forms\Form $editProfileForm
+ * @property \Filament\Forms\Form $editPasswordForm
  */
 class PasswordExpired extends Page implements HasForms
 {

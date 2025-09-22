@@ -49,7 +49,7 @@ class LogoutWidget extends XotBaseWidget
     /**
      * Costruisce il form del widget.
      */
-    public function form(Form $form): Form
+    public function form(\Filament\Schemas\Schema $form): \Filament\Schemas\Schema
     {
         return $form
             ->schema([

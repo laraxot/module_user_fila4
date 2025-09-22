@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
-use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Components\Component;
+use Filament\Forms\Form;
 use Filament\Schemas\Components\Section;
-use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Component;
+use Filament\Forms\Components\TextInput;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
@@ -25,7 +25,7 @@ use Override;
  * proper security measures, and user feedback. Follows Laraxot
  * architectural patterns and security best practices.
  *
- * @property Schema $form Form container from XotBaseWidget
+ * @property Form $form Form container from XotBaseWidget
  */
 class ResetPasswordWidget extends XotBaseWidget
 {
@@ -76,13 +76,6 @@ class ResetPasswordWidget extends XotBaseWidget
     /**
      * Configure the form for this widget.
      */
-    #[Override]
-    public function form(Schema $schema): Schema
-    {
-        return $schema->components([
-            Section::make()->schema($this->getFormSchema())->columns(1),
-        ])->statePath('data');
-    }
 
     /**
      * Handle password reset with proper security and error handling.

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Clusters\Appearance\Pages;
 
-use Filament\Schemas\Schema;
 use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
@@ -15,9 +14,10 @@ use Filament\Pages\Page;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Clusters\Appearance;
+use Filament\Forms\Form;
 
 /**
- * @property Schema $form
+ * @property Form $form
  */
 class Logo extends Page implements HasForms
 {
@@ -45,9 +45,9 @@ class Logo extends Page implements HasForms
     //    ];
     // }
 
-    public function form(Schema $schema): Schema
+    public function form(\Filament\Schemas\Schema $form): \Filament\Schemas\Schema
     {
-        return $schema
+        return $form
             ->components([
                 // Forms\Components\Section::make('Profile Information')
                 // ->description('Update your account\'s profile information and email address.')
