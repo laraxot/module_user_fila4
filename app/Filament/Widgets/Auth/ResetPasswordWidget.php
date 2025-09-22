@@ -4,8 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+<<<<<<< HEAD
 use Filament\Forms\Form;
 use Filament\Forms\Form;
+=======
+use Filament\Schemas\Components\Component;
+use Override;
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
+use Illuminate\Http\RedirectResponse;
+use Filament\Forms;
+use Filament\Forms\Components\TextInput;
+>>>>>>> a63f578 (.)
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
@@ -19,7 +29,11 @@ use Modules\Xot\Filament\Widgets\XotBaseWidget;
  * proper security measures, and user feedback. Follows Laraxot
  * architectural patterns and security best practices.
  *
+<<<<<<< HEAD
  * @property Form $form Form container from XotBaseWidget
+=======
+ * @property Schema $form Form container from XotBaseWidget
+>>>>>>> a63f578 (.)
  */
 class ResetPasswordWidget extends XotBaseWidget
 {
@@ -61,6 +75,11 @@ class ResetPasswordWidget extends XotBaseWidget
 
     /**
      * Mount the widget and initialize the form.
+<<<<<<< HEAD
+=======
+     *
+     * @return void
+>>>>>>> a63f578 (.)
      */
     public function mount(): void
     {
@@ -69,11 +88,22 @@ class ResetPasswordWidget extends XotBaseWidget
 
     /**
      * Configure the form for this widget.
+<<<<<<< HEAD
      */
     #[Override]
     public function form(Form $form): Form
     {
         return $form->schema([
+=======
+     *
+     * @param Schema $schema
+     * @return Schema
+     */
+    #[Override]
+    public function form(Schema $schema): Schema
+    {
+        return $schema->components([
+>>>>>>> a63f578 (.)
             Section::make()->schema($this->getFormSchema())->columns(1),
         ])->statePath('data');
     }
@@ -91,8 +121,13 @@ class ResetPasswordWidget extends XotBaseWidget
         $data = $this->form->getState();
 
         $reset_data = Arr::only($data, ['email', 'password', 'password_confirmation', 'token']);
+<<<<<<< HEAD
         $status = Password::reset($reset_data, function (Authenticatable $user, string $password): void {
             /** @var Model&Authenticatable $user */
+=======
+        $status = Password::reset($reset_data, function (\Illuminate\Contracts\Auth\Authenticatable $user, string $password): void {
+            /** @var \Illuminate\Database\Eloquent\Model&\Illuminate\Contracts\Auth\Authenticatable $user */
+>>>>>>> a63f578 (.)
             $user->forceFill([
                 'password' => Hash::make($password),
                 'remember_token' => Str::random(60),

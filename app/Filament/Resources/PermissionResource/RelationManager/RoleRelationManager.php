@@ -8,11 +8,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\PermissionResource\RelationManager;
 
+<<<<<<< HEAD
 use Filament\Forms\Components\Component;
 use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Forms\Form;
+=======
+use Filament\Schemas\Components\Component;
+use Override;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Form;
+>>>>>>> a63f578 (.)
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;

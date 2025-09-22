@@ -6,7 +6,10 @@ namespace Modules\User\Filament\Pages\Tenancy;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+<<<<<<< HEAD
 use Filament\Forms\Form;
+=======
+>>>>>>> a63f578 (.)
 use Filament\Pages\Tenancy\RegisterTenant;
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Contracts\TeamContract;

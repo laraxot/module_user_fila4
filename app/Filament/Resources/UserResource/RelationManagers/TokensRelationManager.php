@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
+<<<<<<< HEAD
 use Filament\Forms\Components\Component;
+=======
+use Filament\Schemas\Components\Component;
+>>>>>>> a63f578 (.)
 use Override;
 use Filament\Actions\CreateAction;
 use Filament\Actions\EditAction;
@@ -13,7 +17,10 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+<<<<<<< HEAD
 use Filament\Forms\Form;
+=======
+>>>>>>> a63f578 (.)
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;

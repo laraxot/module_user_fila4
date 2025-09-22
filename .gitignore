@@ -2,12 +2,17 @@
 # LARAXOT MODULE USER - .GITIGNORE
 # ==============================================
 # Modulo User Laraxot - Template standardizzato
+<<<<<<< HEAD
 # Ultimo aggiornamento: 2025-01-31
+=======
+# Ultimo aggiornamento: 2025-01-06
+>>>>>>> a63f578 (.)
 # ==============================================
 
 # ==============================================
 # DEPENDENCIES & PACKAGES
 # ==============================================
+<<<<<<< HEAD
 /vendor/
 /vendor
 /node_modules/
@@ -18,6 +23,17 @@ yarn.lock
 composer.lock
 yarn-error.log
 npm-debug.log
+=======
+vendor/
+/vendor/
+node_modules/
+/node_modules/
+/docs/vendor/
+package-lock.json
+yarn.lock
+yarn-error.log
+composer.lock
+>>>>>>> a63f578 (.)
 
 # ==============================================
 # BUILD & COMPILED FILES
@@ -40,6 +56,10 @@ cache/
 *.swp
 *.swo
 *.stackdump
+<<<<<<< HEAD
+=======
+*.exe
+>>>>>>> a63f578 (.)
 *:Zone.Identifier
 v8-compile-cache-*
 .php-cs-fixer.cache
@@ -51,6 +71,10 @@ v8-compile-cache-*
 *.log
 error_log
 npm-debug.log*
+<<<<<<< HEAD
+=======
+npm-debug.log
+>>>>>>> a63f578 (.)
 yarn-error.log*
 lerna-debug.log*
 
@@ -121,6 +145,7 @@ docs/phpstan/
 docs/cache/
 
 # ==============================================
+<<<<<<< HEAD
 # LANGUAGE FILES
 # ==============================================
 lang/lang/
@@ -134,6 +159,21 @@ database/Migrations_old/
 database/Seeders_old/
 database/Factories_old/
 database_old/
+=======
+# OLD DIRECTORIES (LEGACY CLEANUP)
+# ==============================================
+resources/views/Components_old/
+resources/views/Components_old
+database/Migrations_old/
+database/Migrations_old
+database/Seeders_old/
+database/Seeders_old
+database/Factories_old/
+database/Factories_old
+database/Factories_
+database_old/
+database_old
+>>>>>>> a63f578 (.)
 
 # ==============================================
 # MODULE SPECIFIC - USER
@@ -142,12 +182,21 @@ database_old/
 config/local.php
 config/development.php
 
+<<<<<<< HEAD
 # Cache utenti
 storage/users/
 storage/profiles/
 storage/avatars/
 
 # File di test utenti
+=======
+# Cache autenticazione
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/views/
+
+# File di test temporanei
+>>>>>>> a63f578 (.)
 test_users.json
 user_test_data.csv
 
@@ -155,7 +204,11 @@ user_test_data.csv
 # END OF USER .GITIGNORE
 # ==============================================
 
+<<<<<<< HEAD
 # File specifici del progetto
+=======
+# 🚫 File specifici del progetto
+>>>>>>> a63f578 (.)
 *.fila2
 laravel
 public_html
