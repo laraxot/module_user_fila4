@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Http\Livewire\Auth;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 =======
 use Filament\Schemas\Schema;
@@ -12,47 +13,98 @@ use Filament\Schemas\Schema;
 use Livewire\Features\SupportRedirects\Redirector;
 use Modules\Xot\Actions\File\ViewCopyAction;
 use Modules\Xot\Contracts\UserContract;
+=======
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Concerns\InteractsWithSchemas;
+use Filament\Schemas\Contracts\HasSchemas;
+use Filament\Schemas\Schema;
+>>>>>>> cebb28c (.)
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password as PasswordRule;
 use Livewire\Component;
+use Livewire\Features\SupportRedirects\Redirector;
+use Modules\Xot\Actions\File\ViewCopyAction;
+use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 
+<<<<<<< HEAD
 /**
  * @property Form $form
  */
 class Register extends Component
+=======
+class Register extends Component implements HasSchemas
+>>>>>>> cebb28c (.)
 {
-    public string $name = '';
+    use InteractsWithSchemas;
 
-    public string $email = '';
+    /**
+     * Data array for form state.
+     *
+     * @var array<string, mixed>
+     */
+    public array $data = [];
 
-    public string $password = '';
+    /**
+     * Mount the component.
+     */
+    public function mount(): void
+    {
+        $this->form->fill();
+    }
 
-    public string $passwordConfirmation = '';
+    /**
+     * Define the form schema.
+     */
+    public function form(Schema $schema): Schema
+    {
+        return $schema
+            ->components([
+                TextInput::make('name')
+                    ->required()
+                    ->label(__('Name'))
+                    ->placeholder(__('Enter your name'))
+                    ->autofocus(),
+                TextInput::make('email')
+                    ->email()
+                    ->required()
+                    ->label(__('Email'))
+                    ->placeholder(__('Enter your email'))
+                    ->unique('users', 'email'),
+                TextInput::make('password')
+                    ->password()
+                    ->required()
+                    ->label(__('Password'))
+                    ->placeholder(__('Enter your password'))
+                    ->rules([PasswordRule::defaults()])
+                    ->revealable(),
+                TextInput::make('password_confirmation')
+                    ->password()
+                    ->required()
+                    ->label(__('Confirm Password'))
+                    ->placeholder(__('Confirm your password'))
+                    ->same('password')
+                    ->revealable(),
+            ])
+            ->statePath('data');
+    }
 
     /**
      * Execute the action.
-     *
-     * @return RedirectResponse|Redirector
      */
     public function register(): RedirectResponse|Redirector
     {
-        $messages = __('user::validation');
-        $this->validate([
-            'name' => ['required'],
-            'email' => ['required', 'email', 'unique:user.users'],
-            'password' => ['required', 'same:passwordConfirmation', PasswordRule::defaults()],
-        ], $messages);
+        $data = $this->form->getState();
         $user_class = XotData::make()->getUserClass();
 
         /** @var UserContract */
         $user = $user_class::create([
-            'email' => $this->email,
-            'name' => $this->name,
-            'password' => Hash::make($this->password),
+            'email' => $data['email'],
+            'name' => $data['name'],
+            'password' => Hash::make($data['password']),
         ]);
 
         event(new Registered($user));
@@ -67,8 +119,6 @@ class Register extends Component
      *
      * In Livewire components, the render method ultimately returns a view,
      * but it's processed through Livewire's component system.
-     *
-     * @return mixed
      */
     public function render(): mixed
     {

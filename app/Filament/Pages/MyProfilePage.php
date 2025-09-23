@@ -13,7 +13,10 @@ namespace Modules\User\Filament\Pages;
 use Filament\Forms\Form;
 =======
 use Filament\Schemas\Schema;
+<<<<<<< HEAD
 >>>>>>> 1724879 (.)
+=======
+>>>>>>> cebb28c (.)
 
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
@@ -72,10 +75,14 @@ class MyProfilePage extends Page implements HasForms
     {
         return $form
 <<<<<<< HEAD
+<<<<<<< HEAD
             ->components([
 =======
             ->schema([
 >>>>>>> 1724879 (.)
+=======
+            ->schema([
+>>>>>>> cebb28c (.)
                 Section::make('Profile Information')
                     ->aside()
                     ->description('Update your account\'s profile information and email address.')
@@ -95,10 +102,14 @@ class MyProfilePage extends Page implements HasForms
     {
         return $form
 <<<<<<< HEAD
+<<<<<<< HEAD
             ->components([
 =======
             ->schema([
 >>>>>>> 1724879 (.)
+=======
+            ->schema([
+>>>>>>> cebb28c (.)
                 Section::make('Update Password')
                     ->aside()
                     ->description('Ensure your account is using long, random password to stay secure.')

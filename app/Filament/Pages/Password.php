@@ -18,10 +18,14 @@ use Modules\Tenant\Services\TenantService;
 use Modules\User\Datas\PasswordData;
 use Modules\Xot\Filament\Traits\TransTrait;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 =======
 use Filament\Schemas\Schema;
 >>>>>>> 1724879 (.)
+=======
+use Filament\Schemas\Schema;
+>>>>>>> cebb28c (.)
 
 /**
  * Pagina per la gestione delle impostazioni delle password.
@@ -79,10 +83,14 @@ class Password extends Page implements HasForms
     {
         return $form
 <<<<<<< HEAD
+<<<<<<< HEAD
             ->components([
 =======
             ->schema([
 >>>>>>> 1724879 (.)
+=======
+            ->schema([
+>>>>>>> cebb28c (.)
                 TextInput::make('otp_expiration_minutes')
                     // Durata in minuti della validità della password temporanea
                     ->numeric()

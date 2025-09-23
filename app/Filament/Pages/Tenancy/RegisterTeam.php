@@ -6,10 +6,14 @@ namespace Modules\User\Filament\Pages\Tenancy;
 
 use Filament\Forms\Components\TextInput;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 =======
 use Filament\Schemas\Schema;
 >>>>>>> 1724879 (.)
+=======
+use Filament\Schemas\Schema;
+>>>>>>> cebb28c (.)
 use Filament\Pages\Tenancy\RegisterTenant;
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Contracts\TeamContract;

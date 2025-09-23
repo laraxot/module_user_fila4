@@ -8,10 +8,14 @@ use Filament\Pages\Tenancy\EditTenantProfile as BaseEditTenantProfile;
 use Modules\Xot\Datas\XotData;
 use Webmozart\Assert\Assert;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 =======
 use Filament\Schemas\Schema;
 >>>>>>> 1724879 (.)
+=======
+use Filament\Schemas\Schema;
+>>>>>>> cebb28c (.)
 
 class EditTenantProfile extends BaseEditTenantProfile
 {

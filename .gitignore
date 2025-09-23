@@ -26,7 +26,7 @@ composer.lock
 build/
 dist/
 docs/cache/
-cache/
+cache/*
 
 # ==============================================
 # CACHE & TEMPORARY FILES

@@ -70,13 +70,19 @@ class TeamTest extends TestCase
     public function test_can_restore_soft_deleted_team(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> cebb28c (.)
         if (!method_exists(Team::class, 'withTrashed')) {
             $this->markTestSkipped('SoftDeletes trait not present on Team model');
             return;
         }
 
+<<<<<<< HEAD
 >>>>>>> 1724879 (.)
+=======
+>>>>>>> cebb28c (.)
         $user = User::factory()->create();
         $team = Team::factory()->create(['user_id' => $user->id]);
         $teamId = $team->id;
@@ -85,9 +91,13 @@ class TeamTest extends TestCase
         $this->assertSoftDeleted('teams', ['id' => $teamId]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         /** @var Team $restoredTeam */
 >>>>>>> 1724879 (.)
+=======
+        /** @var Team $restoredTeam */
+>>>>>>> cebb28c (.)
         $restoredTeam = Team::withTrashed()->find($teamId);
         $restoredTeam->restore();
 

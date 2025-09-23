@@ -15,10 +15,14 @@ use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\TextInput;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 =======
 use Filament\Schemas\Schema;
 >>>>>>> 1724879 (.)
+=======
+use Filament\Schemas\Schema;
+>>>>>>> cebb28c (.)
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;

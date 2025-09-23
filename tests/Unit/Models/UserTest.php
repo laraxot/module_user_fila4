@@ -83,13 +83,19 @@ class UserTest extends TestCase
     public function test_can_restore_soft_deleted_user(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> cebb28c (.)
         if (!method_exists(User::class, 'withTrashed')) {
             $this->markTestSkipped('SoftDeletes trait not present on User model');
             return;
         }
 
+<<<<<<< HEAD
 >>>>>>> 1724879 (.)
+=======
+>>>>>>> cebb28c (.)
         $user = User::factory()->create();
         $userId = $user->id;
 
@@ -97,9 +103,13 @@ class UserTest extends TestCase
         $this->assertSoftDeleted('users', ['id' => $userId]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         /** @var User $restoredUser */
 >>>>>>> 1724879 (.)
+=======
+        /** @var User $restoredUser */
+>>>>>>> cebb28c (.)
         $restoredUser = User::withTrashed()->find($userId);
         $restoredUser->restore();
 

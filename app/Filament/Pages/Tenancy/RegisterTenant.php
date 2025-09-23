@@ -51,10 +51,14 @@ class RegisterTenant extends BaseRegisterTenant
             ->toString();
         $this->resource = $resource;
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $form->components($this->getFormSchema());
 =======
         return $form->schema($this->getFormSchema());
 >>>>>>> 1724879 (.)
+=======
+        return $form->schema($this->getFormSchema());
+>>>>>>> cebb28c (.)
     }
 
     public function getFormSchema(): array

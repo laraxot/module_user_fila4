@@ -5,10 +5,14 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Widgets\Auth;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 =======
 use Filament\Schemas\Schema;
 >>>>>>> 1724879 (.)
+=======
+use Filament\Schemas\Schema;
+>>>>>>> cebb28c (.)
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Component;
 use Filament\Forms\Components\TextInput;

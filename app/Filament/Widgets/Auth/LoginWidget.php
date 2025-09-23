@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Widgets\Auth;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 =======
 use Filament\Schemas\Schema;
@@ -13,23 +14,30 @@ use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms;
+=======
+use Filament\Forms\Components\Checkbox;
+use Filament\Forms\Components\TextInput;
+>>>>>>> cebb28c (.)
 use Illuminate\Support\Facades\Auth;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
+use Override;
 
 /**
- *
  * LoginWidget: Widget di login conforme alle regole Windsurf/Xot.
  * - Estende XotBaseWidget
  * - Usa solo componenti Filament importati
  * - Validazione e sicurezza integrate
  * - Facilmente estendibile (2FA, captcha, login social)
+<<<<<<< HEAD
  *
  * @property array<string, mixed>|null $data
  * @property Form $form
+=======
+>>>>>>> cebb28c (.)
  */
 class LoginWidget extends XotBaseWidget
 {
-    public null|array $data = [];
+    public ?array $data = [];
 
     /**
      * Blade view del widget nel modulo User.
@@ -37,7 +45,9 @@ class LoginWidget extends XotBaseWidget
      * il path deve essere senza il namespace del modulo (senza "user::").
      *
      * @see \Modules\User\docs\WIDGETS_STRUCTURE.md - Sezione B
+     *
      * @var view-string
+     *
      * @phpstan-ignore property.defaultValue
      */
     protected string $view = 'pub_theme::filament.widgets.auth.login';
