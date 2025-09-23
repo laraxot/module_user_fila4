@@ -7,10 +7,6 @@ namespace Modules\User\Filament\Widgets;
 use Filament\Schemas\Components\Component;
 use Override;
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
-=======
-use Filament\Forms\Components\Component;
->>>>>>> 44a7ebe (.)
 use Modules\User\Models\User;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
@@ -19,14 +15,8 @@ use Filament\Forms;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-<<<<<<< HEAD
 use Filament\Schemas\Schema;
 use Filament\Schemas\Schema as FilamentForm;
-=======
-use Filament\Forms\Form;
-use Filament\Forms\Form;
-use Filament\Forms\Form as FilamentForm;
->>>>>>> 44a7ebe (.)
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
 use Filament\Widgets\Widget;
@@ -34,10 +24,7 @@ use Illuminate\Auth\Events\PasswordReset as PasswordResetResponseEvent;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\Schema as DatabaseSchema;
-=======
->>>>>>> 44a7ebe (.)
 use Illuminate\Validation\Rules\Password as PasswordRule;
 use Modules\User\Datas\PasswordData;
 use Modules\User\Events\NewPasswordSet;

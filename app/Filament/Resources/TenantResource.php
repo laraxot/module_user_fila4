@@ -8,24 +8,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-<<<<<<< HEAD
 use Filament\Schemas\Components\Section;
 use Filament\Support\Components\Component;
 use Override;
-=======
-use Override;
-use Filament\Forms\Components\Section;
->>>>>>> 44a7ebe (.)
 use Modules\User\Filament\Resources\TenantResource\RelationManagers\UsersRelationManager;
 use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\TextInput;
-<<<<<<< HEAD
 use Filament\Schemas\Schema;
-=======
-use Filament\Forms\Form;
-use Filament\Forms\Form;
->>>>>>> 44a7ebe (.)
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
