@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
 use DateTime;
 use Exception;
+=======
+>>>>>>> 44a7ebe (.)
 use Filament\Models\Contracts\HasName;
 use Filament\Models\Contracts\HasTenants;
 use Filament\Panel;
@@ -15,7 +18,10 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
+=======
+>>>>>>> 44a7ebe (.)
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -27,6 +33,7 @@ use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
+<<<<<<< HEAD
 use Illuminate\Support\Str;
 use Laravel\Passport\HasApiTokens;
 use Modules\TechPlanner\Models\Profile;
@@ -39,6 +46,8 @@ use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Models\Traits\RelationX;
 use Override;
+=======
+>>>>>>> 44a7ebe (.)
 use Parental\HasChildren;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -133,10 +142,13 @@ use Throwable;
  *
  * @mixin \Eloquent
  */
+<<<<<<< HEAD
 abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, UserContract
 {
     use HasApiTokens;
     use HasAuthenticationLogTrait;
+=======
+>>>>>>> 44a7ebe (.)
     use HasChildren;
     use HasFactory;
     use HasPermissions;
@@ -146,7 +158,10 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     use InteractsWithMedia;
     use Notifiable;
     use RelationX;
+<<<<<<< HEAD
     use Traits\HasTenants;
+=======
+>>>>>>> 44a7ebe (.)
 
     public $incrementing = false;
 
@@ -199,10 +214,13 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     /** @var array<string, class-string> */
     protected $childTypes = [];
 
+<<<<<<< HEAD
     /** @var array<string, mixed> */
     protected $attributes = [
         // 'state' => Pending::class,
         // 'state' => 'pending',
+=======
+>>>>>>> 44a7ebe (.)
         'is_otp' => false,
         'is_active' => true,
     ];
@@ -232,7 +250,10 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         }
     }
 
+<<<<<<< HEAD
     public function canAccessFilament(?Panel $panel = null): bool
+=======
+>>>>>>> 44a7ebe (.)
     {
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;
         return true;
@@ -248,6 +269,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         $lastName = (string) ($this->getAttribute('last_name') ?? '');
 
         $fullName = trim(sprintf('%s %s %s', $name, $firstName, $lastName));
+<<<<<<< HEAD
 
         // Ensure we always return a non-empty string
         if (empty($fullName)) {
@@ -256,12 +278,15 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             return ! empty($email) ? $email : 'User';
         }
 
+=======
+>>>>>>> 44a7ebe (.)
         return $fullName;
     }
 
     #[Override]
     public function profile(): HasOne
     {
+<<<<<<< HEAD
         try {
             /** @var class-string<Model> */
             $profileClass = XotData::make()->getProfileClass();
@@ -279,6 +304,8 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             // Utilizziamo una classe che sicuramente esiste nel sistema
             return $this->hasOne(Model::class);
         }
+=======
+>>>>>>> 44a7ebe (.)
     }
 
     /**
@@ -293,7 +320,10 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
 
     public function assignModule(string $module): void
     {
+<<<<<<< HEAD
         $role_name = $module.'::admin';
+=======
+>>>>>>> 44a7ebe (.)
         $role = Role::firstOrCreate(['name' => $role_name]);
         $this->assignRole($role);
     }
@@ -347,7 +377,10 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
 
     public function treeSons(): Collection
     {
+<<<<<<< HEAD
         return $this->teams ?? new Collection;
+=======
+>>>>>>> 44a7ebe (.)
     }
 
     /**
@@ -404,11 +437,15 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         return $this->morphOne(AuthenticationLog::class, 'authenticatable')->latestOfMany();
     }
 
+<<<<<<< HEAD
     public function getFullNameAttribute(?string $value): string
+=======
+>>>>>>> 44a7ebe (.)
     {
         if ($value !== null) {
             return $value;
         }
+<<<<<<< HEAD
 
         $fullName = trim(($this->first_name ?? '').' '.($this->last_name ?? ''));
 
@@ -416,18 +453,26 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     }
 
     public function getNameAttribute(?string $value): string
+=======
+>>>>>>> 44a7ebe (.)
     {
         if ($value !== null) {
             return $value;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 44a7ebe (.)
         if ($this->getKey() === null) {
             return $this->email ?? 'User';
         }
 
         $name = Str::of((string) $this->email)->before('@')->toString();
         $i = 1;
+<<<<<<< HEAD
         $candidate = $name.'-'.$i;
+=======
+>>>>>>> 44a7ebe (.)
 
         // During unit tests, avoid any DB interaction.
         $isTesting = (function (): bool {
@@ -449,7 +494,10 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             $value = $candidate;
             while (self::firstWhere(['name' => $value]) !== null) {
                 $i++;
+<<<<<<< HEAD
                 $value = $name.'-'.$i;
+=======
+>>>>>>> 44a7ebe (.)
             }
             $this->update(['name' => $value]);
 
@@ -495,18 +543,24 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         ];
     }
 
+<<<<<<< HEAD
     // public function authentications(): MorphMany
     // {
     //    return $this->morphMany(\Modules\User\Models\Authentication::class, 'authenticatable');
     // }
+=======
+>>>>>>> 44a7ebe (.)
 
     /**
      * Check if the user has a specific role.
      *
+<<<<<<< HEAD
      * @param  array|\Illuminate\Support\Collection|int|\Spatie\Permission\Contracts\Role|string  $roles
      */
     #[Override]
     public function hasRole($roles, ?string $guard = null): bool
+=======
+>>>>>>> 44a7ebe (.)
     {
         // Se è una stringa semplice, utilizziamo il metodo interno tramite relazione roles
         if (is_string($roles)) {
@@ -535,11 +589,14 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         return false;
     }
 
+<<<<<<< HEAD
     public function setPasswordAttribute(?string $value): void
     {
         if (empty($value)) {
             unset($this->attributes['password']);
 
+=======
+>>>>>>> 44a7ebe (.)
             return;
         }
         if (strlen($value) < 32) {
