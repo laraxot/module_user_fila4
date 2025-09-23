@@ -2,15 +2,9 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
 use Filament\Schemas\Components\Section;
 use Tests\TestCase;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
-=======
-use Tests\TestCase;
-use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
-use Filament\Schemas\Components\Section;
->>>>>>> 4b219c8 (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Placeholder;
 use Modules\Xot\Filament\Resources\XotBaseResource;
@@ -45,7 +39,6 @@ test('user resource has correct widgets', function (): void {
 });
 
 test('user resource has correct form schema', function (): void {
-<<<<<<< HEAD
     $form = UserResource::getFormSchema();
 
     expect($form)->toHaveKey('section01');
@@ -53,15 +46,6 @@ test('user resource has correct form schema', function (): void {
 
     // Test section01
     $section01 = $form['section01'];
-=======
-    $schema = UserResource::getFormSchema();
-
-    expect($schema)->toHaveKey('section01');
-    expect($schema)->toHaveKey('section02');
-
-    // Test section01
-    $section01 = $schema['section01'];
->>>>>>> 4b219c8 (.)
     expect($section01)->toBeInstanceOf(Section::class);
 
     $section01Schema = $section01->getDefaultChildComponents();
@@ -83,11 +67,7 @@ test('user resource has correct form schema', function (): void {
     expect($passwordField)->toBeInstanceOf(TextInput::class);
 
     // Test section02
-<<<<<<< HEAD
     $section02 = $form['section02'];
-=======
-    $section02 = $schema['section02'];
->>>>>>> 4b219c8 (.)
     expect($section02)->toBeInstanceOf(Section::class);
 
     $section02Schema = $section02->getDefaultChildComponents();
@@ -112,30 +92,18 @@ test('user resource extends correct base class', function (): void {
 });
 
 test('user resource form schema has correct column spans', function (): void {
-<<<<<<< HEAD
     $form = UserResource::getFormSchema();
 
     $section01 = $form['section01'];
     $section02 = $form['section02'];
-=======
-    $schema = UserResource::getFormSchema();
-
-    $section01 = $schema['section01'];
-    $section02 = $schema['section02'];
->>>>>>> 4b219c8 (.)
 
     expect($section01->getColumnSpan())->toBe(8);
     expect($section02->getColumnSpan())->toBe(4);
 });
 
 test('user resource name field is required', function (): void {
-<<<<<<< HEAD
     $form = UserResource::getFormSchema();
     $section01 = $form['section01'];
-=======
-    $schema = UserResource::getFormSchema();
-    $section01 = $schema['section01'];
->>>>>>> 4b219c8 (.)
     $section01Schema = $section01->getDefaultChildComponents();
 
     $nameField = collect($section01Schema)->firstWhere('name', 'name');
@@ -144,13 +112,8 @@ test('user resource name field is required', function (): void {
 });
 
 test('user resource email field is required', function (): void {
-<<<<<<< HEAD
     $form = UserResource::getFormSchema();
     $section01 = $form['section01'];
-=======
-    $schema = UserResource::getFormSchema();
-    $section01 = $schema['section01'];
->>>>>>> 4b219c8 (.)
     $section01Schema = $section01->getDefaultChildComponents();
 
     $emailField = collect($section01Schema)->firstWhere('name', 'email');
@@ -159,13 +122,8 @@ test('user resource email field is required', function (): void {
 });
 
 test('user resource password field is required only on create', function (): void {
-<<<<<<< HEAD
     $form = UserResource::getFormSchema();
     $section01 = $form['section01'];
-=======
-    $schema = UserResource::getFormSchema();
-    $section01 = $schema['section01'];
->>>>>>> 4b219c8 (.)
     $section01Schema = $section01->getDefaultChildComponents();
 
     $passwordField = collect($section01Schema)->firstWhere('name', 'password');
@@ -180,13 +138,8 @@ test('user resource password field is required only on create', function (): voi
 });
 
 test('user resource password field has correct type', function (): void {
-<<<<<<< HEAD
     $form = UserResource::getFormSchema();
     $section01 = $form['section01'];
-=======
-    $schema = UserResource::getFormSchema();
-    $section01 = $schema['section01'];
->>>>>>> 4b219c8 (.)
     $section01Schema = $section01->getDefaultChildComponents();
 
     $passwordField = collect($section01Schema)->firstWhere('name', 'password');
@@ -195,13 +148,8 @@ test('user resource password field has correct type', function (): void {
 });
 
 test('user resource email field has unique validation', function (): void {
-<<<<<<< HEAD
     $form = UserResource::getFormSchema();
     $section01 = $form['section01'];
-=======
-    $schema = UserResource::getFormSchema();
-    $section01 = $schema['section01'];
->>>>>>> 4b219c8 (.)
     $section01Schema = $section01->getDefaultChildComponents();
 
     $emailField = collect($section01Schema)->firstWhere('name', 'email');
@@ -212,13 +160,8 @@ test('user resource email field has unique validation', function (): void {
 });
 
 test('user resource created_at field shows diff for humans', function (): void {
-<<<<<<< HEAD
     $form = UserResource::getFormSchema();
     $section02 = $form['section02'];
-=======
-    $schema = UserResource::getFormSchema();
-    $section02 = $schema['section02'];
->>>>>>> 4b219c8 (.)
     $section02Schema = $section02->getDefaultChildComponents();
 
     $createdAtField = collect($section02Schema)->firstWhere('name', 'created_at');

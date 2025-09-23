@@ -78,24 +78,18 @@ class DeviceTest extends TestCase
 
     public function test_can_restore_soft_deleted_device(): void
     {
-<<<<<<< HEAD
         if (!method_exists(Device::class, 'withTrashed')) {
             $this->markTestSkipped('SoftDeletes trait not present on Device model');
             return;
         }
 
-=======
->>>>>>> 4b219c8 (.)
         $device = Device::factory()->create();
         $deviceId = $device->id;
 
         $device->delete();
         $this->assertSoftDeleted('devices', ['id' => $deviceId]);
 
-<<<<<<< HEAD
         /** @var Device $restoredDevice */
-=======
->>>>>>> 4b219c8 (.)
         $restoredDevice = Device::withTrashed()->find($deviceId);
         $restoredDevice->restore();
 

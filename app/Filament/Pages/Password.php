@@ -18,10 +18,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Tenant\Services\TenantService;
 use Modules\User\Datas\PasswordData;
 use Modules\Xot\Filament\Traits\TransTrait;
-<<<<<<< HEAD
 use Filament\Forms\Components\Section;
-=======
->>>>>>> 4b219c8 (.)
 
 /**
  * Pagina per la gestione delle impostazioni delle password.

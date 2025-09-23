@@ -4,17 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
-<<<<<<< HEAD
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Schema;
 use Override;
-=======
-use Override;
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Grid;
-use Filament\Schemas\Schema;
->>>>>>> 4b219c8 (.)
 use Exception;
 use Modules\Xot\Actions\Cast\SafeStringCastAction;
 use RuntimeException;
@@ -121,15 +114,6 @@ class RegisterWidget extends XotBaseWidget
         ];
     }
 
-<<<<<<< HEAD
-=======
-    #[Override]
-    public function form(Schema $schema): Schema
-    {
-        return $schema->components($this->getFormSchema())->statePath('data')->operation('create');
-    }
-
->>>>>>> 4b219c8 (.)
     public function submit(): void
     {
         try {

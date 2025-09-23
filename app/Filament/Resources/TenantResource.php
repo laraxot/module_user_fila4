@@ -8,14 +8,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-<<<<<<< HEAD
 use Filament\Schemas\Components\Section;
 use Filament\Support\Components\Component;
 use Override;
-=======
-use Override;
-use Filament\Schemas\Components\Section;
->>>>>>> 4b219c8 (.)
 use Modules\User\Filament\Resources\TenantResource\RelationManagers\UsersRelationManager;
 use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\ColorPicker;
@@ -50,21 +45,14 @@ class TenantResource extends XotBaseResource
         return $xot->getTenantClass();
     }
 
-<<<<<<< HEAD
     /**
      * @return array<string, Component>
      */
-=======
->>>>>>> 4b219c8 (.)
     #[Override]
     public static function getFormSchema(): array
     {
         return [
-<<<<<<< HEAD
             'main' => Section::make()
-=======
-            Section::make()
->>>>>>> 4b219c8 (.)
                 ->schema([
                     TextInput::make('name')
                         ->required()

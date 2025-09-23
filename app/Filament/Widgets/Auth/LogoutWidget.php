@@ -4,17 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
-<<<<<<< HEAD
 use Filament\Schemas\Components\View;
 use Filament\Schemas\Components\Component;
 use Override;
 use Exception;
-=======
-use Filament\Schemas\Components\Component;
-use Override;
-use Exception;
-use Filament\Schemas\Components\View;
->>>>>>> 4b219c8 (.)
 use Filament\Actions\Action;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\App;

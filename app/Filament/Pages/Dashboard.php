@@ -12,11 +12,7 @@ use Modules\User\Filament\Widgets\UsersChartWidget;
 use Modules\User\Filament\Widgets\RecentLoginsWidget;
 use Override;
 use Filament\Forms\Components\DatePicker;
-<<<<<<< HEAD
 use Filament\Schemas\Components\Section;
-=======
-use Filament\Forms\Components\Section;
->>>>>>> 4b219c8 (.)
 use Filament\Schemas\Schema;
 use Filament\Forms\Get;
 use Filament\Pages\Dashboard as BaseBashboard;
@@ -53,15 +49,9 @@ class Dashboard extends XotBaseDashboard
     {
         return [
             DatePicker::make('startDate')->native(false),
-<<<<<<< HEAD
             // ->maxDate(fn (\Filament\Schemas\Components\Utilities\Get $get) => $get('endDate') ?: now()),
             DatePicker::make('endDate')->native(false),
             // ->minDate(fn (\Filament\Schemas\Components\Utilities\Get $get) => $get('startDate') ?: now())
-=======
-            // ->maxDate(fn (Get $get) => $get('endDate') ?: now()),
-            DatePicker::make('endDate')->native(false),
-            // ->minDate(fn (Get $get) => $get('startDate') ?: now())
->>>>>>> 4b219c8 (.)
             // ->maxDate(now()),
         ];
     }
