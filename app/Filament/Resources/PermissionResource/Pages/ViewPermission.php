@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\PermissionResource\Pages;
 
-use Filament\Schemas\Components\Component;
+use Filament\Support\Components\Component;
 use Override;
 use Filament\Infolists\Components\TextEntry;
 use Modules\User\Filament\Resources\PermissionResource;
@@ -15,18 +15,18 @@ class ViewPermission extends XotBaseViewRecord
     protected static string $resource = PermissionResource::class;
 
     /**
-     * @return array<string, Component>
+     * @return array<int, Component>
      */
     #[Override]
     public function getInfolistSchema(): array
     {
         return [
-            'name' => TextEntry::make('name')->label(__('user::permission.fields.name.label')),
-            'guard_name' => TextEntry::make('guard_name')->label(__('user::permission.fields.guard_name.label')),
-            'active' => TextEntry::make('active')
+            TextEntry::make('name')->label(__('user::permission.fields.name.label')),
+            TextEntry::make('guard_name')->label(__('user::permission.fields.guard_name.label')),
+            TextEntry::make('active')
                 ->label(__('user::permission.fields.active.label'))
-                ->formatStateUsing(fn($state): string => $state ? __('user::common.yes') : __('user::common.no')),
-            'created_at' => TextEntry::make('created_at')
+                ->formatStateUsing(fn ($state): string => $state ? __('user::common.yes') : __('user::common.no')),
+            TextEntry::make('created_at')
                 ->label(__('user::permission.fields.created_at.label'))
                 ->dateTime(),
         ];

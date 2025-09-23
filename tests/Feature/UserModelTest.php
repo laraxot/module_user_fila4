@@ -302,41 +302,6 @@ describe('User Scopes and Queries', function () {
 });
 
 describe('User Soft Deletes', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    it('can be soft deleted', function () {
-        $userId = $this->user->id;
-
-        $this->user->delete();
-
-        expect(User::find($userId))->toBeNull();
-        expect(User::withTrashed()->find($userId))->not->toBeNull();
-=======
-    it('can handle soft deletes if supported', function () {
-        if (!method_exists(User::class, 'withTrashed')) {
-            $this->markTestSkipped('SoftDeletes trait not present on User model');
-        }
-        // This would test soft delete functionality if the trait were present
-        $this->markTestSkipped('User model does not implement SoftDeletes trait');
->>>>>>> cebb28c (.)
-    });
-
-    it('can handle restore after soft delete if supported', function () {
-        if (!method_exists(User::class, 'withTrashed')) {
-            $this->markTestSkipped('SoftDeletes trait not present on User model');
-        }
-        // This would test restore functionality if the trait were present
-        $this->markTestSkipped('User model does not implement SoftDeletes trait');
-    });
-
-<<<<<<< HEAD
-    it('can be force deleted', function () {
-        $userId = $this->user->id;
-
-        $this->user->forceDelete();
-
-        expect(User::withTrashed()->find($userId))->toBeNull();
-=======
     it('can handle soft deletes if supported', function () {
         if (!method_exists(User::class, 'withTrashed')) {
             $this->markTestSkipped('SoftDeletes trait not present on User model');
@@ -353,17 +318,11 @@ describe('User Soft Deletes', function () {
         $this->markTestSkipped('User model does not implement SoftDeletes trait');
     });
 
-=======
->>>>>>> cebb28c (.)
     it('can handle force delete if supported', function () {
         if (!method_exists(User::class, 'forceDelete')) {
             $this->markTestSkipped('SoftDeletes trait not present on User model');
         }
         // This would test force delete functionality if the trait were present
         $this->markTestSkipped('User model does not implement SoftDeletes trait');
-<<<<<<< HEAD
->>>>>>> 1724879 (.)
-=======
->>>>>>> cebb28c (.)
     });
 });

@@ -7,19 +7,10 @@ use Illuminate\Support\Facades\Hash;
 use Modules\User\Enums\UserType;
 use Modules\User\Models\User;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> cebb28c (.)
 /**
  * @property User $user
  */
 
-<<<<<<< HEAD
->>>>>>> 1724879 (.)
-=======
->>>>>>> cebb28c (.)
 uses(TestCase::class);
 
 beforeEach(function (): void {
@@ -115,25 +106,7 @@ test('user has timestamps', function (): void {
     expect($this->user->updated_at)->not->toBeNull();
 });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-test('user can be soft deleted if trait is present', function (): void {
-    if (method_exists($this->user, 'trashed')) {
-        $this->user->delete();
-
-        expect($this->user->trashed())->toBeTrue();
-        expect(User::withTrashed()->find($this->user->id))->not->toBeNull();
-    } else {
-        $this->markTestSkipped('SoftDeletes trait not present');
-    }
-=======
 test('user soft delete functionality', function (): void {
     // Skip this test as User model does not implement SoftDeletes trait
     $this->markTestSkipped('User model does not implement SoftDeletes trait');
->>>>>>> 1724879 (.)
-=======
-test('user soft delete functionality', function (): void {
-    // Skip this test as User model does not implement SoftDeletes trait
-    $this->markTestSkipped('User model does not implement SoftDeletes trait');
->>>>>>> cebb28c (.)
 });

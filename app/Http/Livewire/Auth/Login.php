@@ -4,19 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Auth;
 
-<<<<<<< HEAD
-use Filament\Actions\Contracts\HasActions;
-use Filament\Actions\Concerns\InteractsWithActions;
-=======
->>>>>>> cebb28c (.)
+use Filament\Schemas\Schema;
 use Exception;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Concerns\InteractsWithSchemas;
-use Filament\Schemas\Contracts\HasSchemas;
-use Filament\Schemas\Schema;
+use Filament\Forms\Concerns\InteractsWithForms;
+use Filament\Forms\Contracts\HasForms;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -26,16 +21,13 @@ use Modules\Xot\Actions\File\ViewCopyAction;
 
 /**
  * Componente Livewire per la gestione del login.
-<<<<<<< HEAD
  *
- * @property Form $form
-=======
->>>>>>> cebb28c (.)
+ * @property Schema $form
  */
-class Login extends Component implements HasActions, HasSchemas
+class Login extends Component implements HasActions, HasForms
 {
     use InteractsWithActions;
-    use InteractsWithSchemas;
+    use InteractsWithForms;
 
     /**
      * Data array for form state.
@@ -90,21 +82,11 @@ class Login extends Component implements HasActions, HasSchemas
     /**
      * Crea il form schema.
      */
-<<<<<<< HEAD
-    public function form(): \Filament\Forms\Form
-    {
-<<<<<<< HEAD
-        return Schema::make()->components($this->getFormSchema());
-=======
-        return Schema::make()->schema($this->getFormSchema());
->>>>>>> 1724879 (.)
-=======
     public function form(Schema $schema): Schema
     {
         return $schema
             ->components($this->getFormSchema())
             ->statePath('data');
->>>>>>> cebb28c (.)
     }
 
     /**

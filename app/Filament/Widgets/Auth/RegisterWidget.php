@@ -6,14 +6,7 @@ namespace Modules\User\Filament\Widgets\Auth;
 
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Grid;
-<<<<<<< HEAD
-use Filament\Forms\Form;
-=======
 use Filament\Schemas\Schema;
-<<<<<<< HEAD
->>>>>>> 1724879 (.)
-=======
->>>>>>> cebb28c (.)
 use Override;
 use Exception;
 use Modules\Xot\Actions\Cast\SafeStringCastAction;

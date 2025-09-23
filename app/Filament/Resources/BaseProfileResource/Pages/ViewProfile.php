@@ -4,17 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\BaseProfileResource\Pages;
 
-use Filament\Schemas\Components\Group;
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Grid;
-use Filament\Schemas\Components\Component;
 use Override;
-use Filament\Forms\Components\Flex;
-use Filament\Infolists\Components\ImageEntry;
+use Filament\Infolists\Infolist;
 use Filament\Actions\DeleteAction;
 use Filament\Infolists\Components;
+use Filament\Schemas\Components\Flex;
+
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Group;
+use Filament\Schemas\Components\Section;
+use Filament\Support\Components\Component;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Infolist;
+use Filament\Infolists\Components\ImageEntry;
 use Modules\User\Filament\Resources\BaseProfileResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
@@ -24,13 +25,13 @@ class ViewProfile extends XotBaseViewRecord
     protected static string $resource = BaseProfileResource::class;
 
     /**
-     * @return array<string, Component>
+     * @return array<int, Component>
      */
     #[Override]
     public function getInfolistSchema(): array
     {
         return [
-            'profile_info' => Section::make()->schema([
+            Section::make()->schema([
                 Flex::make([
                     Grid::make(2)->schema([
                         Group::make([
@@ -55,7 +56,7 @@ class ViewProfile extends XotBaseViewRecord
                     ImageEntry::make('image')->hiddenLabel()->grow(false),
                 ])->from('lg'),
             ]),
-            'content' => Section::make('Content')
+            Section::make('Content')
                 ->schema([
                     TextEntry::make('content')
                         ->prose()

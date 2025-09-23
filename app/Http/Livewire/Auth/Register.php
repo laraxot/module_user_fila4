@@ -4,40 +4,26 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Auth;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Filament\Forms\Form;
-=======
+use Livewire\Component;
 use Filament\Schemas\Schema;
->>>>>>> 1724879 (.)
-use Livewire\Features\SupportRedirects\Redirector;
-use Modules\Xot\Actions\File\ViewCopyAction;
-use Modules\Xot\Contracts\UserContract;
-=======
-use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Concerns\InteractsWithSchemas;
-use Filament\Schemas\Contracts\HasSchemas;
-use Filament\Schemas\Schema;
->>>>>>> cebb28c (.)
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
+use Webmozart\Assert\Assert;
+use Modules\Xot\Datas\XotData;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules\Password as PasswordRule;
-use Livewire\Component;
-use Livewire\Features\SupportRedirects\Redirector;
-use Modules\Xot\Actions\File\ViewCopyAction;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Auth\Events\Registered;
 use Modules\Xot\Contracts\UserContract;
-use Modules\Xot\Datas\XotData;
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Contracts\HasSchemas;
+use Modules\Xot\Actions\File\ViewCopyAction;
+use Livewire\Features\SupportRedirects\Redirector;
+use Filament\Schemas\Concerns\InteractsWithSchemas;
+use Illuminate\Validation\Rules\Password as PasswordRule;
 
-<<<<<<< HEAD
 /**
- * @property Form $form
+ * @property Schema $form
  */
-class Register extends Component
-=======
 class Register extends Component implements HasSchemas
->>>>>>> cebb28c (.)
 {
     use InteractsWithSchemas;
 
@@ -99,6 +85,8 @@ class Register extends Component implements HasSchemas
     {
         $data = $this->form->getState();
         $user_class = XotData::make()->getUserClass();
+
+        Assert::string($data['password']);
 
         /** @var UserContract */
         $user = $user_class::create([

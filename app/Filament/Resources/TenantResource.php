@@ -9,20 +9,13 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 use Filament\Schemas\Components\Section;
+use Filament\Support\Components\Component;
 use Override;
 use Modules\User\Filament\Resources\TenantResource\RelationManagers\UsersRelationManager;
 use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\TextInput;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Filament\Forms\Form;
-=======
 use Filament\Schemas\Schema;
->>>>>>> 1724879 (.)
-=======
-use Filament\Schemas\Schema;
->>>>>>> cebb28c (.)
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
@@ -52,11 +45,14 @@ class TenantResource extends XotBaseResource
         return $xot->getTenantClass();
     }
 
+    /**
+     * @return array<string, Component>
+     */
     #[Override]
     public static function getFormSchema(): array
     {
         return [
-            Section::make()
+            'main' => Section::make()
                 ->schema([
                     TextInput::make('name')
                         ->required()

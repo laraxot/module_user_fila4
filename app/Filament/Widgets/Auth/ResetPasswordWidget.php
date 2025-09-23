@@ -4,15 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Filament\Forms\Form;
-=======
 use Filament\Schemas\Schema;
->>>>>>> 1724879 (.)
-=======
-use Filament\Schemas\Schema;
->>>>>>> cebb28c (.)
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Component;
 use Filament\Forms\Components\TextInput;
@@ -33,7 +25,7 @@ use Override;
  * proper security measures, and user feedback. Follows Laraxot
  * architectural patterns and security best practices.
  *
- * @property Form $form Form container from XotBaseWidget
+ * @property Schema $form Form container from XotBaseWidget
  */
 class ResetPasswordWidget extends XotBaseWidget
 {

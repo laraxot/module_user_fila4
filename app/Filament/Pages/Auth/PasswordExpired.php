@@ -12,15 +12,7 @@ use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Contracts\HasForms;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Filament\Forms\Form;
-=======
 use Filament\Schemas\Schema;
->>>>>>> 1724879 (.)
-=======
-use Filament\Schemas\Schema;
->>>>>>> cebb28c (.)
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
 use Filament\Pages\Page;
@@ -36,9 +28,9 @@ use Modules\Xot\Filament\Traits\NavigationPageLabelTrait;
 use Webmozart\Assert\Assert;
 
 /**
- * @property \Filament\Forms\Form $form
- * @property \Filament\Forms\Form $editProfileForm
- * @property \Filament\Forms\Form $editPasswordForm
+ * @property \Filament\Schemas\Schema $form
+ * @property \Filament\Schemas\Schema $editProfileForm
+ * @property \Filament\Schemas\Schema $editPasswordForm
  */
 class PasswordExpired extends Page implements HasForms
 {

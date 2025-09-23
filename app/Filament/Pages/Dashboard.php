@@ -13,15 +13,7 @@ use Modules\User\Filament\Widgets\RecentLoginsWidget;
 use Override;
 use Filament\Forms\Components\DatePicker;
 use Filament\Schemas\Components\Section;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Filament\Forms\Form;
-=======
 use Filament\Schemas\Schema;
->>>>>>> 1724879 (.)
-=======
-use Filament\Schemas\Schema;
->>>>>>> cebb28c (.)
 use Filament\Forms\Get;
 use Filament\Pages\Dashboard as BaseBashboard;
 use Filament\Pages\Dashboard\Concerns\HasFiltersForm;

@@ -77,21 +77,6 @@ test('user type enum can be compared', function (): void {
     expect($type1)->not->toBe($type3);
 });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-test('user type enum can be used in switch statements', function (): void {
-    $type = UserType::MasterAdmin;
-
-    $result = match ($type) {
-        UserType::MasterAdmin => 'admin',
-        UserType::BoUser => 'backoffice',
-        UserType::CustomerUser => 'customer',
-        UserType::System => 'system',
-        UserType::Technician => 'technician',
-    };
-
-    expect($result)->toBe('admin');
-=======
 test('user type enum can be used in match statements', function (): void {
     $getMatchResult = function (UserType $type): string {
         return match ($type) {
@@ -103,28 +88,11 @@ test('user type enum can be used in match statements', function (): void {
         };
     };
 
-=======
-test('user type enum can be used in match statements', function (): void {
-    $getMatchResult = function (UserType $type): string {
-        return match ($type) {
-            UserType::MasterAdmin => 'admin',
-            UserType::BoUser => 'backoffice',
-            UserType::CustomerUser => 'customer',
-            UserType::System => 'system',
-            UserType::Technician => 'technician',
-        };
-    };
-
->>>>>>> cebb28c (.)
     expect($getMatchResult(UserType::MasterAdmin))->toBe('admin');
     expect($getMatchResult(UserType::BoUser))->toBe('backoffice');
     expect($getMatchResult(UserType::CustomerUser))->toBe('customer');
     expect($getMatchResult(UserType::System))->toBe('system');
     expect($getMatchResult(UserType::Technician))->toBe('technician');
-<<<<<<< HEAD
->>>>>>> 1724879 (.)
-=======
->>>>>>> cebb28c (.)
 });
 
 test('user type enum can be serialized', function (): void {
@@ -141,23 +109,9 @@ test('user type enum can be unserialized', function (): void {
 });
 
 test('user type enum has correct string representation', function (): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    expect((string) UserType::MasterAdmin)->toBe('master_admin');
-    expect((string) UserType::BoUser)->toBe('backoffice_user');
-    expect((string) UserType::CustomerUser)->toBe('customer_user');
-    expect((string) UserType::System)->toBe('system');
-    expect((string) UserType::Technician)->toBe('technician');
-=======
-=======
->>>>>>> cebb28c (.)
     expect(UserType::MasterAdmin->value)->toBe('master_admin');
     expect(UserType::BoUser->value)->toBe('backoffice_user');
     expect(UserType::CustomerUser->value)->toBe('customer_user');
     expect(UserType::System->value)->toBe('system');
     expect(UserType::Technician->value)->toBe('technician');
-<<<<<<< HEAD
->>>>>>> 1724879 (.)
-=======
->>>>>>> cebb28c (.)
 });
