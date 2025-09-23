@@ -4,11 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
-<<<<<<< HEAD
-=======
-use Filament\Schemas\Components\Component;
-use Override;
->>>>>>> e52a4c8 (.)
 use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Component;
@@ -41,24 +36,6 @@ class ForgotPasswordWidget extends XotBaseWidget
         ];
     }
 
-<<<<<<< HEAD
-=======
-    #[Override]
-    public function form(Schema $schema): Schema
-    {
-        return $schema->components([
-            Section::make()
-                ->schema([
-                    TextInput::make('email')
-                        ->email()
-                        ->required()
-                        ->maxLength(255),
-                ])
-                ->columns(1),
-        ])->statePath('data');
-    }
-
->>>>>>> e52a4c8 (.)
     public function sendResetLink(): void
     {
         $data = $this->form->getState();

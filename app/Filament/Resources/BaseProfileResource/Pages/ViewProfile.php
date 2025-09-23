@@ -4,18 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\BaseProfileResource\Pages;
 
-<<<<<<< HEAD
 use Override;
 use Filament\Infolists\Infolist;
-=======
-use Filament\Schemas\Components\Component;
-use Override;
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Flex;
-use Filament\Schemas\Components\Grid;
-use Filament\Schemas\Components\Group;
-use Filament\Infolists\Components\ImageEntry;
->>>>>>> e52a4c8 (.)
 use Filament\Actions\DeleteAction;
 use Filament\Infolists\Components;
 use Filament\Schemas\Components\Flex;
@@ -66,11 +56,7 @@ class ViewProfile extends XotBaseViewRecord
                     ImageEntry::make('image')->hiddenLabel()->grow(false),
                 ])->from('lg'),
             ]),
-<<<<<<< HEAD
             Section::make('Content')
-=======
-            'content' => Section::make('Content')
->>>>>>> e52a4c8 (.)
                 ->schema([
                     TextEntry::make('content')
                         ->prose()
