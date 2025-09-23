@@ -11,7 +11,11 @@ use BackedEnum;
 use Illuminate\Http\RedirectResponse;
 use Livewire\Features\SupportRedirects\Redirector;
 use Filament\Forms\Components\TextInput;
+<<<<<<< HEAD
 use Filament\Schemas\Components\Wizard\Step;
+=======
+use Filament\Forms\Components\Wizard\Step;
+>>>>>>> 4b219c8 (.)
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Schemas\Schema;

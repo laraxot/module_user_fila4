@@ -64,18 +64,24 @@ class TenantTest extends TestCase
 
     public function test_can_restore_soft_deleted_tenant(): void
     {
+<<<<<<< HEAD
         if (!method_exists(Tenant::class, 'withTrashed')) {
             $this->markTestSkipped('SoftDeletes trait not present on Tenant model');
             return;
         }
 
+=======
+>>>>>>> 4b219c8 (.)
         $tenant = Tenant::factory()->create();
         $tenantId = $tenant->id;
 
         $tenant->delete();
         $this->assertSoftDeleted('tenants', ['id' => $tenantId]);
 
+<<<<<<< HEAD
         /** @var Tenant $restoredTenant */
+=======
+>>>>>>> 4b219c8 (.)
         $restoredTenant = Tenant::withTrashed()->find($tenantId);
         $restoredTenant->restore();
 

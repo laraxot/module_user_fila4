@@ -302,6 +302,7 @@ describe('User Scopes and Queries', function () {
 });
 
 describe('User Soft Deletes', function () {
+<<<<<<< HEAD
     it('can handle soft deletes if supported', function () {
         if (!method_exists(User::class, 'withTrashed')) {
             $this->markTestSkipped('SoftDeletes trait not present on User model');
@@ -324,5 +325,32 @@ describe('User Soft Deletes', function () {
         }
         // This would test force delete functionality if the trait were present
         $this->markTestSkipped('User model does not implement SoftDeletes trait');
+=======
+    it('can be soft deleted', function () {
+        $userId = $this->user->id;
+
+        $this->user->delete();
+
+        expect(User::find($userId))->toBeNull();
+        expect(User::withTrashed()->find($userId))->not->toBeNull();
+    });
+
+    it('can be restored after soft delete', function () {
+        $userId = $this->user->id;
+
+        $this->user->delete();
+        expect(User::find($userId))->toBeNull();
+
+        $this->user->restore();
+        expect(User::find($userId))->not->toBeNull();
+    });
+
+    it('can be force deleted', function () {
+        $userId = $this->user->id;
+
+        $this->user->forceDelete();
+
+        expect(User::withTrashed()->find($userId))->toBeNull();
+>>>>>>> 4b219c8 (.)
     });
 });
