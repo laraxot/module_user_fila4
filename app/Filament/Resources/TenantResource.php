@@ -8,6 +8,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+<<<<<<< HEAD
+=======
+use Override;
+>>>>>>> e52a4c8 (.)
 use Filament\Schemas\Components\Section;
 use Filament\Support\Components\Component;
 use Override;
@@ -45,9 +49,12 @@ class TenantResource extends XotBaseResource
         return $xot->getTenantClass();
     }
 
+<<<<<<< HEAD
     /**
      * @return array<string, Component>
      */
+=======
+>>>>>>> e52a4c8 (.)
     #[Override]
     public static function getFormSchema(): array
     {

@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+<<<<<<< HEAD
 use Filament\Schemas\Components\View;
+=======
+>>>>>>> e52a4c8 (.)
 use Filament\Schemas\Components\Component;
 use Override;
 use Exception;

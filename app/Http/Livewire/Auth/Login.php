@@ -60,7 +60,11 @@ class Login extends Component implements HasActions, HasForms
                 ->suffixIcon('heroicon-m-envelope')
                 ->autofocus()
                 ->live()
+<<<<<<< HEAD
                 ->afterStateUpdated(fn ($_state) => $this->validateOnly('email'))
+=======
+                ->afterStateUpdated(fn($_state) => $this->validateOnly('email'))
+>>>>>>> e52a4c8 (.)
                 ->dehydrated(),
             TextInput::make('password')
                 ->password()
@@ -84,9 +88,13 @@ class Login extends Component implements HasActions, HasForms
      */
     public function form(Schema $schema): Schema
     {
+<<<<<<< HEAD
         return $schema
             ->components($this->getFormSchema())
             ->statePath('data');
+=======
+        return Schema::make()->components($this->getFormSchema());
+>>>>>>> e52a4c8 (.)
     }
 
     /**
@@ -127,12 +135,20 @@ class Login extends Component implements HasActions, HasForms
     {
         $user = Auth::user();
 
+<<<<<<< HEAD
         if (! $user) {
+=======
+        if (!$user) {
+>>>>>>> e52a4c8 (.)
             return redirect()->to('/');
         }
 
         // Se l'utente ha ruoli admin, redirect al pannello appropriato
+<<<<<<< HEAD
         $adminRoles = $user->roles->filter(fn ($role) => str_ends_with($role->name, '::admin'));
+=======
+        $adminRoles = $user->roles->filter(fn($role) => str_ends_with($role->name, '::admin'));
+>>>>>>> e52a4c8 (.)
 
         if ($adminRoles->count() === 1) {
             // Un solo ruolo admin - redirect al modulo specifico

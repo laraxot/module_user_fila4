@@ -4,10 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+<<<<<<< HEAD
 use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Component;
 use Filament\Forms\Components\TextInput;
+=======
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Component;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
+>>>>>>> e52a4c8 (.)
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
@@ -76,6 +83,16 @@ class ResetPasswordWidget extends XotBaseWidget
     /**
      * Configure the form for this widget.
      */
+<<<<<<< HEAD
+=======
+    #[Override]
+    public function form(Schema $schema): Schema
+    {
+        return $schema->components([
+            Section::make()->schema($this->getFormSchema())->columns(1),
+        ])->statePath('data');
+    }
+>>>>>>> e52a4c8 (.)
 
     /**
      * Handle password reset with proper security and error handling.
