@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages\Tenancy;
 
+<<<<<<< HEAD
 use Filament\Forms\Form;
+=======
+use Filament\Schemas\Schema;
+>>>>>>> 1724879 (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\Tenancy\RegisterTenant as BaseRegisterTenant;
 use Filament\Support\Enums\MaxWidth;
@@ -46,7 +50,11 @@ class RegisterTenant extends BaseRegisterTenant
             ->append('Resource')
             ->toString();
         $this->resource = $resource;
+<<<<<<< HEAD
         return $form->components($this->getFormSchema());
+=======
+        return $form->schema($this->getFormSchema());
+>>>>>>> 1724879 (.)
     }
 
     public function getFormSchema(): array

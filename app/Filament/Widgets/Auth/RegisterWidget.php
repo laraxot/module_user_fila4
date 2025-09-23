@@ -6,7 +6,11 @@ namespace Modules\User\Filament\Widgets\Auth;
 
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Grid;
+<<<<<<< HEAD
 use Filament\Forms\Form;
+=======
+use Filament\Schemas\Schema;
+>>>>>>> 1724879 (.)
 use Override;
 use Exception;
 use Modules\Xot\Actions\Cast\SafeStringCastAction;

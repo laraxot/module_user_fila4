@@ -17,7 +17,11 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Tenant\Services\TenantService;
 use Modules\User\Datas\PasswordData;
 use Modules\Xot\Filament\Traits\TransTrait;
+<<<<<<< HEAD
 use Filament\Forms\Form;
+=======
+use Filament\Schemas\Schema;
+>>>>>>> 1724879 (.)
 
 /**
  * Pagina per la gestione delle impostazioni delle password.
@@ -74,7 +78,11 @@ class Password extends Page implements HasForms
     public function form(\Filament\Schemas\Schema $form): \Filament\Schemas\Schema
     {
         return $form
+<<<<<<< HEAD
             ->components([
+=======
+            ->schema([
+>>>>>>> 1724879 (.)
                 TextInput::make('otp_expiration_minutes')
                     // Durata in minuti della validità della password temporanea
                     ->numeric()

@@ -7,7 +7,11 @@ namespace Modules\User\Filament\Pages\Tenancy;
 use Filament\Pages\Tenancy\EditTenantProfile as BaseEditTenantProfile;
 use Modules\Xot\Datas\XotData;
 use Webmozart\Assert\Assert;
+<<<<<<< HEAD
 use Filament\Forms\Form;
+=======
+use Filament\Schemas\Schema;
+>>>>>>> 1724879 (.)
 
 class EditTenantProfile extends BaseEditTenantProfile
 {

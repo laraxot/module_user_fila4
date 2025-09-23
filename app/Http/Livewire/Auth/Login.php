@@ -102,7 +102,11 @@ class Login extends Component implements HasForms, HasActions
      */
     public function form(): \Filament\Forms\Form
     {
+<<<<<<< HEAD
         return Schema::make()->components($this->getFormSchema());
+=======
+        return Schema::make()->schema($this->getFormSchema());
+>>>>>>> 1724879 (.)
     }
 
     /**

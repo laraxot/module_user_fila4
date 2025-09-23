@@ -9,7 +9,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages;
 
+<<<<<<< HEAD
 use Filament\Forms\Form;
+=======
+use Filament\Schemas\Schema;
+>>>>>>> 1724879 (.)
 
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
@@ -67,7 +71,11 @@ class MyProfilePage extends Page implements HasForms
     public function editProfileForm(Form $form): Schema
     {
         return $form
+<<<<<<< HEAD
             ->components([
+=======
+            ->schema([
+>>>>>>> 1724879 (.)
                 Section::make('Profile Information')
                     ->aside()
                     ->description('Update your account\'s profile information and email address.')
@@ -86,7 +94,11 @@ class MyProfilePage extends Page implements HasForms
     public function editPasswordForm(Form $form): Schema
     {
         return $form
+<<<<<<< HEAD
             ->components([
+=======
+            ->schema([
+>>>>>>> 1724879 (.)
                 Section::make('Update Password')
                     ->aside()
                     ->description('Ensure your account is using long, random password to stay secure.')
