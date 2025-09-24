@@ -20,7 +20,7 @@ class Role extends SpatieRole
 
     public static function firstOrCreate(array $attributes, array $values = []): self
     {
-        //@phpstan-ignore-next-line
+        // @phpstan-ignore-next-line
         return parent::firstOrCreate($attributes, $values);
     }
 }

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Database\Factories;
 
-use Modules\User\Models\Profile;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\User\Models\Profile;
 
 class ProfileFactory extends Factory
 {

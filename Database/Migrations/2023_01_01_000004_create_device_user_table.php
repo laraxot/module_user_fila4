@@ -7,7 +7,8 @@ use Modules\User\Models\Device;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 use Modules\Xot\Datas\XotData;
 
-return new class extends XotBaseMigration {
+return new class extends XotBaseMigration
+{
     /**
      * Run the migrations.
      */
@@ -24,11 +25,11 @@ return new class extends XotBaseMigration {
         });
         // -- UPDATE --
         $this->tableUpdate(function (Blueprint $table): void {
-            if (!$this->hasColumn('push_notifications_token')) {
+            if (! $this->hasColumn('push_notifications_token')) {
                 $table->string('push_notifications_token')->nullable();
             }
 
-            if (!$this->hasColumn('push_notifications_enabled')) {
+            if (! $this->hasColumn('push_notifications_enabled')) {
                 $table->boolean('push_notifications_enabled')->nullable();
             }
             // -- change
