@@ -42,74 +42,60 @@ class MembershipFactory extends Factory
 
     /**
      * Create membership for a specific team.
-     *
-     * @param Team $team
-     * @return static
      */
     public function forTeam(Team $team): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'team_id' => $team->id,
         ]);
     }
 
     /**
      * Create membership for a specific user.
-     *
-     * @param User $user
-     * @return static
      */
     public function forUser(User $user): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'user_id' => $user->id,
         ]);
     }
 
     /**
      * Set the role to admin.
-     *
-     * @return static
      */
     public function admin(): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'role' => 'admin',
         ]);
     }
 
     /**
      * Set the role to editor.
-     *
-     * @return static
      */
     public function editor(): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'role' => 'editor',
         ]);
     }
 
     /**
      * Set the role to member.
-     *
-     * @return static
      */
     public function member(): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'role' => 'member',
         ]);
     }
 
     /**
      * Set the role to viewer.
-     *
-     * @return static
      */
     public function viewer(): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'role' => 'viewer',
         ]);
     }

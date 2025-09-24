@@ -2,11 +2,7 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
 namespace Modules\User\Filament\Forms\Components;
-=======
-namespace Modules\Notify\Filament\Forms\Components;
->>>>>>> 1315781 (.)
 
 use Filament\Forms\Components\Select;
 use Modules\User\Models\Role;
@@ -21,7 +17,7 @@ class SingleRoleSelect extends Select
         parent::setUp();
         $options = Role::all()->pluck('name', 'id')->toArray();
 
-        $this->options(fn(): array => $options) // Ruoli dal DB
+        $this->options(fn (): array => $options) // Ruoli dal DB
             // ->searchable() // Permette la ricerca
             // ->preload() // Precarica i risultati
             ->placeholder('Select a role');

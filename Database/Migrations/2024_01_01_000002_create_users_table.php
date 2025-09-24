@@ -8,7 +8,8 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /*
  * Class CreateLiveuserUsersTable.
  */
-return new class extends XotBaseMigration {
+return new class extends XotBaseMigration
+{
     /**
      * Run the migrations.
      */
@@ -31,43 +32,43 @@ return new class extends XotBaseMigration {
         });
         // -- UPDATE --
         $this->tableUpdate(function (Blueprint $table): void {
-            if (!$this->hasColumn('first_name')) {
+            if (! $this->hasColumn('first_name')) {
                 $table->string('first_name')->after('name')->nullable();
             } else {
                 $table->string('first_name')->nullable()->change();
             }
 
-            if (!$this->hasColumn('last_name')) {
+            if (! $this->hasColumn('last_name')) {
                 $table->string('last_name')->after('name')->nullable();
             } else {
                 $table->string('last_name')->nullable()->change();
             }
 
-            if (!$this->hasColumn('current_team_id')) {
+            if (! $this->hasColumn('current_team_id')) {
                 $table->foreignId('current_team_id')->nullable();
             }
 
-            if (!$this->hasColumn('profile_photo_path')) {
+            if (! $this->hasColumn('profile_photo_path')) {
                 $table->string('profile_photo_path', 2048)->nullable();
             }
 
-            if (!$this->hasColumn('lang')) {
+            if (! $this->hasColumn('lang')) {
                 $table->string('lang', 3)->nullable();
             }
 
-            if (!$this->hasColumn('type')) {
+            if (! $this->hasColumn('type')) {
                 $table->string('type')->index()->nullable();
             }
 
-            if (!$this->hasColumn('is_active')) {
+            if (! $this->hasColumn('is_active')) {
                 $table->boolean('is_active')->default(true);
             }
 
-            if (!$this->hasColumn('is_otp')) {
+            if (! $this->hasColumn('is_otp')) {
                 $table->boolean('is_otp')->default(false);
             }
 
-            if (!$this->hasColumn('password_expires_at')) {
+            if (! $this->hasColumn('password_expires_at')) {
                 $table->timestamp('password_expires_at')->nullable();
             }
             if ($this->hasColumn('password')) {
