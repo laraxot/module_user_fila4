@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Database\Factories;
 
-use Override;
 use Modules\User\Models\DeviceProfile;
+use Override;
 
 /**
  * DeviceProfile Factory
  *
  * Factory for creating DeviceProfile model instances for testing and seeding.
  * Extends DeviceUserFactory since DeviceProfile extends DeviceUser.
- *
  */
 class DeviceProfileFactory extends DeviceUserFactory
 {

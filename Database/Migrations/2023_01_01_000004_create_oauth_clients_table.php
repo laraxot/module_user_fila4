@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-use Modules\Xot\Datas\XotData;
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
+use Modules\Xot\Datas\XotData;
 
-return new class extends XotBaseMigration {
+return new class extends XotBaseMigration
+{
     public function up(): void
     {
         $this->tableCreate(static function (Blueprint $table): void {
