@@ -44,7 +44,7 @@ class TeamFactory extends Factory
         ];
 
         return [
-            'name' => app(SafeStringCastAction::class)->execute($this->faker->randomElement($teamTypes)) . ' Team',
+            'name' => app(SafeStringCastAction::class)->execute($this->faker->randomElement($teamTypes)).' Team',
             'user_id' => User::factory(),
             'personal_team' => false,
         ];
@@ -52,40 +52,32 @@ class TeamFactory extends Factory
 
     /**
      * Indica che il team è un team personale.
-     *
-     * @return static
      */
     public function personal(): static
     {
-        return $this->state(fn(array $_attributes) => [
+        return $this->state(fn (array $_attributes) => [
             'personal_team' => true,
-            'name' => $this->faker->firstName() . "'s Team",
+            'name' => $this->faker->firstName()."'s Team",
         ]);
     }
 
     /**
      * Crea un team con un owner specifico.
-     *
-     * @param int $userId
-     * @return static
      */
     public function ownedBy(int $userId): static
     {
-        return $this->state(fn(array $_attributes) => [
+        return $this->state(fn (array $_attributes) => [
             'user_id' => $userId,
         ]);
     }
 
     /**
      * Crea un team con un nome specifico.
-     *
-     * @param string $name
-     * @return static
      */
     public function withName(string $name): static
     {
-        return $this->state(fn(array $_attributes) => [
-            'name' => $name . ' Team',
+        return $this->state(fn (array $_attributes) => [
+            'name' => $name.' Team',
         ]);
     }
 }
