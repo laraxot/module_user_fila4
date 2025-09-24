@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # 🔧 PHPStan Fixes - Modulo User - Gennaio 2025
 
 **Data**: 27 Gennaio 2025  
@@ -233,4 +231,3 @@ $subject = Lang::get('user::email.password_reset_subject');
 
 
 
->>>>>>> fcdc60c (.)

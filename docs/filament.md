@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Filament nel Modulo User
 
 ## Documentazione
@@ -69,4 +67,3 @@
 - RegisterWidget: Migrato al sistema Schema
 - ResetPasswordWidget: Migrato al sistema Schema
 - PasswordExpiredWidget: Migrato al sistema Schema 
->>>>>>> a850cfa (.)
