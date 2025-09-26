@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 return [
     'navigation' => [
         'name' => 'Tenant',
@@ -12,7 +10,7 @@ return [
         ],
         'label' => 'tenant',
         'sort' => 30,
-        'icon' => 'user-user-tenant',
+        'icon' => 'ui-user-user-tenant',
     ],
     'table' => [
         'heading' => 'Tenant',
@@ -81,6 +79,12 @@ return [
             'description' => 'Azione per applicare i filtri configurati',
             'helper_text' => '',
         ],
+        'recordId' => [
+            'description' => 'recordId',
+            'helper_text' => 'recordId',
+            'placeholder' => 'recordId',
+            'label' => 'recordId',
+        ],
     ],
     'actions' => [
         'import' => [
@@ -96,5 +100,77 @@ return [
             ],
         ],
         'change_password' => 'Cambio password',
+        'openColumnManager' => [
+            'icon' => 'openColumnManager',
+            'label' => 'openColumnManager',
+        ],
+        'reorderRecords' => [
+            'icon' => 'reorderRecords',
+            'label' => 'reorderRecords',
+        ],
+        'cancel' => [
+            'icon' => 'ui-cancel',
+            'label' => 'cancel',
+        ],
+        'attachAnother' => [
+            'icon' => 'attachAnother',
+            'label' => 'attachAnother',
+        ],
+        'submit' => [
+            'icon' => 'submit',
+            'label' => 'submit',
+        ],
+        'detach' => [
+            'icon' => 'detach',
+            'label' => 'detach',
+        ],
+        'edit' => [
+            'label' => 'edit',
+            'icon' => 'edit',
+        ],
+        'attach' => [
+            'label' => 'attach',
+            'icon' => 'attach',
+        ],
+        'create' => [
+            'label' => 'create',
+            'icon' => 'create',
+        ],
+        'applyFilters' => [
+            'label' => 'applyFilters',
+            'icon' => 'applyFilters',
+        ],
+        'openFilters' => [
+            'label' => 'openFilters',
+            'icon' => 'openFilters',
+        ],
+        'resetFilters' => [
+            'label' => 'resetFilters',
+            'icon' => 'resetFilters',
+        ],
+        'applyTableColumnManager' => [
+            'label' => 'applyTableColumnManager',
+            'icon' => 'applyTableColumnManager',
+        ],
+        'layout' => [
+            'icon' => 'layout',
+            'label' => 'layout',
+        ],
+        'delete' => [
+            'icon' => 'delete',
+            'label' => 'delete',
+        ],
+        'logout' => [
+            'icon' => 'logout',
+            'label' => 'logout',
+        ],
+        'profile' => [
+            'icon' => 'profile',
+            'label' => 'profile',
+        ],
+        'view' => [
+            'icon' => 'view',
+        ],
     ],
+    'label' => 'tenant',
 ];

@@ -12,7 +12,9 @@ class Login extends \Filament\Auth\Pages\Login
 
     protected static string $routePath = 'newlogin';
 
-    /* var view-string */
-    // protected static string $view = 'filament-panels::pages.auth.register';
-    // Any customizations will go here
+    /**
+     * View personalizzata per la pagina di login.
+     * Rimuove il logo duplicato e migliora il layout.
+     */
+    protected string $view = 'filament-panels::pages.auth.login';
 }

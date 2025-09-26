@@ -26,4 +26,17 @@ return array (
       'label' => 'empty',
     ),
   ),
+  'actions' => 
+  array (
+    'logout' => 
+    array (
+      'icon' => 'logout',
+      'label' => 'logout',
+    ),
+    'profile' => 
+    array (
+      'icon' => 'profile',
+      'label' => 'profile',
+    ),
+  ),
 );

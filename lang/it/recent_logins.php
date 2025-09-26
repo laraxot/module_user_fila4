@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 return [
     'fields' => [
         'authenticatable' => [
@@ -35,6 +33,15 @@ return [
         ],
         'user' => [
             'label' => 'user',
+        ],
+    ],
+    'actions' => [
+        'reorderRecords' => [
+            'icon' => 'reorderRecords',
+            'label' => 'reorderRecords',
+        ],
+        'openColumnManager' => [
+            'icon' => 'openColumnManager',
         ],
     ],
 ];

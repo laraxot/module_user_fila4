@@ -1,8 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
-
 return [
     'navigation' => [
         'name' => 'Team',
@@ -13,7 +10,7 @@ return [
         ],
         'label' => 'team',
         'sort' => 18,
-        'icon' => 'user-team',
+        'icon' => 'ui-user-team',
     ],
     'fields' => [
         'first_name' => 'Nome',
@@ -102,6 +99,9 @@ return [
         ],
         'create' => [
             'label' => 'create',
+        ],
+        'logout' => [
+            'icon' => 'logout',
         ],
     ],
     'plural' => [

@@ -8,26 +8,22 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Filament\Schemas\Components\Section;
-use Filament\Support\Components\Component;
-use Override;
-use Modules\User\Filament\Resources\TenantResource\RelationManagers\UsersRelationManager;
-use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
-use Filament\Tables\Table;
+use Filament\Schemas\Components\Section;
+use Filament\Support\Components\Component;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\TenantResource\Pages\CreateTenant;
 use Modules\User\Filament\Resources\TenantResource\Pages\EditTenant;
 use Modules\User\Filament\Resources\TenantResource\Pages\ListTenants;
 use Modules\User\Filament\Resources\TenantResource\Pages\ViewTenant;
 use Modules\User\Filament\Resources\TenantResource\RelationManagers;
+use Modules\User\Filament\Resources\TenantResource\RelationManagers\UsersRelationManager;
 use Modules\Xot\Datas\XotData;
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-use Modules\Xot\Services\XotService;
+use Override;
 
 class TenantResource extends XotBaseResource
 {
@@ -41,8 +37,10 @@ class TenantResource extends XotBaseResource
     #[Override]
     public static function getModel(): string
     {
-        $xot = app(XotService::class);
-        return $xot->getTenantClass();
+        $xot = XotData::make();
+        $model = $xot->getTenantClass();
+
+        return $model;
     }
 
     /**
@@ -70,7 +68,7 @@ class TenantResource extends XotBaseResource
                         ->helperText('Inserisci il nome del tenant'),
                     TextInput::make('slug')
                         ->required()
-                        ->disabled(fn($context) => $context !== 'create')
+                        ->disabled(fn ($context) => $context !== 'create')
                         ->unique(
                             table: 'tenants',
                             ignoreRecord: true,
@@ -78,13 +76,13 @@ class TenantResource extends XotBaseResource
                         ->helperText('Lo slug verrà generato automaticamente dal nome'),
                     TextInput::make('domain')
                         ->required()
-                        ->visible(fn($context) => $context === 'create')
+                        ->visible(fn ($context) => $context === 'create')
                         ->unique(
                             table: 'domains',
                             ignoreRecord: true,
                         )
                         ->prefix('https://')
-                        ->suffix('.' . request()->getHost())
+                        ->suffix('.'.request()->getHost())
                         ->placeholder('dominio')
                         ->helperText('Il dominio del tenant'),
                     TextInput::make('email_address')

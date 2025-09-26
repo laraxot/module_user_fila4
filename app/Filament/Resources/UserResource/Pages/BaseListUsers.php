@@ -8,7 +8,7 @@ use Filament\Tables\Columns\Column;
 use Filament\Tables\Filters\BaseFilter;
 use Override;
 use Filament\Tables;
-use Filament\Tables\Actions\Action;
+use Filament\Actions\Action;
 use Filament\Tables\Actions\ExportBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
@@ -42,7 +42,7 @@ abstract class BaseListUsers extends XotBaseListRecords
     /**
      * Get the header actions.
      *
-     * @return array<string, \Filament\Actions\Action>
+     * @return array<string, Action>
      */
     #[Override]
     protected function getHeaderActions(): array

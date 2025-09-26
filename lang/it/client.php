@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 return [
     'navigation' => [
         'name' => 'Client',
@@ -46,6 +44,20 @@ return [
     'plural' => [
         'model' => [
             'label' => 'client.plural.model',
+        ],
+    ],
+    'actions' => [
+        'reorderRecords' => [
+            'icon' => 'reorderRecords',
+            'label' => 'reorderRecords',
+        ],
+        'openColumnManager' => [
+            'icon' => 'openColumnManager',
+            'label' => 'openColumnManager',
+        ],
+        'applyTableColumnManager' => [
+            'icon' => 'applyTableColumnManager',
+            'label' => 'applyTableColumnManager',
         ],
     ],
 ];

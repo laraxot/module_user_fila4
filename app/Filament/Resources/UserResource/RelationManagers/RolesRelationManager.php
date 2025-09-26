@@ -4,17 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
-use Modules\Xot\Datas\XotData;
-use Filament\Actions\EditAction;
-use Filament\Actions\AttachAction;
-use Filament\Actions\DetachAction;
-use Filament\Forms\Components\Select;
-use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\Action;
+use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Model;
-use Filament\Forms\Components\TextInput;
 use Modules\User\Filament\Actions\Header\AttachRoleAction;
+use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+use Override;
 
 class RolesRelationManager extends XotBaseRelationManager
 {
@@ -26,7 +24,7 @@ class RolesRelationManager extends XotBaseRelationManager
     // protected function mutateFormDataBeforeCreate(array $data): array
     // {
     // }
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         return [
@@ -37,9 +35,9 @@ class RolesRelationManager extends XotBaseRelationManager
     }
 
     /**
-     * @return array<string, \Filament\Tables\Columns\Column>
+     * @return array<string, Column>
      */
-    #[\Override]
+    #[Override]
     public function getTableColumns(): array
     {
         return [
@@ -50,20 +48,18 @@ class RolesRelationManager extends XotBaseRelationManager
     }
 
     /**
-     * @return array<string, \Filament\Actions\Action>
+     * @return array<string, Action>
      */
-    #[\Override]
+    #[Override]
     public function getTableHeaderActions(): array
     {
         $xotData = XotData::make();
 
         return [
-            
+
             ...parent::getTableHeaderActions(),
-            'attach' => AttachRoleAction::make()
-            
+            'attach' => AttachRoleAction::make(),
+
         ];
     }
-
-    
 }
