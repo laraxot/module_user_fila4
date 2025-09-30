@@ -3,11 +3,7 @@
 declare(strict_types=1);
 
 use Tests\TestCase;
-<<<<<<< HEAD
 use Filament\Schemas\Schema;
-=======
-use Filament\Forms\Form;
->>>>>>> 44e65d8 (.)
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
