@@ -11,7 +11,11 @@ namespace Modules\User\Filament\Resources\PermissionResource\RelationManager;
 use Filament\Schemas\Components\Component;
 use Override;
 use Filament\Forms\Components\TextInput;
+<<<<<<< HEAD
 use Filament\Schemas\Schema;
+=======
+use Filament\Forms\Form;
+>>>>>>> 44e65d8 (.)
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
