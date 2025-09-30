@@ -9,7 +9,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages;
 
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
+
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Exception;
@@ -29,9 +30,9 @@ use Illuminate\Validation\Rules\Password;
 use Modules\User\Datas\PasswordData;
 
 /**
- * @property \Filament\Schemas\Schema $form
- * @property \Filament\Schemas\Schema $editProfileForm
- * @property \Filament\Schemas\Schema $editPasswordForm
+ * @property \Filament\Forms\Form $form
+ * @property \Filament\Forms\Form $editProfileForm
+ * @property \Filament\Forms\Form $editPasswordForm
  */
 class MyProfilePage extends Page implements HasForms
 {
@@ -63,9 +64,9 @@ class MyProfilePage extends Page implements HasForms
         $this->fillForms();
     }
 
-    public function editProfileForm(Schema $schema): Schema
+    public function editProfileForm(Form $form): Schema
     {
-        return $schema
+        return $form
             ->components([
                 Section::make('Profile Information')
                     ->aside()
@@ -82,9 +83,9 @@ class MyProfilePage extends Page implements HasForms
             ->statePath('profileData');
     }
 
-    public function editPasswordForm(Schema $schema): Schema
+    public function editPasswordForm(Form $form): Schema
     {
-        return $schema
+        return $form
             ->components([
                 Section::make('Update Password')
                     ->aside()
