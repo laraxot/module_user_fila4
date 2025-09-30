@@ -4,14 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
-use Filament\Schemas\Components\Component;
+use Filament\Forms\Components\Component;
 use Override;
 use Filament\Forms\Components\TextInput;
-<<<<<<< HEAD
-use Filament\Schemas\Schema;
-=======
 use Filament\Forms\Form;
->>>>>>> 2805232 (.)
+use Filament\Forms\Form;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\User\Filament\Resources\DeviceResource;

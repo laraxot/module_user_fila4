@@ -10,11 +10,8 @@ use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms;
-<<<<<<< HEAD
-use Filament\Schemas\Schema;
-=======
 use Filament\Forms\Form;
->>>>>>> 2805232 (.)
+use Filament\Forms\Form;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;

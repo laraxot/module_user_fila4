@@ -4,85 +4,29 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-<<<<<<< HEAD
-use DateTime;
-use Exception;
-=======
-
-use Modules\User\Models\Traits\HasAuthenticationLogTrait;
-use Throwable;
-use Override;
-use Illuminate\Database\Eloquent\Model;
-use Exception;
-use Modules\Xot\Contracts\ProfileContract;
-use DateTime;
-use Illuminate\Database\Eloquent\Relations\Pivot;
-use Illuminate\Database\Eloquent\Builder;
->>>>>>> 2805232 (.)
 use Filament\Models\Contracts\HasName;
 use Filament\Models\Contracts\HasTenants;
 use Filament\Panel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Builder;
-=======
->>>>>>> 2805232 (.)
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Model;
-=======
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
->>>>>>> 2805232 (.)
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Relations\Pivot;
-=======
->>>>>>> 2805232 (.)
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
-<<<<<<< HEAD
-use Illuminate\Support\Str;
-use Laravel\Passport\HasApiTokens;
-use Modules\TechPlanner\Models\Profile;
-use Modules\User\Database\Factories\UserFactory;
-use Modules\User\Models\Traits\HasAuthenticationLogTrait;
-use Modules\User\Models\Traits\HasTeams;
-use Modules\Xot\Actions\Factory\GetFactoryAction;
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\Xot\Contracts\UserContract;
-use Modules\Xot\Datas\XotData;
-use Modules\Xot\Models\Traits\RelationX;
-use Override;
-=======
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Str;
-use Laravel\Passport\HasApiTokens;
-use Modules\User\Database\Factories\UserFactory;
-use Modules\User\Models\Traits\HasTeams;
-use Modules\Xot\Actions\Factory\GetFactoryAction;
-use Modules\Xot\Contracts\UserContract;
-use Modules\Xot\Datas\XotData;
-use Modules\Xot\Models\Traits\RelationX;
->>>>>>> 2805232 (.)
 use Parental\HasChildren;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
-<<<<<<< HEAD
-use Throwable;
-=======
->>>>>>> 2805232 (.)
 
 /**
  * Base User Model
@@ -90,10 +34,6 @@ use Throwable;
  * This is the base user model that provides the core authentication and authorization
  * functionality for the application. It extends Laravel's Authenticatable class
  * and implements the required interfaces for Filament and multi-tenancy.
-<<<<<<< HEAD
- *
-=======
->>>>>>> 2805232 (.)
  * @property Collection<int, OauthClient> $clients
  * @property int|null $clients_count
  * @property Team|null $currentTeam
@@ -175,35 +115,14 @@ use Throwable;
  *
  * @mixin IdeHelperBaseUser
  */
-<<<<<<< HEAD
-abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, UserContract
-{
-    use HasApiTokens;
-    use HasAuthenticationLogTrait;
-=======
-abstract class BaseUser extends Authenticatable implements HasName, HasTenants, UserContract, HasMedia, MustVerifyEmail
-{
-    use HasApiTokens;
->>>>>>> 2805232 (.)
     use HasChildren;
     use HasFactory;
     use HasPermissions;
     use HasRoles;
-<<<<<<< HEAD
-    use HasTeams;
-=======
->>>>>>> 2805232 (.)
     use HasUuids;
     use InteractsWithMedia;
     use Notifiable;
     use RelationX;
-<<<<<<< HEAD
-    use Traits\HasTenants;
-=======
-    use HasAuthenticationLogTrait;
-    use Traits\HasTenants;
-    use HasTeams;
->>>>>>> 2805232 (.)
 
     public $incrementing = false;
 
@@ -256,27 +175,12 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
     /** @var array<string, class-string> */
     protected $childTypes = [];
 
-<<<<<<< HEAD
-    /** @var array<string, mixed> */
-    protected $attributes = [
-        // 'state' => Pending::class,
-        // 'state' => 'pending',
-=======
-    /** @var array<string, mixed>  */
-    protected $attributes = [
-        //'state' => Pending::class,
-        //'state' => 'pending',
->>>>>>> 2805232 (.)
         'is_otp' => false,
         'is_active' => true,
     ];
 
     /**
      * Guard coerente con Spatie/Permission: deve essere 'web'.
-<<<<<<< HEAD
-     *
-=======
->>>>>>> 2805232 (.)
      * @var string
      */
     protected $guard_name = 'web';
@@ -299,11 +203,6 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         }
     }
 
-<<<<<<< HEAD
-    public function canAccessFilament(?Panel $panel = null): bool
-=======
-    public function canAccessFilament(null|Panel $panel = null): bool
->>>>>>> 2805232 (.)
     {
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;
         return true;
@@ -311,11 +210,6 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
 
     /**
      * Get the user's name for Filament.
-<<<<<<< HEAD
-=======
-     *
-     * @return string
->>>>>>> 2805232 (.)
      */
     public function getFilamentName(): string
     {
@@ -324,55 +218,12 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         $lastName = (string) ($this->getAttribute('last_name') ?? '');
 
         $fullName = trim(sprintf('%s %s %s', $name, $firstName, $lastName));
-<<<<<<< HEAD
-
-        // Ensure we always return a non-empty string
-        if (empty($fullName)) {
-            $email = (string) ($this->getAttribute('email') ?? '');
-
-            return ! empty($email) ? $email : 'User';
-        }
-
-=======
-        
-        // Ensure we always return a non-empty string
-        if (empty($fullName)) {
-            $email = (string) ($this->getAttribute('email') ?? '');
-            return !empty($email) ? $email : 'User';
-        }
-        
->>>>>>> 2805232 (.)
         return $fullName;
     }
 
     #[Override]
     public function profile(): HasOne
     {
-<<<<<<< HEAD
-        try {
-            /** @var class-string<Model> */
-            $profileClass = XotData::make()->getProfileClass();
-            if (class_exists($profileClass)) {
-                return $this->hasOne($profileClass);
-            } else {
-                // Fallback: se non riesce a ottenere la classe Profile, usa una relazione generica
-                // Questo evita l'errore "Target [Illuminate\Database\Eloquent\Model] is not instantiable"
-                // Utilizziamo una classe che sicuramente esiste nel sistema
-                return $this->hasOne(Model::class);
-            }
-        } catch (Exception $e) {
-            // Fallback: se non riesce a ottenere la classe Profile, usa una relazione generica
-            // Questo evita l'errore "Target [Illuminate\Database\Eloquent\Model] is not instantiable"
-            // Utilizziamo una classe che sicuramente esiste nel sistema
-            return $this->hasOne(Model::class);
-        }
-=======
-        /** @var class-string<Model> $profileClass */
-        $profileClass = XotData::make()->getProfileClass();
-
-        /** @var HasOne<Model, $this> */
-        return $this->hasOne($profileClass);
->>>>>>> 2805232 (.)
     }
 
     /**
@@ -387,11 +238,6 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
 
     public function assignModule(string $module): void
     {
-<<<<<<< HEAD
-        $role_name = $module.'::admin';
-=======
-        $role_name = $module . '::admin';
->>>>>>> 2805232 (.)
         $role = Role::firstOrCreate(['name' => $role_name]);
         $this->assignRole($role);
     }
@@ -445,11 +291,6 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
 
     public function treeSons(): Collection
     {
-<<<<<<< HEAD
-        return $this->teams ?? new Collection;
-=======
-        return $this->teams ?? new Collection();
->>>>>>> 2805232 (.)
     }
 
     /**
@@ -480,10 +321,6 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         }
 
         $res = $socialiteUser->{$field};
-<<<<<<< HEAD
-
-=======
->>>>>>> 2805232 (.)
         return (string) $res;
     }
 
@@ -509,52 +346,20 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         return $this->morphOne(AuthenticationLog::class, 'authenticatable')->latestOfMany();
     }
 
-<<<<<<< HEAD
-    public function getFullNameAttribute(?string $value): string
-=======
-    public function getFullNameAttribute(null|string $value): string
->>>>>>> 2805232 (.)
     {
         if ($value !== null) {
             return $value;
         }
-<<<<<<< HEAD
-
-        $fullName = trim(($this->first_name ?? '').' '.($this->last_name ?? ''));
-
-        return $fullName !== '' ? $fullName : ($this->email ?? 'User');
-    }
-
-    public function getNameAttribute(?string $value): string
-=======
-        
-        $fullName = trim(($this->first_name ?? '') . ' ' . ($this->last_name ?? ''));
-        
-        return $fullName !== '' ? $fullName : ($this->email ?? 'User');
-    }
-
-    public function getNameAttribute(null|string $value): string
->>>>>>> 2805232 (.)
     {
         if ($value !== null) {
             return $value;
         }
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 2805232 (.)
         if ($this->getKey() === null) {
             return $this->email ?? 'User';
         }
 
         $name = Str::of((string) $this->email)->before('@')->toString();
         $i = 1;
-<<<<<<< HEAD
-        $candidate = $name.'-'.$i;
-=======
-        $candidate = $name . '-' . $i;
->>>>>>> 2805232 (.)
 
         // During unit tests, avoid any DB interaction.
         $isTesting = (function (): bool {
@@ -562,19 +367,11 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
             if (method_exists($app, 'environment') && $app->environment('testing')) {
                 return true;
             }
-<<<<<<< HEAD
-
-=======
->>>>>>> 2805232 (.)
             return PHP_SAPI === 'cli' && (getenv('APP_ENV') === 'testing' || getenv('ENV') === 'testing');
         })();
         if ($isTesting) {
             // Do not call update() here to avoid hitting the database.
             $this->attributes['name'] = $candidate;
-<<<<<<< HEAD
-
-=======
->>>>>>> 2805232 (.)
             return $candidate;
         }
 
@@ -582,11 +379,6 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
             $value = $candidate;
             while (static::query()->firstWhere(['name' => $value]) !== null) {
                 $i++;
-<<<<<<< HEAD
-                $value = $name.'-'.$i;
-=======
-                $value = $name . '-' . $i;
->>>>>>> 2805232 (.)
             }
             $this->update(['name' => $value]);
 
@@ -594,10 +386,6 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         } catch (Throwable $e) {
             // If any issue occurs (e.g., missing connection/table), fall back without DB.
             $this->attributes['name'] = $candidate;
-<<<<<<< HEAD
-
-=======
->>>>>>> 2805232 (.)
             return $candidate;
         }
     }
@@ -635,34 +423,10 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         ];
     }
 
-<<<<<<< HEAD
-    // public function authentications(): MorphMany
-    // {
-    //    return $this->morphMany(\Modules\User\Models\Authentication::class, 'authenticatable');
-    // }
-=======
-    //public function authentications(): MorphMany
-    //{
-    //    return $this->morphMany(\Modules\User\Models\Authentication::class, 'authenticatable');
-    //}
->>>>>>> 2805232 (.)
 
     /**
      * Check if the user has a specific role.
      *
-<<<<<<< HEAD
-     * @param  array|\Illuminate\Support\Collection|int|\Spatie\Permission\Contracts\Role|string  $roles
-     */
-    #[Override]
-    public function hasRole($roles, ?string $guard = null): bool
-=======
-     * @param array|\Illuminate\Support\Collection|int|\Spatie\Permission\Contracts\Role|string $roles
-     * @param string|null $guard
-     * @return bool
-     */
-    #[Override]
-    public function hasRole($roles, null|string $guard = null): bool
->>>>>>> 2805232 (.)
     {
         // Se è una stringa semplice, utilizziamo il metodo interno tramite relazione roles
         if (is_string($roles)) {
@@ -676,10 +440,6 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
                     return true;
                 }
             }
-<<<<<<< HEAD
-
-=======
->>>>>>> 2805232 (.)
             return false;
         }
 
@@ -694,26 +454,10 @@ abstract class BaseUser extends Authenticatable implements HasName, HasTenants, 
         return false;
     }
 
-<<<<<<< HEAD
-    public function setPasswordAttribute(?string $value): void
-    {
-        if (empty($value)) {
-            unset($this->attributes['password']);
-
-=======
-    public function setPasswordAttribute(null|string $value): void
-    {
-        if (empty($value)) {
-            unset($this->attributes['password']);
->>>>>>> 2805232 (.)
             return;
         }
         if (strlen($value) < 32) {
             $this->attributes['password'] = Hash::make($value);
-<<<<<<< HEAD
-
-=======
->>>>>>> 2805232 (.)
             return;
         }
         $this->attributes['password'] = $value;
