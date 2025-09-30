@@ -4,18 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\RelationManagers;
 
-use Filament\Forms\Components\Component;
+use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\Column;
 use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms;
-<<<<<<< HEAD
 use Filament\Schemas\Schema;
-=======
-use Filament\Forms\Form;
-use Filament\Forms\Form;
->>>>>>> 44a7ebe (.)
 use Filament\Tables\Columns\TextColumn;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Modules\Xot\Filament\Traits\HasXotTable;
