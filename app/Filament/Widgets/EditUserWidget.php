@@ -6,6 +6,7 @@ namespace Modules\User\Filament\Widgets;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Components\Component;
 =======
 use Filament\Schemas\Components\Component;
@@ -13,6 +14,9 @@ use Filament\Schemas\Components\Component;
 =======
 use Filament\Schemas\Components\Component;
 >>>>>>> 041533e (.)
+=======
+use Filament\Schemas\Components\Component;
+>>>>>>> 00a34d0 (.)
 use Override;
 use Exception;
 use BackedEnum;
@@ -25,11 +29,14 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 =======
 >>>>>>> a63f578 (.)
 =======
 >>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
 use Filament\Widgets\Widget;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;

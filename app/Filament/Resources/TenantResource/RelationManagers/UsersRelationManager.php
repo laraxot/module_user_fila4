@@ -6,6 +6,7 @@ namespace Modules\User\Filament\Resources\TenantResource\RelationManagers;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Components\Component;
 =======
 use Filament\Schemas\Components\Component;
@@ -13,6 +14,9 @@ use Filament\Schemas\Components\Component;
 =======
 use Filament\Schemas\Components\Component;
 >>>>>>> 041533e (.)
+=======
+use Filament\Schemas\Components\Component;
+>>>>>>> 00a34d0 (.)
 use Filament\Tables\Columns\Column;
 use Override;
 use Filament\Forms\Components\TextInput;
@@ -21,11 +25,14 @@ use Filament\Forms;
 use Filament\Forms\Form;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 =======
 >>>>>>> a63f578 (.)
 =======
 >>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
 use Filament\Tables\Columns\TextColumn;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Modules\Xot\Filament\Traits\HasXotTable;
