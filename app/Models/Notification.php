@@ -11,11 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\DatabaseNotification as BaseNotification;
 
 /**
-<<<<<<< HEAD
- * @property Model $notifiable
-=======
  * @property Model|\Eloquent $notifiable
->>>>>>> ceff73a (.)
  * @method static DatabaseNotificationCollection<int, static> all($columns = ['*'])
  * @method static DatabaseNotificationCollection<int, static> get($columns = ['*'])
  * @method static Builder|Notification newModelQuery()
@@ -28,10 +24,7 @@ use Illuminate\Notifications\DatabaseNotification as BaseNotification;
  * @method static DatabaseNotificationCollection<int, static> all($columns = ['*'])
  * @method static DatabaseNotificationCollection<int, static> get($columns = ['*'])
  * @mixin IdeHelperNotification
-<<<<<<< HEAD
-=======
  * @mixin \Eloquent
->>>>>>> ceff73a (.)
  */
 class Notification extends BaseNotification
 {
