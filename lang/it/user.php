@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'navigation' => [
         'name' => 'Utenti',
@@ -272,6 +274,15 @@ return [
         'layout' => [
             'label' => 'layout',
         ],
+        'endDate' => [
+            'description' => 'endDate',
+            'helper_text' => 'endDate1',
+            'placeholder' => 'endDate',
+            'label' => 'endDate',
+        ],
+        'startDate' => [
+            'description' => 'startDate',
+        ],
     ],
     'actions' => [
         'create' => [
@@ -383,6 +394,14 @@ return [
         'changePassword' => [
             'icon' => 'changePassword',
             'label' => 'changePassword',
+        ],
+        'layout' => [
+            'icon' => 'layout',
+            'label' => 'layout',
+        ],
+        'export_xls' => [
+            'icon' => 'export_xls',
+            'label' => 'export_xls',
         ],
     ],
     'messages' => [

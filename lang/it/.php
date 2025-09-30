@@ -5,7 +5,7 @@ return array (
   array (
     'startDate' => 
     array (
-      'label' => 'startDate',
+      'label' => 'startDate2',
       'description' => 'startDate',
       'helper_text' => 'startDate',
       'placeholder' => 'startDate',
@@ -14,7 +14,7 @@ return array (
     array (
       'label' => 'endDate',
       'description' => 'endDate',
-      'helper_text' => 'endDate',
+      'helper_text' => 'endDate1',
       'placeholder' => 'endDate',
     ),
   ),

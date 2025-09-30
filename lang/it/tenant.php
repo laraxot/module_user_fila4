@@ -134,7 +134,7 @@ return [
         ],
         'create' => [
             'label' => 'create',
-            'icon' => 'create',
+            'icon' => 'ui-create',
         ],
         'applyFilters' => [
             'label' => 'applyFilters',
