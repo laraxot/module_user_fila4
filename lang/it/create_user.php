@@ -23,6 +23,10 @@ return [
         ],
         'cancel' => [
             'label' => 'cancel',
+            'icon' => 'cancel',
+        ],
+        'logout' => [
+            'icon' => 'logout',
         ],
     ],
 ];

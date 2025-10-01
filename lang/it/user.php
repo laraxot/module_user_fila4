@@ -282,6 +282,8 @@ return [
         ],
         'startDate' => [
             'description' => 'startDate',
+            'helper_text' => 'startDate',
+            'placeholder' => 'startDate',
         ],
     ],
     'actions' => [
@@ -358,26 +360,32 @@ return [
         'logout' => [
             'label' => 'logout',
             'icon' => 'logout',
+            'tooltip' => 'logout',
         ],
         'profile' => [
             'label' => 'profile',
             'icon' => 'profile',
+            'tooltip' => 'profile',
         ],
         'reorderRecords' => [
             'label' => 'reorderRecords',
             'icon' => 'reorderRecords',
+            'tooltip' => 'reorderRecords',
         ],
         'openColumnManager' => [
             'label' => 'openColumnManager',
             'icon' => 'openColumnManager',
+            'tooltip' => 'openColumnManager',
         ],
         'applyTableColumnManager' => [
             'label' => 'applyTableColumnManager',
             'icon' => 'applyTableColumnManager',
+            'tooltip' => 'applyTableColumnManager',
         ],
         'resetFilters' => [
             'label' => 'resetFilters',
             'icon' => 'resetFilters',
+            'tooltip' => 'resetFilters',
         ],
         'applyFilters' => [
             'label' => 'applyFilters',
@@ -402,6 +410,16 @@ return [
         'export_xls' => [
             'icon' => 'export_xls',
             'label' => 'export_xls',
+        ],
+        'cancel' => [
+            'icon' => 'cancel',
+            'label' => 'cancel',
+            'tooltip' => 'cancel',
+        ],
+        'save' => [
+            'icon' => 'save',
+            'label' => 'save',
+            'tooltip' => 'save',
         ],
     ],
     'messages' => [

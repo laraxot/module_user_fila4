@@ -41,6 +41,7 @@ return [
         'reorderRecords' => [
             'icon' => 'reorderRecords',
             'label' => 'reorderRecords',
+            'tooltip' => 'reorderRecords',
         ],
         'openColumnManager' => [
             'icon' => 'openColumnManager',
