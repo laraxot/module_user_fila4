@@ -62,7 +62,23 @@ class DeviceTest extends TestCase
         ]);
 
         // Verifica campi JSON
+<<<<<<< HEAD
         static::assertSame(['en', 'it', 'de'], $device->languages);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertSame(['en', 'it', 'de'], $device->languages);
+=======
+        $this->assertEquals(['en', 'it', 'de'], $device->languages);
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertSame(['en', 'it', 'de'], $device->languages);
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertEquals(['en', 'it', 'de'], $device->languages);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_device_has_soft_deletes(): void
@@ -94,7 +110,23 @@ class DeviceTest extends TestCase
         $restoredDevice->restore();
 
         $this->assertDatabaseHas('devices', ['id' => $deviceId]);
+<<<<<<< HEAD
         static::assertNull($restoredDevice->deleted_at);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertNull($restoredDevice->deleted_at);
+=======
+        $this->assertNull($restoredDevice->deleted_at);
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertNull($restoredDevice->deleted_at);
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertNull($restoredDevice->deleted_at);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_device_by_uuid(): void
@@ -104,8 +136,28 @@ class DeviceTest extends TestCase
 
         $foundDevice = Device::where('uuid', $uuid)->first();
 
+<<<<<<< HEAD
         static::assertNotNull($foundDevice);
         static::assertSame($device->id, $foundDevice->id);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertNotNull($foundDevice);
+        static::assertSame($device->id, $foundDevice->id);
+=======
+        $this->assertNotNull($foundDevice);
+        $this->assertEquals($device->id, $foundDevice->id);
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertNotNull($foundDevice);
+        static::assertSame($device->id, $foundDevice->id);
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertNotNull($foundDevice);
+        $this->assertEquals($device->id, $foundDevice->id);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_device_by_mobile_id(): void
@@ -114,8 +166,28 @@ class DeviceTest extends TestCase
 
         $foundDevice = Device::where('mobile_id', 'unique_mobile_123')->first();
 
+<<<<<<< HEAD
         static::assertNotNull($foundDevice);
         static::assertSame($device->id, $foundDevice->id);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertNotNull($foundDevice);
+        static::assertSame($device->id, $foundDevice->id);
+=======
+        $this->assertNotNull($foundDevice);
+        $this->assertEquals($device->id, $foundDevice->id);
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertNotNull($foundDevice);
+        static::assertSame($device->id, $foundDevice->id);
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertNotNull($foundDevice);
+        $this->assertEquals($device->id, $foundDevice->id);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_device_by_device_type(): void
@@ -124,8 +196,28 @@ class DeviceTest extends TestCase
 
         $foundDevice = Device::where('device', 'iPhone 13 Pro')->first();
 
+<<<<<<< HEAD
         static::assertNotNull($foundDevice);
         static::assertSame($device->id, $foundDevice->id);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertNotNull($foundDevice);
+        static::assertSame($device->id, $foundDevice->id);
+=======
+        $this->assertNotNull($foundDevice);
+        $this->assertEquals($device->id, $foundDevice->id);
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertNotNull($foundDevice);
+        static::assertSame($device->id, $foundDevice->id);
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertNotNull($foundDevice);
+        $this->assertEquals($device->id, $foundDevice->id);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_device_by_platform(): void
@@ -136,8 +228,28 @@ class DeviceTest extends TestCase
 
         $iosDevices = Device::where('platform', 'iOS')->get();
 
+<<<<<<< HEAD
         static::assertCount(1, $iosDevices);
         static::assertSame('iOS', $iosDevices->first()->platform);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertCount(1, $iosDevices);
+        static::assertSame('iOS', $iosDevices->first()->platform);
+=======
+        $this->assertCount(1, $iosDevices);
+        $this->assertEquals('iOS', $iosDevices->first()->platform);
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertCount(1, $iosDevices);
+        static::assertSame('iOS', $iosDevices->first()->platform);
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertCount(1, $iosDevices);
+        $this->assertEquals('iOS', $iosDevices->first()->platform);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_device_by_browser(): void
@@ -148,8 +260,28 @@ class DeviceTest extends TestCase
 
         $safariDevices = Device::where('browser', 'Safari')->get();
 
+<<<<<<< HEAD
         static::assertCount(1, $safariDevices);
         static::assertSame('Safari', $safariDevices->first()->browser);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertCount(1, $safariDevices);
+        static::assertSame('Safari', $safariDevices->first()->browser);
+=======
+        $this->assertCount(1, $safariDevices);
+        $this->assertEquals('Safari', $safariDevices->first()->browser);
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertCount(1, $safariDevices);
+        static::assertSame('Safari', $safariDevices->first()->browser);
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertCount(1, $safariDevices);
+        $this->assertEquals('Safari', $safariDevices->first()->browser);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_device_by_version(): void
@@ -158,8 +290,28 @@ class DeviceTest extends TestCase
 
         $foundDevice = Device::where('version', '15.0.1')->first();
 
+<<<<<<< HEAD
         static::assertNotNull($foundDevice);
         static::assertSame($device->id, $foundDevice->id);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertNotNull($foundDevice);
+        static::assertSame($device->id, $foundDevice->id);
+=======
+        $this->assertNotNull($foundDevice);
+        $this->assertEquals($device->id, $foundDevice->id);
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertNotNull($foundDevice);
+        static::assertSame($device->id, $foundDevice->id);
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertNotNull($foundDevice);
+        $this->assertEquals($device->id, $foundDevice->id);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_desktop_devices(): void
@@ -170,8 +322,28 @@ class DeviceTest extends TestCase
 
         $desktopDevices = Device::where('is_desktop', true)->get();
 
+<<<<<<< HEAD
         static::assertCount(2, $desktopDevices);
         static::assertTrue($desktopDevices->every(fn($device) => $device->is_desktop));
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertCount(2, $desktopDevices);
+        static::assertTrue($desktopDevices->every(fn($device) => $device->is_desktop));
+=======
+        $this->assertCount(2, $desktopDevices);
+        $this->assertTrue($desktopDevices->every(fn ($device) => $device->is_desktop));
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertCount(2, $desktopDevices);
+        static::assertTrue($desktopDevices->every(fn($device) => $device->is_desktop));
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertCount(2, $desktopDevices);
+        $this->assertTrue($desktopDevices->every(fn ($device) => $device->is_desktop));
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_mobile_devices(): void
@@ -182,8 +354,28 @@ class DeviceTest extends TestCase
 
         $mobileDevices = Device::where('is_mobile', true)->get();
 
+<<<<<<< HEAD
         static::assertCount(2, $mobileDevices);
         static::assertTrue($mobileDevices->every(fn($device) => $device->is_mobile));
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertCount(2, $mobileDevices);
+        static::assertTrue($mobileDevices->every(fn($device) => $device->is_mobile));
+=======
+        $this->assertCount(2, $mobileDevices);
+        $this->assertTrue($mobileDevices->every(fn ($device) => $device->is_mobile));
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertCount(2, $mobileDevices);
+        static::assertTrue($mobileDevices->every(fn($device) => $device->is_mobile));
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertCount(2, $mobileDevices);
+        $this->assertTrue($mobileDevices->every(fn ($device) => $device->is_mobile));
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_tablet_devices(): void
@@ -194,8 +386,28 @@ class DeviceTest extends TestCase
 
         $tabletDevices = Device::where('is_tablet', true)->get();
 
+<<<<<<< HEAD
         static::assertCount(2, $tabletDevices);
         static::assertTrue($tabletDevices->every(fn($device) => $device->is_tablet));
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertCount(2, $tabletDevices);
+        static::assertTrue($tabletDevices->every(fn($device) => $device->is_tablet));
+=======
+        $this->assertCount(2, $tabletDevices);
+        $this->assertTrue($tabletDevices->every(fn ($device) => $device->is_tablet));
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertCount(2, $tabletDevices);
+        static::assertTrue($tabletDevices->every(fn($device) => $device->is_tablet));
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertCount(2, $tabletDevices);
+        $this->assertTrue($tabletDevices->every(fn ($device) => $device->is_tablet));
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_phone_devices(): void
@@ -206,8 +418,28 @@ class DeviceTest extends TestCase
 
         $phoneDevices = Device::where('is_phone', true)->get();
 
+<<<<<<< HEAD
         static::assertCount(2, $phoneDevices);
         static::assertTrue($phoneDevices->every(fn($device) => $device->is_phone));
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertCount(2, $phoneDevices);
+        static::assertTrue($phoneDevices->every(fn($device) => $device->is_phone));
+=======
+        $this->assertCount(2, $phoneDevices);
+        $this->assertTrue($phoneDevices->every(fn ($device) => $device->is_phone));
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertCount(2, $phoneDevices);
+        static::assertTrue($phoneDevices->every(fn($device) => $device->is_phone));
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertCount(2, $phoneDevices);
+        $this->assertTrue($phoneDevices->every(fn ($device) => $device->is_phone));
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_robot_devices(): void
@@ -218,8 +450,28 @@ class DeviceTest extends TestCase
 
         $robotDevices = Device::where('is_robot', true)->get();
 
+<<<<<<< HEAD
         static::assertCount(2, $robotDevices);
         static::assertTrue($robotDevices->every(fn($device) => $device->is_robot));
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertCount(2, $robotDevices);
+        static::assertTrue($robotDevices->every(fn($device) => $device->is_robot));
+=======
+        $this->assertCount(2, $robotDevices);
+        $this->assertTrue($robotDevices->every(fn ($device) => $device->is_robot));
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertCount(2, $robotDevices);
+        static::assertTrue($robotDevices->every(fn($device) => $device->is_robot));
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertCount(2, $robotDevices);
+        $this->assertTrue($robotDevices->every(fn ($device) => $device->is_robot));
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_devices_by_language(): void
@@ -230,8 +482,28 @@ class DeviceTest extends TestCase
 
         $englishDevices = Device::whereJsonContains('languages', 'en')->get();
 
+<<<<<<< HEAD
         static::assertCount(2, $englishDevices);
         static::assertTrue($englishDevices->every(fn($device) => in_array('en', $device->languages, strict: true)));
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertCount(2, $englishDevices);
+        static::assertTrue($englishDevices->every(fn($device) => in_array('en', $device->languages, strict: true)));
+=======
+        $this->assertCount(2, $englishDevices);
+        $this->assertTrue($englishDevices->every(fn ($device) => in_array('en', $device->languages)));
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertCount(2, $englishDevices);
+        static::assertTrue($englishDevices->every(fn($device) => in_array('en', $device->languages, strict: true)));
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertCount(2, $englishDevices);
+        $this->assertTrue($englishDevices->every(fn ($device) => in_array('en', $device->languages)));
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_devices_by_device_pattern(): void
@@ -242,8 +514,28 @@ class DeviceTest extends TestCase
 
         $iphoneDevices = Device::where('device', 'like', '%iPhone%')->get();
 
+<<<<<<< HEAD
         static::assertCount(2, $iphoneDevices);
         static::assertTrue($iphoneDevices->every(fn($device) => str_contains($device->device, 'iPhone')));
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertCount(2, $iphoneDevices);
+        static::assertTrue($iphoneDevices->every(fn($device) => str_contains($device->device, 'iPhone')));
+=======
+        $this->assertCount(2, $iphoneDevices);
+        $this->assertTrue($iphoneDevices->every(fn ($device) => str_contains($device->device, 'iPhone')));
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertCount(2, $iphoneDevices);
+        static::assertTrue($iphoneDevices->every(fn($device) => str_contains($device->device, 'iPhone')));
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertCount(2, $iphoneDevices);
+        $this->assertTrue($iphoneDevices->every(fn ($device) => str_contains($device->device, 'iPhone')));
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_can_update_device(): void
@@ -299,27 +591,95 @@ class DeviceTest extends TestCase
             'browser' => 'Edge',
         ]);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
         $devices = Device::where('is_mobile', true)->where('browser', 'Safari')->get();
 
         static::assertCount(1, $devices);
         static::assertSame('iOS', $devices->first()->platform);
         static::assertTrue($devices->first()->is_mobile);
         static::assertSame('Safari', $devices->first()->browser);
+<<<<<<< HEAD
+=======
+=======
+=======
+>>>>>>> origin/develop
+        $devices = Device::where('is_mobile', true)
+            ->where('browser', 'Safari')
+            ->get();
+
+        $this->assertCount(1, $devices);
+        $this->assertEquals('iOS', $devices->first()->platform);
+        $this->assertTrue($devices->first()->is_mobile);
+        $this->assertEquals('Safari', $devices->first()->browser);
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+        $devices = Device::where('is_mobile', true)->where('browser', 'Safari')->get();
+
+        static::assertCount(1, $devices);
+        static::assertSame('iOS', $devices->first()->platform);
+        static::assertTrue($devices->first()->is_mobile);
+        static::assertSame('Safari', $devices->first()->browser);
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_device_has_users_relationship(): void
     {
         $device = Device::factory()->create();
 
+<<<<<<< HEAD
         static::assertTrue(method_exists($device, 'users'));
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertTrue(method_exists($device, 'users'));
+=======
+        $this->assertTrue(method_exists($device, 'users'));
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertTrue(method_exists($device, 'users'));
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertTrue(method_exists($device, 'users'));
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_device_has_factory(): void
     {
         $device = Device::factory()->create();
 
+<<<<<<< HEAD
         static::assertNotNull($device->id);
         static::assertInstanceOf(Device::class, $device);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertNotNull($device->id);
+        static::assertInstanceOf(Device::class, $device);
+=======
+        $this->assertNotNull($device->id);
+        $this->assertInstanceOf(Device::class, $device);
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertNotNull($device->id);
+        static::assertInstanceOf(Device::class, $device);
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertNotNull($device->id);
+        $this->assertInstanceOf(Device::class, $device);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_device_has_fillable_attributes(): void
@@ -343,7 +703,23 @@ class DeviceTest extends TestCase
             'is_phone',
         ];
 
+<<<<<<< HEAD
         static::assertSame($expectedFillable, $device->getFillable());
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertSame($expectedFillable, $device->getFillable());
+=======
+        $this->assertEquals($expectedFillable, $device->getFillable());
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertSame($expectedFillable, $device->getFillable());
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->assertEquals($expectedFillable, $device->getFillable());
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     public function test_device_has_casts(): void
@@ -367,6 +743,37 @@ class DeviceTest extends TestCase
             'is_phone' => 'boolean',
         ];
 
+<<<<<<< HEAD
         static::assertSame($expectedCasts, $device->getCasts());
     }
 }
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        static::assertSame($expectedCasts, $device->getCasts());
+    }
+}
+=======
+=======
+>>>>>>> origin/develop
+        $this->assertEquals($expectedCasts, $device->getCasts());
+    }
+}
+
+
+
+
+
+
+
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+        static::assertSame($expectedCasts, $device->getCasts());
+    }
+}
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)

@@ -10,7 +10,23 @@ use Modules\User\Models\User;
 
 /**
  * SocialiteUser Factory
+<<<<<<< HEAD
  *
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+ *
+=======
+ * 
+>>>>>>> a12f125f4a (.)
+=======
+ *
+>>>>>>> b93ef594b4 (.)
+=======
+ * 
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
  * @extends Factory<SocialiteUser>
  */
 class SocialiteUserFactory extends Factory
@@ -20,7 +36,23 @@ class SocialiteUserFactory extends Factory
     public function definition(): array
     {
         $provider = $this->faker->randomElement(['google', 'facebook', 'github', 'twitter']);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+        
+>>>>>>> a12f125f4a (.)
+=======
+
+>>>>>>> b93ef594b4 (.)
+=======
+        
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         return [
             'user_id' => User::factory(),
             'provider' => $provider,

@@ -4,7 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Notifications\Auth;
 
+<<<<<<< HEAD
 use Illuminate\Notifications\AnonymousNotifiable;
+=======
+<<<<<<< HEAD
+use Illuminate\Notifications\AnonymousNotifiable;
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -21,18 +28,65 @@ class Otp extends Notification implements ShouldQueue
      *
      * @return void
      */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
     public function __construct(
         public UserContract $user,
         public string $code,
     ) {}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    public function __construct(public UserContract $user, public string $code) {}
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+    public function __construct(public UserContract $user, public string $code) {}
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
     /**
      * Get the notification's delivery channels.
      *
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
      * @param  mixed  $_notifiable L'entità da notificare
      * @return array<int, string>
      */
     public function via(mixed $_notifiable): array
+<<<<<<< HEAD
+=======
+=======
+     * @param AnonymousNotifiable $notifiable
+     * @return array
+     */
+    public function via($notifiable)
+>>>>>>> a12f125f4a (.)
+=======
+     * @param  mixed  $_notifiable L'entità da notificare
+     * @return array<int, string>
+     */
+    public function via(mixed $_notifiable): array
+>>>>>>> b93ef594b4 (.)
+=======
+     * @param  \Illuminate\Notifications\AnonymousNotifiable  $notifiable
+     * @return array
+     */
+    public function via($notifiable)
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     {
         return ['mail']; // Puoi aggiungere anche 'database', 'slack', ecc. se vuoi supportare altri canali.
     }
@@ -40,7 +94,15 @@ class Otp extends Notification implements ShouldQueue
     /**
      * Get the mail representation of the notification.
      *
+<<<<<<< HEAD
      * @param AnonymousNotifiable $notifiable
+=======
+<<<<<<< HEAD
+     * @param AnonymousNotifiable $notifiable
+=======
+     * @param  \Illuminate\Notifications\AnonymousNotifiable  $notifiable
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
      * @return MailMessage
      */
     public function toMail($notifiable)
@@ -49,7 +111,25 @@ class Otp extends Notification implements ShouldQueue
         /** @var string */
         $app_name = config('app.name');
 
+<<<<<<< HEAD
         return new MailMessage()
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return new MailMessage()
+=======
+        return (new MailMessage)
+
+>>>>>>> a12f125f4a (.)
+=======
+        return new MailMessage()
+>>>>>>> b93ef594b4 (.)
+=======
+        return (new MailMessage)
+
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             ->template('user::notifications.email')
             ->subject(__('user::otp.mail.subject'))
             ->greeting(__('user::otp.mail.greeting'))
@@ -67,6 +147,24 @@ class Otp extends Notification implements ShouldQueue
      */
     public function toArray(UserContract $notifiable)
     {
+<<<<<<< HEAD
         return [];
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return [];
+=======
+        return [
+        ];
+>>>>>>> a12f125f4a (.)
+=======
+        return [];
+>>>>>>> b93ef594b4 (.)
+=======
+        return [
+        ];
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 }

@@ -4,18 +4,46 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
 use Override;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Xot\Contracts\ProfileContract;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Override;
+=======
+>>>>>>> a12f125f4a (.)
+=======
+use Override;
+>>>>>>> b93ef594b4 (.)
+use Illuminate\Database\Eloquent\Builder;
+use Modules\Xot\Contracts\ProfileContract;
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
 
 /**
  * Modules\User\Models\TenantUser.
  *
+<<<<<<< HEAD
  * @method static Builder|TeamUser newModelQuery()
  * @method static Builder|TeamUser newQuery()
  * @method static Builder|TeamUser query()
+=======
+<<<<<<< HEAD
+ * @method static Builder|TeamUser newModelQuery()
+ * @method static Builder|TeamUser newQuery()
+ * @method static Builder|TeamUser query()
+=======
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamUser newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamUser newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamUser query()
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
  * @property int $id
  * @property string|null $tenant_id
  * @property string|null $user_id
@@ -23,6 +51,10 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $updated_at
  * @property string|null $created_by
  * @property string|null $updated_by
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
  * @method static Builder|TeamUser whereCreatedAt($value)
  * @method static Builder|TeamUser whereCreatedBy($value)
  * @method static Builder|TeamUser whereCustomerId($value)
@@ -40,13 +72,51 @@ use Illuminate\Support\Carbon;
  * @method static Builder|TenantUser whereTenantId($value)
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+<<<<<<< HEAD
+=======
+=======
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamUser whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamUser whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamUser whereCustomerId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamUser whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamUser whereRole($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamUser whereTeamId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamUser whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamUser whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamUser whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TeamUser whereUuid($value)
+ * @property string|null $deleted_at
+ * @property string|null $deleted_by
+ * @method static \Illuminate\Database\Eloquent\Builder|TenantUser whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TenantUser whereDeletedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TenantUser whereTenantId($value)
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
  * @mixin IdeHelperTenantUser
  * @mixin \Eloquent
  */
 class TenantUser extends BasePivot
 {
     use HasFactory;
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> a12f125f4a (.)
+=======
+
+>>>>>>> b93ef594b4 (.)
+=======
+    
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     protected $connection = 'user';
 
     // public $incrementing = false;
@@ -62,18 +132,67 @@ class TenantUser extends BasePivot
     ];
 
     /** @return array<string, string> */
+<<<<<<< HEAD
     #[Override]
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    #[Override]
+=======
+>>>>>>> a12f125f4a (.)
+=======
+    #[Override]
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     protected function casts(): array
     {
         return [
             'id' => 'string',
             'uuid' => 'string',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
+<<<<<<< HEAD
+=======
+=======
+
+=======
+>>>>>>> b93ef594b4 (.)
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+<<<<<<< HEAD
+
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             // 'email_verified_at' => 'datetime',
             // 'password' => 'hashed', //Call to undefined cast [hashed] on column [password] in model [Modules\User\Models\User].
             // 'is_active' => 'boolean',

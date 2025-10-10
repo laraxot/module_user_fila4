@@ -5,13 +5,39 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 // use Illuminate\Database\Eloquent\Relations\HasOne;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
 use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\DatabaseNotification;
 use Override;
 use Illuminate\Database\Eloquent\Collection;
 use Modules\Media\Models\Media;
+<<<<<<< HEAD
 use Modules\Xot\Contracts\UserContract;
+=======
+=======
+use Illuminate\Database\Eloquent\Collection;
+=======
+>>>>>>> b93ef594b4 (.)
+use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
+use Illuminate\Notifications\DatabaseNotificationCollection;
+use Illuminate\Notifications\DatabaseNotification;
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+use Override;
+use Illuminate\Database\Eloquent\Collection;
+use Modules\Media\Models\Media;
+>>>>>>> b93ef594b4 (.)
+use Modules\Xot\Contracts\UserContract;
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Notifications\Notifiable;
 use Modules\User\Models\Traits\IsProfileTrait;
@@ -25,14 +51,30 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait;
 /**
  * @property \Spatie\SchemalessAttributes\SchemalessAttributes $extra
  * @property string $avatar
+<<<<<<< HEAD
  * @property Collection<int, DeviceUser> $deviceUsers
  * @property int|null $device_users_count
  * @property Collection<int, Device> $devices
+=======
+<<<<<<< HEAD
+ * @property Collection<int, DeviceUser> $deviceUsers
+ * @property int|null $device_users_count
+ * @property Collection<int, Device> $devices
+=======
+ * @property \Illuminate\Database\Eloquent\Collection<int, DeviceUser> $deviceUsers
+ * @property int|null $device_users_count
+ * @property \Illuminate\Database\Eloquent\Collection<int, Device> $devices
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
  * @property int|null $devices_count
  * @property string|null $first_name
  * @property string|null $full_name
  * @property string|null $last_name
  * @property string|null $lang
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
  * @property MediaCollection<int, Media> $media
  * @property int|null $media_count
  * @property Collection<int, DeviceUser> $mobileDeviceUsers
@@ -56,6 +98,34 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait;
  * @method static Builder|BaseProfile withExtraAttributes()
  * @method static Builder|ProfileContract withoutPermission($permissions)
  * @method static Builder|ProfileContract withoutRole($roles, $guard = null)
+<<<<<<< HEAD
+=======
+=======
+ * @property \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Modules\Media\Models\Media> $media
+ * @property int|null $media_count
+ * @property \Illuminate\Database\Eloquent\Collection<int, DeviceUser> $mobileDeviceUsers
+ * @property int|null $mobile_device_users_count
+ * @property \Illuminate\Database\Eloquent\Collection<int, Device> $mobileDevices
+ * @property int|null $mobile_devices_count
+ * @property \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
+ * @property int|null $notifications_count
+ * @property \Illuminate\Database\Eloquent\Collection<int, Permission> $permissions
+ * @property int|null $permissions_count
+ * @property \Illuminate\Database\Eloquent\Collection<int, Role> $roles
+ * @property int|null $roles_count
+ * @property \Modules\Xot\Contracts\UserContract|null $user
+ * @property string|null $user_name
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfileContract newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfileContract newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfileContract permission($permissions, $without = false)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfileContract query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfileContract role($roles, $guard = null, $without = false)
+ * @method static \Illuminate\Database\Eloquent\Builder|BaseProfile withExtraAttributes()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfileContract withoutPermission($permissions)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfileContract withoutRole($roles, $guard = null)
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
  *
  * @mixin \Eloquent
  */
@@ -111,7 +181,23 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
 
     /**
      * Ottiene l'URL dell'avatar dell'utente.
+<<<<<<< HEAD
      *
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+     *
+=======
+     * 
+>>>>>>> a12f125f4a (.)
+=======
+     *
+>>>>>>> b93ef594b4 (.)
+=======
+     * 
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
      * @return string L'URL dell'avatar
      */
     public function getAvatarUrl(): string
@@ -132,17 +218,61 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
         return $avatar;
 
         // https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         // in caso eseguire php artisan module:publish
         // dddx($this);
         // dddx(asset('blog/img/no_user.webp'));
         //    return asset('modules/blog/img/no_user.webp');
         // }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         // return $this->getFirstMediaUrl();
     }
 
     /**
      * Ottiene la lingua dell'utente.
+<<<<<<< HEAD
      *
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+     *
+=======
+     * 
+>>>>>>> a12f125f4a (.)
+=======
+     *
+>>>>>>> b93ef594b4 (.)
+=======
+     * 
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
      * @return string Il codice della lingua
      */
     public function getUserLang(): string
@@ -164,18 +294,67 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
     }
 
     /** @return array<string, string> */
+<<<<<<< HEAD
     #[Override]
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    #[Override]
+=======
+>>>>>>> a12f125f4a (.)
+=======
+    #[Override]
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     protected function casts(): array
     {
         return [
             'id' => 'string',
             'uuid' => 'string',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
+<<<<<<< HEAD
+=======
+=======
+
+=======
+>>>>>>> b93ef594b4 (.)
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+<<<<<<< HEAD
+
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             'is_active' => 'boolean',
             'extra' => SchemalessAttributes::class,
         ];

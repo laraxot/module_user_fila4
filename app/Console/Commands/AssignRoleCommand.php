@@ -34,7 +34,28 @@ class AssignRoleCommand extends Command
      *
      * @return void
      */
+<<<<<<< HEAD
     
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    
+=======
+=======
+>>>>>>> origin/develop
+    public function __construct()
+    {
+        parent::__construct();
+    }
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+    
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
     /**
      * Execute the console command.
@@ -48,18 +69,64 @@ class AssignRoleCommand extends Command
         /**
          * @var array<string, string>
          */
+<<<<<<< HEAD
         $opts = Role::all()->pluck('name', 'name')->toArray();
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        $opts = Role::all()->pluck('name', 'name')->toArray();
+=======
+        $opts = Role::all()
+            ->pluck('name', 'name')
+            ->toArray();
+>>>>>>> a12f125f4a (.)
+=======
+        $opts = Role::all()->pluck('name', 'name')->toArray();
+>>>>>>> b93ef594b4 (.)
+=======
+        $opts = Role::all()
+            ->pluck('name', 'name')
+            ->toArray();
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
         $rows = multiselect(
             label: 'What roles',
             options: $opts,
             required: true,
             scroll: 10,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
         // validate: function (array $values) {
         //  return ! \in_array(\count($values), [1, 2], false)
         //    ? 'A maximum of two'
         //  : null;
         // }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+            // validate: function (array $values) {
+            //  return ! \in_array(\count($values), [1, 2], false)
+            //    ? 'A maximum of two'
+            //  : null;
+            // }
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         );
 
         foreach ($rows as $row) {
@@ -67,7 +134,23 @@ class AssignRoleCommand extends Command
             $user->assignRole($role);
         }
 
+<<<<<<< HEAD
         $this->info(implode(', ', $rows) . ' assigned to ' . $email);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        $this->info(implode(', ', $rows) . ' assigned to ' . $email);
+=======
+        $this->info(implode(', ', $rows).' assigned to '.$email);
+>>>>>>> a12f125f4a (.)
+=======
+        $this->info(implode(', ', $rows) . ' assigned to ' . $email);
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->info(implode(', ', $rows).' assigned to '.$email);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 
     /**

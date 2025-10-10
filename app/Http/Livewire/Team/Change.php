@@ -4,7 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Team;
 
+<<<<<<< HEAD
 use InvalidArgumentException;
+=======
+<<<<<<< HEAD
+use InvalidArgumentException;
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 use Filament\Facades\Filament;
 use Filament\Notifications\Notification;
 use Illuminate\Contracts\Foundation\Application;
@@ -26,17 +33,48 @@ class Change extends Component
 
     public XotData $xot;
 
+<<<<<<< HEAD
     /** @var UserContract */
+=======
+<<<<<<< HEAD
+    /** @var UserContract */
+=======
+    /** @var \Modules\Xot\Contracts\UserContract */
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     public $user;
 
     public function mount(): void
     {
         $this->xot = XotData::make();
+<<<<<<< HEAD
         Assert::notNull($authUser = Filament::auth()->user(), '[' . __LINE__ . '][' . class_basename($this) . ']');
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        Assert::notNull($authUser = Filament::auth()->user(), '[' . __LINE__ . '][' . class_basename($this) . ']');
+=======
+        Assert::notNull($authUser = Filament::auth()->user(), '['.__LINE__.']['.class_basename($this).']');
+>>>>>>> a12f125f4a (.)
+=======
+        Assert::notNull($authUser = Filament::auth()->user(), '[' . __LINE__ . '][' . class_basename($this) . ']');
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
 
         // Verifica che l'utente implementi l'interfaccia UserContract
         if (!($authUser instanceof UserContract)) {
             throw new InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
+<<<<<<< HEAD
+=======
+=======
+        Assert::notNull($authUser = Filament::auth()->user(), '['.__LINE__.']['.class_basename($this).']');
+
+        // Verifica che l'utente implementi l'interfaccia UserContract
+        if (!($authUser instanceof UserContract)) {
+            throw new \InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         }
 
         $this->user = $authUser;
@@ -52,7 +90,23 @@ class Change extends Component
         /** @var TeamContract */
         $team = $teamClass::firstWhere(['id' => $teamId]);
 
+<<<<<<< HEAD
         if (!$this->user->switchTeam($team)) {
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        if (!$this->user->switchTeam($team)) {
+=======
+        if (! $this->user->switchTeam($team)) {
+>>>>>>> a12f125f4a (.)
+=======
+        if (!$this->user->switchTeam($team)) {
+>>>>>>> b93ef594b4 (.)
+=======
+        if (! $this->user->switchTeam($team)) {
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             abort(403);
         }
         if ($team !== null) {

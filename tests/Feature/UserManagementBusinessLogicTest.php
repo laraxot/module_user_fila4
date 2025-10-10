@@ -4,8 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Feature;
 
+<<<<<<< HEAD
 use Illuminate\Database\QueryException;
 use Illuminate\Validation\ValidationException;
+=======
+<<<<<<< HEAD
+use Illuminate\Database\QueryException;
+use Illuminate\Validation\ValidationException;
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Models\Permission;
@@ -13,6 +21,32 @@ use Modules\User\Models\Profile;
 use Modules\User\Models\Role;
 use Modules\User\Models\User;
 use Tests\TestCase;
+<<<<<<< HEAD
+=======
+=======
+=======
+>>>>>>> origin/develop
+use Modules\User\Models\User;
+use Modules\User\Models\Profile;
+use Modules\User\Models\Role;
+use Modules\User\Models\Permission;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Hash;
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Hash;
+use Modules\User\Models\Permission;
+use Modules\User\Models\Profile;
+use Modules\User\Models\Role;
+use Modules\User\Models\User;
+use Tests\TestCase;
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
 class UserManagementBusinessLogicTest extends TestCase
 {
@@ -513,7 +547,15 @@ class UserManagementBusinessLogicTest extends TestCase
         User::factory()->create(['email' => 'test@example.com']);
 
         // Act & Assert
+<<<<<<< HEAD
         $this->expectException(QueryException::class);
+=======
+<<<<<<< HEAD
+        $this->expectException(QueryException::class);
+=======
+        $this->expectException(\Illuminate\Database\QueryException::class);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
         User::create([
             'name' => 'Another User',
@@ -533,7 +575,15 @@ class UserManagementBusinessLogicTest extends TestCase
         ];
 
         // Act & Assert
+<<<<<<< HEAD
         $this->expectException(ValidationException::class);
+=======
+<<<<<<< HEAD
+        $this->expectException(ValidationException::class);
+=======
+        $this->expectException(\Illuminate\Validation\ValidationException::class);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
         $this->post('/register', $userData);
     }
@@ -632,3 +682,17 @@ class UserManagementBusinessLogicTest extends TestCase
         $this->assertEquals('dark', $user->fresh()->preferences['theme']);
     }
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)

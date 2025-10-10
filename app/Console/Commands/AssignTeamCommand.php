@@ -4,8 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
+<<<<<<< HEAD
 use Modules\Xot\Contracts\UserContract;
 use Illuminate\Support\Collection;
+=======
+<<<<<<< HEAD
+use Modules\Xot\Contracts\UserContract;
+use Illuminate\Support\Collection;
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 use Illuminate\Console\Command;
 use Modules\Xot\Datas\XotData;
 use Symfony\Component\Console\Input\InputOption;
@@ -35,7 +43,28 @@ class AssignTeamCommand extends Command
      *
      * @return void
      */
+<<<<<<< HEAD
     
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    
+=======
+=======
+>>>>>>> origin/develop
+    public function __construct()
+    {
+        parent::__construct();
+    }
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+    
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
     /**
      * Execute the console command.
@@ -45,34 +74,115 @@ class AssignTeamCommand extends Command
         $xot = XotData::make();
         $email = text('email ?');
         $user_class = $xot->getUserClass();
+<<<<<<< HEAD
         /** @var UserContract */
+=======
+<<<<<<< HEAD
+        /** @var UserContract */
+=======
+        /** @var \Modules\Xot\Contracts\UserContract */
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         $user = XotData::make()->getUserByEmail($email);
 
         $teamClass = $xot->getTeamClass();
 
+<<<<<<< HEAD
         /** @var array<int|string, string>|Collection<int|string, string> */
         $opts = $teamClass::pluck('name', 'id')->toArray();
+=======
+<<<<<<< HEAD
+        /** @var array<int|string, string>|Collection<int|string, string> */
+<<<<<<< HEAD
+<<<<<<< HEAD
+        $opts = $teamClass::pluck('name', 'id')->toArray();
+=======
+        $opts = $teamClass::pluck('name', 'id')
+            ->toArray();
+>>>>>>> a12f125f4a (.)
+=======
+        $opts = $teamClass::pluck('name', 'id')->toArray();
+>>>>>>> b93ef594b4 (.)
+=======
+        /** @var array<int|string, string>|\Illuminate\Support\Collection<int|string, string> */
+        $opts = $teamClass::pluck('name', 'id')
+            ->toArray();
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
         $rows = multiselect(
             label: 'What teams',
             options: $opts,
             required: true,
             scroll: 10,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
         // validate: function (array $values) {
         //  return ! \in_array(\count($values), [1, 2], false)
         //    ? 'A maximum of two'
         //  : null;
         // }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+            // validate: function (array $values) {
+            //  return ! \in_array(\count($values), [1, 2], false)
+            //    ? 'A maximum of two'
+            //  : null;
+            // }
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         );
 
         $user->teams()->sync($rows);
         /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
          * foreach ($rows as $row) {
          * $role = Role::firstOrCreate(['name' => $row]);
          * $user->assignRole($role);
          * }
          */
         $this->info('Teams :' . implode(', ', $rows) . ' assigned to ' . $email);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+        foreach ($rows as $row) {
+            $role = Role::firstOrCreate(['name' => $row]);
+            $user->assignRole($role);
+        }
+        */
+        $this->info('Teams :'.implode(', ', $rows).' assigned to '.$email);
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
         $rows = $user->teams()->get()->toArray();
 
@@ -85,7 +195,23 @@ class AssignTeamCommand extends Command
             $this->newLine();
         } else {
             $this->newLine();
+<<<<<<< HEAD
             $this->warn('⚡ No teams [' . $teamClass . ']');
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+            $this->warn('⚡ No teams [' . $teamClass . ']');
+=======
+            $this->warn('⚡ No teams ['.$teamClass.']');
+>>>>>>> a12f125f4a (.)
+=======
+            $this->warn('⚡ No teams [' . $teamClass . ']');
+>>>>>>> b93ef594b4 (.)
+=======
+            $this->warn('⚡ No teams ['.$teamClass.']');
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             $this->newLine();
         }
     }

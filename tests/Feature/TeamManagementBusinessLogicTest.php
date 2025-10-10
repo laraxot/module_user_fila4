@@ -4,7 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Feature;
 
+<<<<<<< HEAD
 use Illuminate\Database\QueryException;
+=======
+<<<<<<< HEAD
+use Illuminate\Database\QueryException;
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\User\Models\Membership;
 use Modules\User\Models\Team;
@@ -13,6 +20,34 @@ use Modules\User\Models\TeamPermission;
 use Modules\User\Models\TeamUser;
 use Modules\User\Models\User;
 use Tests\TestCase;
+<<<<<<< HEAD
+=======
+=======
+=======
+>>>>>>> origin/develop
+use Modules\User\Models\Team;
+use Modules\User\Models\User;
+use Modules\User\Models\TeamUser;
+use Modules\User\Models\TeamPermission;
+use Modules\User\Models\TeamInvitation;
+use Modules\User\Models\Membership;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Modules\User\Models\Membership;
+use Modules\User\Models\Team;
+use Modules\User\Models\TeamInvitation;
+use Modules\User\Models\TeamPermission;
+use Modules\User\Models\TeamUser;
+use Modules\User\Models\User;
+use Tests\TestCase;
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
 class TeamManagementBusinessLogicTest extends TestCase
 {
@@ -589,7 +624,15 @@ class TeamManagementBusinessLogicTest extends TestCase
         Team::factory()->create(['slug' => 'unique-team']);
 
         // Act & Assert
+<<<<<<< HEAD
         $this->expectException(QueryException::class);
+=======
+<<<<<<< HEAD
+        $this->expectException(QueryException::class);
+=======
+        $this->expectException(\Illuminate\Database\QueryException::class);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
         Team::create([
             'name' => 'Another Team',
@@ -646,3 +689,17 @@ class TeamManagementBusinessLogicTest extends TestCase
         ]);
     }
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)

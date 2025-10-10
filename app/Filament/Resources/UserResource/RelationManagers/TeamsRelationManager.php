@@ -4,13 +4,41 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
 use Filament\Actions\AttachAction;
 use Filament\Actions\DetachAction;
 use Filament\Actions\DetachBulkAction;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\RelationManagers\RelationManager;
+<<<<<<< HEAD
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
+=======
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\IconColumn;
+>>>>>>> a12f125f4a (.)
+=======
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
+>>>>>>> b93ef594b4 (.)
+=======
+use Filament\Forms\Components\TextInput;
+use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Tables\Actions\AttachAction;
+use Filament\Tables\Actions\DetachAction;
+use Filament\Tables\Actions\DetachBulkAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\IconColumn;
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,6 +51,12 @@ class TeamsRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('name')
             ->columns([
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
                 TextColumn::make('name')->searchable()->sortable(),
                 IconColumn::make('personal_team')
                     ->boolean()
@@ -45,8 +79,80 @@ class TeamsRelationManager extends RelationManager
                         'current_team_id' => null,
                     ]);
                 }),
+<<<<<<< HEAD
             ])
             ->toolbarActions([
+=======
+=======
+                TextColumn::make('name')
+                    ->searchable()
+                    ->sortable(),
+=======
+                TextColumn::make('name')->searchable()->sortable(),
+>>>>>>> b93ef594b4 (.)
+                IconColumn::make('personal_team')
+                    ->boolean()
+                    ->default(fn($record, $livewire) => $livewire->getOwnerRecord()->current_team_id === $record->id),
+            ])
+            ->filters([
+                
+            ])
+            ->headerActions([
+                AttachAction::make()->schema(fn(AttachAction $action): array => [
+                    $action->getRecordSelect(),
+                    TextInput::make('role')->default('editor')->required(),
+                ]),
+            ])
+            ->recordActions([
+<<<<<<< HEAD
+=======
+                TextColumn::make('name')
+                    ->searchable()
+                    ->sortable(),
+                IconColumn::make('personal_team')
+                    ->boolean()
+                    ->default(fn ($record, $livewire) => $livewire->getOwnerRecord()->current_team_id === $record->id),
+            ])
+            ->filters([
+                //
+            ])
+            ->headerActions([
+                AttachAction::make()
+                    ->form(fn (AttachAction $action): array => [
+                        $action->getRecordSelect(),
+                        TextInput::make('role')
+                            ->default('editor')
+                            ->required(),
+                    ]),
+            ])
+            ->actions([
+>>>>>>> origin/develop
+                DetachAction::make()
+                    ->after(function ($record, $livewire): void {
+                        $user = $livewire->getOwnerRecord();
+                        $team_id = $record->getKey();
+                        $user->update([
+                            'current_team_id' => null,
+                        ]);
+                    }),
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+                DetachAction::make()->after(function ($record, $livewire): void {
+                    $user = $livewire->getOwnerRecord();
+                    $team_id = $record->getKey();
+                    $user->update([
+                        'current_team_id' => null,
+                    ]);
+                }),
+>>>>>>> b93ef594b4 (.)
+            ])
+            ->toolbarActions([
+=======
+            ])
+            ->bulkActions([
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
                 DetachBulkAction::make(),
             ]);
     }
@@ -54,9 +160,38 @@ class TeamsRelationManager extends RelationManager
     public function getTableColumns(): array
     {
         return [
+<<<<<<< HEAD
             TextColumn::make('name')->searchable()->sortable(),
             TextColumn::make('personal_team')->sortable(),
             TextColumn::make('created_at')->dateTime()->sortable(),
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+            TextColumn::make('name')->searchable()->sortable(),
+            TextColumn::make('personal_team')->sortable(),
+            TextColumn::make('created_at')->dateTime()->sortable(),
+=======
+=======
+>>>>>>> origin/develop
+            TextColumn::make('name')
+                ->searchable()
+                ->sortable(),
+            TextColumn::make('personal_team')
+                ->sortable(),
+            TextColumn::make('created_at')
+                ->dateTime()
+                ->sortable(),
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+            TextColumn::make('name')->searchable()->sortable(),
+            TextColumn::make('personal_team')->sortable(),
+            TextColumn::make('created_at')->dateTime()->sortable(),
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         ];
     }
 }

@@ -10,16 +10,56 @@ use Modules\User\Models\User;
 
 /**
  * OauthClient Factory
+<<<<<<< HEAD
  *
  * Factory for creating OauthClient model instances for testing and seeding.
  *
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+ *
+ * Factory for creating OauthClient model instances for testing and seeding.
+ *
+=======
+ * 
+ * Factory for creating OauthClient model instances for testing and seeding.
+ * 
+>>>>>>> a12f125f4a (.)
+=======
+ *
+ * Factory for creating OauthClient model instances for testing and seeding.
+ *
+>>>>>>> b93ef594b4 (.)
+=======
+ * 
+ * Factory for creating OauthClient model instances for testing and seeding.
+ * 
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
  * @extends Factory<OauthClient>
  */
 class OauthClientFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
+<<<<<<< HEAD
      *
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+     *
+=======
+     * 
+>>>>>>> a12f125f4a (.)
+=======
+     *
+>>>>>>> b93ef594b4 (.)
+=======
+     * 
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
      * @var class-string<OauthClient>
      */
     protected $model = OauthClient::class;
@@ -41,6 +81,14 @@ class OauthClientFactory extends Factory
             'personal_access_client' => $this->faker->boolean(20), // 20% personal access clients
             'password_client' => $this->faker->boolean(30), // 30% password clients
             'revoked' => $this->faker->boolean(5), // 5% revoked
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
             'grant_types' => $this->faker->optional()->randomElements(
                 [
                     'authorization_code',
@@ -59,6 +107,28 @@ class OauthClientFactory extends Factory
                 ],
                 $this->faker->numberBetween(1, 3),
             ),
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+            'grant_types' => $this->faker->optional()->randomElements([
+                'authorization_code',
+                'client_credentials',
+                'password',
+                'refresh_token'
+            ], $this->faker->numberBetween(1, 3)),
+            'scopes' => $this->faker->optional()->randomElements([
+                'read', 'write', 'admin', 'user'
+            ], $this->faker->numberBetween(1, 3)),
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
         ];
     }
 
@@ -69,7 +139,23 @@ class OauthClientFactory extends Factory
      */
     public function personalAccess(): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return $this->state(fn(array $_attributes): array => [
+=======
+        return $this->state(fn (array $attributes): array => [
+>>>>>>> a12f125f4a (.)
+=======
+        return $this->state(fn(array $_attributes): array => [
+>>>>>>> b93ef594b4 (.)
+=======
+        return $this->state(fn (array $attributes): array => [
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             'personal_access_client' => true,
             'password_client' => false,
             'name' => 'Personal Access Client',
@@ -83,7 +169,23 @@ class OauthClientFactory extends Factory
      */
     public function password(): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return $this->state(fn(array $_attributes): array => [
+=======
+        return $this->state(fn (array $attributes): array => [
+>>>>>>> a12f125f4a (.)
+=======
+        return $this->state(fn(array $_attributes): array => [
+>>>>>>> b93ef594b4 (.)
+=======
+        return $this->state(fn (array $attributes): array => [
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             'password_client' => true,
             'personal_access_client' => false,
             'name' => 'Password Grant Client',
@@ -97,7 +199,23 @@ class OauthClientFactory extends Factory
      */
     public function revoked(): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return $this->state(fn(array $_attributes): array => [
+=======
+        return $this->state(fn (array $attributes): array => [
+>>>>>>> a12f125f4a (.)
+=======
+        return $this->state(fn(array $_attributes): array => [
+>>>>>>> b93ef594b4 (.)
+=======
+        return $this->state(fn (array $attributes): array => [
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             'revoked' => true,
         ]);
     }
@@ -109,7 +227,23 @@ class OauthClientFactory extends Factory
      */
     public function active(): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return $this->state(fn(array $_attributes): array => [
+=======
+        return $this->state(fn (array $attributes): array => [
+>>>>>>> a12f125f4a (.)
+=======
+        return $this->state(fn(array $_attributes): array => [
+>>>>>>> b93ef594b4 (.)
+=======
+        return $this->state(fn (array $attributes): array => [
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             'revoked' => false,
         ]);
     }
@@ -122,7 +256,23 @@ class OauthClientFactory extends Factory
      */
     public function forUser(User $user): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return $this->state(fn(array $_attributes): array => [
+=======
+        return $this->state(fn (array $attributes): array => [
+>>>>>>> a12f125f4a (.)
+=======
+        return $this->state(fn(array $_attributes): array => [
+>>>>>>> b93ef594b4 (.)
+=======
+        return $this->state(fn (array $attributes): array => [
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             'user_id' => $user->id,
         ]);
     }
@@ -135,7 +285,23 @@ class OauthClientFactory extends Factory
      */
     public function withRedirectUri(string $redirectUri): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return $this->state(fn(array $_attributes): array => [
+=======
+        return $this->state(fn (array $attributes): array => [
+>>>>>>> a12f125f4a (.)
+=======
+        return $this->state(fn(array $_attributes): array => [
+>>>>>>> b93ef594b4 (.)
+=======
+        return $this->state(fn (array $attributes): array => [
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             'redirect' => $redirectUri,
         ]);
     }
@@ -148,8 +314,37 @@ class OauthClientFactory extends Factory
      */
     public function withScopes(array $scopes): static
     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
         return $this->state(fn(array $_attributes): array => [
             'scopes' => $scopes,
         ]);
     }
 }
+<<<<<<< HEAD
+=======
+=======
+        return $this->state(fn (array $attributes): array => [
+=======
+        return $this->state(fn(array $_attributes): array => [
+>>>>>>> b93ef594b4 (.)
+            'scopes' => $scopes,
+        ]);
+    }
+}
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+        return $this->state(fn (array $attributes): array => [
+            'scopes' => $scopes,
+        ]);
+    }
+}
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)

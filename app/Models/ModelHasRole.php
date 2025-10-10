@@ -4,9 +4,25 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
 use Override;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Xot\Contracts\ProfileContract;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Override;
+=======
+>>>>>>> a12f125f4a (.)
+=======
+use Override;
+>>>>>>> b93ef594b4 (.)
+use Illuminate\Database\Eloquent\Builder;
+use Modules\Xot\Contracts\ProfileContract;
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 use Illuminate\Support\Carbon;
 use Modules\User\Database\Factories\ModelHasRoleFactory;
 
@@ -23,6 +39,10 @@ use Modules\User\Database\Factories\ModelHasRoleFactory;
  * @property string|null $updated_by
  * @property string|null $created_by
  * @method static ModelHasRoleFactory factory($count = null, $state = [])
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
  * @method static Builder|ModelHasRole newModelQuery()
  * @method static Builder|ModelHasRole newQuery()
  * @method static Builder|ModelHasRole query()
@@ -39,6 +59,27 @@ use Modules\User\Database\Factories\ModelHasRoleFactory;
  * @method static Builder|ModelHasRole whereUuid($value)
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+<<<<<<< HEAD
+=======
+=======
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereModelId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereModelType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereRoleId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereTeamId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereUpdatedBy($value)
+ * @property string $uuid (DC2Type:guid)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereUuid($value)
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
  * @mixin IdeHelperModelHasRole
  * @mixin \Eloquent
  */
@@ -72,7 +113,21 @@ class ModelHasRole extends BaseMorphPivot
     }
 
     /** @return array<string, string> */
+<<<<<<< HEAD
     #[Override]
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    #[Override]
+=======
+>>>>>>> a12f125f4a (.)
+=======
+    #[Override]
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     protected function casts(): array
     {
         return [
@@ -86,6 +141,20 @@ class ModelHasRole extends BaseMorphPivot
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
