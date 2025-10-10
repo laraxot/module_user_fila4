@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
-use Modules\User\Database\Factories\TenantFactory;
 use Illuminate\Database\Eloquent\Builder;
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\Media\Models\Media;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Media\Models\Media;
+use Modules\User\Database\Factories\TenantFactory;
+use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
+use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 
 /**
  * Modules\User\Models\Tenant.
@@ -20,6 +20,7 @@ use Modules\Xot\Contracts\UserContract;
  * @method static Builder|Tenant newModelQuery()
  * @method static Builder|Tenant newQuery()
  * @method static Builder|Tenant query()
+ *
  * @property EloquentCollection<int, Model&UserContract> $members
  * @property int|null $members_count
  * @property ProfileContract|null $creator
@@ -29,9 +30,8 @@ use Modules\Xot\Contracts\UserContract;
  * @property TenantUser $pivot
  * @property EloquentCollection<int, User> $users
  * @property int|null $users_count
+ *
  * @mixin IdeHelperTenant
  * @mixin \Eloquent
  */
-class Tenant extends BaseTenant
-{
-}
+class Tenant extends BaseTenant {}

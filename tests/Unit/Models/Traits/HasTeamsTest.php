@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Collection;
 use Modules\User\Models\Team;
 use Modules\User\Models\Traits\HasTeams;
 use Modules\User\Models\User;
@@ -25,7 +25,7 @@ class MockUserWithTeams extends Model
 }
 
 beforeEach(function () {
-    $this->user = new MockUserWithTeams();
+    $this->user = new MockUserWithTeams;
     $this->user->id = 1;
 
     // Mock del database per i test
@@ -60,7 +60,7 @@ describe('HasTeams Trait', function () {
     });
 
     it('can check if user belongs to a team by Team model', function () {
-        $team = new Team();
+        $team = new Team;
         $team->id = 10;
 
         // Mock della relazione teams per simulare l'appartenenza
@@ -90,7 +90,7 @@ describe('HasTeams Trait', function () {
 
     it('handles both integer and Team model parameters', function () {
         $teamId = 15;
-        $team = new Team();
+        $team = new Team;
         $team->id = 15;
 
         // Mock per entrambi i casi
@@ -146,7 +146,7 @@ describe('HasTeams Trait', function () {
             ->get();
 
         expect($activeUserTeams)->toHaveCount(2);
-        expect($activeUserTeams->every(fn($team) => $team->is_active))->toBeTrue();
+        expect($activeUserTeams->every(fn ($team) => $team->is_active))->toBeTrue();
     });
 
     it('can check team membership with timestamps', function () {
@@ -202,7 +202,7 @@ describe('HasTeams Trait', function () {
     });
 
     it('can work with team pivot table', function () {
-        $team = new Team();
+        $team = new Team;
         $team->id = 30;
 
         // Mock della relazione teams con pivot
@@ -252,15 +252,15 @@ describe('HasTeams Trait', function () {
 
 describe('HasTeams Trait Integration', function () {
     it('can be used with User model', function () {
-        $user = new User();
+        $user = new User;
 
         expect($user)->toHaveMethod('teams');
         expect($user)->toHaveMethod('belongsToTeam');
     });
 
     it('maintains trait functionality across different models', function () {
-        $user1 = new MockUserWithTeams();
-        $user2 = new MockUserWithTeams();
+        $user1 = new MockUserWithTeams;
+        $user2 = new MockUserWithTeams;
 
         expect($user1)->toHaveMethod('teams');
         expect($user1)->toHaveMethod('belongsToTeam');
@@ -374,7 +374,7 @@ describe('HasTeams Trait Performance', function () {
     });
 
     it('can handle team relationship queries efficiently', function () {
-        $teams = collect(range(1, 100))->map(fn($id) => new Team(['id' => $id, 'name' => "Team {$id}"]));
+        $teams = collect(range(1, 100))->map(fn ($id) => new Team(['id' => $id, 'name' => "Team {$id}"]));
 
         // Mock della relazione teams
         $this->user->shouldReceive('teams->get')->andReturn($teams);

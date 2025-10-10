@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Modules\Xot\Actions\Factory\GetFactoryAction;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use Modules\User\Database\Factories\PermissionFactory;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
+use Modules\User\Database\Factories\PermissionFactory;
+use Modules\Xot\Actions\Factory\GetFactoryAction;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Models\Traits\RelationX;
@@ -25,17 +25,18 @@ use Webmozart\Assert\Assert;
  *
  * Extends Spatie's Permission model to interact with the permission system.
  *
- * @property string                                                                    $id
- * @property string                                                                    $name
- * @property string                                                                    $guard_name
- * @property Carbon|null                                                               $created_at
- * @property Carbon|null                                                               $updated_at
- * @property string|null                                                               $created_by
- * @property string|null                                                               $updated_by
- * @property Collection<int, Role>                                                     $roles
- * @property int|null                                                                  $roles_count
+ * @property string $id
+ * @property string $name
+ * @property string $guard_name
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $created_by
+ * @property string|null $updated_by
+ * @property Collection<int, Role> $roles
+ * @property int|null $roles_count
  * @property EloquentCollection<int, Model&UserContract> $users
- * @property int|null                                                                  $users_count
+ * @property int|null $users_count
+ *
  * @method static Builder|Permission newModelQuery()
  * @method static Builder|Permission newQuery()
  * @method static Builder|Permission query()
@@ -48,13 +49,19 @@ use Webmozart\Assert\Assert;
  * @method static Builder|Permission whereName($value)
  * @method static Builder|Permission role($roles, $guard = null)
  * @method static Builder|Permission permission($permissions)
+ *
  * @property EloquentCollection<int, Permission> $permissions
- * @property int|null                            $permissions_count
+ * @property int|null $permissions_count
+ *
  * @method static Builder|Permission withoutPermission($permissions)
  * @method static Builder|Permission withoutRole($roles, $guard = null)
+ *
  * @property PermissionRole|null $pivot
+ *
  * @mixin IdeHelperPermission
+ *
  * @method static PermissionFactory factory($count = null, $state = [])
+ *
  * @mixin \Eloquent
  */
 class Permission extends SpatiePermission

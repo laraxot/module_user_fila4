@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace Modules\User\Http\Middleware;
 
 use BackedEnum;
@@ -18,13 +17,12 @@ use Symfony\Component\HttpFoundation\Response;
  *     // ...
  *})->middleware(EnsureUserHasRole::class.':editor,publisher');
  */
-
 class EnsureUserHasType
 {
     /**
      * Handle an incoming request.
      *
-     * @param Closure(Request):Response $next
+     * @param  Closure(Request):Response  $next
      */
     public function handle(Request $request, Closure $next, string $type): Response
     {

@@ -12,7 +12,6 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Model;
 
 class TeamsRelationManager extends RelationManager
 {
@@ -26,13 +25,13 @@ class TeamsRelationManager extends RelationManager
                 TextColumn::make('name')->searchable()->sortable(),
                 IconColumn::make('personal_team')
                     ->boolean()
-                    ->default(fn($record, $livewire) => $livewire->getOwnerRecord()->current_team_id === $record->id),
+                    ->default(fn ($record, $livewire) => $livewire->getOwnerRecord()->current_team_id === $record->id),
             ])
             ->filters([
-                
+
             ])
             ->headerActions([
-                AttachAction::make()->schema(fn(AttachAction $action): array => [
+                AttachAction::make()->schema(fn (AttachAction $action): array => [
                     $action->getRecordSelect(),
                     TextInput::make('role')->default('editor')->required(),
                 ]),

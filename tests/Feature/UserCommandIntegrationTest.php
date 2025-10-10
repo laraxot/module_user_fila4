@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-use Webmozart\Assert\Assert;
-use Illuminate\Support\Arr;
-use Illuminate\Console\Command;
 use Illuminate\Console\Application;
+use Illuminate\Console\Command;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Artisan;
 use Modules\User\Console\Commands\ChangeTypeCommand;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
+use Webmozart\Assert\Assert;
 
 uses(RefreshDatabase::class);
 
 describe('User Command Integration', function () {
     beforeEach(function () {
-        $this->command = new ChangeTypeCommand();
+        $this->command = new ChangeTypeCommand;
     });
 
     it('can be registered with Laravel artisan', function () {
         // Test that the command can be registered
-        $application = new Application();
+        $application = new Application;
         $application->add($this->command);
 
         expect($application->has('user:change-type'))->toBeTrue();
@@ -63,15 +63,15 @@ describe('User Command Integration', function () {
         expect(class_exists('Webmozart\Assert\Assert'))->toBeTrue();
 
         // Test basic assertion functionality
-        expect(fn() => Assert::notNull('test'))->not->toThrow(Exception::class);
+        expect(fn () => Assert::notNull('test'))->not->toThrow(Exception::class);
     });
 
     it('integrates with Illuminate Support Arr', function () {
         // Test Arr helper functionality
         $testArray = ['a' => 1, 'b' => 2, 'c' => 3];
 
-        $result = Arr::mapWithKeys($testArray, fn($value, $key) => [
-            $key . '_mapped' => $value * 2,
+        $result = Arr::mapWithKeys($testArray, fn ($value, $key) => [
+            $key.'_mapped' => $value * 2,
         ]);
 
         expect($result)
@@ -141,9 +141,9 @@ describe('User Command Integration', function () {
 
     it('can work with type checking utilities', function () {
         // Test type checking functions used in the command
-        $testObject = new stdClass();
+        $testObject = new stdClass;
         $testObject->value = 'test';
-        $testObject->getLabel = fn() => 'Test Label';
+        $testObject->getLabel = fn () => 'Test Label';
 
         expect(is_object($testObject))
             ->toBeTrue()
@@ -175,7 +175,7 @@ describe('User Command Integration', function () {
 
         $mapped = [];
         foreach ($testArray as $key => $value) {
-            $mapped[$key . '_suffix'] = $value . '_modified';
+            $mapped[$key.'_suffix'] = $value.'_modified';
         }
 
         expect($mapped)
@@ -244,7 +244,7 @@ describe('User Command Integration', function () {
 
     it('can handle object property access safely', function () {
         // Test safe property access patterns
-        $testObject = new stdClass();
+        $testObject = new stdClass;
         $testObject->testProperty = 'test_value';
 
         expect(property_exists($testObject, 'testProperty'))

@@ -4,22 +4,23 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Override;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use Modules\Xot\Contracts\ProfileContract;
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Carbon;
 use Modules\User\Database\Factories\DeviceFactory;
+use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
+use Override;
 
 /**
  * Device model representing a user's device in the system.
  *
  * @property EloquentCollection<int, Model&UserContract> $users
  * @property int|null $users_count
+ *
  * @method static DeviceFactory factory($count = null, $state = [])
  * @method static Builder|Device newModelQuery()
  * @method static Builder|Device newQuery()
@@ -41,6 +42,7 @@ use Modules\Xot\Datas\XotData;
  * @method static Builder|Device whereUpdatedAt($value)
  * @method static Builder|Device whereUpdatedBy($value)
  * @method static Builder|Device whereVersion($value)
+ *
  * @property DeviceUser $pivot
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
@@ -62,7 +64,9 @@ use Modules\Xot\Datas\XotData;
  * @property string|null $updated_by
  * @property string|null $created_by
  * @property string|null $uuid
+ *
  * @method static Builder<static>|Device whereUuid($value)
+ *
  * @mixin IdeHelperDevice
  * @mixin \Eloquent
  */

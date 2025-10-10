@@ -6,9 +6,7 @@ namespace Modules\User\Listeners;
 
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\OtherDeviceLogout;
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Modules\User\Contracts\HasAuthentications;
 use Modules\User\Models\AuthenticationLog;
 
@@ -32,7 +30,7 @@ class OtherDeviceLogoutListener
             $userAgent = $this->request->userAgent();
             $authenticationLog = $user->authentications()->whereIpAddress($ip)->whereUserAgent($userAgent)->first();
 
-            if (!$authenticationLog) {
+            if (! $authenticationLog) {
                 $authenticationLog = new AuthenticationLog([
                     'ip_address' => $ip,
                     'user_agent' => $userAgent,
@@ -55,7 +53,7 @@ class OtherDeviceLogoutListener
      */
     public function handleLogin(Login $event): void
     {
-        if (!config('authentication-log.notify_other_devices', false)) {
+        if (! config('authentication-log.notify_other_devices', false)) {
             return;
         }
 
@@ -63,7 +61,7 @@ class OtherDeviceLogoutListener
         $newUserAgent = $this->request->userAgent();
 
         $user = $event->user;
-        if (!$user || !($user instanceof HasAuthentications)) {
+        if (! $user || ! ($user instanceof HasAuthentications)) {
             return;
         }
 

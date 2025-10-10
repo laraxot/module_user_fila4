@@ -5,16 +5,11 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\DeviceResource\Pages;
 
 use Filament\Tables\Columns\Column;
-use Override;
-use Filament\Actions\CreateAction;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\DeviceResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+use Override;
 
 class ListDevices extends XotBaseListRecords
 {

@@ -4,16 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
-use Filament\Schemas\Components\Component;
-use Override;
 use Filament\Forms\Components\TextInput;
-use Filament\Tables\Columns\Column;
-use Filament\Forms;
+use Filament\Schemas\Components\Component;
 use Filament\Schemas\Schema;
+use Filament\Tables\Columns\Column;
 use Filament\Tables\Table;
 use Modules\User\Filament\Resources\TenantResource\Pages\ListTenants;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-use Modules\Xot\Filament\Traits\HasXotTable;
+use Override;
 
 /**
  * Manages the relationship between users and tenants.
@@ -25,7 +23,7 @@ class TenantsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'tenants';
 
-    protected static null|string $recordTitleAttribute = 'name';
+    protected static ?string $recordTitleAttribute = 'name';
 
     /**
      * Set up the form schema for tenant relations.
@@ -51,6 +49,6 @@ class TenantsRelationManager extends XotBaseRelationManager
         $columns = app(ListTenants::class)->getTableColumns();
 
         // Ensure we only return Column instances, filter out any Layout\Component instances
-        return array_filter($columns, fn($column): bool => $column instanceof Column);
+        return array_filter($columns, fn ($column): bool => $column instanceof Column);
     }
 }

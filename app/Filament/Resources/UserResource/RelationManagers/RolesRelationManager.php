@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Actions\Header\AttachRoleAction;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-use Override;
 
 class RolesRelationManager extends XotBaseRelationManager
 {
@@ -24,7 +23,7 @@ class RolesRelationManager extends XotBaseRelationManager
     // protected function mutateFormDataBeforeCreate(array $data): array
     // {
     // }
-    #[Override]
+    #[\Override]
     public function getFormSchema(): array
     {
         return [
@@ -37,7 +36,7 @@ class RolesRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Column>
      */
-    #[Override]
+    #[\Override]
     public function getTableColumns(): array
     {
         return [
@@ -50,16 +49,14 @@ class RolesRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Action>
      */
-    #[Override]
+    #[\Override]
     public function getTableHeaderActions(): array
     {
         $xotData = XotData::make();
 
         return [
-
             ...parent::getTableHeaderActions(),
             'attach' => AttachRoleAction::make(),
-
         ];
     }
 }

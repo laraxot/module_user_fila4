@@ -30,10 +30,7 @@ class RemoveRoleCommand extends Command
 
     /**
      * Create a new command instance.
-     *
-     * @return void
      */
-    
 
     /**
      * Execute the console command.
@@ -55,11 +52,11 @@ class RemoveRoleCommand extends Command
             options: $opts,
             required: true,
             scroll: 10,
-        // validate: function (array $values) {
-        //  return ! \in_array(\count($values), [1, 2], false)
-        //    ? 'A maximum of two'
-        //  : null;
-        // }
+            // validate: function (array $values) {
+            //  return ! \in_array(\count($values), [1, 2], false)
+            //    ? 'A maximum of two'
+            //  : null;
+            // }
         );
 
         foreach ($rows as $row) {
@@ -68,7 +65,7 @@ class RemoveRoleCommand extends Command
             $user->removeRole($row);
         }
 
-        $this->info(implode(', ', $rows) . ' dessigned to ' . $email);
+        $this->info(implode(', ', $rows).' dessigned to '.$email);
     }
 
     /**

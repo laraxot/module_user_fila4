@@ -37,12 +37,12 @@ class ChangePasswordAction extends Action
                 TextInput::make('new_password_confirmation')
                     ->password()
                     ->placeholder(__('user::fields.confirm_password.placeholder'))
-                    ->rule('required', static fn($get): bool => (bool) $get('new_password'))
+                    ->rule('required', static fn ($get): bool => (bool) $get('new_password'))
                     ->same('new_password'),
             ]);
     }
 
-    public static function getDefaultName(): null|string
+    public static function getDefaultName(): ?string
     {
         return 'changePassword';
     }

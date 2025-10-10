@@ -5,7 +5,6 @@ declare(strict_types=1);
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Models\AuthenticationLog;
-use Modules\User\Models\User;
 
 describe('User Authentication', function () {
     it('can authenticate user with correct credentials', function () {

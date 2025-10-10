@@ -142,14 +142,18 @@ describe('Authentication Business Logic', function () {
 
             // Optional profile fields
             $profileScore = 0;
-            if (!empty($user->name))
+            if (! empty($user->name)) {
                 $profileScore += 25;
-            if (!empty($user->email))
+            }
+            if (! empty($user->email)) {
                 $profileScore += 25;
-            if ($user->email_verified_at)
+            }
+            if ($user->email_verified_at) {
                 $profileScore += 25;
-            if (!empty($user->profile_photo_path))
+            }
+            if (! empty($user->profile_photo_path)) {
                 $profileScore += 25;
+            }
 
             expect($profileScore)->toBeGreaterThanOrEqual(75); // Good profile
         });
@@ -264,7 +268,7 @@ describe('Authentication Business Logic', function () {
             ];
 
             // Business Logic: Higher level roles have more permissions
-            usort($roles, fn($a, $b) => $a->level <=> $b->level);
+            usort($roles, fn ($a, $b) => $a->level <=> $b->level);
 
             expect($roles[0]->name)->toBe('admin'); // Highest level
             expect($roles[0]->permissions)->toContain('*'); // All permissions

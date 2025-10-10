@@ -132,7 +132,7 @@ class TenantTest extends TestCase
         $activeTenants = Tenant::where('is_active', true)->get();
 
         static::assertCount(2, $activeTenants);
-        static::assertTrue($activeTenants->every(fn($tenant) => $tenant->is_active));
+        static::assertTrue($activeTenants->every(fn ($tenant) => $tenant->is_active));
     }
 
     public function test_can_find_tenants_by_name_pattern(): void
@@ -144,7 +144,7 @@ class TenantTest extends TestCase
         $companyTenants = Tenant::where('name', 'like', '%Company%')->get();
 
         static::assertCount(1, $companyTenants);
-        static::assertTrue($companyTenants->every(fn($tenant) => str_contains($tenant->name, 'Company')));
+        static::assertTrue($companyTenants->every(fn ($tenant) => str_contains($tenant->name, 'Company')));
     }
 
     public function test_can_find_tenants_by_domain_pattern(): void
@@ -156,7 +156,7 @@ class TenantTest extends TestCase
         $exampleTenants = Tenant::where('domain', 'like', '%.example.com')->get();
 
         static::assertCount(3, $exampleTenants);
-        static::assertTrue($exampleTenants->every(fn($tenant) => str_ends_with($tenant->domain, '.example.com')));
+        static::assertTrue($exampleTenants->every(fn ($tenant) => str_ends_with($tenant->domain, '.example.com')));
     }
 
     public function test_can_update_tenant(): void

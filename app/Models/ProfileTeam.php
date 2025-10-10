@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
 
 /**
@@ -25,6 +25,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string|null $created_by
  * @property Carbon|null $deleted_at
  * @property string|null $deleted_by
+ *
  * @method static Builder<static>|ProfileTeam newModelQuery()
  * @method static Builder<static>|ProfileTeam newQuery()
  * @method static Builder<static>|ProfileTeam query()
@@ -38,6 +39,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|ProfileTeam whereUpdatedAt($value)
  * @method static Builder<static>|ProfileTeam whereUpdatedBy($value)
  * @method static Builder<static>|ProfileTeam whereUserId($value)
+ *
  * @mixin IdeHelperProfileTeam
  * @mixin \Eloquent
  */

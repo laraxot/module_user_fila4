@@ -50,7 +50,7 @@ class PasswordExpiryMiddleware
     protected function passwordHasExpired(): bool
     {
         $user = Auth::user();
-        if (!$user) {
+        if (! $user) {
             return false;
         }
 

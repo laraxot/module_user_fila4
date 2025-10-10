@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Override;
-use Illuminate\Support\Carbon;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\User\Database\Factories\AuthenticationLogFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Carbon;
+use Modules\User\Database\Factories\AuthenticationLogFactory;
+use Modules\Xot\Contracts\ProfileContract;
+use Override;
 
 /**
  * @property int $id
@@ -34,6 +34,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @property Model|\Eloquent $authenticatable
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+ *
  * @method static AuthenticationLogFactory factory($count = null, $state = [])
  * @method static Builder|AuthenticationLog newModelQuery()
  * @method static Builder|AuthenticationLog newQuery()
@@ -52,6 +53,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @method static Builder|AuthenticationLog whereUpdatedAt($value)
  * @method static Builder|AuthenticationLog whereUpdatedBy($value)
  * @method static Builder|AuthenticationLog whereUserAgent($value)
+ *
  * @mixin IdeHelperAuthenticationLog
  * @mixin \Eloquent
  */

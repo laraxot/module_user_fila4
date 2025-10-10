@@ -8,19 +8,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\PermissionResource\RelationManager;
 
-use Filament\Schemas\Components\Component;
-use Override;
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+use Override;
 
 class RoleRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'roles';
 
-    protected static null|string $recordTitleAttribute = 'name';
+    protected static ?string $recordTitleAttribute = 'name';
 
     /**
      * @return array<string, Component>
@@ -43,7 +42,7 @@ class RoleRelationManager extends XotBaseRelationManager
         ])->filters([]);
     }
 
-    protected static function getModelLabel(): null|string
+    protected static function getModelLabel(): ?string
     {
         // return __('filament-spatie-roles-permissions::filament-spatie.section.role');
         return __('filament-spatie-roles-permissions::filament-spatie.section.role');

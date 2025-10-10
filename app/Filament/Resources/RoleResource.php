@@ -4,19 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Modules\User\Filament\Resources\RoleResource\Pages\CreateRole;
 use Modules\User\Filament\Resources\RoleResource\Pages\EditRole;
 use Modules\User\Filament\Resources\RoleResource\Pages\ListRoles;
 use Modules\User\Models\Role;
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+use Override;
 
 class RoleResource extends XotBaseResource
 {
-    protected static null|string $model = Role::class;
+    protected static ?string $model = Role::class;
 
     #[Override]
     public static function getFormSchema(): array

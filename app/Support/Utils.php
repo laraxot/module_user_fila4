@@ -37,7 +37,7 @@ class Utils
             '/',
         ));
 
-        $filesystem = new Filesystem();
+        $filesystem = new Filesystem;
 
         return $filesystem->exists($roleResourcePath);
     }
@@ -89,12 +89,11 @@ class Utils
 
     public static function isAuthProviderConfigured(): bool
     {
-        return (
+        return
             in_array(
                 "BezhanSalleh\FilamentShield\Traits\HasFilamentShield",
                 class_uses(static::getAuthProviderFQCN()),
-             strict: true) || in_array(HasRoles::class, class_uses(static::getAuthProviderFQCN()), strict: true)
-        );
+                strict: true) || in_array(HasRoles::class, class_uses(static::getAuthProviderFQCN()), strict: true);
     }
 
     public static function isSuperAdminEnabled(): bool
@@ -284,6 +283,7 @@ class Utils
     public static function roleResourceExists(): bool
     {
         $roleResourcePath = base_path('Modules/User/app/Filament/Resources/RoleResource.php');
+
         return File::exists($roleResourcePath);
     }
 }

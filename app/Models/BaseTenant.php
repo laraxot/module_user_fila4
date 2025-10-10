@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Modules\User\Database\Factories\TenantFactory;
-use Illuminate\Database\Eloquent\Builder;
-use Modules\Xot\Contracts\ProfileContract;
 use Filament\Models\Contracts\HasAvatar;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Str;
 use Modules\User\Contracts\TenantContract;
+use Modules\User\Database\Factories\TenantFactory;
+use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Spatie\MediaLibrary\HasMedia;
@@ -86,7 +86,7 @@ abstract class BaseTenant extends BaseModel implements HasAvatar, HasMedia, Tena
         $userClass = $xot->getUserClass();
 
         // $this->setConnection('mysql');
-        //return $this->belongsToManyX($userClass, null, 'tenant_id', 'user_id');
+        // return $this->belongsToManyX($userClass, null, 'tenant_id', 'user_id');
         return $this->belongsToManyX($userClass);
 
         // ->as('membership')
@@ -97,7 +97,7 @@ abstract class BaseTenant extends BaseModel implements HasAvatar, HasMedia, Tena
      *
      * @return string|null URL dell'avatar o null se non presente
      */
-    public function getFilamentAvatarUrl(): null|string
+    public function getFilamentAvatarUrl(): ?string
     {
         // return $this->avatar_url;
         return $this->getFirstMediaUrl('avatar');

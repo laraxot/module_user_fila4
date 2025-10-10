@@ -26,22 +26,22 @@ class DeviceData extends Data
      * case OperatingSystem = 'X-Operating-System';
      * case SynchronizationId = 'X-Synchronization-Identifier';
      */
-    public null|string $appVersion = null;
+    public ?string $appVersion = null;
 
     // = 'X-App-Version';
-    public null|string $application = null;
+    public ?string $application = null;
 
     // = 'X-Application';
-    public null|string $deviceId = null;
+    public ?string $deviceId = null;
 
     // = 'X-Device-Id';
-    public null|string $notificationCode = null;
+    public ?string $notificationCode = null;
 
     // = 'X-Notification-Code';
-    public null|string $operatingSystem = null;
+    public ?string $operatingSystem = null;
 
     // = 'X-Operating-System';
-    public null|string $synchronizationId = null; // = 'X-Synchronization-Identifier';
+    public ?string $synchronizationId = null; // = 'X-Synchronization-Identifier';
 
     public static function make(): self
     {
@@ -91,7 +91,7 @@ class DeviceData extends Data
             'called_at' => Carbon::now(),
             // fulfilled_at
         ]);
-        Assert::string($synchronizationId = $synchronization->id, __FILE__ . ':' . __LINE__ . ' - ' . class_basename(__CLASS__));
+        Assert::string($synchronizationId = $synchronization->id, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
         $this->synchronizationId = $synchronizationId;
 
         return $this->synchronizationId;

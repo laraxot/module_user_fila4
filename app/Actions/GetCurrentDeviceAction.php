@@ -10,9 +10,9 @@ namespace Modules\User\Actions;
 
 // use DutchCodingCompany\FilamentSocialite\FilamentSocialite;
 use InvalidArgumentException;
-use RuntimeException;
 use Jenssegers\Agent\Agent;
 use Modules\User\Models\Device;
+use RuntimeException;
 use Spatie\QueueableAction\QueueableAction;
 
 class GetCurrentDeviceAction
@@ -22,9 +22,9 @@ class GetCurrentDeviceAction
     /**
      * Execute the action.
      */
-    public function execute(null|string $mobile_id = null): Device
+    public function execute(?string $mobile_id = null): Device
     {
-        $agent = new Agent();
+        $agent = new Agent;
 
         $device = $agent->device();
         $platform = $agent->platform();

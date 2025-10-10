@@ -7,21 +7,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\RelationManagers;
 
-use Filament\Schemas\Components\Component;
-use Override;
-use Filament\Forms\Components\TextInput;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Actions\CreateAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\CreateAction;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Forms;
-use Filament\Schemas\Schema;
-use Filament\Tables;
+use Filament\Actions\EditAction;
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Component;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+use Override;
 
 class DomainsRelationManager extends XotBaseRelationManager
 {
@@ -37,7 +34,7 @@ class DomainsRelationManager extends XotBaseRelationManager
             'domain' => TextInput::make('domain')
                 ->required()
                 ->prefix('http(s)://')
-                ->suffix('.' . request()->getHost())
+                ->suffix('.'.request()->getHost())
                 ->maxLength(255),
         ];
     }
@@ -50,7 +47,7 @@ class DomainsRelationManager extends XotBaseRelationManager
             ->columns([
                 TextColumn::make('domain'),
                 TextColumn::make('full-domain')->getStateUsing(
-                    static fn($record) => Str::of($record->domain)->append('.')->append(request()->getHost()),
+                    static fn ($record) => Str::of($record->domain)->append('.')->append(request()->getHost()),
                 ),
             ])
             ->filters([])

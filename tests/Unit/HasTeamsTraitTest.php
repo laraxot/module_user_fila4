@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-use Tests\TestCase;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Modules\User\Models\Role;
 use Illuminate\Support\Collection;
 use Modules\User\Contracts\TeamContract;
+use Modules\User\Models\Role;
 use Modules\User\Models\Team;
 use Modules\User\Models\TeamUser;
 use Modules\User\Models\User;
+use Tests\TestCase;
 
 /**
  * Test per il trait HasTeams corretto secondo filosofia Jetstream + Laraxot.
@@ -22,7 +22,6 @@ use Modules\User\Models\User;
  * - Tipizzazione rigorosa
  * - Metodi non-Jetstream rimossi
  */
-
 uses(TestCase::class);
 
 beforeEach(function (): void {
@@ -219,7 +218,7 @@ test('it provides utility methods', function (): void {
 
 test('it handles edge cases correctly', function (): void {
     // Test: User senza ID
-    $newUser = new User();
+    $newUser = new User;
     expect($newUser->belongsToTeams())->toBeFalse();
 
     // Test: Team senza user_id
@@ -228,5 +227,5 @@ test('it handles edge cases correctly', function (): void {
 });
 
 test('it validates assertions correctly', function (): void {
-    expect(fn() => $this->user->ownsTeam(null))->toThrow(InvalidArgumentException::class, 'Team cannot be null');
+    expect(fn () => $this->user->ownsTeam(null))->toThrow(InvalidArgumentException::class, 'Team cannot be null');
 });

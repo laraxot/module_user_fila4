@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\Actions;
 
 use Filament\Actions\Action;
-use RuntimeException;
 use Modules\User\Actions\Otp\SendOtpByUserAction;
 use Modules\User\Models\User;
 use Modules\Xot\Contracts\UserContract;
+use RuntimeException;
 use Webmozart\Assert\Assert;
 
 /**
@@ -41,7 +41,7 @@ class SendOtpAction extends Action
     /**
      * Ottieni il nome predefinito dell'azione.
      */
-    public static function getDefaultName(): null|string
+    public static function getDefaultName(): ?string
     {
         return 'send_otp';
     }

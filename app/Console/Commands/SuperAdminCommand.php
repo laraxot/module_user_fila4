@@ -32,10 +32,7 @@ class SuperAdminCommand extends Command
 
     /**
      * Create a new command instance.
-     *
-     * @return void
      */
-    
 
     /**
      * Execute the console command.
@@ -54,12 +51,12 @@ class SuperAdminCommand extends Command
         // Create module admin roles
         $modules_opts = array_keys(Module::all());
         foreach ($modules_opts as $module) {
-            $role_name = Str::lower($module) . '::admin';
+            $role_name = Str::lower($module).'::admin';
             $role = Role::firstOrCreate(['name' => $role_name]);
             $user->assignRole($role);
         }
 
-        $this->info('super-admin assigned to ' . $email);
+        $this->info('super-admin assigned to '.$email);
     }
 
     /**

@@ -4,23 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
-use Filament\Forms\Components\TextInput;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Actions\CreateAction;
 use Filament\Actions\AssociateAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\DissociateAction;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DissociateBulkAction;
+use Filament\Actions\CreateAction;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Forms;
-use Filament\Schemas\Schema;
+use Filament\Actions\DissociateAction;
+use Filament\Actions\DissociateBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Pages\ManageRelatedRecords;
-use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\User\Filament\Resources\RoleResource;
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 class ManageRolePermissions extends ManageRelatedRecords
 {
@@ -28,7 +24,7 @@ class ManageRolePermissions extends ManageRelatedRecords
 
     protected static string $relationship = 'permissions';
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function getNavigationLabel(): string
     {

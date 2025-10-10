@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-use Tests\TestCase;
 use Filament\Actions\Action;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
-use Livewire\Livewire;
 use Modules\User\Enums\UserType;
 use Modules\User\Filament\Actions\ChangePasswordAction;
 use Modules\User\Models\User;
+use Tests\TestCase;
 
 uses(TestCase::class);
 
@@ -17,7 +16,7 @@ beforeEach(function (): void {
     // Use in-memory model to avoid DB constraints between tests
     $this->user = User::factory()->make([
         'type' => UserType::MasterAdmin,
-        'email' => 'admin+' . uniqid('', true) . '@example.com',
+        'email' => 'admin+'.uniqid('', true).'@example.com',
         'password' => Hash::make('oldpassword'),
     ]);
 

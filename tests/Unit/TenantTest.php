@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-use Tests\TestCase;
-use Modules\User\Models\BaseTenant;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Filament\Models\Contracts\HasAvatar;
-use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Modules\User\Contracts\TenantContract;
-use Spatie\Sluggable\SlugOptions;
+use Modules\User\Models\BaseTenant;
 use Modules\User\Models\Tenant;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\Sluggable\SlugOptions;
+use Tests\TestCase;
 
 uses(TestCase::class);
 

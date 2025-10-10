@@ -120,7 +120,7 @@ class UserTest extends TestCase
         $doeUsers = User::where('name', 'like', '%Doe%')->get();
 
         static::assertCount(2, $doeUsers);
-        static::assertTrue($doeUsers->every(fn($user) => str_contains($user->name, 'Doe')));
+        static::assertTrue($doeUsers->every(fn ($user) => str_contains($user->name, 'Doe')));
     }
 
     public function test_can_find_user_by_status(): void
@@ -200,7 +200,7 @@ class UserTest extends TestCase
         $activeUsers = User::where('is_active', true)->get();
 
         static::assertCount(2, $activeUsers);
-        static::assertTrue($activeUsers->every(fn($user) => $user->is_active));
+        static::assertTrue($activeUsers->every(fn ($user) => $user->is_active));
     }
 
     public function test_can_find_otp_users(): void
@@ -212,7 +212,7 @@ class UserTest extends TestCase
         $otpUsers = User::where('is_otp', true)->get();
 
         static::assertCount(2, $otpUsers);
-        static::assertTrue($otpUsers->every(fn($user) => $user->is_otp));
+        static::assertTrue($otpUsers->every(fn ($user) => $user->is_otp));
     }
 
     public function test_can_update_user(): void
@@ -236,7 +236,7 @@ class UserTest extends TestCase
 
     public function test_user_has_connection_attribute(): void
     {
-        $user = new User();
+        $user = new User;
 
         static::assertSame('user', $user->connection);
     }
@@ -264,7 +264,7 @@ class UserTest extends TestCase
         $users = User::where('status', 'active')->where('city', 'New York')->get();
 
         static::assertCount(2, $users);
-        static::assertTrue($users->every(fn($user) => $user->status === 'active' && $user->city === 'New York'));
+        static::assertTrue($users->every(fn ($user) => $user->status === 'active' && $user->city === 'New York'));
     }
 
     public function test_can_handle_null_values(): void

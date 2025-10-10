@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\BaseProfileResource\Pages;
 
-use Modules\Xot\Contracts\UserContract;
 use Illuminate\Support\Arr;
 use Modules\User\Filament\Resources\BaseProfileResource;
+use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 class CreateProfile extends XotBaseCreateRecord
 {
@@ -19,7 +18,7 @@ class CreateProfile extends XotBaseCreateRecord
     {
         $user_data = Arr::except($data, ['user']);
         $extra = $data['user'] ?? [];
-        if (!is_array($extra)) {
+        if (! is_array($extra)) {
             $extra = [];
         }
         $user_data = array_merge($user_data, $extra);

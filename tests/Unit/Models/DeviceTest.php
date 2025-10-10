@@ -171,7 +171,7 @@ class DeviceTest extends TestCase
         $desktopDevices = Device::where('is_desktop', true)->get();
 
         static::assertCount(2, $desktopDevices);
-        static::assertTrue($desktopDevices->every(fn($device) => $device->is_desktop));
+        static::assertTrue($desktopDevices->every(fn ($device) => $device->is_desktop));
     }
 
     public function test_can_find_mobile_devices(): void
@@ -183,7 +183,7 @@ class DeviceTest extends TestCase
         $mobileDevices = Device::where('is_mobile', true)->get();
 
         static::assertCount(2, $mobileDevices);
-        static::assertTrue($mobileDevices->every(fn($device) => $device->is_mobile));
+        static::assertTrue($mobileDevices->every(fn ($device) => $device->is_mobile));
     }
 
     public function test_can_find_tablet_devices(): void
@@ -195,7 +195,7 @@ class DeviceTest extends TestCase
         $tabletDevices = Device::where('is_tablet', true)->get();
 
         static::assertCount(2, $tabletDevices);
-        static::assertTrue($tabletDevices->every(fn($device) => $device->is_tablet));
+        static::assertTrue($tabletDevices->every(fn ($device) => $device->is_tablet));
     }
 
     public function test_can_find_phone_devices(): void
@@ -207,7 +207,7 @@ class DeviceTest extends TestCase
         $phoneDevices = Device::where('is_phone', true)->get();
 
         static::assertCount(2, $phoneDevices);
-        static::assertTrue($phoneDevices->every(fn($device) => $device->is_phone));
+        static::assertTrue($phoneDevices->every(fn ($device) => $device->is_phone));
     }
 
     public function test_can_find_robot_devices(): void
@@ -219,7 +219,7 @@ class DeviceTest extends TestCase
         $robotDevices = Device::where('is_robot', true)->get();
 
         static::assertCount(2, $robotDevices);
-        static::assertTrue($robotDevices->every(fn($device) => $device->is_robot));
+        static::assertTrue($robotDevices->every(fn ($device) => $device->is_robot));
     }
 
     public function test_can_find_devices_by_language(): void
@@ -231,7 +231,7 @@ class DeviceTest extends TestCase
         $englishDevices = Device::whereJsonContains('languages', 'en')->get();
 
         static::assertCount(2, $englishDevices);
-        static::assertTrue($englishDevices->every(fn($device) => in_array('en', $device->languages, strict: true)));
+        static::assertTrue($englishDevices->every(fn ($device) => in_array('en', $device->languages, strict: true)));
     }
 
     public function test_can_find_devices_by_device_pattern(): void
@@ -243,7 +243,7 @@ class DeviceTest extends TestCase
         $iphoneDevices = Device::where('device', 'like', '%iPhone%')->get();
 
         static::assertCount(2, $iphoneDevices);
-        static::assertTrue($iphoneDevices->every(fn($device) => str_contains($device->device, 'iPhone')));
+        static::assertTrue($iphoneDevices->every(fn ($device) => str_contains($device->device, 'iPhone')));
     }
 
     public function test_can_update_device(): void
@@ -324,7 +324,7 @@ class DeviceTest extends TestCase
 
     public function test_device_has_fillable_attributes(): void
     {
-        $device = new Device();
+        $device = new Device;
 
         $expectedFillable = [
             'id',
@@ -348,7 +348,7 @@ class DeviceTest extends TestCase
 
     public function test_device_has_casts(): void
     {
-        $device = new Device();
+        $device = new Device;
 
         $expectedCasts = [
             'id' => 'string',

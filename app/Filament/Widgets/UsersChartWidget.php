@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-use Filament\Actions\Contracts\HasActions;
 use Exception;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Widgets\ChartWidget;
@@ -19,7 +19,7 @@ use Illuminate\Support\Carbon;
 use Modules\User\Models\AuthenticationLog;
 use Webmozart\Assert\Assert;
 
-class UsersChartWidget extends ChartWidget implements HasForms, HasActions
+class UsersChartWidget extends ChartWidget implements HasActions, HasForms
 {
     use InteractsWithActions;
     use InteractsWithForms;
@@ -27,9 +27,9 @@ class UsersChartWidget extends ChartWidget implements HasForms, HasActions
 
     public string $chart_id = '';
 
-    protected null|string $pollingInterval = null;
+    protected ?string $pollingInterval = null;
 
-    protected static null|int $sort = 2;
+    protected static ?int $sort = 2;
 
     public function getHeading(): Htmlable|string|null
     {

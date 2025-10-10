@@ -79,13 +79,13 @@ abstract class BaseUser extends Authenticatable
 }
 ```
 
-#### 2. User del Modulo Specifico (es. SaluteOra)
+#### 2. User del Modulo Specifico (es. <main module>)
 
 ```php
-namespace Modules\SaluteOra\Models;
+namespace Modules\<main module>\Models;
 
 use Modules\User\Models\BaseUser;
-use Modules\SaluteOra\Enums\UserTypeEnum;
+use Modules\<main module>\Enums\UserTypeEnum;
 
 class User extends BaseUser
 {
@@ -93,7 +93,7 @@ class User extends BaseUser
     protected $connection = 'salute_ora';
 
     /**
-     * Mappatura dei tipi specifici del progetto SaluteOra
+     * Mappatura dei tipi specifici del progetto <main module>
      */
     protected $childTypes = [
         'admin' => Admin::class,
@@ -116,7 +116,7 @@ class User extends BaseUser
 #### 3. Modelli Figli del Modulo Specifico
 
 ```php
-namespace Modules\SaluteOra\Models;
+namespace Modules\<main module>\Models;
 
 use Parental\HasParent;
 
@@ -275,12 +275,12 @@ class UserTypeCommandTest extends TestCase
 }
 
 // Test nel modulo specifico
-class SaluteOraUserTypeCommandTest extends TestCase
+class <main module>UserTypeCommandTest extends TestCase
 {
     /** @test */
     public function it_works_with_salute_ora_types()
     {
-        // Test con tipi specifici di SaluteOra
+        // Test con tipi specifici di <main module>
     }
 }
 ```
@@ -320,6 +320,6 @@ $typeValue = is_object($user->type) && method_exists($user->type, 'value')
 - [Documentazione Parental](https://github.com/tighten/parental)
 - [Laravel Single Table Inheritance](https://laravel.com/docs/eloquent-relationships#polymorphic-relationships)
 - [Modulo User - Architettura Base](./user-architecture.md)
-- [SaluteOra - Implementazione STI](../../SaluteOra/docs/user-types.md)
+- [<main module> - Implementazione STI](../../<main module>/docs/user-types.md)
 
 *Ultimo aggiornamento: Dicembre 2024*

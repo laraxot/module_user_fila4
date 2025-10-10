@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 return [
     'title' => 'Password Scaduta, Reimposta Password',
     'heading' => 'Crea una Nuova Password',

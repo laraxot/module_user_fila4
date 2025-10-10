@@ -22,9 +22,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property DateTime|null $updated_at
  * @property Team $team
  * @property User $user
+ *
  * @method static Builder<static>|TeamPermission newModelQuery()
  * @method static Builder<static>|TeamPermission newQuery()
  * @method static Builder<static>|TeamPermission query()
+ *
  * @mixin IdeHelperTeamPermission
  * @mixin \Eloquent
  */

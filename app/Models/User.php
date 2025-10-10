@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Notifications\DatabaseNotificationCollection;
-use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
-use Override;
-use Illuminate\Support\Carbon;
-use Illuminate\Database\Eloquent\Collection;
-use Modules\User\Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Notifications\DatabaseNotificationCollection;
+use Illuminate\Support\Carbon;
 use Modules\Media\Models\Media;
+use Modules\User\Database\Factories\UserFactory;
 use Modules\Xot\Contracts\ProfileContract;
+use Override;
+use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 
 /**
  * Class Modules\User\Models\User.
@@ -62,6 +62,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property int|null $tenants_count
  * @property Collection<int, OauthAccessToken> $tokens
  * @property int|null $tokens_count
+ *
  * @method static UserFactory factory($count = null, $state = [])
  * @method static Builder|User newModelQuery()
  * @method static Builder|User newQuery()
@@ -88,6 +89,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|User whereUpdatedBy($value)
  * @method static Builder|User withoutPermission($permissions)
  * @method static Builder|User withoutRole($roles, $guard = null)
+ *
  * @property string $last_name
  * @property-read Team|null $currentTeam
  * @property-read MediaCollection<int, Media> $media
@@ -106,6 +108,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string|null $moderation_data
  * @property string|null $certifications
  * @property string|null $type
+ *
  * @method static Builder<static>|User whereAddress($value)
  * @method static Builder<static>|User whereCertifications($value)
  * @method static Builder<static>|User whereCity($value)
@@ -117,6 +120,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|User whereState($value)
  * @method static Builder<static>|User whereStatus($value)
  * @method static Builder<static>|User whereType($value)
+ *
  * @mixin IdeHelperUser
  * @mixin \Eloquent
  */

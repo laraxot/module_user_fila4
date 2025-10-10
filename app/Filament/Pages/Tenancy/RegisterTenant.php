@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages\Tenancy;
 
-use Filament\Schemas\Schema;
-use Filament\Forms\Components\TextInput;
 use Filament\Pages\Tenancy\RegisterTenant as BaseRegisterTenant;
-use Filament\Support\Enums\MaxWidth;
+use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Modules\User\Contracts\TenantContract;
@@ -31,7 +29,7 @@ class RegisterTenant extends BaseRegisterTenant
         $key = Str::of(class_basename(__CLASS__))
             ->snake()
             ->prepend('actions.')
-            ->append('.' . $func)
+            ->append('.'.$func)
             ->toString();
         $str = static::transClass($tenantClass, $key);
 
@@ -46,6 +44,7 @@ class RegisterTenant extends BaseRegisterTenant
             ->append('Resource')
             ->toString();
         $this->resource = $resource;
+
         return $schema->components($this->getFormSchema());
     }
 

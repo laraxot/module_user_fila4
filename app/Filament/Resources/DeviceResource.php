@@ -4,21 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Override;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Modules\User\Filament\Resources\DeviceResource\Pages\CreateDevice;
-use Modules\User\Filament\Resources\DeviceResource\Pages\EditDevice;
-use Modules\User\Filament\Resources\DeviceResource\Pages\ListDevices;
-use Modules\User\Filament\Resources\DeviceResource\RelationManagers\UsersRelationManager;
 use Modules\User\Models\Device;
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+use Override;
 
 class DeviceResource extends XotBaseResource
 {
-    protected static null|string $model = Device::class;
+    protected static ?string $model = Device::class;
 
     #[Override]
     public static function getFormSchema(): array
@@ -49,7 +44,7 @@ class DeviceResource extends XotBaseResource
             'robot' => TextInput::make('robot')
                 ->label(__('user::device.fields.robot.label'))
                 ->maxLength(255)
-                ->visible(fn(callable $get) => $get('is_robot')),
+                ->visible(fn (callable $get) => $get('is_robot')),
             'is_desktop' => Toggle::make('is_desktop')->label(__('user::device.fields.is_desktop.label')),
             'is_mobile' => Toggle::make('is_mobile')->label(__('user::device.fields.is_mobile.label')),
             'is_tablet' => Toggle::make('is_tablet')->label(__('user::device.fields.is_tablet.label')),

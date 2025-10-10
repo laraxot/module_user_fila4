@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Team;
 
-use InvalidArgumentException;
 use Filament\Facades\Filament;
 use Filament\Notifications\Notification;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
+use InvalidArgumentException;
 use Livewire\Component;
 use Modules\User\Contracts\TeamContract;
 use Modules\User\Events\TeamSwitched;
@@ -32,10 +32,10 @@ class Change extends Component
     public function mount(): void
     {
         $this->xot = XotData::make();
-        Assert::notNull($authUser = Filament::auth()->user(), '[' . __LINE__ . '][' . class_basename($this) . ']');
+        Assert::notNull($authUser = Filament::auth()->user(), '['.__LINE__.']['.class_basename($this).']');
 
         // Verifica che l'utente implementi l'interfaccia UserContract
-        if (!($authUser instanceof UserContract)) {
+        if (! ($authUser instanceof UserContract)) {
             throw new InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
         }
 
@@ -52,7 +52,7 @@ class Change extends Component
         /** @var TeamContract */
         $team = $teamClass::firstWhere(['id' => $teamId]);
 
-        if (!$this->user->switchTeam($team)) {
+        if (! $this->user->switchTeam($team)) {
             abort(403);
         }
         if ($team !== null) {

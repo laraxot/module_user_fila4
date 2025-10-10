@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Auth;
 
-use Exception;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +28,7 @@ class Logout extends Component
 
     /**
      * Esegui logout, invalidazione sessione e redirect.
+     *
      * @return RedirectResponse|null
      */
     public function mount()
@@ -69,14 +70,13 @@ class Logout extends Component
             ]);
 
             session()->flash('error', __('Si è verificato un errore durante il logout'));
+
             return redirect()->back();
         }
     }
 
     /**
      * Renderizza il componente.
-     *
-     * @return View
      */
     public function render(): View
     {

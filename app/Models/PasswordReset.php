@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Support\Carbon;
 use Modules\User\Database\Factories\PasswordResetFactory;
+use Modules\Xot\Contracts\ProfileContract;
 
 /**
  * Modules\User\Models\PasswordReset.
@@ -20,6 +20,7 @@ use Modules\User\Database\Factories\PasswordResetFactory;
  * @property string|null $user_id
  * @property string|null $updated_by
  * @property string|null $created_by
+ *
  * @method static PasswordResetFactory factory($count = null, $state = [])
  * @method static Builder|PasswordReset newModelQuery()
  * @method static Builder|PasswordReset newQuery()
@@ -32,10 +33,13 @@ use Modules\User\Database\Factories\PasswordResetFactory;
  * @method static Builder|PasswordReset whereUpdatedAt($value)
  * @method static Builder|PasswordReset whereUpdatedBy($value)
  * @method static Builder|PasswordReset whereUserId($value)
+ *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  * @property string|null $uuid
+ *
  * @method static Builder<static>|PasswordReset whereUuid($value)
+ *
  * @mixin IdeHelperPasswordReset
  * @mixin \Eloquent
  */

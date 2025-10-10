@@ -5,15 +5,11 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\FeatureResource\Pages;
 
 use Filament\Tables\Columns\Column;
-use Override;
-use Filament\Actions\CreateAction;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\FeatureResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+use Override;
 
 class ListFeatures extends XotBaseListRecords
 {

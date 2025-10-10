@@ -23,10 +23,10 @@ class LoginController extends XotBaseController
     public function __invoke(Request $request): JsonResponse
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            Assert::notNull($user = Auth::user(), '[' . __LINE__ . '][' . class_basename($this) . ']');
+            Assert::notNull($user = Auth::user(), '['.__LINE__.']['.class_basename($this).']');
 
             // Verificare che l'utente implementi l'interfaccia PassportHasApiTokensContract
-            if (!($user instanceof PassportHasApiTokensContract)) {
+            if (! ($user instanceof PassportHasApiTokensContract)) {
                 return $this->sendError('User model must implement PassportHasApiTokensContract interface', [
                     'error' => 'Configuration Error',
                 ]);

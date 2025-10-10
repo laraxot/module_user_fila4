@@ -2,25 +2,24 @@
 
 declare(strict_types=1);
 
-use Tests\TestCase;
-use Modules\User\Filament\Resources\UserResource\Pages\BaseListUsers;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Actions\Action;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\ExportBulkAction;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Hash;
 use Modules\User\Enums\UserType;
 use Modules\User\Filament\Actions\ChangePasswordAction;
 use Modules\User\Filament\Resources\UserResource;
+use Modules\User\Filament\Resources\UserResource\Pages\BaseListUsers;
 use Modules\User\Filament\Resources\UserResource\Pages\ListUsers;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\User\Models\User;
+use Tests\TestCase;
 
 uses(TestCase::class);
 
 beforeEach(function (): void {
-    $this->listUsersPage = new ListUsers();
+    $this->listUsersPage = new ListUsers;
 
     // Create some test users
     $this->users = User::factory()

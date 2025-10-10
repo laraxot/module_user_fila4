@@ -26,8 +26,8 @@ class UpdateUserAction
     /**
      * Esegue l'aggiornamento dell'utente.
      *
-     * @param Model $user L'utente da aggiornare
-     * @param array<string, mixed> $data I dati da aggiornare
+     * @param  Model  $user  L'utente da aggiornare
+     * @param  array<string, mixed>  $data  I dati da aggiornare
      * @return Model L'utente aggiornato
      *
      * @throws Exception Se l'aggiornamento fallisce
@@ -58,7 +58,7 @@ class UpdateUserAction
             ]);
 
             $updatedUser = $user->fresh();
-            if (!($updatedUser instanceof Model)) {
+            if (! ($updatedUser instanceof Model)) {
                 throw new Exception('Failed to refresh user model after update');
             }
 
@@ -79,7 +79,7 @@ class UpdateUserAction
     /**
      * Prepara i dati per l'aggiornamento rimuovendo campi non aggiornabili.
      *
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      * @return array<string, mixed>
      */
     protected function prepareUpdateData(array $data): array
@@ -118,9 +118,7 @@ class UpdateUserAction
     /**
      * Valida i dati di aggiornamento.
      *
-     * @param Model $user
-     * @param array<string, mixed> $data
-     * @return void
+     * @param  array<string, mixed>  $data
      *
      * @throws ValidationException
      */
@@ -149,9 +147,7 @@ class UpdateUserAction
      * Operazioni da eseguire dopo l'aggiornamento.
      * Può essere sovrascritto dalle classi che estendono questa action.
      *
-     * @param Model $user
-     * @param array<string, mixed> $data
-     * @return void
+     * @param  array<string, mixed>  $data
      */
     protected function afterUpdate(Model $user, array $data): void
     {

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Actions\Socialite;
 
 use InvalidArgumentException;
-use RuntimeException;
 use Laravel\Socialite\Contracts\User as SocialiteUserContract;
 use Modules\User\Actions\Socialite\Utils\UserNameFieldsResolver;
+use RuntimeException;
 use Spatie\QueueableAction\QueueableAction;
 
 class GetUserModelAttributesFromSocialiteAction
@@ -35,10 +35,10 @@ class GetUserModelAttributesFromSocialiteAction
             throw new RuntimeException('Impossibile istanziare UserNameFieldsResolver');
         }
 
-        if (!is_string($nameFieldsResolver->name)) {
+        if (! is_string($nameFieldsResolver->name)) {
             throw new RuntimeException('Il nome deve essere una stringa');
         }
-        if (!is_string($nameFieldsResolver->last_name)) {
+        if (! is_string($nameFieldsResolver->last_name)) {
             throw new RuntimeException('Il cognome deve essere una stringa');
         }
 
@@ -47,7 +47,7 @@ class GetUserModelAttributesFromSocialiteAction
         $this->last_name = $nameFieldsResolver->last_name;
 
         $email = $this->oauthUser->getEmail();
-        if (!is_string($email) || empty($email)) {
+        if (! is_string($email) || empty($email)) {
             throw new RuntimeException('L\'email deve essere una stringa non vuota');
         }
         $this->email = $email;

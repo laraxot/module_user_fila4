@@ -5,19 +5,19 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 // use Illuminate\Database\Eloquent\Relations\HasOne;
-use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
-use Illuminate\Notifications\DatabaseNotificationCollection;
-use Illuminate\Notifications\DatabaseNotification;
-use Override;
-use Illuminate\Database\Eloquent\Collection;
-use Modules\Media\Models\Media;
-use Modules\Xot\Contracts\UserContract;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
+use Modules\Media\Models\Media;
 use Modules\User\Models\Traits\IsProfileTrait;
 use Modules\Xot\Contracts\ProfileContract;
+use Modules\Xot\Contracts\UserContract;
+use Override;
 use Parental\HasChildren;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
 use Spatie\SchemalessAttributes\SchemalessAttributesTrait;
@@ -127,7 +127,7 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
         $email = mb_strtolower($email);
         // 'myemailaddress@example.com'
         $hash = hash('sha256', $email);
-        $avatar = 'https://gravatar.com/avatar/' . $hash . '?s=64';
+        $avatar = 'https://gravatar.com/avatar/'.$hash.'?s=64';
 
         return $avatar;
 
@@ -150,13 +150,13 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
         $locale = config('app.locale');
         $defaultLocale = 'it';
 
-        if ($locale === null || !is_string($locale)) {
+        if ($locale === null || ! is_string($locale)) {
             $locale = $defaultLocale;
         }
 
         $userLang = $this->lang;
 
-        if ($userLang === null || !is_string($userLang)) {
+        if ($userLang === null || ! is_string($userLang)) {
             return $locale;
         }
 

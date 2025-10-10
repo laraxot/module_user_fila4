@@ -10,11 +10,11 @@ namespace Modules\User\Actions\Socialite;
 
 // use DutchCodingCompany\FilamentSocialite\FilamentSocialite;
 use InvalidArgumentException;
-use RuntimeException;
-use ReflectionClass;
-use ReflectionException;
 use Laravel\Socialite\Contracts\User as SocialiteUserContract;
 use Modules\User\Models\SocialiteUser;
+use ReflectionClass;
+use ReflectionException;
+use RuntimeException;
 use Spatie\QueueableAction\QueueableAction;
 
 class RetrieveSocialiteUserAction
@@ -24,14 +24,14 @@ class RetrieveSocialiteUserAction
     /**
      * Execute the action.
      */
-    public function execute(string $provider, SocialiteUserContract $user): null|SocialiteUser
+    public function execute(string $provider, SocialiteUserContract $user): ?SocialiteUser
     {
         if (empty($provider)) {
             throw new InvalidArgumentException('Il provider non può essere vuoto');
         }
 
         $providerId = $user->getId();
-        if (!is_string($providerId) && !is_int($providerId)) {
+        if (! is_string($providerId) && ! is_int($providerId)) {
             throw new RuntimeException('L\'ID del provider deve essere una stringa o un intero');
         }
 
@@ -83,7 +83,7 @@ class RetrieveSocialiteUserAction
 
         if (empty($token)) {
             // Se non riusciamo a ottenere un token valido, utilizziamo un valore predefinito
-            $token = 'no_token_' . time();
+            $token = 'no_token_'.time();
         }
 
         $res->update([

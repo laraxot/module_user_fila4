@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
-use Modules\Xot\Actions\Cast\SafeObjectCastAction;
 use Illuminate\Console\Command;
-use Illuminate\Support\Arr;
+use Modules\Xot\Actions\Cast\SafeObjectCastAction;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
-use Symfony\Component\Console\Input\InputOption;
 use Webmozart\Assert\Assert;
 
 use function Laravel\Prompts\select;
@@ -39,15 +37,10 @@ class ChangeTypeCommand extends Command
 
     /**
      * Create a new command instance.
-     *
-     * @return void
      */
-    
 
     /**
      * Execute the console command.
-     *
-     * @return void
      */
     public function handle(): void
     {
@@ -57,12 +50,14 @@ class ChangeTypeCommand extends Command
         /** @var UserContract $user */
         $user = XotData::make()->getUserByEmail($email);
 
-        if (!$user) {
+        if (! $user) {
             $this->error("User with email '{$email}' not found.");
+
             return;
         }
-        if (!method_exists($user, 'getChildTypes')) {
+        if (! method_exists($user, 'getChildTypes')) {
             $this->error('User model does not have childTypes method.');
+
             return;
         }
 
@@ -70,7 +65,7 @@ class ChangeTypeCommand extends Command
         /** @phpstan-ignore nullsafe.neverNull */
         $typeLabel = $user->type?->getLabel() ?? 'None';
         $typeLabelString = is_string($typeLabel) ? $typeLabel : $typeLabel->toHtml();
-        $this->info("Current user type: " . $typeLabelString);
+        $this->info('Current user type: '.$typeLabelString);
 
         $typeClass = $xot->getUserChildTypeClass();
         /** @var array<string, string> */

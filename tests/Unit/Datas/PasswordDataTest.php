@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-use Tests\TestCase;
-use Spatie\LaravelData\Data;
-use Illuminate\Validation\Rules\Password;
 use Modules\User\Datas\PasswordData;
+use Spatie\LaravelData\Data;
+use Tests\TestCase;
 
 uses(TestCase::class);
 
@@ -41,7 +40,7 @@ test('password data can be created with custom parameters', function (): void {
 });
 
 test('password data has default values', function (): void {
-    $defaultPasswordData = new PasswordData();
+    $defaultPasswordData = new PasswordData;
 
     expect($defaultPasswordData->otp_expiration_minutes)->toBe(5);
     expect($defaultPasswordData->otp_length)->toBe(6);
@@ -64,7 +63,7 @@ test('password data has correct properties', function (): void {
     $reflection = new ReflectionClass(PasswordData::class);
     $properties = $reflection->getProperties();
 
-    $propertyNames = array_map(fn($prop) => $prop->getName(), $properties);
+    $propertyNames = array_map(fn ($prop) => $prop->getName(), $properties);
 
     expect($propertyNames)->toContain('otp_expiration_minutes');
     expect($propertyNames)->toContain('otp_length');

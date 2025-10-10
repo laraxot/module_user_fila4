@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Override;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,14 +12,17 @@ use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
+use Override;
 
 /**
  * Modules\User\Models\DeviceUser.
  *
  * @property Device|null $device
+ *
  * @method static Builder|DeviceUser newModelQuery()
  * @method static Builder|DeviceUser newQuery()
  * @method static Builder|DeviceUser query()
+ *
  * @property string $id
  * @property string $device_id
  * @property string $user_id
@@ -32,6 +34,7 @@ use Modules\Xot\Datas\XotData;
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
  * @property string|null $created_by
+ *
  * @method static Builder|DeviceUser whereCreatedAt($value)
  * @method static Builder|DeviceUser whereCreatedBy($value)
  * @method static Builder|DeviceUser whereDeviceId($value)
@@ -43,10 +46,12 @@ use Modules\Xot\Datas\XotData;
  * @method static Builder|DeviceUser whereUpdatedAt($value)
  * @method static Builder|DeviceUser whereUpdatedBy($value)
  * @method static Builder|DeviceUser whereUserId($value)
+ *
  * @property ProfileContract|null $profile
  * @property UserContract|null $user
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+ *
  * @mixin IdeHelperDeviceUser
  * @mixin \Eloquent
  */

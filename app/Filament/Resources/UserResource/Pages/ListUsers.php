@@ -4,23 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\Pages;
 
-use Filament\Actions\BulkAction;
-use Filament\Tables\Filters\BaseFilter;
-use Override;
 use Filament\Actions\Action;
+use Filament\Actions\BulkAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\ExportBulkAction;
-use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\BaseFilter;
 use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Query\Builder;
 use Modules\User\Filament\Actions\ChangePasswordAction;
 use Modules\User\Filament\Resources\UserResource;
-use Modules\User\Filament\Resources\UserResource\Pages\BaseListUsers;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\Xot\Contracts\UserContract;
-use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+use Override;
 
 class ListUsers extends BaseListUsers
 {
@@ -30,12 +26,12 @@ class ListUsers extends BaseListUsers
     public function getTableColumns(): array
     {
         return [
-            //'id' => TextColumn::make('id'),
+            // 'id' => TextColumn::make('id'),
             'name' => TextColumn::make('name')->searchable(),
             'email' => TextColumn::make('email')->searchable(),
-            //'email_verified_at' => TextColumn::make('email_verified_at')
+            // 'email_verified_at' => TextColumn::make('email_verified_at')
             //    ->dateTime(),
-            //'created_at' => TextColumn::make('created_at')
+            // 'created_at' => TextColumn::make('created_at')
             //    ->dateTime(),
         ];
     }
@@ -70,7 +66,7 @@ class ListUsers extends BaseListUsers
                 ->tooltip(__('filament-actions::delete.single.label'))
                 ->color('danger')
                 ->icon('heroicon-o-trash')
-                ->action(static fn(UserContract $user) => $user->delete()),
+                ->action(static fn (UserContract $user) => $user->delete()),
         ];
     }
 

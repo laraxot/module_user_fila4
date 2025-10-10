@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Controllers\Socialite;
 
-use Modules\Xot\Contracts\UserContract;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +26,7 @@ use Modules\User\Actions\Socialite\ValidateProviderAction;
 use Modules\User\Events\RegistrationNotEnabled;
 use Modules\User\Events\UserNotAllowed;
 use Modules\User\Exceptions\ProviderNotConfigured;
+use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 
 class ProcessCallbackController extends Controller
@@ -49,7 +49,7 @@ class ProcessCallbackController extends Controller
         }
 
         // Verify if user is allowed
-        if (!app(IsUserAllowedAction::class)->execute($oauthUser)) {
+        if (! app(IsUserAllowedAction::class)->execute($oauthUser)) {
             UserNotAllowed::dispatch($oauthUser);
 
             return app(RedirectToLoginAction::class)->execute('auth.user-not-allowed');
@@ -59,7 +59,7 @@ class ProcessCallbackController extends Controller
         $socialiteUser = app(RetrieveSocialiteUserAction::class)->execute($provider, $oauthUser);
         if ($socialiteUser) {
             $socialiteUserObj = $socialiteUser->user;
-            if ($socialiteUserObj === null || !$socialiteUserObj->canAccessSocialite()) {
+            if ($socialiteUserObj === null || ! $socialiteUserObj->canAccessSocialite()) {
                 return app(RedirectToLoginAction::class)->execute('auth.user-not-allowed');
             }
             // Associate default roles to the existing "real" user, if needed
@@ -71,7 +71,7 @@ class ProcessCallbackController extends Controller
         }
 
         // See if registration is allowed
-        if (!app(IsRegistrationEnabledAction::class)->execute()) {
+        if (! app(IsRegistrationEnabledAction::class)->execute()) {
             RegistrationNotEnabled::dispatch($provider, $oauthUser);
 
             return app(RedirectToLoginAction::class)->execute('auth.registration-not-enabled');
@@ -91,14 +91,14 @@ class ProcessCallbackController extends Controller
         }
 
         $socialiteUserObj = $socialiteUser->user;
-        if ($socialiteUserObj === null || !$socialiteUserObj->canAccessSocialite()) {
+        if ($socialiteUserObj === null || ! $socialiteUserObj->canAccessSocialite()) {
             return app(RedirectToLoginAction::class)->execute('auth.user-not-allowed');
         }
 
         // Verifichiamo prima se l'utente può accedere al socialite
         /** @var UserContract|null $authUser */
         $authUser = Auth::user();
-        if ($authUser !== null && method_exists($authUser, 'canAccessSocialite') && !$authUser->canAccessSocialite()) {
+        if ($authUser !== null && method_exists($authUser, 'canAccessSocialite') && ! $authUser->canAccessSocialite()) {
             return redirect()->route(
                 optional(Auth::check()) ? 'filament.user.pages.dashboard' : 'filament.user.auth.login',
             );

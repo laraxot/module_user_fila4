@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
-use Illuminate\Database\Eloquent\Model;
 use Exception;
 use Illuminate\Console\Command;
-use Modules\Xot\Contracts\UserContract;
+use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Datas\XotData;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -41,20 +40,23 @@ class SetCurrentTeamCommand extends Command
         $email = text('email ?');
         if (empty($email)) {
             $this->error('Email non valida!');
+
             return;
         }
 
         $xot = XotData::make();
         $user = $xot->getUserByEmail($email);
 
-        if (!($user instanceof Model)) {
+        if (! ($user instanceof Model)) {
             $this->error('Utente non trovato o non valido!');
+
             return;
         }
 
         $teamClass = $xot->getTeamClass();
-        if (!class_exists($teamClass)) {
+        if (! class_exists($teamClass)) {
             $this->error('Classe team non trovata!');
+
             return;
         }
 
@@ -63,6 +65,7 @@ class SetCurrentTeamCommand extends Command
 
         if (empty($opts)) {
             $this->error('Nessun team disponibile!');
+
             return;
         }
 
@@ -73,8 +76,9 @@ class SetCurrentTeamCommand extends Command
             scroll: 10,
         );
 
-        if (!is_numeric($team_id)) {
+        if (! is_numeric($team_id)) {
             $this->error('ID team non valido!');
+
             return;
         }
 
@@ -83,7 +87,7 @@ class SetCurrentTeamCommand extends Command
             $user->save();
             $this->info('OK');
         } catch (Exception $e) {
-            $this->error('Errore durante il salvataggio: ' . $e->getMessage());
+            $this->error('Errore durante il salvataggio: '.$e->getMessage());
         }
     }
 

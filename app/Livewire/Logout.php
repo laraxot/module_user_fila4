@@ -23,7 +23,7 @@ class Logout extends Component
     /**
      * Handle user logout process.
      */
-    public function logout(): null|RedirectResponse
+    public function logout(): ?RedirectResponse
     {
         $this->processing = true;
 
@@ -36,6 +36,7 @@ class Logout extends Component
         } catch (Exception $e) {
             $this->processing = false;
             session()->flash('error', __('Errore durante il logout. Riprova.'));
+
             return null;
         }
     }

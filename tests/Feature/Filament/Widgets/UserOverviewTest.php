@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-use Tests\TestCase;
 use Filament\Widgets\Widget;
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Enums\UserType;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\User\Models\User;
+use Tests\TestCase;
 
 uses(TestCase::class);
 
 beforeEach(function (): void {
-    $this->widget = new UserOverview();
+    $this->widget = new UserOverview;
     $this->user = User::factory()->create([
         'type' => UserType::MasterAdmin,
         'email' => 'admin@example.com',

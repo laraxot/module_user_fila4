@@ -6,14 +6,14 @@
 
 declare(strict_types=1);
 
-use Modules\User\Http\Livewire\Auth\Passwords\Email;
-use Modules\User\Http\Livewire\Auth\Passwords\Reset;
-use Modules\User\Http\Livewire\Auth\Verify;
-use Modules\User\Http\Livewire\Auth\Passwords\Confirm;
 use Illuminate\Support\Facades\Route;
 use Modules\User\Http\Controllers\Auth\EmailVerificationController;
 use Modules\User\Http\Controllers\Auth\LogoutController;
+use Modules\User\Http\Livewire\Auth\Passwords\Confirm;
+use Modules\User\Http\Livewire\Auth\Passwords\Email;
+use Modules\User\Http\Livewire\Auth\Passwords\Reset;
 use Modules\User\Http\Livewire\Auth\Register;
+use Modules\User\Http\Livewire\Auth\Verify;
 
 /*
  * |--------------------------------------------------------------------------
@@ -73,7 +73,7 @@ Route::namespace('Socialite')
         Route::get(
             '/login/{provider}',
             'RedirectToProviderController',
-        // 'LoginController@redirectToProvider',
+            // 'LoginController@redirectToProvider',
         );
         // ->name('oauth.redirect')
 

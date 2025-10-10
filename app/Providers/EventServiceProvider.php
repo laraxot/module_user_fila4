@@ -8,7 +8,6 @@ use Illuminate\Auth\Events\Failed;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Auth\Events\OtherDeviceLogout;
-use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Modules\User\Listeners\FailedLoginListener;
 use Modules\User\Listeners\LoginListener;
 use Modules\User\Listeners\LogoutListener;
@@ -20,8 +19,11 @@ use SocialiteProviders\Manager\SocialiteWasCalled;
 class EventServiceProvider extends XotBaseEventServiceProvider
 {
     public string $name = 'User';
+
     public string $nameLower = 'user';
+
     protected string $module_dir = __DIR__;
+
     protected string $module_ns = __NAMESPACE__;
 
     /**

@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Clusters\Appearance\Pages;
 
-use Filament\Schemas\Schema;
 use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Pages\Page;
+use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Clusters\Appearance;
@@ -22,15 +22,15 @@ class Colors extends Page implements HasForms
 {
     use InteractsWithForms;
 
-    public null|array $data = [];
+    public ?array $data = [];
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
     protected string $view = 'user::filament.clusters.appearance.pages.colors';
 
-    protected static null|string $cluster = Appearance::class;
+    protected static ?string $cluster = Appearance::class;
 
-    protected static null|int $navigationSort = 3;
+    protected static ?int $navigationSort = 3;
 
     public function mount(): void
     {

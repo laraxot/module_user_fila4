@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Unit\Actions;
 
-use InvalidArgumentException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use InvalidArgumentException;
 use Jenssegers\Agent\Agent;
 use Mockery;
 use Modules\User\Actions\GetCurrentDeviceAction;
@@ -23,7 +23,7 @@ class GetCurrentDeviceActionTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->action = new GetCurrentDeviceAction();
+        $this->action = new GetCurrentDeviceAction;
 
         // Mock the Agent class
         $this->mockAgent = Mockery::mock(Agent::class);
@@ -152,7 +152,7 @@ class GetCurrentDeviceActionTest extends TestCase
         $emptyMobileId = '';
 
         // Act & Assert
-        expect(fn() => $this->action->execute($emptyMobileId))
+        expect(fn () => $this->action->execute($emptyMobileId))
             ->toThrow(InvalidArgumentException::class, 'L\'ID mobile non può essere vuoto');
     }
 

@@ -4,23 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Spatie\SchemalessAttributes\SchemalessAttributes;
-use Illuminate\Notifications\DatabaseNotificationCollection;
-use Illuminate\Notifications\DatabaseNotification;
-use Illuminate\Database\Eloquent\Collection;
-use Modules\Media\Models\Media;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Notifications\DatabaseNotificationCollection;
+use Modules\Media\Models\Media;
 use Modules\User\Contracts\UserContract;
 use Modules\User\Database\Factories\ProfileFactory;
-use Modules\User\Models\Pivots\DeviceProfile;
-use Modules\User\Models\Pivots\ProfileTeam;
 use Modules\Xot\Contracts\ProfileContract;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 use Spatie\Permission\Traits\HasRoles;
+use Spatie\SchemalessAttributes\SchemalessAttributes;
 use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttributes;
 
 /**
@@ -68,6 +64,7 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * @property-read ProfileContract|null $updater
  * @property-read UserContract|null $user
  * @property-read string|null $user_name
+ *
  * @method static ProfileFactory factory($count = null, $state = [])
  * @method static Builder<static>|Profile newModelQuery()
  * @method static Builder<static>|Profile newQuery()
@@ -77,14 +74,15 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * @method static Builder<static>|Profile withExtraAttributes()
  * @method static Builder<static>|Profile withoutPermission($permissions)
  * @method static Builder<static>|Profile withoutRole($roles, $guard = null)
+ *
  * @mixin IdeHelperProfile
  * @mixin \Eloquent
  */
 class Profile extends BaseProfile implements HasMedia
 {
     use HasRoles;
-    use InteractsWithMedia;
     use HasSchemalessAttributes;
+    use InteractsWithMedia;
 
     /**
      * The schemaless attributes.

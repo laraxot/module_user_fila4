@@ -4,19 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Filament\Schemas\Components\Component;
-use Override;
-use Modules\User\Filament\Resources\SocialProviderResource\Pages\ListSocialProviders;
-use Modules\User\Filament\Resources\SocialProviderResource\Pages\CreateSocialProvider;
-use Modules\User\Filament\Resources\SocialProviderResource\Pages\ViewSocialProvider;
-use Modules\User\Filament\Resources\SocialProviderResource\Pages\EditSocialProvider;
 use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Modules\User\Filament\Resources\SocialProviderResource\Pages;
+use Filament\Schemas\Components\Component;
+use Modules\User\Filament\Resources\SocialProviderResource\Pages\CreateSocialProvider;
+use Modules\User\Filament\Resources\SocialProviderResource\Pages\EditSocialProvider;
+use Modules\User\Filament\Resources\SocialProviderResource\Pages\ListSocialProviders;
+use Modules\User\Filament\Resources\SocialProviderResource\Pages\ViewSocialProvider;
 use Modules\User\Models\SocialProvider;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+use Override;
 
 /**
  * @property SocialProvider $record
@@ -24,7 +23,7 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
  */
 class SocialProviderResource extends XotBaseResource
 {
-    protected static null|string $model = SocialProvider::class;
+    protected static ?string $model = SocialProvider::class;
 
     /**
      * @return array<string, Component>

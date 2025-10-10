@@ -37,6 +37,7 @@ use Webmozart\Assert\Assert;
  * @property Team|null $team
  * @property EloquentCollection<int, Model&UserContract> $users
  * @property int|null $users_count
+ *
  * @method static Builder|Role newModelQuery()
  * @method static Builder|Role newQuery()
  * @method static Builder|Role permission($permissions)
@@ -47,15 +48,23 @@ use Webmozart\Assert\Assert;
  * @method static Builder|Role whereTeamId($value)
  * @method static Builder|Role whereUpdatedAt($value)
  * @method static Builder|Role whereUuid($value)
+ *
  * @property int $id
+ *
  * @method static Builder|Role whereId($value)
+ *
  * @property string|null $updated_by
  * @property string|null $created_by
+ *
  * @method static Builder|Role whereCreatedBy($value)
  * @method static Builder|Role whereUpdatedBy($value)
+ *
  * @mixin Eloquent
+ *
  * @method static Builder|Role withoutPermission($permissions)
+ *
  * @property PermissionRole|null $pivot
+ *
  * @mixin IdeHelperRole
  * @mixin \Eloquent
  */

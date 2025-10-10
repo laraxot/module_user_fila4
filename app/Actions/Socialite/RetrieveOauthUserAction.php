@@ -22,7 +22,7 @@ class RetrieveOauthUserAction
     /**
      * Execute the action.
      */
-    public function execute(string $provider): null|SocialiteUserContract
+    public function execute(string $provider): ?SocialiteUserContract
     {
         try {
             return Socialite::driver($provider)->user();

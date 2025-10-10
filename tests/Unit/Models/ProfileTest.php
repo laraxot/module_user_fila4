@@ -70,7 +70,7 @@ class ProfileTest extends TestCase
 
     public function test_profile_has_schemaless_attributes(): void
     {
-        $profile = new Profile();
+        $profile = new Profile;
 
         $expectedAttributes = ['extra'];
         static::assertSame($expectedAttributes, $profile->getSchemalessAttributes());
@@ -78,7 +78,7 @@ class ProfileTest extends TestCase
 
     public function test_profile_has_table_name(): void
     {
-        $profile = new Profile();
+        $profile = new Profile;
 
         static::assertSame('profiles', $profile->getTable());
     }
@@ -178,7 +178,7 @@ class ProfileTest extends TestCase
         $doeProfiles = Profile::where('last_name', 'like', '%Doe%')->get();
 
         static::assertCount(2, $doeProfiles);
-        static::assertTrue($doeProfiles->every(fn($profile) => str_contains($profile->last_name, 'Doe')));
+        static::assertTrue($doeProfiles->every(fn ($profile) => str_contains($profile->last_name, 'Doe')));
     }
 
     public function test_can_find_profiles_by_bio_pattern(): void
@@ -190,7 +190,7 @@ class ProfileTest extends TestCase
         $devProfiles = Profile::where('bio', 'like', '%Developer%')->get();
 
         static::assertCount(1, $devProfiles);
-        static::assertTrue($devProfiles->every(fn($profile) => str_contains($profile->bio, 'Developer')));
+        static::assertTrue($devProfiles->every(fn ($profile) => str_contains($profile->bio, 'Developer')));
     }
 
     public function test_can_update_profile(): void

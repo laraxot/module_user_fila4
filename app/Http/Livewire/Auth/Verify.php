@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Auth;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\View\Factory;
-use Modules\Xot\Actions\File\ViewCopyAction;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Modules\Xot\Actions\File\ViewCopyAction;
 use Webmozart\Assert\Assert;
 
 class Verify extends Component
 {
     public function resend(): void
     {
-        Assert::notNull($user = Auth::user(), '[' . __LINE__ . '][' . class_basename($this) . ']');
+        Assert::notNull($user = Auth::user(), '['.__LINE__.']['.class_basename($this).']');
         if ($user->hasVerifiedEmail()) {
             redirect(route('home'));
         }

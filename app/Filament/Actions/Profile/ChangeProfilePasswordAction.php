@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Actions\Profile;
 
 use Filament\Actions\Action;
-use Modules\Xot\Contracts\UserContract;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Arr;
@@ -17,6 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Modules\User\Datas\PasswordData;
 use Modules\Xot\Contracts\ProfileContract;
+use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 
 /**
@@ -59,12 +59,12 @@ class ChangeProfilePasswordAction extends Action
                 PasswordData::make()->getPasswordFormComponent('new_password'),
                 TextInput::make('new_password_confirmation')
                     ->password()
-                    ->rule('required', static fn($get): bool => (bool) $get('new_password'))
+                    ->rule('required', static fn ($get): bool => (bool) $get('new_password'))
                     ->same('new_password'),
             ]);
     }
 
-    public static function getDefaultName(): null|string
+    public static function getDefaultName(): ?string
     {
         return 'changePassword';
     }

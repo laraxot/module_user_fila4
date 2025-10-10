@@ -15,9 +15,9 @@ require 'socialite.php';
 if (XotData::make()->register_pub_theme) {
     // require 'web_tall.php';
 } else {
-    Route::get('/login', static fn() => redirect('/admin/login'))->name('login');
+    Route::get('/login', static fn () => redirect('/admin/login'))->name('login');
 }
 
 Route::post('/logout', LogoutController::class)->name('logout');
 
-//Route::get('/upgrade', 'UpgradeController');
+// Route::get('/upgrade', 'UpgradeController');

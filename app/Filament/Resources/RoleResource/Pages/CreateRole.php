@@ -9,7 +9,6 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\RoleResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 class CreateRole extends XotBaseCreateRecord
 {
@@ -22,14 +21,14 @@ class CreateRole extends XotBaseCreateRecord
     {
         $this->permissions = collect($data)
             ->filter(
-                static fn($_permission, $key): bool => (
-                    !in_array($key, ['name', 'guard_name', 'select_all'], false) && Str::contains($key, '_')
+                static fn ($_permission, $key): bool => (
+                    ! in_array($key, ['name', 'guard_name', 'select_all'], false) && Str::contains($key, '_')
                 ),
             )
             ->keys();
 
         $res = Arr::only($data, ['name', 'guard_name', 'team_id']);
-        if (!isset($res['team_id'])) {
+        if (! isset($res['team_id'])) {
             $res['team_id'] = null;
         }
 

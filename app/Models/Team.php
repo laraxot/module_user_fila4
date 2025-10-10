@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Support\Carbon;
-use Modules\Xot\Contracts\ProfileContract;
-use Illuminate\Database\Eloquent\Collection;
-use Modules\User\Database\Factories\TeamFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Carbon;
+use Modules\User\Database\Factories\TeamFactory;
+use Modules\Xot\Contracts\ProfileContract;
 
 /**
  * Class Modules\User\Models\Team.
@@ -33,6 +33,7 @@ use Illuminate\Database\Eloquent\Builder;
  * @property ProfileContract|null $updater
  * @property Collection<int, User> $users
  * @property int|null $users_count
+ *
  * @method static TeamFactory factory($count = null, $state = [])
  * @method static Builder|Team newModelQuery()
  * @method static Builder|Team newQuery()
@@ -47,15 +48,20 @@ use Illuminate\Database\Eloquent\Builder;
  * @method static Builder|Team whereUpdatedAt($value)
  * @method static Builder|Team whereUpdatedBy($value)
  * @method static Builder|Team whereUserId($value)
+ *
  * @property string|null $code
+ *
  * @method static Builder|Team whereCode($value)
+ *
  * @property string|null $uuid
+ *
  * @method static Builder<static>|Team whereUuid($value)
+ *
  * @property string|null $owner_id
+ *
  * @method static Builder<static>|Team whereOwnerId($value)
+ *
  * @mixin IdeHelperTeam
  * @mixin \Eloquent
  */
-class Team extends BaseTeam
-{
-}
+class Team extends BaseTeam {}

@@ -14,9 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Modules\User\Actions\GetCurrentDeviceAction;
 use Modules\User\Contracts\HasAuthentications;
-use Modules\User\Models\AuthenticationLog;
 use Modules\User\Models\DeviceUser;
-use Modules\User\Traits\HasAuthentications as HasAuthenticationsTrait;
 
 class LogoutListener
 {
@@ -39,8 +37,9 @@ class LogoutListener
     {
         try {
             // Verifica se l'utente esiste prima di procedere
-            if (!$event->user) {
+            if (! $event->user) {
                 Log::warning('Tentativo di logout per un utente non autenticato');
+
                 return;
             }
 

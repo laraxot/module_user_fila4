@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Controllers\Auth;
 
-use InvalidArgumentException;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Http\Controllers\Controller;
 use Filament\Facades\Filament;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Events\Verified;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use InvalidArgumentException;
 
 class VerifyEmailController extends Controller
 {
@@ -39,8 +39,8 @@ class VerifyEmailController extends Controller
             ? $user->getEmailForVerification()
             : ($user->email ?? '');
 
-        if (!hash_equals(sha1($userEmail), $stringRouteHash)) {
-            throw new AuthorizationException();
+        if (! hash_equals(sha1($userEmail), $stringRouteHash)) {
+            throw new AuthorizationException;
         }
 
         // Verifichiamo l'email solo se il metodo esiste
@@ -54,12 +54,12 @@ class VerifyEmailController extends Controller
         }
 
         // Verificare che l'utente implementi l'interfaccia MustVerifyEmail
-        if (!($user instanceof MustVerifyEmail)) {
+        if (! ($user instanceof MustVerifyEmail)) {
             throw new InvalidArgumentException('L\'utente deve implementare l\'interfaccia MustVerifyEmail');
         }
 
         event(new Verified($user));
 
-        return redirect()->intended(route('dashboard', absolute: false) . '?verified=1');
+        return redirect()->intended(route('dashboard', absolute: false).'?verified=1');
     }
 }

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Tests\Feature;
 
 use Illuminate\Database\QueryException;
-use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 use Modules\User\Models\Permission;
 use Modules\User\Models\Profile;
 use Modules\User\Models\Role;

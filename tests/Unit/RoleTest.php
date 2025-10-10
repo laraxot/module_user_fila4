@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-use Tests\TestCase;
 use Modules\User\Models\Permission;
 use Modules\User\Models\Role;
-use Modules\User\Models\User;
+use Tests\TestCase;
 
 uses(TestCase::class);
 

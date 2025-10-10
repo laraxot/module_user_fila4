@@ -31,10 +31,7 @@ class AssignRoleCommand extends Command
 
     /**
      * Create a new command instance.
-     *
-     * @return void
      */
-    
 
     /**
      * Execute the console command.
@@ -55,11 +52,11 @@ class AssignRoleCommand extends Command
             options: $opts,
             required: true,
             scroll: 10,
-        // validate: function (array $values) {
-        //  return ! \in_array(\count($values), [1, 2], false)
-        //    ? 'A maximum of two'
-        //  : null;
-        // }
+            // validate: function (array $values) {
+            //  return ! \in_array(\count($values), [1, 2], false)
+            //    ? 'A maximum of two'
+            //  : null;
+            // }
         );
 
         foreach ($rows as $row) {
@@ -67,7 +64,7 @@ class AssignRoleCommand extends Command
             $user->assignRole($role);
         }
 
-        $this->info(implode(', ', $rows) . ' assigned to ' . $email);
+        $this->info(implode(', ', $rows).' assigned to '.$email);
     }
 
     /**

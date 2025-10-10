@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Controllers\Api;
 
-use Modules\Xot\Contracts\UserContract;
-use InvalidArgumentException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use InvalidArgumentException;
 use Modules\User\Actions\Socialite\LogoutUserAction;
+use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\JsonResponseData;
 use Modules\Xot\Http\Controllers\XotBaseController;
 use Webmozart\Assert\Assert;
@@ -31,10 +31,10 @@ class LogoutController extends XotBaseController
      */
     public function __invoke(Request $request): JsonResponse
     {
-        Assert::notNull($user = $request->user(), '[' . __LINE__ . '][' . class_basename($this) . ']');
+        Assert::notNull($user = $request->user(), '['.__LINE__.']['.class_basename($this).']');
 
         // Verificare che l'utente implementi l'interfaccia UserContract
-        if (!($user instanceof UserContract)) {
+        if (! ($user instanceof UserContract)) {
             throw new InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
         }
 

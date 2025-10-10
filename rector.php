@@ -47,7 +47,7 @@ return static function (RectorConfig $rectorConfig): void {
         '*/docs',
         '*/vendor',
         './vendor/',
-        __DIR__ . '/vendor',
+        __DIR__.'/vendor',
     ]);
 
     $rectorConfig->importNames();

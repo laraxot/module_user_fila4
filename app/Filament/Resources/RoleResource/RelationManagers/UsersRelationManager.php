@@ -4,21 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\RelationManagers;
 
-use Filament\Tables\Columns\Layout\Component;
-use Filament\Tables\Filters\BaseFilter;
-use Override;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 use Filament\Tables;
+use Filament\Tables\Columns\Layout\Component;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\BaseFilter;
 use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
-use Modules\UI\Enums\TableLayoutEnum;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-use Modules\Xot\Filament\Traits\HasXotTable;
-use Modules\Xot\Filament\Traits\TransTrait;
+use Override;
 
 /**
  * UsersRelationManager.
@@ -30,7 +26,7 @@ final class UsersRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'users';
 
-    protected static null|string $inverseRelationship = 'roles';
+    protected static ?string $inverseRelationship = 'roles';
 
     /**
      * Returns the form schema structure, defining the input fields for user data.
@@ -83,16 +79,16 @@ final class UsersRelationManager extends XotBaseRelationManager
     public function getTableFilters(): array
     {
         return [
-            Filter::make('active')->query(fn(Builder $query): Builder => $query->where('is_active', true))->toggle(),
+            Filter::make('active')->query(fn (Builder $query): Builder => $query->where('is_active', true))->toggle(),
             Filter::make('created_at')
                 ->schema([
                     DatePicker::make('created_from'),
                     DatePicker::make('created_until'),
                 ])
-                ->query(fn(Builder $query, array $data): Builder => $query->when($data['created_from'], fn(
+                ->query(fn (Builder $query, array $data): Builder => $query->when($data['created_from'], fn (
                     Builder $query,
                     $date,
-                ) => $query->whereDate('created_at', '>=', $date))->when($data['created_until'], fn(
+                ) => $query->whereDate('created_at', '>=', $date))->when($data['created_until'], fn (
                     Builder $query,
                     $date,
                 ) => $query->whereDate('created_at', '<=', $date)))

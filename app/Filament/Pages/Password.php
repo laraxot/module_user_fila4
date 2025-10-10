@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages;
 
-use Filament\Schemas\Schema;
 use Filament\Actions\Action;
-use Filament\Forms;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
+use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Tenant\Services\TenantService;
@@ -35,28 +34,24 @@ class Password extends Page implements HasForms
      *
      * @var array<string, mixed>|null
      */
-    public null|array $formData = [];
+    public ?array $formData = [];
 
     /**
      * Icona per la navigazione.
      *
      * @var string|null
      */
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
     /**
      * Vista per la pagina.
-     *
-     * @var string
      */
     protected string $view = 'user::filament.pages.password';
 
     /**
      * Ordinamento nella navigazione.
-     *
-     * @var int|null
      */
-    protected static null|int $navigationSort = 1;
+    protected static ?int $navigationSort = 1;
 
     /**
      * Inizializza la pagina.
@@ -69,7 +64,7 @@ class Password extends Page implements HasForms
     /**
      * Definisce la struttura del form.
      *
-     * @param Schema $schema Il form da configurare
+     * @param  Schema  $schema  Il form da configurare
      * @return Schema Il form configurato
      */
     public function form(Schema $schema): Schema
@@ -103,8 +98,6 @@ class Password extends Page implements HasForms
 
     /**
      * Aggiorna i dati delle impostazioni delle password.
-     *
-     * @return void
      */
     public function updateData(): void
     {
@@ -127,8 +120,6 @@ class Password extends Page implements HasForms
 
     /**
      * Riempie i form con i dati esistenti.
-     *
-     * @return void
      */
     protected function fillForms(): void
     {
@@ -152,8 +143,8 @@ class Password extends Page implements HasForms
     /**
      * Gestisce l'aggiornamento del record.
      *
-     * @param Model $record Il record da aggiornare
-     * @param array<string, mixed> $data I dati per l'aggiornamento
+     * @param  Model  $record  Il record da aggiornare
+     * @param  array<string, mixed>  $data  I dati per l'aggiornamento
      * @return Model Il record aggiornato
      */
     protected function handleRecordUpdate(Model $record, array $data): Model

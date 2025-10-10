@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\BaseProfileResource\Pages;
 
-use Filament\Tables\Filters\BaseFilter;
-use Override;
 use Exception;
-use Modules\Xot\Contracts\UserContract;
 use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\BaseFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 use Modules\User\Filament\Resources\BaseProfileResource;
+use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+use Override;
 
 /**
  * .
@@ -80,8 +80,8 @@ class ListProfiles extends XotBaseListRecords
                 ->trueLabel(static::trans('filters.is_active.active'))
                 ->falseLabel(static::trans('filters.is_active.inactive'))
                 ->queries(
-                    true: static fn(Builder $query) => $query->where('is_active', '=', true),
-                    false: static fn(Builder $query) => $query->where('is_active', '=', false),
+                    true: static fn (Builder $query) => $query->where('is_active', '=', true),
+                    false: static fn (Builder $query) => $query->where('is_active', '=', false),
                 ),
         ];
     }

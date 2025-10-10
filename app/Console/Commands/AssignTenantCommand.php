@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
-use Modules\Xot\Contracts\UserContract;
-use Illuminate\Support\Collection;
 use Illuminate\Console\Command;
+use Illuminate\Support\Collection;
+use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -31,10 +31,7 @@ class AssignTenantCommand extends Command
 
     /**
      * Create a new command instance.
-     *
-     * @return void
      */
-    
 
     /**
      * Execute the console command.
@@ -56,11 +53,11 @@ class AssignTenantCommand extends Command
             options: $opts,
             required: true,
             scroll: 10,
-        // validate: function (array $values) {
-        //  return ! \in_array(\count($values), [1, 2], false)
-        //    ? 'A maximum of two'
-        //  : null;
-        // }
+            // validate: function (array $values) {
+            //  return ! \in_array(\count($values), [1, 2], false)
+            //    ? 'A maximum of two'
+            //  : null;
+            // }
         );
 
         $user->tenants()->sync($rows);
@@ -70,7 +67,7 @@ class AssignTenantCommand extends Command
          * $user->assignRole($role);
          * }
          */
-        $this->info(implode(', ', $rows) . ' assigned to ' . $email);
+        $this->info(implode(', ', $rows).' assigned to '.$email);
     }
 
     /**

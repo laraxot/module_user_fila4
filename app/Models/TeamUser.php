@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
+use Modules\Xot\Contracts\ProfileContract;
 
 /**
  * Modules\User\Models\TeamUser.
@@ -15,6 +15,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|TeamUser newModelQuery()
  * @method static Builder|TeamUser newQuery()
  * @method static Builder|TeamUser query()
+ *
  * @property int $id
  * @property string $uuid
  * @property string|null $team_id
@@ -25,6 +26,7 @@ use Illuminate\Support\Carbon;
  * @property string|null $created_by
  * @property string|null $updated_by
  * @property string|null $customer_id
+ *
  * @method static Builder|TeamUser whereCreatedAt($value)
  * @method static Builder|TeamUser whereCreatedBy($value)
  * @method static Builder|TeamUser whereCustomerId($value)
@@ -35,12 +37,16 @@ use Illuminate\Support\Carbon;
  * @method static Builder|TeamUser whereUpdatedBy($value)
  * @method static Builder|TeamUser whereUserId($value)
  * @method static Builder|TeamUser whereUuid($value)
+ *
  * @property Carbon|null $deleted_at
  * @property string|null $deleted_by
+ *
  * @method static Builder|TeamUser whereDeletedAt($value)
  * @method static Builder|TeamUser whereDeletedBy($value)
+ *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+ *
  * @mixin IdeHelperTeamUser
  * @mixin \Eloquent
  */

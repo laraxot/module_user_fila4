@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use Modules\User\Models\User;
-use Modules\User\Models\Team;
 use Modules\User\Models\Profile;
+use Modules\User\Models\Team;
+use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
 
 /*
@@ -31,11 +31,11 @@ pest()->extend(TestCase::class)->in('Feature', 'Unit');
  * |
  */
 
-expect()->extend('toBeUser', fn() => $this->toBeInstanceOf(User::class));
+expect()->extend('toBeUser', fn () => $this->toBeInstanceOf(User::class));
 
-expect()->extend('toBeTeam', fn() => $this->toBeInstanceOf(Team::class));
+expect()->extend('toBeTeam', fn () => $this->toBeInstanceOf(Team::class));
 
-expect()->extend('toBeProfile', fn() => $this->toBeInstanceOf(Profile::class));
+expect()->extend('toBeProfile', fn () => $this->toBeInstanceOf(Profile::class));
 
 /*
  * |--------------------------------------------------------------------------

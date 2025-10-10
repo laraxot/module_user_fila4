@@ -4,26 +4,25 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\PermissionResource\Pages;
 
-use Filament\Tables\Filters\BaseFilter;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
-use Override;
-use Filament\Tables\Filters\SelectFilter;
-use Filament\Actions\ViewAction;
-use Filament\Actions\EditAction;
+use Filament\Actions\BulkAction;
+use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\BulkAction;
-use Illuminate\Database\Eloquent\Model;
-use Filament\Actions\CreateAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Forms\Components\Select;
 use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\BaseFilter;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Resources\PermissionResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+use Override;
 use Webmozart\Assert\Assert;
 
 class ListPermissions extends XotBaseListRecords
@@ -102,7 +101,7 @@ class ListPermissions extends XotBaseListRecords
                         Assert::isInstanceOf(
                             $record,
                             Model::class,
-                            '[' . __LINE__ . '][' . __CLASS__ . ']',
+                            '['.__LINE__.']['.__CLASS__.']',
                         );
 
                         // Poi verifichiamo che il modello abbia il metodo roles() prima di chiamarlo

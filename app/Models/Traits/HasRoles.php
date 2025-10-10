@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Models\Traits;
 
-use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Collection;
 use Modules\User\Models\Role;
 use Spatie\Permission\Traits\HasRoles as SpatieHasRoles;
 
@@ -27,9 +27,9 @@ trait HasRoles
     /**
      * Determine if the user has the given role.
      *
-     * @param string|array|\Spatie\Permission\Contracts\Role|Collection $roles
+     * @param  string|array|\Spatie\Permission\Contracts\Role|Collection  $roles
      */
-    public function hasRole($roles, null|string $guard = null): bool
+    public function hasRole($roles, ?string $guard = null): bool
     {
         if (is_string($roles) && str_contains($roles, '|')) {
             $roles = explode('|', $roles);
@@ -49,6 +49,6 @@ trait HasRoles
             return false;
         }
 
-        return !is_null($roles) && $this->roles->contains('id', $roles->id);
+        return ! is_null($roles) && $this->roles->contains('id', $roles->id);
     }
 }

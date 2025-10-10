@@ -33,10 +33,7 @@ class AssignModuleCommand extends Command
 
     /**
      * Create a new command instance.
-     *
-     * @return void
      */
-    
 
     /**
      * Execute the console command.
@@ -50,8 +47,9 @@ class AssignModuleCommand extends Command
          */
         $user = XotData::make()->getUserByEmail($email);
 
-        if (!$user) {
+        if (! $user) {
             $this->error("User with email '{$email}' not found.");
+
             return;
         }
 
@@ -64,7 +62,7 @@ class AssignModuleCommand extends Command
         $currentModules = array_keys($userModuleRoles);
 
         // Show current modules as default selected
-        $this->info("Current modules for {$email}: " . implode(', ', $currentModules));
+        $this->info("Current modules for {$email}: ".implode(', ', $currentModules));
 
         $selectedModules = multiselect(
             label: 'Select modules (checked = assigned, unchecked = will be revoked)',
@@ -81,7 +79,7 @@ class AssignModuleCommand extends Command
         // Assign new modules
         foreach ($modulesToAssign as $module) {
             $module_low = Str::lower(is_string($module) ? $module : ((string) $module));
-            $role_name = $module_low . '::admin';
+            $role_name = $module_low.'::admin';
 
             // Create or get the role with the web guard
             $role = Role::firstOrCreate(['name' => $role_name], []);
@@ -95,7 +93,7 @@ class AssignModuleCommand extends Command
         // Revoke unchecked modules
         foreach ($modulesToRevoke as $module) {
             $module_low = Str::lower(is_string($module) ? $module : ((string) $module));
-            $role_name = $module_low . '::admin';
+            $role_name = $module_low.'::admin';
 
             // Revoke the role from the user
             $user->removeRole($role_name);
@@ -114,7 +112,6 @@ class AssignModuleCommand extends Command
     /**
      * Get user's current module roles.
      *
-     * @param UserContract $user
      * @return array<string, string>
      */
     private function getUserModuleRoles(UserContract $user): array

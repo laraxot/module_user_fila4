@@ -32,11 +32,11 @@ class RedirectToProviderController extends Controller
 
         $scopes = App(GetProviderScopesAction::class)->execute($provider);
         $socialiteProvider = Socialite::with($provider);
-        if (!is_object($socialiteProvider)) {
+        if (! is_object($socialiteProvider)) {
             throw new Exception('wip');
         }
 
-        if (!method_exists($socialiteProvider, 'scopes')) {
+        if (! method_exists($socialiteProvider, 'scopes')) {
             throw new Exception('wip');
         }
 

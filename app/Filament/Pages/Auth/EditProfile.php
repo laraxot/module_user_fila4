@@ -9,7 +9,7 @@ use Modules\User\Datas\PasswordData;
 
 class EditProfile extends \Filament\Auth\Pages\EditProfile
 {
-    public static null|string $title = 'Profilo Utente';
+    public static ?string $title = 'Profilo Utente';
 
     /**
      * Costruisce il form schema per la pagina di modifica profilo.

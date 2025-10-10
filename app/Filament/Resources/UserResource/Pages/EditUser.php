@@ -9,13 +9,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\Pages;
 
-use InvalidArgumentException;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\Hash;
+use InvalidArgumentException;
 use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Models\User;
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Webmozart\Assert\Assert;
 
 /**
@@ -29,7 +28,7 @@ class EditUser extends EditRecord
     protected function mutateFormDataBeforeSave(array $data): array
     {
         Assert::isArray($data);
-        if (!array_key_exists('new_password', $data) || !filled($data['new_password'])) {
+        if (! array_key_exists('new_password', $data) || ! filled($data['new_password'])) {
             return $data;
         }
 
@@ -41,14 +40,15 @@ class EditUser extends EditRecord
         $newPassword = $data['new_password'];
 
         // Verifichiamo il tipo e convertiamo in modo sicuro
-        if (!is_string($newPassword)) {
-            if (!is_scalar($newPassword)) {
+        if (! is_string($newPassword)) {
+            if (! is_scalar($newPassword)) {
                 throw new InvalidArgumentException('La password deve essere una stringa');
             }
             $newPassword = (string) $newPassword;
         }
 
         $this->record->update(['password' => Hash::make($newPassword)]);
+
         return $data;
     }
 

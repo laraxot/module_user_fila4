@@ -8,36 +8,31 @@ declare(strict_types=1);
 
 namespace Modules\User\Providers;
 
-use Override;
-use Modules\User\Models\TeamUser;
-use Modules\User\Models\TeamInvitation;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
 use Laravel\Passport\Passport;
 use Modules\Notify\Emails\SpatieEmail;
 use Modules\User\Datas\PasswordData;
-use Modules\User\Models\OauthAccessToken;
-use Modules\User\Models\OauthAuthCode;
-use Modules\User\Models\OauthClient;
-use Modules\User\Models\OauthPersonalAccessClient;
-use Modules\User\Models\OauthRefreshToken;
+use Modules\User\Models\TeamInvitation;
+use Modules\User\Models\TeamUser;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Providers\XotBaseServiceProvider;
+use Override;
 use SocialiteProviders\Manager\ServiceProvider as SocialiteServiceProvider;
 use Webmozart\Assert\Assert;
 
 class UserServiceProvider extends XotBaseServiceProvider
 {
     public string $name = 'User';
+
     protected string $module_dir = __DIR__;
+
     protected string $module_ns = __NAMESPACE__;
 
     #[Override]
@@ -63,15 +58,15 @@ class UserServiceProvider extends XotBaseServiceProvider
      */
     protected function registerTeamModelBindings(): void
     {
-        $this->app->bind('team_user_model', fn() => TeamUser::class);
+        $this->app->bind('team_user_model', fn () => TeamUser::class);
 
-        $this->app->bind('team_invitation_model', fn() => TeamInvitation::class);
+        $this->app->bind('team_invitation_model', fn () => TeamInvitation::class);
     }
 
     public function registerMailsNotification(): void
     {
         $app_name = config('app.name');
-        if (!is_string($app_name)) {
+        if (! is_string($app_name)) {
             $app_name = '';
         }
 
@@ -133,6 +128,7 @@ class UserServiceProvider extends XotBaseServiceProvider
             } elseif (isset($notifiable->email)) {
                 $email->to($notifiable->email);
             }
+
             return $email;
         });
     }
@@ -140,13 +136,14 @@ class UserServiceProvider extends XotBaseServiceProvider
     public function registerPulse(): void
     {
         Config::set('pulse.path', 'pulse/admin');
-        Gate::define('viewPulse', fn(UserContract $user): bool => $user->hasRole('super-admin'));
+        Gate::define('viewPulse', fn (UserContract $user): bool => $user->hasRole('super-admin'));
     }
 
     public function registerPasswordRules(): void
     {
         Password::defaults(function (): Password {
             $pwd = PasswordData::make();
+
             return $pwd->getPasswordRule();
         });
     }

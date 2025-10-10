@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Notifications\DatabaseNotificationCollection;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\DatabaseNotification as BaseNotification;
+use Illuminate\Notifications\DatabaseNotificationCollection;
 
 /**
  * @property Model|\Eloquent $notifiable
+ *
  * @method static DatabaseNotificationCollection<int, static> all($columns = ['*'])
  * @method static DatabaseNotificationCollection<int, static> get($columns = ['*'])
  * @method static Builder|Notification newModelQuery()
@@ -23,6 +24,7 @@ use Illuminate\Notifications\DatabaseNotification as BaseNotification;
  * @method static DatabaseNotificationCollection<int, static> get($columns = ['*'])
  * @method static DatabaseNotificationCollection<int, static> all($columns = ['*'])
  * @method static DatabaseNotificationCollection<int, static> get($columns = ['*'])
+ *
  * @mixin IdeHelperNotification
  * @mixin \Eloquent
  */

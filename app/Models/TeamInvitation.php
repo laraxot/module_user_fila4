@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 use Modules\User\Contracts\TeamContract;
 use Modules\User\Database\Factories\TeamInvitationFactory;
+use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Datas\XotData;
 
 /**
@@ -24,6 +24,7 @@ use Modules\Xot\Datas\XotData;
  * @property Carbon|null $updated_at
  * @property Team|null $team
  * @property TeamContract|null $team
+ *
  * @method static TeamInvitationFactory factory($count = null, $state = [])
  * @method static Builder|TeamInvitation newModelQuery()
  * @method static Builder|TeamInvitation newQuery()
@@ -34,18 +35,22 @@ use Modules\Xot\Datas\XotData;
  * @method static Builder|TeamInvitation whereRole($value)
  * @method static Builder|TeamInvitation whereTeamId($value)
  * @method static Builder|TeamInvitation whereUpdatedAt($value)
+ *
  * @property string $uuid
  * @property string|null $updated_by
  * @property string|null $created_by
  * @property Carbon|null $deleted_at
  * @property string|null $deleted_by
+ *
  * @method static Builder|TeamInvitation whereCreatedBy($value)
  * @method static Builder|TeamInvitation whereDeletedAt($value)
  * @method static Builder|TeamInvitation whereDeletedBy($value)
  * @method static Builder|TeamInvitation whereUpdatedBy($value)
  * @method static Builder|TeamInvitation whereUuid($value)
+ *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+ *
  * @mixin IdeHelperTeamInvitation
  * @mixin \Eloquent
  */

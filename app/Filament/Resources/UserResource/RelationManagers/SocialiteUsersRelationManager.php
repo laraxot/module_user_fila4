@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
-use Filament\Schemas\Components\Component;
-use Override;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms;
+use Filament\Schemas\Components\Component;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
@@ -17,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Modules\User\Models\SocialiteUser;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Modules\Xot\Filament\Traits\HasXotTable;
+use Override;
 
 /**
  * Class Modules\User\Filament\Resources\UserResource\RelationManagers\SocialiteUsersRelationManager.

@@ -6,8 +6,8 @@ namespace Modules\User\Filament\Widgets\Auth;
 
 use Exception;
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Schema;
 use Filament\Notifications\Notification;
+use Filament\Schemas\Schema;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

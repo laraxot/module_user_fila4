@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 return [
     'edit_user' => [
         'title' => 'Edit User Profile',

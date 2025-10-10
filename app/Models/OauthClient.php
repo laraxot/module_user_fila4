@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Support\Carbon;
-use Illuminate\Database\Eloquent\Collection;
-use Modules\Xot\Contracts\UserContract;
-use Laravel\Passport\Database\Factories\ClientFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Support\Carbon;
 use Laravel\Passport\Client as PassportClient;
+use Laravel\Passport\Database\Factories\ClientFactory;
+use Modules\Xot\Contracts\UserContract;
 
 /**
  * Modules\User\Models\OauthClient.
@@ -34,6 +34,7 @@ use Laravel\Passport\Client as PassportClient;
  * @property Collection<int, OauthAccessToken> $tokens
  * @property int|null $tokens_count
  * @property UserContract|null $user
+ *
  * @method static ClientFactory factory($count = null, $state = [])
  * @method static Builder|OauthClient newModelQuery()
  * @method static Builder|OauthClient newQuery()
@@ -49,10 +50,13 @@ use Laravel\Passport\Client as PassportClient;
  * @method static Builder|OauthClient whereSecret($value)
  * @method static Builder|OauthClient whereUpdatedAt($value)
  * @method static Builder|OauthClient whereUserId($value)
+ *
  * @property string|null $updated_by
  * @property string|null $created_by
+ *
  * @method static Builder|OauthClient whereCreatedBy($value)
  * @method static Builder|OauthClient whereUpdatedBy($value)
+ *
  * @mixin IdeHelperOauthClient
  * @mixin \Eloquent
  */

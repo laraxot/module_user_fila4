@@ -41,7 +41,7 @@ class LoginListener
         if ($user && $user instanceof HasAuthentications) {
             $ip = $this->request->ip();
             $userAgent = $this->request->userAgent();
-            //$location = optional(geoip()->getLocation($ip))->toArray();
+            // $location = optional(geoip()->getLocation($ip))->toArray();
             $location = [];
 
             $log = $user->authentications()->create([

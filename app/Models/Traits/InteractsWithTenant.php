@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Models\Traits;
 
-use Throwable;
 use Filament\Facades\Filament;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\User\Contracts\TeamContract;
 use Modules\User\Models\Scopes\TenantScope;
 use Modules\User\Models\Tenant;
-use Modules\Xot\Datas\XotData;
+use Throwable;
 
 /**
  * @property TeamContract $currentTeam
@@ -20,15 +19,14 @@ trait InteractsWithTenant
 {
     /**
      * Tenant corrente.
-     *
-     * @var Model|null
      */
-    protected null|Model $currentTenant = null;
+    protected ?Model $currentTenant = null;
 
     /**
      * Relazione con il tenant a cui appartiene il modello.
      *
      * @return BelongsTo<Model, self>
+     *
      * @phpstan-return BelongsTo<Model, $this>
      */
     public function tenant(): BelongsTo
@@ -47,18 +45,14 @@ trait InteractsWithTenant
 
     /**
      * Ottiene il tenant corrente.
-     *
-     * @return Model|null
      */
-    protected function getTenant(): null|Model
+    protected function getTenant(): ?Model
     {
         return $this->currentTenant;
     }
 
     /**
      * Carica il tenant dalla sessione.
-     *
-     * @return void
      */
     protected function loadTenantFromSession(): void
     {
@@ -75,7 +69,7 @@ trait InteractsWithTenant
      */
     protected static function bootInteractsWithTenant(): void
     {
-        static::addGlobalScope(new TenantScope());
+        static::addGlobalScope(new TenantScope);
 
         static::creating(static function ($model): void {
             if ($model !== null) {
@@ -90,7 +84,7 @@ trait InteractsWithTenant
     /**
      * Interact with the user's first name.
      */
-    protected function setTenantIdAttribute(null|int $value): void
+    protected function setTenantIdAttribute(?int $value): void
     {
         $tenant = Filament::getTenant();
         if ($value === null && $tenant !== null) {
@@ -119,7 +113,7 @@ trait InteractsWithTenant
         if ($tenant !== null) {
             $tenantId = $tenant->getKey();
             if ($tenantId !== null) {
-                static::addGlobalScope(new TenantScope());
+                static::addGlobalScope(new TenantScope);
             }
         }
     }

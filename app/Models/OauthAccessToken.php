@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 // use Laravel\Passport\AccessToken as PassportAccessToken;
-use Illuminate\Support\Carbon;
-use Modules\Xot\Contracts\UserContract;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 use Laravel\Passport\Token as PassportToken;
+use Modules\Xot\Contracts\UserContract;
 
 /**
  * Modules\User\Models\OauthAccessToken.
@@ -24,6 +24,7 @@ use Laravel\Passport\Token as PassportToken;
  * @property Carbon|null $expires_at
  * @property OauthClient|null $client
  * @property UserContract|null $user
+ *
  * @method static Builder|OauthAccessToken newModelQuery()
  * @method static Builder|OauthAccessToken newQuery()
  * @method static Builder|OauthAccessToken query()
@@ -36,15 +37,18 @@ use Laravel\Passport\Token as PassportToken;
  * @method static Builder|OauthAccessToken whereScopes($value)
  * @method static Builder|OauthAccessToken whereUpdatedAt($value)
  * @method static Builder|OauthAccessToken whereUserId($value)
+ *
  * @property OauthRefreshToken|null $refreshToken
  * @property string|null $updated_by
  * @property string|null $created_by
  * @property string|null $deleted_at
  * @property string|null $deleted_by
+ *
  * @method static Builder<static>|OauthAccessToken whereCreatedBy($value)
  * @method static Builder<static>|OauthAccessToken whereDeletedAt($value)
  * @method static Builder<static>|OauthAccessToken whereDeletedBy($value)
  * @method static Builder<static>|OauthAccessToken whereUpdatedBy($value)
+ *
  * @mixin IdeHelperOauthAccessToken
  * @mixin \Eloquent
  */

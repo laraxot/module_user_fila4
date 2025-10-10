@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
-use Modules\Xot\Contracts\UserContract;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
+use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Webmozart\Assert\Assert;
 
@@ -20,8 +20,6 @@ class FetchUserApiTokenCommand extends Command
                             {email : The email of the user to impersonate}';
 
     protected $description = 'Fetches an OAuth Token to be able to test APIs';
-
-    
 
     public function handle(): int
     {
@@ -56,7 +54,7 @@ class FetchUserApiTokenCommand extends Command
 
         $this->info("Access token for `{$userEmail}`:");
         $this->comment($token->accessToken);
-        $this->info('Scopes included: ' . implode(', ', $oauthScopes));
+        $this->info('Scopes included: '.implode(', ', $oauthScopes));
 
         return self::SUCCESS;
     }

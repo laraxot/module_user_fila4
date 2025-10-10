@@ -9,18 +9,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages;
 
-use Filament\Schemas\Schema;
-use Filament\Schemas\Components\Section;
-use Filament\Forms\Components\TextInput;
 use Exception;
 use Filament\Actions\Action;
 use Filament\Facades\Filament;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
 use Filament\Pages\Auth\EditProfile;
 use Filament\Pages\Page;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -38,11 +38,11 @@ class MyProfilePage extends Page implements HasForms
     // class MyProfilePage extends EditProfile
     use InteractsWithForms;
 
-    public null|array $profileData = [];
+    public ?array $profileData = [];
 
-    public null|array $passwordData = [];
+    public ?array $passwordData = [];
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
     protected string $view = 'user::filament.pages.my-profile';
 
@@ -124,7 +124,7 @@ class MyProfilePage extends Page implements HasForms
     {
         $user = Filament::auth()->user();
 
-        if (!($user instanceof Model)) {
+        if (! ($user instanceof Model)) {
             throw new Exception(
                 'The authenticated user object must be an Eloquent model to allow the profile page to update it.',
             );
@@ -143,7 +143,7 @@ class MyProfilePage extends Page implements HasForms
         return __('user::profile.my_profile');
     }
 
-    public function getSubheading(): null|string
+    public function getSubheading(): ?string
     {
         return __('user::profile.subheading') ?? null;
     }
@@ -201,7 +201,7 @@ class MyProfilePage extends Page implements HasForms
             request()
                 ->session()
                 ->put([
-                    'password_hash_' . Filament::getAuthGuard() => $data['password'],
+                    'password_hash_'.Filament::getAuthGuard() => $data['password'],
                 ]);
         }
 

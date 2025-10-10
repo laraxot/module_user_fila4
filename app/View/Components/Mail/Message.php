@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\View\Components\Mail;
 
-use Illuminate\Contracts\View\View;
 use Closure;
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use Modules\Xot\Datas\MetatagData;
 
