@@ -6,15 +6,7 @@ namespace Modules\User\Filament\Widgets\Auth;
 
 use Exception;
 use Filament\Forms\Components\TextInput;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Filament\Forms\Form;
-=======
 use Filament\Schemas\Schema;
->>>>>>> 1724879 (.)
-=======
-use Filament\Schemas\Schema;
->>>>>>> cebb28c (.)
 use Filament\Notifications\Notification;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -34,7 +26,7 @@ use Webmozart\Assert\Assert;
  * Handles the password reset confirmation flow using a token
  * from the password reset email link.
  *
- * @property Form $form
+ * @property Schema $form
  */
 class PasswordResetConfirmWidget extends XotBaseWidget
 {

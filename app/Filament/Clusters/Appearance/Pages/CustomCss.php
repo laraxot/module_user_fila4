@@ -4,16 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Clusters\Appearance\Pages;
 
+use Filament\Schemas\Schema;
 use Filament\Actions\Action;
 use Filament\Forms;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-use Filament\Forms\Form;
->>>>>>> 1724879 (.)
-=======
-use Filament\Forms\Form;
->>>>>>> cebb28c (.)
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
@@ -23,18 +16,9 @@ use Filament\Pages\Page;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Clusters\Appearance;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Filament\Forms\Form;
-=======
-use Filament\Schemas\Schema;
->>>>>>> 1724879 (.)
-=======
-use Filament\Schemas\Schema;
->>>>>>> cebb28c (.)
 
 /**
- * @property Form $form
+ * @property Schema $form
  */
 class CustomCss extends Page implements HasForms
 {
@@ -62,18 +46,10 @@ class CustomCss extends Page implements HasForms
     //    ];
     // }
 
-    public function form(\Filament\Schemas\Schema $form): \Filament\Schemas\Schema
+    public function form(Schema $schema): Schema
     {
-        return $form
-<<<<<<< HEAD
-<<<<<<< HEAD
+        return $schema
             ->components([
-=======
-            ->schema([
->>>>>>> 1724879 (.)
-=======
-            ->schema([
->>>>>>> cebb28c (.)
                 // Forms\Components\Section::make('Profile Information')
                 // ->description('Update your account\'s profile information and email address.')
                 // ->schema([

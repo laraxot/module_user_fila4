@@ -9,15 +9,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages;
 
-<<<<<<< HEAD
-use Filament\Forms\Form;
-=======
 use Filament\Schemas\Schema;
-<<<<<<< HEAD
->>>>>>> 1724879 (.)
-=======
->>>>>>> cebb28c (.)
-
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Exception;
@@ -37,9 +29,9 @@ use Illuminate\Validation\Rules\Password;
 use Modules\User\Datas\PasswordData;
 
 /**
- * @property \Filament\Forms\Form $form
- * @property \Filament\Forms\Form $editProfileForm
- * @property \Filament\Forms\Form $editPasswordForm
+ * @property \Filament\Schemas\Schema $form
+ * @property \Filament\Schemas\Schema $editProfileForm
+ * @property \Filament\Schemas\Schema $editPasswordForm
  */
 class MyProfilePage extends Page implements HasForms
 {
@@ -71,18 +63,10 @@ class MyProfilePage extends Page implements HasForms
         $this->fillForms();
     }
 
-    public function editProfileForm(Form $form): Schema
+    public function editProfileForm(Schema $schema): Schema
     {
-        return $form
-<<<<<<< HEAD
-<<<<<<< HEAD
+        return $schema
             ->components([
-=======
-            ->schema([
->>>>>>> 1724879 (.)
-=======
-            ->schema([
->>>>>>> cebb28c (.)
                 Section::make('Profile Information')
                     ->aside()
                     ->description('Update your account\'s profile information and email address.')
@@ -98,18 +82,10 @@ class MyProfilePage extends Page implements HasForms
             ->statePath('profileData');
     }
 
-    public function editPasswordForm(Form $form): Schema
+    public function editPasswordForm(Schema $schema): Schema
     {
-        return $form
-<<<<<<< HEAD
-<<<<<<< HEAD
+        return $schema
             ->components([
-=======
-            ->schema([
->>>>>>> 1724879 (.)
-=======
-            ->schema([
->>>>>>> cebb28c (.)
                 Section::make('Update Password')
                     ->aside()
                     ->description('Ensure your account is using long, random password to stay secure.')
