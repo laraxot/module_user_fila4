@@ -13,7 +13,11 @@ use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Wizard\Step;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
+<<<<<<< HEAD
 use Filament\Schemas\Schema;
+=======
+use Filament\Forms\Form;
+>>>>>>> 2805232 (.)
 use Filament\Widgets\Widget;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Database\Eloquent\Model;
