@@ -22,22 +22,6 @@ class RolesSeeder extends Seeder
         'Guard',
     ];
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    
-
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-    
-
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     /**
      * Run the database seeds.
      */
@@ -45,22 +29,6 @@ class RolesSeeder extends Seeder
     {
         $roles = [];
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-
-
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
         // Display results in a table format
         $this->displayResults($roles);
     }
@@ -73,14 +41,6 @@ class RolesSeeder extends Seeder
     private function displayResults(array $roles): void
     {
         $this->command->info('Roles seeded successfully:');
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
         $this->command->table(
             self::$OUTPUT_TABLE_HEADERS,
             collect($roles)
@@ -91,25 +51,5 @@ class RolesSeeder extends Seeder
                 ])
                 ->toArray(),
         );
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/develop
-        $this->command->table(self::$OUTPUT_TABLE_HEADERS, collect($roles)->map(function (Role $role, int $index) {
-            return [
-                $index + 1,
-                $role->name,
-                $role->guard_name,
-            ];
-        })->toArray());
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 }

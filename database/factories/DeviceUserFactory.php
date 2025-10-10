@@ -11,56 +11,16 @@ use Modules\User\Models\User;
 
 /**
  * DeviceUser Factory
-<<<<<<< HEAD
  *
  * Factory for creating DeviceUser model instances for testing and seeding.
  *
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
- *
- * Factory for creating DeviceUser model instances for testing and seeding.
- *
-=======
- * 
- * Factory for creating DeviceUser model instances for testing and seeding.
- * 
->>>>>>> a12f125f4a (.)
-=======
- *
- * Factory for creating DeviceUser model instances for testing and seeding.
- *
->>>>>>> b93ef594b4 (.)
-=======
- * 
- * Factory for creating DeviceUser model instances for testing and seeding.
- * 
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
  * @extends Factory<DeviceUser>
  */
 class DeviceUserFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
-<<<<<<< HEAD
      *
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-     *
-=======
-     * 
->>>>>>> a12f125f4a (.)
-=======
-     *
->>>>>>> b93ef594b4 (.)
-=======
-     * 
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
      * @var class-string<DeviceUser>
      */
     protected $model = DeviceUser::class;
@@ -73,23 +33,7 @@ class DeviceUserFactory extends Factory
     public function definition(): array
     {
         $loginAt = $this->faker->optional(0.8)->dateTimeBetween('-1 year', 'now');
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
-
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
         return [
             'device_id' => Device::factory(),
             'user_id' => User::factory(),
@@ -108,23 +52,7 @@ class DeviceUserFactory extends Factory
      */
     public function forUser(User $user): static
     {
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> a12f125f4a (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'user_id' => $user->id,
         ]);
     }
@@ -137,23 +65,7 @@ class DeviceUserFactory extends Factory
      */
     public function forDevice(Device $device): static
     {
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> a12f125f4a (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'device_id' => $device->id,
         ]);
     }
@@ -165,23 +77,7 @@ class DeviceUserFactory extends Factory
      */
     public function loggedIn(): static
     {
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> a12f125f4a (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'login_at' => $this->faker->dateTimeBetween('-1 day', 'now'),
             'logout_at' => null,
         ]);
@@ -195,28 +91,8 @@ class DeviceUserFactory extends Factory
     public function loggedOut(): static
     {
         $loginAt = $this->faker->dateTimeBetween('-1 month', '-1 day');
-<<<<<<< HEAD
 
         return $this->state(fn(array $_attributes): array => [
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-        return $this->state(fn(array $_attributes): array => [
-=======
-        
-        return $this->state(fn (array $attributes): array => [
->>>>>>> a12f125f4a (.)
-=======
-
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> b93ef594b4 (.)
-=======
-        
-        return $this->state(fn (array $attributes): array => [
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'login_at' => $loginAt,
             'logout_at' => $this->faker->dateTimeBetween($loginAt, 'now'),
         ]);

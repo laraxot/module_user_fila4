@@ -10,23 +10,7 @@ use Modules\User\Models\OauthRefreshToken;
 
 /**
  * OauthRefreshToken Factory
-<<<<<<< HEAD
  *
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
- *
-=======
- * 
->>>>>>> a12f125f4a (.)
-=======
- *
->>>>>>> b93ef594b4 (.)
-=======
- * 
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
  * @extends Factory<OauthRefreshToken>
  */
 class OauthRefreshTokenFactory extends Factory
@@ -37,14 +21,6 @@ class OauthRefreshTokenFactory extends Factory
     {
         return [
             'id' => $this->faker->sha256(),
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
             'access_token_id' => fn() => OauthAccessToken::create([
                 'id' => $this->faker->sha256(),
                 'user_id' => null,
@@ -54,18 +30,6 @@ class OauthRefreshTokenFactory extends Factory
                 'revoked' => false,
                 'expires_at' => $this->faker->dateTimeBetween('+1 month', '+6 months'),
             ])->id,
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-            'access_token_id' => OauthAccessToken::factory(),
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-            'access_token_id' => OauthAccessToken::factory(),
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'revoked' => $this->faker->boolean(5),
             'expires_at' => $this->faker->dateTimeBetween('+1 month', '+6 months'),
         ];

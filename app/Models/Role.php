@@ -8,14 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Builder;
-=======
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Builder;
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -44,10 +37,6 @@ use Webmozart\Assert\Assert;
  * @property Team|null $team
  * @property EloquentCollection<int, Model&UserContract> $users
  * @property int|null $users_count
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
  * @method static Builder|Role newModelQuery()
  * @method static Builder|Role newQuery()
  * @method static Builder|Role permission($permissions)
@@ -66,29 +55,6 @@ use Webmozart\Assert\Assert;
  * @method static Builder|Role whereUpdatedBy($value)
  * @mixin Eloquent
  * @method static Builder|Role withoutPermission($permissions)
-<<<<<<< HEAD
-=======
-=======
- * @method static \Illuminate\Database\Eloquent\Builder|Role newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Role newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Role permission($permissions)
- * @method static \Illuminate\Database\Eloquent\Builder|Role query()
- * @method static \Illuminate\Database\Eloquent\Builder|Role whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Role whereGuardName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Role whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Role whereTeamId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Role whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Role whereUuid($value)
- * @property int $id
- * @method static \Illuminate\Database\Eloquent\Builder|Role whereId($value)
- * @property string|null $updated_by
- * @property string|null $created_by
- * @method static \Illuminate\Database\Eloquent\Builder|Role whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Role whereUpdatedBy($value)
- * @mixin Eloquent
- * @method static \Illuminate\Database\Eloquent\Builder|Role withoutPermission($permissions)
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
  * @property PermissionRole|null $pivot
  * @mixin IdeHelperRole
  * @mixin \Eloquent

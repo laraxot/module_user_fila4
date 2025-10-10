@@ -1,44 +1,10 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 @props(['href' => '#'])
 
 <a {{ $attributes->merge(['href' => $href, 'class' => 'block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-800 transition duration-150 ease-in-out']) }}>
     {{ $slot }}
-<<<<<<< HEAD
 </a>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-</a>
-=======
-</a> 
->>>>>>> a12f125f4a (.)
-=======
-</a>
->>>>>>> b93ef594b4 (.)
-=======
-</a> 
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)

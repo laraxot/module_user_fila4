@@ -45,23 +45,7 @@ class UserFactory extends Factory
      */
     public function active(): static
     {
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes) => [
-=======
-        return $this->state(fn (array $attributes) => [
->>>>>>> a12f125f4a (.)
-=======
-        return $this->state(fn(array $_attributes) => [
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes) => [
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'is_active' => true,
         ]);
     }
@@ -71,23 +55,7 @@ class UserFactory extends Factory
      */
     public function inactive(): static
     {
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes) => [
-=======
-        return $this->state(fn (array $attributes) => [
->>>>>>> a12f125f4a (.)
-=======
-        return $this->state(fn(array $_attributes) => [
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes) => [
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'is_active' => false,
         ]);
     }
@@ -97,23 +65,7 @@ class UserFactory extends Factory
      */
     public function unverified(): static
     {
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes) => [
-=======
-        return $this->state(fn (array $attributes) => [
->>>>>>> a12f125f4a (.)
-=======
-        return $this->state(fn(array $_attributes) => [
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes) => [
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'email_verified_at' => null,
         ]);
     }

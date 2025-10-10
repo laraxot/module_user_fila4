@@ -11,56 +11,16 @@ use Modules\User\Models\User;
 
 /**
  * TeamUser Factory
-<<<<<<< HEAD
  *
  * Factory for creating TeamUser model instances for testing and seeding.
  *
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
- *
- * Factory for creating TeamUser model instances for testing and seeding.
- *
-=======
- * 
- * Factory for creating TeamUser model instances for testing and seeding.
- * 
->>>>>>> a12f125f4a (.)
-=======
- *
- * Factory for creating TeamUser model instances for testing and seeding.
- *
->>>>>>> b93ef594b4 (.)
-=======
- * 
- * Factory for creating TeamUser model instances for testing and seeding.
- * 
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
  * @extends Factory<TeamUser>
  */
 class TeamUserFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
-<<<<<<< HEAD
      *
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-     *
-=======
-     * 
->>>>>>> a12f125f4a (.)
-=======
-     *
->>>>>>> b93ef594b4 (.)
-=======
-     * 
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
      * @var class-string<TeamUser>
      */
     protected $model = TeamUser::class;
@@ -87,23 +47,7 @@ class TeamUserFactory extends Factory
      */
     public function forTeam(Team $team): static
     {
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> a12f125f4a (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'team_id' => $team->id,
         ]);
     }
@@ -116,23 +60,7 @@ class TeamUserFactory extends Factory
      */
     public function forUser(User $user): static
     {
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> a12f125f4a (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'user_id' => $user->id,
         ]);
     }
@@ -144,23 +72,7 @@ class TeamUserFactory extends Factory
      */
     public function owner(): static
     {
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> a12f125f4a (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'role' => 'owner',
         ]);
     }
@@ -172,23 +84,7 @@ class TeamUserFactory extends Factory
      */
     public function admin(): static
     {
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> a12f125f4a (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'role' => 'admin',
         ]);
     }
@@ -200,37 +96,8 @@ class TeamUserFactory extends Factory
      */
     public function member(): static
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
         return $this->state(fn(array $_attributes): array => [
             'role' => 'member',
         ]);
     }
 }
-<<<<<<< HEAD
-=======
-=======
-        return $this->state(fn (array $attributes): array => [
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> b93ef594b4 (.)
-            'role' => 'member',
-        ]);
-    }
-}
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes): array => [
-            'role' => 'member',
-        ]);
-    }
-}
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)

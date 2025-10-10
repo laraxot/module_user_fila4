@@ -22,15 +22,7 @@ use Modules\User\Models\AuthenticationLog;
  * @property-read string|null $ip_address The IP address of the last login.
  * @property MorphMany<AuthenticationLog> $authentications
  * @property MorphOne<AuthenticationLog> $latestAuthentication
-<<<<<<< HEAD
  * @property Carbon|null $login_at
-=======
-<<<<<<< HEAD
- * @property Carbon|null $login_at
-=======
- * @property \Illuminate\Support\Carbon|null $login_at
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
  * @property string|null $ip_address
  */
 trait HasAuthenticationLogTrait
@@ -42,25 +34,7 @@ trait HasAuthenticationLogTrait
      */
     public function authentications(): MorphMany
     {
-<<<<<<< HEAD
         return $this->morphMany(AuthenticationLog::class, 'authenticatable')->latest('login_at');
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->morphMany(AuthenticationLog::class, 'authenticatable')->latest('login_at');
-=======
-        return $this->morphMany(AuthenticationLog::class, 'authenticatable')
-            ->latest('login_at');
->>>>>>> a12f125f4a (.)
-=======
-        return $this->morphMany(AuthenticationLog::class, 'authenticatable')->latest('login_at');
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->morphMany(AuthenticationLog::class, 'authenticatable')
-            ->latest('login_at');
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     /**
@@ -70,25 +44,7 @@ trait HasAuthenticationLogTrait
      */
     public function latestAuthentication(): MorphOne
     {
-<<<<<<< HEAD
         return $this->morphOne(AuthenticationLog::class, 'authenticatable')->latestOfMany('login_at');
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->morphOne(AuthenticationLog::class, 'authenticatable')->latestOfMany('login_at');
-=======
-        return $this->morphOne(AuthenticationLog::class, 'authenticatable')
-            ->latestOfMany('login_at');
->>>>>>> a12f125f4a (.)
-=======
-        return $this->morphOne(AuthenticationLog::class, 'authenticatable')->latestOfMany('login_at');
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->morphOne(AuthenticationLog::class, 'authenticatable')
-            ->latestOfMany('login_at');
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     /**
@@ -106,23 +62,7 @@ trait HasAuthenticationLogTrait
      *
      * @return ?Carbon the timestamp of the last login or null if none exists
      */
-<<<<<<< HEAD
     public function lastLoginAt(): null|Carbon
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function lastLoginAt(): null|Carbon
-=======
-    public function lastLoginAt(): ?Carbon
->>>>>>> a12f125f4a (.)
-=======
-    public function lastLoginAt(): null|Carbon
->>>>>>> b93ef594b4 (.)
-=======
-    public function lastLoginAt(): ?Carbon
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     {
         /** @var AuthenticationLog|null $auth */
         $auth = $this->authentications()->first();
@@ -134,23 +74,7 @@ trait HasAuthenticationLogTrait
      *
      * @return ?Carbon the timestamp of the last successful login or null if none exists
      */
-<<<<<<< HEAD
     public function lastSuccessfulLoginAt(): null|Carbon
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function lastSuccessfulLoginAt(): null|Carbon
-=======
-    public function lastSuccessfulLoginAt(): ?Carbon
->>>>>>> a12f125f4a (.)
-=======
-    public function lastSuccessfulLoginAt(): null|Carbon
->>>>>>> b93ef594b4 (.)
-=======
-    public function lastSuccessfulLoginAt(): ?Carbon
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     {
         /** @var AuthenticationLog|null $auth */
         $auth = $this->authentications()->where('login_successful', true)->first();
@@ -162,23 +86,7 @@ trait HasAuthenticationLogTrait
      *
      * @return ?string the IP address of the last login or null if none exists
      */
-<<<<<<< HEAD
     public function lastLoginIp(): null|string
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function lastLoginIp(): null|string
-=======
-    public function lastLoginIp(): ?string
->>>>>>> a12f125f4a (.)
-=======
-    public function lastLoginIp(): null|string
->>>>>>> b93ef594b4 (.)
-=======
-    public function lastLoginIp(): ?string
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     {
         /** @var AuthenticationLog|null $auth */
         $auth = $this->authentications()->first();
@@ -190,23 +98,7 @@ trait HasAuthenticationLogTrait
      *
      * @return ?string the IP address of the last successful login or null if none exists
      */
-<<<<<<< HEAD
     public function lastSuccessfulLoginIp(): null|string
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function lastSuccessfulLoginIp(): null|string
-=======
-    public function lastSuccessfulLoginIp(): ?string
->>>>>>> a12f125f4a (.)
-=======
-    public function lastSuccessfulLoginIp(): null|string
->>>>>>> b93ef594b4 (.)
-=======
-    public function lastSuccessfulLoginIp(): ?string
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     {
         /** @var AuthenticationLog|null $auth */
         $auth = $this->authentications()->where('login_successful', true)->first();
@@ -218,23 +110,7 @@ trait HasAuthenticationLogTrait
      *
      * @return ?Carbon the timestamp of the previous login or null if less than two logins exist
      */
-<<<<<<< HEAD
     public function previousLoginAt(): null|Carbon
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function previousLoginAt(): null|Carbon
-=======
-    public function previousLoginAt(): ?Carbon
->>>>>>> a12f125f4a (.)
-=======
-    public function previousLoginAt(): null|Carbon
->>>>>>> b93ef594b4 (.)
-=======
-    public function previousLoginAt(): ?Carbon
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     {
         /** @var AuthenticationLog|null $auth */
         $auth = $this->authentications()->skip(1)->first();
@@ -246,23 +122,7 @@ trait HasAuthenticationLogTrait
      *
      * @return ?string the IP address of the previous login or null if less than two logins exist
      */
-<<<<<<< HEAD
     public function previousLoginIp(): null|string
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function previousLoginIp(): null|string
-=======
-    public function previousLoginIp(): ?string
->>>>>>> a12f125f4a (.)
-=======
-    public function previousLoginIp(): null|string
->>>>>>> b93ef594b4 (.)
-=======
-    public function previousLoginIp(): ?string
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     {
         /** @var AuthenticationLog|null $auth */
         $auth = $this->authentications()->skip(1)->first();

@@ -9,16 +9,8 @@ declare(strict_types=1);
 namespace Modules\User\Actions;
 
 // use DutchCodingCompany\FilamentSocialite\FilamentSocialite;
-<<<<<<< HEAD
 use InvalidArgumentException;
 use RuntimeException;
-=======
-<<<<<<< HEAD
-use InvalidArgumentException;
-use RuntimeException;
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 use Jenssegers\Agent\Agent;
 use Modules\User\Models\Device;
 use Spatie\QueueableAction\QueueableAction;
@@ -30,23 +22,7 @@ class GetCurrentDeviceAction
     /**
      * Execute the action.
      */
-<<<<<<< HEAD
     public function execute(null|string $mobile_id = null): Device
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function execute(null|string $mobile_id = null): Device
-=======
-    public function execute(?string $mobile_id = null): Device
->>>>>>> a12f125f4a (.)
-=======
-    public function execute(null|string $mobile_id = null): Device
->>>>>>> b93ef594b4 (.)
-=======
-    public function execute(?string $mobile_id = null): Device
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     {
         $agent = new Agent();
 
@@ -72,28 +48,12 @@ class GetCurrentDeviceAction
 
         if ($mobile_id !== null) {
             if (empty($mobile_id)) {
-<<<<<<< HEAD
                 throw new InvalidArgumentException('L\'ID mobile non può essere vuoto');
-=======
-<<<<<<< HEAD
-                throw new InvalidArgumentException('L\'ID mobile non può essere vuoto');
-=======
-                throw new \InvalidArgumentException('L\'ID mobile non può essere vuoto');
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             }
 
             $device = Device::firstOrCreate(['mobile_id' => $mobile_id]);
             if ($device === null) {
-<<<<<<< HEAD
                 throw new RuntimeException('Impossibile creare o trovare il dispositivo');
-=======
-<<<<<<< HEAD
-                throw new RuntimeException('Impossibile creare o trovare il dispositivo');
-=======
-                throw new \RuntimeException('Impossibile creare o trovare il dispositivo');
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             }
             $device->update([...$data, ...$up]);
 
@@ -102,15 +62,7 @@ class GetCurrentDeviceAction
 
         $device = Device::firstOrCreate($data);
         if ($device === null) {
-<<<<<<< HEAD
             throw new RuntimeException('Impossibile creare o trovare il dispositivo');
-=======
-<<<<<<< HEAD
-            throw new RuntimeException('Impossibile creare o trovare il dispositivo');
-=======
-            throw new \RuntimeException('Impossibile creare o trovare il dispositivo');
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
         }
         $device->update($up);
 

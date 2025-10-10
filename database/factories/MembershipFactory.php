@@ -11,56 +11,16 @@ use Modules\User\Models\User;
 
 /**
  * Membership Factory
-<<<<<<< HEAD
  *
  * Factory for creating Membership model instances for testing and seeding.
  *
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
- *
- * Factory for creating Membership model instances for testing and seeding.
- *
-=======
- * 
- * Factory for creating Membership model instances for testing and seeding.
- * 
->>>>>>> a12f125f4a (.)
-=======
- *
- * Factory for creating Membership model instances for testing and seeding.
- *
->>>>>>> b93ef594b4 (.)
-=======
- * 
- * Factory for creating Membership model instances for testing and seeding.
- * 
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
  * @extends Factory<Membership>
  */
 class MembershipFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
-<<<<<<< HEAD
      *
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-     *
-=======
-     * 
->>>>>>> a12f125f4a (.)
-=======
-     *
->>>>>>> b93ef594b4 (.)
-=======
-     * 
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
      * @var class-string<Membership>
      */
     protected $model = Membership::class;
@@ -88,23 +48,7 @@ class MembershipFactory extends Factory
      */
     public function forTeam(Team $team): static
     {
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> a12f125f4a (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'team_id' => $team->id,
         ]);
     }
@@ -117,23 +61,7 @@ class MembershipFactory extends Factory
      */
     public function forUser(User $user): static
     {
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> a12f125f4a (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'user_id' => $user->id,
         ]);
     }
@@ -145,23 +73,7 @@ class MembershipFactory extends Factory
      */
     public function admin(): static
     {
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> a12f125f4a (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'role' => 'admin',
         ]);
     }
@@ -173,23 +85,7 @@ class MembershipFactory extends Factory
      */
     public function editor(): static
     {
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> a12f125f4a (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'role' => 'editor',
         ]);
     }
@@ -201,23 +97,7 @@ class MembershipFactory extends Factory
      */
     public function member(): static
     {
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> a12f125f4a (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             'role' => 'member',
         ]);
     }
@@ -229,37 +109,8 @@ class MembershipFactory extends Factory
      */
     public function viewer(): static
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
         return $this->state(fn(array $_attributes): array => [
             'role' => 'viewer',
         ]);
     }
 }
-<<<<<<< HEAD
-=======
-=======
-        return $this->state(fn (array $attributes): array => [
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> b93ef594b4 (.)
-            'role' => 'viewer',
-        ]);
-    }
-}
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-        return $this->state(fn (array $attributes): array => [
-            'role' => 'viewer',
-        ]);
-    }
-}
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)

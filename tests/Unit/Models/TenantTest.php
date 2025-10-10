@@ -48,23 +48,7 @@ class TenantTest extends TestCase
         ]);
 
         // Verifica campi JSON
-<<<<<<< HEAD
         static::assertSame(['theme' => 'dark', 'features' => ['chat', 'analytics']], $tenant->settings);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertSame(['theme' => 'dark', 'features' => ['chat', 'analytics']], $tenant->settings);
-=======
-        $this->assertEquals(['theme' => 'dark', 'features' => ['chat', 'analytics']], $tenant->settings);
->>>>>>> a12f125f4a (.)
-=======
-        static::assertSame(['theme' => 'dark', 'features' => ['chat', 'analytics']], $tenant->settings);
->>>>>>> b93ef594b4 (.)
-=======
-        $this->assertEquals(['theme' => 'dark', 'features' => ['chat', 'analytics']], $tenant->settings);
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     public function test_tenant_has_soft_deletes(): void
@@ -96,23 +80,7 @@ class TenantTest extends TestCase
         $restoredTenant->restore();
 
         $this->assertDatabaseHas('tenants', ['id' => $tenantId]);
-<<<<<<< HEAD
         static::assertNull($restoredTenant->deleted_at);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertNull($restoredTenant->deleted_at);
-=======
-        $this->assertNull($restoredTenant->deleted_at);
->>>>>>> a12f125f4a (.)
-=======
-        static::assertNull($restoredTenant->deleted_at);
->>>>>>> b93ef594b4 (.)
-=======
-        $this->assertNull($restoredTenant->deleted_at);
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_tenant_by_name(): void
@@ -121,28 +89,8 @@ class TenantTest extends TestCase
 
         $foundTenant = Tenant::where('name', 'Unique Tenant Name')->first();
 
-<<<<<<< HEAD
         static::assertNotNull($foundTenant);
         static::assertSame($tenant->id, $foundTenant->id);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertNotNull($foundTenant);
-        static::assertSame($tenant->id, $foundTenant->id);
-=======
-        $this->assertNotNull($foundTenant);
-        $this->assertEquals($tenant->id, $foundTenant->id);
->>>>>>> a12f125f4a (.)
-=======
-        static::assertNotNull($foundTenant);
-        static::assertSame($tenant->id, $foundTenant->id);
->>>>>>> b93ef594b4 (.)
-=======
-        $this->assertNotNull($foundTenant);
-        $this->assertEquals($tenant->id, $foundTenant->id);
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_tenant_by_slug(): void
@@ -151,28 +99,8 @@ class TenantTest extends TestCase
 
         $foundTenant = Tenant::where('slug', 'unique-tenant')->first();
 
-<<<<<<< HEAD
         static::assertNotNull($foundTenant);
         static::assertSame($tenant->id, $foundTenant->id);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertNotNull($foundTenant);
-        static::assertSame($tenant->id, $foundTenant->id);
-=======
-        $this->assertNotNull($foundTenant);
-        $this->assertEquals($tenant->id, $foundTenant->id);
->>>>>>> a12f125f4a (.)
-=======
-        static::assertNotNull($foundTenant);
-        static::assertSame($tenant->id, $foundTenant->id);
->>>>>>> b93ef594b4 (.)
-=======
-        $this->assertNotNull($foundTenant);
-        $this->assertEquals($tenant->id, $foundTenant->id);
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_tenant_by_domain(): void
@@ -181,28 +109,8 @@ class TenantTest extends TestCase
 
         $foundTenant = Tenant::where('domain', 'uniquetenant.com')->first();
 
-<<<<<<< HEAD
         static::assertNotNull($foundTenant);
         static::assertSame($tenant->id, $foundTenant->id);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertNotNull($foundTenant);
-        static::assertSame($tenant->id, $foundTenant->id);
-=======
-        $this->assertNotNull($foundTenant);
-        $this->assertEquals($tenant->id, $foundTenant->id);
->>>>>>> a12f125f4a (.)
-=======
-        static::assertNotNull($foundTenant);
-        static::assertSame($tenant->id, $foundTenant->id);
->>>>>>> b93ef594b4 (.)
-=======
-        $this->assertNotNull($foundTenant);
-        $this->assertEquals($tenant->id, $foundTenant->id);
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_tenant_by_database(): void
@@ -211,28 +119,8 @@ class TenantTest extends TestCase
 
         $foundTenant = Tenant::where('database', 'unique_db')->first();
 
-<<<<<<< HEAD
         static::assertNotNull($foundTenant);
         static::assertSame($tenant->id, $foundTenant->id);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertNotNull($foundTenant);
-        static::assertSame($tenant->id, $foundTenant->id);
-=======
-        $this->assertNotNull($foundTenant);
-        $this->assertEquals($tenant->id, $foundTenant->id);
->>>>>>> a12f125f4a (.)
-=======
-        static::assertNotNull($foundTenant);
-        static::assertSame($tenant->id, $foundTenant->id);
->>>>>>> b93ef594b4 (.)
-=======
-        $this->assertNotNull($foundTenant);
-        $this->assertEquals($tenant->id, $foundTenant->id);
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_active_tenants(): void
@@ -243,28 +131,8 @@ class TenantTest extends TestCase
 
         $activeTenants = Tenant::where('is_active', true)->get();
 
-<<<<<<< HEAD
         static::assertCount(2, $activeTenants);
         static::assertTrue($activeTenants->every(fn($tenant) => $tenant->is_active));
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertCount(2, $activeTenants);
-        static::assertTrue($activeTenants->every(fn($tenant) => $tenant->is_active));
-=======
-        $this->assertCount(2, $activeTenants);
-        $this->assertTrue($activeTenants->every(fn ($tenant) => $tenant->is_active));
->>>>>>> a12f125f4a (.)
-=======
-        static::assertCount(2, $activeTenants);
-        static::assertTrue($activeTenants->every(fn($tenant) => $tenant->is_active));
->>>>>>> b93ef594b4 (.)
-=======
-        $this->assertCount(2, $activeTenants);
-        $this->assertTrue($activeTenants->every(fn ($tenant) => $tenant->is_active));
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_tenants_by_name_pattern(): void
@@ -275,28 +143,8 @@ class TenantTest extends TestCase
 
         $companyTenants = Tenant::where('name', 'like', '%Company%')->get();
 
-<<<<<<< HEAD
         static::assertCount(1, $companyTenants);
         static::assertTrue($companyTenants->every(fn($tenant) => str_contains($tenant->name, 'Company')));
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertCount(1, $companyTenants);
-        static::assertTrue($companyTenants->every(fn($tenant) => str_contains($tenant->name, 'Company')));
-=======
-        $this->assertCount(1, $companyTenants);
-        $this->assertTrue($companyTenants->every(fn ($tenant) => str_contains($tenant->name, 'Company')));
->>>>>>> a12f125f4a (.)
-=======
-        static::assertCount(1, $companyTenants);
-        static::assertTrue($companyTenants->every(fn($tenant) => str_contains($tenant->name, 'Company')));
->>>>>>> b93ef594b4 (.)
-=======
-        $this->assertCount(1, $companyTenants);
-        $this->assertTrue($companyTenants->every(fn ($tenant) => str_contains($tenant->name, 'Company')));
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_tenants_by_domain_pattern(): void
@@ -307,28 +155,8 @@ class TenantTest extends TestCase
 
         $exampleTenants = Tenant::where('domain', 'like', '%.example.com')->get();
 
-<<<<<<< HEAD
         static::assertCount(3, $exampleTenants);
         static::assertTrue($exampleTenants->every(fn($tenant) => str_ends_with($tenant->domain, '.example.com')));
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertCount(3, $exampleTenants);
-        static::assertTrue($exampleTenants->every(fn($tenant) => str_ends_with($tenant->domain, '.example.com')));
-=======
-        $this->assertCount(3, $exampleTenants);
-        $this->assertTrue($exampleTenants->every(fn ($tenant) => str_ends_with($tenant->domain, '.example.com')));
->>>>>>> a12f125f4a (.)
-=======
-        static::assertCount(3, $exampleTenants);
-        static::assertTrue($exampleTenants->every(fn($tenant) => str_ends_with($tenant->domain, '.example.com')));
->>>>>>> b93ef594b4 (.)
-=======
-        $this->assertCount(3, $exampleTenants);
-        $this->assertTrue($exampleTenants->every(fn ($tenant) => str_ends_with($tenant->domain, '.example.com')));
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     public function test_can_update_tenant(): void
@@ -374,138 +202,40 @@ class TenantTest extends TestCase
             'domain' => 'inactive.com',
         ]);
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
         $tenants = Tenant::where('is_active', true)->where('domain', 'like', '%.com')->get();
 
         static::assertCount(1, $tenants);
         static::assertSame('Active Company', $tenants->first()->name);
         static::assertTrue($tenants->first()->is_active);
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> origin/develop
-        $tenants = Tenant::where('is_active', true)
-            ->where('domain', 'like', '%.com')
-            ->get();
-
-        $this->assertCount(1, $tenants);
-        $this->assertEquals('Active Company', $tenants->first()->name);
-        $this->assertTrue($tenants->first()->is_active);
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-        $tenants = Tenant::where('is_active', true)->where('domain', 'like', '%.com')->get();
-
-        static::assertCount(1, $tenants);
-        static::assertSame('Active Company', $tenants->first()->name);
-        static::assertTrue($tenants->first()->is_active);
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     public function test_tenant_has_users_relationship(): void
     {
         $tenant = Tenant::factory()->create();
 
-<<<<<<< HEAD
         static::assertTrue(method_exists($tenant, 'users'));
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertTrue(method_exists($tenant, 'users'));
-=======
-        $this->assertTrue(method_exists($tenant, 'users'));
->>>>>>> a12f125f4a (.)
-=======
-        static::assertTrue(method_exists($tenant, 'users'));
->>>>>>> b93ef594b4 (.)
-=======
-        $this->assertTrue(method_exists($tenant, 'users'));
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     public function test_tenant_has_members_relationship(): void
     {
         $tenant = Tenant::factory()->create();
 
-<<<<<<< HEAD
         static::assertTrue(method_exists($tenant, 'members'));
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertTrue(method_exists($tenant, 'members'));
-=======
-        $this->assertTrue(method_exists($tenant, 'members'));
->>>>>>> a12f125f4a (.)
-=======
-        static::assertTrue(method_exists($tenant, 'members'));
->>>>>>> b93ef594b4 (.)
-=======
-        $this->assertTrue(method_exists($tenant, 'members'));
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     public function test_tenant_has_media_relationship(): void
     {
         $tenant = Tenant::factory()->create();
 
-<<<<<<< HEAD
         static::assertTrue(method_exists($tenant, 'media'));
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertTrue(method_exists($tenant, 'media'));
-=======
-        $this->assertTrue(method_exists($tenant, 'media'));
->>>>>>> a12f125f4a (.)
-=======
-        static::assertTrue(method_exists($tenant, 'media'));
->>>>>>> b93ef594b4 (.)
-=======
-        $this->assertTrue(method_exists($tenant, 'media'));
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     public function test_tenant_has_factory(): void
     {
         $tenant = Tenant::factory()->create();
 
-<<<<<<< HEAD
         static::assertNotNull($tenant->id);
         static::assertInstanceOf(Tenant::class, $tenant);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertNotNull($tenant->id);
-        static::assertInstanceOf(Tenant::class, $tenant);
-=======
-        $this->assertNotNull($tenant->id);
-        $this->assertInstanceOf(Tenant::class, $tenant);
->>>>>>> a12f125f4a (.)
-=======
-        static::assertNotNull($tenant->id);
-        static::assertInstanceOf(Tenant::class, $tenant);
->>>>>>> b93ef594b4 (.)
-=======
-        $this->assertNotNull($tenant->id);
-        $this->assertInstanceOf(Tenant::class, $tenant);
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_tenants_by_trial_status(): void
@@ -520,28 +250,8 @@ class TenantTest extends TestCase
 
         $activeTrials = Tenant::where('trial_ends_at', '>', now())->get();
 
-<<<<<<< HEAD
         static::assertCount(1, $activeTrials);
         static::assertSame($activeTenant->id, $activeTrials->first()->id);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertCount(1, $activeTrials);
-        static::assertSame($activeTenant->id, $activeTrials->first()->id);
-=======
-        $this->assertCount(1, $activeTrials);
-        $this->assertEquals($activeTenant->id, $activeTrials->first()->id);
->>>>>>> a12f125f4a (.)
-=======
-        static::assertCount(1, $activeTrials);
-        static::assertSame($activeTenant->id, $activeTrials->first()->id);
->>>>>>> b93ef594b4 (.)
-=======
-        $this->assertCount(1, $activeTrials);
-        $this->assertEquals($activeTenant->id, $activeTrials->first()->id);
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 
     public function test_can_find_tenants_by_settings_value(): void
@@ -556,40 +266,7 @@ class TenantTest extends TestCase
 
         $darkThemeTenants = Tenant::whereJsonContains('settings->theme', 'dark')->get();
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
         static::assertCount(1, $darkThemeTenants);
         static::assertSame('dark', $darkThemeTenants->first()->settings['theme']);
     }
 }
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> origin/develop
-        $this->assertCount(1, $darkThemeTenants);
-        $this->assertEquals('dark', $darkThemeTenants->first()->settings['theme']);
-    }
-}
-
-
-
-
-
-
-
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-        static::assertCount(1, $darkThemeTenants);
-        static::assertSame('dark', $darkThemeTenants->first()->settings['theme']);
-    }
-}
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)

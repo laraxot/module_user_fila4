@@ -37,55 +37,15 @@ class CreateTeamCommand extends Command
         $name = text(
             label: 'What is name of team?',
             placeholder: 'E.g. Moderator, ',
-<<<<<<< HEAD
         // default: $user->name,
         // hint: 'This will be displayed on your profile.'
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        // default: $user->name,
-        // hint: 'This will be displayed on your profile.'
-=======
-            // default: $user->name,
-            // hint: 'This will be displayed on your profile.'
->>>>>>> a12f125f4a (.)
-=======
-        // default: $user->name,
-        // hint: 'This will be displayed on your profile.'
->>>>>>> b93ef594b4 (.)
-=======
-            // default: $user->name,
-            // hint: 'This will be displayed on your profile.'
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
         );
 
         $modelClass::create([
             'name' => $name,
         ]);
 
-<<<<<<< HEAD
         $map = static fn(Model $row) => $row->toArray();
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $map = static fn(Model $row) => $row->toArray();
-=======
-        $map = static function (Model $row) {
-            return $row->toArray();
-        };
->>>>>>> a12f125f4a (.)
-=======
-        $map = static fn(Model $row) => $row->toArray();
->>>>>>> b93ef594b4 (.)
-=======
-        $map = static function (Model $row) {
-            return $row->toArray();
-        };
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 
         $rows = $modelClass::get()->map($map);
 
@@ -99,23 +59,7 @@ class CreateTeamCommand extends Command
             $this->newLine();
         } else {
             $this->newLine();
-<<<<<<< HEAD
             $this->warn('⚡ No Teams [' . $modelClass . ']');
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            $this->warn('⚡ No Teams [' . $modelClass . ']');
-=======
-            $this->warn('⚡ No Teams ['.$modelClass.']');
->>>>>>> a12f125f4a (.)
-=======
-            $this->warn('⚡ No Teams [' . $modelClass . ']');
->>>>>>> b93ef594b4 (.)
-=======
-            $this->warn('⚡ No Teams ['.$modelClass.']');
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             $this->newLine();
         }
     }

@@ -8,14 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Controllers\Socialite;
 
-<<<<<<< HEAD
 use Exception;
-=======
-<<<<<<< HEAD
-use Exception;
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Request;
@@ -30,23 +23,7 @@ class RedirectToProviderController extends Controller
     /**
      * Undocumented function.
      */
-<<<<<<< HEAD
     public function __invoke(Request $_request, string $provider): RedirectResponse
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function __invoke(Request $_request, string $provider): RedirectResponse
-=======
-    public function __invoke(Request $request, string $provider): RedirectResponse
->>>>>>> a12f125f4a (.)
-=======
-    public function __invoke(Request $_request, string $provider): RedirectResponse
->>>>>>> b93ef594b4 (.)
-=======
-    public function __invoke(Request $request, string $provider): RedirectResponse
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     {
         // if (! app(IsProviderConfiguredAction::class)->execute($provider)) {
         //    throw ProviderNotConfigured::make($provider);
@@ -55,12 +32,6 @@ class RedirectToProviderController extends Controller
 
         $scopes = App(GetProviderScopesAction::class)->execute($provider);
         $socialiteProvider = Socialite::with($provider);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
         if (!is_object($socialiteProvider)) {
             throw new Exception('wip');
         }
@@ -70,41 +41,5 @@ class RedirectToProviderController extends Controller
         }
 
         return $socialiteProvider->scopes($scopes)->redirect();
-<<<<<<< HEAD
-=======
-=======
-        if (! is_object($socialiteProvider)) {
-=======
-        if (!is_object($socialiteProvider)) {
->>>>>>> b93ef594b4 (.)
-            throw new Exception('wip');
-        }
-
-        if (!method_exists($socialiteProvider, 'scopes')) {
-            throw new Exception('wip');
-        }
-
-<<<<<<< HEAD
-        return $socialiteProvider
-            ->scopes($scopes)
-            ->redirect();
->>>>>>> a12f125f4a (.)
-=======
-        return $socialiteProvider->scopes($scopes)->redirect();
->>>>>>> b93ef594b4 (.)
-=======
-        if (! is_object($socialiteProvider)) {
-            throw new \Exception('wip');
-        }
-
-        if (! method_exists($socialiteProvider, 'scopes')) {
-            throw new \Exception('wip');
-        }
-
-        return $socialiteProvider
-            ->scopes($scopes)
-            ->redirect();
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 }
