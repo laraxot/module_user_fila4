@@ -16,6 +16,9 @@ class DevicesRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'devices';
 
+    /**
+     * @return array<string, TextColumn>
+     */
     public static function extendTableCallback(): array
     {
         return [
@@ -28,6 +31,9 @@ class DevicesRelationManager extends XotBaseRelationManager
      * @return array<string, Component>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getFormSchema(): array
     {
         return [

@@ -4,30 +4,42 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Middleware;
 
-use Closure;
 use Filament\Facades\Filament;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Webmozart\Assert\Assert;
 
 class PasswordExpiryMiddleware
 {
-    public function handle(Request $request, Closure $next): Response|RedirectResponse
+    public function handle(Request $request, \Closure $next): Response|RedirectResponse
     {
         if ($request->routeIs('password.change') || $request->routeIs('password.update')) {
-            return $next($request);
+            $response = $next($request);
+            Assert::isInstanceOf($response, Response::class);
+
+            return $response;
         }
 
         if ($request->routeIs($this->getPasswordExpiryRoute()) || $request->routeIs('*.auth.*')) {
-            return $next($request);
+            $response = $next($request);
+            Assert::isInstanceOf($response, Response::class);
+
+            return $response;
         }
 
         if ($this->passwordHasExpired()) {
-            return redirect(route($this->getPasswordExpiryRoute()));
+            $redirect = redirect(route($this->getPasswordExpiryRoute()));
+            Assert::isInstanceOf($redirect, RedirectResponse::class);
+
+            return $redirect;
         }
 
-        return $next($request);
+        $response = $next($request);
+        Assert::isInstanceOf($response, Response::class);
+
+        return $response;
     }
 
     public function getPasswordExpiryRoute(): string

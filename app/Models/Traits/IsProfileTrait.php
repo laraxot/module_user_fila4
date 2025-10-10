@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Modulo User - Trait per il profilo utente
+ * Modulo User - Trait per il profilo utente.
  *
  * Questo trait implementa funzionalità comuni per i modelli di profilo utente nell'applicazione,
  * tra cui relazioni con utenti, dispositivi e team, gestione dei ruoli, e accessori per attributi
@@ -20,7 +20,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models\Traits;
 
-use Exception;
 use Filament\Notifications\Notification;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
@@ -31,7 +30,6 @@ use Illuminate\Support\Collection;
 use Modules\User\Models\Device;
 use Modules\User\Models\DeviceUser;
 use Modules\User\Models\Role;
-use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Exceptions\RoleDoesNotExist;
@@ -48,34 +46,34 @@ trait IsProfileTrait
 
     /**
      * Relazione con l'utente a cui appartiene il profilo.
-     *
-     * @return BelongsTo<Model&UserContract, static>
      */
     public function user(): BelongsTo
     {
-        /** @var class-string<Model&UserContract> $userClass */
+        /** @var class-string<Model> $userClass */
         $userClass = XotData::make()->getUserClass();
 
-        // @phpstan-ignore return.type
-        return $this->belongsTo($userClass);
+        // @phpstan-ignore-next-line
+        return $this->belongsTo($userClass, 'user_id', 'id');
     }
 
     /**
      * Ottiene il nome completo dell'utente.
+     * {{ ... }}
      * Utilizza prima i dati del profilo, altrimenti ricade sul nome dell'utente.
      *
-     * @param  string|null  $value  Il valore attuale dell'attributo
-     * @return string|null Il nome completo dell'utente
+     * @param string|null $value Il valore attuale dell'attributo
+     *
+     * @return string Il nome completo dell'utente
      */
-    public function getFullNameAttribute(?string $value): ?string
+    public function getFullNameAttribute(?string $value = null): string
     {
-        if ($value !== null) {
+        if (null !== $value) {
             return $value;
         }
 
         $user = $this->user;
-        if ($user === null) {
-            return null;
+        if (null === $user) {
+            return '';
         }
 
         $res = $this->first_name.' '.$this->last_name;
@@ -90,22 +88,23 @@ trait IsProfileTrait
      * Ottiene il nome dell'utente.
      * Se non presente nel profilo, lo recupera dall'utente collegato.
      *
-     * @param  string|null  $value  Il valore attuale dell'attributo
+     * @param string|null $value Il valore attuale dell'attributo
+     *
      * @return string|null Il nome dell'utente
      */
     public function getFirstNameAttribute(?string $value): ?string
     {
-        if ($value !== null) {
+        if (null !== $value) {
             return $value;
         }
 
         $user = $this->user;
-        if ($user === null) {
+        if (null === $user) {
             return null;
         }
 
         $value = $user->first_name;
-        if ($value === null) {
+        if (null === $value) {
             return null;
         }
         $this->update(['first_name' => $value]);
@@ -117,22 +116,23 @@ trait IsProfileTrait
      * Ottiene il cognome dell'utente.
      * Se non presente nel profilo, lo recupera dall'utente collegato.
      *
-     * @param  string|null  $value  Il valore attuale dell'attributo
+     * @param string|null $value Il valore attuale dell'attributo
+     *
      * @return string|null Il cognome dell'utente
      */
     public function getLastNameAttribute(?string $value): ?string
     {
-        if ($value !== null) {
+        if (null !== $value) {
             return $value;
         }
 
         $user = $this->user;
-        if ($user === null) {
+        if (null === $user) {
             return null;
         }
 
         $value = $user->last_name;
-        if ($value === null) {
+        if (null === $value) {
             return null;
         }
         $this->update(['last_name' => $value]);
@@ -147,7 +147,7 @@ trait IsProfileTrait
      */
     public function isSuperAdmin(): bool
     {
-        if ($this->user === null) {
+        if (null === $this->user) {
             return false;
         }
 
@@ -161,7 +161,7 @@ trait IsProfileTrait
      */
     public function isNegateSuperAdmin(): bool
     {
-        if ($this->user === null) {
+        if (null === $this->user) {
             return false;
         }
 
@@ -173,13 +173,13 @@ trait IsProfileTrait
      * Se l'utente è super-admin, rimuove questo ruolo e assegna negate-super-admin.
      * Se l'utente non è super-admin, assegna super-admin e rimuove negate-super-admin.
      *
-     * @throws Exception Se l'utente non è disponibile
+     * @throws \Exception Se l'utente non è disponibile
      */
     public function toggleSuperAdmin(): void
     {
         $user = $this->user;
-        if ($user === null) {
-            throw new Exception('['.__LINE__.']['.class_basename($this).']');
+        if (null === $user) {
+            throw new \Exception('['.__LINE__.']['.class_basename($this).']');
         }
         $to_assign = 'super-admin';
         $to_remove = 'negate-super-admin';
@@ -196,7 +196,7 @@ trait IsProfileTrait
             $role_remove = Role::updateOrCreate(['name' => $to_remove], ['team_id' => null]);
             $user->roles()->attach($role_assign);
             $user->roles()->detach($role_remove);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             Notification::make()
                 ->title('Exception !')
                 ->danger()
@@ -261,9 +261,9 @@ trait IsProfileTrait
         // PHPStan livello 9 richiede il controllo che il risultato sia del tipo corretto
         $tokens = $this->mobileDeviceUsers()
             ->pluck('token')
-            ->filter(fn ($value) => $value !== null && is_string($value));
+            ->filter(fn ($value) => null !== $value && is_string($value));
 
-        /** @var Collection<int|string, string> */
+        /* @var Collection<int|string, string> */
         return $tokens;
     }
 
@@ -277,7 +277,7 @@ trait IsProfileTrait
     {
         return Attribute::make(get: function (): ?string {
             $user = $this->user;
-            if ($user === null) {
+            if (null === $user) {
                 return null;
             }
 

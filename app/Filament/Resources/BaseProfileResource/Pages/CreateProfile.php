@@ -14,17 +14,22 @@ class CreateProfile extends XotBaseCreateRecord
 {
     protected static string $resource = BaseProfileResource::class;
 
+    /**
+     * @return array<string, mixed>
+     */
     public function mutateFormDataBeforeCreate(array $data): array
     {
+        /** @var array<string, mixed> $user_data */
         $user_data = Arr::except($data, ['user']);
         $extra = $data['user'] ?? [];
         if (! is_array($extra)) {
             $extra = [];
         }
-        $user_data = array_merge($user_data, $extra);
+        /** @var array<string, mixed> $mergedData */
+        $mergedData = array_merge($user_data, $extra);
         $user_class = XotData::make()->getUserClass();
-        /** @var UserContract */
-        $user = $user_class::create($user_data);
+        /** @var UserContract $user */
+        $user = $user_class::create($mergedData);
         $data['user_id'] = $user->getKey();
 
         return $data;

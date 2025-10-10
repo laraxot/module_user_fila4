@@ -23,6 +23,9 @@ class ViewTenant extends XotBaseViewRecord
      * @return array<string, Component>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getInfolistSchema(): array
     {
         return [

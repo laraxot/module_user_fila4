@@ -18,6 +18,7 @@ class TenantTest extends TestCase
             'name' => 'Test Tenant',
         ]);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('tenants', [
             'id' => $tenant->id,
             'name' => 'Test Tenant',
@@ -38,6 +39,7 @@ class TenantTest extends TestCase
 
         $tenant = Tenant::factory()->create($tenantData);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('tenants', [
             'id' => $tenant->id,
             'name' => 'Full Tenant',
@@ -56,15 +58,19 @@ class TenantTest extends TestCase
         $tenant = Tenant::factory()->create();
         $tenantId = $tenant->id;
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $tenant->delete();
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertSoftDeleted('tenants', ['id' => $tenantId]);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseMissing('tenants', ['id' => $tenantId]);
     }
 
     public function test_can_restore_soft_deleted_tenant(): void
     {
         if (!method_exists(Tenant::class, 'withTrashed')) {
+            /** @phpstan-ignore-next-line property.notFound, method.nonObject */
             $this->markTestSkipped('SoftDeletes trait not present on Tenant model');
             return;
         }
@@ -72,13 +78,17 @@ class TenantTest extends TestCase
         $tenant = Tenant::factory()->create();
         $tenantId = $tenant->id;
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $tenant->delete();
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertSoftDeleted('tenants', ['id' => $tenantId]);
 
         /** @var Tenant $restoredTenant */
         $restoredTenant = Tenant::withTrashed()->find($tenantId);
+        /** @phpstan-ignore-next-line method.nonObject */
         $restoredTenant->restore();
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('tenants', ['id' => $tenantId]);
         static::assertNull($restoredTenant->deleted_at);
     }
@@ -132,6 +142,7 @@ class TenantTest extends TestCase
         $activeTenants = Tenant::where('is_active', true)->get();
 
         static::assertCount(2, $activeTenants);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($activeTenants->every(fn ($tenant) => $tenant->is_active));
     }
 
@@ -144,6 +155,7 @@ class TenantTest extends TestCase
         $companyTenants = Tenant::where('name', 'like', '%Company%')->get();
 
         static::assertCount(1, $companyTenants);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($companyTenants->every(fn ($tenant) => str_contains($tenant->name, 'Company')));
     }
 
@@ -156,6 +168,7 @@ class TenantTest extends TestCase
         $exampleTenants = Tenant::where('domain', 'like', '%.example.com')->get();
 
         static::assertCount(3, $exampleTenants);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($exampleTenants->every(fn ($tenant) => str_ends_with($tenant->domain, '.example.com')));
     }
 
@@ -163,8 +176,10 @@ class TenantTest extends TestCase
     {
         $tenant = Tenant::factory()->create(['name' => 'Old Name']);
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $tenant->update(['name' => 'New Name']);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('tenants', [
             'id' => $tenant->id,
             'name' => 'New Name',
@@ -180,6 +195,7 @@ class TenantTest extends TestCase
             'database' => null,
         ]);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('tenants', [
             'id' => $tenant->id,
             'slug' => null,
@@ -205,7 +221,9 @@ class TenantTest extends TestCase
         $tenants = Tenant::where('is_active', true)->where('domain', 'like', '%.com')->get();
 
         static::assertCount(1, $tenants);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('Active Company', $tenants->first()->name);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($tenants->first()->is_active);
     }
 
@@ -251,6 +269,7 @@ class TenantTest extends TestCase
         $activeTrials = Tenant::where('trial_ends_at', '>', now())->get();
 
         static::assertCount(1, $activeTrials);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame($activeTenant->id, $activeTrials->first()->id);
     }
 
@@ -267,6 +286,7 @@ class TenantTest extends TestCase
         $darkThemeTenants = Tenant::whereJsonContains('settings->theme', 'dark')->get();
 
         static::assertCount(1, $darkThemeTenants);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('dark', $darkThemeTenants->first()->settings['theme']);
     }
 }

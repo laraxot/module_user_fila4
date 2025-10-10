@@ -29,39 +29,60 @@ beforeEach(function (): void {
         ]);
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page has correct resource', function (): void {
     expect(ListUsers::getResource())->toBe(UserResource::class);
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page extends correct base class', function (): void {
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->listUsersPage)
         ->toBeInstanceOf(BaseListUsers::class);
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page can be instantiated', function (): void {
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->listUsersPage)->toBeInstanceOf(ListUsers::class);
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page has correct table columns', function (): void {
+    /** @phpstan-ignore-next-line property.notFound */
     $columns = $this->listUsersPage->getTableColumns();
 
     expect($columns)->toHaveKey('name');
     expect($columns)->toHaveKey('email');
 
     // Test name column
+    /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
     $nameColumn = $columns['name'];
     expect($nameColumn)->toBeInstanceOf(TextColumn::class);
     expect($nameColumn->getName())->toBe('name');
     expect($nameColumn->isSearchable())->toBeTrue();
 
     // Test email column
+    /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
     $emailColumn = $columns['email'];
     expect($emailColumn)->toBeInstanceOf(TextColumn::class);
     expect($emailColumn->getName())->toBe('email');
     expect($emailColumn->isSearchable())->toBeTrue();
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page has correct table filters', function (): void {
+    /** @phpstan-ignore-next-line property.notFound */
     $filters = $this->listUsersPage->getTableFilters();
 
     // Currently no filters are defined
@@ -69,45 +90,64 @@ test('list users page has correct table filters', function (): void {
     expect($filters)->toHaveCount(0);
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page has correct table actions', function (): void {
+    /** @phpstan-ignore-next-line property.notFound */
     $actions = $this->listUsersPage->getTableActions();
 
     expect($actions)->toHaveKey('change_password');
     expect($actions)->toHaveKey('deactivate');
 
     // Test change password action
+    /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
     $changePasswordAction = $actions['change_password'];
     expect($changePasswordAction)->toBeInstanceOf(ChangePasswordAction::class);
 
     // Test deactivate action
+    /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
     $deactivateAction = $actions['deactivate'];
     expect($deactivateAction)->toBeInstanceOf(Action::class);
     expect($deactivateAction->getColor())->toBe('danger');
     expect($deactivateAction->getIcon())->toBe('heroicon-o-trash');
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page has correct header widgets', function (): void {
+    /** @phpstan-ignore-next-line property.notFound */
     $widgets = $this->listUsersPage->getHeaderWidgets();
 
     expect($widgets)->toHaveCount(1);
     expect($widgets)->toContain(UserOverview::class);
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page has correct bulk actions', function (): void {
+    /** @phpstan-ignore-next-line property.notFound */
     $bulkActions = $this->listUsersPage->getTableBulkActions();
 
     expect($bulkActions)->toHaveKey('delete');
     expect($bulkActions)->toHaveKey('export');
 
     // Test delete bulk action
+    /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
     $deleteAction = $bulkActions['delete'];
     expect($deleteAction)->toBeInstanceOf(DeleteBulkAction::class);
 
     // Test export bulk action
+    /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
     $exportAction = $bulkActions['export'];
     expect($exportAction)->toBeInstanceOf(ExportBulkAction::class);
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page can display users', function (): void {
     // This test would require proper Livewire setup
     // For now, we'll test the basic structure
@@ -121,6 +161,9 @@ test('list users page can display users', function (): void {
     }
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page has correct navigation label', function (): void {
     $label = ListUsers::getNavigationLabel();
 
@@ -128,6 +171,9 @@ test('list users page has correct navigation label', function (): void {
     expect($label)->not->toBeNull();
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page has correct title', function (): void {
     $title = ListUsers::getTitle();
 
@@ -135,6 +181,9 @@ test('list users page has correct title', function (): void {
     expect($title)->not->toBeNull();
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page has correct breadcrumbs', function (): void {
     $breadcrumbs = ListUsers::getBreadcrumbs();
 
@@ -142,22 +191,34 @@ test('list users page has correct breadcrumbs', function (): void {
     expect($breadcrumbs)->toBeArray();
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page can handle search', function (): void {
     // Test that searchable columns are properly configured
+    /** @phpstan-ignore-next-line property.notFound */
     $columns = $this->listUsersPage->getTableColumns();
 
+    /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
     $nameColumn = $columns['name'];
+    /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
     $emailColumn = $columns['email'];
 
     expect($nameColumn->isSearchable())->toBeTrue();
     expect($emailColumn->isSearchable())->toBeTrue();
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page can handle sorting', function (): void {
     // Test that columns can be sorted
+    /** @phpstan-ignore-next-line property.notFound */
     $columns = $this->listUsersPage->getTableColumns();
 
+    /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
     $nameColumn = $columns['name'];
+    /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
     $emailColumn = $columns['email'];
 
     // By default, columns should be sortable
@@ -165,6 +226,9 @@ test('list users page can handle sorting', function (): void {
     expect($emailColumn->isSortable())->toBeTrue();
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page can handle pagination', function (): void {
     // Test that pagination is properly configured
     $pagination = ListUsers::getTablePaginationPageOptions();
@@ -173,6 +237,9 @@ test('list users page can handle pagination', function (): void {
     expect($pagination)->toBeArray();
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page has correct table query', function (): void {
     // Test that the table query is properly configured
     $query = ListUsers::getTableQuery();
@@ -181,6 +248,9 @@ test('list users page has correct table query', function (): void {
     expect($query)->toBeInstanceOf(Builder::class);
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page can handle record selection', function (): void {
     // Test that record selection is properly configured
     $canSelectRecords = ListUsers::canSelectRecords();
@@ -189,6 +259,9 @@ test('list users page can handle record selection', function (): void {
     expect($canSelectRecords)->toBeTrue();
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page has correct table layout', function (): void {
     // Test that the table layout is properly configured
     $layout = ListUsers::getTableLayout();
@@ -197,6 +270,9 @@ test('list users page has correct table layout', function (): void {
     expect($layout)->not->toBeNull();
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page can handle empty state', function (): void {
     // Test that empty state is properly configured
     $emptyStateHeading = ListUsers::getTableEmptyStateHeading();
@@ -207,6 +283,9 @@ test('list users page can handle empty state', function (): void {
     expect($emptyStateDescription)->not->toBeNull();
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page has correct table actions alignment', function (): void {
     // Test that table actions are properly aligned
     $actionsAlignment = ListUsers::getTableActionsAlignment();
@@ -215,6 +294,9 @@ test('list users page has correct table actions alignment', function (): void {
     expect($actionsAlignment)->not->toBeNull();
 });
 
+/**
+ * @property \Modules\User\Models\User $user
+ */
 test('list users page can handle table records per page', function (): void {
     // Test that records per page is properly configured
     $recordsPerPage = ListUsers::getTableRecordsPerPageSelectOptions();

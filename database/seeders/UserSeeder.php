@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Modules\User\Models\Permission;
 use Modules\User\Models\Role;
 use Modules\User\Models\Team;
+use Webmozart\Assert\Assert;
 
 /**
  * Seeder per il modulo User.
@@ -30,7 +31,7 @@ class UserSeeder extends Seeder
         $this->command->info('👤 Inizializzazione seeding User...');
 
         // Disabilita i controlli di foreign key (solo per MySQL)
-        if (DB::getDriverName() !== 'sqlite') {
+        if ('sqlite' !== DB::getDriverName()) {
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         }
 
@@ -41,7 +42,7 @@ class UserSeeder extends Seeder
             $this->command->info('✅ Seeding User completato con successo!');
         } finally {
             // Riabilita i controlli di foreign key (solo per MySQL)
-            if (DB::getDriverName() !== 'sqlite') {
+            if ('sqlite' !== DB::getDriverName()) {
                 DB::statement('SET FOREIGN_KEY_CHECKS=1;');
             }
         }
@@ -103,21 +104,25 @@ class UserSeeder extends Seeder
         }
 
         // Ruoli di sistema
+        /** @var Role $superAdminRole */
         $superAdminRole = Role::firstOrCreate([
             'name' => 'super-admin',
             'guard_name' => 'web',
         ]);
 
+        /** @var Role $systemAdminRole */
         $systemAdminRole = Role::firstOrCreate([
             'name' => 'system-admin',
             'guard_name' => 'web',
         ]);
 
+        /** @var Role $moderatorRole */
         $moderatorRole = Role::firstOrCreate([
             'name' => 'moderator',
             'guard_name' => 'web',
         ]);
 
+        /** @var Role $userRole */
         $userRole = Role::firstOrCreate([
             'name' => 'user',
             'guard_name' => 'web',
@@ -169,31 +174,43 @@ class UserSeeder extends Seeder
         $this->command->info('👥 Creazione team di sistema...');
 
         // Team di amministrazione
-        $adminTeam = Team::factory()->create([
+        /** @var \Illuminate\Database\Eloquent\Factories\Factory<Team> $adminFactory */
+        $adminFactory = Team::factory();
+        $adminTeam = $adminFactory->create([
             'name' => 'Amministratori',
             'personal_team' => false,
         ]);
+        Assert::isInstanceOf($adminTeam, Team::class);
 
         // Team di sviluppo
-        $devTeam = Team::factory()->create([
+        /** @var \Illuminate\Database\Eloquent\Factories\Factory<Team> $devFactory */
+        $devFactory = Team::factory();
+        $devTeam = $devFactory->create([
             'name' => 'Sviluppatori',
             'personal_team' => false,
         ]);
+        Assert::isInstanceOf($devTeam, Team::class);
 
         // Team di supporto
-        $supportTeam = Team::factory()->create([
+        /** @var \Illuminate\Database\Eloquent\Factories\Factory<Team> $supportFactory */
+        $supportFactory = Team::factory();
+        $supportTeam = $supportFactory->create([
             'name' => 'Supporto Clienti',
             'personal_team' => false,
         ]);
 
         // Team di marketing
-        $marketingTeam = Team::factory()->create([
+        /** @var \Illuminate\Database\Eloquent\Factories\Factory<Team> $marketingFactory */
+        $marketingFactory = Team::factory();
+        $marketingTeam = $marketingFactory->create([
             'name' => 'Marketing',
             'personal_team' => false,
         ]);
 
         // Team generale
-        $generalTeam = Team::factory()->create([
+        /** @var \Illuminate\Database\Eloquent\Factories\Factory<Team> $generalFactory */
+        $generalFactory = Team::factory();
+        $generalTeam = $generalFactory->create([
             'name' => 'Team Generale',
             'personal_team' => false,
         ]);

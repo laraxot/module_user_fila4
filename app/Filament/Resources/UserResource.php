@@ -41,28 +41,37 @@ class UserResource extends XotBaseResource
     //    static::$extendFormCallback = $callback;
     // }
 
+    /**
+     * @return array<int, \Filament\Schemas\Components\Component>
+     */
     #[Override]
     public static function getFormSchema(): array
     {
-        return [
+        return array_values([
             'section01' => Section::make([
                 'name' => TextInput::make('name')->required(),
                 'email' => TextInput::make('email')->required()->unique(ignoreRecord: true),
                 'password' => TextInput::make('password')
                     ->password()
-                    ->dehydrateStateUsing(fn($state) => !empty($state) ? Hash::make($state) : null)
-                    ->required(fn($livewire) => $livewire instanceof CreateUser),
+                    ->dehydrateStateUsing(fn(?string $state): ?string => !empty($state) ? Hash::make($state) : null)
+                    ->required(fn(mixed $livewire): bool => $livewire instanceof CreateUser),
             ])->columnSpan(8),
             'section02' => Section::make([
-                'created_at' => Placeholder::make('created_at')->content(static function ($record) {
-                    if ($record === null || $record->created_at === null) {
+                'created_at' => Placeholder::make('created_at')->content(static function (mixed $record): HtmlString|string {
+                    if (! $record instanceof \Illuminate\Database\Eloquent\Model) {
                         return new HtmlString('&mdash;');
                     }
 
-                    return $record->created_at->diffForHumans();
+                    /** @var \Carbon\Carbon|null $createdAt */
+                    $createdAt = $record->getAttribute('created_at');
+                    if ($createdAt === null || ! $createdAt instanceof \Carbon\Carbon) {
+                        return new HtmlString('&mdash;');
+                    }
+
+                    return $createdAt->diffForHumans();
                 }),
             ])->columnSpan(4),
-        ];
+        ]);
     }
 
     // public static function enablePasswordUpdates(bool|Closure $condition = true): void

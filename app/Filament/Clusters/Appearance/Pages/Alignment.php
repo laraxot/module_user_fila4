@@ -46,6 +46,9 @@ class Alignment extends Page implements HasForms
     //    ];
     // }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getViewData(): array
     {
         return [

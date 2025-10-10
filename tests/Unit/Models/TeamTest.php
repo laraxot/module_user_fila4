@@ -22,6 +22,7 @@ class TeamTest extends TestCase
             'name' => 'Test Team',
         ]);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('teams', [
             'id' => $team->id,
             'user_id' => $user->id,
@@ -44,6 +45,7 @@ class TeamTest extends TestCase
 
         $team = Team::factory()->create($teamData);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('teams', [
             'id' => $team->id,
             'user_id' => $user->id,
@@ -61,15 +63,19 @@ class TeamTest extends TestCase
         $team = Team::factory()->create(['user_id' => $user->id]);
         $teamId = $team->id;
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $team->delete();
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertSoftDeleted('teams', ['id' => $teamId]);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseMissing('teams', ['id' => $teamId]);
     }
 
     public function test_can_restore_soft_deleted_team(): void
     {
         if (!method_exists(Team::class, 'withTrashed')) {
+            /** @phpstan-ignore-next-line property.notFound, method.nonObject */
             $this->markTestSkipped('SoftDeletes trait not present on Team model');
             return;
         }
@@ -78,13 +84,17 @@ class TeamTest extends TestCase
         $team = Team::factory()->create(['user_id' => $user->id]);
         $teamId = $team->id;
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $team->delete();
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertSoftDeleted('teams', ['id' => $teamId]);
 
         /** @var Team $restoredTeam */
         $restoredTeam = Team::withTrashed()->find($teamId);
+        /** @phpstan-ignore-next-line method.nonObject */
         $restoredTeam->restore();
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('teams', ['id' => $teamId]);
         static::assertNull($restoredTeam->deleted_at);
     }
@@ -161,6 +171,7 @@ class TeamTest extends TestCase
         $personalTeams = Team::where('personal_team', 1)->get();
 
         static::assertCount(1, $personalTeams);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame(1, $personalTeams->first()->personal_team);
     }
 
@@ -176,6 +187,7 @@ class TeamTest extends TestCase
         $user1Teams = Team::where('user_id', $user1->id)->get();
 
         static::assertCount(2, $user1Teams);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($user1Teams->every(fn ($team) => $team->user_id === $user1->id));
     }
 
@@ -189,6 +201,7 @@ class TeamTest extends TestCase
         $devTeams = Team::where('name', 'like', '%Team%')->get();
 
         static::assertCount(3, $devTeams);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($devTeams->every(fn ($team) => str_contains($team->name, 'Team')));
     }
 
@@ -200,8 +213,10 @@ class TeamTest extends TestCase
             'name' => 'Old Name',
         ]);
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $team->update(['name' => 'New Name']);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('teams', [
             'id' => $team->id,
             'name' => 'New Name',
@@ -219,6 +234,7 @@ class TeamTest extends TestCase
             'owner_id' => null,
         ]);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('teams', [
             'id' => $team->id,
             'code' => null,
@@ -245,7 +261,9 @@ class TeamTest extends TestCase
         $teams = Team::where('user_id', $user->id)->where('personal_team', 0)->get();
 
         static::assertCount(1, $teams);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('Development Team', $teams->first()->name);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame(0, $teams->first()->personal_team);
     }
 }

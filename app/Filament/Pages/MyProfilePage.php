@@ -162,6 +162,9 @@ class MyProfilePage extends Page implements HasForms
     // {
     //     return filament('filament-breezy')->getRegisteredMyProfileComponents();
     // }
+    /**
+     * @return array<string, mixed>
+     */
     public function getFormSchema(): array
     {
         return [
@@ -265,7 +268,9 @@ class MyProfilePage extends Page implements HasForms
 
     protected function handleRecordUpdate(Model $record, array $data): Model
     {
-        $record->update($data);
+        /** @var array<string, mixed> $typedData */
+        $typedData = $data;
+        $record->update($typedData);
 
         return $record;
     }

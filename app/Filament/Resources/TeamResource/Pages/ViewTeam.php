@@ -20,6 +20,9 @@ class ViewTeam extends XotBaseViewRecord
      * @return array<Component>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getInfolistSchema(): array
     {
         return [

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-use Exception;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
@@ -43,7 +42,7 @@ class UsersChartWidget extends ChartWidget implements HasActions, HasForms
     {
         return Action::make('test')
             ->requiresConfirmation()
-            ->action(function (array $arguments) {
+            ->action(function (array $arguments): void {
                 dd('Test action called', $arguments);
             });
     }
@@ -63,12 +62,16 @@ class UsersChartWidget extends ChartWidget implements HasActions, HasForms
         // $this->testAction();
 
         try {
-            Assert::nullOrString($startDate = $this->pageFilters['startDate'] ?? null);
-            Assert::nullOrString($endDate = $this->pageFilters['endDate'] ?? null);
-            if ($endDate === null) {
+            $pageFilters = $this->pageFilters ?? [];
+            Assert::isArray($pageFilters);
+            $startDate = $pageFilters['startDate'] ?? null;
+            $endDate = $pageFilters['endDate'] ?? null;
+            Assert::nullOrString($startDate);
+            Assert::nullOrString($endDate);
+            if (null === $endDate) {
                 $endDate = Carbon::now()->format('Y-m-d H:i:s');
             }
-            if ($startDate === null) {
+            if (null === $startDate) {
                 $startDate = Carbon::now()->subMonth()->format('Y-m-d H:i:s');
             }
             Assert::notNull($startDate = Carbon::createFromFormat('Y-m-d H:i:s', $startDate));
@@ -78,7 +81,7 @@ class UsersChartWidget extends ChartWidget implements HasActions, HasForms
             if ($startDate->diffInDays($endDate, true) > 90) {
                 $startDate = $endDate->copy()->subDays(90);
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return [];
         }
 

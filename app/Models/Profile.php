@@ -75,7 +75,6 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * @method static Builder<static>|Profile withoutPermission($permissions)
  * @method static Builder<static>|Profile withoutRole($roles, $guard = null)
  *
- * @mixin IdeHelperProfile
  * @mixin \Eloquent
  */
 class Profile extends BaseProfile implements HasMedia

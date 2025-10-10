@@ -42,7 +42,6 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @method static Builder|ModelHasPermission whereTeamId($value)
  *
- * @mixin IdeHelperModelHasPermission
  * @mixin \Eloquent
  */
 class ModelHasPermission extends BaseMorphPivot

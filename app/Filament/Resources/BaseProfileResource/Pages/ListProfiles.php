@@ -18,6 +18,7 @@ use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Override;
+use Webmozart\Assert\Assert;
 
 /**
  * .
@@ -30,6 +31,9 @@ class ListProfiles extends XotBaseListRecords
      * @return array<string, Tables\Columns\Column>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableColumns(): array
     {
         return [
@@ -37,28 +41,47 @@ class ListProfiles extends XotBaseListRecords
                 ->sortable()
                 ->searchable()
                 ->default(function ($record) {
-                    $user = $record->user;
+                    if (! $record instanceof \Illuminate\Database\Eloquent\Model) {
+                        return '--';
+                    }
+
+                    /** @var \Illuminate\Database\Eloquent\Model|null $userModel */
+                    $userModel = $record->getAttribute('user');
                     $user_class = XotData::make()->getUserClass();
-                    if ($user === null) {
-                        if ($record->email === null) {
+
+                    if ($userModel === null) {
+                        /** @var string|null $email */
+                        $email = $record->getAttribute('email');
+                        if ($email === null) {
                             $record->update(['email' => fake()->email()]);
+                            $email = (string) $record->getAttribute('email');
                         }
                         try {
-                            /** @var UserContract */
-                            $user = XotData::make()->getUserByEmail($record->email);
+                            /** @var UserContract $userModel */
+                            $userModel = XotData::make()->getUserByEmail($email);
                         } catch (Exception $e) {
                             return '--';
                         }
                     }
-                    if ($user === null) {
-                        $data = $record->toArray();
-                        $user_data = Arr::except($data, ['id']);
-                        /** @var UserContract */
-                        $user = $user_class::create($user_data);
-                    }
-                    $record->update(['user_id' => $user->id]);
 
-                    return $user->name;
+                    if ($userModel === null) {
+                        $recordData = $record->toArray();
+                        Assert::isArray($recordData);
+
+                        /** @var array<string, mixed> $user_data */
+                        $user_data = Arr::except($recordData, ['id']);
+                        /** @var UserContract $userModel */
+                        $userModel = $user_class::create($user_data);
+                    }
+
+                    Assert::isInstanceOf($userModel, \Illuminate\Database\Eloquent\Model::class);
+                    $userId = $userModel->getKey();
+                    $userModel->update(['user_id' => $userId]);
+
+                    /** @var string $userName */
+                    $userName = $userModel->getAttribute('name') ?? '--';
+
+                    return $userName;
                 }),
             'first_name' => TextColumn::make('first_name')->sortable()->searchable(),
             'last_name' => TextColumn::make('last_name')->sortable()->searchable(),
@@ -72,6 +95,9 @@ class ListProfiles extends XotBaseListRecords
      * @return array<string, BaseFilter>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableFilters(): array
     {
         return [

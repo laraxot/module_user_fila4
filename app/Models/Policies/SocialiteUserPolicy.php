@@ -52,9 +52,13 @@ class SocialiteUserPolicy extends UserBasePolicy
      */
     public function delete(UserContract $user, SocialiteUser $socialiteUser): bool
     {
+        /** @var string $userId */
+        $userId = $user->id;
+        /** @var string $socialiteUserId */
+        $socialiteUserId = $socialiteUser->user_id;
         return
             $user->hasPermissionTo('socialite-user.delete') ||
-            $user->id === $socialiteUser->user_id ||
+            $userId === $socialiteUserId ||
             $user->hasRole('super-admin');
     }
 

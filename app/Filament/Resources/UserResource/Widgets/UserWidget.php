@@ -29,9 +29,12 @@ class UserWidget extends Widget
     }
         */
 
+        /**
+         * @return array<string, mixed>
+         */
         public function getViewData(): array
         {
-            $data=$this->pageFilters;
+            $data = $this->pageFilters ?? [];
             return $data;
         }
 }

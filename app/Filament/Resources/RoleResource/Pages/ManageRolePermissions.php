@@ -31,6 +31,9 @@ class ManageRolePermissions extends ManageRelatedRecords
         return 'Permissions';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getFormSchema(): array
     {
         return [

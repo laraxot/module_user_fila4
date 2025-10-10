@@ -24,6 +24,9 @@ class RolesRelationManager extends XotBaseRelationManager
     // {
     // }
     #[\Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getFormSchema(): array
     {
         return [
@@ -37,26 +40,39 @@ class RolesRelationManager extends XotBaseRelationManager
      * @return array<string, Column>
      */
     #[\Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableColumns(): array
     {
         return [
-            TextColumn::make('id'),
-            TextColumn::make('name'),
-            TextColumn::make('team_id'),
+            'id' => TextColumn::make('id'),
+            'name' => TextColumn::make('name'),
+            'team_id' => TextColumn::make('team_id'),
         ];
     }
 
     /**
-     * @return array<string, Action>
+     * @return array<string, Action|\Filament\Actions\ActionGroup>
      */
     #[\Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableHeaderActions(): array
     {
         $xotData = XotData::make();
+        $parentActions = parent::getTableHeaderActions();
 
-        return [
-            ...parent::getTableHeaderActions(),
-            'attach' => AttachRoleAction::make(),
-        ];
+        $actions = [];
+        foreach ($parentActions as $key => $action) {
+            if (is_string($key) && ($action instanceof \Filament\Actions\Action || $action instanceof \Filament\Actions\ActionGroup)) {
+                $actions[$key] = $action;
+            }
+        }
+
+        $actions['attach'] = AttachRoleAction::make();
+
+        return $actions;
     }
 }

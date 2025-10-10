@@ -22,7 +22,7 @@ class SendOtpAction extends Action
 
         $this->tooltip(trans('user::otp.actions.send_otp'))
             ->icon('heroicon-o-key')
-            ->action(function (User $record) {
+            ->action(function (User $record): void {
                 // Sappiamo già che l'utente implementa UserContract perché il tipo User lo implementa
                 $action = app(SendOtpByUserAction::class);
                 if ($action === null) {

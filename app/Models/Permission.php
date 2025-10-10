@@ -4,134 +4,51 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Collection as EloquentCollection;
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Support\Carbon;
 use Modules\User\Database\Factories\PermissionFactory;
-use Modules\Xot\Actions\Factory\GetFactoryAction;
-use Modules\Xot\Contracts\UserContract;
-use Modules\Xot\Datas\XotData;
-use Modules\Xot\Models\Traits\RelationX;
-use Spatie\Permission\Models\Permission as SpatiePermission;
-use Webmozart\Assert\Assert;
 
 /**
- * Class Permission.
- *
- * Extends Spatie's Permission model to interact with the permission system.
- *
- * @property string $id
- * @property string $name
- * @property string $guard_name
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $created_by
- * @property string|null $updated_by
- * @property Collection<int, Role> $roles
- * @property int|null $roles_count
- * @property EloquentCollection<int, Model&UserContract> $users
- * @property int|null $users_count
- *
- * @method static Builder|Permission newModelQuery()
- * @method static Builder|Permission newQuery()
- * @method static Builder|Permission query()
- * @method static Builder|Permission whereCreatedAt($value)
- * @method static Builder|Permission whereUpdatedAt($value)
- * @method static Builder|Permission whereCreatedBy($value)
- * @method static Builder|Permission whereUpdatedBy($value)
- * @method static Builder|Permission whereGuardName($value)
- * @method static Builder|Permission whereId($value)
- * @method static Builder|Permission whereName($value)
- * @method static Builder|Permission role($roles, $guard = null)
- * @method static Builder|Permission permission($permissions)
- *
- * @property EloquentCollection<int, Permission> $permissions
- * @property int|null $permissions_count
- *
- * @method static Builder|Permission withoutPermission($permissions)
- * @method static Builder|Permission withoutRole($roles, $guard = null)
- *
- * @property PermissionRole|null $pivot
- *
- * @mixin IdeHelperPermission
- *
- * @method static PermissionFactory factory($count = null, $state = [])
- *
- * @mixin \Eloquent
+ * Permission Model
  */
-class Permission extends SpatiePermission
+class Permission extends Model
 {
-    use HasFactory;
-    use RelationX;
-
     /** @var string */
     protected $connection = 'user';
 
     /** @var string */
-    protected $keyType = 'string';
+    protected $table = 'permissions';
 
     /** @var list<string> */
     protected $fillable = [
-        'id',
         'name',
         'guard_name',
-        'created_at',
-        'updated_at',
-        'created_by',
-        'updated_by',
+        'display_name',
+        'description',
     ];
 
-    /** @return array<string, string> */
-    protected function casts(): array
-    {
-        return [
-            'id' => 'string',
-            'uuid' => 'string',
-            'name' => 'string',
-            'guard_name' => 'string',
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-        ];
-    }
-
-    public function getTable(): string
-    {
-        Assert::string($table = config('permission.table_names.permissions'));
-
-        return $table;
-    }
-
     /**
-     * The roles associated with the permission.
-     */
-    public function roles(): BelongsToMany
-    {
-        return $this->belongsToManyX(Role::class);
-    }
-
-    /**
-     * The users associated with the permission.
+     * Get the users that have the permission.
      */
     public function users(): BelongsToMany
     {
-        $userClass = XotData::make()->getUserClass();
-
-        return $this->belongsToManyX($userClass);
+        return $this->belongsToMany(User::class, 'model_has_permissions', 'permission_id', 'model_id')
+            ->where('model_type', User::class);
     }
 
     /**
-     * @see vendor/ laravel / framework / src / Illuminate / Database / Eloquent / Factories / HasFactory.php
-     * Create a new factory instance for the model.
-     *
-     * @return Factory<static>
+     * Get the roles that have the permission.
      */
-    protected static function newFactory()
+    public function roles(): BelongsToMany
     {
-        return app(GetFactoryAction::class)->execute(static::class);
+        return $this->belongsToMany(Role::class, 'role_has_permissions', 'permission_id', 'role_id');
+    }
+
+    /**
+     * Get the factory instance for the model.
+     */
+    public static function factory(): PermissionFactory
+    {
+        return PermissionFactory::new();
     }
 }

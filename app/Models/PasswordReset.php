@@ -40,9 +40,9 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @method static Builder<static>|PasswordReset whereUuid($value)
  *
- * @mixin IdeHelperPasswordReset
  * @mixin \Eloquent
  */
+/** */
 class PasswordReset extends BaseModel
 {
     /**

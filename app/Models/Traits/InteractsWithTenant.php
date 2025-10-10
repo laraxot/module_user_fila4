@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\User\Contracts\TeamContract;
 use Modules\User\Models\Scopes\TenantScope;
 use Modules\User\Models\Tenant;
-use Throwable;
 
 /**
  * @property TeamContract $currentTeam
@@ -58,7 +57,7 @@ trait InteractsWithTenant
     {
         try {
             $this->currentTenant = Filament::getTenant();
-        } catch (Throwable $e) {
+        } catch (\Throwable $e) {
             // Se Filament non è disponibile, lascia il tenant come null
             $this->currentTenant = null;
         }
@@ -72,10 +71,15 @@ trait InteractsWithTenant
         static::addGlobalScope(new TenantScope);
 
         static::creating(static function ($model): void {
-            if ($model !== null) {
-                $tenant = Filament::getTenant();
-                if ($tenant !== null) {
-                    $model->tenant_id = $tenant->getKey();
+            if (! is_object($model)) {
+                return;
+            }
+
+            $tenant = Filament::getTenant();
+            if ($tenant !== null && is_object($tenant) && method_exists($tenant, 'getKey')) {
+                $tenantId = $tenant->getKey();
+                if (is_int($tenantId) && property_exists($model, 'tenant_id')) {
+                    $model->tenant_id = $tenantId;
                 }
             }
         });

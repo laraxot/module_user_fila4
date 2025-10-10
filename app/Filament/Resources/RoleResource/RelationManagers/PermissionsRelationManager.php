@@ -26,6 +26,9 @@ class PermissionsRelationManager extends XotBaseRelationManager
      * @return array<string, Component>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getFormSchema(): array
     {
         return [

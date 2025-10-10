@@ -35,6 +35,9 @@ class SocialiteUsersRelationManager extends XotBaseRelationManager
      * @return array<Component>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getFormSchema(): array
     {
         return [
@@ -66,6 +69,9 @@ class SocialiteUsersRelationManager extends XotBaseRelationManager
      * @return array<TextColumn|ImageColumn>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableColumns(): array
     {
         return [

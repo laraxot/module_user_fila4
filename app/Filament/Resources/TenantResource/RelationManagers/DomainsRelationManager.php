@@ -28,6 +28,9 @@ class DomainsRelationManager extends XotBaseRelationManager
      * @return array<string, Component>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getFormSchema(): array
     {
         return [
@@ -47,7 +50,16 @@ class DomainsRelationManager extends XotBaseRelationManager
             ->columns([
                 TextColumn::make('domain'),
                 TextColumn::make('full-domain')->getStateUsing(
-                    static fn ($record) => Str::of($record->domain)->append('.')->append(request()->getHost()),
+                    static function ($record) {
+                        if (!is_object($record) || !property_exists($record, 'domain')) {
+                            return '';
+                        }
+
+                        /** @var string $domain */
+                        $domain = $record->domain ?? '';
+
+                        return Str::of($domain)->append('.')->append(request()->getHost())->toString();
+                    }
                 ),
             ])
             ->filters([])

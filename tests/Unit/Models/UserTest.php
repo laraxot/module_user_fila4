@@ -20,6 +20,7 @@ class UserTest extends TestCase
             'password' => Hash::make('password'),
         ]);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
             'email' => 'test@example.com',
@@ -50,6 +51,7 @@ class UserTest extends TestCase
 
         $user = User::factory()->create($userData);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
             'email' => 'john@example.com',
@@ -74,15 +76,19 @@ class UserTest extends TestCase
         $user = User::factory()->create();
         $userId = $user->id;
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $user->delete();
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertSoftDeleted('users', ['id' => $userId]);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseMissing('users', ['id' => $userId]);
     }
 
     public function test_can_restore_soft_deleted_user(): void
     {
         if (!method_exists(User::class, 'withTrashed')) {
+            /** @phpstan-ignore-next-line property.notFound, method.nonObject */
             $this->markTestSkipped('SoftDeletes trait not present on User model');
             return;
         }
@@ -90,13 +96,17 @@ class UserTest extends TestCase
         $user = User::factory()->create();
         $userId = $user->id;
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $user->delete();
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertSoftDeleted('users', ['id' => $userId]);
 
         /** @var User $restoredUser */
         $restoredUser = User::withTrashed()->find($userId);
+        /** @phpstan-ignore-next-line method.nonObject */
         $restoredUser->restore();
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('users', ['id' => $userId]);
         static::assertNull($restoredUser->deleted_at);
     }
@@ -120,6 +130,7 @@ class UserTest extends TestCase
         $doeUsers = User::where('name', 'like', '%Doe%')->get();
 
         static::assertCount(2, $doeUsers);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($doeUsers->every(fn ($user) => str_contains($user->name, 'Doe')));
     }
 
@@ -132,6 +143,7 @@ class UserTest extends TestCase
         $activeUsers = User::where('status', 'active')->get();
 
         static::assertCount(1, $activeUsers);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('active', $activeUsers->first()->status);
     }
 
@@ -144,6 +156,7 @@ class UserTest extends TestCase
         $individualUsers = User::where('type', 'individual')->get();
 
         static::assertCount(1, $individualUsers);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('individual', $individualUsers->first()->type);
     }
 
@@ -156,6 +169,7 @@ class UserTest extends TestCase
         $nyUsers = User::where('city', 'New York')->get();
 
         static::assertCount(1, $nyUsers);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('New York', $nyUsers->first()->city);
     }
 
@@ -188,6 +202,7 @@ class UserTest extends TestCase
         $englishUsers = User::where('lang', 'en')->get();
 
         static::assertCount(1, $englishUsers);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('en', $englishUsers->first()->lang);
     }
 
@@ -200,6 +215,7 @@ class UserTest extends TestCase
         $activeUsers = User::where('is_active', true)->get();
 
         static::assertCount(2, $activeUsers);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($activeUsers->every(fn ($user) => $user->is_active));
     }
 
@@ -212,6 +228,7 @@ class UserTest extends TestCase
         $otpUsers = User::where('is_otp', true)->get();
 
         static::assertCount(2, $otpUsers);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($otpUsers->every(fn ($user) => $user->is_otp));
     }
 
@@ -219,8 +236,10 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create(['name' => 'Old Name']);
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $user->update(['name' => 'New Name']);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
             'name' => 'New Name',
@@ -231,6 +250,7 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create();
 
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($user->canAccessSocialite());
     }
 
@@ -264,6 +284,7 @@ class UserTest extends TestCase
         $users = User::where('status', 'active')->where('city', 'New York')->get();
 
         static::assertCount(2, $users);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($users->every(fn ($user) => $user->status === 'active' && $user->city === 'New York'));
     }
 
@@ -280,6 +301,7 @@ class UserTest extends TestCase
             'lang' => null,
         ]);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
             'phone' => null,

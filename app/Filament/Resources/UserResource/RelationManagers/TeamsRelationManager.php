@@ -25,7 +25,19 @@ class TeamsRelationManager extends RelationManager
                 TextColumn::make('name')->searchable()->sortable(),
                 IconColumn::make('personal_team')
                     ->boolean()
-                    ->default(fn ($record, $livewire) => $livewire->getOwnerRecord()->current_team_id === $record->id),
+                    ->default(function ($record, $livewire) {
+                        if (! is_object($livewire) || ! method_exists($livewire, 'getOwnerRecord')) {
+                            return false;
+                        }
+                        $owner = $livewire->getOwnerRecord();
+                        if (! $owner instanceof \Illuminate\Database\Eloquent\Model) {
+                            return false;
+                        }
+                        if (! $record instanceof \Illuminate\Database\Eloquent\Model) {
+                            return false;
+                        }
+                        return $owner->getAttribute('current_team_id') === $record->getKey();
+                    }),
             ])
             ->filters([
 
@@ -38,7 +50,16 @@ class TeamsRelationManager extends RelationManager
             ])
             ->recordActions([
                 DetachAction::make()->after(function ($record, $livewire): void {
+                    if (! is_object($livewire) || ! method_exists($livewire, 'getOwnerRecord')) {
+                        return;
+                    }
                     $user = $livewire->getOwnerRecord();
+                    if (! $user instanceof \Illuminate\Database\Eloquent\Model) {
+                        return;
+                    }
+                    if (! is_object($record) || ! method_exists($record, 'getKey')) {
+                        return;
+                    }
                     $team_id = $record->getKey();
                     $user->update([
                         'current_team_id' => null,
@@ -50,6 +71,9 @@ class TeamsRelationManager extends RelationManager
             ]);
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableColumns(): array
     {
         return [

@@ -43,6 +43,9 @@ class ResetPasswordWidget extends XotBaseWidget
      * @return array<string, Component>
      */
     #[\Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getFormSchema(): array
     {
         return [

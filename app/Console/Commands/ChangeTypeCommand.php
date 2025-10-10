@@ -62,10 +62,19 @@ class ChangeTypeCommand extends Command
         }
 
         $childTypes = $xot->getUserChildTypes();
-        /** @phpstan-ignore nullsafe.neverNull */
-        $typeLabel = $user->type?->getLabel() ?? 'None';
-        $typeLabelString = is_string($typeLabel) ? $typeLabel : $typeLabel->toHtml();
-        $this->info('Current user type: '.$typeLabelString);
+
+        $typeLabel = $user->type->getLabel() ?? 'None';
+        $typeLabelString = '';
+        if (is_string($typeLabel)) {
+            $typeLabelString = $typeLabel;
+        } elseif ($typeLabel instanceof \Illuminate\Contracts\Support\Htmlable) {
+            $typeLabelString = $typeLabel->toHtml();
+        } else {
+            $typeLabelString = (string) $typeLabel;
+        }
+
+        $currentType = (string) ($user->type->value ?? 'None');
+        $this->info('Current user type: '.$typeLabelString.' ('.$currentType.')');
 
         $typeClass = $xot->getUserChildTypeClass();
         /** @var array<string, string> */
@@ -87,11 +96,16 @@ class ChangeTypeCommand extends Command
         $newType = select('Select new user type:', $options);
 
         $newTypeEnum = $typeClass::tryFrom($newType);
-        Assert::notNull($newTypeEnum);
+        Assert::notNull($newTypeEnum, 'Invalid type selected');
+        Assert::isInstanceOf($newTypeEnum, \BackedEnum::class, 'Type must be a BackedEnum');
 
-        $user->type = $newTypeEnum;
+        if (method_exists($newTypeEnum, 'getLabel') && $newTypeEnum instanceof \Filament\Support\Contracts\HasLabel) {
+            /** @var \BackedEnum&\Filament\Support\Contracts\HasLabel $newTypeEnum */
+            $user->type = $newTypeEnum;
+        }
         $user->save();
 
-        $this->info("User type changed to '{$newTypeEnum->getLabel()}' for {$email}");
+        $label = method_exists($newTypeEnum, 'getLabel') ? (string) $newTypeEnum->getLabel() : (string) $newTypeEnum->value;
+        $this->info("User type changed to '{$label}' for {$email}");
     }
 }

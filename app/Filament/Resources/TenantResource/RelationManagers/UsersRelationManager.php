@@ -25,6 +25,9 @@ class UsersRelationManager extends XotBaseRelationManager
      * @return array<Component>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getFormSchema(): array
     {
         return [
@@ -53,6 +56,9 @@ class UsersRelationManager extends XotBaseRelationManager
      * @return array<string, Column>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableColumns(): array
     {
         return [

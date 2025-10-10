@@ -44,7 +44,6 @@ use Override;
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  *
- * @mixin IdeHelperModelHasRole
  * @mixin \Eloquent
  */
 class ModelHasRole extends BaseMorphPivot

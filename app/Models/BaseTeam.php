@@ -18,7 +18,6 @@ use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Models\Traits\HasExtraTrait;
-use Override;
 
 /**
  * Modules\User\Models\Team.
@@ -88,7 +87,7 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Get the owner of the team.
      */
-    #[Override]
+    #[\Override]
     public function owner(): BelongsTo
     {
         $xotData = XotData::make();
@@ -101,7 +100,7 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Get all of the team's users including its owner.
      */
-    #[Override]
+    #[\Override]
     public function allUsers(): Collection
     {
         if (! ($this->owner instanceof User)) {
@@ -114,7 +113,7 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Get all of the users that belong to the team.
      */
-    #[Override]
+    #[\Override]
     public function users(): BelongsToMany
     {
         $xotData = XotData::make();
@@ -127,9 +126,9 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Ottiene tutti i membri del team (alias di users).
      *
-     * @return BelongsToMany<Model, \Modules\User\Models\BaseTeam>
+     * @return BelongsToMany<Model, BaseTeam>
      */
-    #[Override]
+    #[\Override]
     public function members(): BelongsToMany
     {
         return $this->users();
@@ -138,19 +137,19 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Determina se l'utente specificato appartiene al team.
      *
-     * @param  UserContract  $user  L'utente da verificare
+     * @param  UserContract  $userContract  L'utente da verificare
      * @return bool True se l'utente appartiene al team, false altrimenti
      */
-    #[Override]
-    public function hasUser(UserContract $user): bool
+    #[\Override]
+    public function hasUser(UserContract $userContract): bool
     {
         // Corretto l'errore di tipo per il metodo contains
         // Verifico se l'ID dell'utente è presente nella collection degli utenti del team
-        if ($this->users->contains('id', $user->getKey())) {
+        if ($this->users->contains(fn ($user) => $user->getKey() === $userContract->getKey())) {
             return true;
         }
 
-        return $user->ownsTeam($this);
+        return $userContract->ownsTeam($this);
     }
 
     /**
@@ -159,10 +158,11 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      * @param  string  $email  Indirizzo email da verificare
      * @return bool True se un utente con quell'email appartiene al team, false altrimenti
      */
-    #[Override]
+    #[\Override]
     public function hasUserWithEmail(string $email): bool
     {
-        return $this->allUsers()->contains(static fn ($user): bool => $user->email === $email);
+        return $this->allUsers()->contains(static fn ($user): bool => is_object($user) && property_exists($user, 'email') && $user->email === $email
+        );
     }
 
     /**
@@ -172,7 +172,7 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      * @param  string  $permission  Il permesso da controllare
      * @return bool True se l'utente ha il permesso, false altrimenti
      */
-    #[Override]
+    #[\Override]
     public function userHasPermission(UserContract $userContract, string $permission): bool
     {
         return $userContract->hasTeamPermission($this, $permission);
@@ -181,11 +181,11 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Ottiene tutti gli inviti utente pendenti per il team.
      *
-     * @return HasMany<TeamInvitation, \Modules\User\Models\BaseTeam>
+     * @return HasMany<TeamInvitation, BaseTeam>
      *
      * @phpstan-return HasMany<TeamInvitation, $this>
      */
-    #[Override]
+    #[\Override]
     public function teamInvitations(): HasMany
     {
         return $this->hasMany(TeamInvitation::class);
@@ -194,9 +194,9 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Rimuove l'utente specificato dal team.
      *
-     * @param  UserContract  $userContract  L'utente da rimuovere dal team
+     * @param  User  $userContract  L'utente da rimuovere dal team
      */
-    #[Override]
+    #[\Override]
     public function removeUser(UserContract $userContract): void
     {
         if ($userContract->current_team_id === $this->id) {
@@ -211,7 +211,7 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Rimuove tutte le risorse del team.
      */
-    #[Override]
+    #[\Override]
     public function purge(): void
     {
         $this->owner()->where('current_team_id', $this->id)->update(['current_team_id' => null]);

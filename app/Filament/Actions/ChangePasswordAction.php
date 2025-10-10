@@ -24,20 +24,25 @@ class ChangePasswordAction extends Action
         $this->translateLabel()
             ->icon('heroicon-o-key')
             ->action(function (UserContract $record, array $data): void {
-                $record->update([
-                    'password' => Hash::make($data['new_password']),
-                ]);
-                Notification::make()
-                    ->success()
-                    ->title(__('user::notifications.password_changed_successfully.title'))
-                    ->body(__('user::notifications.password_changed_successfully.message'));
+                $newPassword = $data['new_password'] ?? null;
+                if (is_string($newPassword) && $newPassword !== '') {
+                    $record->update([
+                        'password' => Hash::make($newPassword),
+                    ]);
+                    Notification::make()
+                        ->success()
+                        ->title(__('user::notifications.password_changed_successfully.title'))
+                        ->body(__('user::notifications.password_changed_successfully.message'));
+                }
             })
             ->schema([
                 PasswordData::make()->getPasswordFormComponent('new_password'),
                 TextInput::make('new_password_confirmation')
                     ->password()
                     ->placeholder(__('user::fields.confirm_password.placeholder'))
-                    ->rule('required', static fn ($get): bool => (bool) $get('new_password'))
+                    ->rule('required', static function (callable $get): bool {
+                        return (bool) $get('new_password');
+                    })
                     ->same('new_password'),
             ]);
     }

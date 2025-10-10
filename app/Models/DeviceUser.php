@@ -52,12 +52,12 @@ use Override;
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  *
- * @mixin IdeHelperDeviceUser
  * @mixin \Eloquent
  */
 class DeviceUser extends BasePivot
 {
-    use HasFactory;
+    /** @use HasFactory<ModulesSERDATABASEFACTORIESDEVICEUSERFACTORY> */
+    use \Modules\Xot\Models\Traits\HasXotFactory;
 
     /** @var list<string> */
     protected $fillable = [

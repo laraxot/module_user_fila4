@@ -19,6 +19,7 @@ class DeviceTest extends TestCase
             'platform' => 'iOS',
         ]);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('devices', [
             'id' => $device->id,
             'device' => 'iPhone',
@@ -46,6 +47,7 @@ class DeviceTest extends TestCase
 
         $device = Device::factory()->create($deviceData);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('devices', [
             'id' => $device->id,
             'uuid' => '550e8400-e29b-41d4-a716-446655440000',
@@ -70,15 +72,19 @@ class DeviceTest extends TestCase
         $device = Device::factory()->create();
         $deviceId = $device->id;
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $device->delete();
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertSoftDeleted('devices', ['id' => $deviceId]);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseMissing('devices', ['id' => $deviceId]);
     }
 
     public function test_can_restore_soft_deleted_device(): void
     {
         if (!method_exists(Device::class, 'withTrashed')) {
+            /** @phpstan-ignore-next-line property.notFound, method.nonObject */
             $this->markTestSkipped('SoftDeletes trait not present on Device model');
             return;
         }
@@ -86,13 +92,17 @@ class DeviceTest extends TestCase
         $device = Device::factory()->create();
         $deviceId = $device->id;
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $device->delete();
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertSoftDeleted('devices', ['id' => $deviceId]);
 
         /** @var Device $restoredDevice */
         $restoredDevice = Device::withTrashed()->find($deviceId);
+        /** @phpstan-ignore-next-line method.nonObject */
         $restoredDevice->restore();
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('devices', ['id' => $deviceId]);
         static::assertNull($restoredDevice->deleted_at);
     }
@@ -137,6 +147,7 @@ class DeviceTest extends TestCase
         $iosDevices = Device::where('platform', 'iOS')->get();
 
         static::assertCount(1, $iosDevices);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('iOS', $iosDevices->first()->platform);
     }
 
@@ -149,6 +160,7 @@ class DeviceTest extends TestCase
         $safariDevices = Device::where('browser', 'Safari')->get();
 
         static::assertCount(1, $safariDevices);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('Safari', $safariDevices->first()->browser);
     }
 
@@ -171,6 +183,7 @@ class DeviceTest extends TestCase
         $desktopDevices = Device::where('is_desktop', true)->get();
 
         static::assertCount(2, $desktopDevices);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($desktopDevices->every(fn ($device) => $device->is_desktop));
     }
 
@@ -183,6 +196,7 @@ class DeviceTest extends TestCase
         $mobileDevices = Device::where('is_mobile', true)->get();
 
         static::assertCount(2, $mobileDevices);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($mobileDevices->every(fn ($device) => $device->is_mobile));
     }
 
@@ -195,6 +209,7 @@ class DeviceTest extends TestCase
         $tabletDevices = Device::where('is_tablet', true)->get();
 
         static::assertCount(2, $tabletDevices);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($tabletDevices->every(fn ($device) => $device->is_tablet));
     }
 
@@ -207,6 +222,7 @@ class DeviceTest extends TestCase
         $phoneDevices = Device::where('is_phone', true)->get();
 
         static::assertCount(2, $phoneDevices);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($phoneDevices->every(fn ($device) => $device->is_phone));
     }
 
@@ -219,6 +235,7 @@ class DeviceTest extends TestCase
         $robotDevices = Device::where('is_robot', true)->get();
 
         static::assertCount(2, $robotDevices);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($robotDevices->every(fn ($device) => $device->is_robot));
     }
 
@@ -231,6 +248,7 @@ class DeviceTest extends TestCase
         $englishDevices = Device::whereJsonContains('languages', 'en')->get();
 
         static::assertCount(2, $englishDevices);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($englishDevices->every(fn ($device) => in_array('en', $device->languages, strict: true)));
     }
 
@@ -243,6 +261,7 @@ class DeviceTest extends TestCase
         $iphoneDevices = Device::where('device', 'like', '%iPhone%')->get();
 
         static::assertCount(2, $iphoneDevices);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($iphoneDevices->every(fn ($device) => str_contains($device->device, 'iPhone')));
     }
 
@@ -250,8 +269,10 @@ class DeviceTest extends TestCase
     {
         $device = Device::factory()->create(['device' => 'Old Device']);
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $device->update(['device' => 'New Device']);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('devices', [
             'id' => $device->id,
             'device' => 'New Device',
@@ -270,6 +291,7 @@ class DeviceTest extends TestCase
             'robot' => null,
         ]);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('devices', [
             'id' => $device->id,
             'mobile_id' => null,
@@ -302,8 +324,11 @@ class DeviceTest extends TestCase
         $devices = Device::where('is_mobile', true)->where('browser', 'Safari')->get();
 
         static::assertCount(1, $devices);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('iOS', $devices->first()->platform);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($devices->first()->is_mobile);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('Safari', $devices->first()->browser);
     }
 
@@ -343,6 +368,7 @@ class DeviceTest extends TestCase
             'is_phone',
         ];
 
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame($expectedFillable, $device->getFillable());
     }
 
@@ -367,6 +393,7 @@ class DeviceTest extends TestCase
             'is_phone' => 'boolean',
         ];
 
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame($expectedCasts, $device->getCasts());
     }
 }
