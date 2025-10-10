@@ -127,7 +127,11 @@ class User extends BaseUser
      *
      * @var string
      */
+<<<<<<< HEAD
     public $connection = 'mysql';
+=======
+    public $connection = 'user';
+>>>>>>> ceff73a (.)
 
     #[Override]
     public function canAccessSocialite(): bool
