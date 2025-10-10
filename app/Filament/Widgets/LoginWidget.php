@@ -4,15 +4,22 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+<<<<<<< HEAD
 use Filament\Schemas\Schema;
 
+=======
+>>>>>>> 4b219c8 (.)
 use Filament\Schemas\Components\Component;
 use Override;
 use Illuminate\Database\Eloquent\Model;
 use Exception;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+<<<<<<< HEAD
 use Filament\Schemas\Schema as FilamentForm;
+=======
+use Filament\Forms\Form as FilamentForm;
+>>>>>>> 4b219c8 (.)
 use Filament\Notifications\Notification;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;

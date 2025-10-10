@@ -4,10 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages\Auth;
 
+<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Illuminate\Database\Eloquent\Model;
 use InvalidArgumentException;
 use Modules\Xot\Contracts\UserContract;
+=======
+use Illuminate\Database\Eloquent\Model;
+use InvalidArgumentException;
+use Modules\Xot\Contracts\UserContract;
+use Filament\Schemas\Components\Component;
+>>>>>>> 4b219c8 (.)
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Forms\Components\TextInput;

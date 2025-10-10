@@ -9,8 +9,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+<<<<<<< HEAD
 use Filament\Schemas\Components\Section;
 use Override;
+=======
+use Override;
+use Filament\Schemas\Components\Section;
+>>>>>>> 4b219c8 (.)
 use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;

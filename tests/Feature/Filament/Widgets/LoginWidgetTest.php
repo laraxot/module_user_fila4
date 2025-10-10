@@ -31,12 +31,21 @@ test('it can render widget', function (): void {
 });
 
 test('it has correct form schema', function (): void {
+<<<<<<< HEAD
     $form = $this->widget->getFormSchema();
 
     expect($form)->toHaveCount(3);
 
     // Check that the schema contains components with the expected names
     $componentNames = array_map(fn($component) => $component->getName(), $form);
+=======
+    $schema = $this->widget->getFormSchema();
+
+    expect($schema)->toHaveCount(3);
+
+    // Check that the schema contains components with the expected names
+    $componentNames = array_map(fn($component) => $component->getName(), $schema);
+>>>>>>> 4b219c8 (.)
     expect($componentNames)->toContain('email');
     expect($componentNames)->toContain('password');
     expect($componentNames)->toContain('remember');
