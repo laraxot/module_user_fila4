@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Illuminate\Support\Carbon;
 use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 use Modules\User\Database\Factories\TenantFactory;
 use Illuminate\Database\Eloquent\Builder;
@@ -16,6 +17,11 @@ use Modules\Xot\Contracts\UserContract;
 /**
  * Modules\User\Models\Tenant.
  *
+ * @property int|string $id
+ * @property string|null $name
+ * @property string|null $domain
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  * @method static TenantFactory factory($count = null, $state = [])
  * @method static Builder|Tenant newModelQuery()
  * @method static Builder|Tenant newQuery()
@@ -30,7 +36,6 @@ use Modules\Xot\Contracts\UserContract;
  * @property EloquentCollection<int, User> $users
  * @property int|null $users_count
  * @mixin IdeHelperTenant
- * @mixin \Eloquent
  */
 class Tenant extends BaseTenant
 {
