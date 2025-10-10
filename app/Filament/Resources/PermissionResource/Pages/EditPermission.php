@@ -6,8 +6,21 @@ namespace Modules\User\Filament\Resources\PermissionResource\Pages;
 
 use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
 use Modules\User\Filament\Resources\PermissionResource;
+<<<<<<< HEAD
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
+=======
+
+
+
+
+use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+
+
+
+
+
+>>>>>>> fbc8f8e (.)
 class EditPermission extends XotBaseEditRecord
 {
     // //

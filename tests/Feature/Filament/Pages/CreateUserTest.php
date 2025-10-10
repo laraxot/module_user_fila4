@@ -4,10 +4,17 @@ declare(strict_types=1);
 
 use Tests\TestCase;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
+<<<<<<< HEAD
 use Modules\User\Enums\UserType;
 use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
 use Modules\User\Models\User;
+=======
+use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
+use Modules\User\Filament\Resources\UserResource;
+use Modules\User\Models\User;
+use Modules\User\Enums\UserType;
+>>>>>>> fbc8f8e (.)
 
 uses(TestCase::class);
 

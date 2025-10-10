@@ -1,8 +1,11 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 
+=======
+>>>>>>> fbc8f8e (.)
 return [
     'attach_user' => 'Collega Utente',
     'associate_user' => 'Associa Utente',

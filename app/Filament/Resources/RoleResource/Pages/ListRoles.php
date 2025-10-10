@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> fbc8f8e (.)
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
@@ -16,11 +19,15 @@ class ListRoles extends XotBaseListRecords
 {
     protected static string $resource = RoleResource::class;
 
+<<<<<<< HEAD
     #[Override]
+=======
+>>>>>>> fbc8f8e (.)
     public function getTableColumns(): array
     {
         return [
             'id' => TextColumn::make('id'),
+<<<<<<< HEAD
             'name' => TextColumn::make('name')->searchable()->sortable(),
             // Tables\Columns\TextColumn::make('role'),
             'guard_name' => TextColumn::make('guard_name')->searchable()->sortable(),
@@ -29,6 +36,21 @@ class ListRoles extends XotBaseListRecords
     }
 
     #[Override]
+=======
+            'name' => TextColumn::make('name')
+                ->searchable()
+                ->sortable(),
+            // Tables\Columns\TextColumn::make('role'),
+            'guard_name' => TextColumn::make('guard_name')
+                ->searchable()
+                ->sortable(),
+            'team_id' => TextColumn::make('team.name')
+                ->searchable()
+                ->sortable(),
+        ];
+    }
+
+>>>>>>> fbc8f8e (.)
     public function getTableFilters(): array
     {
         return [

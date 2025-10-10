@@ -24,7 +24,11 @@ class RetrieveSocialiteUserAction
     /**
      * Execute the action.
      */
+<<<<<<< HEAD
     public function execute(string $provider, SocialiteUserContract $user): null|SocialiteUser
+=======
+    public function execute(string $provider, SocialiteUserContract $user): ?SocialiteUser
+>>>>>>> fbc8f8e (.)
     {
         if (empty($provider)) {
             throw new InvalidArgumentException('Il provider non può essere vuoto');
@@ -47,11 +51,19 @@ class RetrieveSocialiteUserAction
 
         // Accesso sicuro alla proprietà token in modo type-safe
         $token = '';
+<<<<<<< HEAD
 
         // Utilizzo ReflectionClass per accedere in modo sicuro alle proprietà/metodi
         try {
             $reflection = new ReflectionClass($user);
 
+=======
+        
+        // Utilizzo ReflectionClass per accedere in modo sicuro alle proprietà/metodi
+        try {
+            $reflection = new ReflectionClass($user);
+            
+>>>>>>> fbc8f8e (.)
             // Prova prima i metodi standard
             if ($reflection->hasMethod('getToken')) {
                 $method = $reflection->getMethod('getToken');
@@ -67,14 +79,26 @@ class RetrieveSocialiteUserAction
                 if (is_string($tokenValue)) {
                     $token = $tokenValue;
                 }
+<<<<<<< HEAD
             } elseif ($reflection->hasProperty('token')) { // Prova poi ad accedere alla proprietà
+=======
+            } 
+            // Prova poi ad accedere alla proprietà
+            elseif ($reflection->hasProperty('token')) {
+>>>>>>> fbc8f8e (.)
                 $property = $reflection->getProperty('token');
                 $property->setAccessible(true);
                 $tokenValue = $property->getValue($user);
                 if (is_string($tokenValue)) {
                     $token = $tokenValue;
                 }
+<<<<<<< HEAD
             } elseif (isset($user->token) && is_string($user->token)) { // Fallback su accesso diretto con var_export
+=======
+            }
+            // Fallback su accesso diretto con var_export
+            elseif (isset($user->token) && is_string($user->token)) {
+>>>>>>> fbc8f8e (.)
                 $token = $user->token;
             }
         } catch (ReflectionException $e) {

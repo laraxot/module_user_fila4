@@ -14,17 +14,29 @@ use Laravel\Socialite\Contracts\User;
 /**
  * Classe che risolve e normalizza i campi del nome utente da dati di provider Socialite.
  */
+<<<<<<< HEAD
 final readonly class UserNameFieldsResolver
+=======
+final class UserNameFieldsResolver
+>>>>>>> fbc8f8e (.)
 {
     private const NAME_SEARCH = 'before';
 
     private const SURNAME_SEARCH = 'after';
 
+<<<<<<< HEAD
     public  null|string $name;
 
     public  null|string $first_name;
 
     public  null|string $last_name;
+=======
+    public readonly ?string $name;
+
+    public readonly ?string $first_name;
+
+    public readonly ?string $last_name;
+>>>>>>> fbc8f8e (.)
 
     public function __construct(User $user)
     {
@@ -53,7 +65,11 @@ final readonly class UserNameFieldsResolver
      */
     private function resolveNameFields(User $idpUser, string $searchMethod): string
     {
+<<<<<<< HEAD
         if (!in_array($searchMethod, [self::NAME_SEARCH, self::SURNAME_SEARCH], strict: true)) {
+=======
+        if (!in_array($searchMethod, [self::NAME_SEARCH, self::SURNAME_SEARCH])) {
+>>>>>>> fbc8f8e (.)
             throw new InvalidArgumentException('Metodo di ricerca non valido');
         }
 
@@ -145,7 +161,11 @@ final readonly class UserNameFieldsResolver
             return Str::of('');
         }
 
+<<<<<<< HEAD
         if (!in_array($searchMethod, [self::NAME_SEARCH, self::SURNAME_SEARCH], strict: true)) {
+=======
+        if (!in_array($searchMethod, [self::NAME_SEARCH, self::SURNAME_SEARCH])) {
+>>>>>>> fbc8f8e (.)
             throw new InvalidArgumentException('Metodo di ricerca non valido');
         }
 

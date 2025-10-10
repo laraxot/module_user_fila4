@@ -32,7 +32,13 @@ class ShowUserListCommand extends Command
     {
         $modelClass = XotData::make()->getUserClass();
 
+<<<<<<< HEAD
         $map = static fn(Model $row) => $row->toArray();
+=======
+        $map = static function (Model $row) {
+            return $row->toArray();
+        };
+>>>>>>> fbc8f8e (.)
 
         $rows = $modelClass::get()->map($map);
 
@@ -45,7 +51,11 @@ class ShowUserListCommand extends Command
             $this->newLine();
         } else {
             $this->newLine();
+<<<<<<< HEAD
             $this->warn('⚡ No Tenants [' . $modelClass . ']');
+=======
+            $this->warn('⚡ No Tenants ['.$modelClass.']');
+>>>>>>> fbc8f8e (.)
             $this->newLine();
         }
     }

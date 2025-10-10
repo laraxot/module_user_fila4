@@ -18,21 +18,35 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Clusters\Appearance;
 
 /**
+<<<<<<< HEAD
  * @property Schema $form
+=======
+ * @property \Filament\Schemas\Schema $form
+>>>>>>> fbc8f8e (.)
  */
 class Alignment extends Page implements HasForms
 {
     use InteractsWithForms;
 
+<<<<<<< HEAD
     public null|array $data = [];
+=======
+    public ?array $data = [];
+>>>>>>> fbc8f8e (.)
 
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
     protected string $view = 'user::filament.clusters.appearance.pages.alignment';
 
+<<<<<<< HEAD
     protected static null|string $cluster = Appearance::class;
 
     protected static null|int $navigationSort = 4;
+=======
+    protected static ?string $cluster = Appearance::class;
+
+    protected static ?int $navigationSort = 4;
+>>>>>>> fbc8f8e (.)
 
     public function mount(): void
     {
@@ -64,6 +78,7 @@ class Alignment extends Page implements HasForms
                 ColorPicker::make('background_color'),
                 FileUpload::make('background'),
                 ColorPicker::make('overlay_color'),
+<<<<<<< HEAD
                 TextInput::make('overlay_opacity')
                     ->numeric()
                     ->minValue(0)
@@ -71,6 +86,12 @@ class Alignment extends Page implements HasForms
                 // ])->columns(2),
             ])
             ->columns(2)
+=======
+                TextInput::make('overlay_opacity')->numeric()->minValue(0)->maxValue(100),
+
+                // ])->columns(2),
+            ])->columns(2)
+>>>>>>> fbc8f8e (.)
             // ->model($this->getUser())
             ->statePath('data');
     }
@@ -80,7 +101,10 @@ class Alignment extends Page implements HasForms
         try {
             $data = $this->form->getState();
             dddx($data);
+<<<<<<< HEAD
 
+=======
+>>>>>>> fbc8f8e (.)
             // $this->handleRecordUpdate($this->getUser(), $data);
         } catch (Halt $exception) {
             dddx($exception->getMessage());
@@ -100,7 +124,13 @@ class Alignment extends Page implements HasForms
     protected function getUpdateFormActions(): array
     {
         return [
+<<<<<<< HEAD
             Action::make('updateAction')->submit('editForm'),
+=======
+            Action::make('updateAction')
+
+                ->submit('editForm'),
+>>>>>>> fbc8f8e (.)
         ];
     }
 

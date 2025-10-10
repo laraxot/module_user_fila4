@@ -3,9 +3,15 @@
 declare(strict_types=1);
 
 use Tests\TestCase;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Enums\UserType;
 use Modules\User\Models\User;
+=======
+use Modules\User\Models\User;
+use Modules\User\Enums\UserType;
+use Illuminate\Support\Facades\Hash;
+>>>>>>> fbc8f8e (.)
 
 /**
  * @property User $user

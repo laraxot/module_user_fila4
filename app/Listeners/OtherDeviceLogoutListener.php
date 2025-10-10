@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Listeners;
 
+<<<<<<< HEAD
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\OtherDeviceLogout;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -11,6 +12,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Modules\User\Contracts\HasAuthentications;
 use Modules\User\Models\AuthenticationLog;
+=======
+use Illuminate\Auth\Events\OtherDeviceLogout;
+use Illuminate\Http\Request;
+use Modules\User\Models\AuthenticationLog;
+use Illuminate\Auth\Events\Login;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Support\Facades\Auth;
+use Modules\User\Contracts\HasAuthentications;
+>>>>>>> fbc8f8e (.)
 
 // use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 
@@ -32,7 +42,11 @@ class OtherDeviceLogoutListener
             $userAgent = $this->request->userAgent();
             $authenticationLog = $user->authentications()->whereIpAddress($ip)->whereUserAgent($userAgent)->first();
 
+<<<<<<< HEAD
             if (!$authenticationLog) {
+=======
+            if (! $authenticationLog) {
+>>>>>>> fbc8f8e (.)
                 $authenticationLog = new AuthenticationLog([
                     'ip_address' => $ip,
                     'user_agent' => $userAgent,
@@ -55,7 +69,11 @@ class OtherDeviceLogoutListener
      */
     public function handleLogin(Login $event): void
     {
+<<<<<<< HEAD
         if (!config('authentication-log.notify_other_devices', false)) {
+=======
+        if (! config('authentication-log.notify_other_devices', false)) {
+>>>>>>> fbc8f8e (.)
             return;
         }
 
@@ -67,11 +85,19 @@ class OtherDeviceLogoutListener
             return;
         }
 
+<<<<<<< HEAD
         $logs = $user
             ->authentications()
             ->orderByDesc('login_at')
             ->where(function ($query) use ($newIP, $newUserAgent) {
                 $query->where('ip_address', '!=', $newIP)->orWhere('user_agent', '!=', $newUserAgent);
+=======
+        $logs = $user->authentications()
+            ->orderByDesc('login_at')
+            ->where(function ($query) use ($newIP, $newUserAgent) {
+                $query->where('ip_address', '!=', $newIP)
+                    ->orWhere('user_agent', '!=', $newUserAgent);
+>>>>>>> fbc8f8e (.)
             })
             ->where('login_successful', true)
             ->get();

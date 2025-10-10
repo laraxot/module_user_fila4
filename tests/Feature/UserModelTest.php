@@ -2,16 +2,29 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\MediaLibrary\HasMedia;
+=======
+namespace Modules\User\Tests\Feature\UserModelTest;
+
+namespace Modules\User\Tests\Unit\Widgets;
+
+>>>>>>> fbc8f8e (.)
 use Modules\User\Models\Permission;
 use Modules\User\Models\Role;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
+<<<<<<< HEAD
+=======
+use Modules\User\Models\Profile;
+use Modules\User\Models\Device;
+use Modules\User\Models\AuthenticationLog;
+>>>>>>> fbc8f8e (.)
 
 beforeEach(function () {
     $this->user = User::factory()->create();
@@ -23,7 +36,11 @@ describe('User Model Creation', function () {
         $userData = [
             'name' => 'Test User',
             'first_name' => 'Test',
+<<<<<<< HEAD
             'last_name' => 'User',
+=======
+
+>>>>>>> fbc8f8e (.)
             'email' => 'test@example.com',
             'password' => bcrypt('password'),
             'lang' => 'it',
@@ -43,7 +60,13 @@ describe('User Model Creation', function () {
     });
 
     it('generates uuid for id', function () {
+<<<<<<< HEAD
         expect($this->user->id)->toBeString()->toHaveLength(36); // UUID format
+=======
+        expect($this->user->id)
+            ->toBeString()
+            ->toHaveLength(36); // UUID format
+>>>>>>> fbc8f8e (.)
     });
 
     it('uses user database connection', function () {
@@ -130,17 +153,26 @@ describe('User Authentication Features', function () {
 
 describe('User Relationships', function () {
     it('can have teams', function () {
+<<<<<<< HEAD
         expect($this->user->teams())->toBeInstanceOf(BelongsToMany::class);
     });
 
     it('can own teams', function () {
         expect($this->user->ownedTeams())->toBeInstanceOf(HasMany::class);
+=======
+        expect($this->user->teams())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsToMany::class);
+    });
+
+    it('can own teams', function () {
+        expect($this->user->ownedTeams())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
+>>>>>>> fbc8f8e (.)
     });
 
     it('can have current team', function () {
         $team = Team::factory()->create(['user_id' => $this->user->id]);
         $this->user->update(['current_team_id' => $team->id]);
 
+<<<<<<< HEAD
         expect($this->user->currentTeam())->toBeInstanceOf(BelongsTo::class);
     });
 
@@ -179,6 +211,45 @@ describe('User Relationships', function () {
 
     it('can have socialite users', function () {
         expect($this->user->socialiteUsers())->toBeInstanceOf(HasMany::class);
+=======
+        expect($this->user->currentTeam())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsTo::class);
+    });
+
+    it('can have roles', function () {
+        expect($this->user->roles())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsToMany::class);
+    });
+
+    it('can have permissions', function () {
+        expect($this->user->permissions())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsToMany::class);
+    });
+
+    it('can have profile', function () {
+        expect($this->user->profile())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasOne::class);
+    });
+
+    it('can have devices', function () {
+        expect($this->user->devices())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsToMany::class);
+    });
+
+    it('can have authentication logs', function () {
+        expect($this->user->authentications())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
+    });
+
+    it('can have oauth clients', function () {
+        expect($this->user->clients())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
+    });
+
+    it('can have oauth tokens', function () {
+        expect($this->user->tokens())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
+    });
+
+    it('can have notifications', function () {
+        expect($this->user->notifications())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\MorphMany::class);
+    });
+
+    it('can have socialite users', function () {
+        expect($this->user->socialiteUsers())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
+>>>>>>> fbc8f8e (.)
     });
 });
 
@@ -258,11 +329,19 @@ describe('User Permission System', function () {
 
 describe('User Media Management', function () {
     it('implements HasMedia interface', function () {
+<<<<<<< HEAD
         expect($this->user)->toBeInstanceOf(HasMedia::class);
     });
 
     it('can have media attached', function () {
         expect($this->user->media())->toBeInstanceOf(MorphMany::class);
+=======
+        expect($this->user)->toBeInstanceOf(\Spatie\MediaLibrary\HasMedia::class);
+    });
+
+    it('can have media attached', function () {
+        expect($this->user->media())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\MorphMany::class);
+>>>>>>> fbc8f8e (.)
     });
 });
 
@@ -274,8 +353,12 @@ describe('User Scopes and Queries', function () {
         $activeUsers = User::where('is_active', true)->get();
         $inactiveUsers = User::where('is_active', false)->get();
 
+<<<<<<< HEAD
         expect($activeUsers->every(fn($user) => $user->is_active))->toBe(true);
         expect($inactiveUsers->every(fn($user) => !$user->is_active))->toBe(true);
+=======
+
+>>>>>>> fbc8f8e (.)
     });
 
     it('can filter by email verified', function () {
@@ -285,8 +368,12 @@ describe('User Scopes and Queries', function () {
         $verifiedUsers = User::whereNotNull('email_verified_at')->get();
         $unverifiedUsers = User::whereNull('email_verified_at')->get();
 
+<<<<<<< HEAD
         expect($verifiedUsers->every(fn($user) => $user->email_verified_at !== null))->toBe(true);
         expect($unverifiedUsers->every(fn($user) => $user->email_verified_at === null))->toBe(true);
+=======
+
+>>>>>>> fbc8f8e (.)
     });
 
     it('can filter by language', function () {
@@ -296,8 +383,12 @@ describe('User Scopes and Queries', function () {
         $italianUsers = User::where('lang', 'it')->get();
         $englishUsers = User::where('lang', 'en')->get();
 
+<<<<<<< HEAD
         expect($italianUsers->every(fn($user) => $user->lang === 'it'))->toBe(true);
         expect($englishUsers->every(fn($user) => $user->lang === 'en'))->toBe(true);
+=======
+
+>>>>>>> fbc8f8e (.)
     });
 });
 
@@ -325,4 +416,8 @@ describe('User Soft Deletes', function () {
         // This would test force delete functionality if the trait were present
         $this->markTestSkipped('User model does not implement SoftDeletes trait');
     });
+<<<<<<< HEAD
 });
+=======
+
+>>>>>>> fbc8f8e (.)

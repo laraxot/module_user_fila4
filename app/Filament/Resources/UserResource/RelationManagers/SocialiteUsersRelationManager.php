@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
+<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Override;
+=======
+>>>>>>> fbc8f8e (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Forms;
 use Filament\Schemas\Schema;
@@ -18,6 +21,17 @@ use Modules\User\Models\SocialiteUser;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Modules\Xot\Filament\Traits\HasXotTable;
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+>>>>>>> fbc8f8e (.)
 /**
  * Class Modules\User\Filament\Resources\UserResource\RelationManagers\SocialiteUsersRelationManager.
  */
@@ -33,13 +47,19 @@ class SocialiteUsersRelationManager extends XotBaseRelationManager
     /**
      * Define form fields in a dedicated method for reusability.
      *
+<<<<<<< HEAD
      * @return array<Component>
      */
     #[Override]
+=======
+     * @return array<\Filament\Schemas\Components\Component>
+     */
+>>>>>>> fbc8f8e (.)
     public function getFormSchema(): array
     {
         return [
             TextInput::make('provider')
+<<<<<<< HEAD
                 ->required()
                 ->maxLength(255)
                 ->placeholder(__('Enter provider name, e.g., Google, Facebook')),
@@ -55,6 +75,32 @@ class SocialiteUsersRelationManager extends XotBaseRelationManager
                 ->maxLength(255)
                 ->placeholder(__('User’s email associated with the provider')),
             TextInput::make('avatar')
+=======
+
+                ->required()
+                ->maxLength(255)
+                ->placeholder(__('Enter provider name, e.g., Google, Facebook')),
+
+            TextInput::make('provider_id')
+
+                ->required()
+                ->maxLength(255)
+                ->placeholder(__('Enter the provider ID for the user')),
+
+            TextInput::make('name')
+
+                ->maxLength(255)
+                ->placeholder(__('User’s name associated with the provider')),
+
+            TextInput::make('email')
+
+                ->email()
+                ->maxLength(255)
+                ->placeholder(__('User’s email associated with the provider')),
+
+            TextInput::make('avatar')
+
+>>>>>>> fbc8f8e (.)
                 ->url()
                 ->maxLength(512)
                 ->placeholder(__('URL of the user’s avatar image')),
@@ -66,6 +112,7 @@ class SocialiteUsersRelationManager extends XotBaseRelationManager
      *
      * @return array<TextColumn|ImageColumn>
      */
+<<<<<<< HEAD
     #[Override]
     public function getTableColumns(): array
     {
@@ -75,10 +122,38 @@ class SocialiteUsersRelationManager extends XotBaseRelationManager
             TextColumn::make('name')->searchable(),
             TextColumn::make('email')->searchable(),
             ImageColumn::make('avatar')->size(40),
+=======
+    public function getTableColumns(): array
+    {
+        return [
+            TextColumn::make('provider')
+
+                ->searchable(),
+
+            TextColumn::make('provider_id')
+
+                ->searchable(),
+
+            TextColumn::make('name')
+
+                ->searchable(),
+
+            TextColumn::make('email')
+
+                ->searchable(),
+
+            ImageColumn::make('avatar')
+
+                ->size(40),
+>>>>>>> fbc8f8e (.)
         ];
     }
 
     //  * Query scope to apply conditions to the relation manager.
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
     // protected function applyTableQueryScope(Builder $query): Builder
     // {
     //     return $query->when(

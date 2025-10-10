@@ -2,23 +2,42 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use Filament\Facades\Filament;
 use Livewire\Livewire;
+=======
+namespace Modules\User\Tests\Feature\Filament\UserResourceTest;
+
+namespace Modules\User\Tests\Unit\Widgets;
+
+use Livewire\Livewire;
+use Modules\User\Models\User;
+use Modules\User\Models\Role;
+use Modules\User\Models\Permission;
+>>>>>>> fbc8f8e (.)
 use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
 use Modules\User\Filament\Resources\UserResource\Pages\EditUser;
 use Modules\User\Filament\Resources\UserResource\Pages\ListUsers;
 use Modules\User\Filament\Resources\UserResource\Pages\ViewUser;
+<<<<<<< HEAD
 use Modules\User\Models\Permission;
 use Modules\User\Models\Role;
 use Modules\User\Models\User;
+=======
+
+>>>>>>> fbc8f8e (.)
 
 beforeEach(function () {
     $this->admin = User::factory()->create();
     $this->user = User::factory()->create();
 
     // Set admin panel for testing
+<<<<<<< HEAD
     Filament::setCurrentPanel('user::admin');
+=======
+    Filament\Facades\Filament::setCurrentPanel('user::admin');
+>>>>>>> fbc8f8e (.)
     $this->actingAs($this->admin);
 });
 
@@ -46,7 +65,13 @@ describe('ListUsers Page', function () {
     it('can render list page', function () {
         $users = User::factory()->count(3)->create();
 
+<<<<<<< HEAD
         Livewire::test(ListUsers::class)->assertSuccessful()->assertCanSeeTableRecords($users);
+=======
+        Livewire::test(ListUsers::class)
+            ->assertSuccessful()
+            ->assertCanSeeTableRecords($users);
+>>>>>>> fbc8f8e (.)
     });
 
     it('can search users by name', function () {
@@ -118,16 +143,27 @@ describe('ListUsers Page', function () {
             'created_at' => now(),
         ]);
 
+<<<<<<< HEAD
         Livewire::test(ListUsers::class)->sortTable('created_at', 'desc')->assertCanSeeTableRecords(
             [$newUser, $oldUser],
             inOrder: true,
         );
+=======
+        Livewire::test(ListUsers::class)
+            ->sortTable('created_at', 'desc')
+            ->assertCanSeeTableRecords([$newUser, $oldUser], inOrder: true);
+>>>>>>> fbc8f8e (.)
     });
 });
 
 describe('CreateUser Page', function () {
     it('can render create page', function () {
+<<<<<<< HEAD
         Livewire::test(CreateUser::class)->assertSuccessful();
+=======
+        Livewire::test(CreateUser::class)
+            ->assertSuccessful();
+>>>>>>> fbc8f8e (.)
     });
 
     it('can create a user', function () {
@@ -217,7 +253,12 @@ describe('EditUser Page', function () {
     it('can render edit page', function () {
         Livewire::test(EditUser::class, [
             'record' => $this->user->getRouteKey(),
+<<<<<<< HEAD
         ])->assertSuccessful();
+=======
+        ])
+            ->assertSuccessful();
+>>>>>>> fbc8f8e (.)
     });
 
     it('can retrieve user data for editing', function () {
@@ -230,12 +271,22 @@ describe('EditUser Page', function () {
 
         Livewire::test(EditUser::class, [
             'record' => $user->getRouteKey(),
+<<<<<<< HEAD
         ])->assertFormSet([
             'name' => 'Editable User',
             'email' => 'editable@example.com',
             'first_name' => 'Editable',
             'last_name' => 'User',
         ]);
+=======
+        ])
+            ->assertFormSet([
+                'name' => 'Editable User',
+                'email' => 'editable@example.com',
+                'first_name' => 'Editable',
+                'last_name' => 'User',
+            ]);
+>>>>>>> fbc8f8e (.)
     });
 
     it('can save edited user', function () {
@@ -254,7 +305,13 @@ describe('EditUser Page', function () {
             ->call('save')
             ->assertHasNoFormErrors();
 
+<<<<<<< HEAD
         expect($user->fresh())->name->toBe('Updated Name')->email->toBe('updated@example.com');
+=======
+        expect($user->fresh())
+            ->name->toBe('Updated Name')
+            ->email->toBe('updated@example.com');
+>>>>>>> fbc8f8e (.)
     });
 
     it('can activate and deactivate user', function () {
@@ -333,7 +390,12 @@ describe('ViewUser Page', function () {
     it('can render view page', function () {
         Livewire::test(ViewUser::class, [
             'record' => $this->user->getRouteKey(),
+<<<<<<< HEAD
         ])->assertSuccessful();
+=======
+        ])
+            ->assertSuccessful();
+>>>>>>> fbc8f8e (.)
     });
 
     it('displays user information', function () {
@@ -358,7 +420,12 @@ describe('ViewUser Page', function () {
 
         Livewire::test(ViewUser::class, [
             'record' => $user->getRouteKey(),
+<<<<<<< HEAD
         ])->assertSuccessful();
+=======
+        ])
+            ->assertSuccessful();
+>>>>>>> fbc8f8e (.)
 
         expect($user->roles)->toContain($role);
     });
@@ -370,7 +437,12 @@ describe('ViewUser Page', function () {
 
         Livewire::test(ViewUser::class, [
             'record' => $user->getRouteKey(),
+<<<<<<< HEAD
         ])->assertSuccessful();
+=======
+        ])
+            ->assertSuccessful();
+>>>>>>> fbc8f8e (.)
 
         expect($user->permissions)->toContain($permission);
     });
@@ -378,6 +450,7 @@ describe('ViewUser Page', function () {
 
 describe('UserResource Bulk Actions', function () {
     it('can bulk activate users', function () {
+<<<<<<< HEAD
         $users = User::factory()
             ->count(3)
             ->create([
@@ -385,6 +458,15 @@ describe('UserResource Bulk Actions', function () {
             ]);
 
         Livewire::test(ListUsers::class)->selectTableRecords($users)->callTableBulkAction('activate');
+=======
+        $users = User::factory()->count(3)->create([
+            'is_active' => false,
+        ]);
+
+        Livewire::test(ListUsers::class)
+            ->selectTableRecords($users)
+            ->callTableBulkAction('activate');
+>>>>>>> fbc8f8e (.)
 
         $users->each(function ($user) {
             expect($user->fresh()->is_active)->toBe(true);
@@ -392,6 +474,7 @@ describe('UserResource Bulk Actions', function () {
     });
 
     it('can bulk deactivate users', function () {
+<<<<<<< HEAD
         $users = User::factory()
             ->count(3)
             ->create([
@@ -399,6 +482,15 @@ describe('UserResource Bulk Actions', function () {
             ]);
 
         Livewire::test(ListUsers::class)->selectTableRecords($users)->callTableBulkAction('deactivate');
+=======
+        $users = User::factory()->count(3)->create([
+            'is_active' => true,
+        ]);
+
+        Livewire::test(ListUsers::class)
+            ->selectTableRecords($users)
+            ->callTableBulkAction('deactivate');
+>>>>>>> fbc8f8e (.)
 
         $users->each(function ($user) {
             expect($user->fresh()->is_active)->toBe(false);
@@ -408,7 +500,13 @@ describe('UserResource Bulk Actions', function () {
     it('can bulk delete users', function () {
         $users = User::factory()->count(3)->create();
 
+<<<<<<< HEAD
         Livewire::test(ListUsers::class)->selectTableRecords($users)->callTableBulkAction('delete');
+=======
+        Livewire::test(ListUsers::class)
+            ->selectTableRecords($users)
+            ->callTableBulkAction('delete');
+>>>>>>> fbc8f8e (.)
 
         $users->each(function ($user) {
             expect($user->fresh())->toBeNull();
@@ -419,9 +517,17 @@ describe('UserResource Bulk Actions', function () {
         $users = User::factory()->count(2)->create();
         $role = Role::factory()->create(['name' => 'Editor']);
 
+<<<<<<< HEAD
         Livewire::test(ListUsers::class)->selectTableRecords($users)->callTableBulkAction('assignRole', [
             'role_id' => $role->id,
         ]);
+=======
+        Livewire::test(ListUsers::class)
+            ->selectTableRecords($users)
+            ->callTableBulkAction('assignRole', [
+                'role_id' => $role->id,
+            ]);
+>>>>>>> fbc8f8e (.)
 
         $users->each(function ($user) use ($role) {
             expect($user->fresh()->hasRole($role))->toBe(true);
@@ -470,4 +576,8 @@ describe('UserResource Security', function () {
             ->call('create')
             ->assertHasFormErrors(['password']);
     });
+<<<<<<< HEAD
 });
+=======
+
+>>>>>>> fbc8f8e (.)

@@ -3,8 +3,13 @@
 declare(strict_types=1);
 
 use Tests\TestCase;
+<<<<<<< HEAD
 use Modules\User\Models\Permission;
 use Modules\User\Models\Role;
+=======
+use Modules\User\Models\Role;
+use Modules\User\Models\Permission;
+>>>>>>> fbc8f8e (.)
 use Modules\User\Models\User;
 
 uses(TestCase::class);

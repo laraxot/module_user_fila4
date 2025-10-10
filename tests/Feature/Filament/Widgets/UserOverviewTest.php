@@ -4,10 +4,17 @@ declare(strict_types=1);
 
 use Tests\TestCase;
 use Filament\Widgets\Widget;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Enums\UserType;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\User\Models\User;
+=======
+use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
+use Modules\User\Models\User;
+use Modules\User\Enums\UserType;
+use Illuminate\Database\Eloquent\Model;
+>>>>>>> fbc8f8e (.)
 
 uses(TestCase::class);
 
@@ -28,8 +35,12 @@ test('user overview widget has correct view', function (): void {
     $viewProperty = $reflection->getProperty('view');
     $viewProperty->setAccessible(true);
 
+<<<<<<< HEAD
     expect($viewProperty->getValue($this->widget))
         ->toBe('user::filament.resources.user-resource.widgets.user-overview');
+=======
+    expect($viewProperty->getValue($this->widget))->toBe('user::filament.resources.user-resource.widgets.user-overview');
+>>>>>>> fbc8f8e (.)
 });
 
 test('user overview widget has record property', function (): void {

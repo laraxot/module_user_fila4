@@ -23,7 +23,11 @@ trait InteractsWithTenant
      *
      * @var Model|null
      */
+<<<<<<< HEAD
     protected null|Model $currentTenant = null;
+=======
+    protected ?Model $currentTenant = null;
+>>>>>>> fbc8f8e (.)
 
     /**
      * Relazione con il tenant a cui appartiene il modello.
@@ -50,7 +54,11 @@ trait InteractsWithTenant
      *
      * @return Model|null
      */
+<<<<<<< HEAD
     protected function getTenant(): null|Model
+=======
+    protected function getTenant(): ?Model
+>>>>>>> fbc8f8e (.)
     {
         return $this->currentTenant;
     }
@@ -75,6 +83,7 @@ trait InteractsWithTenant
      */
     protected static function bootInteractsWithTenant(): void
     {
+<<<<<<< HEAD
         static::addGlobalScope(new TenantScope());
 
         static::creating(static function ($model): void {
@@ -85,12 +94,30 @@ trait InteractsWithTenant
                 }
             }
         });
+=======
+        static::addGlobalScope(new TenantScope);
+
+        static::creating(
+            static function ($model): void {
+                if ($model !== null) {
+                    $tenant = Filament::getTenant();
+                    if ($tenant !== null) {
+                        $model->tenant_id = $tenant->getKey();
+                    }
+                }
+            }
+        );
+>>>>>>> fbc8f8e (.)
     }
 
     /**
      * Interact with the user's first name.
      */
+<<<<<<< HEAD
     protected function setTenantIdAttribute(null|int $value): void
+=======
+    protected function setTenantIdAttribute(?int $value): void
+>>>>>>> fbc8f8e (.)
     {
         $tenant = Filament::getTenant();
         if ($value === null && $tenant !== null) {

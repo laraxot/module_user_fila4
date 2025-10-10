@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Spatie\SchemalessAttributes\SchemalessAttributes;
+<<<<<<< HEAD
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Database\Eloquent\Collection;
@@ -12,16 +13,33 @@ use Modules\Media\Models\Media;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+=======
+use Illuminate\Database\Eloquent\Collection;
+use Modules\Media\Models\Media;
+use Illuminate\Notifications\DatabaseNotificationCollection;
+use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Database\Eloquent\Builder;
+>>>>>>> fbc8f8e (.)
 use Modules\User\Contracts\UserContract;
 use Modules\User\Database\Factories\ProfileFactory;
 use Modules\User\Models\Pivots\DeviceProfile;
 use Modules\User\Models\Pivots\ProfileTeam;
 use Modules\Xot\Contracts\ProfileContract;
+<<<<<<< HEAD
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttributes;
+=======
+use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Permission\Traits\HasRoles;
+use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttributes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+>>>>>>> fbc8f8e (.)
 
 /**
  * User Profile Model

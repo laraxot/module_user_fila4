@@ -21,7 +21,14 @@ class FetchUserApiTokenCommand extends Command
 
     protected $description = 'Fetches an OAuth Token to be able to test APIs';
 
+<<<<<<< HEAD
     
+=======
+    public function __construct()
+    {
+        parent::__construct();
+    }
+>>>>>>> fbc8f8e (.)
 
     public function handle(): int
     {
@@ -50,6 +57,7 @@ class FetchUserApiTokenCommand extends Command
         $oauthScopes = ['core-technicians'];
 
         $token = $user->createToken(
+<<<<<<< HEAD
             name: sprintf('Debug Token [%s]', Carbon::now()->format('Y-m-d H:i:s')),
             scopes: $oauthScopes,
         );
@@ -57,6 +65,18 @@ class FetchUserApiTokenCommand extends Command
         $this->info("Access token for `{$userEmail}`:");
         $this->comment($token->accessToken);
         $this->info('Scopes included: ' . implode(', ', $oauthScopes));
+=======
+            name: sprintf(
+                'Debug Token [%s]',
+                Carbon::now()->format('Y-m-d H:i:s'),
+            ),
+            scopes: $oauthScopes,
+        );
+
+        $this->info("Access token for `$userEmail`:");
+        $this->comment($token->accessToken);
+        $this->info('Scopes included: '.implode(', ', $oauthScopes));
+>>>>>>> fbc8f8e (.)
 
         return self::SUCCESS;
     }

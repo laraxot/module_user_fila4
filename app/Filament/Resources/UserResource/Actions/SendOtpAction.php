@@ -9,7 +9,10 @@ use RuntimeException;
 use Modules\User\Actions\Otp\SendOtpByUserAction;
 use Modules\User\Models\User;
 use Modules\Xot\Contracts\UserContract;
+<<<<<<< HEAD
 use Webmozart\Assert\Assert;
+=======
+>>>>>>> fbc8f8e (.)
 
 /**
  * Azione Filament per l'invio di un OTP all'utente.
@@ -20,7 +23,12 @@ class SendOtpAction extends Action
     {
         parent::setUp();
 
+<<<<<<< HEAD
         $this->tooltip(trans('user::otp.actions.send_otp'))
+=======
+        $this
+            ->tooltip(trans('user::otp.actions.send_otp'))
+>>>>>>> fbc8f8e (.)
             ->icon('heroicon-o-key')
             ->action(function (User $record) {
                 // Sappiamo già che l'utente implementa UserContract perché il tipo User lo implementa
@@ -28,8 +36,11 @@ class SendOtpAction extends Action
                 if ($action === null) {
                     throw new RuntimeException('Impossibile istanziare SendOtpByUserAction');
                 }
+<<<<<<< HEAD
                 // User model extends BaseUser which implements UserContract interface
                 Assert::isInstanceOf($record, UserContract::class);
+=======
+>>>>>>> fbc8f8e (.)
                 $action->execute($record);
             })
             ->requiresConfirmation()
@@ -41,7 +52,11 @@ class SendOtpAction extends Action
     /**
      * Ottieni il nome predefinito dell'azione.
      */
+<<<<<<< HEAD
     public static function getDefaultName(): null|string
+=======
+    public static function getDefaultName(): ?string
+>>>>>>> fbc8f8e (.)
     {
         return 'send_otp';
     }

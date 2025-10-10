@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 
@@ -12,6 +13,17 @@ name('dashboard');
 middleware(['auth', 'verified']);
 
 new class extends Component {};
+=======
+use function Laravel\Folio\{middleware, name};
+use Livewire\Volt\Component;
+
+name('dashboard');
+middleware(['auth', 'verified']);
+
+new class extends Component
+{
+};
+>>>>>>> fbc8f8e (.)
 ?>
 
 <x-layouts.app>
@@ -45,4 +57,8 @@ new class extends Component {};
             </div>
         </div>
     @endvolt
+<<<<<<< HEAD
 </x-layouts.app>
+=======
+</x-layouts.app>
+>>>>>>> fbc8f8e (.)

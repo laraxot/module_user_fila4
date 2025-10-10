@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 use Override;
@@ -11,6 +12,14 @@ use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Modules\User\Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Builder;
+=======
+use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Notifications\DatabaseNotificationCollection;
+use Modules\User\Database\Factories\UserFactory;
+use Illuminate\Database\Eloquent\Builder;
+use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
+>>>>>>> fbc8f8e (.)
 use Modules\Media\Models\Media;
 use Modules\Xot\Contracts\ProfileContract;
 
@@ -129,7 +138,10 @@ class User extends BaseUser
      */
     public $connection = 'user';
 
+<<<<<<< HEAD
     #[Override]
+=======
+>>>>>>> fbc8f8e (.)
     public function canAccessSocialite(): bool
     {
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;
