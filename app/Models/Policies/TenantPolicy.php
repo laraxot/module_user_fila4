@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Models\Policies;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Modules\User\Models\Tenant;
 use Modules\Xot\Contracts\UserContract;
 
@@ -69,6 +72,7 @@ class TenantPolicy extends UserBasePolicy
     {
         return $user->hasPermissionTo('tenant.force-delete') || $user->hasRole('super-admin');
     }
+<<<<<<< HEAD
 =======
 use Modules\User\Contracts\UserContract;
 use Modules\User\Models\Tenant;
@@ -132,4 +136,6 @@ class TenantPolicy extends UserBasePolicy
 		return $user->hasRole('super-admin');
 	}
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 }

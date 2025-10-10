@@ -1,24 +1,34 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 namespace Modules\User\Livewire;
 
 use Exception;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+<<<<<<< HEAD
 =======
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\View\View;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 /**
  * Logout component for handling user logout functionality.
@@ -34,10 +44,14 @@ class Logout extends Component
      * Handle user logout process.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function logout(): null|RedirectResponse
 =======
     public function logout(): ?RedirectResponse
 >>>>>>> fbc8f8e (.)
+=======
+    public function logout(): null|RedirectResponse
+>>>>>>> 6d20fbe (.)
     {
         $this->processing = true;
 

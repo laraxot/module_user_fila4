@@ -6,6 +6,9 @@ namespace Modules\User\Tests\Feature;
 
 use Illuminate\Database\QueryException;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\User\Models\Membership;
 use Modules\User\Models\Team;
@@ -14,6 +17,7 @@ use Modules\User\Models\TeamPermission;
 use Modules\User\Models\TeamUser;
 use Modules\User\Models\User;
 use Tests\TestCase;
+<<<<<<< HEAD
 =======
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
@@ -24,6 +28,8 @@ use Modules\User\Models\Membership;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 class TeamManagementBusinessLogicTest extends TestCase
 {
@@ -658,6 +664,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)

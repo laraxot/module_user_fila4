@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 
@@ -14,6 +17,7 @@ declare(strict_types=1);
  * ->name('one.pages.about');
  * });
  */
+<<<<<<< HEAD
 =======
 /*
 use Illuminate\Support\Facades\Route;
@@ -26,6 +30,8 @@ Route::middleware(['web'])
     });
 */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 // Le rotte sono gestite da Laravel Folio
 // Vedi resources/views/pages per le definizioni delle rotte

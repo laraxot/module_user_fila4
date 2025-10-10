@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Override;
+>>>>>>> 6d20fbe (.)
 use Illuminate\Support\Carbon;
 use Modules\User\Database\Factories\TeamFactory;
 use Illuminate\Database\Eloquent\Builder;
@@ -92,9 +96,13 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      * Get the owner of the team.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function owner(): BelongsTo
     {
         $xotData = XotData::make();
@@ -108,15 +116,21 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      * Get all of the team's users including its owner.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     public function allUsers(): Collection
     {
         if (!($this->owner instanceof User)) {
+<<<<<<< HEAD
 =======
     public function allUsers(): Collection
     {
         if (! $this->owner instanceof User) {
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             return $this->users;
         }
 
@@ -127,9 +141,13 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      * Get all of the users that belong to the team.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function users(): BelongsToMany
     {
         $xotData = XotData::make();
@@ -145,9 +163,13 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      * @return BelongsToMany<Model, \Modules\User\Models\BaseTeam>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function members(): BelongsToMany
     {
         return $this->users();
@@ -160,9 +182,13 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      * @return bool True se l'utente appartiene al team, false altrimenti
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function hasUser(UserContract $user): bool
     {
         // Corretto l'errore di tipo per il metodo contains
@@ -181,15 +207,21 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      * @return bool True se un utente con quell'email appartiene al team, false altrimenti
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     public function hasUserWithEmail(string $email): bool
     {
         return $this->allUsers()->contains(static fn($user): bool => $user->email === $email);
+<<<<<<< HEAD
 =======
     public function hasUserWithEmail(string $email): bool
     {
         return $this->allUsers()->contains(static fn ($user): bool => $user->email === $email);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 
     /**
@@ -200,9 +232,13 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      * @return bool True se l'utente ha il permesso, false altrimenti
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function userHasPermission(UserContract $userContract, string $permission): bool
     {
         return $userContract->hasTeamPermission($this, $permission);
@@ -215,9 +251,13 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      * @phpstan-return HasMany<TeamInvitation, $this>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function teamInvitations(): HasMany
     {
         return $this->hasMany(TeamInvitation::class);
@@ -230,6 +270,9 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      * @return void
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     public function removeUser(UserContract $userContract): void
     {
@@ -237,6 +280,7 @@ abstract class BaseTeam extends BaseModel implements TeamContract
             $userContract->forceFill([
                 'current_team_id' => null,
             ])->save();
+<<<<<<< HEAD
 =======
     public function removeUser(UserContract $userContract): void
     {
@@ -247,6 +291,8 @@ abstract class BaseTeam extends BaseModel implements TeamContract
                 ]
             )->save();
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         }
 
         $this->users()->detach($userContract);
@@ -255,6 +301,9 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Rimuove tutte le risorse del team.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      *
      * @return void
      */
@@ -264,6 +313,7 @@ abstract class BaseTeam extends BaseModel implements TeamContract
         $this->owner()->where('current_team_id', $this->id)->update(['current_team_id' => null]);
 
         $this->users()->where('current_team_id', $this->id)->update(['current_team_id' => null]);
+<<<<<<< HEAD
 =======
      * 
      * @return void
@@ -276,6 +326,8 @@ abstract class BaseTeam extends BaseModel implements TeamContract
         $this->users()->where('current_team_id', $this->id)
             ->update(['current_team_id' => null]);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
         $this->users()->detach();
 

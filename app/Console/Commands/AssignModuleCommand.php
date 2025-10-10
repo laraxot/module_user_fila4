@@ -37,6 +37,7 @@ class AssignModuleCommand extends Command
      * @return void
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
     public function __construct()
@@ -44,6 +45,9 @@ class AssignModuleCommand extends Command
         parent::__construct();
     }
 >>>>>>> fbc8f8e (.)
+=======
+    
+>>>>>>> 6d20fbe (.)
 
     /**
      * Execute the console command.
@@ -52,19 +56,27 @@ class AssignModuleCommand extends Command
     {
         $email = text('email ?');
 <<<<<<< HEAD
-
-=======
-        
->>>>>>> fbc8f8e (.)
-        /**
-         * @var UserContract $user
-         */
-        $user = XotData::make()->getUserByEmail($email);
 <<<<<<< HEAD
 
 =======
         
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
+        /**
+         * @var UserContract $user
+         */
+        $user = XotData::make()->getUserByEmail($email);
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+        
+>>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
         if (!$user) {
             $this->error("User with email '{$email}' not found.");
             return;
@@ -96,6 +108,9 @@ class AssignModuleCommand extends Command
         // Assign new modules
         foreach ($modulesToAssign as $module) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             $module_low = Str::lower(is_string($module) ? $module : ((string) $module));
             $role_name = $module_low . '::admin';
 
@@ -105,6 +120,7 @@ class AssignModuleCommand extends Command
             // Assign the role to the user
             $user->assignRole($role);
 
+<<<<<<< HEAD
 =======
             $module_low = Str::lower(is_string($module) ? $module : (string) $module);
             $role_name = $module_low.'::admin';
@@ -119,18 +135,24 @@ class AssignModuleCommand extends Command
             $user->assignRole($role);
             
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             $this->info("✓ Assigned module: {$module}");
         }
 
         // Revoke unchecked modules
         foreach ($modulesToRevoke as $module) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             $module_low = Str::lower(is_string($module) ? $module : ((string) $module));
             $role_name = $module_low . '::admin';
 
             // Revoke the role from the user
             $user->removeRole($role_name);
 
+<<<<<<< HEAD
 =======
             $module_low = Str::lower(is_string($module) ? $module : (string) $module);
             $role_name = $module_low.'::admin';
@@ -139,16 +161,22 @@ class AssignModuleCommand extends Command
             $user->removeRole($role_name);
             
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             $this->warn("✗ Revoked module: {$module}");
         }
 
         // Summary
         if (empty($modulesToAssign) && empty($modulesToRevoke)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $this->info('No changes made to user modules.');
 =======
             $this->info("No changes made to user modules.");
 >>>>>>> fbc8f8e (.)
+=======
+            $this->info('No changes made to user modules.');
+>>>>>>> 6d20fbe (.)
         } else {
             $this->info("Module assignment updated for {$email}");
         }
@@ -164,10 +192,14 @@ class AssignModuleCommand extends Command
     {
         $moduleRoles = [];
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
         foreach ($user->roles as $role) {
             if (Str::endsWith($role->name, '::admin')) {
                 $moduleName = Str::before($role->name, '::admin');
@@ -175,10 +207,14 @@ class AssignModuleCommand extends Command
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
         return $moduleRoles;
     }
 

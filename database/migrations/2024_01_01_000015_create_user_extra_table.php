@@ -10,6 +10,7 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
  * Class CreateExtraTable.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 return new class extends XotBaseMigration {
     protected null|string $model_class = Extra::class;
 =======
@@ -17,6 +18,10 @@ return new class extends XotBaseMigration
 {
     protected ?string $model_class = Extra::class;
 >>>>>>> fbc8f8e (.)
+=======
+return new class extends XotBaseMigration {
+    protected null|string $model_class = Extra::class;
+>>>>>>> 6d20fbe (.)
 
     /**
      * Run the migrations.
@@ -25,6 +30,9 @@ return new class extends XotBaseMigration
     {
         // -- CREATE --
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $this->tableCreate(static function (Blueprint $table): void {
             $table->increments('id');
             $table->uuidMorphs('model');
@@ -48,6 +56,7 @@ return new class extends XotBaseMigration
     }
 
     // end up
+<<<<<<< HEAD
 =======
         $this->tableCreate(
             static function (Blueprint $table): void {
@@ -78,5 +87,7 @@ return new class extends XotBaseMigration
     // end up
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     // end down
 };

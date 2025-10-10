@@ -19,10 +19,14 @@ trait HasRoles
     public function roles(): BelongsToMany
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         return $this->belongsToMany(Role::class, 'model_has_roles', 'model_id', 'role_id')->where(
             'model_type',
             self::class,
         );
+<<<<<<< HEAD
 =======
         return $this->belongsToMany(
             Role::class,
@@ -31,6 +35,8 @@ trait HasRoles
             'role_id'
         )->where('model_type', self::class);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 
     /**
@@ -38,6 +44,7 @@ trait HasRoles
      *
      * @param string|array|\Spatie\Permission\Contracts\Role|Collection $roles
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function hasRole($roles, null|string $guard = null): bool
     {
@@ -47,6 +54,11 @@ trait HasRoles
     {
         if (is_string($roles) && false !== strpos($roles, '|')) {
 >>>>>>> fbc8f8e (.)
+=======
+    public function hasRole($roles, null|string $guard = null): bool
+    {
+        if (is_string($roles) && str_contains($roles, '|')) {
+>>>>>>> 6d20fbe (.)
             $roles = explode('|', $roles);
         }
 
@@ -65,9 +77,13 @@ trait HasRoles
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         return !is_null($roles) && $this->roles->contains('id', $roles->id);
 =======
         return ! is_null($roles) && $this->roles->contains('id', $roles->id);
 >>>>>>> fbc8f8e (.)
+=======
+        return !is_null($roles) && $this->roles->contains('id', $roles->id);
+>>>>>>> 6d20fbe (.)
     }
 }

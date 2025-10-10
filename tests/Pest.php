@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Modules\User\Models\User;
 use Modules\User\Models\Team;
 use Modules\User\Models\Profile;
@@ -67,6 +70,7 @@ function createTeam(array $attributes = []): Team
 function createProfile(array $attributes = []): Profile
 {
     return Profile::factory()->create($attributes);
+<<<<<<< HEAD
 =======
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -168,4 +172,6 @@ function createAuthenticationLog(array $attributes = []): \Modules\User\Models\A
 {
     return \Modules\User\Models\AuthenticationLog::factory()->create($attributes);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 }

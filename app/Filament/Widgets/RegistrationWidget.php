@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Widgets;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Override;
 use Illuminate\Http\RedirectResponse;
 use Livewire\Features\SupportRedirects\Redirector;
@@ -36,6 +39,7 @@ class RegistrationWidget extends XotBaseWidget
 {
     public null|array $data = [];
     protected int|string|array $columnSpan = 'full';
+<<<<<<< HEAD
 =======
 use Illuminate\Http\RedirectResponse;
 use Livewire\Features\SupportRedirects\Redirector;
@@ -70,16 +74,22 @@ class RegistrationWidget extends XotBaseWidget
     public ?array $data = [];
     protected int | string | array $columnSpan = 'full';
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     public string $type;
     public string $resource;
     public string $model;
     public string $action;
     public Model $record;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
     /**
      * @phpstan-var class-string
      * @phpstan-ignore-next-line
@@ -87,15 +97,22 @@ class RegistrationWidget extends XotBaseWidget
     protected string $view = 'pub_theme::filament.widgets.registration';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function mount(string $type, Request $_request): void
 =======
     public function mount(string $type, Request $request): void
 >>>>>>> fbc8f8e (.)
+=======
+    public function mount(string $type, Request $_request): void
+>>>>>>> 6d20fbe (.)
     {
         $this->type = $type;
         $this->resource = XotData::make()->getUserResourceClassByType($type);
         $this->model = $this->resource::getModel();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $this->action = Str::of($this->model)
             ->replace('\\Models\\', '\\Actions\\')
             ->append('\\RegisterAction')
@@ -111,6 +128,7 @@ class RegistrationWidget extends XotBaseWidget
     #[Override]
     public function getFormModel(): Model
     {
+<<<<<<< HEAD
 =======
         $this->action = Str::of($this->model)->replace('\\Models\\', '\\Actions\\')->append('\\RegisterAction')->toString();
         $record = $this->getFormModel();
@@ -126,6 +144,8 @@ class RegistrationWidget extends XotBaseWidget
     {
        
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         $data = request()->all();
         $email = Arr::get($data, 'email');
         $token = Arr::get($data, 'token');
@@ -135,25 +155,36 @@ class RegistrationWidget extends XotBaseWidget
             return app($this->model);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
         $remember_token = $user->remember_token;
         if ($remember_token === null) {
             $user->remember_token = Str::uuid()->toString();
             $user->save();
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
         if ($remember_token === $token) {
             $this->record = $user;
             return $user;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 
         return app($this->model);
     }
@@ -168,6 +199,7 @@ class RegistrationWidget extends XotBaseWidget
     }
 
     #[Override]
+<<<<<<< HEAD
 =======
         
         return app($this->model);
@@ -183,6 +215,8 @@ class RegistrationWidget extends XotBaseWidget
    
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     public function getFormSchema(): array
     {
         return $this->resource::getFormSchemaWidget();
@@ -194,6 +228,9 @@ class RegistrationWidget extends XotBaseWidget
     public function register(): RedirectResponse|Redirector
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $lang = app()->getLocale();
 
         $data = $this->form->getState();
@@ -210,6 +247,7 @@ class RegistrationWidget extends XotBaseWidget
         //return redirect()->route('pages.view', ['slug' => $this->type . '_register_complete','lang'=>$lang]);
         return redirect($route);
     }
+<<<<<<< HEAD
 =======
         $lang=app()->getLocale();
         
@@ -230,4 +268,6 @@ class RegistrationWidget extends XotBaseWidget
 
     
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 }

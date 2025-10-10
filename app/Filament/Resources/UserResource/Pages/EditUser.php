@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Models\User;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Webmozart\Assert\Assert;
 
@@ -25,6 +26,11 @@ use Webmozart\Assert\Assert;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 >>>>>>> fbc8f8e (.)
+=======
+use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+use Webmozart\Assert\Assert;
+
+>>>>>>> 6d20fbe (.)
 /**
  * Pagina per la modifica degli utenti con particolare gestione della password.
  */
@@ -37,10 +43,14 @@ class EditUser extends EditRecord
     {
         Assert::isArray($data);
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (!array_key_exists('new_password', $data) || !filled($data['new_password'])) {
 =======
         if (! array_key_exists('new_password', $data) || ! filled($data['new_password'])) {
 >>>>>>> fbc8f8e (.)
+=======
+        if (!array_key_exists('new_password', $data) || !filled($data['new_password'])) {
+>>>>>>> 6d20fbe (.)
             return $data;
         }
 

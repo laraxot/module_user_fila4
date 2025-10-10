@@ -15,13 +15,19 @@ use Modules\Xot\Contracts\UserContract;
 interface InvitesTeamMembers
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     public function invite(
         UserContract $userContract,
         TeamContract $teamContract,
         string $email,
         null|string $role = null,
     ): void;
+<<<<<<< HEAD
 =======
     public function invite(UserContract $userContract, TeamContract $teamContract, string $email, ?string $role = null): void;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 }

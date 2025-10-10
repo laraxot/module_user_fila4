@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Filament\Schemas\Components\Component;
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Actions\CreateAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\DeleteAction;
@@ -21,6 +26,7 @@ use Filament\Tables\Table;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
@@ -31,12 +37,17 @@ use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 class ClientsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'clients';
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      * @return array<string, Component>
      */
     #[Override]
@@ -48,6 +59,7 @@ class ClientsRelationManager extends XotBaseRelationManager
     }
 
     #[Override]
+<<<<<<< HEAD
 =======
      * @return array<string, \Filament\Schemas\Components\Component>
      */
@@ -61,11 +73,16 @@ class ClientsRelationManager extends XotBaseRelationManager
     }
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     public function table(Table $table): Table
     {
         return $table
             ->recordTitleAttribute('name')
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             ->columns([
                 TextColumn::make('name'),
             ])
@@ -85,6 +102,7 @@ class ClientsRelationManager extends XotBaseRelationManager
             ->emptyStateActions([
                 // {{ tableEmptyStateActions }}
             ]);
+<<<<<<< HEAD
 =======
             ->columns(
                 [
@@ -121,5 +139,7 @@ class ClientsRelationManager extends XotBaseRelationManager
                 ]
             );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 }

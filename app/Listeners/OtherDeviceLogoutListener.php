@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Listeners;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\OtherDeviceLogout;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -12,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Modules\User\Contracts\HasAuthentications;
 use Modules\User\Models\AuthenticationLog;
+<<<<<<< HEAD
 =======
 use Illuminate\Auth\Events\OtherDeviceLogout;
 use Illuminate\Http\Request;
@@ -21,6 +25,8 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Modules\User\Contracts\HasAuthentications;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 // use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 
@@ -43,10 +49,14 @@ class OtherDeviceLogoutListener
             $authenticationLog = $user->authentications()->whereIpAddress($ip)->whereUserAgent($userAgent)->first();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (!$authenticationLog) {
 =======
             if (! $authenticationLog) {
 >>>>>>> fbc8f8e (.)
+=======
+            if (!$authenticationLog) {
+>>>>>>> 6d20fbe (.)
                 $authenticationLog = new AuthenticationLog([
                     'ip_address' => $ip,
                     'user_agent' => $userAgent,
@@ -70,10 +80,14 @@ class OtherDeviceLogoutListener
     public function handleLogin(Login $event): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (!config('authentication-log.notify_other_devices', false)) {
 =======
         if (! config('authentication-log.notify_other_devices', false)) {
 >>>>>>> fbc8f8e (.)
+=======
+        if (!config('authentication-log.notify_other_devices', false)) {
+>>>>>>> 6d20fbe (.)
             return;
         }
 
@@ -86,11 +100,15 @@ class OtherDeviceLogoutListener
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $logs = $user
             ->authentications()
             ->orderByDesc('login_at')
             ->where(function ($query) use ($newIP, $newUserAgent) {
                 $query->where('ip_address', '!=', $newIP)->orWhere('user_agent', '!=', $newUserAgent);
+<<<<<<< HEAD
 =======
         $logs = $user->authentications()
             ->orderByDesc('login_at')
@@ -98,6 +116,8 @@ class OtherDeviceLogoutListener
                 $query->where('ip_address', '!=', $newIP)
                     ->orWhere('user_agent', '!=', $newUserAgent);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             })
             ->where('login_successful', true)
             ->get();

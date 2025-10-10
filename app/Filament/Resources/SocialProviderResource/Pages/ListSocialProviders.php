@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\SocialProviderResource\Pages;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
@@ -15,10 +19,13 @@ use Modules\User\Filament\Resources\SocialProviderResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 /**
  * --.
  */
@@ -27,9 +34,13 @@ class ListSocialProviders extends XotBaseListRecords
     protected static string $resource = SocialProviderResource::class;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function getTableColumns(): array
     {
         return [
@@ -38,6 +49,9 @@ class ListSocialProviders extends XotBaseListRecords
                 ->sortable()
                 ->wrap(),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             'active' => IconColumn::make('active')->boolean()->sortable(),
             'stateless' => IconColumn::make('stateless')->boolean()->sortable(),
             'socialite' => IconColumn::make('socialite')->boolean()->sortable(),
@@ -56,6 +70,7 @@ class ListSocialProviders extends XotBaseListRecords
                 true => 'Active',
                 false => 'Inactive',
             ]),
+<<<<<<< HEAD
 =======
             'active' => IconColumn::make('active')
                 ->boolean()
@@ -90,6 +105,8 @@ class ListSocialProviders extends XotBaseListRecords
                     false => 'Inactive',
                 ]),
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         ];
     }
 }

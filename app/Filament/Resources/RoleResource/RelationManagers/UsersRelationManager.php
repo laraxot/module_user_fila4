@@ -5,17 +5,23 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\RoleResource\RelationManagers;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Filament\Tables\Columns\Layout\Component;
 use Filament\Tables\Filters\BaseFilter;
 use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
+<<<<<<< HEAD
 =======
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
 use Filament\Tables\Columns\Layout\Component;
 use Filament\Tables\Filters\BaseFilter;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 use Filament\Forms;
 use Filament\Schemas\Schema;
 use Filament\Tables;
@@ -28,6 +34,7 @@ use Modules\Xot\Filament\Traits\HasXotTable;
 use Modules\Xot\Filament\Traits\TransTrait;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
@@ -38,6 +45,8 @@ use Modules\Xot\Filament\Traits\TransTrait;
 
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 /**
  * UsersRelationManager.
  *
@@ -46,6 +55,7 @@ use Modules\Xot\Filament\Traits\TransTrait;
  */
 final class UsersRelationManager extends XotBaseRelationManager
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
     protected static string $relationship = 'users';
 
@@ -61,6 +71,11 @@ final class UsersRelationManager extends XotBaseRelationManager
 
 
 >>>>>>> fbc8f8e (.)
+=======
+    protected static string $relationship = 'users';
+
+    protected static null|string $inverseRelationship = 'roles';
+>>>>>>> 6d20fbe (.)
 
     /**
      * Returns the form schema structure, defining the input fields for user data.
@@ -68,11 +83,15 @@ final class UsersRelationManager extends XotBaseRelationManager
      * @return array<\Filament\Schemas\Components\Component>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     public function getFormSchema(): array
     {
         return [
             TextInput::make('name')->required()->maxLength(255),
+<<<<<<< HEAD
 =======
     public function getFormSchema(): array
     {
@@ -81,6 +100,8 @@ final class UsersRelationManager extends XotBaseRelationManager
                 ->required()
                 ->maxLength(255),
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             // Additional fields can be added here as necessary
         ];
     }
@@ -91,14 +112,21 @@ final class UsersRelationManager extends XotBaseRelationManager
      * @return array<Tables\Columns\Column|Component>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function getTableColumns(): array
     {
         return [
             TextColumn::make('name')
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                 ->searchable()
                 ->sortable()
                 ->copyable(),
@@ -111,6 +139,7 @@ final class UsersRelationManager extends XotBaseRelationManager
                 ->sortable()
                 ->toggleable(),
             TextColumn::make('updated_at')
+<<<<<<< HEAD
 =======
 
                 ->searchable()
@@ -132,6 +161,8 @@ final class UsersRelationManager extends XotBaseRelationManager
             TextColumn::make('updated_at')
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
                 ->dateTime()
                 ->sortable()
                 ->toggleable(isToggledHiddenByDefault: true),
@@ -144,12 +175,16 @@ final class UsersRelationManager extends XotBaseRelationManager
      * @return array<BaseFilter>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     public function getTableFilters(): array
     {
         return [
             Filter::make('active')->query(fn(Builder $query): Builder => $query->where('is_active', true))->toggle(),
             Filter::make('created_at')
+<<<<<<< HEAD
 =======
     public function getTableFilters(): array
     {
@@ -162,11 +197,16 @@ final class UsersRelationManager extends XotBaseRelationManager
             Filter::make('created_at')
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
                 ->schema([
                     DatePicker::make('created_from'),
                     DatePicker::make('created_until'),
                 ])
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                 ->query(fn(Builder $query, array $data): Builder => $query->when($data['created_from'], fn(
                     Builder $query,
                     $date,
@@ -177,6 +217,7 @@ final class UsersRelationManager extends XotBaseRelationManager
                 ->columns(2),
         ];
     }
+<<<<<<< HEAD
 =======
                 ->query(function (Builder $query, array $data): Builder {
                     return $query
@@ -193,4 +234,6 @@ final class UsersRelationManager extends XotBaseRelationManager
 
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 }

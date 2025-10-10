@@ -3,11 +3,15 @@
 declare(strict_types=1);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Tests\TestCase;
 use Modules\User\Models\Permission;
 use Modules\User\Models\Role;
 
 uses(TestCase::class);
+<<<<<<< HEAD
 =======
 namespace Modules\User\Tests\Unit\PermissionTest;
 
@@ -19,6 +23,8 @@ use Modules\User\Models\User;
 
 uses(Tests\TestCase::class);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 beforeEach(function (): void {
     $this->permission = Permission::factory()->create([
@@ -77,10 +83,15 @@ test('permission can be updated', function (): void {
     ]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     $this->permission->refresh();
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    $this->permission->refresh();
+
+>>>>>>> 6d20fbe (.)
     expect($this->permission->name)->toBe('updated-permission');
     expect($this->permission->guard_name)->toBe('api');
 });
@@ -89,10 +100,15 @@ test('permission can be deleted', function (): void {
     $permissionId = $this->permission->id;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     $this->permission->delete();
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    $this->permission->delete();
+
+>>>>>>> 6d20fbe (.)
     expect(Permission::find($permissionId))->toBeNull();
 });
 
@@ -103,10 +119,15 @@ test('permission can be assigned to roles', function (): void {
     ]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     $role->givePermissionTo($this->permission);
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    $role->givePermissionTo($this->permission);
+
+>>>>>>> 6d20fbe (.)
     expect($role->hasPermissionTo($this->permission))->toBeTrue();
     expect($this->permission->roles)->toHaveCount(1);
 });
@@ -116,11 +137,17 @@ test('permission can be assigned to multiple roles', function (): void {
     $role2 = Role::factory()->create(['name' => 'role-2']);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     $this->permission->assignRole($role1);
     $this->permission->assignRole($role2);
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    $this->permission->assignRole($role1);
+    $this->permission->assignRole($role2);
+
+>>>>>>> 6d20fbe (.)
     expect($this->permission->roles)->toHaveCount(2);
     expect($this->permission->hasRole($role1))->toBeTrue();
     expect($this->permission->hasRole($role2))->toBeTrue();
@@ -167,12 +194,18 @@ test('permission can check if it has role', function (): void {
     $role = Role::factory()->create(['name' => 'test-role']);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     expect($this->permission->hasRole($role))->toBeFalse();
 
     $this->permission->assignRole($role);
 
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     expect($this->permission->hasRole($role))->toBeTrue();
 });
 
@@ -180,11 +213,17 @@ test('permission can check if it has any roles', function (): void {
     expect($this->permission->hasAnyRole([]))->toBeFalse();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     $role = Role::factory()->create(['name' => 'test-role']);
     $this->permission->assignRole($role);
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    $role = Role::factory()->create(['name' => 'test-role']);
+    $this->permission->assignRole($role);
+
+>>>>>>> 6d20fbe (.)
     expect($this->permission->hasAnyRole([$role]))->toBeTrue();
 });
 
@@ -193,10 +232,15 @@ test('permission can check if it has all roles', function (): void {
     $role2 = Role::factory()->create(['name' => 'role-2']);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     $this->permission->syncRoles([$role1, $role2]);
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    $this->permission->syncRoles([$role1, $role2]);
+
+>>>>>>> 6d20fbe (.)
     expect($this->permission->hasAllRoles([$role1, $role2]))->toBeTrue();
     expect($this->permission->hasAllRoles([$role1]))->toBeTrue();
     expect($this->permission->hasAllRoles([$role1, $role2, 'non-existent']))->toBeFalse();
@@ -206,11 +250,17 @@ test('permission can be revoked from role', function (): void {
     $role = Role::factory()->create(['name' => 'test-role']);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     $this->permission->assignRole($role);
     expect($this->permission->hasRole($role))->toBeTrue();
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    $this->permission->assignRole($role);
+    expect($this->permission->hasRole($role))->toBeTrue();
+
+>>>>>>> 6d20fbe (.)
     $this->permission->removeRole($role);
     expect($this->permission->hasRole($role))->toBeFalse();
 });
@@ -221,12 +271,18 @@ test('permission can be synced with roles', function (): void {
     $role3 = Role::factory()->create(['name' => 'role-3']);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     // Initially assign role1 and role2
     $this->permission->syncRoles([$role1, $role2]);
     expect($this->permission->roles)->toHaveCount(2);
 
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     // Sync to only role2 and role3
     $this->permission->syncRoles([$role2, $role3]);
     expect($this->permission->roles)->toHaveCount(2);

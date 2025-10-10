@@ -10,14 +10,20 @@ declare(strict_types=1);
 namespace Modules\User\Models\Policies;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Exception;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Support\Str;
 use Modules\User\Models\Permission;
 use Modules\Xot\Contracts\UserContract;
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 // use Modules\Xot\Datas\XotData;
 
@@ -26,6 +32,9 @@ abstract class UserPermissionBasePolicy
     use HandlesAuthorization;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     public function before(UserContract $user, string $ability): null|bool
     {
         if ($user->hasRole('super-admin')) {
@@ -47,11 +56,14 @@ abstract class UserPermissionBasePolicy
         if ($user->hasPermissionTo($permission_name)) {
             return true;
         }
+<<<<<<< HEAD
 =======
     public function before(UserContract $user, string $ability): ?bool
     {
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
         return null;
     }

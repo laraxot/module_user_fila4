@@ -29,9 +29,12 @@ class ChangeProfilePasswordAction extends Action
         parent::setUp();
         $this->translateLabel()
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             ->tooltip(__('user::user.actions.change_password'))
             ->icon('heroicon-o-key')
             ->action(static function (ProfileContract $record, array $data): void {
@@ -54,6 +57,9 @@ class ChangeProfilePasswordAction extends Action
                 Notification::make()->success()->title('Password changed successfully.');
             })
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             ->schema([
                 /*
                  * TextInput::make('new_password')
@@ -65,6 +71,7 @@ class ChangeProfilePasswordAction extends Action
                 TextInput::make('new_password_confirmation')
                     ->password()
                     ->rule('required', static fn($get): bool => (bool) $get('new_password'))
+<<<<<<< HEAD
 =======
             ->form([
                 /*
@@ -78,15 +85,21 @@ class ChangeProfilePasswordAction extends Action
                     ->password()
                     ->rule('required', static fn ($get): bool => (bool) $get('new_password'))
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
                     ->same('new_password'),
             ]);
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static function getDefaultName(): null|string
 =======
     public static function getDefaultName(): ?string
 >>>>>>> fbc8f8e (.)
+=======
+    public static function getDefaultName(): null|string
+>>>>>>> 6d20fbe (.)
     {
         return 'changePassword';
     }
@@ -94,6 +107,9 @@ class ChangeProfilePasswordAction extends Action
 
 /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
  * Action::make('changePassword')
  * ->action(function (UserContract $user, array $data): void {
  * $user->update([
@@ -114,6 +130,7 @@ class ChangeProfilePasswordAction extends Action
  * ->icon('heroicon-o-key')
  * // ->visible(fn (User $record): bool => $record->role_id === Role::ROLE_ADMINISTRATOR)
  */
+<<<<<<< HEAD
 =======
 Action::make('changePassword')
                     ->action(function (UserContract $user, array $data): void {
@@ -136,3 +153,5 @@ Action::make('changePassword')
                 // ->visible(fn (User $record): bool => $record->role_id === Role::ROLE_ADMINISTRATOR)
 */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)

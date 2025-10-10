@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Filament\Schemas\Components\Component;
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\Column;
 use Filament\Forms;
@@ -27,6 +32,7 @@ use Modules\Xot\Filament\Traits\HasXotTable;
 class TenantsRelationManager extends XotBaseRelationManager
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected static string $relationship = 'tenants';
 
     protected static null|string $recordTitleAttribute = 'name';
@@ -37,11 +43,19 @@ class TenantsRelationManager extends XotBaseRelationManager
 
     protected static ?string $recordTitleAttribute = 'name';
 >>>>>>> fbc8f8e (.)
+=======
+    protected static string $relationship = 'tenants';
+
+    protected static null|string $recordTitleAttribute = 'name';
+>>>>>>> 6d20fbe (.)
 
     /**
      * Set up the form schema for tenant relations.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      * @return array<Component>
      */
     #[Override]
@@ -49,6 +63,7 @@ class TenantsRelationManager extends XotBaseRelationManager
     {
         return [
             TextInput::make('name')->required()->maxLength(255),
+<<<<<<< HEAD
 =======
      * @return array<\Filament\Schemas\Components\Component>
      */
@@ -59,6 +74,8 @@ class TenantsRelationManager extends XotBaseRelationManager
                 ->required()
                 ->maxLength(255),
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         ];
     }
 
@@ -68,6 +85,9 @@ class TenantsRelationManager extends XotBaseRelationManager
      * @return array<string, Column>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     public function getTableColumns(): array
     {
@@ -75,6 +95,7 @@ class TenantsRelationManager extends XotBaseRelationManager
 
         // Ensure we only return Column instances, filter out any Layout\Component instances
         return array_filter($columns, fn($column): bool => $column instanceof Column);
+<<<<<<< HEAD
 =======
     public function getTableColumns(): array
     {
@@ -85,5 +106,7 @@ class TenantsRelationManager extends XotBaseRelationManager
             return $column instanceof Column;
         });
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 }

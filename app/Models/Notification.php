@@ -5,12 +5,17 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Database\Eloquent\Model;
 =======
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 >>>>>>> fbc8f8e (.)
+=======
+use Illuminate\Notifications\DatabaseNotificationCollection;
+use Illuminate\Database\Eloquent\Model;
+>>>>>>> 6d20fbe (.)
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\DatabaseNotification as BaseNotification;
@@ -35,9 +40,13 @@ class Notification extends BaseNotification
 {
     use HasFactory;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
     /** @var string */
     protected $connection = 'user';
 

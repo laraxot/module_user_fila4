@@ -11,6 +11,9 @@ namespace Modules\User\Filament\Pages;
 use Modules\User\Filament\Widgets\UsersChartWidget;
 use Modules\User\Filament\Widgets\RecentLoginsWidget;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Override;
 use Filament\Forms\Components\DatePicker;
 use Filament\Schemas\Components\Section;
@@ -27,6 +30,7 @@ class Dashboard extends XotBaseDashboard
 {
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-home';
 
+<<<<<<< HEAD
 =======
 use Filament\Forms\Get;
 use Filament\Forms\Form;
@@ -45,6 +49,8 @@ class Dashboard extends XotBaseDashboard
 
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-home';
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     // protected static string $routePath = 'finance';
     // protected static ?string $title = 'Finance dashboard';
     // protected static ?int $navigationSort = 15;
@@ -64,6 +70,9 @@ class Dashboard extends XotBaseDashboard
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     #[Override]
     public function getFiltersFormSchema(): array
     {
@@ -75,6 +84,7 @@ class Dashboard extends XotBaseDashboard
             // ->maxDate(now()),
         ];
     }
+<<<<<<< HEAD
 =======
     public function getFiltersFormSchema():array{
         return [
@@ -92,4 +102,6 @@ class Dashboard extends XotBaseDashboard
 
     
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 }

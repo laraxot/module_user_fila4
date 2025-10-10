@@ -15,13 +15,19 @@ use Modules\Xot\Contracts\UserContract;
 interface AddsTeamMembers
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     public function add(
         UserContract $userContract,
         TeamContract $teamContract,
         string $email,
         null|string $role = null,
     ): void;
+<<<<<<< HEAD
 =======
     public function add(UserContract $userContract, TeamContract $teamContract, string $email, ?string $role = null): void;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 }

@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Filament\Schemas\Components\Component;
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
@@ -16,6 +21,7 @@ use Filament\Tables\Table;
 use Modules\User\Filament\Resources\DeviceResource;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -27,6 +33,8 @@ use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 class DevicesRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'devices';
@@ -41,6 +49,9 @@ class DevicesRelationManager extends XotBaseRelationManager
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      * @return array<string, Component>
      */
     #[Override]
@@ -52,6 +63,7 @@ class DevicesRelationManager extends XotBaseRelationManager
     }
 
     #[Override]
+<<<<<<< HEAD
 =======
      * @return array<string, \Filament\Schemas\Components\Component>
      */
@@ -65,6 +77,8 @@ class DevicesRelationManager extends XotBaseRelationManager
     }
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     public function table(Table $table): Table
     {
         $table = DeviceResource::table($table);

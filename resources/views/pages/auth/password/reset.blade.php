@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 
@@ -13,6 +16,7 @@ use function Laravel\Folio\name;
 name('password.request');
 
 new class extends Component {
+<<<<<<< HEAD
 =======
 use Illuminate\Support\Facades\Password;
 use function Laravel\Folio\name;
@@ -24,6 +28,8 @@ name('password.request');
 new class extends Component
 {
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     #[Validate('required|email')]
     public $email = null;
 
@@ -36,10 +42,14 @@ new class extends Component
         $response = Password::broker()->sendResetLink(['email' => $this->email]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         if ($response === Password::RESET_LINK_SENT) {
 =======
         if ($response == Password::RESET_LINK_SENT) {
 >>>>>>> fbc8f8e (.)
+=======
+        if ($response === Password::RESET_LINK_SENT) {
+>>>>>>> 6d20fbe (.)
             $this->emailSentMessage = trans($response);
 
             return;
@@ -101,7 +111,11 @@ new class extends Component
     </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 </x-layouts.main>
 =======
 </x-layouts.main>
 >>>>>>> fbc8f8e (.)
+=======
+</x-layouts.main>
+>>>>>>> 6d20fbe (.)

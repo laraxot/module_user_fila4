@@ -25,10 +25,14 @@ class RetrieveSocialiteUserAction
      * Execute the action.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function execute(string $provider, SocialiteUserContract $user): null|SocialiteUser
 =======
     public function execute(string $provider, SocialiteUserContract $user): ?SocialiteUser
 >>>>>>> fbc8f8e (.)
+=======
+    public function execute(string $provider, SocialiteUserContract $user): null|SocialiteUser
+>>>>>>> 6d20fbe (.)
     {
         if (empty($provider)) {
             throw new InvalidArgumentException('Il provider non può essere vuoto');
@@ -52,11 +56,15 @@ class RetrieveSocialiteUserAction
         // Accesso sicuro alla proprietà token in modo type-safe
         $token = '';
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 
         // Utilizzo ReflectionClass per accedere in modo sicuro alle proprietà/metodi
         try {
             $reflection = new ReflectionClass($user);
 
+<<<<<<< HEAD
 =======
         
         // Utilizzo ReflectionClass per accedere in modo sicuro alle proprietà/metodi
@@ -64,6 +72,8 @@ class RetrieveSocialiteUserAction
             $reflection = new ReflectionClass($user);
             
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             // Prova prima i metodi standard
             if ($reflection->hasMethod('getToken')) {
                 $method = $reflection->getMethod('getToken');
@@ -80,12 +90,16 @@ class RetrieveSocialiteUserAction
                     $token = $tokenValue;
                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
             } elseif ($reflection->hasProperty('token')) { // Prova poi ad accedere alla proprietà
 =======
             } 
             // Prova poi ad accedere alla proprietà
             elseif ($reflection->hasProperty('token')) {
 >>>>>>> fbc8f8e (.)
+=======
+            } elseif ($reflection->hasProperty('token')) { // Prova poi ad accedere alla proprietà
+>>>>>>> 6d20fbe (.)
                 $property = $reflection->getProperty('token');
                 $property->setAccessible(true);
                 $tokenValue = $property->getValue($user);
@@ -93,12 +107,16 @@ class RetrieveSocialiteUserAction
                     $token = $tokenValue;
                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
             } elseif (isset($user->token) && is_string($user->token)) { // Fallback su accesso diretto con var_export
 =======
             }
             // Fallback su accesso diretto con var_export
             elseif (isset($user->token) && is_string($user->token)) {
 >>>>>>> fbc8f8e (.)
+=======
+            } elseif (isset($user->token) && is_string($user->token)) { // Fallback su accesso diretto con var_export
+>>>>>>> 6d20fbe (.)
                 $token = $user->token;
             }
         } catch (ReflectionException $e) {

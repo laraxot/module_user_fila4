@@ -24,10 +24,14 @@ use Filament\Forms\Components\Section;
  * Pagina per la gestione delle impostazioni delle password.
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @property Schema $form
 =======
  * @property \Filament\Schemas\Schema $form
 >>>>>>> fbc8f8e (.)
+=======
+ * @property Schema $form
+>>>>>>> 6d20fbe (.)
  */
 class Password extends Page implements HasForms
 {
@@ -40,11 +44,15 @@ class Password extends Page implements HasForms
      * @var array<string, mixed>|null
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     public null|array $formData = [];
 
     /**
      * Icona per la navigazione.
      *
+<<<<<<< HEAD
 =======
     public ?array $formData = [];
 
@@ -52,6 +60,8 @@ class Password extends Page implements HasForms
      * Icona per la navigazione.
      * 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
      * @var string|null
      */
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
@@ -59,10 +69,14 @@ class Password extends Page implements HasForms
     /**
      * Vista per la pagina.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
 =======
      * 
 >>>>>>> fbc8f8e (.)
+=======
+     *
+>>>>>>> 6d20fbe (.)
      * @var string
      */
     protected string $view = 'user::filament.pages.password';
@@ -70,16 +84,22 @@ class Password extends Page implements HasForms
     /**
      * Ordinamento nella navigazione.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      *
      * @var int|null
      */
     protected static null|int $navigationSort = 1;
+<<<<<<< HEAD
 =======
      * 
      * @var int|null
      */
     protected static ?int $navigationSort = 1;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
     /**
      * Inizializza la pagina.
@@ -93,18 +113,26 @@ class Password extends Page implements HasForms
      * Definisce la struttura del form.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param Schema $schema Il form da configurare
      * @return Schema Il form configurato
 =======
      * @param \Filament\Schemas\Schema $schema Il form da configurare
      * @return \Filament\Schemas\Schema Il form configurato
 >>>>>>> fbc8f8e (.)
+=======
+     * @param Schema $schema Il form da configurare
+     * @return Schema Il form configurato
+>>>>>>> 6d20fbe (.)
      */
     public function form(Schema $schema): Schema
     {
         return $schema
             ->components([
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                 TextInput::make('otp_expiration_minutes')
                     // Durata in minuti della validità della password temporanea
                     ->numeric()
@@ -126,6 +154,7 @@ class Password extends Page implements HasForms
                     ->numeric(), // = 1; // The number of times a password can appear in data leaks before being considered compromised.
             ])
             ->columns(3)
+<<<<<<< HEAD
 =======
                 TextInput::make('otp_expiration_minutes')// Durata in minuti della validità della password temporanea
                     ->numeric()
@@ -156,6 +185,8 @@ class Password extends Page implements HasForms
                     ->numeric(), // = 1; // The number of times a password can appear in data leaks before being considered compromised.
             ])->columns(3)
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             // ->model($this->getUser())
             ->statePath('formData');
     }
@@ -172,9 +203,13 @@ class Password extends Page implements HasForms
             $data = $this->form->getState();
             TenantService::saveConfig('password', $data);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
             // $this->handleRecordUpdate($this->getUser(), $data);
         } catch (Halt $exception) {
             dddx($exception->getMessage());
@@ -208,11 +243,15 @@ class Password extends Page implements HasForms
     {
         return [
 <<<<<<< HEAD
+<<<<<<< HEAD
             Action::make('updateDataAction')->submit('editDataForm'),
 =======
             Action::make('updateDataAction')
                 ->submit('editDataForm'),
 >>>>>>> fbc8f8e (.)
+=======
+            Action::make('updateDataAction')->submit('editDataForm'),
+>>>>>>> 6d20fbe (.)
         ];
     }
 

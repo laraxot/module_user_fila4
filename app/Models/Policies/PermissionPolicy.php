@@ -21,10 +21,14 @@ class PermissionPolicy extends UserBasePolicy
      * Determine whether the user can view the model.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function view(UserContract $_user, Post $_post): bool
 =======
     public function view(UserContract $user, Post $post): bool
 >>>>>>> fbc8f8e (.)
+=======
+    public function view(UserContract $_user, Post $_post): bool
+>>>>>>> 6d20fbe (.)
     {
         return true;
     }
@@ -33,10 +37,14 @@ class PermissionPolicy extends UserBasePolicy
      * Determine whether the user can create models.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function create(UserContract $_user): bool
 =======
     public function create(UserContract $user): bool
 >>>>>>> fbc8f8e (.)
+=======
+    public function create(UserContract $_user): bool
+>>>>>>> 6d20fbe (.)
     {
         return true;
     }
@@ -45,10 +53,14 @@ class PermissionPolicy extends UserBasePolicy
      * Determine whether the user can update the model.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function update(UserContract $_user, Post $_post): bool
 =======
     public function update(UserContract $user, Post $post): bool
 >>>>>>> fbc8f8e (.)
+=======
+    public function update(UserContract $_user, Post $_post): bool
+>>>>>>> 6d20fbe (.)
     {
         return true;
     }
@@ -57,10 +69,14 @@ class PermissionPolicy extends UserBasePolicy
      * Determine whether the user can delete the model.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function delete(UserContract $_user, Post $_post): bool
 =======
     public function delete(UserContract $user, Post $post): bool
 >>>>>>> fbc8f8e (.)
+=======
+    public function delete(UserContract $_user, Post $_post): bool
+>>>>>>> 6d20fbe (.)
     {
         // return $user->ownsTeam($team);
         return true;

@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Override;
+>>>>>>> 6d20fbe (.)
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -57,9 +61,13 @@ class DeviceUser extends BasePivot
 {
     use HasFactory;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
     /** @var list<string> */
     protected $fillable = [
         'id',
@@ -103,9 +111,13 @@ class DeviceUser extends BasePivot
 
     /** @return array<string, string> */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     protected function casts(): array
     {
         return [
@@ -118,12 +130,16 @@ class DeviceUser extends BasePivot
             'push_notifications_token' => 'string',
             'push_notifications_enabled' => 'boolean',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
+<<<<<<< HEAD
 =======
 
             'updated_by' => 'string',
@@ -135,6 +151,8 @@ class DeviceUser extends BasePivot
             'deleted_at' => 'datetime',
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             'login_at' => 'datetime',
             'logout_at' => 'datetime',
         ];

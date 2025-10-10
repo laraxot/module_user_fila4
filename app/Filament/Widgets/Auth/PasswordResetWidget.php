@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Widgets\Auth;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Schemas\Schema;
 use Override;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Filament\Schemas\Schema;
+use Override;
+>>>>>>> 6d20fbe (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms;
@@ -25,11 +30,15 @@ use Modules\Xot\Filament\Widgets\XotBaseWidget;
  * with improved UX and validation.
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
  * @property Schema $form
  */
 class PasswordResetWidget extends XotBaseWidget
 {
     public null|array $data = [];
+<<<<<<< HEAD
 =======
  * @property \Filament\Schemas\Schema $form
  */
@@ -37,6 +46,8 @@ class PasswordResetWidget extends XotBaseWidget
 {
     public ?array $data = [];
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     public bool $emailSent = false;
 
     /**
@@ -48,9 +59,13 @@ class PasswordResetWidget extends XotBaseWidget
      * Get the form schema for password reset.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function getFormSchema(): array
     {
         return [
@@ -61,6 +76,9 @@ class PasswordResetWidget extends XotBaseWidget
                 ->maxLength(255)
                 ->extraInputAttributes(['class' => 'text-center']),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             'error_display' => Placeholder::make('error_display')
                 ->label('')
                 ->content(function ($_get) {
@@ -71,6 +89,7 @@ class PasswordResetWidget extends XotBaseWidget
                             '<div class="text-red-600 font-medium bg-red-50 p-3 rounded-md border border-red-200">' .
                             $error .
                             '</div>';
+<<<<<<< HEAD
 =======
 
             'error_display' => Placeholder::make('error_display')
@@ -81,6 +100,8 @@ class PasswordResetWidget extends XotBaseWidget
                     if ($error && is_string($error)) {
                         $str = '<div class="text-red-600 font-medium bg-red-50 p-3 rounded-md border border-red-200">'.$error.'</div>';
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
                         return new HtmlString($str);
                     }
@@ -118,10 +139,14 @@ class PasswordResetWidget extends XotBaseWidget
             $this->form->fill();
         } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
             Session::flash('error', trans('user::errors.' . $response . '.label'));
 =======
             Session::flash('error', trans('user::errors.'.$response.'.label'));
 >>>>>>> fbc8f8e (.)
+=======
+            Session::flash('error', trans('user::errors.' . $response . '.label'));
+>>>>>>> 6d20fbe (.)
             Notification::make()
                 ->title(__('user::auth.password_reset.email_failed.title'))
                 ->body(trans($response))
@@ -129,6 +154,9 @@ class PasswordResetWidget extends XotBaseWidget
                 ->send();
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 
         /*} catch (\Exception $e) {
          * Notification::make()
@@ -138,6 +166,7 @@ class PasswordResetWidget extends XotBaseWidget
          * ->send();
          * }
          */
+<<<<<<< HEAD
 =======
         /*} catch (\Exception $e) {
             Notification::make()
@@ -148,6 +177,8 @@ class PasswordResetWidget extends XotBaseWidget
         }
                 */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 
     /**

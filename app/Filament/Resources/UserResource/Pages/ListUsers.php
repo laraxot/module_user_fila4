@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\Pages;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Filament\Actions\BulkAction;
 use Filament\Tables\Filters\BaseFilter;
 use Override;
@@ -21,6 +24,7 @@ use Modules\User\Filament\Resources\UserResource\Pages\BaseListUsers;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+<<<<<<< HEAD
 =======
 use Filament\Actions\Action;
 use Filament\Actions\DeleteBulkAction;
@@ -37,6 +41,8 @@ use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Modules\User\Filament\Resources\UserResource\Pages\BaseListUsers;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 class ListUsers extends BaseListUsers
@@ -44,13 +50,18 @@ class ListUsers extends BaseListUsers
     protected static string $resource = UserResource::class;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function getTableColumns(): array
     {
         return [
             //'id' => TextColumn::make('id'),
+<<<<<<< HEAD
 <<<<<<< HEAD
             'name' => TextColumn::make('name')->searchable(),
             'email' => TextColumn::make('email')->searchable(),
@@ -60,6 +71,10 @@ class ListUsers extends BaseListUsers
             'email' => TextColumn::make('email')
                 ->searchable(),
 >>>>>>> fbc8f8e (.)
+=======
+            'name' => TextColumn::make('name')->searchable(),
+            'email' => TextColumn::make('email')->searchable(),
+>>>>>>> 6d20fbe (.)
             //'email_verified_at' => TextColumn::make('email_verified_at')
             //    ->dateTime(),
             //'created_at' => TextColumn::make('created_at')
@@ -71,19 +86,27 @@ class ListUsers extends BaseListUsers
      * @return array<BaseFilter>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function getTableFilters(): array
     {
         return [
             /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
              * Filter::make('verified')
              * ->query(static fn (Builder $query): Builder => $query->whereNotNull('email_verified_at')),
              * Filter::make('unverified')
              * ->query(static fn (Builder $query): Builder => $query->whereNull('email_verified_at')),
              */
+<<<<<<< HEAD
 =======
             Filter::make('verified')
                 ->query(static fn (Builder $query): Builder => $query->whereNotNull('email_verified_at')),
@@ -91,6 +114,8 @@ class ListUsers extends BaseListUsers
                 ->query(static fn (Builder $query): Builder => $query->whereNull('email_verified_at')),
             */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         ];
     }
 
@@ -98,13 +123,18 @@ class ListUsers extends BaseListUsers
      * @phpstan-ignore-next-line
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function getTableActions(): array
     {
         /** @phpstan-ignore-next-line */
         return [
+<<<<<<< HEAD
 <<<<<<< HEAD
             'change_password' => ChangePasswordAction::make()->tooltip('Cambio Password')->iconButton(),
 =======
@@ -112,23 +142,32 @@ class ListUsers extends BaseListUsers
                 ->tooltip('Cambio Password')
                 ->iconButton(),
 >>>>>>> fbc8f8e (.)
+=======
+            'change_password' => ChangePasswordAction::make()->tooltip('Cambio Password')->iconButton(),
+>>>>>>> 6d20fbe (.)
             ...parent::getTableActions(),
             'deactivate' => Action::make('deactivate')
                 ->tooltip(__('filament-actions::delete.single.label'))
                 ->color('danger')
                 ->icon('heroicon-o-trash')
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                 ->action(static fn(UserContract $user) => $user->delete()),
         ];
     }
 
     #[Override]
+<<<<<<< HEAD
 =======
                 ->action(static fn (UserContract $user) => $user->delete()),
         ];
     }
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     protected function getHeaderWidgets(): array
     {
         return [
@@ -138,6 +177,7 @@ class ListUsers extends BaseListUsers
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return array<string, BulkAction>
      */
     #[Override]
@@ -145,6 +185,11 @@ class ListUsers extends BaseListUsers
      * @return array<string, \Filament\Actions\BulkAction>
      */
 >>>>>>> fbc8f8e (.)
+=======
+     * @return array<string, BulkAction>
+     */
+    #[Override]
+>>>>>>> 6d20fbe (.)
     public function getTableBulkActions(): array
     {
         return [

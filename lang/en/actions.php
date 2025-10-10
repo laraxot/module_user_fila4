@@ -1,11 +1,17 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 declare(strict_types=1);
 
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+declare(strict_types=1);
+
+
+>>>>>>> 6d20fbe (.)
 return [
     'attach_user' => 'Attach User',
     'associate_user' => 'Associate User',
