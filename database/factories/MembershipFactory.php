@@ -11,36 +11,16 @@ use Modules\User\Models\User;
 
 /**
  * Membership Factory
-<<<<<<< HEAD
-<<<<<<< HEAD
  *
  * Factory for creating Membership model instances for testing and seeding.
  *
-=======
- * 
- * Factory for creating Membership model instances for testing and seeding.
- * 
->>>>>>> fbc8f8e (.)
-=======
- *
- * Factory for creating Membership model instances for testing and seeding.
- *
->>>>>>> 6d20fbe (.)
  * @extends Factory<Membership>
  */
 class MembershipFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
-=======
-     * 
->>>>>>> fbc8f8e (.)
-=======
-     *
->>>>>>> 6d20fbe (.)
      * @var class-string<Membership>
      */
     protected $model = Membership::class;
@@ -68,15 +48,7 @@ class MembershipFactory extends Factory
      */
     public function forTeam(Team $team): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'team_id' => $team->id,
         ]);
     }
@@ -89,15 +61,7 @@ class MembershipFactory extends Factory
      */
     public function forUser(User $user): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'user_id' => $user->id,
         ]);
     }
@@ -109,15 +73,7 @@ class MembershipFactory extends Factory
      */
     public function admin(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'role' => 'admin',
         ]);
     }
@@ -129,15 +85,7 @@ class MembershipFactory extends Factory
      */
     public function editor(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'role' => 'editor',
         ]);
     }
@@ -149,15 +97,7 @@ class MembershipFactory extends Factory
      */
     public function member(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'role' => 'member',
         ]);
     }
@@ -169,22 +109,8 @@ class MembershipFactory extends Factory
      */
     public function viewer(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         return $this->state(fn(array $_attributes): array => [
             'role' => 'viewer',
         ]);
     }
 }
-<<<<<<< HEAD
-=======
-        return $this->state(fn (array $attributes): array => [
-            'role' => 'viewer',
-        ]);
-    }
-}
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)

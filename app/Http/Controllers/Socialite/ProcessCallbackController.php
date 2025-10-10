@@ -11,14 +11,7 @@ namespace Modules\User\Http\Controllers\Socialite;
 use Modules\Xot\Contracts\UserContract;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
-=======
->>>>>>> fbc8f8e (.)
-=======
-use Illuminate\Support\Facades\Auth;
->>>>>>> 6d20fbe (.)
 use Illuminate\Support\Facades\Request;
 use Modules\User\Actions\Socialite\IsProviderConfiguredAction;
 use Modules\User\Actions\Socialite\IsRegistrationEnabledAction;
@@ -35,28 +28,13 @@ use Modules\User\Events\RegistrationNotEnabled;
 use Modules\User\Events\UserNotAllowed;
 use Modules\User\Exceptions\ProviderNotConfigured;
 use Modules\Xot\Datas\XotData;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-use Illuminate\Support\Facades\Auth;
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
 class ProcessCallbackController extends Controller
 {
     /**
      * Undocumented function.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function __invoke(Request $_request, string $provider): RedirectResponse
-=======
-    public function __invoke(Request $request, string $provider): RedirectResponse
->>>>>>> fbc8f8e (.)
-=======
-    public function __invoke(Request $_request, string $provider): RedirectResponse
->>>>>>> 6d20fbe (.)
     {
         // See if provider exists
         // if (! app(IsProviderConfiguredAction::class)->execute($provider)) {
@@ -71,15 +49,7 @@ class ProcessCallbackController extends Controller
         }
 
         // Verify if user is allowed
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (!app(IsUserAllowedAction::class)->execute($oauthUser)) {
-=======
-        if (! app(IsUserAllowedAction::class)->execute($oauthUser)) {
->>>>>>> fbc8f8e (.)
-=======
-        if (!app(IsUserAllowedAction::class)->execute($oauthUser)) {
->>>>>>> 6d20fbe (.)
             UserNotAllowed::dispatch($oauthUser);
 
             return app(RedirectToLoginAction::class)->execute('auth.user-not-allowed');
@@ -93,38 +63,15 @@ class ProcessCallbackController extends Controller
                 return app(RedirectToLoginAction::class)->execute('auth.user-not-allowed');
             }
             // Associate default roles to the existing "real" user, if needed
-<<<<<<< HEAD
-<<<<<<< HEAD
             app(SetDefaultRolesBySocialiteUserAction::class, [
                 'provider' => $provider,
             ])->execute($socialiteUserObj, $oauthUser);
-=======
-            app(
-                SetDefaultRolesBySocialiteUserAction::class,
-                [
-                    'provider' => $provider,
-                ]
-            )->execute($socialiteUserObj, $oauthUser);
->>>>>>> fbc8f8e (.)
-=======
-            app(SetDefaultRolesBySocialiteUserAction::class, [
-                'provider' => $provider,
-            ])->execute($socialiteUserObj, $oauthUser);
->>>>>>> 6d20fbe (.)
 
             return app(LoginUserAction::class)->execute($socialiteUser);
         }
 
         // See if registration is allowed
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (!app(IsRegistrationEnabledAction::class)->execute()) {
-=======
-        if (! app(IsRegistrationEnabledAction::class)->execute()) {
->>>>>>> fbc8f8e (.)
-=======
-        if (!app(IsRegistrationEnabledAction::class)->execute()) {
->>>>>>> 6d20fbe (.)
             RegistrationNotEnabled::dispatch($provider, $oauthUser);
 
             return app(RedirectToLoginAction::class)->execute('auth.registration-not-enabled');
@@ -153,15 +100,7 @@ class ProcessCallbackController extends Controller
         $authUser = Auth::user();
         if ($authUser !== null && method_exists($authUser, 'canAccessSocialite') && !$authUser->canAccessSocialite()) {
             return redirect()->route(
-<<<<<<< HEAD
-<<<<<<< HEAD
                 optional(Auth::check()) ? 'filament.user.pages.dashboard' : 'filament.user.auth.login',
-=======
-                optional(Auth::check()) ? 'filament.user.pages.dashboard' : 'filament.user.auth.login'
->>>>>>> fbc8f8e (.)
-=======
-                optional(Auth::check()) ? 'filament.user.pages.dashboard' : 'filament.user.auth.login',
->>>>>>> 6d20fbe (.)
             );
         }
 

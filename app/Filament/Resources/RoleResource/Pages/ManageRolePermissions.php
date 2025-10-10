@@ -20,26 +20,8 @@ use Filament\Resources\Pages\ManageRelatedRecords;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Modules\User\Filament\Resources\RoleResource;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
-=======
-
-
-
-
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-
-
-
-
-
->>>>>>> fbc8f8e (.)
-=======
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-
->>>>>>> 6d20fbe (.)
 class ManageRolePermissions extends ManageRelatedRecords
 {
     protected static string $resource = RoleResource::class;
@@ -54,31 +36,11 @@ class ManageRolePermissions extends ManageRelatedRecords
     }
 
     public function getFormSchema(): array
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
     {
         return [
             TextInput::make('name')->required()->maxLength(255),
         ];
     }
-<<<<<<< HEAD
-=======
-{
-
-
-    return [
-
-                TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-
-      ];
-}
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
     public function table(Table $table): Table
     {
@@ -87,16 +49,7 @@ class ManageRolePermissions extends ManageRelatedRecords
             ->columns([
                 TextColumn::make('name'),
             ])
-<<<<<<< HEAD
-<<<<<<< HEAD
             ->filters([])
-=======
-            ->filters([
-            ])
->>>>>>> fbc8f8e (.)
-=======
-            ->filters([])
->>>>>>> 6d20fbe (.)
             ->headerActions([
                 CreateAction::make(),
                 AssociateAction::make(),

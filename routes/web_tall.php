@@ -16,10 +16,6 @@ use Modules\User\Http\Controllers\Auth\LogoutController;
 use Modules\User\Http\Livewire\Auth\Register;
 
 /*
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
  * |--------------------------------------------------------------------------
  * | Web Routes
  * |--------------------------------------------------------------------------
@@ -29,30 +25,12 @@ use Modules\User\Http\Livewire\Auth\Register;
  * | contains the "web" middleware group. Now create something great!
  * |
  */
-<<<<<<< HEAD
-=======
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
 // Route::view('/', 'welcome')->name('home');
 Route::prefix('{lang}')->group(function () {
     Route::middleware('guest')
         ->namespace('\Modules\User\Http\Livewire\Auth')
         ->group(static function (): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
             Route::get('login', 'Login')->name('login');
 
             Route::get('register', Register::class)->name('register');
@@ -65,27 +43,6 @@ Route::prefix('{lang}')->group(function () {
             'password.reset',
         );
     });
-<<<<<<< HEAD
-=======
-            Route::get('login', 'Login')
-                ->name('login');
-
-            Route::get('register', Register::class)
-                ->name('register');
-        });
-
-    Route::middleware([])
-        ->namespace('\Modules\User\Http\Livewire\Auth')
-        ->group(static function (): void {
-            Route::get('password/reset', Email::class)
-                ->name('password.request');
-
-            Route::get('password/reset/{token}', Reset::class)
-                ->name('password.reset');
-        });
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
     Route::middleware('auth')
         ->namespace('\Modules\User\Http\Livewire\Auth')
@@ -94,10 +51,6 @@ Route::prefix('{lang}')->group(function () {
                 ->middleware('throttle:6,1')
                 ->name('verification.notice');
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
             Route::get('password/confirm', Confirm::class)->name(
                 'password.confirm',
             );
@@ -105,41 +58,17 @@ Route::prefix('{lang}')->group(function () {
 
     Route::middleware('auth')
         // ->namespace('\Modules\User\Http\Livewire\Auth')
-<<<<<<< HEAD
-=======
-            Route::get('password/confirm', Confirm::class)
-                ->name('password.confirm');
-        });
-
-    Route::middleware('auth')
-    // ->namespace('\Modules\User\Http\Livewire\Auth')
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
         ->group(static function (): void {
             Route::get('email/verify/{id}/{hash}', EmailVerificationController::class)
                 ->middleware('signed')
                 ->name('verification.verify');
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             Route::match(['get', 'post'], 'logout', LogoutController::class)->name('logout');
-=======
-            Route::match(['get', 'post'], 'logout', LogoutController::class)
-                ->name('logout');
->>>>>>> fbc8f8e (.)
-=======
-            Route::match(['get', 'post'], 'logout', LogoutController::class)->name('logout');
->>>>>>> 6d20fbe (.)
         });
 })->whereIn('lang', ['it', 'en']);
 
 Route::namespace('Socialite')
     ->name('socialite.')
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
     ->group(static function (): void {
         Route::get(
             '/login/{provider}',
@@ -152,24 +81,3 @@ Route::namespace('Socialite')
 
         // ->name('oauth.callback');
     });
-<<<<<<< HEAD
-=======
-    ->group(
-        static function (): void {
-            Route::get(
-                '/login/{provider}',
-                'RedirectToProviderController',
-                // 'LoginController@redirectToProvider',
-            );
-            // ->name('oauth.redirect')
-
-            Route::get(
-                '/sso/{provider}/callback',
-                'ProcessCallbackController',
-            );
-            // ->name('oauth.callback');
-        }
-    );
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)

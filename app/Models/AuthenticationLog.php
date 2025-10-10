@@ -8,14 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> fbc8f8e (.)
-=======
-use Override;
->>>>>>> 6d20fbe (.)
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Contracts\ProfileContract;
@@ -79,14 +72,7 @@ class AuthenticationLog extends BaseModel
     ];
 
     /** @return array<string, string> */
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> fbc8f8e (.)
-=======
-    #[Override]
->>>>>>> 6d20fbe (.)
     protected function casts(): array
     {
         return [

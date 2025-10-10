@@ -7,18 +7,8 @@ namespace Modules\User\Listeners;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Modules\User\Actions\GetCurrentDeviceAction;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Modules\User\Contracts\HasAuthentications;
 use Modules\User\Models\DeviceUser;
-=======
-use Modules\User\Models\DeviceUser;
-use Modules\User\Contracts\HasAuthentications;
->>>>>>> fbc8f8e (.)
-=======
-use Modules\User\Contracts\HasAuthentications;
-use Modules\User\Models\DeviceUser;
->>>>>>> 6d20fbe (.)
 
 class LoginListener
 {

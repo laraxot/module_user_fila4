@@ -2,29 +2,11 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-=======
-namespace Modules\User\Tests\Feature\TeamManagementTest;
-
-namespace Modules\User\Tests\Unit\Widgets;
-
->>>>>>> fbc8f8e (.)
-=======
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
->>>>>>> 6d20fbe (.)
 use Modules\User\Models\Team;
 use Modules\User\Models\TeamInvitation;
 use Modules\User\Models\TeamPermission;
 use Modules\User\Models\User;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-use Modules\User\Models\Membership;
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
 beforeEach(function () {
     $this->owner = User::factory()->create();
@@ -51,17 +33,7 @@ describe('Team Creation and Management', function () {
     });
 
     it('belongs to an owner', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
         expect($this->team->owner)->toBeInstanceOf(User::class)->id->toBe($this->owner->id);
-=======
-        expect($this->team->owner)
-            ->toBeInstanceOf(User::class)
-            ->id->toBe($this->owner->id);
->>>>>>> fbc8f8e (.)
-=======
-        expect($this->team->owner)->toBeInstanceOf(User::class)->id->toBe($this->owner->id);
->>>>>>> 6d20fbe (.)
     });
 
     it('can have multiple teams per user', function () {
@@ -77,17 +49,7 @@ describe('Team Creation and Management', function () {
             'description' => 'Updated description',
         ]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         expect($this->team->fresh())->name->toBe('Updated Team Name')->description->toBe('Updated description');
-=======
-        expect($this->team->fresh())
-            ->name->toBe('Updated Team Name')
-            ->description->toBe('Updated description');
->>>>>>> fbc8f8e (.)
-=======
-        expect($this->team->fresh())->name->toBe('Updated Team Name')->description->toBe('Updated description');
->>>>>>> 6d20fbe (.)
     });
 
     it('can delete a team', function () {
@@ -137,21 +99,11 @@ describe('Team Membership', function () {
             'joined_at' => now(),
         ]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         $membership = $this->team
             ->users()
             ->where('user_id', $this->member->id)
             ->first()
             ->pivot;
-<<<<<<< HEAD
-=======
-        $membership = $this->team->users()->where('user_id', $this->member->id)->first()->pivot;
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
         expect($membership->role)->toBe('editor');
         expect($membership->joined_at)->not->toBeNull();
@@ -258,17 +210,8 @@ describe('Team Invitations', function () {
 
 describe('Team Permissions', function () {
     it('can have team-specific permissions', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
         expect($this->team->permissions())
             ->toBeInstanceOf(BelongsToMany::class);
-=======
-        expect($this->team->permissions())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsToMany::class);
->>>>>>> fbc8f8e (.)
-=======
-        expect($this->team->permissions())
-            ->toBeInstanceOf(BelongsToMany::class);
->>>>>>> 6d20fbe (.)
     });
 
     it('can assign permissions to team members', function () {
@@ -286,21 +229,11 @@ describe('Team Permissions', function () {
     it('can check team member permissions', function () {
         $this->team->users()->attach($this->member, ['role' => 'admin']);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         $membership = $this->team
             ->users()
             ->where('user_id', $this->member->id)
             ->first()
             ->pivot;
-<<<<<<< HEAD
-=======
-        $membership = $this->team->users()->where('user_id', $this->member->id)->first()->pivot;
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
         expect($membership->role)->toBe('admin');
     });
@@ -313,15 +246,7 @@ describe('Team Scopes and Queries', function () {
 
         $ownerTeams = Team::where('user_id', $this->owner->id)->get();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         expect($ownerTeams->every(fn($team) => $team->user_id === $this->owner->id))->toBe(true);
-=======
-
->>>>>>> fbc8f8e (.)
-=======
-        expect($ownerTeams->every(fn($team) => $team->user_id === $this->owner->id))->toBe(true);
->>>>>>> 6d20fbe (.)
     });
 
     it('can find teams by slug', function () {
@@ -406,12 +331,4 @@ describe('Team Events and Notifications', function () {
         // Test activity logging when members join/leave
         expect($this->team->users)->toContain($this->member);
     });
-<<<<<<< HEAD
-<<<<<<< HEAD
 });
-=======
-
->>>>>>> fbc8f8e (.)
-=======
-});
->>>>>>> 6d20fbe (.)

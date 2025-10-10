@@ -2,10 +2,6 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
 use Tests\TestCase;
 use Modules\User\Models\BaseTenant;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -16,20 +12,6 @@ use Spatie\Sluggable\SlugOptions;
 use Modules\User\Models\Tenant;
 
 uses(TestCase::class);
-<<<<<<< HEAD
-=======
-namespace Modules\User\Tests\Unit\TenantTest;
-
-namespace Modules\User\Tests\Unit\Widgets;
-
-use Modules\User\Models\Tenant;
-use Modules\User\Models\User;
-use Illuminate\Support\Str;
-
-uses(Tests\TestCase::class);
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
 beforeEach(function (): void {
     $this->tenant = Tenant::factory()->create([
@@ -55,15 +37,7 @@ test('tenant can be created', function (): void {
 });
 
 test('tenant extends correct base class', function (): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
     expect($this->tenant)->toBeInstanceOf(BaseTenant::class);
-=======
-    expect($this->tenant)->toBeInstanceOf(\Modules\User\Models\BaseTenant::class);
->>>>>>> fbc8f8e (.)
-=======
-    expect($this->tenant)->toBeInstanceOf(BaseTenant::class);
->>>>>>> 6d20fbe (.)
 });
 
 test('tenant has correct fillable attributes', function (): void {
@@ -96,65 +70,29 @@ test('tenant has users relationship', function (): void {
     expect($this->tenant)->toHaveMethod('users');
 
     $users = $this->tenant->users();
-<<<<<<< HEAD
-<<<<<<< HEAD
     expect($users)->toBeInstanceOf(BelongsToMany::class);
-=======
-    expect($users)->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsToMany::class);
->>>>>>> fbc8f8e (.)
-=======
-    expect($users)->toBeInstanceOf(BelongsToMany::class);
->>>>>>> 6d20fbe (.)
 });
 
 test('tenant has members relationship', function (): void {
     expect($this->tenant)->toHaveMethod('members');
 
     $members = $this->tenant->members();
-<<<<<<< HEAD
-<<<<<<< HEAD
     expect($members)->toBeInstanceOf(BelongsToMany::class);
-=======
-    expect($members)->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsToMany::class);
->>>>>>> fbc8f8e (.)
-=======
-    expect($members)->toBeInstanceOf(BelongsToMany::class);
->>>>>>> 6d20fbe (.)
 });
 
 test('tenant implements required interfaces', function (): void {
     $reflection = new ReflectionClass(Tenant::class);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     expect($reflection->implementsInterface(HasAvatar::class))->toBeTrue();
     expect($reflection->implementsInterface(HasMedia::class))->toBeTrue();
     expect($reflection->implementsInterface(TenantContract::class))->toBeTrue();
-=======
-    expect($reflection->implementsInterface(\Filament\Models\Contracts\HasAvatar::class))->toBeTrue();
-    expect($reflection->implementsInterface(\Spatie\MediaLibrary\HasMedia::class))->toBeTrue();
-    expect($reflection->implementsInterface(\Modules\User\Contracts\TenantContract::class))->toBeTrue();
->>>>>>> fbc8f8e (.)
-=======
-    expect($reflection->implementsInterface(HasAvatar::class))->toBeTrue();
-    expect($reflection->implementsInterface(HasMedia::class))->toBeTrue();
-    expect($reflection->implementsInterface(TenantContract::class))->toBeTrue();
->>>>>>> 6d20fbe (.)
 });
 
 test('tenant has slug options configuration', function (): void {
     expect($this->tenant)->toHaveMethod('getSlugOptions');
 
     $slugOptions = $this->tenant->getSlugOptions();
-<<<<<<< HEAD
-<<<<<<< HEAD
     expect($slugOptions)->toBeInstanceOf(SlugOptions::class);
-=======
-    expect($slugOptions)->toBeInstanceOf(\Spatie\Sluggable\SlugOptions::class);
->>>>>>> fbc8f8e (.)
-=======
-    expect($slugOptions)->toBeInstanceOf(SlugOptions::class);
->>>>>>> 6d20fbe (.)
 });
 
 test('tenant has filament avatar url method', function (): void {
@@ -190,16 +128,8 @@ test('tenant can be updated', function (): void {
         'email_address' => 'updated@tenant.com',
     ]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     $this->tenant->refresh();
 
-=======
->>>>>>> fbc8f8e (.)
-=======
-    $this->tenant->refresh();
-
->>>>>>> 6d20fbe (.)
     expect($this->tenant->name)->toBe('Updated Tenant Name');
     expect($this->tenant->email_address)->toBe('updated@tenant.com');
     expect($this->tenant->slug)->toBe('updated-tenant-name');
@@ -208,15 +138,7 @@ test('tenant can be updated', function (): void {
 test('tenant can be deleted', function (): void {
     $tenantId = $this->tenant->id;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     $this->tenant->delete();
 
-=======
->>>>>>> fbc8f8e (.)
-=======
-    $this->tenant->delete();
-
->>>>>>> 6d20fbe (.)
     expect(Tenant::find($tenantId))->toBeNull();
 });

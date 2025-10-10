@@ -4,14 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> fbc8f8e (.)
-=======
-use Override;
->>>>>>> 6d20fbe (.)
 use Exception;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
@@ -20,45 +13,19 @@ use Modules\Xot\Filament\Widgets\XotBaseChartWidget;
 
 class UserTypeRegistrationsChartWidget extends XotBaseChartWidget
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
     protected null|string $heading = null;
     protected static null|int $sort = 1;
-=======
-    protected ?string $heading = null;
-    protected static ?int $sort = 1;
->>>>>>> fbc8f8e (.)
-=======
-    protected null|string $heading = null;
-    protected static null|int $sort = 1;
->>>>>>> 6d20fbe (.)
     protected static bool $isLazy = true;
 
     public string $model;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
     public function getHeading(): null|string
-=======
-    public function getHeading(): ?string
->>>>>>> fbc8f8e (.)
-=======
-    #[Override]
-    public function getHeading(): null|string
->>>>>>> 6d20fbe (.)
     {
         return static::transClass($this->model, 'widgets.user_type_registrations_chart.heading');
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> fbc8f8e (.)
-=======
-    #[Override]
->>>>>>> 6d20fbe (.)
     protected function getData(): array
     {
         // Debug: Verifica se i filtri sono disponibili
@@ -69,25 +36,11 @@ class UserTypeRegistrationsChartWidget extends XotBaseChartWidget
         $endDate = null;
 
         // Verifica se i filtri sono disponibili e validi
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         if (is_array($filters) && !empty($filters)) {
             /** @phpstan-ignore-next-line */
             $startDate = !empty($filters['startDate']) ? Carbon::parse($filters['startDate']) : null;
             /** @phpstan-ignore-next-line */
             $endDate = !empty($filters['endDate']) ? Carbon::parse($filters['endDate']) : null;
-<<<<<<< HEAD
-=======
-        if (is_array($filters) && ! empty($filters)) {
-            /** @phpstan-ignore-next-line */
-            $startDate = ! empty($filters['startDate']) ? Carbon::parse($filters['startDate']) : null;
-            /** @phpstan-ignore-next-line */
-            $endDate = ! empty($filters['endDate']) ? Carbon::parse($filters['endDate']) : null;
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
         }
 
         // Fallback ai valori di default se i filtri non sono disponibili
@@ -111,38 +64,18 @@ class UserTypeRegistrationsChartWidget extends XotBaseChartWidget
                 'datasets' => [
                     [
                         'label' => static::transClass($this->model, 'widgets.user_type_registrations_chart.label'),
-<<<<<<< HEAD
-<<<<<<< HEAD
                         'data' => $data->map(fn(mixed $value) => ($value instanceof TrendValue)
                             ? $value->aggregate
                             : 0),
-=======
-                        'data' => $data->map(fn (mixed $value) => $value instanceof TrendValue ? $value->aggregate : 0),
->>>>>>> fbc8f8e (.)
-=======
-                        'data' => $data->map(fn(mixed $value) => ($value instanceof TrendValue)
-                            ? $value->aggregate
-                            : 0),
->>>>>>> 6d20fbe (.)
                         'backgroundColor' => 'rgba(59, 130, 246, 0.5)',
                         'borderColor' => 'rgb(59, 130, 246)',
                         'borderWidth' => 2,
                         'tension' => 0.4,
                     ],
                 ],
-<<<<<<< HEAD
-<<<<<<< HEAD
                 'labels' => $data->map(fn(mixed $value) => ($value instanceof TrendValue)
                     ? \Carbon\Carbon::parse($value->date)->format('d/m')
                     : ''),
-=======
-                'labels' => $data->map(fn (mixed $value) => $value instanceof TrendValue ? \Carbon\Carbon::parse($value->date)->format('d/m') : ''),
->>>>>>> fbc8f8e (.)
-=======
-                'labels' => $data->map(fn(mixed $value) => ($value instanceof TrendValue)
-                    ? \Carbon\Carbon::parse($value->date)->format('d/m')
-                    : ''),
->>>>>>> 6d20fbe (.)
             ];
         } catch (Exception $e) {
             // Fallback appropriato senza logging inutile
@@ -162,14 +95,7 @@ class UserTypeRegistrationsChartWidget extends XotBaseChartWidget
         }
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> fbc8f8e (.)
-=======
-    #[Override]
->>>>>>> 6d20fbe (.)
     protected function getType(): string
     {
         return 'line';

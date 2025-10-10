@@ -65,23 +65,10 @@ trait IsProfileTrait
      * Utilizza prima i dati del profilo, altrimenti ricade sul nome dell'utente.
      *
      * @param string|null $value Il valore attuale dell'attributo
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
      *
      * @return string|null Il nome completo dell'utente
      */
     public function getFullNameAttribute(null|string $value): null|string
-<<<<<<< HEAD
-=======
-     * 
-     * @return string|null Il nome completo dell'utente
-     */
-    public function getFullNameAttribute(?string $value): ?string
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     {
         if ($value !== null) {
             return $value;
@@ -105,23 +92,10 @@ trait IsProfileTrait
      * Se non presente nel profilo, lo recupera dall'utente collegato.
      *
      * @param string|null $value Il valore attuale dell'attributo
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
      *
      * @return string|null Il nome dell'utente
      */
     public function getFirstNameAttribute(null|string $value): null|string
-<<<<<<< HEAD
-=======
-     * 
-     * @return string|null Il nome dell'utente
-     */
-    public function getFirstNameAttribute(?string $value): ?string
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     {
         if ($value !== null) {
             return $value;
@@ -146,23 +120,10 @@ trait IsProfileTrait
      * Se non presente nel profilo, lo recupera dall'utente collegato.
      *
      * @param string|null $value Il valore attuale dell'attributo
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
      *
      * @return string|null Il cognome dell'utente
      */
     public function getLastNameAttribute(null|string $value): null|string
-<<<<<<< HEAD
-=======
-     * 
-     * @return string|null Il cognome dell'utente
-     */
-    public function getLastNameAttribute(?string $value): ?string
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     {
         if ($value !== null) {
             return $value;
@@ -311,14 +272,6 @@ trait IsProfileTrait
         return $tokens;
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     /**
      * Get the user's user_name.
      * Ottiene il nome utente dal modello utente collegato.
@@ -327,10 +280,6 @@ trait IsProfileTrait
      */
     protected function userName(): Attribute
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         return Attribute::make(get: function (): null|string {
             $user = $this->user;
             if ($user === null) {
@@ -338,20 +287,6 @@ trait IsProfileTrait
             }
             return $user->name;
         });
-<<<<<<< HEAD
-=======
-        return Attribute::make(
-            get: function (): ?string {
-                $user = $this->user;
-                if ($user === null) {
-                    return null;
-                }
-                return $user->name;
-            }
-        );
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     }
 
     /**
@@ -362,26 +297,10 @@ trait IsProfileTrait
      */
     protected function avatar(): Attribute
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         return Attribute::make(get: function (): string {
             $value = $this->getFirstMediaUrl('avatar');
 
             return $value;
         });
-<<<<<<< HEAD
-=======
-        return Attribute::make(
-            get: function (): string {
-                $value = $this->getFirstMediaUrl('avatar');
-
-                return $value;
-            }
-        );
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     }
 }

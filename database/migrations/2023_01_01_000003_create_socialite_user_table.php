@@ -6,16 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 use Modules\Xot\Datas\XotData;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 return new class extends XotBaseMigration {
-=======
-return new class extends XotBaseMigration
-{
->>>>>>> fbc8f8e (.)
-=======
-return new class extends XotBaseMigration {
->>>>>>> 6d20fbe (.)
     /**
      * Run the migrations.
      */
@@ -24,10 +15,6 @@ return new class extends XotBaseMigration {
         $xot = XotData::make();
         $userClass = $xot->getUserClass();
         // -- CREATE --
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         $this->tableCreate(static function (Blueprint $table) use ($userClass): void {
             // $table->uuid('id')->primary();
             $table->id();
@@ -59,43 +46,5 @@ return new class extends XotBaseMigration {
 
             // $this->updateUser($table);
         });
-<<<<<<< HEAD
-=======
-        $this->tableCreate(
-            static function (Blueprint $table) use ($userClass): void {
-                // $table->uuid('id')->primary();
-                $table->id();
-                $table->foreignIdFor($userClass, 'user_id');
-                $table->string('provider');
-                $table->string('provider_id');
-                $table->text('token')->nullable();
-                $table->string('name')->nullable();
-                $table->string('email')->nullable();
-                $table->string('avatar')->nullable();
-                /*
-                $table->unique([
-                    'provider',
-                    'provider_id',
-                ]);
-                */
-            }
-        );
-
-        // -- UPDATE --
-        $this->tableUpdate(
-            function (Blueprint $table): void {
-                // if (! $this->hasColumn('email')) {
-                //    $table->string('email')->nullable();
-                // }
-                if ($this->getColumnType('token') == 'varchar') {
-                    $table->text('token')->nullable()->change();
-                }
-                $this->updateTimestamps($table);
-                // $this->updateUser($table);
-            }
-        );
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     }
 };

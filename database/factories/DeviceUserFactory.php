@@ -11,36 +11,16 @@ use Modules\User\Models\User;
 
 /**
  * DeviceUser Factory
-<<<<<<< HEAD
-<<<<<<< HEAD
  *
  * Factory for creating DeviceUser model instances for testing and seeding.
  *
-=======
- * 
- * Factory for creating DeviceUser model instances for testing and seeding.
- * 
->>>>>>> fbc8f8e (.)
-=======
- *
- * Factory for creating DeviceUser model instances for testing and seeding.
- *
->>>>>>> 6d20fbe (.)
  * @extends Factory<DeviceUser>
  */
 class DeviceUserFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
-=======
-     * 
->>>>>>> fbc8f8e (.)
-=======
-     *
->>>>>>> 6d20fbe (.)
      * @var class-string<DeviceUser>
      */
     protected $model = DeviceUser::class;
@@ -53,15 +33,7 @@ class DeviceUserFactory extends Factory
     public function definition(): array
     {
         $loginAt = $this->faker->optional(0.8)->dateTimeBetween('-1 year', 'now');
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> fbc8f8e (.)
-=======
-
->>>>>>> 6d20fbe (.)
         return [
             'device_id' => Device::factory(),
             'user_id' => User::factory(),
@@ -80,15 +52,7 @@ class DeviceUserFactory extends Factory
      */
     public function forUser(User $user): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'user_id' => $user->id,
         ]);
     }
@@ -101,15 +65,7 @@ class DeviceUserFactory extends Factory
      */
     public function forDevice(Device $device): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'device_id' => $device->id,
         ]);
     }
@@ -121,15 +77,7 @@ class DeviceUserFactory extends Factory
      */
     public function loggedIn(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'login_at' => $this->faker->dateTimeBetween('-1 day', 'now'),
             'logout_at' => null,
         ]);
@@ -143,18 +91,8 @@ class DeviceUserFactory extends Factory
     public function loggedOut(): static
     {
         $loginAt = $this->faker->dateTimeBetween('-1 month', '-1 day');
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         return $this->state(fn(array $_attributes): array => [
-=======
-        
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'login_at' => $loginAt,
             'logout_at' => $this->faker->dateTimeBetween($loginAt, 'now'),
         ]);

@@ -16,49 +16,21 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Clusters\Appearance;
 
 /**
-<<<<<<< HEAD
-<<<<<<< HEAD
  * @property Schema $form
-=======
- * @property \Filament\Schemas\Schema $form
->>>>>>> fbc8f8e (.)
-=======
- * @property Schema $form
->>>>>>> 6d20fbe (.)
  */
 class Colors extends Page implements HasForms
 {
     use InteractsWithForms;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     public null|array $data = [];
-=======
-    public ?array $data = [];
->>>>>>> fbc8f8e (.)
-=======
-    public null|array $data = [];
->>>>>>> 6d20fbe (.)
 
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
     protected string $view = 'user::filament.clusters.appearance.pages.colors';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     protected static null|string $cluster = Appearance::class;
 
     protected static null|int $navigationSort = 3;
-=======
-    protected static ?string $cluster = Appearance::class;
-
-    protected static ?int $navigationSort = 3;
->>>>>>> fbc8f8e (.)
-=======
-    protected static null|string $cluster = Appearance::class;
-
-    protected static null|int $navigationSort = 3;
->>>>>>> 6d20fbe (.)
 
     public function mount(): void
     {
@@ -84,21 +56,9 @@ class Colors extends Page implements HasForms
                 ColorPicker::make('button_text_color'),
                 ColorPicker::make('input_text_color'),
                 ColorPicker::make('input_border_color'),
-<<<<<<< HEAD
-<<<<<<< HEAD
                 // ])->columns(2),
             ])
             ->columns(3)
-=======
-
-                // ])->columns(2),
-            ])->columns(3)
->>>>>>> fbc8f8e (.)
-=======
-                // ])->columns(2),
-            ])
-            ->columns(3)
->>>>>>> 6d20fbe (.)
             // ->model($this->getUser())
             ->statePath('data');
     }
@@ -108,14 +68,7 @@ class Colors extends Page implements HasForms
         try {
             $data = $this->form->getState();
             dddx($data);
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> fbc8f8e (.)
-=======
-
->>>>>>> 6d20fbe (.)
             // $this->handleRecordUpdate($this->getUser(), $data);
         } catch (Halt $exception) {
             dddx($exception->getMessage());
@@ -135,17 +88,7 @@ class Colors extends Page implements HasForms
     protected function getUpdateFormActions(): array
     {
         return [
-<<<<<<< HEAD
-<<<<<<< HEAD
             Action::make('updateAction')->submit('editForm'),
-=======
-            Action::make('updateAction')
-
-                ->submit('editForm'),
->>>>>>> fbc8f8e (.)
-=======
-            Action::make('updateAction')->submit('editForm'),
->>>>>>> 6d20fbe (.)
         ];
     }
 

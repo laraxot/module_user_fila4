@@ -9,14 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Modules\User\Filament\Widgets\LoginWidget;
 use Modules\User\Models\User;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> fbc8f8e (.)
-=======
-
->>>>>>> 6d20fbe (.)
 use function Pest\Laravel\assertAuthenticatedAs;
 
 uses(TestCase::class);

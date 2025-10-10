@@ -10,10 +10,6 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\Pages;
 
 use InvalidArgumentException;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\Hash;
@@ -23,21 +19,6 @@ use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Models\User;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Webmozart\Assert\Assert;
-<<<<<<< HEAD
-=======
-use Webmozart\Assert\Assert;
-use Modules\User\Models\User;
-use Filament\Actions\DeleteAction;
-use Illuminate\Support\Facades\Hash;
-use Filament\Resources\Pages\EditRecord;
-use Modules\User\Filament\Resources\UserResource;
-
-use Modules\User\Filament\Actions\ChangePasswordAction;
-use Modules\User\Filament\Actions\Header\ChangePasswordHeaderAction;
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
 /**
  * Pagina per la modifica degli utenti con particolare gestione della password.
@@ -50,15 +31,7 @@ abstract class BaseEditUser extends EditRecord
     protected function mutateFormDataBeforeSave(array $data): array
     {
         Assert::isArray($data);
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (!array_key_exists('new_password', $data) || !filled($data['new_password'])) {
-=======
-        if (! array_key_exists('new_password', $data) || ! filled($data['new_password'])) {
->>>>>>> fbc8f8e (.)
-=======
-        if (!array_key_exists('new_password', $data) || !filled($data['new_password'])) {
->>>>>>> 6d20fbe (.)
             return $data;
         }
 

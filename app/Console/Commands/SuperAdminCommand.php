@@ -35,18 +35,7 @@ class SuperAdminCommand extends Command
      *
      * @return void
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     
-=======
-    public function __construct()
-    {
-        parent::__construct();
-    }
->>>>>>> fbc8f8e (.)
-=======
-    
->>>>>>> 6d20fbe (.)
 
     /**
      * Execute the console command.
@@ -59,45 +48,18 @@ class SuperAdminCommand extends Command
         $user = XotData::make()->getUserByEmail($email);
 
         // Create super-admin role with web guard
-<<<<<<< HEAD
-<<<<<<< HEAD
         $role = Role::firstOrCreate(['name' => 'super-admin']);
-=======
-        $role = Role::firstOrCreate(
-            ['name' => 'super-admin']
-        );
->>>>>>> fbc8f8e (.)
-=======
-        $role = Role::firstOrCreate(['name' => 'super-admin']);
->>>>>>> 6d20fbe (.)
         $user->assignRole($role);
 
         // Create module admin roles
         $modules_opts = array_keys(Module::all());
         foreach ($modules_opts as $module) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
             $role_name = Str::lower($module) . '::admin';
             $role = Role::firstOrCreate(['name' => $role_name]);
             $user->assignRole($role);
         }
 
         $this->info('super-admin assigned to ' . $email);
-<<<<<<< HEAD
-=======
-            $role_name = Str::lower($module).'::admin';
-            $role = Role::firstOrCreate(
-                ['name' => $role_name]
-            );
-            $user->assignRole($role);
-        }
-
-        $this->info('super-admin assigned to '.$email);
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     }
 
     /**

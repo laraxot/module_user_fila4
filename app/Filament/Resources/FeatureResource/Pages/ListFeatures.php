@@ -5,14 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\FeatureResource\Pages;
 
 use Filament\Tables\Columns\Column;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> fbc8f8e (.)
-=======
-use Override;
->>>>>>> 6d20fbe (.)
 use Filament\Actions\CreateAction;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
@@ -29,10 +22,6 @@ class ListFeatures extends XotBaseListRecords
     /**
      * @return array<string, Column>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
     #[Override]
     public function getTableColumns(): array
     {
@@ -43,27 +32,4 @@ class ListFeatures extends XotBaseListRecords
             'created_at' => TextColumn::make('created_at')->dateTime()->sortable(),
         ];
     }
-<<<<<<< HEAD
-=======
-    public function getTableColumns(): array
-    {
-        return [
-            'name' => TextColumn::make('name')
-                ->searchable()
-                ->sortable(),
-            'type' => TextColumn::make('type')
-                ->searchable()
-                ->sortable(),
-            'active' => IconColumn::make('active')
-                ->boolean(),
-            'created_at' => TextColumn::make('created_at')
-                ->dateTime()
-                ->sortable(),
-        ];
-    }
-
-   
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 }

@@ -10,36 +10,16 @@ use Modules\User\Models\User;
 
 /**
  * OauthClient Factory
-<<<<<<< HEAD
-<<<<<<< HEAD
  *
  * Factory for creating OauthClient model instances for testing and seeding.
  *
-=======
- * 
- * Factory for creating OauthClient model instances for testing and seeding.
- * 
->>>>>>> fbc8f8e (.)
-=======
- *
- * Factory for creating OauthClient model instances for testing and seeding.
- *
->>>>>>> 6d20fbe (.)
  * @extends Factory<OauthClient>
  */
 class OauthClientFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
-=======
-     * 
->>>>>>> fbc8f8e (.)
-=======
-     *
->>>>>>> 6d20fbe (.)
      * @var class-string<OauthClient>
      */
     protected $model = OauthClient::class;
@@ -61,10 +41,6 @@ class OauthClientFactory extends Factory
             'personal_access_client' => $this->faker->boolean(20), // 20% personal access clients
             'password_client' => $this->faker->boolean(30), // 30% password clients
             'revoked' => $this->faker->boolean(5), // 5% revoked
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
             'grant_types' => $this->faker->optional()->randomElements(
                 [
                     'authorization_code',
@@ -83,20 +59,6 @@ class OauthClientFactory extends Factory
                 ],
                 $this->faker->numberBetween(1, 3),
             ),
-<<<<<<< HEAD
-=======
-            'grant_types' => $this->faker->optional()->randomElements([
-                'authorization_code',
-                'client_credentials',
-                'password',
-                'refresh_token'
-            ], $this->faker->numberBetween(1, 3)),
-            'scopes' => $this->faker->optional()->randomElements([
-                'read', 'write', 'admin', 'user'
-            ], $this->faker->numberBetween(1, 3)),
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
         ];
     }
 
@@ -107,15 +69,7 @@ class OauthClientFactory extends Factory
      */
     public function personalAccess(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'personal_access_client' => true,
             'password_client' => false,
             'name' => 'Personal Access Client',
@@ -129,15 +83,7 @@ class OauthClientFactory extends Factory
      */
     public function password(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'password_client' => true,
             'personal_access_client' => false,
             'name' => 'Password Grant Client',
@@ -151,15 +97,7 @@ class OauthClientFactory extends Factory
      */
     public function revoked(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'revoked' => true,
         ]);
     }
@@ -171,15 +109,7 @@ class OauthClientFactory extends Factory
      */
     public function active(): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'revoked' => false,
         ]);
     }
@@ -192,15 +122,7 @@ class OauthClientFactory extends Factory
      */
     public function forUser(User $user): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'user_id' => $user->id,
         ]);
     }
@@ -213,15 +135,7 @@ class OauthClientFactory extends Factory
      */
     public function withRedirectUri(string $redirectUri): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->state(fn(array $_attributes): array => [
-=======
-        return $this->state(fn (array $attributes): array => [
->>>>>>> fbc8f8e (.)
-=======
-        return $this->state(fn(array $_attributes): array => [
->>>>>>> 6d20fbe (.)
             'redirect' => $redirectUri,
         ]);
     }
@@ -234,22 +148,8 @@ class OauthClientFactory extends Factory
      */
     public function withScopes(array $scopes): static
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         return $this->state(fn(array $_attributes): array => [
             'scopes' => $scopes,
         ]);
     }
 }
-<<<<<<< HEAD
-=======
-        return $this->state(fn (array $attributes): array => [
-            'scopes' => $scopes,
-        ]);
-    }
-}
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)

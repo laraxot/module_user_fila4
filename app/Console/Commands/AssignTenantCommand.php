@@ -34,18 +34,7 @@ class AssignTenantCommand extends Command
      *
      * @return void
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     
-=======
-    public function __construct()
-    {
-        parent::__construct();
-    }
->>>>>>> fbc8f8e (.)
-=======
-    
->>>>>>> 6d20fbe (.)
 
     /**
      * Execute the console command.
@@ -60,67 +49,28 @@ class AssignTenantCommand extends Command
         $tenantClass = $xot->getTenantClass();
 
         /** @var array<int|string, string>|Collection<int|string, string> */
-<<<<<<< HEAD
-<<<<<<< HEAD
         $opts = $tenantClass::all()->pluck('name', 'id')->toArray();
-=======
-        $opts = $tenantClass::all()
-            ->pluck('name', 'id')
-            ->toArray();
->>>>>>> fbc8f8e (.)
-=======
-        $opts = $tenantClass::all()->pluck('name', 'id')->toArray();
->>>>>>> 6d20fbe (.)
 
         $rows = multiselect(
             label: 'What tenant',
             options: $opts,
             required: true,
             scroll: 10,
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         // validate: function (array $values) {
         //  return ! \in_array(\count($values), [1, 2], false)
         //    ? 'A maximum of two'
         //  : null;
         // }
-<<<<<<< HEAD
-=======
-            // validate: function (array $values) {
-            //  return ! \in_array(\count($values), [1, 2], false)
-            //    ? 'A maximum of two'
-            //  : null;
-            // }
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
         );
 
         $user->tenants()->sync($rows);
         /*
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
          * foreach ($rows as $row) {
          * $role = Role::firstOrCreate(['name' => $row]);
          * $user->assignRole($role);
          * }
          */
         $this->info(implode(', ', $rows) . ' assigned to ' . $email);
-<<<<<<< HEAD
-=======
-        foreach ($rows as $row) {
-            $role = Role::firstOrCreate(['name' => $row]);
-            $user->assignRole($role);
-        }
-        */
-        $this->info(implode(', ', $rows).' assigned to '.$email);
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     }
 
     /**

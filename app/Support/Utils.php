@@ -5,14 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Support;
 
 use Illuminate\Filesystem\Filesystem;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Illuminate\Support\Facades\File;
-=======
->>>>>>> fbc8f8e (.)
-=======
-use Illuminate\Support\Facades\File;
->>>>>>> 6d20fbe (.)
 use Illuminate\Support\Str;
 use Modules\User\Contracts\HasShieldPermissions;
 use Modules\User\Datas\FilamentShieldData;
@@ -20,13 +13,6 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 use Webmozart\Assert\Assert;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-use Illuminate\Support\Facades\File;
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
 use function Safe\class_implements;
 use function Safe\class_uses;
@@ -39,41 +25,19 @@ class Utils
     public static function getFilamentAuthGuard(): string
     {
         return 'web';
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         // Assert::string($res = config('filament.auth.guard'), 'wip');
-=======
-        // Assert::string($res = config('filament.auth.guard'), 'wip');
-
->>>>>>> fbc8f8e (.)
-=======
-
-        // Assert::string($res = config('filament.auth.guard'), 'wip');
->>>>>>> 6d20fbe (.)
         // return $res;
     }
 
     public static function isResourcePublished(): bool
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         $roleResourcePath = app_path((string) Str::of('Filament\\Resources\\Shield\\RoleResource.php')->replace(
             '\\',
             '/',
         ));
 
         $filesystem = new Filesystem();
-<<<<<<< HEAD
-=======
-        $roleResourcePath = app_path((string) Str::of('Filament\\Resources\\Shield\\RoleResource.php')->replace('\\', '/'));
-
-        $filesystem = new Filesystem;
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
         return $filesystem->exists($roleResourcePath);
     }
@@ -125,23 +89,12 @@ class Utils
 
     public static function isAuthProviderConfigured(): bool
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         return (
             in_array(
                 "BezhanSalleh\FilamentShield\Traits\HasFilamentShield",
                 class_uses(static::getAuthProviderFQCN()),
              strict: true) || in_array(HasRoles::class, class_uses(static::getAuthProviderFQCN()), strict: true)
         );
-<<<<<<< HEAD
-=======
-        return in_array("BezhanSalleh\FilamentShield\Traits\HasFilamentShield", class_uses(static::getAuthProviderFQCN()))
-        || in_array(HasRoles::class, class_uses(static::getAuthProviderFQCN()));
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     }
 
     public static function isSuperAdminEnabled(): bool
@@ -286,15 +239,7 @@ class Utils
 
     public static function doesResourceHaveCustomPermissions(string $resourceClass): bool
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return in_array(HasShieldPermissions::class, class_implements($resourceClass), strict: true);
-=======
-        return in_array(HasShieldPermissions::class, class_implements($resourceClass));
->>>>>>> fbc8f8e (.)
-=======
-        return in_array(HasShieldPermissions::class, class_implements($resourceClass), strict: true);
->>>>>>> 6d20fbe (.)
     }
 
     /**

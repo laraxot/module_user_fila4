@@ -1,17 +1,8 @@
 <?php
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 declare(strict_types=1);
 
 
-=======
->>>>>>> fbc8f8e (.)
-=======
-declare(strict_types=1);
-
-
->>>>>>> 6d20fbe (.)
 return [
     'login' => 'Accedi',
     'register' => 'Registrati',
@@ -28,10 +19,3 @@ return [
     'already_registered' => 'Già registrato?',
     'not_registered' => 'Non sei registrato?',
 ];
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
