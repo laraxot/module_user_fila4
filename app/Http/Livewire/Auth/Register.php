@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Auth;
 
-<<<<<<< HEAD
 use Livewire\Component;
-=======
->>>>>>> e52a4c8 (.)
 use Filament\Schemas\Schema;
 use Webmozart\Assert\Assert;
 use Modules\Xot\Datas\XotData;

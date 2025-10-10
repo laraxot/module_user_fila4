@@ -20,11 +20,7 @@ use Modules\User\Filament\Widgets\RecentLoginsWidget;
 >>>>>>> 81efa49 (.)
 use Override;
 use Filament\Forms\Components\DatePicker;
-<<<<<<< HEAD
 use Filament\Schemas\Components\Section;
-=======
-use Filament\Forms\Components\Section;
->>>>>>> e52a4c8 (.)
 use Filament\Schemas\Schema;
 use Filament\Forms\Get;
 use Filament\Pages\Dashboard as BaseBashboard;

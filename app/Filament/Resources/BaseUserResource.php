@@ -9,10 +9,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-<<<<<<< HEAD
-=======
-use Override;
->>>>>>> e52a4c8 (.)
 use Filament\Schemas\Components\Section;
 use Override;
 use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
