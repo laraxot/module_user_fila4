@@ -52,10 +52,17 @@ use Webmozart\Assert\Assert;
  * @property int|null                            $permissions_count
  * @method static Builder|Permission withoutPermission($permissions)
  * @method static Builder|Permission withoutRole($roles, $guard = null)
+<<<<<<< HEAD
  * @property PermissionRole|null $pivot
  * @mixin IdeHelperPermission
  * @method static PermissionFactory factory($count = null, $state = [])
  * @mixin \Eloquent
+=======
+ * @method static static firstOrCreate(array $attributes, array $values = [])
+ * @property PermissionRole|null $pivot
+ * @mixin IdeHelperPermission
+ * @method static PermissionFactory factory($count = null, $state = [])
+>>>>>>> 041533e (.)
  */
 class Permission extends SpatiePermission
 {
