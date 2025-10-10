@@ -2,12 +2,7 @@
 
 ## Panoramica del Processo
 
-<<<<<<< HEAD
 Nel sistema SaluteOra, l'invio dell'email al dottore con il link per continuare la registrazione è un passaggio cruciale che avviene dopo la moderazione della richiesta iniziale. Questo documento descrive in dettaglio dove e come avviene questo processo utilizzando `SpatieEmail` e `spatie/laravel-model-states`.
-=======
-Nel sistema , l'invio dell'email al dottore con il link per continuare la registrazione è un passaggio cruciale che avviene dopo la moderazione della richiesta iniziale. Questo documento descrive in dettaglio dove e come avviene questo processo utilizzando `SpatieEmail` e `spatie/laravel-model-states`.
-Nel sistema <nome progetto>, l'invio dell'email al dottore con il link per continuare la registrazione è un passaggio cruciale che avviene dopo la moderazione della richiesta iniziale. Questo documento descrive in dettaglio dove e come avviene questo processo utilizzando `SpatieEmail` e `spatie/laravel-model-states`.
->>>>>>> 041533e (.)
 
 ## Architettura del Sistema
 
@@ -109,15 +104,8 @@ MailTemplate::firstOrCreate(
     // Valori da inserire se non viene trovato un record corrispondente
     [
         'subject' => [
-<<<<<<< HEAD
             'it' => 'Registrazione {{ status }} - SaluteOra',
             'en' => 'Registration {{ status }} - SaluteOra'
-=======
-            'it' => 'Registrazione {{ status }} - ',
-            'en' => 'Registration {{ status }} - '
-            'it' => 'Registrazione {{ status }} - <nome progetto>',
-            'en' => 'Registration {{ status }} - <nome progetto>'
->>>>>>> 041533e (.)
         ],
         'html_template' => [
             'it' => '<p>Gentile {{ full_name }},</p>
@@ -127,12 +115,7 @@ MailTemplate::firstOrCreate(
 {% else %}
 <p>{{ rejection_reason }}</p>
 {% endif %}
-<<<<<<< HEAD
 <p>Cordiali saluti,<br>Il team di SaluteOra</p>',
-=======
-<p>Cordiali saluti,<br>Il team di </p>',
-<p>Cordiali saluti,<br>Il team di <nome progetto></p>',
->>>>>>> 041533e (.)
             'en' => '<p>Dear {{ full_name }},</p>
 <p>Your registration request has been {{ status_text_en }}.</p>
 {% if is_approved %}
@@ -140,12 +123,7 @@ MailTemplate::firstOrCreate(
 {% else %}
 <p>{{ rejection_reason_en }}</p>
 {% endif %}
-<<<<<<< HEAD
 <p>Best regards,<br>The SaluteOra Team</p>'
-=======
-<p>Best regards,<br>The  Team</p>'
-<p>Best regards,<br>The <nome progetto> Team</p>'
->>>>>>> 041533e (.)
         ],
         'text_template' => [
             'it' => 'Gentile {{ full_name }},
@@ -159,12 +137,7 @@ Per continuare la registrazione, visita il seguente link: {{ continue_url }}
 {% endif %}
 
 Cordiali saluti,
-<<<<<<< HEAD
 Il team di SaluteOra',
-=======
-Il team di ',
-Il team di <nome progetto>',
->>>>>>> 041533e (.)
             'en' => 'Dear {{ full_name }},
 
 Your registration request has been {{ status_text_en }}.
@@ -176,12 +149,7 @@ To continue with your registration, visit the following link: {{ continue_url }}
 {% endif %}
 
 Best regards,
-<<<<<<< HEAD
 The SaluteOra Team'
-=======
-The  Team'
-The <nome progetto> Team'
->>>>>>> 041533e (.)
         ]
     ]
 );
@@ -308,7 +276,6 @@ class MailTemplatesTableSeeder extends Seeder
             // Valori da inserire se non trovato
             [
                 'subject' => [
-<<<<<<< HEAD
                     'it' => 'Registrazione {{ status }} - SaluteOra',
                     'en' => 'Registration {{ status }} - SaluteOra'
                 ],
@@ -319,28 +286,6 @@ class MailTemplatesTableSeeder extends Seeder
                 'text_template' => [
                     'it' => 'Gentile {{ full_name }},\n\nLa tua richiesta di registrazione è stata {{ status_text }}.\n\n{% if is_approved %}\nPer continuare la registrazione, visita il seguente link: {{ continue_url }}\n{% else %}\n{{ rejection_reason }}\n{% endif %}\n\nCordiali saluti,\nIl team di SaluteOra',
                     'en' => 'Dear {{ full_name }},\n\nYour registration request has been {{ status_text_en }}.\n\n{% if is_approved %}\nTo continue with your registration, visit the following link: {{ continue_url }}\n{% else %}\n{{ rejection_reason_en }}\n{% endif %}\n\nBest regards,\nThe SaluteOra Team'
-=======
-                    'it' => 'Registrazione {{ status }} - ',
-                    'en' => 'Registration {{ status }} - '
-                ],
-                'html_template' => [
-                    'it' => '<p>Gentile {{ full_name }},</p>\n<p>La tua richiesta di registrazione è stata {{ status_text }}.</p>\n{% if is_approved %}\n<p>Per continuare la registrazione, <a href="{{ continue_url }}">clicca qui</a>.</p>\n{% else %}\n<p>{{ rejection_reason }}</p>\n{% endif %}\n<p>Cordiali saluti,<br>Il team di </p>',
-                    'en' => '<p>Dear {{ full_name }},</p>\n<p>Your registration request has been {{ status_text_en }}.</p>\n{% if is_approved %}\n<p>To continue with your registration, <a href="{{ continue_url }}">click here</a>.</p>\n{% else %}\n<p>{{ rejection_reason_en }}</p>\n{% endif %}\n<p>Best regards,<br>The  Team</p>'
-                ],
-                'text_template' => [
-                    'it' => 'Gentile {{ full_name }},\n\nLa tua richiesta di registrazione è stata {{ status_text }}.\n\n{% if is_approved %}\nPer continuare la registrazione, visita il seguente link: {{ continue_url }}\n{% else %}\n{{ rejection_reason }}\n{% endif %}\n\nCordiali saluti,\nIl team di ',
-                    'en' => 'Dear {{ full_name }},\n\nYour registration request has been {{ status_text_en }}.\n\n{% if is_approved %}\nTo continue with your registration, visit the following link: {{ continue_url }}\n{% else %}\n{{ rejection_reason_en }}\n{% endif %}\n\nBest regards,\nThe  Team'
-                    'it' => 'Registrazione {{ status }} - <nome progetto>',
-                    'en' => 'Registration {{ status }} - <nome progetto>'
-                ],
-                'html_template' => [
-                    'it' => '<p>Gentile {{ full_name }},</p>\n<p>La tua richiesta di registrazione è stata {{ status_text }}.</p>\n{% if is_approved %}\n<p>Per continuare la registrazione, <a href="{{ continue_url }}">clicca qui</a>.</p>\n{% else %}\n<p>{{ rejection_reason }}</p>\n{% endif %}\n<p>Cordiali saluti,<br>Il team di <nome progetto></p>',
-                    'en' => '<p>Dear {{ full_name }},</p>\n<p>Your registration request has been {{ status_text_en }}.</p>\n{% if is_approved %}\n<p>To continue with your registration, <a href="{{ continue_url }}">click here</a>.</p>\n{% else %}\n<p>{{ rejection_reason_en }}</p>\n{% endif %}\n<p>Best regards,<br>The <nome progetto> Team</p>'
-                ],
-                'text_template' => [
-                    'it' => 'Gentile {{ full_name }},\n\nLa tua richiesta di registrazione è stata {{ status_text }}.\n\n{% if is_approved %}\nPer continuare la registrazione, visita il seguente link: {{ continue_url }}\n{% else %}\n{{ rejection_reason }}\n{% endif %}\n\nCordiali saluti,\nIl team di <nome progetto>',
-                    'en' => 'Dear {{ full_name }},\n\nYour registration request has been {{ status_text_en }}.\n\n{% if is_approved %}\nTo continue with your registration, visit the following link: {{ continue_url }}\n{% else %}\n{{ rejection_reason_en }}\n{% endif %}\n\nBest regards,\nThe <nome progetto> Team'
->>>>>>> 041533e (.)
                 ]
             ]
         );
@@ -398,14 +343,7 @@ Questo URL viene incluso nell'email solo se la moderazione è stata approvata.
 
 Il template dell'email si trova in:
 ```
-<<<<<<< HEAD
 /var/www/html/saluteora/laravel/Modules/Patient/resources/views/emails/doctor-registration-moderated.blade.php
-=======
-/var/www/html/_bases/base_techplanner_fila3_mono/laravel/Modules/Patient/resources/views/emails/doctor-registration-moderated.blade.php
-/var/www/html/<nome progetto>/laravel/Modules/Patient/resources/views/emails/doctor-registration-moderated.blade.php
-/var/www/html/_bases/base_techplanner_fila3_mono/laravel/Modules/Patient/resources/views/emails/doctor-registration-moderated.blade.php
-/var/www/html/<nome progetto>/laravel/Modules/Patient/resources/views/emails/doctor-registration-moderated.blade.php
->>>>>>> 041533e (.)
 ```
 
 Il template visualizza:
@@ -460,14 +398,7 @@ Il template visualizza:
 Il processo di registrazione iniziale del dottore utilizza il widget di registrazione generico che si trova in:
 
 ```
-<<<<<<< HEAD
 /var/www/html/saluteora/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php
-=======
-/var/www/html/_bases/base_techplanner_fila3_mono/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php
-/var/www/html/<nome progetto>/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php
-/var/www/html/_bases/base_techplanner_fila3_mono/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php
-/var/www/html/<nome progetto>/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php
->>>>>>> 041533e (.)
 ```
 
 Questo widget è progettato per gestire la registrazione di diversi tipi di utenti, non solo i dottori. Per maggiori dettagli sul funzionamento del widget e su come completarlo correttamente, consultare la [documentazione del widget di registrazione](./registration-widget.md).
@@ -491,12 +422,7 @@ Per inviare correttamente le email di registrazione, è fondamentale raccogliere
 
 ## Conclusione
 
-<<<<<<< HEAD
 Il processo di invio dell'email al dottore con il link per continuare la registrazione è un componente ben progettato del sistema SaluteOra, che garantisce:
-=======
-Il processo di invio dell'email al dottore con il link per continuare la registrazione è un componente ben progettato del sistema , che garantisce:
-Il processo di invio dell'email al dottore con il link per continuare la registrazione è un componente ben progettato del sistema <nome progetto>, che garantisce:
->>>>>>> 041533e (.)
 
 1. **Sicurezza**: Utilizzo di token univoci e validazione
 2. **Flessibilità**: Contenuto dell'email adattato in base all'esito della moderazione

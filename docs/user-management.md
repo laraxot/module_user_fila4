@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Gestione degli Utenti in SaluteOra
 
 ## Panoramica
@@ -8,26 +7,6 @@ Questo documento descrive il sistema di gestione degli utenti in SaluteOra, con 
 ## Tipi di Utenti
 
 SaluteOra supporta diversi tipi di utenti, ciascuno con caratteristiche e funzionalità specifiche:
-=======
-# Gestione degli Utenti in 
-
-## Panoramica
-
-Questo documento descrive il sistema di gestione degli utenti in , con particolare attenzione ai diversi tipi di utenti (pazienti, dottori, amministratori) e alla loro implementazione nel database e nel codice.
-
-## Tipi di Utenti
-
- supporta diversi tipi di utenti, ciascuno con caratteristiche e funzionalità specifiche:
-# Gestione degli Utenti in <nome progetto>
-
-## Panoramica
-
-Questo documento descrive il sistema di gestione degli utenti in <nome progetto>, con particolare attenzione ai diversi tipi di utenti (pazienti, dottori, amministratori) e alla loro implementazione nel database e nel codice.
-
-## Tipi di Utenti
-
-<nome progetto> supporta diversi tipi di utenti, ciascuno con caratteristiche e funzionalità specifiche:
->>>>>>> 041533e (.)
 
 1. **Pazienti**: Utenti che ricevono servizi medici
 2. **Dottori**: Professionisti medici che forniscono servizi
@@ -37,12 +16,7 @@ Questo documento descrive il sistema di gestione degli utenti in <nome progetto>
 
 ### Single Table Inheritance (STI)
 
-<<<<<<< HEAD
 SaluteOra utilizza il pattern Single Table Inheritance tramite il pacchetto `parental` per gestire diversi tipi di utenti in un'unica tabella `users`. Questo approccio offre diversi vantaggi:
-=======
- utilizza il pattern Single Table Inheritance tramite il pacchetto `parental` per gestire diversi tipi di utenti in un'unica tabella `users`. Questo approccio offre diversi vantaggi:
-<nome progetto> utilizza il pattern Single Table Inheritance tramite il pacchetto `parental` per gestire diversi tipi di utenti in un'unica tabella `users`. Questo approccio offre diversi vantaggi:
->>>>>>> 041533e (.)
 
 - **Efficienza del Database**: Tutti gli utenti sono memorizzati in un'unica tabella
 - **Flessibilità**: Facile aggiunta di nuovi tipi di utenti

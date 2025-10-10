@@ -4,19 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Filament\Forms\Components\Component;
-=======
 use Filament\Schemas\Components\Component;
->>>>>>> a63f578 (.)
-=======
-use Filament\Schemas\Components\Component;
->>>>>>> 041533e (.)
-=======
-use Filament\Schemas\Components\Component;
->>>>>>> 00a34d0 (.)
 use Override;
 use Exception;
 use BackedEnum;
@@ -26,17 +14,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Wizard\Step;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Form;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Filament\Forms\Form;
-=======
->>>>>>> a63f578 (.)
-=======
->>>>>>> 041533e (.)
-=======
->>>>>>> 00a34d0 (.)
+use Filament\Schemas\Schema;
 use Filament\Widgets\Widget;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
