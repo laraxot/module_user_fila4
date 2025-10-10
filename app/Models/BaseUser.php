@@ -4,6 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
+=======
+use Modules\TechPlanner\Models\Profile;
+use Modules\User\Models\Traits\HasAuthenticationLogTrait;
+use Throwable;
+use Override;
+use Illuminate\Database\Eloquent\Model;
+use Exception;
+use Modules\Xot\Contracts\ProfileContract;
+use DateTime;
+use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Database\Eloquent\Builder;
+>>>>>>> a63f578 (.)
 use Filament\Models\Contracts\HasName;
 use Filament\Models\Contracts\HasTenants;
 use Filament\Panel;
@@ -12,6 +25,10 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+<<<<<<< HEAD
+=======
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+>>>>>>> a63f578 (.)
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -22,6 +39,18 @@ use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
+<<<<<<< HEAD
+=======
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
+use Laravel\Passport\HasApiTokens;
+use Modules\User\Database\Factories\UserFactory;
+use Modules\User\Models\Traits\HasTeams;
+use Modules\Xot\Actions\Factory\GetFactoryAction;
+use Modules\Xot\Contracts\UserContract;
+use Modules\Xot\Datas\XotData;
+use Modules\Xot\Models\Traits\RelationX;
+>>>>>>> a63f578 (.)
 use Parental\HasChildren;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -115,6 +144,12 @@ use Spatie\Permission\Traits\HasRoles;
  *
  * @mixin IdeHelperBaseUser
  */
+<<<<<<< HEAD
+=======
+abstract class BaseUser extends Authenticatable implements HasName, HasTenants, UserContract, HasMedia, MustVerifyEmail
+{
+    use HasApiTokens;
+>>>>>>> a63f578 (.)
     use HasChildren;
     use HasFactory;
     use HasPermissions;
@@ -123,6 +158,12 @@ use Spatie\Permission\Traits\HasRoles;
     use InteractsWithMedia;
     use Notifiable;
     use RelationX;
+<<<<<<< HEAD
+=======
+    use HasAuthenticationLogTrait;
+    use Traits\HasTenants;
+    use HasTeams;
+>>>>>>> a63f578 (.)
 
     public $incrementing = false;
 
@@ -175,6 +216,13 @@ use Spatie\Permission\Traits\HasRoles;
     /** @var array<string, class-string> */
     protected $childTypes = [];
 
+<<<<<<< HEAD
+=======
+    /** @var array<string, mixed>  */
+    protected $attributes = [
+        //'state' => Pending::class,
+        //'state' => 'pending',
+>>>>>>> a63f578 (.)
         'is_otp' => false,
         'is_active' => true,
     ];
@@ -203,6 +251,10 @@ use Spatie\Permission\Traits\HasRoles;
         }
     }
 
+<<<<<<< HEAD
+=======
+    public function canAccessFilament(null|Panel $panel = null): bool
+>>>>>>> a63f578 (.)
     {
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;
         return true;
@@ -210,6 +262,11 @@ use Spatie\Permission\Traits\HasRoles;
 
     /**
      * Get the user's name for Filament.
+<<<<<<< HEAD
+=======
+     *
+     * @return string
+>>>>>>> a63f578 (.)
      */
     public function getFilamentName(): string
     {
@@ -218,12 +275,35 @@ use Spatie\Permission\Traits\HasRoles;
         $lastName = (string) ($this->getAttribute('last_name') ?? '');
 
         $fullName = trim(sprintf('%s %s %s', $name, $firstName, $lastName));
+<<<<<<< HEAD
+=======
+        
+        // Ensure we always return a non-empty string
+        if (empty($fullName)) {
+            $email = (string) ($this->getAttribute('email') ?? '');
+            return !empty($email) ? $email : 'User';
+        }
+        
+>>>>>>> a63f578 (.)
         return $fullName;
     }
 
     #[Override]
     public function profile(): HasOne
     {
+<<<<<<< HEAD
+=======
+        try {
+            /** @var class-string<Model> */
+            $profileClass = XotData::make()->getProfileClass();
+
+            return $this->hasOne($profileClass);
+        } catch (Exception $e) {
+            // Fallback: se non riesce a ottenere la classe Profile, usa una relazione generica
+            // Questo evita l'errore "Target [Illuminate\Database\Eloquent\Model] is not instantiable"
+            return $this->hasOne(Profile::class);
+        }
+>>>>>>> a63f578 (.)
     }
 
     /**
@@ -238,6 +318,10 @@ use Spatie\Permission\Traits\HasRoles;
 
     public function assignModule(string $module): void
     {
+<<<<<<< HEAD
+=======
+        $role_name = $module . '::admin';
+>>>>>>> a63f578 (.)
         $role = Role::firstOrCreate(['name' => $role_name]);
         $this->assignRole($role);
     }
@@ -291,6 +375,10 @@ use Spatie\Permission\Traits\HasRoles;
 
     public function treeSons(): Collection
     {
+<<<<<<< HEAD
+=======
+        return $this->teams ?? new Collection();
+>>>>>>> a63f578 (.)
     }
 
     /**
@@ -346,20 +434,42 @@ use Spatie\Permission\Traits\HasRoles;
         return $this->morphOne(AuthenticationLog::class, 'authenticatable')->latestOfMany();
     }
 
+<<<<<<< HEAD
+=======
+    public function getFullNameAttribute(null|string $value): string
+>>>>>>> a63f578 (.)
     {
         if ($value !== null) {
             return $value;
         }
+<<<<<<< HEAD
+=======
+        
+        $fullName = trim(($this->first_name ?? '') . ' ' . ($this->last_name ?? ''));
+        
+        return $fullName !== '' ? $fullName : ($this->email ?? 'User');
+    }
+
+    public function getNameAttribute(null|string $value): string
+>>>>>>> a63f578 (.)
     {
         if ($value !== null) {
             return $value;
         }
+<<<<<<< HEAD
+=======
+        
+>>>>>>> a63f578 (.)
         if ($this->getKey() === null) {
             return $this->email ?? 'User';
         }
 
         $name = Str::of((string) $this->email)->before('@')->toString();
         $i = 1;
+<<<<<<< HEAD
+=======
+        $candidate = $name . '-' . $i;
+>>>>>>> a63f578 (.)
 
         // During unit tests, avoid any DB interaction.
         $isTesting = (function (): bool {
@@ -379,6 +489,10 @@ use Spatie\Permission\Traits\HasRoles;
             $value = $candidate;
             while (static::query()->firstWhere(['name' => $value]) !== null) {
                 $i++;
+<<<<<<< HEAD
+=======
+                $value = $name . '-' . $i;
+>>>>>>> a63f578 (.)
             }
             $this->update(['name' => $value]);
 
@@ -423,10 +537,26 @@ use Spatie\Permission\Traits\HasRoles;
         ];
     }
 
+<<<<<<< HEAD
+=======
+    //public function authentications(): MorphMany
+    //{
+    //    return $this->morphMany(\Modules\User\Models\Authentication::class, 'authenticatable');
+    //}
+>>>>>>> a63f578 (.)
 
     /**
      * Check if the user has a specific role.
      *
+<<<<<<< HEAD
+=======
+     * @param array|\Illuminate\Support\Collection|int|\Spatie\Permission\Contracts\Role|string $roles
+     * @param string|null $guard
+     * @return bool
+     */
+    #[Override]
+    public function hasRole($roles, null|string $guard = null): bool
+>>>>>>> a63f578 (.)
     {
         // Se è una stringa semplice, utilizziamo il metodo interno tramite relazione roles
         if (is_string($roles)) {
@@ -454,6 +584,13 @@ use Spatie\Permission\Traits\HasRoles;
         return false;
     }
 
+<<<<<<< HEAD
+=======
+    public function setPasswordAttribute(null|string $value): void
+    {
+        if (empty($value)) {
+            unset($this->attributes['password']);
+>>>>>>> a63f578 (.)
             return;
         }
         if (strlen($value) < 32) {

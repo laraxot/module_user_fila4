@@ -6,7 +6,10 @@ namespace Modules\User\Filament\Pages\Tenancy;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+<<<<<<< HEAD
 use Filament\Forms\Form;
+=======
+>>>>>>> a63f578 (.)
 use Filament\Pages\Tenancy\EditTenantProfile;
 
 class EditTeamProfile extends EditTenantProfile

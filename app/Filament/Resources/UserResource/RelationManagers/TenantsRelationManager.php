@@ -4,13 +4,20 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
+<<<<<<< HEAD
 use Filament\Forms\Components\Component;
+=======
+use Filament\Schemas\Components\Component;
+>>>>>>> a63f578 (.)
 use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\Column;
 use Filament\Forms;
 use Filament\Forms\Form;
+<<<<<<< HEAD
 use Filament\Forms\Form;
+=======
+>>>>>>> a63f578 (.)
 use Filament\Tables\Table;
 use Modules\User\Filament\Resources\TenantResource\Pages\ListTenants;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
