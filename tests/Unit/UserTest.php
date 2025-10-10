@@ -6,10 +6,13 @@ use Tests\TestCase;
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Enums\UserType;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 
 /**
  * @property User $user
  */
+=======
+>>>>>>> e52a4c8 (.)
 
 uses(TestCase::class);
 

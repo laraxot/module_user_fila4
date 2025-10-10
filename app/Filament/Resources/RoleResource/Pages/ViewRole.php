@@ -4,9 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
+<<<<<<< HEAD
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Component;
 use Override;
+=======
+use Filament\Schemas\Components\Component;
+use Override;
+use Filament\Schemas\Components\Section;
+>>>>>>> e52a4c8 (.)
 use Filament\Infolists\Components\TextEntry;
 use Filament\Pages\Actions\EditAction;
 use Modules\User\Filament\Resources\RoleResource;
