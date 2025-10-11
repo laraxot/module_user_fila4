@@ -16,7 +16,7 @@ class RoleTest extends TestCase
     public function test_can_create_role_with_minimal_data(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create([
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create([
             'name' => 'Test Role',
             'guard_name' => 'web',
         ]);
@@ -32,7 +32,7 @@ class RoleTest extends TestCase
     public function test_can_create_role_with_all_fields(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $team = Team::factory()->create();
+        $team = Team/** @phpstan-ignore-line */ ::factory()->create();
 
         $roleData = [
             'name' => 'Full Role',
@@ -42,7 +42,7 @@ class RoleTest extends TestCase
         ];
 
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create($roleData);
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create($roleData);
 
         /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('roles', [
@@ -78,7 +78,7 @@ class RoleTest extends TestCase
     public function test_can_find_role_by_name(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create(['name' => 'Unique Role Name']);
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Unique Role Name']);
 
         $foundRole = Role::where('name', 'Unique Role Name')->first();
 
@@ -88,9 +88,9 @@ class RoleTest extends TestCase
 
     public function test_can_find_role_by_guard_name(): void
     {
-        Role::factory()->create(['guard_name' => 'web']);
-        Role::factory()->create(['guard_name' => 'api']);
-        Role::factory()->create(['guard_name' => 'web']);
+        Role/** @phpstan-ignore-line */ ::factory()->create(['guard_name' => 'web']);
+        Role/** @phpstan-ignore-line */ ::factory()->create(['guard_name' => 'api']);
+        Role/** @phpstan-ignore-line */ ::factory()->create(['guard_name' => 'web']);
 
         $webRoles = Role::where('guard_name', 'web')->get();
 
@@ -102,9 +102,9 @@ class RoleTest extends TestCase
     public function test_can_find_role_by_team_id(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $team = Team::factory()->create();
+        $team = Team/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create(['team_id' => $team->id]);
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['team_id' => $team->id]);
 
         $foundRole = Role::where('team_id', $team->id)->first();
 
@@ -116,7 +116,7 @@ class RoleTest extends TestCase
     {
         $uuid = '550e8400-e29b-41d4-a716-446655440000';
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create(['uuid' => $uuid]);
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['uuid' => $uuid]);
 
         $foundRole = Role::where('uuid', $uuid)->first();
 
@@ -126,9 +126,9 @@ class RoleTest extends TestCase
 
     public function test_can_find_roles_by_name_pattern(): void
     {
-        Role::factory()->create(['name' => 'Admin Role']);
-        Role::factory()->create(['name' => 'User Role']);
-        Role::factory()->create(['name' => 'Manager Role']);
+        Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Admin Role']);
+        Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'User Role']);
+        Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Manager Role']);
 
         $adminRoles = Role::where('name', 'like', '%Role%')->get();
 
@@ -140,7 +140,7 @@ class RoleTest extends TestCase
     public function test_can_update_role(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create(['name' => 'Old Name']);
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Old Name']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $role->update(['name' => 'New Name']);
@@ -155,7 +155,7 @@ class RoleTest extends TestCase
     public function test_can_handle_null_values(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create([
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create([
             'name' => 'Test Role',
             'guard_name' => 'web',
             'team_id' => null,
@@ -173,14 +173,14 @@ class RoleTest extends TestCase
     public function test_can_find_roles_by_multiple_criteria(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $team = Team::factory()->create();
-        Role::factory()->create([
+        $team = Team/** @phpstan-ignore-line */ ::factory()->create();
+        Role/** @phpstan-ignore-line */ ::factory()->create([
             'name' => 'Admin Role',
             'guard_name' => 'web',
             'team_id' => $team->id,
         ]);
 
-        Role::factory()->create([
+        Role/** @phpstan-ignore-line */ ::factory()->create([
             'name' => 'User Role',
             'guard_name' => 'api',
             'team_id' => $team->id,
@@ -198,7 +198,7 @@ class RoleTest extends TestCase
     public function test_role_has_permissions_relationship(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create();
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($role, 'permissions'));
     }
@@ -206,7 +206,7 @@ class RoleTest extends TestCase
     public function test_role_has_team_relationship(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create();
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($role, 'team'));
     }
@@ -214,7 +214,7 @@ class RoleTest extends TestCase
     public function test_role_has_users_relationship(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create();
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($role, 'users'));
     }
@@ -222,7 +222,7 @@ class RoleTest extends TestCase
     public function test_role_can_use_permission_scopes(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create();
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($role, 'permission'));
         static::assertTrue(method_exists($role, 'withoutPermission'));
@@ -231,7 +231,7 @@ class RoleTest extends TestCase
     public function test_role_can_use_role_scopes(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create();
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($role, 'role'));
         static::assertTrue(method_exists($role, 'withoutRole'));

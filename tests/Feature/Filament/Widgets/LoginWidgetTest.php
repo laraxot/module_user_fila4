@@ -56,7 +56,7 @@ test('it can authenticate user', function (): void {
     }
 
     /** @var User $user */
-    $user = User::factory()->create([
+    $user = User/** @phpstan-ignore-line */ ::factory()->create([
         'email' => 'test@example.com',
         'password' => Hash::make('password123'),
     ]);

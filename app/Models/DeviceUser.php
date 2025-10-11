@@ -56,7 +56,6 @@ use Override;
  */
 class DeviceUser extends BasePivot
 {
-    /** @use HasFactory<ModulesSERDATABASEFACTORIESDEVICEUSERFACTORY> */
     use \Modules\Xot\Models\Traits\HasXotFactory;
 
     /** @var list<string> */

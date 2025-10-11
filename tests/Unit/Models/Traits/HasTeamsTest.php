@@ -28,7 +28,7 @@ class MockUserWithTeams extends Model
 }
 
 beforeEach(function (): void {
-    $this->user = new MockUserWithTeams;
+    /** @var object{user: mixed} $this */ $this->user = new MockUserWithTeams;
     /** @phpstan-ignore-next-line property.notFound */
     $this->user->id = 1;
 

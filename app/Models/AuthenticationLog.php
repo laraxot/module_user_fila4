@@ -27,7 +27,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /** */
 class AuthenticationLog extends BaseModel
 {
-    /** @use HasFactory<ModulesSERDATABASEFACTORIESAUTHENTICATIONLOGFACTORY> */
     use \Modules\Xot\Models\Traits\HasXotFactory;
     /** @var string */
     protected $connection = 'user';

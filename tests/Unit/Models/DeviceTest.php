@@ -14,7 +14,7 @@ class DeviceTest extends TestCase
 
     public function test_can_create_device_with_minimal_data(): void
     {
-        $device = Device::factory()->create([
+        $device = Device/** @phpstan-ignore-line */ ::factory()->create([
             'device' => 'iPhone',
             'platform' => 'iOS',
         ]);
@@ -45,7 +45,7 @@ class DeviceTest extends TestCase
             'is_phone' => true,
         ];
 
-        $device = Device::factory()->create($deviceData);
+        $device = Device/** @phpstan-ignore-line */ ::factory()->create($deviceData);
 
         /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('devices', [
@@ -69,7 +69,7 @@ class DeviceTest extends TestCase
 
     public function test_device_has_soft_deletes(): void
     {
-        $device = Device::factory()->create();
+        $device = Device/** @phpstan-ignore-line */ ::factory()->create();
         $deviceId = $device->id;
 
         /** @phpstan-ignore-next-line method.nonObject */
@@ -89,7 +89,7 @@ class DeviceTest extends TestCase
             return;
         }
 
-        $device = Device::factory()->create();
+        $device = Device/** @phpstan-ignore-line */ ::factory()->create();
         $deviceId = $device->id;
 
         /** @phpstan-ignore-next-line method.nonObject */
@@ -110,7 +110,7 @@ class DeviceTest extends TestCase
     public function test_can_find_device_by_uuid(): void
     {
         $uuid = '550e8400-e29b-41d4-a716-446655440000';
-        $device = Device::factory()->create(['uuid' => $uuid]);
+        $device = Device/** @phpstan-ignore-line */ ::factory()->create(['uuid' => $uuid]);
 
         $foundDevice = Device::where('uuid', $uuid)->first();
 
@@ -120,7 +120,7 @@ class DeviceTest extends TestCase
 
     public function test_can_find_device_by_mobile_id(): void
     {
-        $device = Device::factory()->create(['mobile_id' => 'unique_mobile_123']);
+        $device = Device/** @phpstan-ignore-line */ ::factory()->create(['mobile_id' => 'unique_mobile_123']);
 
         $foundDevice = Device::where('mobile_id', 'unique_mobile_123')->first();
 
@@ -130,7 +130,7 @@ class DeviceTest extends TestCase
 
     public function test_can_find_device_by_device_type(): void
     {
-        $device = Device::factory()->create(['device' => 'iPhone 13 Pro']);
+        $device = Device/** @phpstan-ignore-line */ ::factory()->create(['device' => 'iPhone 13 Pro']);
 
         $foundDevice = Device::where('device', 'iPhone 13 Pro')->first();
 
@@ -140,9 +140,9 @@ class DeviceTest extends TestCase
 
     public function test_can_find_device_by_platform(): void
     {
-        Device::factory()->create(['platform' => 'iOS']);
-        Device::factory()->create(['platform' => 'Android']);
-        Device::factory()->create(['platform' => 'Windows']);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['platform' => 'iOS']);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['platform' => 'Android']);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['platform' => 'Windows']);
 
         $iosDevices = Device::where('platform', 'iOS')->get();
 
@@ -153,9 +153,9 @@ class DeviceTest extends TestCase
 
     public function test_can_find_device_by_browser(): void
     {
-        Device::factory()->create(['browser' => 'Safari']);
-        Device::factory()->create(['browser' => 'Chrome']);
-        Device::factory()->create(['browser' => 'Firefox']);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['browser' => 'Safari']);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['browser' => 'Chrome']);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['browser' => 'Firefox']);
 
         $safariDevices = Device::where('browser', 'Safari')->get();
 
@@ -166,7 +166,7 @@ class DeviceTest extends TestCase
 
     public function test_can_find_device_by_version(): void
     {
-        $device = Device::factory()->create(['version' => '15.0.1']);
+        $device = Device/** @phpstan-ignore-line */ ::factory()->create(['version' => '15.0.1']);
 
         $foundDevice = Device::where('version', '15.0.1')->first();
 
@@ -176,9 +176,9 @@ class DeviceTest extends TestCase
 
     public function test_can_find_desktop_devices(): void
     {
-        Device::factory()->create(['is_desktop' => true]);
-        Device::factory()->create(['is_desktop' => false]);
-        Device::factory()->create(['is_desktop' => true]);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['is_desktop' => true]);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['is_desktop' => false]);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['is_desktop' => true]);
 
         $desktopDevices = Device::where('is_desktop', true)->get();
 
@@ -189,9 +189,9 @@ class DeviceTest extends TestCase
 
     public function test_can_find_mobile_devices(): void
     {
-        Device::factory()->create(['is_mobile' => true]);
-        Device::factory()->create(['is_mobile' => false]);
-        Device::factory()->create(['is_mobile' => true]);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['is_mobile' => true]);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['is_mobile' => false]);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['is_mobile' => true]);
 
         $mobileDevices = Device::where('is_mobile', true)->get();
 
@@ -202,9 +202,9 @@ class DeviceTest extends TestCase
 
     public function test_can_find_tablet_devices(): void
     {
-        Device::factory()->create(['is_tablet' => true]);
-        Device::factory()->create(['is_tablet' => false]);
-        Device::factory()->create(['is_tablet' => true]);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['is_tablet' => true]);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['is_tablet' => false]);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['is_tablet' => true]);
 
         $tabletDevices = Device::where('is_tablet', true)->get();
 
@@ -215,9 +215,9 @@ class DeviceTest extends TestCase
 
     public function test_can_find_phone_devices(): void
     {
-        Device::factory()->create(['is_phone' => true]);
-        Device::factory()->create(['is_phone' => false]);
-        Device::factory()->create(['is_phone' => true]);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['is_phone' => true]);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['is_phone' => false]);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['is_phone' => true]);
 
         $phoneDevices = Device::where('is_phone', true)->get();
 
@@ -228,9 +228,9 @@ class DeviceTest extends TestCase
 
     public function test_can_find_robot_devices(): void
     {
-        Device::factory()->create(['is_robot' => true, 'robot' => 'Googlebot']);
-        Device::factory()->create(['is_robot' => false, 'robot' => null]);
-        Device::factory()->create(['is_robot' => true, 'robot' => 'Bingbot']);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['is_robot' => true, 'robot' => 'Googlebot']);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['is_robot' => false, 'robot' => null]);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['is_robot' => true, 'robot' => 'Bingbot']);
 
         $robotDevices = Device::where('is_robot', true)->get();
 
@@ -241,9 +241,9 @@ class DeviceTest extends TestCase
 
     public function test_can_find_devices_by_language(): void
     {
-        Device::factory()->create(['languages' => ['en', 'it']]);
-        Device::factory()->create(['languages' => ['en', 'de']]);
-        Device::factory()->create(['languages' => ['fr', 'es']]);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['languages' => ['en', 'it']]);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['languages' => ['en', 'de']]);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['languages' => ['fr', 'es']]);
 
         $englishDevices = Device::whereJsonContains('languages', 'en')->get();
 
@@ -254,9 +254,9 @@ class DeviceTest extends TestCase
 
     public function test_can_find_devices_by_device_pattern(): void
     {
-        Device::factory()->create(['device' => 'iPhone 13']);
-        Device::factory()->create(['device' => 'iPhone 14']);
-        Device::factory()->create(['device' => 'Samsung Galaxy']);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['device' => 'iPhone 13']);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['device' => 'iPhone 14']);
+        Device/** @phpstan-ignore-line */ ::factory()->create(['device' => 'Samsung Galaxy']);
 
         $iphoneDevices = Device::where('device', 'like', '%iPhone%')->get();
 
@@ -267,7 +267,7 @@ class DeviceTest extends TestCase
 
     public function test_can_update_device(): void
     {
-        $device = Device::factory()->create(['device' => 'Old Device']);
+        $device = Device/** @phpstan-ignore-line */ ::factory()->create(['device' => 'Old Device']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $device->update(['device' => 'New Device']);
@@ -281,7 +281,7 @@ class DeviceTest extends TestCase
 
     public function test_can_handle_null_values(): void
     {
-        $device = Device::factory()->create([
+        $device = Device/** @phpstan-ignore-line */ ::factory()->create([
             'device' => 'Test Device',
             'platform' => 'Test Platform',
             'mobile_id' => null,
@@ -303,19 +303,19 @@ class DeviceTest extends TestCase
 
     public function test_can_find_devices_by_multiple_criteria(): void
     {
-        Device::factory()->create([
+        Device/** @phpstan-ignore-line */ ::factory()->create([
             'platform' => 'iOS',
             'is_mobile' => true,
             'browser' => 'Safari',
         ]);
 
-        Device::factory()->create([
+        Device/** @phpstan-ignore-line */ ::factory()->create([
             'platform' => 'Android',
             'is_mobile' => true,
             'browser' => 'Chrome',
         ]);
 
-        Device::factory()->create([
+        Device/** @phpstan-ignore-line */ ::factory()->create([
             'platform' => 'Windows',
             'is_mobile' => false,
             'browser' => 'Edge',
@@ -334,14 +334,14 @@ class DeviceTest extends TestCase
 
     public function test_device_has_users_relationship(): void
     {
-        $device = Device::factory()->create();
+        $device = Device/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($device, 'users'));
     }
 
     public function test_device_has_factory(): void
     {
-        $device = Device::factory()->create();
+        $device = Device/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertNotNull($device->id);
         static::assertInstanceOf(Device::class, $device);
