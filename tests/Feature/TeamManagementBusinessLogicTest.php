@@ -50,9 +50,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_add_user_to_team(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
 
         // Act
@@ -80,9 +80,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_remove_user_from_team(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line method.nonObject */
         $team->users()->attach($user->id, ['role' => 'member']);
@@ -108,9 +108,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_assign_team_role_to_user(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line method.nonObject */
         $team->users()->attach($user->id, ['role' => 'member']);
@@ -135,9 +135,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_assign_team_permissions_to_user(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
         $permissions = ['read', 'write', 'delete'];
 
@@ -168,9 +168,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_check_user_team_permissions(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
         $permissions = ['read', 'write'];
 
@@ -193,9 +193,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_create_team_invitation(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $inviter = User/** @phpstan-ignore-line */ ::factory()->create();
         $invitationData = [
             'email' => 'invited@example.com',
@@ -238,11 +238,11 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_accept_team_invitation(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $inviter = User/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $invitedUser = User/** @phpstan-ignore-line */ ::factory()->create(['email' => 'invited@example.com']);
 
         /** @phpstan-ignore-next-line method.nonObject */
@@ -278,9 +278,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_decline_team_invitation(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $inviter = User/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line method.nonObject */
@@ -306,9 +306,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_create_team_membership(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
         $membershipData = [
             'role' => 'member',
@@ -350,9 +350,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_update_team_membership(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line method.nonObject */
         $membership = $team->memberships()->create([
@@ -386,9 +386,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_remove_team_membership(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line method.nonObject */
         $membership = $team->memberships()->create([
@@ -415,7 +415,7 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_create_team_permission(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
         $permissionData = [
             'name' => 'patients.manage',
@@ -446,7 +446,7 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_assign_permission_to_team_role(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line method.nonObject */
         $permission = $team->permissions()->create([
@@ -473,9 +473,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_check_team_user_role(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line method.nonObject */
         $team->users()->attach($user->id, ['role' => 'admin']);
@@ -493,13 +493,13 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_get_team_members(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user1 = User/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user2 = User/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user3 = User/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line method.nonObject */
@@ -527,13 +527,13 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_get_team_admins(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $admin1 = User/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $admin2 = User/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $member = User/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line method.nonObject */
@@ -562,13 +562,13 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_get_team_members_by_role(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $doctor1 = User/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $doctor2 = User/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $nurse = User/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line method.nonObject */
@@ -601,9 +601,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_check_team_is_personal(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $personalTeam = Team/** @phpstan-ignore-line */ ::factory()->create(['personal_team' => true]);
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $regularTeam = Team/** @phpstan-ignore-line */ ::factory()->create(['personal_team' => false]);
 
         // Act & Assert
@@ -617,9 +617,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_check_team_has_user_with_permission(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
         $permissions = ['read', 'write'];
 
@@ -642,9 +642,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_get_team_invitations(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $inviter = User/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line method.nonObject */
@@ -679,9 +679,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_get_pending_team_invitations(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $inviter = User/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line method.nonObject */
@@ -719,13 +719,13 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_get_team_statistics(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user1 = User/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user2 = User/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user3 = User/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line method.nonObject */
@@ -773,7 +773,7 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_handle_team_soft_delete(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
 
         // Act
@@ -791,7 +791,7 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_restore_soft_deleted_team(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line method.nonObject */
         $team->delete();
@@ -811,9 +811,9 @@ class TeamManagementBusinessLogicTest extends TestCase
     public function it_can_force_delete_team(): void
     {
         // Arrange
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line method.nonObject */
         $team->users()->attach($user->id, ['role' => 'member']);

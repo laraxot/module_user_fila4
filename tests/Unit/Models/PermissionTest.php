@@ -14,7 +14,7 @@ class PermissionTest extends TestCase
 
     public function test_can_create_permission_with_minimal_data(): void
     {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create([
             'name' => 'test.permission',
             'guard_name' => 'web',
@@ -37,7 +37,7 @@ class PermissionTest extends TestCase
             'updated_by' => 'user456',
         ];
 
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create($permissionData);
 
         /** @phpstan-ignore-next-line property.notFound, method.nonObject */
@@ -101,7 +101,7 @@ class PermissionTest extends TestCase
 
     public function test_can_find_permission_by_name(): void
     {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'unique.permission']);
 
         $foundPermission = Permission::where('name', 'unique.permission')->first();
@@ -125,7 +125,7 @@ class PermissionTest extends TestCase
 
     public function test_can_find_permission_by_created_by(): void
     {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['created_by' => 'user123']);
 
         $foundPermission = Permission::where('created_by', 'user123')->first();
@@ -136,7 +136,7 @@ class PermissionTest extends TestCase
 
     public function test_can_find_permission_by_updated_by(): void
     {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['updated_by' => 'user456']);
 
         $foundPermission = Permission::where('updated_by', 'user456')->first();
@@ -161,7 +161,7 @@ class PermissionTest extends TestCase
 
     public function test_can_update_permission(): void
     {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'old.permission']);
 
         /** @phpstan-ignore-next-line method.nonObject */
@@ -176,7 +176,7 @@ class PermissionTest extends TestCase
 
     public function test_can_handle_null_values(): void
     {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create([
             'name' => 'test.permission',
             'guard_name' => 'web',
@@ -217,7 +217,7 @@ class PermissionTest extends TestCase
 
     public function test_permission_has_roles_relationship(): void
     {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($permission, 'roles'));
@@ -225,7 +225,7 @@ class PermissionTest extends TestCase
 
     public function test_permission_has_users_relationship(): void
     {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($permission, 'users'));
@@ -233,7 +233,7 @@ class PermissionTest extends TestCase
 
     public function test_permission_can_use_role_scopes(): void
     {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($permission, 'role'));
@@ -241,7 +241,7 @@ class PermissionTest extends TestCase
 
     public function test_permission_can_use_permission_scopes(): void
     {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($permission, 'permission'));
@@ -250,7 +250,7 @@ class PermissionTest extends TestCase
 
     public function test_permission_can_use_without_role_scopes(): void
     {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($permission, 'withoutRole'));
