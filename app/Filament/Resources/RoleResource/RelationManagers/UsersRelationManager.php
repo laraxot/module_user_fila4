@@ -28,32 +28,7 @@ final class UsersRelationManager extends XotBaseRelationManager
 
     protected static ?string $inverseRelationship = 'roles';
 
-    /**
-     * Returns the form schema structure, defining the input fields for user data.
-     *
-     * @return array<\Filament\Schemas\Components\Component>
-     */
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
-    public function getFormSchema(): array
-    {
-        return [
-            TextInput::make('name')->required()->maxLength(255),
-            // Additional fields can be added here as necessary
-        ];
-    }
-
-    /**
-     * Defines the columns displayed in the users list table.
-     *
-     * @return array<Tables\Columns\Column|Component>
-     */
-    #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableColumns(): array
     {
         return [
@@ -76,20 +51,12 @@ final class UsersRelationManager extends XotBaseRelationManager
         ];
     }
 
-    /**
-     * Configures available filters for the table, enabling users to refine their view.
-     *
-     * @return array<BaseFilter>
-     */
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableFilters(): array
     {
         return [
-            Filter::make('active')->query(fn (Builder $query): Builder => $query->where('is_active', true))->toggle(),
-            Filter::make('created_at')
+            'active' => Filter::make('active')->query(fn (Builder $query): Builder => $query->where('is_active', true))->toggle(),
+            'created_at' => Filter::make('created_at')
                 ->schema([
                     DatePicker::make('created_from'),
                     DatePicker::make('created_until'),

@@ -23,22 +23,7 @@ class RolesRelationManager extends XotBaseRelationManager
     // protected function mutateFormDataBeforeCreate(array $data): array
     // {
     // }
-    #[\Override]
-    /**
-     * @return array<string, mixed>
-     */
-    public function getFormSchema(): array
-    {
-        return [
-            TextInput::make('name')
-                ->required()
-                ->maxLength(255),
-        ];
-    }
 
-    /**
-     * @return array<string, Column>
-     */
     #[\Override]
     /**
      * @return array<string, mixed>

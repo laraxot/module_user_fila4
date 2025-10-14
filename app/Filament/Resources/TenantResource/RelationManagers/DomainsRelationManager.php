@@ -24,24 +24,6 @@ class DomainsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'domains';
 
-    /**
-     * @return array<string, Component>
-     */
-    #[Override]
-    /**
-     * @return array<string, mixed>
-     */
-    public function getFormSchema(): array
-    {
-        return [
-            'domain' => TextInput::make('domain')
-                ->required()
-                ->prefix('http(s)://')
-                ->suffix('.'.request()->getHost())
-                ->maxLength(255),
-        ];
-    }
-
     #[Override]
     public function table(Table $table): Table
     {

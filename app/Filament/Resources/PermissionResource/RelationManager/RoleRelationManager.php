@@ -21,13 +21,7 @@ class RoleRelationManager extends XotBaseRelationManager
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    /**
-     * @return array<string, Component>
-     */
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getFormSchema(): array
     {
         return [

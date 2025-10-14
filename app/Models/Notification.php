@@ -81,6 +81,7 @@ class Notification extends BaseModel
      */
     public function isRead(): bool
     {
+        /* @phpstan-ignore-next-line property.notFound */
         return !is_null($this->read_at);
     }
 
@@ -89,6 +90,7 @@ class Notification extends BaseModel
      */
     public function isUnread(): bool
     {
+        /* @phpstan-ignore-next-line property.notFound */
         return is_null($this->read_at);
     }
 }

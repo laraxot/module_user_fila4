@@ -15,20 +15,6 @@ class UsersRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'users';
 
-    /**
-     * @return array<string, Component>
-     */
-    #[Override]
-    /**
-     * @return array<string, mixed>
-     */
-    public function getFormSchema(): array
-    {
-        return [
-            'device' => TextInput::make('device')->required()->maxLength(255),
-        ];
-    }
-
     #[Override]
     public function table(Table $table): Table
     {

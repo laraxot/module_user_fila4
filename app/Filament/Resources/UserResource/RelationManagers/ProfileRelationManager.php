@@ -22,23 +22,6 @@ class ProfileRelationManager extends XotBaseRelationManager
 
     protected static ?string $recordTitleAttribute = 'first_name';
 
-    /**
-     * @return array<string, Component>
-     */
-    #[Override]
-    /**
-     * @return array<string, mixed>
-     */
-    public function getFormSchema(): array
-    {
-        return [
-            'ente' => TextInput::make('ente'),
-            'matr' => TextInput::make('matr'),
-            'first_name' => TextInput::make('first_name')->required()->maxLength(255),
-            'last_name' => TextInput::make('last_name'),
-        ];
-    }
-
     #[Override]
     public function table(Table $table): Table
     {

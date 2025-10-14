@@ -49,9 +49,9 @@ class Dashboard extends BaseDashboard
     public function getFiltersFormSchema(): array
     {
         return [
-            DatePicker::make('startDate')->native(false),
+            'startDate' => DatePicker::make('startDate')->native(false),
             // ->maxDate(fn (Get $get) => $get('endDate') ?: now()),
-            DatePicker::make('endDate')->native(false),
+            'endDate' => DatePicker::make('endDate')->native(false),
             // ->minDate(fn (Get $get) => $get('startDate') ?: now())
             // ->maxDate(now()),
         ];

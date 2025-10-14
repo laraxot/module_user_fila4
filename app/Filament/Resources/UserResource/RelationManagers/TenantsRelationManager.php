@@ -25,31 +25,7 @@ class TenantsRelationManager extends XotBaseRelationManager
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    /**
-     * Set up the form schema for tenant relations.
-     *
-     * @return array<Component>
-     */
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
-    public function getFormSchema(): array
-    {
-        return [
-            TextInput::make('name')->required()->maxLength(255),
-        ];
-    }
-
-    /**
-     * Define table columns for displaying tenant information.
-     *
-     * @return array<string, Column>
-     */
-    #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableColumns(): array
     {
         $columns = app(ListTenants::class)->getTableColumns();
