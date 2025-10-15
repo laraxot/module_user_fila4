@@ -20,6 +20,7 @@ class ClientsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'clients';
 
+
     #[Override]
     public function table(Table $table): Table
     {

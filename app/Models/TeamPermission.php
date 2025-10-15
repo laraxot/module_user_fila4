@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Team Permission Model
- *
+ * 
  * Represents a permission assigned to a user within a team context.
  *
  * @property string $id
@@ -23,11 +23,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property DateTime|null $updated_at
  * @property Team $team
  * @property User $user
- *
  * @method static Builder<static>|TeamPermission newModelQuery()
  * @method static Builder<static>|TeamPermission newQuery()
  * @method static Builder<static>|TeamPermission query()
- *
  * @mixin \Eloquent
  */
 class TeamPermission extends Model

@@ -25,7 +25,11 @@ class TenantsRelationManager extends XotBaseRelationManager
 
     protected static ?string $recordTitleAttribute = 'name';
 
+
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableColumns(): array
     {
         $columns = app(ListTenants::class)->getTableColumns();

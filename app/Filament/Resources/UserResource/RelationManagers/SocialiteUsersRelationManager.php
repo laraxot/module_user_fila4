@@ -26,7 +26,11 @@ class SocialiteUsersRelationManager extends XotBaseRelationManager
 
     protected static string $relationship = 'socialiteUsers';
 
+
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableColumns(): array
     {
         return [

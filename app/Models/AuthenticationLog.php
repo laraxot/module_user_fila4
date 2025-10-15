@@ -24,7 +24,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property \DateTime|null $created_at
  * @property \DateTime|null $updated_at
  */
-/** */
+/**
+ * @property-read \Modules\Fixcity\Models\Profile|null $creator
+ * @property-read \Modules\Fixcity\Models\Profile|null $updater
+ * @property-read \Modules\User\Models\User|null $user
+ * @method static \Modules\User\Database\Factories\AuthenticationLogFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|AuthenticationLog newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|AuthenticationLog newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|AuthenticationLog query()
+ * @mixin \Eloquent
+ */
 class AuthenticationLog extends BaseModel
 {
     use \Modules\Xot\Models\Traits\HasXotFactory;

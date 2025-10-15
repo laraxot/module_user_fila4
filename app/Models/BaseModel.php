@@ -4,70 +4,31 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Xot\Models\XotBaseModel;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Models\Traits\RelationX;
-use Modules\Xot\Traits\Updater;
 
 /**
  * Class BaseModel.
- *
  */
-abstract class BaseModel extends Model
+abstract class BaseModel extends XotBaseModel
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
-    use RelationX;
-    use Updater;
-
     /**
-     * Indicates whether attributes are snake cased on arrays.
+     * The connection name for the model.
      *
-     * @see https://laravel-news.com/6-eloquent-secrets
-     *
-     * @var bool
+     * @var string
      */
-    public static $snakeAttributes = true;
-
-    /** @var bool */
-    public $incrementing = true;
-
-    /** @var bool */
-    public $timestamps = true;
-
-    /** @var int */
-    protected $perPage = 30;
-
-    /** @var string */
     protected $connection = 'user';
 
-    /** @var list<string> */
-    protected $appends = [];
-
-    /** @var string */
-    protected $primaryKey = 'id';
-
-    /** @var string */
-    protected $keyType = 'string';
-
-    /** @var list<string> */
-    protected $hidden = [
-        // 'password'
-    ];
-
-    /** @return array<string, string> */
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
     protected function casts(): array
     {
-        return [
-            'id' => 'string',
-            'uuid' => 'string',
-            'published_at' => 'datetime',
-            'verified_at' => 'datetime',
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-            'deleted_at' => 'datetime',
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-        ];
+        return array_merge(parent::casts(), [
+            'verified_at' => 'datetime', // ✅ User-specific cast
+        ]);
     }
 }

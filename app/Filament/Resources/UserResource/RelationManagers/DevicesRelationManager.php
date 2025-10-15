@@ -27,6 +27,7 @@ class DevicesRelationManager extends XotBaseRelationManager
         ];
     }
 
+
     #[Override]
     public function table(Table $table): Table
     {

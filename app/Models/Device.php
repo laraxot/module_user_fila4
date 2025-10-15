@@ -10,16 +10,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Device Model
+ *
+ * @property-read \Modules\User\Models\User|null $user
+ * @method static \Modules\User\Database\Factories\DeviceFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Device newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Device newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Device query()
+ * @mixin \Eloquent
  */
-class Device extends Model
+class Device extends BaseModel
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
-    /** @var string */
-    protected $connection = 'user';
-
-    /** @var string */
-    protected $table = 'devices';
-
+    
     /** @var list<string> */
     protected $fillable = [
         'user_id',

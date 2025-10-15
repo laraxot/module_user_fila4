@@ -43,7 +43,7 @@ class ViewUser extends BaseViewUser
             ])->columns(2);
     }
    
-    /**
+   /**
     * @return array<string, mixed>
     */
    public function getFooterWidgets(): array
@@ -55,4 +55,5 @@ class ViewUser extends BaseViewUser
    }
     
 }
+
 

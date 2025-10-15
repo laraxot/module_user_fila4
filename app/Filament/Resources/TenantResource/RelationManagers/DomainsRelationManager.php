@@ -24,6 +24,7 @@ class DomainsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'domains';
 
+
     #[Override]
     public function table(Table $table): Table
     {

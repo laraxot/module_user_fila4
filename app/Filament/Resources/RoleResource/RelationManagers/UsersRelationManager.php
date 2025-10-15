@@ -28,7 +28,11 @@ final class UsersRelationManager extends XotBaseRelationManager
 
     protected static ?string $inverseRelationship = 'roles';
 
+
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableColumns(): array
     {
         return [
@@ -51,12 +55,20 @@ final class UsersRelationManager extends XotBaseRelationManager
         ];
     }
 
+    /**
+     * Configures available filters for the table, enabling users to refine their view.
+     *
+     * @return array<BaseFilter>
+     */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableFilters(): array
     {
         return [
-            'active' => Filter::make('active')->query(fn (Builder $query): Builder => $query->where('is_active', true))->toggle(),
-            'created_at' => Filter::make('created_at')
+            Filter::make('active')->query(fn (Builder $query): Builder => $query->where('is_active', true))->toggle(),
+            Filter::make('created_at')
                 ->schema([
                     DatePicker::make('created_from'),
                     DatePicker::make('created_until'),

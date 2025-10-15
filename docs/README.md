@@ -155,18 +155,11 @@ User/
 - [User Permissions](./user_permissions.md) - Sistema permessi
 
 ### Filament e UI
-### Versione HEAD
 
-- [Filament Best Practices](FILAMENT_BEST-PRACTICES.md) - Best practices Filament
-
-### Versione Incoming
-
+- [**Filament 4 Widget Rendering Guide**](filament-4-widget-rendering-guide.md) - ⭐ Guida completa rendering widget
 - [Filament Best Practices](filament-best-practices.md) - Best practices Filament
-
----
-
-- [Login Widget](login_widget.md) - Widget login personalizzato
-- [User Interface](user_interface.md) - Interfaccia utente
+- [Auth Widget Rules](auth_widget_rules.md) - Regole widget autenticazione
+- [Login Widget Error](login_filament_widget_error.md) - Troubleshooting login widget
 
 ### Best Practices e Convenzioni
 ### Versione HEAD

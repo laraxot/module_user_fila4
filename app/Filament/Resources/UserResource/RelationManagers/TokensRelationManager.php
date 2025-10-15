@@ -20,6 +20,7 @@ class TokensRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'tokens';
 
+
     #[Override]
     public function table(Table $table): Table
     {

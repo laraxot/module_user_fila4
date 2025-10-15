@@ -10,6 +10,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * TenantUser Model
+ *
+ * @property-read \Modules\User\Models\Tenant|null $tenant
+ * @property-read \Modules\User\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TenantUser newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TenantUser newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TenantUser query()
+ * @mixin \Eloquent
  */
 class TenantUser extends Model
 {

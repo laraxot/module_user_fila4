@@ -20,6 +20,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property bool $personal_access_client
  * @property bool $password_client
  * @property bool $revoked
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\OauthAccessToken> $accessTokens
+ * @property-read int|null $access_tokens_count
+ * @property-read \Modules\User\Models\User|null $user
+ * @method static \Modules\User\Database\Factories\OauthClientFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthClient newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthClient newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthClient query()
+ * @mixin \Eloquent
  */
 class OauthClient extends Model
 {

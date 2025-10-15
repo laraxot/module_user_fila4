@@ -24,7 +24,7 @@ use Webmozart\Assert\Assert;
  * This trait handles team ownership, membership, permissions, and relationships.
  *
  * @property TeamContract $currentTeam
- * @property int|null $current_team_id
+ * @property int|string|null $current_team_id
  * @property Collection<int, TeamContract> $teams
  * @property Collection<int, TeamContract> $ownedTeams
  * @property Collection<int, UserContract> $teamUsers
@@ -179,9 +179,11 @@ trait HasTeams
     {
         $owner = $this->owner;
         if ($owner === null) {
+            /** @var Collection<int, UserContract> */
             return $this->teamUsers;
         }
 
+        /** @var Collection<int, UserContract> */
         return $this->teamUsers->merge([$owner]);
     }
 
@@ -240,18 +242,32 @@ trait HasTeams
     public function currentTeam(): BelongsTo
     {
         $xot = XotData::make();
-        if ($this->current_team_id === null && $this->id) {
-            $this->switchTeam($this->personalTeam());
-        }
-
-        if ($this->allTeams()->isEmpty() && $this->getKey() !== null) {
-            $this->current_team_id = null;
-            $this->save();
-        }
-
         $teamClass = $xot->getTeamClass();
 
         return $this->belongsTo($teamClass, 'current_team_id');
+    }
+
+    /**
+     * Initialize the user's current team if not set.
+     * Should be called explicitly after user creation.
+     */
+    public function initializeCurrentTeam(): void
+    {
+        if ($this->current_team_id !== null) {
+            return; // Already initialized
+        }
+
+        $personalTeam = $this->personalTeam();
+
+        if ($personalTeam !== null) {
+            $this->switchTeam($personalTeam);
+        } elseif ($this->allTeams()->isNotEmpty()) {
+            // Switch to first available team
+            $firstTeam = $this->allTeams()->first();
+            if ($firstTeam instanceof TeamContract) {
+                $this->switchTeam($firstTeam);
+            }
+        }
     }
 
     /**
@@ -484,4 +500,25 @@ trait HasTeams
     {
         return $this->ownsTeam($team);
     }
+
+
+    
+
+    /**
+     * Set the user's current team.
+     */
+    public function setCurrentTeam(\Illuminate\Database\Eloquent\Model $team): void
+    {
+        $this->currentTeam = $team;
+    }
+
+    /**
+     * Check if the user can access a specific team.
+     */
+    public function canAccessTeam(\Illuminate\Database\Eloquent\Model $team): bool
+    {
+        return $this->teams()->where('team_id', $team->getKey())->exists();
+    }
+
+   
 }

@@ -20,6 +20,7 @@ class PermissionsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'permissions';
 
+
     #[Override]
     public function table(Table $table): Table
     {

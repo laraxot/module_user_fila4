@@ -15,6 +15,7 @@ class UsersRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'users';
 
+
     #[Override]
     public function table(Table $table): Table
     {

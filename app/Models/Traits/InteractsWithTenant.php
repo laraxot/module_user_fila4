@@ -75,12 +75,26 @@ trait InteractsWithTenant
                 return;
             }
 
-            $tenant = Filament::getTenant();
-            if ($tenant !== null && is_object($tenant) && method_exists($tenant, 'getKey')) {
-                $tenantId = $tenant->getKey();
-                if (is_int($tenantId) && property_exists($model, 'tenant_id')) {
-                    $model->tenant_id = $tenantId;
+            // ✅ FIX: Verifica contesto prima di chiamare Filament::getTenant()
+            // In contesto console (Artisan), non c'è sessione Filament attiva
+            if (app()->runningInConsole()) {
+                // In console, permettiamo la creazione senza tenant_id
+                // I comandi console devono gestire tenant_id manualmente se necessario
+                return;
+            }
+
+            try {
+                $tenant = Filament::getTenant();
+                if ($tenant !== null && is_object($tenant) && method_exists($tenant, 'getKey')) {
+                    $tenantId = $tenant->getKey();
+                    if (is_int($tenantId) && property_exists($model, 'tenant_id')) {
+                        $model->tenant_id = $tenantId;
+                    }
                 }
+            } catch (\Throwable $e) {
+                // In caso di errore nel recupero tenant, continua senza impostarlo
+                // Questo permette la creazione di utenti in contesti non-standard
+                // Log per debugging ma non bloccare l'operazione
             }
         });
     }

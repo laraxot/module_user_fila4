@@ -22,6 +22,7 @@ class ProfileRelationManager extends XotBaseRelationManager
 
     protected static ?string $recordTitleAttribute = 'first_name';
 
+
     #[Override]
     public function table(Table $table): Table
     {
