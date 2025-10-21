@@ -25,8 +25,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property \DateTime|null $updated_at
  */
 /**
- * @property-read \Modules\Fixcity\Models\Profile|null $creator
- * @property-read \Modules\Fixcity\Models\Profile|null $updater
  * @property-read \Modules\User\Models\User|null $user
  * @method static \Modules\User\Database\Factories\AuthenticationLogFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|AuthenticationLog newModelQuery()

@@ -32,6 +32,7 @@ return [
         'profile' => [
             'icon' => 'profile',
             'label' => 'profile',
+            'tooltip' => 'profile',
         ],
     ],
 ];

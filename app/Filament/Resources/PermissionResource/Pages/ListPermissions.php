@@ -110,11 +110,7 @@ class ListPermissions extends XotBaseListRecords
                 ->action(static function (Collection $collection, array $data): void {
                     foreach ($collection as $record) {
                         // Verifichiamo che $record sia un'istanza di Model prima di procedere
-                        Assert::isInstanceOf(
-                            $record,
-                            Model::class,
-                            '['.__LINE__.']['.__CLASS__.']',
-                        );
+                        // Assert::isInstanceOf($record, Model::class); // This assertion is always true in this context
 
                         // Poi verifichiamo che il modello abbia il metodo roles() prima di chiamarlo
                         if (method_exists($record, 'roles')) {

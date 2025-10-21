@@ -23,8 +23,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Membership newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Membership newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Membership query()
- * @property-read \Modules\Fixcity\Models\Profile|null $creator
- * @property-read \Modules\Fixcity\Models\Profile|null $updater
  * @mixin \Eloquent
  */
 class Membership extends BasePivot

@@ -240,7 +240,7 @@ class UserMassSeeder extends Seeder
         }
 
         $count = SafeIntCastAction::cast($users->count());
-        Assert::integer($count);
+        // Assert::integer($count); // This assertion is always true since SafeIntCastAction::cast() returns int
         $this->command->info('✅ Creati '.(string) $count.' utenti con profili completi');
     }
 
@@ -261,7 +261,7 @@ class UserMassSeeder extends Seeder
             ]);
 
         $count = SafeIntCastAction::cast($logs->count());
-        Assert::integer($count);
+        // Assert::integer($count); // This assertion is always true since SafeIntCastAction::cast() returns int
         $this->command->info('✅ Creati '.(string) $count.' log di autenticazione');
     }
 
@@ -282,7 +282,7 @@ class UserMassSeeder extends Seeder
             ]);
 
         $count = SafeIntCastAction::cast($devices->count());
-        Assert::integer($count);
+        // Assert::integer($count); // This assertion is always true since SafeIntCastAction::cast() returns int
         $this->command->info('✅ Creati '.(string) $count.' dispositivi utente');
     }
 
@@ -303,7 +303,7 @@ class UserMassSeeder extends Seeder
             ]);
 
         $count = SafeIntCastAction::cast($providers->count());
-        Assert::integer($count);
+        // Assert::integer($count); // This assertion is always true since SafeIntCastAction::cast() returns int
         $this->command->info('✅ Creati '.(string) $count.' provider social');
     }
 

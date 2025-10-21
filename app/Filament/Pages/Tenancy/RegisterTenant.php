@@ -73,6 +73,7 @@ class RegisterTenant extends BaseRegisterTenant
         $tenant = $tenantClass::create($data);
         Assert::implementsInterface($tenant, TenantContract::class);
 
+        /** @var \Modules\User\Models\BaseTenant $tenant */
         $users = $tenant->users();
         Assert::isInstanceOf($users, \Illuminate\Database\Eloquent\Relations\BelongsToMany::class);
         $users->attach(auth()->user());

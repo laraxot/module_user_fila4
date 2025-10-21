@@ -390,6 +390,7 @@ return [
         'applyFilters' => [
             'label' => 'applyFilters',
             'icon' => 'applyFilters',
+            'tooltip' => 'applyFilters',
         ],
         'openFilters' => [
             'label' => 'openFilters',

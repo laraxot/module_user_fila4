@@ -4,34 +4,26 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Parental\HasChildren;
-use Webmozart\Assert\Assert;
-use function Safe\json_decode;
-use function Safe\json_encode;
-use Modules\Xot\Datas\XotData;
-use Modules\User\Models\Tenant;
-use Spatie\MediaLibrary\HasMedia;
-use Laravel\Passport\HasApiTokens;
-use Illuminate\Support\Facades\Hash;
 use Filament\Models\Contracts\HasName;
+use Filament\Models\Contracts\HasTenants as HasTenantsContract;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
+use Parental\HasChildren;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
 use Modules\Xot\Contracts\UserContract;
-use Illuminate\Notifications\Notifiable;
-use Modules\Xot\Models\Traits\RelationX;
-use Filament\Models\Contracts\HasTenants as HasTenantsContract;
-use Spatie\MediaLibrary\InteractsWithMedia;
 use Modules\Xot\Models\Traits\HasXotFactory;
-use Spatie\Permission\Traits\HasPermissions;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Modules\User\Database\Factories\UserFactory;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Modules\Xot\Models\Traits\RelationX;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Modules\User\Models\Traits\HasDevices;
+use Modules\User\Models\Traits\HasSocialite;
+use Modules\User\Models\Traits\HasTeams;
+use Modules\User\Models\Traits\HasTenants;
 
 /**
  * Base User Model.
@@ -49,9 +41,11 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     use InteractsWithMedia;
     use Notifiable;
     use RelationX;
-    use Traits\HasTenants;
-    use Traits\HasTeams;
-
+    use HasTenants;
+    use HasTeams;
+    use HasDevices;
+    use HasSocialite;
+    
     public $incrementing = false;
 
     /** @var string */
@@ -99,6 +93,9 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     /** @var string */
     protected $guard_name = 'web';
 
+    /**
+     * @param array<string, mixed> $attributes
+     */
     public function __construct(array $attributes = [])
     {
         try {
@@ -117,6 +114,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     {
         return $this->name ?? $this->email ?? 'Unknown';
     }
+
     /**
      * Get the Filament name for the model.
      */
@@ -125,28 +123,23 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         return $this->getName();
     }
 
-    
-
-
     /**
      * Get the user's profile.
      */
     public function profile(): HasOne
     {
-        return $this->hasOne(Profile::class);
+        // Utilizza esplicitamente il modello Profile del modulo User per garantire la connessione corretta
+        // Questo evita conflitti quando esistono modelli Profile in connessioni diverse (quaeris, gdpr, etc.)
+        return $this->hasOne(\Modules\User\Models\Profile::class);
     }
-
-    
 
     /**
      * Check if the user can access a specific panel.
      */
-    public function canAccessPanel(\Filament\Panel $panel): bool
+    public function canAccessPanel(\Filament\Panel $_panel): bool
     {
         return true; // Default implementation - allow access to all panels
     }
-
-   
 
     /**
      * Get the user's display name.
@@ -197,7 +190,6 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         return $this->getFirstMediaUrl('avatar');
     }
 
-
     /**
      * Get the user's initials.
      */
@@ -208,7 +200,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         $initials = '';
 
         foreach ($words as $word) {
-            if (! empty($word)) {
+            if (!empty($word)) {
                 $initials .= strtoupper(substr($word, 0, 1));
             }
         }
@@ -216,7 +208,6 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         return $initials ?: 'U';
     }
 
-    
     /**
      * Get the default guard name.
      */
@@ -224,7 +215,4 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     {
         return $this->guard_name;
     }
-
-
-  
 }

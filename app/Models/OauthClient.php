@@ -29,7 +29,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthClient query()
  * @mixin \Eloquent
  */
-class OauthClient extends Model
+class OauthClient extends BaseModel
 {
     use \Modules\Xot\Models\Traits\HasXotFactory;
     

@@ -46,10 +46,12 @@ return [
         'openColumnManager' => [
             'icon' => 'openColumnManager',
             'label' => 'openColumnManager',
+            'tooltip' => 'openColumnManager',
         ],
         'applyTableColumnManager' => [
             'icon' => 'applyTableColumnManager',
             'label' => 'applyTableColumnManager',
+            'tooltip' => 'applyTableColumnManager',
         ],
         'resetFilters' => [
             'icon' => 'resetFilters',

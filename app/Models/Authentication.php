@@ -45,7 +45,7 @@ use Illuminate\Support\Carbon;
  * @method static \Modules\User\Database\Factories\AuthenticationFactory factory($count = null, $state = [])
  * @mixin \Eloquent
  */
-class Authentication extends Model
+class Authentication extends BaseModel
 {
     use \Modules\Xot\Models\Traits\HasXotFactory;
 

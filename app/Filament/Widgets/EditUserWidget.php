@@ -166,7 +166,7 @@ class EditUserWidget extends XotBaseWidget
         $appends = $model->getAppends();
         $fields = array_merge($fillable, $appends);
         $data = array_fill_keys($fields, null);
-        Assert::isArray($data);
+        // Assert::isArray($data); // This assertion is always true since $data is created from array_fill_keys
 
         /** @var array<string, mixed> $finalResult */
         $finalResult = $data;

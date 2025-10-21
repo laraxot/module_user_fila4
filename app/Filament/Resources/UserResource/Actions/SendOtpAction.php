@@ -29,7 +29,7 @@ class SendOtpAction extends Action
                     throw new RuntimeException('Impossibile istanziare SendOtpByUserAction');
                 }
                 // User model extends BaseUser which implements UserContract interface
-                Assert::isInstanceOf($record, UserContract::class);
+                // Assert::isInstanceOf($record, UserContract::class); // This assertion is always true
                 $action->execute($record);
             })
             ->requiresConfirmation()

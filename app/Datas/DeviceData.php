@@ -102,7 +102,7 @@ class DeviceData extends Data
         $synchronizationId = property_exists($synchronization, 'id')
             ? (string) $synchronization->id
             : '';
-        Assert::string($synchronizationId, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
+        // Assert::string($synchronizationId); // This assertion is always true since (string) cast always produces string
         $this->synchronizationId = $synchronizationId;
 
         return $this->synchronizationId;

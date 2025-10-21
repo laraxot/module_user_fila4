@@ -21,8 +21,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 /**
  * @property-read \Modules\User\Models\OauthClient|null $client
- * @property-read \Modules\Fixcity\Models\Profile|null $creator
- * @property-read \Modules\Fixcity\Models\Profile|null $updater
  * @property-read \Modules\User\Models\User|null $user
  * @method static \Modules\User\Database\Factories\OauthAccessTokenFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthAccessToken newModelQuery()

@@ -4,25 +4,27 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Modules\User\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * TenantUser Model
+ * TenantUser Pivot Model
+ *
+ * Represents the many-to-many relationship between Tenant and User models.
+ *
+ * @property int $tenant_id
+ * @property int $user_id
+ * @property string|null $role
  *
  * @property-read \Modules\User\Models\Tenant|null $tenant
  * @property-read \Modules\User\Models\User|null $user
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TenantUser newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TenantUser newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TenantUser query()
- * @mixin \Eloquent
+ * @mixin \Illuminate\Database\Eloquent\Relations\Pivot
  */
-class TenantUser extends Model
+class TenantUser extends BasePivot
 {
-    /** @var string */
-    protected $connection = 'user';
-
     /** @var string */
     protected $table = 'tenant_user';
 

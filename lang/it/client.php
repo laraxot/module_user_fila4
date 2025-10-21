@@ -62,6 +62,7 @@ return [
         'applyTableColumnManager' => [
             'icon' => 'applyTableColumnManager',
             'label' => 'applyTableColumnManager',
+            'tooltip' => 'applyTableColumnManager',
         ],
         'resetFilters' => [
             'icon' => 'resetFilters',

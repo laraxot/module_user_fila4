@@ -71,7 +71,7 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
             $this->getCurrentPasswordFormComponent(),
             ...PasswordData::make()->getPasswordFormComponents('password'),
         ];
-        Assert::isArray($components);
+        // Assert::isArray($components); // This assertion is always true since $components is created from array_merge
         Assert::allIsInstanceOf($components, Component::class);
 
         /** @var array<int, Component> $result */

@@ -33,9 +33,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @property string|null $created_by
  * @property string|null $deleted_at
  * @property string|null $deleted_by
- * @property-read \Modules\Fixcity\Models\Profile|null $creator
  * @property-read Model|\Eloquent $notifiable
- * @property-read \Modules\Fixcity\Models\Profile|null $updater
  * @method static \Modules\User\Database\Factories\NotificationFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Notification newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Notification newQuery()

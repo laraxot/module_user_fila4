@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -19,7 +18,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Tenant query()
  * @mixin \Eloquent
  */
-class Tenant extends Model
+class Tenant extends BaseModel
 {
     use \Modules\Xot\Models\Traits\HasXotFactory;
 
@@ -32,10 +31,33 @@ class Tenant extends Model
     /** @var list<string> */
     protected $fillable = [
         'name',
+        'slug',
         'domain',
         'database',
         'is_active',
     ];
+
+    /**
+     * Generate a slug for the tenant based on its name.
+     */
+    public function generateSlug(): void
+    {
+        $this->slug = \Illuminate\Support\Str::slug($this->name);
+    }
+
+    /**
+     * Boot the model.
+     */
+    protected static function boot(): void
+    {
+        parent::boot();
+
+        static::creating(function (self $tenant): void {
+            if (empty($tenant->slug)) {
+                $tenant->generateSlug();
+            }
+        });
+    }
 
     /**
      * Get the attributes that should be cast.

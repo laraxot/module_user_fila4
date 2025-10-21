@@ -123,6 +123,7 @@ class Password extends Page implements HasForms
      */
     protected function fillForms(): void
     {
+        /** @var array<string, mixed> $data */
         $data = PasswordData::make()->toArray();
 
         $this->form->fill($data);

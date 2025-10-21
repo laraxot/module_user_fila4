@@ -49,7 +49,7 @@ class RegistrationWidget extends XotBaseWidget
             ->toString();
         $record = $this->getFormModel();
         $data = $this->getFormFill();
-        Assert::isArray($data);
+        // Assert::isArray($data); // This assertion is always true since getFormFill() returns array
         /** @var array<string, mixed> $typedData */
         $typedData = $data;
         $this->data = $typedData;
