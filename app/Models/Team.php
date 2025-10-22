@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Team query()
  * @mixin \Eloquent
  */
+<<<<<<< HEAD
 class Team extends BaseTeam
 {
 
@@ -57,3 +58,6 @@ class Team extends BaseTeam
         return $this->hasMany(Membership::class);
     }
 }
+=======
+class Team extends BaseTeam {}
+>>>>>>> fbc8f8e (.)

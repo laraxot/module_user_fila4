@@ -18,7 +18,11 @@ class TenantScope implements Scope
     /**
      * Apply the scope to a given Eloquent query builder.
      */
+<<<<<<< HEAD
     public function apply(Builder $builder, Model $_model): void
+=======
+    public function apply(Builder $builder, Model $model): void
+>>>>>>> fbc8f8e (.)
     {
         // ✅ FIX: Verifica contesto prima di applicare lo scope
         // In contesto console (Artisan), non c'è sessione Filament attiva
