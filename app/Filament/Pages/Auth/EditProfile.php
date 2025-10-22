@@ -5,12 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Pages\Auth;
 
 use Filament\Forms\Form;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Filament\Forms\Form;
-=======
->>>>>>> a63f578 (.)
 =======
 >>>>>>> 041533e (.)
 =======
