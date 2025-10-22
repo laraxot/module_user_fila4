@@ -13,10 +13,15 @@ use InvalidArgumentException;
 use Filament\Forms\Components\Component;
 use Filament\Forms\Components\TextInput;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Components\TextInput as FilamentTextInput;
 use Filament\Forms\Components\TextInput as FormsTextInput;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Filament\Forms\Components\TextInput as FilamentTextInput;
+use Filament\Forms\Components\TextInput as FormsTextInput;
+>>>>>>> 6d20fbe (.)
 use Filament\Forms\Get;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\HtmlString;
@@ -24,10 +29,13 @@ use Illuminate\Validation\Rules\Password;
 use Modules\Tenant\Services\TenantService;
 use Spatie\LaravelData\Data;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Filament\Forms\Components\TextInput as FilamentTextInput;
 use Filament\Forms\Components\TextInput as FormsTextInput;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 /**
  * Classe per la gestione dei dati relativi alle password.
@@ -46,11 +54,15 @@ class PasswordData extends Data
         public bool $uncompromised = true,
         public int $compromisedThreshold = 0,
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         public null|string $failMessage = null,
         private null|string $field_name = null,
     ) {}
 
     private static null|self $instance = null;
+<<<<<<< HEAD
 =======
         public ?string $failMessage = null,
         private ?string $field_name = null,
@@ -59,6 +71,8 @@ class PasswordData extends Data
 
     private static ?self $instance = null;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
     /**
      * Crea un'istanza della classe PasswordData.
@@ -68,10 +82,14 @@ class PasswordData extends Data
     public static function make(): self
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (!self::$instance) {
 =======
         if (! self::$instance) {
 >>>>>>> fbc8f8e (.)
+=======
+        if (!self::$instance) {
+>>>>>>> 6d20fbe (.)
             /** @var array<string, mixed> $data */
             $data = TenantService::getConfig('password');
             self::$instance = self::from($data);
@@ -125,10 +143,14 @@ class PasswordData extends Data
     public function getHelperText(): string
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $msg = 'La password deve essere composta da minimo ' . $this->min . ' caratteri';
 =======
         $msg = 'La password deve essere composta da minimo '.$this->min.' caratteri';
 >>>>>>> fbc8f8e (.)
+=======
+        $msg = 'La password deve essere composta da minimo ' . $this->min . ' caratteri';
+>>>>>>> 6d20fbe (.)
 
         if ($this->mixedCase) {
             $msg .= ', contenere almeno una lettera maiuscola e una minuscola';
@@ -183,12 +205,18 @@ class PasswordData extends Data
     {
         if ($this->field_name === null) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             throw new RuntimeException(
                 'Il nome del campo password non è stato impostato. Utilizzare setFieldName() prima di chiamare questo metodo.',
             );
 =======
             throw new RuntimeException('Il nome del campo password non è stato impostato. Utilizzare setFieldName() prima di chiamare questo metodo.');
 >>>>>>> fbc8f8e (.)
+=======
+            throw new RuntimeException(
+                'Il nome del campo password non è stato impostato. Utilizzare setFieldName() prima di chiamare questo metodo.',
+            );
+>>>>>>> 6d20fbe (.)
         }
 
         return TextInput::make('password_confirmation')
@@ -213,10 +241,14 @@ class PasswordData extends Data
 
         $this->setFieldName($field_name);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
         return [
             $this->getPasswordFormComponent($field_name),
             $this->getPasswordConfirmationFormComponent(),
