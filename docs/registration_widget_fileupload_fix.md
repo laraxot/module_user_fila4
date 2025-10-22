@@ -215,12 +215,7 @@ Per evitare simili problemi in futuro:
 
 ## Riferimenti
 
-<<<<<<< HEAD
 - [Problema principale: docs/fileupload-foreach-error-fix.md](../../../docs/fileupload-foreach-error-fix.md)
 - [Correzione XotBaseResource: Modules/Xot/docs/fileupload-components.md](../../Xot/docs/fileupload-components.md)
-=======
-- [Problema principale: docs/fileupload-foreach-error-fix.md](../../../project_docs/fileupload-foreach-error-fix.md)
-- [Correzione XotBaseResource: Modules/Xot/project_docs/fileupload-components.md](../../Xot/project_docs/fileupload-components.md)
->>>>>>> 81efa49 (.)
 - [Registration Widget base: registration-widget.md](./registration-widget.md)
 

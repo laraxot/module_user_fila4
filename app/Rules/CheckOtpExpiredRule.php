@@ -16,54 +16,14 @@ class CheckOtpExpiredRule implements ValidationRule
 {
     private string $message = 'Il codice OTP è scaduto. Richiedi un nuovo codice.';
 
-<<<<<<< HEAD
     public function __construct(
         private User $user,
     ) {}
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function __construct(
-        private User $user,
-    ) {}
-=======
-    public function __construct(private User $user)
-    {
-    }
->>>>>>> a12f125f4a (.)
-=======
-    public function __construct(
-        private User $user,
-    ) {}
->>>>>>> b93ef594b4 (.)
-=======
-    public function __construct(private User $user)
-    {
-    }
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 
     /**
      * Run the validation rule.
      */
-<<<<<<< HEAD
     public function validate(string $_attribute, mixed $_value, Closure $fail): void
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function validate(string $_attribute, mixed $_value, Closure $fail): void
-=======
-    public function validate(string $attribute, mixed $value, Closure $fail): void
->>>>>>> a12f125f4a (.)
-=======
-    public function validate(string $_attribute, mixed $_value, Closure $fail): void
->>>>>>> b93ef594b4 (.)
-=======
-    public function validate(string $attribute, mixed $value, Closure $fail): void
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     {
         /** @var \Illuminate\Support\Carbon|null $updatedAt */
         $updatedAt = $this->user->updated_at;
