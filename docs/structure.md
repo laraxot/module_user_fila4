@@ -1,9 +1,7 @@
 # Modulo User
 
 Data: 2025-04-23 19:09:56
-
 ## Informazioni generali
-
 - **Namespace principale**: Modules\\User
 Modules\\User\\Database\\Factories
 Modules\\User\\Database\\Seeders
@@ -12,11 +10,8 @@ Marco Sottana
 - **Dipendenze**: flowframe/laravel-trend * jenssegers/agent * laravel/passport * socialiteproviders/auth0 * spatie/laravel-personal-data-export * repositories type path url ../Xot type path url ../Tenant type path url ../UI 
 - **Totale file PHP**: 673
 - **Totale classi/interfacce**: 300
-
 ## Struttura delle directory
-
 ```
-
 .devcontainer
 .git
 .git/branches
@@ -509,7 +504,6 @@ resources/views/components/ui
 resources/views/components/ui/app
 resources/views/components/ui/marketing
 resources/views/config
-docs
 resources/views/emails
 resources/views/filament
 resources/views/filament/auth
@@ -553,10 +547,7 @@ tests
 tests/Feature
 tests/Unit
 tests_old
-```
-
 ## Namespace e autoload
-
 ```json
     "autoload": {
         "psr-4": {
@@ -571,7 +562,6 @@ tests_old
         "laravel/passport": "*",
         "socialiteproviders/auth0": "*",
         "spatie/laravel-personal-data-export": "*"
-    },
     "require-dev": {},
     "repositories": [
 --
@@ -580,21 +570,16 @@ tests_old
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate"
-        ],
         "analyse": "vendor/bin/phpstan analyse",
         "test": "./vendor/bin/pest --no-coverage",
         "test-coverage": "vendor/bin/pest --coverage-html coverage",
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
-    },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-```
-
 ## Dipendenze da altri moduli
-
 -      58 Modules\Xot\Contracts\UserContract;
 -      54 Modules\Xot\Datas\XotData;
 -      43 Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
@@ -605,14 +590,9 @@ tests_old
 -       8 Modules\Xot\Contracts\ProfileContract;
 -       6 Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 -       5 Modules\Tenant\Services\TenantService;
-
 ## Collegamenti alla documentazione generale
-
-<<<<<<< HEAD
 - [Analisi strutturale complessiva](/docs/phpstan/modules_structure_analysis.md)
 - [Report PHPStan](/docs/phpstan/)
-
-
 ## Collegamenti tra versioni di structure.md
 * [structure.md](bashscripts/docs/structure.md)
 * [structure.md](../../../Gdpr/docs/structure.md)
@@ -630,12 +610,8 @@ tests_old
 * [structure.md](../../../Cms/docs/structure.md)
 * [structure.md](../../../Cms/docs/themes/structure.md)
 * [structure.md](../../../Cms/docs/components/structure.md)
-=======
 - [Analisi strutturale complessiva](/project_docs/phpstan/modules_structure_analysis.md)
 - [Report PHPStan](/project_docs/phpstan/)
-
-
-## Collegamenti tra versioni di structure.md
 * [structure.md](bashscripts/project_docs/structure.md)
 * [structure.md](../../../Gdpr/project_docs/structure.md)
 * [structure.md](../../../Notify/project_docs/structure.md)
@@ -652,5 +628,3 @@ tests_old
 * [structure.md](../../../Cms/project_docs/structure.md)
 * [structure.md](../../../Cms/project_docs/themes/structure.md)
 * [structure.md](../../../Cms/project_docs/components/structure.md)
->>>>>>> fbc8f8e (.)
-
