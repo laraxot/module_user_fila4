@@ -9,13 +9,21 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Placeholder;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 use Illuminate\Support\HtmlString;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Enums\UserType;
+=======
+>>>>>>> fbc8f8e (.)
 use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
 use Modules\User\Filament\Resources\UserResource\Pages\EditUser;
 use Modules\User\Filament\Resources\UserResource\Pages\ListUsers;
 use Modules\User\Models\User;
+<<<<<<< HEAD
+=======
+use Modules\User\Enums\UserType;
+use Illuminate\Support\Facades\Hash;
+>>>>>>> fbc8f8e (.)
 
 uses(TestCase::class);
 
