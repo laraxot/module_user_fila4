@@ -287,16 +287,6 @@ $gdprTests = [
 ## 📎 Key Documentation Links
 
 ### Primary Documentation
-<<<<<<< HEAD
-- [SaluteOra Factory Implementation](../laravel/Modules/SaluteOra/project_docs/factories/UserFactory-implementation-final.md)
-- [User Module Integration](../laravel/Modules/User/project_docs/user_factory_advanced_integration.md)
-- [Advanced Analysis](../laravel/Modules/SaluteOra/project_docs/factories/UserFactory-advanced-improvements-analysis.md)
-
-### Technical References
-- [Model Architecture](../laravel/Modules/SaluteOra/project_docs/models/single-table-inheritance.md)
-- [State Management](../laravel/Modules/SaluteOra/project_docs/models/states.md)
-- [Cross-Module Relations](../laravel/Modules/SaluteOra/project_docs/models/doctor-studio-relationship.md)
-=======
 - [SaluteOra Factory Implementation](../laravel/Modules/SaluteOra/docs/factories/UserFactory-implementation-final.md)
 - [User Module Integration](../laravel/Modules/User/docs/user_factory_advanced_integration.md)
 - [Advanced Analysis](../laravel/Modules/SaluteOra/docs/factories/UserFactory-advanced-improvements-analysis.md)
@@ -305,6 +295,6 @@ $gdprTests = [
 - [Model Architecture](../laravel/Modules/SaluteOra/docs/models/single-table-inheritance.md)
 - [State Management](../laravel/Modules/SaluteOra/docs/models/states.md)
 - [Cross-Module Relations](../laravel/Modules/SaluteOra/docs/models/doctor-studio-relationship.md)
->>>>>>> 2805232 (.)
+
 
 **🎉 MISSION ACCOMPLISHED - UserFactory Advanced Implementation Complete! 🎉** 
