@@ -54,17 +54,8 @@ abstract class BaseMorphPivot extends \Modules\Xot\Models\XotBaseMorphPivot
     /** @var list<string> */
     protected $fillable = [
         'id',
-<<<<<<< HEAD
-<<<<<<< HEAD
         'post_id',
         'post_type',
-=======
-        'post_id', 'post_type',
->>>>>>> fbc8f8e (.)
-=======
-        'post_id',
-        'post_type',
->>>>>>> 6d20fbe (.)
         'related_type',
         'user_id',
         'note',
@@ -78,13 +69,6 @@ abstract class BaseMorphPivot extends \Modules\Xot\Models\XotBaseMorphPivot
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
