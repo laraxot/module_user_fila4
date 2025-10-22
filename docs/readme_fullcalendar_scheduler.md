@@ -2,7 +2,12 @@
 
 ## 🎯 Obiettivo
 
+<<<<<<< HEAD
 Questa documentazione è stata creata per risolvere i problemi comuni relativi alle licenze FullCalendar Scheduler nel progetto SaluteOra, basandosi sulla ricerca approfondita della documentazione ufficiale di FullCalendar e dei problemi noti nella community.
+=======
+Questa documentazione è stata creata per risolvere i problemi comuni relativi alle licenze FullCalendar Scheduler nel progetto <nome progetto>, basandosi sulla ricerca approfondita della documentazione ufficiale di FullCalendar e dei problemi noti nella community.
+Questa documentazione è stata creata per risolvere i problemi comuni relativi alle licenze FullCalendar Scheduler nel progetto <nome progetto>, basandosi sulla ricerca approfondita della documentazione ufficiale di FullCalendar e dei problemi noti nella community.
+>>>>>>> 041533e (.)
 
 ## 📚 Documenti Creati
 
@@ -11,7 +16,12 @@ Questa documentazione è stata creata per risolvere i problemi comuni relativi a
 - **400+ righe** di documentazione dettagliata
 - Copertura completa di tutti i problemi noti
 - Soluzioni specifiche per Laravel/Filament
+<<<<<<< HEAD
 - Best practices per ambiente sanitario SaluteOra
+=======
+- Best practices per ambiente sanitario <nome progetto>
+- Best practices per ambiente sanitario <nome progetto>
+>>>>>>> 041533e (.)
 
 ### 2. **Riferimento Rapido**
 📄 `fullcalendar-scheduler-quick-reference.md`
@@ -30,7 +40,11 @@ Questa documentazione è stata creata per risolvere i problemi comuni relativi a
 ## 🔍 Ricerca Effettuata
 
 ### Fonti Analizzate
+<<<<<<< HEAD
 - **Documentazione ufficiale**: https://fullcalendar.io/docs/schedulerLicenseKey
+=======
+- **Documentazione ufficiale**: https://fullcalendar.io/project_docs/schedulerLicenseKey
+>>>>>>> 041533e (.)
 - **GitHub Issues**: 17+ issue analizzati sui problemi di licenza
 - **Community feedback**: Stack Overflow, forum, discussioni
 - **Bug reports**: Problemi noti nelle versioni 5.x e 6.x
@@ -69,7 +83,12 @@ private function getFullCalendarPlugin(): FilamentFullCalendarPlugin
             'dayGrid', 'timeGrid', 'list', 'interaction',
             'resourceTimeline', 'resourceDayGrid', // Premium
         ],
+<<<<<<< HEAD
         // Configurazioni SaluteOra specifiche...
+=======
+        // Configurazioni <nome progetto> specifiche...
+        // Configurazioni <nome progetto> specifiche...
+>>>>>>> 041533e (.)
     ]);
 }
 ```
@@ -96,7 +115,12 @@ FULLCALENDAR_CACHE_TTL=300
 FULLCALENDAR_MAX_EVENTS=100
 ```
 
+<<<<<<< HEAD
 ## 🏥 Specifiche SaluteOra
+=======
+## 🏥 Specifiche <nome progetto>
+## 🏥 Specifiche <nome progetto>
+>>>>>>> 041533e (.)
 
 ### Business Hours Sanitarie
 ```javascript
@@ -183,7 +207,12 @@ Log::info('FullCalendar configured', [
 ✅ **Configurazione incompleta** - Setup completo fornito
 ✅ **Bug versioning** - Soluzioni per v5.x e v6.x
 ✅ **Ambiente-specific** - Gestione produzione/sviluppo
+<<<<<<< HEAD
 ✅ **SaluteOra integration** - Configurazioni sanitarie specifiche
+=======
+✅ **<nome progetto> integration** - Configurazioni sanitarie specifiche
+✅ **<nome progetto> integration** - Configurazioni sanitarie specifiche
+>>>>>>> 041533e (.)
 
 ### Benefici
 - **Riduzione troubleshooting time** - Soluzioni immediate disponibili
@@ -201,7 +230,11 @@ Log::info('FullCalendar configured', [
 
 ### Risorse Esterne
 - **FullCalendar Sales**: sales@fullcalendar.io
+<<<<<<< HEAD
 - **Documentation**: https://fullcalendar.io/docs/
+=======
+- **Documentation**: https://fullcalendar.io/project_docs/
+>>>>>>> 041533e (.)
 - **GitHub Issues**: https://github.com/fullcalendar/fullcalendar/issues
 
 ## 🔄 Manutenzione
@@ -209,12 +242,22 @@ Log::info('FullCalendar configured', [
 ### Quando Aggiornare
 - Nuove versioni FullCalendar con breaking changes
 - Nuovi bug noti nella community
+<<<<<<< HEAD
 - Modifiche architettura SaluteOra
+=======
+- Modifiche architettura <nome progetto>
+- Modifiche architettura <nome progetto>
+>>>>>>> 041533e (.)
 - Nuovi requisiti sanitari/legali
 
 ### Come Aggiornare
 1. Verificare issue GitHub FullCalendar
+<<<<<<< HEAD
 2. Testare soluzioni in ambiente SaluteOra
+=======
+2. Testare soluzioni in ambiente <nome progetto>
+2. Testare soluzioni in ambiente <nome progetto>
+>>>>>>> 041533e (.)
 3. Aggiornare documenti pertinenti
 4. Aggiornare questo README
 
@@ -224,4 +267,9 @@ Log::info('FullCalendar configured', [
 **Ultima modifica**: Gennaio 2025  
 **Versione FullCalendar**: v6.1.17  
 **Versione Filament**: v3.x  
+<<<<<<< HEAD
 **Progetto**: SaluteOra Multi-Tenant Healthcare Platform 
+=======
+**Progetto**: <nome progetto> Multi-Tenant Healthcare Platform 
+**Progetto**: <nome progetto> Multi-Tenant Healthcare Platform 
+>>>>>>> 041533e (.)

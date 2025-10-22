@@ -2,12 +2,24 @@
 
 ## Panoramica
 
+<<<<<<< HEAD
 Il widget di registrazione del dottore (`RegistrationWidget.php`) è un componente fondamentale nel processo di registrazione degli odontoiatri in SaluteOra. Questo documento descrive la sua implementazione corretta e come deve essere integrato con il sistema di gestione degli stati tramite `spatie/laravel-model-states`.
+=======
+Il widget di registrazione del dottore (`RegistrationWidget.php`) è un componente fondamentale nel processo di registrazione degli odontoiatri in . Questo documento descrive la sua implementazione corretta e come deve essere integrato con il sistema di gestione degli stati tramite `spatie/laravel-model-states`.
+Il widget di registrazione del dottore (`RegistrationWidget.php`) è un componente fondamentale nel processo di registrazione degli odontoiatri in <nome progetto>. Questo documento descrive la sua implementazione corretta e come deve essere integrato con il sistema di gestione degli stati tramite `spatie/laravel-model-states`.
+>>>>>>> 041533e (.)
 
 ## Posizione del File
 
 ```
+<<<<<<< HEAD
 /var/www/html/saluteora/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php
+=======
+/var/www/html/_bases/base_techplanner_fila3_mono/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php
+/var/www/html/<nome progetto>/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php
+/var/www/html/_bases/base_techplanner_fila3_mono/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php
+/var/www/html/<nome progetto>/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php
+>>>>>>> 041533e (.)
 ```
 
 ## Architettura
@@ -191,18 +203,38 @@ class MailTemplatesTableSeeder extends Seeder
             ],
             [
                 'subject' => [
+<<<<<<< HEAD
                     'it' => 'Registrazione in attesa di moderazione - SaluteOra',
                     'en' => 'Registration pending moderation - SaluteOra'
+=======
+                    'it' => 'Registrazione in attesa di moderazione - ',
+                    'en' => 'Registration pending moderation - '
+                    'it' => 'Registrazione in attesa di moderazione - <nome progetto>',
+                    'en' => 'Registration pending moderation - <nome progetto>'
+>>>>>>> 041533e (.)
                 ],
                 'html_template' => [
                     'it' => '<p>Gentile {{ full_name }},</p>
 <p>La tua richiesta di registrazione è stata ricevuta e sarà esaminata dal nostro team.</p>
 <p>Riceverai un\'email quando la tua registrazione sarà stata moderata.</p>
+<<<<<<< HEAD
 <p>Cordiali saluti,<br>Il team di SaluteOra</p>',
                     'en' => '<p>Dear {{ full_name }},</p>
 <p>Your registration request has been received and will be reviewed by our team.</p>
 <p>You will receive an email when your registration has been moderated.</p>
 <p>Best regards,<br>The SaluteOra Team</p>'
+=======
+<p>Cordiali saluti,<br>Il team di </p>',
+                    'en' => '<p>Dear {{ full_name }},</p>
+<p>Your registration request has been received and will be reviewed by our team.</p>
+<p>You will receive an email when your registration has been moderated.</p>
+<p>Best regards,<br>The  Team</p>'
+<p>Cordiali saluti,<br>Il team di <nome progetto></p>',
+                    'en' => '<p>Dear {{ full_name }},</p>
+<p>Your registration request has been received and will be reviewed by our team.</p>
+<p>You will receive an email when your registration has been moderated.</p>
+<p>Best regards,<br>The <nome progetto> Team</p>'
+>>>>>>> 041533e (.)
                 ],
                 'text_template' => [
                     'it' => 'Gentile {{ full_name }},
@@ -212,7 +244,12 @@ La tua richiesta di registrazione è stata ricevuta e sarà esaminata dal nostro
 Riceverai un\'email quando la tua registrazione sarà stata moderata.
 
 Cordiali saluti,
+<<<<<<< HEAD
 Il team di SaluteOra',
+=======
+Il team di ',
+Il team di <nome progetto>',
+>>>>>>> 041533e (.)
                     'en' => 'Dear {{ full_name }},
 
 Your registration request has been received and will be reviewed by our team.
@@ -220,7 +257,12 @@ Your registration request has been received and will be reviewed by our team.
 You will receive an email when your registration has been moderated.
 
 Best regards,
+<<<<<<< HEAD
 The SaluteOra Team'
+=======
+The  Team'
+The <nome progetto> Team'
+>>>>>>> 041533e (.)
                 ]
             ]
         );
@@ -240,7 +282,18 @@ The SaluteOra Team'
 
 ## Collegamenti Bidirezionali
 
+<<<<<<< HEAD
 - [Email Doctor Registration](/var/www/html/saluteora/docs/email-doctor-registration.md)
 - [Registrazione Odontoiatra](/var/www/html/saluteora/docs/roadmap_frontoffice/13-registrazione-odontoiatra.md)
 - [DoctorResource](/var/www/html/saluteora/laravel/Modules/Patient/app/Filament/Resources/DoctorResource.php)
 - [RegistrationWidget](/var/www/html/saluteora/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php)
+=======
+- [Email Doctor Registration](/var/www/html/_bases/base_techplanner_fila3_mono/docs/email-doctor-registration.md)
+- [Registrazione Odontoiatra](/var/www/html/_bases/base_techplanner_fila3_mono/docs/roadmap_frontoffice/13-registrazione-odontoiatra.md)
+- [DoctorResource](/var/www/html/_bases/base_techplanner_fila3_mono/laravel/Modules/Patient/app/Filament/Resources/DoctorResource.php)
+- [RegistrationWidget](/var/www/html/_bases/base_techplanner_fila3_mono/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php)
+- [Email Doctor Registration](/var/www/html/<nome progetto>/docs/email-doctor-registration.md)
+- [Registrazione Odontoiatra](/var/www/html/<nome progetto>/docs/roadmap_frontoffice/13-registrazione-odontoiatra.md)
+- [DoctorResource](/var/www/html/<nome progetto>/laravel/Modules/Patient/app/Filament/Resources/DoctorResource.php)
+- [RegistrationWidget](/var/www/html/<nome progetto>/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php)
+>>>>>>> 041533e (.)
