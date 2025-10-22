@@ -133,5 +133,10 @@ Le modifiche ai ServiceProvider possono sembrare una soluzione rapida per proble
 **Ricorda**: È sempre meglio adattarsi all'architettura esistente piuttosto che forzare l'architettura ad adattarsi alle proprie esigenze immediate.
 
 ## Collegamenti
+<<<<<<< HEAD
 - [XotBaseServiceProvider.md](/var/www/html/_bases/base_predict_fila3_mono/laravel/Modules/Xot/docs/providers/xotbaseserviceprovider.md)
 - [SERVICE-PROVIDER-BEST-PRACTICES.md](/var/www/html/_bases/base_predict_fila3_mono/laravel/Modules/Xot/docs/SERVICE-PROVIDER-BEST-PRACTICES.md)
+=======
+- [XotBaseServiceProvider.md](/var/www/html/_bases/base_predict_fila3_mono/laravel/Modules/Xot/project_docs/providers/xotbaseserviceprovider.md)
+- [SERVICE-PROVIDER-BEST-PRACTICES.md](/var/www/html/_bases/base_predict_fila3_mono/laravel/Modules/Xot/project_docs/SERVICE-PROVIDER-BEST-PRACTICES.md)
+>>>>>>> 81efa49 (.)
