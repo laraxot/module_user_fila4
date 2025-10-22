@@ -65,9 +65,15 @@ class PasswordReset extends BaseModel
      */
     protected $table = 'password_resets';
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 
 // end class PasswordReset
 =======
 }// end class PasswordReset
 >>>>>>> fbc8f8e (.)
+=======
+}
+
+// end class PasswordReset
+>>>>>>> 6d20fbe (.)
