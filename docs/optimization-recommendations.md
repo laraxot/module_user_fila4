@@ -11,12 +11,7 @@
 - **Struttura**: Informazioni sparse senza organizzazione logica
 
 #### 2. Riusabilità Compromessa  
-<<<<<<< HEAD
 - **141+ occorrenze hardcoded** di "saluteora" 
-=======
-- **141+ occorrenze hardcoded** di "<nome progetto>" 
-- **141+ occorrenze hardcoded** di "<nome progetto>" 
->>>>>>> 041533e (.)
 - **210+ occorrenze** di `User::` senza XotData
 - **Import diretti** da moduli project-specific
 - **Path hardcoded** in documentazione
@@ -68,11 +63,6 @@ Modulo riutilizzabile per gestione utenti, autenticazione e autorizzazione in pr
 - [Testing](testing/) - Test patterns, factory
 
 ## Collegamenti
-<<<<<<< HEAD
-=======
-- [Modulo Xot](../Xot/docs/) - Framework base
-- [Modulo Notify](../Notify/docs/) - Sistema notifiche
->>>>>>> 041533e (.)
 - [Modulo Xot](../Xot/project_docs/) - Framework base
 - [Modulo Notify](../Notify/project_docs/) - Sistema notifiche
 
@@ -81,10 +71,6 @@ Modulo riutilizzabile per gestione utenti, autenticazione e autorizzazione in pr
 
 #### Struttura Target Proposta
 ```
-<<<<<<< HEAD
-=======
-User/docs/
->>>>>>> 041533e (.)
 User/project_docs/
 ├── README.md (overview, max 100 righe)
 ├── authentication/
@@ -139,12 +125,7 @@ User/project_docs/
 #### Pattern di Correzione per Test
 ```php
 // ❌ PROBLEMI ATTUALI
-<<<<<<< HEAD
 use Modules\SaluteOra\Models\User;
-=======
-use Modules\<nome progetto>\Models\User;
-use Modules\<nome modulo>\Models\User;
->>>>>>> 041533e (.)
 $user = User::factory()->create();
 
 // ✅ SOLUZIONI RICHIESTE
@@ -163,13 +144,7 @@ protected function createTestUser(): mixed
 #### File Prioritari da Correggere
 1. **Widget Auth**: Tutti i widget in `app/Filament/Widgets/Auth/`
 2. **Test Files**: Tutti i test che usano User diretto
-<<<<<<< HEAD
 3. **Documentation**: Rimuovere path hardcoded tipo `/var/www/html/saluteora/`
-=======
-3. **Documentation**: Rimuovere path hardcoded tipo `/var/www/html/_bases/base_techplanner_fila3_mono/`
-3. **Documentation**: Rimuovere path hardcoded tipo `/var/www/html/<nome progetto>/`
-3. **Documentation**: Rimuovere path hardcoded tipo `/var/www/html/_bases/base_techplanner_fila3_mono/`
->>>>>>> 041533e (.)
 
 ### 3. Trait e STI Optimization (IMPORTANTE - 1 giorno)
 
@@ -237,12 +212,7 @@ class UserServiceProvider extends XotBaseServiceProvider
 - [ ] **Collegamenti** ridotti a essenziali (max 20)
 
 ### Riusabilità
-<<<<<<< HEAD
 - [ ] **0 occorrenze** hardcoded "saluteora"
-=======
-- [ ] **0 occorrenze** hardcoded "<nome progetto>"
-- [ ] **0 occorrenze** hardcoded "<nome progetto>"
->>>>>>> 041533e (.)
 - [ ] **0 utilizzi** User:: senza XotData
 - [ ] **100% pattern** dinamici nei test
 - [ ] **Script check** passa senza errori
@@ -277,12 +247,7 @@ class UserServiceProvider extends XotBaseServiceProvider
 find Modules/User/docs -name "*.md" | wc -l
 
 # Verifica riusabilità
-<<<<<<< HEAD
 grep -r -i "saluteora" Modules/User/ --include="*.php" | wc -l
-=======
-grep -r -i "<nome progetto>" Modules/User/ --include="*.php" | wc -l
-grep -r -i "<nome progetto>" Modules/User/ --include="*.php" | wc -l
->>>>>>> 041533e (.)
 ```
 
 ### Post-Implementazione
@@ -306,11 +271,6 @@ php artisan user:benchmark  # Target: < 100ms
 
 ## Collegamenti
 
-<<<<<<< HEAD
-=======
-- [Analisi Moduli Globale](../../../docs/modules_analysis_and_optimization.md)
-- [Linee Guida Riusabilità](../../../docs/module_reusability_guidelines.md)
->>>>>>> 041533e (.)
 - [Analisi Moduli Globale](../../../project_docs/modules_analysis_and_optimization.md)
 - [Linee Guida Riusabilità](../../../project_docs/module_reusability_guidelines.md)
 - [Best Practices User](best-practices/)
