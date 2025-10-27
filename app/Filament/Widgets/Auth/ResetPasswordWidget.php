@@ -4,12 +4,24 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+<<<<<<< HEAD
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Schema;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
+=======
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Filament\Schemas\Components\Component;
+use Override;
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
+use Illuminate\Http\RedirectResponse;
+use Filament\Forms;
+use Filament\Forms\Components\TextInput;
+>>>>>>> 44e65d8 (.)
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
@@ -66,6 +78,11 @@ class ResetPasswordWidget extends XotBaseWidget
 
     /**
      * Mount the widget and initialize the form.
+<<<<<<< HEAD
+=======
+     *
+     * @return void
+>>>>>>> 44e65d8 (.)
      */
     public function mount(): void
     {
@@ -74,6 +91,12 @@ class ResetPasswordWidget extends XotBaseWidget
 
     /**
      * Configure the form for this widget.
+<<<<<<< HEAD
+=======
+     *
+     * @param Schema $schema
+     * @return Schema
+>>>>>>> 44e65d8 (.)
      */
 
     /**
