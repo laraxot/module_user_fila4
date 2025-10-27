@@ -5,6 +5,13 @@
 - [Collegamenti documentazione](../../../docs/collegamenti-documentazione.md)
 - [README modulo User](./README.md)
 - [Struttura moduli](../../../docs/architecture/modules-structure.md)
+<<<<<<< HEAD
+=======
+- [Documentazione centrale](../../../project_docs/README.md)
+- [Collegamenti documentazione](../../../project_docs/collegamenti-documentazione.md)
+- [README modulo User](./README.md)
+- [Struttura moduli](../../../project_docs/architecture/modules-structure.md)
+>>>>>>> 041533e (.)
 
 ## ✅ Path Corretti vs ❌ Path Errati
 
