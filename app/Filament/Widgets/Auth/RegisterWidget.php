@@ -4,35 +4,33 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Grid;
-use Filament\Schemas\Schema;
-use Override;
 use Exception;
-use Modules\Xot\Actions\Cast\SafeStringCastAction;
-use RuntimeException;
-use Filament\Forms\ComponentContainer;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
-use Illuminate\Http\RedirectResponse;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use Modules\User\Models\User;
+use Modules\Xot\Actions\Cast\SafeStringCastAction;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
-use Webmozart\Assert\Assert;
+use Override;
+use RuntimeException;
 
 class RegisterWidget extends XotBaseWidget
 {
     protected string $view = 'user::widgets.auth.register-widget';
-    protected static null|int $sort = 2;
-    protected static null|string $maxHeight = '600px';
+
+    protected static ?int $sort = 2;
+
+    protected static ?string $maxHeight = '600px';
 
     public static function canView(): bool
     {
-        return !Auth::check();
+        return ! Auth::check();
     }
 
     public function mount(): void
@@ -126,6 +124,7 @@ class RegisterWidget extends XotBaseWidget
             $user = DB::transaction(function () use ($validatedData) {
                 $user = $this->createUser($validatedData);
                 $this->afterUserCreated($user);
+
                 return $user;
             });
 
@@ -158,7 +157,7 @@ class RegisterWidget extends XotBaseWidget
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      */
     protected function logRegistrationAttempt(array $data): void
     {
@@ -171,7 +170,7 @@ class RegisterWidget extends XotBaseWidget
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      */
     protected function createUser(array $data): User
     {
@@ -209,7 +208,7 @@ class RegisterWidget extends XotBaseWidget
 
     protected function handleRegistrationError(Exception $e): void
     {
-        Log::error('Registration failed: ' . $e->getMessage(), [
+        Log::error('Registration failed: '.$e->getMessage(), [
             'exception' => $e,
             'trace' => $e->getTraceAsString(),
             'ip' => request()->ip(),

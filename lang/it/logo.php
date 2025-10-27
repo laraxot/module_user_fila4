@@ -26,6 +26,7 @@ return [
     'actions' => [
         'updateLogoAction' => [
             'label' => 'updateLogoAction',
+            'tooltip' => 'updateLogoAction',
         ],
     ],
 ];

@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\Pages;
 
-use Filament\Tables\Columns\Column;
-use Filament\Tables\Filters\BaseFilter;
-use Override;
-use Filament\Tables;
 use Filament\Actions\Action;
-use Filament\Tables\Actions\ExportBulkAction;
+use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\BaseFilter;
 use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Query\Builder;
 use Modules\User\Filament\Actions\ChangePasswordAction;
@@ -19,7 +16,7 @@ use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Filament\Actions\Header\ExportXlsAction;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+use Override;
 
 abstract class BaseListUsers extends XotBaseListRecords
 {
@@ -81,6 +78,7 @@ abstract class BaseListUsers extends XotBaseListRecords
      * Get table actions for user records.
      *
      * @return array<string, \Filament\Tables\Actions\Action|\Filament\Tables\Actions\ActionGroup>
+     *
      * @phpstan-ignore-next-line
      */
     /** @phpstan-ignore-next-line */
@@ -118,7 +116,7 @@ abstract class BaseListUsers extends XotBaseListRecords
     protected function getHeaderWidgets(): array
     {
         return [
-            //UserOverview::class
+            // UserOverview::class
         ];
     }
 }

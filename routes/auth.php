@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use Modules\User\Http\Controllers\Auth\VerifyEmailController;
+
 /*
 Route::prefix('{lang}')->group(function () {
     Route::middleware('guest')->group(function () {

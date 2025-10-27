@@ -48,6 +48,9 @@ return [
         'create' => [
             'label' => 'create',
         ],
+        'openColumnManager' => [
+            'tooltip' => 'openColumnManager',
+        ],
     ],
     'plural' => [
         'model' => [

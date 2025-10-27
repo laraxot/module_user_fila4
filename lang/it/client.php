@@ -67,10 +67,12 @@ return [
         'resetFilters' => [
             'icon' => 'resetFilters',
             'label' => 'resetFilters',
+            'tooltip' => 'resetFilters',
         ],
         'applyFilters' => [
             'icon' => 'applyFilters',
             'label' => 'applyFilters',
+            'tooltip' => 'applyFilters',
         ],
         'openFilters' => [
             'icon' => 'openFilters',

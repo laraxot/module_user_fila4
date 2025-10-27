@@ -56,9 +56,17 @@ return [
         'resetFilters' => [
             'icon' => 'resetFilters',
             'label' => 'resetFilters',
+            'tooltip' => 'resetFilters',
         ],
         'applyFilters' => [
             'icon' => 'applyFilters',
+            'tooltip' => 'applyFilters',
+            'label' => 'applyFilters',
+        ],
+        'openFilters' => [
+            'tooltip' => 'openFilters',
+            'icon' => 'openFilters',
+            'label' => 'openFilters',
         ],
     ],
 ];

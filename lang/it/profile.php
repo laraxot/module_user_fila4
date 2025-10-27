@@ -58,7 +58,6 @@ return [
         'matr' => [
             'label' => 'Matricola',
         ],
-        // ... altri campi ...
     ],
     'actions' => [
         'edit' => [
@@ -70,6 +69,11 @@ return [
             'label' => 'Elimina',
             'success' => 'Profilo eliminato con successo!',
             'error' => 'Errore durante l\'eliminazione del profilo',
+        ],
+        'layout' => [
+            'tooltip' => 'layout',
+            'icon' => 'layout',
+            'label' => 'layout',
         ],
     ],
     'messages' => [

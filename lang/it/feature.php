@@ -60,6 +60,10 @@ return [
                 'parent_name' => 'Nome area livello superiore',
             ],
         ],
+        'logout' => [
+            'tooltip' => 'logout',
+            'icon' => 'logout',
+        ],
     ],
     'model' => [
         'label' => 'feature.model',

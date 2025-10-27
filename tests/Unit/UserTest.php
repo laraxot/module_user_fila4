@@ -10,7 +10,6 @@ use Tests\TestCase;
 /**
  * @property User $user
  */
-
 uses(TestCase::class);
 
 beforeEach(function (): void {

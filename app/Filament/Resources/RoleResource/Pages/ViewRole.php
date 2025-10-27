@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Component;
-use Override;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Pages\Actions\EditAction;
+use Filament\Schemas\Components\Component;
+use Filament\Schemas\Components\Section;
 use Modules\User\Filament\Resources\RoleResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
+use Override;
 
 class ViewRole extends XotBaseViewRecord
 {

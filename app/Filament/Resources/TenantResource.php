@@ -27,7 +27,7 @@ use Override;
 
 class TenantResource extends XotBaseResource
 {
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-rectangle-stack';
 
     /**
      * Get the model class name for this resource.

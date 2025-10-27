@@ -158,10 +158,12 @@ return [
         'resetFilters' => [
             'label' => 'resetFilters',
             'icon' => 'resetFilters',
+            'tooltip' => 'resetFilters',
         ],
         'applyTableColumnManager' => [
             'label' => 'applyTableColumnManager',
             'icon' => 'applyTableColumnManager',
+            'tooltip' => 'applyTableColumnManager',
         ],
         'layout' => [
             'icon' => 'layout',

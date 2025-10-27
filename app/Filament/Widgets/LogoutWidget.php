@@ -4,20 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-use Filament\Schemas\Components\View;
-use Filament\Schemas\Components\Component;
-use Override;
-use RuntimeException;
 use Exception;
 use Filament\Actions\Action;
+use Filament\Schemas\Components\Component;
+use Filament\Schemas\Components\View;
 use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
+use Override;
+use RuntimeException;
 use Throwable;
 
 /**
@@ -43,7 +42,6 @@ class LogoutWidget extends XotBaseWidget
      * IMPORTANT: When using @livewire() directly in Blade templates,
      * the path should be without the module namespace.
      *
-     * @var string
      *
      * @phpstan-ignore property.phpDocType
      */
@@ -57,19 +55,15 @@ class LogoutWidget extends XotBaseWidget
      *
      * @var array<string, mixed>|null
      */
-    public null|array $data = [];
+    public ?array $data = [];
 
     /**
      * Indicates if the logout process is in progress.
-     *
-     * @var bool
      */
     public bool $isLoggingOut = false;
 
     /**
      * Mount the widget and initialize the form.
-     *
-     * @return void
      */
     public function mount(): void
     {
@@ -91,10 +85,11 @@ class LogoutWidget extends XotBaseWidget
     public function getFormSchema(): array
     {
         $view = 'filament.widgets.auth.logout-message';
-        //@phpstan-ignore-next-line
-        if (!view()->exists($view)) {
-            throw new Exception('View ' . $view . ' not found');
+        // @phpstan-ignore-next-line
+        if (! view()->exists($view)) {
+            throw new Exception('View '.$view.' not found');
         }
+
         return [
             'message' => View::make($view)->columnSpanFull(),
         ];
@@ -112,7 +107,6 @@ class LogoutWidget extends XotBaseWidget
      * 6. Logs the operation
      * 7. Handles redirection with proper localization
      *
-     * @return void
      *
      * @throws RuntimeException If the logout process fails
      */
@@ -125,6 +119,7 @@ class LogoutWidget extends XotBaseWidget
             $user = $this->getAuthenticatedUser();
             if ($user === null) {
                 $this->handleNoUserScenario();
+
                 return;
             }
 
@@ -157,8 +152,6 @@ class LogoutWidget extends XotBaseWidget
 
     /**
      * Get the logout action configuration.
-     *
-     * @return Action
      */
     protected function getLogoutAction(): Action
     {
@@ -172,8 +165,6 @@ class LogoutWidget extends XotBaseWidget
 
     /**
      * Get the cancel action configuration.
-     *
-     * @return Action
      */
     protected function getCancelAction(): Action
     {
@@ -187,29 +178,24 @@ class LogoutWidget extends XotBaseWidget
 
     /**
      * Get localized home URL based on current locale.
-     *
-     * @return string
      */
     protected function getLocalizedHomeUrl(): string
     {
         $locale = App::getLocale();
-        return '/' . ltrim($locale, '/');
+
+        return '/'.ltrim($locale, '/');
     }
 
     /**
      * Get the authenticated user instance.
-     *
-     * @return Authenticatable|null
      */
-    protected function getAuthenticatedUser(): null|Authenticatable
+    protected function getAuthenticatedUser(): ?Authenticatable
     {
         return Auth::user();
     }
 
     /**
      * Handle scenario when no user is authenticated.
-     *
-     * @return void
      */
     protected function handleNoUserScenario(): void
     {
@@ -219,9 +205,6 @@ class LogoutWidget extends XotBaseWidget
 
     /**
      * Dispatch pre-logout events.
-     *
-     * @param Authenticatable $user
-     * @return void
      */
     protected function dispatchPreLogoutEvent(Authenticatable $user): void
     {
@@ -230,8 +213,6 @@ class LogoutWidget extends XotBaseWidget
 
     /**
      * Perform the actual logout operations.
-     *
-     * @return void
      */
     protected function performLogout(): void
     {
@@ -242,8 +223,6 @@ class LogoutWidget extends XotBaseWidget
 
     /**
      * Dispatch post-logout events.
-     *
-     * @return void
      */
     protected function dispatchPostLogoutEvent(): void
     {
@@ -252,9 +231,6 @@ class LogoutWidget extends XotBaseWidget
 
     /**
      * Log successful logout operation.
-     *
-     * @param Authenticatable $user
-     * @return void
      */
     protected function logLogoutSuccess(Authenticatable $user): void
     {
@@ -266,8 +242,6 @@ class LogoutWidget extends XotBaseWidget
 
     /**
      * Handle redirect after successful logout.
-     *
-     * @return void
      */
     protected function redirectAfterLogout(): void
     {
@@ -280,14 +254,12 @@ class LogoutWidget extends XotBaseWidget
     /**
      * Handle any errors that occur during logout.
      *
-     * @param Throwable $e
-     * @return void
      *
      * @throws RuntimeException
      */
     protected function handleLogoutError(Throwable $e): void
     {
-        Log::error('Logout error: ' . $e->getMessage(), [
+        Log::error('Logout error: '.$e->getMessage(), [
             'exception' => get_class($e),
             'trace' => $e->getTraceAsString(),
         ]);

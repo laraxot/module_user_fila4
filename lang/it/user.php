@@ -284,6 +284,7 @@ return [
             'description' => 'startDate',
             'helper_text' => 'startDate',
             'placeholder' => 'startDate',
+            'label' => 'startDate',
         ],
     ],
     'actions' => [
@@ -395,22 +396,27 @@ return [
         'openFilters' => [
             'label' => 'openFilters',
             'icon' => 'openFilters',
+            'tooltip' => 'openFilters',
         ],
         'export' => [
             'icon' => 'export',
             'label' => 'export',
+            'tooltip' => 'export',
         ],
         'changePassword' => [
             'icon' => 'changePassword',
             'label' => 'changePassword',
+            'tooltip' => 'changePassword',
         ],
         'layout' => [
             'icon' => 'layout',
             'label' => 'layout',
+            'tooltip' => 'layout',
         ],
         'export_xls' => [
             'icon' => 'export_xls',
             'label' => 'export_xls',
+            'tooltip' => 'export_xls',
         ],
         'cancel' => [
             'icon' => 'cancel',

@@ -21,14 +21,17 @@ return [
         'submit' => [
             'label' => 'submit',
             'icon' => 'submit',
+            'tooltip' => 'submit',
         ],
         'attachAnother' => [
             'label' => 'attachAnother',
             'icon' => 'attachAnother',
+            'tooltip' => 'attachAnother',
         ],
         'cancel' => [
             'label' => 'cancel',
             'icon' => 'cancel',
+            'tooltip' => 'cancel',
         ],
     ],
 ];

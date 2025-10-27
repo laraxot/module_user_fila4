@@ -105,6 +105,7 @@ return [
         'logout' => [
             'icon' => 'logout',
             'label' => 'logout',
+            'tooltip' => 'logout',
         ],
         'reorderRecords' => [
             'icon' => 'reorderRecords',
@@ -119,22 +120,27 @@ return [
         'applyTableColumnManager' => [
             'icon' => 'applyTableColumnManager',
             'label' => 'applyTableColumnManager',
+            'tooltip' => 'applyTableColumnManager',
         ],
         'resetFilters' => [
             'icon' => 'resetFilters',
             'label' => 'resetFilters',
+            'tooltip' => 'resetFilters',
         ],
         'applyFilters' => [
             'icon' => 'applyFilters',
             'label' => 'applyFilters',
+            'tooltip' => 'applyFilters',
         ],
         'openFilters' => [
             'icon' => 'openFilters',
             'label' => 'openFilters',
+            'tooltip' => 'openFilters',
         ],
         'detach' => [
             'icon' => 'detach',
             'label' => 'detach',
+            'tooltip' => 'detach',
         ],
         'cancel' => [
             'icon' => 'cancel',
@@ -147,10 +153,16 @@ return [
         'attach' => [
             'label' => 'attach',
             'icon' => 'attach',
+            'tooltip' => 'attach',
         ],
         'submit' => [
             'label' => 'submit',
             'icon' => 'submit',
+        ],
+        'profile' => [
+            'tooltip' => 'profile',
+            'icon' => 'profile',
+            'label' => 'profile',
         ],
     ],
     'plural' => [
@@ -161,4 +173,5 @@ return [
     'model' => [
         'label' => 'team.model',
     ],
+    'label' => 'team',
 ];
