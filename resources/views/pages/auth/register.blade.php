@@ -7,7 +7,11 @@ use App\Models\User;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Wizard;
+<<<<<<< HEAD
 use Filament\Schemas\Components\Wizard\Step;
+=======
+use Filament\Forms\Components\Wizard\Step;
+>>>>>>> 4b219c8 (.)
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Schemas\Schema;
 use Illuminate\Auth\Events\Registered;
