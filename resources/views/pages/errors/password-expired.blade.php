@@ -1,21 +1,70 @@
 <?php
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
 
 declare(strict_types=1);
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
 use Livewire\Volt\Component;
 
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
 use function Laravel\Folio\render;
 use function Laravel\Folio\withTrashed;
+<<<<<<< HEAD
+=======
+=======
+use Livewire\Volt\Component;
+
+use function Laravel\Folio\{withTrashed, middleware, name, render};
+>>>>>>> a12f125f4a (.)
+=======
+use Livewire\Volt\Component;
+
+use function Laravel\Folio\middleware;
+use function Laravel\Folio\name;
+use function Laravel\Folio\render;
+use function Laravel\Folio\withTrashed;
+>>>>>>> b93ef594b4 (.)
+=======
+use Livewire\Volt\Component;
+
+use function Laravel\Folio\{withTrashed, middleware, name, render};
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
 //withTrashed();
 middleware(['auth']);
 name('errors.password-expired');
 //Expression "new class extends \Livewire\Volt\Component…" on a separate line does not do anything.
 // @phpstan-ignore expr.resultUnused
+<<<<<<< HEAD
 new class() extends Component {};
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+new class() extends Component {};
+=======
+new class () extends Component {};
+>>>>>>> a12f125f4a (.)
+=======
+new class() extends Component {};
+>>>>>>> b93ef594b4 (.)
+=======
+new class () extends Component {};
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
 ?>
 <x-layouts.marketing>
