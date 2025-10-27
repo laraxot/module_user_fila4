@@ -286,7 +286,11 @@ dump($variable);
 ## Collegamenti
 
 - [README Modulo User](../README.md)
+<<<<<<< HEAD
 - [Best Practices Testing](../../../project_docs/testing-best-practices.md)
+=======
+- [Best Practices Testing](../../../docs/testing-best-practices.md)
+>>>>>>> 2805232 (.)
 - [Architettura Modulo User](../architecture/README.md)
 - [Factory e Seeder](../models/factory-seeder-status.md)
 
@@ -295,5 +299,8 @@ dump($variable);
 *Ultimo aggiornamento: 2025-01-06*
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 2805232 (.)
