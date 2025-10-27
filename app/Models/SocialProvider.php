@@ -56,6 +56,7 @@ use Override;
  * @mixin IdeHelperSocialProvider
  * @mixin \Eloquent
  */
+/** */
 class SocialProvider extends BaseModel
 {
     use SushiToPhpArray;
