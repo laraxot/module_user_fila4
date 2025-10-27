@@ -12,33 +12,9 @@ use Modules\User\Listeners\FailedLoginListener;
 use Modules\User\Listeners\LoginListener;
 use Modules\User\Listeners\LogoutListener;
 use Modules\User\Listeners\OtherDeviceLogoutListener;
-<<<<<<< HEAD
 use Modules\Xot\Providers\XotBaseEventServiceProvider;
 use SocialiteProviders\Auth0\Auth0ExtendSocialite;
 use SocialiteProviders\Manager\SocialiteWasCalled;
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Modules\Xot\Providers\XotBaseEventServiceProvider;
-use SocialiteProviders\Auth0\Auth0ExtendSocialite;
-use SocialiteProviders\Manager\SocialiteWasCalled;
-=======
-use SocialiteProviders\Auth0\Auth0ExtendSocialite;
-use SocialiteProviders\Manager\SocialiteWasCalled;
-use Modules\Xot\Providers\XotBaseEventServiceProvider;
->>>>>>> a12f125f4a (.)
-=======
-use Modules\Xot\Providers\XotBaseEventServiceProvider;
-use SocialiteProviders\Auth0\Auth0ExtendSocialite;
-use SocialiteProviders\Manager\SocialiteWasCalled;
->>>>>>> b93ef594b4 (.)
-=======
-use SocialiteProviders\Auth0\Auth0ExtendSocialite;
-use SocialiteProviders\Manager\SocialiteWasCalled;
-use Modules\Xot\Providers\XotBaseEventServiceProvider;
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 
 class EventServiceProvider extends XotBaseEventServiceProvider
 {

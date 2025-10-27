@@ -1,26 +1,8 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 <div class="absolute inset-0 h-full">
     <div class="relative h-full overflow-hidden border border-gray-400 dark:border-gray-700 border-dashed opacity-75 sm:rounded-xl">
         <svg class="absolute inset-0 w-full h-full stroke-gray-900/10 dark:stroke-gray-200/10" fill="none">
@@ -32,20 +14,4 @@ declare(strict_types=1);
         <rect stroke="none" fill="url(#pattern-b55d3ce5-d478-4029-95b9-44c415d04f63)" width="100%" height="100%"></rect>
         </svg>
     </div>
-<<<<<<< HEAD
 </div>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-</div>
-=======
-</div>
->>>>>>> a12f125f4a (.)
-=======
-</div>
->>>>>>> b93ef594b4 (.)
-=======
-</div>
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
