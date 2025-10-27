@@ -21,15 +21,7 @@ class PasswordResetFactory extends Factory
     /**
      * Define the model's default state.
      *
-<<<<<<< HEAD
      * @return array<(DateTime|string)>
-=======
-<<<<<<< HEAD
-     * @return array<(DateTime|string)>
-=======
-     * @return array<(\DateTime|string)>
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
      *
      * @psalm-return array{email: string, token: string, created_at: DateTime}
      */
