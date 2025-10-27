@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 <x-filament::dropdown >
     <x-slot name="trigger" class="ml-4">
         <button @class([
@@ -21,3 +24,7 @@ declare(strict_types=1);
         @endforeach
     </x-filament::dropdown.list>
 </x-filament::dropdown>
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
