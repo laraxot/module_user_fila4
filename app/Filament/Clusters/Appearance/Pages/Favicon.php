@@ -7,9 +7,13 @@ namespace Modules\User\Filament\Clusters\Appearance\Pages;
 use Filament\Actions\Action;
 use Filament\Forms;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Filament\Forms\Form;
 >>>>>>> 1724879 (.)
+=======
+use Filament\Forms\Form;
+>>>>>>> cebb28c (.)
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
@@ -19,10 +23,14 @@ use Filament\Support\Exceptions\Halt;
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Clusters\Appearance;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 =======
 use Filament\Schemas\Schema;
 >>>>>>> 1724879 (.)
+=======
+use Filament\Schemas\Schema;
+>>>>>>> cebb28c (.)
 
 /**
  * @property Form $form
@@ -53,10 +61,14 @@ class Favicon extends XotBasePage
     {
         return $form
 <<<<<<< HEAD
+<<<<<<< HEAD
             ->components([
 =======
             ->schema([
 >>>>>>> 1724879 (.)
+=======
+            ->schema([
+>>>>>>> cebb28c (.)
                 // Forms\Components\Section::make('Profile Information')
                 // ->description('Update your account\'s profile information and email address.')
                 // ->schema([
