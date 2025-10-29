@@ -50,7 +50,6 @@ class PasswordExpired extends Page implements HasForms
 
     public function getFormSchema(): array
     {
-        /* @phpstan-ignore-next-line return.type */
         return [
             $this->getCurrentPasswordFormComponent(),
             ...PasswordData::make()->getPasswordFormComponents('password'),
