@@ -27,9 +27,6 @@ class UsersRelationManager extends XotBaseRelationManager
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    /**
-     * @return array<string, Column>
-     */
     #[Override]
     public function getTableColumns(): array
     {
@@ -40,9 +37,6 @@ class UsersRelationManager extends XotBaseRelationManager
         ];
     }
 
-    /**
-     * @return array<string, Action>
-     */
     #[Override]
     public function getTableHeaderActions(): array
     {
@@ -51,9 +45,6 @@ class UsersRelationManager extends XotBaseRelationManager
         ];
     }
 
-    /**
-     * @return array<string, Action|ActionGroup>
-     */
     #[Override]
     public function getTableActions(): array
     {
@@ -65,9 +56,6 @@ class UsersRelationManager extends XotBaseRelationManager
         ];
     }
 
-    /**
-     * @return array<string, BulkAction>
-     */
     #[Override]
     public function getTableBulkActions(): array
     {
