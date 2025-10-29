@@ -13,6 +13,7 @@ use Filament\Widgets\Widget;
 class UserWidget extends Widget
 {
     use InteractsWithPageFilters;
+
     protected static bool $isLazy = false;
 
     protected string $view = 'user::filament.resources.user.widgets.user-widget';
@@ -29,14 +30,10 @@ class UserWidget extends Widget
     }
         */
 
-        /**
-         * @return array<string, mixed>
-         */
-        public function getViewData(): array
-        {
-            $data = $this->pageFilters ?? [];
-            return $data;
-        }
+    public function getViewData(): array
+    {
+        $data = $this->pageFilters;
+
+        return $data;
+    }
 }
-
-

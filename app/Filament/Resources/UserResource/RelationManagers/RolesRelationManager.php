@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Actions\Header\AttachRoleAction;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+use Override;
 
 class RolesRelationManager extends XotBaseRelationManager
 {
@@ -23,41 +24,42 @@ class RolesRelationManager extends XotBaseRelationManager
     // protected function mutateFormDataBeforeCreate(array $data): array
     // {
     // }
-
-    #[\Override]
-    /**
-     * @return array<string, mixed>
-     */
-    public function getTableColumns(): array
+    #[Override]
+    public function getFormSchema(): array
     {
         return [
-            'id' => TextColumn::make('id'),
-            'name' => TextColumn::make('name'),
-            'team_id' => TextColumn::make('team_id'),
+            TextInput::make('name')
+                ->required()
+                ->maxLength(255),
         ];
     }
 
     /**
-     * @return array<string, Action|\Filament\Actions\ActionGroup>
+     * @return array<string, Column>
      */
-    #[\Override]
+    #[Override]
+    public function getTableColumns(): array
+    {
+        return [
+            TextColumn::make('id'),
+            TextColumn::make('name'),
+            TextColumn::make('team_id'),
+        ];
+    }
+
     /**
-     * @return array<string, mixed>
+     * @return array<string, Action>
      */
+    #[Override]
     public function getTableHeaderActions(): array
     {
         $xotData = XotData::make();
-        $parentActions = parent::getTableHeaderActions();
 
-        $actions = [];
-        foreach ($parentActions as $key => $action) {
-            if (is_string($key) && ($action instanceof \Filament\Actions\Action || $action instanceof \Filament\Actions\ActionGroup)) {
-                $actions[$key] = $action;
-            }
-        }
+        return [
 
-        $actions['attach'] = AttachRoleAction::make();
+            ...parent::getTableHeaderActions(),
+            'attach' => AttachRoleAction::make(),
 
-        return $actions;
+        ];
     }
 }

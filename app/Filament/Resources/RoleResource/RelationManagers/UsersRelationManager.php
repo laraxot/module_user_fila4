@@ -28,11 +28,26 @@ final class UsersRelationManager extends XotBaseRelationManager
 
     protected static ?string $inverseRelationship = 'roles';
 
-
-    #[Override]
     /**
-     * @return array<string, mixed>
+     * Returns the form schema structure, defining the input fields for user data.
+     *
+     * @return array<\Filament\Schemas\Components\Component>
      */
+    #[Override]
+    public function getFormSchema(): array
+    {
+        return [
+            TextInput::make('name')->required()->maxLength(255),
+            // Additional fields can be added here as necessary
+        ];
+    }
+
+    /**
+     * Defines the columns displayed in the users list table.
+     *
+     * @return array<Tables\Columns\Column|Component>
+     */
+    #[Override]
     public function getTableColumns(): array
     {
         return [
@@ -61,9 +76,6 @@ final class UsersRelationManager extends XotBaseRelationManager
      * @return array<BaseFilter>
      */
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableFilters(): array
     {
         return [
@@ -73,16 +85,13 @@ final class UsersRelationManager extends XotBaseRelationManager
                     DatePicker::make('created_from'),
                     DatePicker::make('created_until'),
                 ])
-                ->query(fn (Builder $query, array $data): Builder => $query
-                    ->when(
-                        $data['created_from'],
-                        fn (Builder $query, mixed $date) => $query->whereDate('created_at', '>=', (string) $date)
-                    )
-                    ->when(
-                        $data['created_until'],
-                        fn (Builder $query, mixed $date) => $query->whereDate('created_at', '<=', (string) $date)
-                    )
-                )
+                ->query(fn (Builder $query, array $data): Builder => $query->when($data['created_from'], fn (
+                    Builder $query,
+                    $date,
+                ) => $query->whereDate('created_at', '>=', $date))->when($data['created_until'], fn (
+                    Builder $query,
+                    $date,
+                ) => $query->whereDate('created_at', '<=', $date)))
                 ->columns(2),
         ];
     }

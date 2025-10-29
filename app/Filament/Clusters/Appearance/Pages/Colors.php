@@ -7,24 +7,25 @@ namespace Modules\User\Filament\Clusters\Appearance\Pages;
 use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Components\ColorPicker;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Contracts\HasForms;
-use Filament\Pages\Page;
 use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Clusters\Appearance;
+use Modules\Xot\Filament\Pages\XotBasePage;
 
 /**
+ * Pagina Colors nel Cluster Appearance.
+ *
+ * ⚠️ IMPORTANTE: Estende XotBasePage (Standalone), MAI Filament\Pages\Page!
+ *
  * @property Schema $form
+ *
+ * @see \Modules\Xot\Filament\Pages\XotBasePage
+ * @see \Modules\User\docs\errori\class-page-not-found.md
  */
-class Colors extends Page implements HasForms
+class Colors extends XotBasePage
 {
-    use InteractsWithForms;
-
-    public ?array $data = [];
-
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
+    // $data è già definita in XotBasePage, non ridichiarare!
 
     protected string $view = 'user::filament.clusters.appearance.pages.colors';
 

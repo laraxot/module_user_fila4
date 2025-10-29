@@ -8,21 +8,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Datas;
 
-use RuntimeException;
-use InvalidArgumentException;
-<<<<<<< HEAD
-use Filament\Forms\Components\Component;
-=======
-use Filament\Schemas\Components\Component;
->>>>>>> 041533e (.)
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\TextInput as FilamentTextInput;
 use Filament\Forms\Components\TextInput as FormsTextInput;
 use Filament\Forms\Get;
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\HtmlString;
+use Filament\Schemas\Components\Component;
 use Illuminate\Validation\Rules\Password;
+use InvalidArgumentException;
 use Modules\Tenant\Services\TenantService;
+use RuntimeException;
 use Spatie\LaravelData\Data;
 
 /**
@@ -41,20 +34,18 @@ class PasswordData extends Data
         public bool $symbols = true,
         public bool $uncompromised = true,
         public int $compromisedThreshold = 0,
-        public null|string $failMessage = null,
-        private null|string $field_name = null,
+        public ?string $failMessage = null,
+        private ?string $field_name = null,
     ) {}
 
-    private static null|self $instance = null;
+    private static ?self $instance = null;
 
     /**
      * Crea un'istanza della classe PasswordData.
-     *
-     * @return self
      */
     public static function make(): self
     {
-        if (!self::$instance) {
+        if (! self::$instance) {
             /** @var array<string, mixed> $data */
             $data = TenantService::getConfig('password');
             self::$instance = self::from($data);
@@ -107,7 +98,7 @@ class PasswordData extends Data
      */
     public function getHelperText(): string
     {
-        $msg = 'La password deve essere composta da minimo ' . $this->min . ' caratteri';
+        $msg = 'La password deve essere composta da minimo '.$this->min.' caratteri';
 
         if ($this->mixedCase) {
             $msg .= ', contenere almeno una lettera maiuscola e una minuscola';
@@ -138,6 +129,7 @@ class PasswordData extends Data
     public function setFieldName(string $field_name): self
     {
         $this->field_name = $field_name;
+
         return $this;
     }
 

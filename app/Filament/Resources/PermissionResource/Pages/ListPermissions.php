@@ -33,9 +33,6 @@ class ListPermissions extends XotBaseListRecords
      * @return array<string, Tables\Columns\Column>
      */
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableColumns(): array
     {
         return [
@@ -50,9 +47,6 @@ class ListPermissions extends XotBaseListRecords
      * @return array<string, BaseFilter>
      */
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableFilters(): array
     {
         return [
@@ -70,9 +64,6 @@ class ListPermissions extends XotBaseListRecords
      * @return array<string, Action|ActionGroup>
      */
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableActions(): array
     {
         return [
@@ -97,9 +88,6 @@ class ListPermissions extends XotBaseListRecords
      * @return array<string, BulkAction>
      */
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableBulkActions(): array
     {
         Assert::classExists($roleModel = config('permission.models.role'));
@@ -110,35 +98,21 @@ class ListPermissions extends XotBaseListRecords
                 ->action(static function (Collection $collection, array $data): void {
                     foreach ($collection as $record) {
                         // Verifichiamo che $record sia un'istanza di Model prima di procedere
-                        // Assert::isInstanceOf($record, Model::class); // This assertion is always true in this context
+                        Assert::isInstanceOf(
+                            $record,
+                            Model::class,
+                            '['.__LINE__.']['.__CLASS__.']',
+                        );
 
                         // Poi verifichiamo che il modello abbia il metodo roles() prima di chiamarlo
                         if (method_exists($record, 'roles')) {
-                            $roleIds = $data['role'] ?? [];
-                            $roleIds = is_array($roleIds) ? $roleIds : [$roleIds];
-                            $roles = $record->roles();
-                            Assert::isInstanceOf($roles, \Illuminate\Database\Eloquent\Relations\BelongsToMany::class);
-                            $roles->sync($roleIds);
+                            $record->roles()->sync($data['role']);
                             $record->save();
                         }
                     }
                 })
                 ->schema([
-                    Select::make('role')
-                        ->options(static function () use ($roleModel): array {
-                            $query = $roleModel::query();
-                            Assert::isInstanceOf($query, \Illuminate\Database\Eloquent\Builder::class);
-
-                            $collection = $query->pluck('name', 'id');
-                            Assert::isInstanceOf($collection, \Illuminate\Support\Collection::class);
-
-                            /** @var array<int|string, string> $options */
-                            $options = $collection->toArray();
-
-                            return $options;
-                        })
-                        ->multiple()
-                        ->required(),
+                    Select::make('role')->options($roleModel::query()->pluck('name', 'id'))->required(),
                 ])
                 ->deselectRecordsAfterCompletion(),
         ];

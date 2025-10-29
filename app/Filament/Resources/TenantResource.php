@@ -59,10 +59,9 @@ class TenantResource extends XotBaseResource
                             ignoreRecord: true,
                         )
                         ->live(onBlur: true)
-                        ->afterStateUpdated(function (callable $set, mixed $state): void {
-                            $slug = Str::slug((string) $state);
-                            $set('slug', $slug);
-                            $set('domain', $slug);
+                        ->afterStateUpdated(function (callable $set, $state) {
+                            $set('slug', Str::slug($state));
+                            $set('domain', Str::slug($state));
                         })
                         ->columnSpanFull()
                         ->placeholder('Nome del tenant')

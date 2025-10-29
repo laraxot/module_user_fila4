@@ -350,3 +350,4 @@ class MyPage extends XotBasePage
 **Tipo Errore**: Import classe inesistente + Violazione regola XotBase  
 **Files Affetti**: 3 Pages + 1 Cluster
 
+

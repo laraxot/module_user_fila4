@@ -6,10 +6,12 @@ namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Support\Carbon;
 use Modules\Media\Models\Media;
 use Modules\User\Database\Factories\UserFactory;
 use Modules\Xot\Contracts\ProfileContract;
+use Override;
 use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 
 /**
@@ -44,7 +46,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @property int|null $devices_count
  * @property string|null $full_name
  * @property AuthenticationLog|null $latestAuthentication
- * @property \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
+ * @property DatabaseNotificationCollection<int, Notification> $notifications
  * @property int|null $notifications_count
  * @property Collection<int, Team> $ownedTeams
  * @property int|null $owned_teams_count
@@ -60,6 +62,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @property int|null $tenants_count
  * @property Collection<int, OauthAccessToken> $tokens
  * @property int|null $tokens_count
+ *
  * @method static UserFactory factory($count = null, $state = [])
  * @method static Builder|User newModelQuery()
  * @method static Builder|User newQuery()
@@ -86,15 +89,16 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @method static Builder|User whereUpdatedBy($value)
  * @method static Builder|User withoutPermission($permissions)
  * @method static Builder|User withoutRole($roles, $guard = null)
+ *
  * @property string $last_name
- * @property Team|null $currentTeam
- * @property MediaCollection<int, Media> $media
- * @property int|null $media_count
- * @property Collection<int, SocialiteUser> $socialiteUsers
- * @property int|null $socialite_users_count
- * @property Collection<int, Membership> $teamUsers
- * @property int|null $team_users_count
- * @property Collection<int, User> $all_team_users
+ * @property-read Team|null $currentTeam
+ * @property-read MediaCollection<int, Media> $media
+ * @property-read int|null $media_count
+ * @property-read Collection<int, SocialiteUser> $socialiteUsers
+ * @property-read int|null $socialite_users_count
+ * @property-read Collection<int, Membership> $teamUsers
+ * @property-read int|null $team_users_count
+ * @property-read Collection<int, \Modules\User\Models\User> $all_team_users
  * @property string|null $phone
  * @property string|null $address
  * @property string|null $city
@@ -104,6 +108,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @property string|null $moderation_data
  * @property string|null $certifications
  * @property string|null $type
+ *
  * @method static Builder<static>|User whereAddress($value)
  * @method static Builder<static>|User whereCertifications($value)
  * @method static Builder<static>|User whereCity($value)
@@ -115,10 +120,8 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @method static Builder<static>|User whereState($value)
  * @method static Builder<static>|User whereStatus($value)
  * @method static Builder<static>|User whereType($value)
- * @property-read string|null $avatar
- * @property-read string $display_name
- * @property-read string $initials
- * @property-read Collection<int, \Illuminate\Notifications\DatabaseNotification> $unread_notifications
+ *
+ * @mixin IdeHelperUser
  * @mixin \Eloquent
  */
 class User extends BaseUser
@@ -128,12 +131,9 @@ class User extends BaseUser
      *
      * @var string
      */
-<<<<<<< HEAD
     public $connection = 'user';
-=======
-    public $connection = 'mysql';
->>>>>>> 041533e (.)
 
+    #[Override]
     public function canAccessSocialite(): bool
     {
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;

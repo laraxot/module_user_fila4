@@ -24,4 +24,31 @@ trait HasRoles
         );
     }
 
+    /**
+     * Determine if the user has the given role.
+     *
+     * @param  string|array|\Spatie\Permission\Contracts\Role|Collection  $roles
+     */
+    public function hasRole($roles, ?string $guard = null): bool
+    {
+        if (is_string($roles) && str_contains($roles, '|')) {
+            $roles = explode('|', $roles);
+        }
+
+        if (is_string($roles)) {
+            return $this->roles->contains('name', $roles);
+        }
+
+        if (is_array($roles)) {
+            foreach ($roles as $role) {
+                if ($this->hasRole($role)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        return ! is_null($roles) && $this->roles->contains('id', $roles->id);
+    }
 }

@@ -34,11 +34,7 @@ trait HasAuthenticationLogTrait
      */
     public function authentications(): MorphMany
     {
-<<<<<<< HEAD
         return $this->morphMany(AuthenticationLog::class, 'authenticatable')->latest('login_at');
-=======
-        return $this->morphMany(AuthenticationLog::class, 'authenticatable');
->>>>>>> 041533e (.)
     }
 
     /**

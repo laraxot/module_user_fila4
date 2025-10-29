@@ -53,11 +53,7 @@ class DeviceData extends Data
 
             $key = Str::camel($key);
 
-            // $item is array<int, string|null> from request->header()
-            // Since it's always an array from header(), directly get first element
-            $value = $item[0] ?? '';
-
-            return [$key => $value];
+            return [$key => $item];
         })->all();
 
         return self::from($headers);
@@ -95,14 +91,7 @@ class DeviceData extends Data
             'called_at' => Carbon::now(),
             // fulfilled_at
         ]);
-
-        Assert::object($synchronization, 'Synchronization must be an object');
-        Assert::propertyExists($synchronization, 'id', 'Synchronization must have id property');
-
-        $synchronizationId = property_exists($synchronization, 'id')
-            ? (string) $synchronization->id
-            : '';
-        // Assert::string($synchronizationId); // This assertion is always true since (string) cast always produces string
+        Assert::string($synchronizationId = $synchronization->id, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
         $this->synchronizationId = $synchronizationId;
 
         return $this->synchronizationId;

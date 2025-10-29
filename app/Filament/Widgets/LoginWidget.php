@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+use Exception;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Notifications\Notification;
@@ -14,13 +15,14 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
+use Override;
 
 /**
  * LoginWidget: Widget di login conforme alle regole Windsurf/Xot.
  * - Estende XotBaseWidget
  * - Usa solo componenti Filament importati
  * - Validazione e sicurezza integrate
- * - Facilmente estendibile (2FA, captcha, login social).
+ * - Facilmente estendibile (2FA, captcha, login social)
  *
  * @property array<string, mixed>|null $data
  */
@@ -51,10 +53,7 @@ class LoginWidget extends XotBaseWidget
      *
      * @return array<int, Component>
      */
-    #[\Override]
-    /**
-     * @return array<string, mixed>
-     */
+    #[Override]
     public function getFormSchema(): array
     {
         return [
@@ -73,7 +72,7 @@ class LoginWidget extends XotBaseWidget
     /**
      * Get the form model.
      */
-    #[\Override]
+    #[Override]
     protected function getFormModel(): ?Model
     {
         return null;
@@ -84,10 +83,7 @@ class LoginWidget extends XotBaseWidget
      *
      * @return array<string, mixed>
      */
-    #[\Override]
-    /**
-     * @return array<string, mixed>
-     */
+    #[Override]
     public function getFormFill(): array
     {
         return [
@@ -99,7 +95,7 @@ class LoginWidget extends XotBaseWidget
     /**
      * Handle login form submission.
      */
-    #[\Override]
+    #[Override]
     public function save(): void
     {
         try {
@@ -110,7 +106,9 @@ class LoginWidget extends XotBaseWidget
             $attempt_data = Arr::only($data, ['email', 'password']);
 
             if (! Auth::attempt($attempt_data, $remember)) {
-                throw ValidationException::withMessages(['email' => [__('user::messages.credentials_incorrect')]]);
+                throw ValidationException::withMessages([
+                    'email' => [__('user::messages.credentials_incorrect')],
+                ]);
             }
 
             session()->regenerate();
@@ -134,9 +132,9 @@ class LoginWidget extends XotBaseWidget
 
             foreach ($e->errors() as $field => $messages) {
                 // Semplificato: aggiungi sempre l'errore al campo specifico
-                $this->addError($field, implode(' ', (array) $messages));
+                $this->addError($field, implode(' ', $messages));
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             report($e);
 
             Notification::make()

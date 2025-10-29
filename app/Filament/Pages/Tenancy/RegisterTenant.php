@@ -45,22 +45,12 @@ class RegisterTenant extends BaseRegisterTenant
             ->toString();
         $this->resource = $resource;
 
-        /** @var array<\Illuminate\Contracts\Support\Htmlable|string> $components */
-        $components = $this->getFormSchema();
-
-        return $schema->components($components);
+        return $schema->components($this->getFormSchema());
     }
 
-    /**
-     * @return array<\Illuminate\Contracts\Support\Htmlable|string>
-     */
     public function getFormSchema(): array
     {
-        $formSchema = $this->resource::getFormSchema();
-        /** @var array<\Illuminate\Contracts\Support\Htmlable|string> $result */
-        $result = is_array($formSchema) ? $formSchema : [];
-
-        return $result;
+        return $this->resource::getFormSchema();
     }
 
     /**
@@ -73,10 +63,7 @@ class RegisterTenant extends BaseRegisterTenant
         $tenant = $tenantClass::create($data);
         Assert::implementsInterface($tenant, TenantContract::class);
 
-        /** @var \Modules\User\Models\BaseTenant $tenant */
-        $users = $tenant->users();
-        Assert::isInstanceOf($users, \Illuminate\Database\Eloquent\Relations\BelongsToMany::class);
-        $users->attach(auth()->user());
+        $tenant->users()->attach(auth()->user());
 
         return $tenant;
     }

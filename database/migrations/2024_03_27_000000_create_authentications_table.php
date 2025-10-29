@@ -10,7 +10,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('authentications', function (Blueprint $table): void {
+        Schema::create('authentications', function (Blueprint $table) {
             $table->id();
             $table->string('type');
             $table->string('ip_address')->nullable();

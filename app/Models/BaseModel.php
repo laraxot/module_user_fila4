@@ -4,31 +4,82 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Modules\Xot\Models\XotBaseModel;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Xot\Actions\Factory\GetFactoryAction;
 use Modules\Xot\Models\Traits\RelationX;
+use Modules\Xot\Traits\Updater;
 
 /**
  * Class BaseModel.
  */
-abstract class BaseModel extends XotBaseModel
+abstract class BaseModel extends Model
 {
-    /**
-     * The connection name for the model.
-     *
-     * @var string
-     */
-    protected $connection = 'user';
+    use HasFactory;
+    use RelationX;
+    use Updater;
 
     /**
-     * Get the attributes that should be cast.
+     * Indicates whether attributes are snake cased on arrays.
      *
-     * @return array<string, string>
+     * @see https://laravel-news.com/6-eloquent-secrets
+     *
+     * @var bool
      */
+    public static $snakeAttributes = true;
+
+    /** @var bool */
+    public $incrementing = true;
+
+    /** @var bool */
+    public $timestamps = true;
+
+    /** @var int */
+    protected $perPage = 30;
+
+    /** @var string */
+    protected $connection = 'user';
+
+    /** @var list<string> */
+    protected $appends = [];
+
+    /** @var string */
+    protected $primaryKey = 'id';
+
+    /** @var string */
+    protected $keyType = 'string';
+
+    /** @var list<string> */
+    protected $hidden = [
+        // 'password'
+    ];
+
+    /**
+     * @see vendor/ laravel / framework / src / Illuminate / Database / Eloquent / Factories / HasFactory.php
+     * Create a new factory instance for the model.
+     *
+     * @return Factory<static>
+     */
+    protected static function newFactory()
+    {
+        return app(GetFactoryAction::class)->execute(static::class);
+    }
+
+    /** @return array<string, string> */
     protected function casts(): array
     {
-        return array_merge(parent::casts(), [
-            'verified_at' => 'datetime', // ✅ User-specific cast
-        ]);
+        return [
+            'id' => 'string',
+            'uuid' => 'string',
+            'published_at' => 'datetime',
+            'verified_at' => 'datetime',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+        ];
     }
 }

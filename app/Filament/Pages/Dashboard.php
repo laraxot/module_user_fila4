@@ -8,22 +8,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages;
 
-use Modules\User\Filament\Widgets\UsersChartWidget;
-use Modules\User\Filament\Widgets\RecentLoginsWidget;
-use Override;
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Form;
-use Filament\Forms\Get;
-use Filament\Pages\Dashboard as BaseDashboard;
-use Filament\Pages\Dashboard\Concerns\HasFiltersForm;
 use Filament\Widgets\Widget;
 use Filament\Widgets\WidgetConfiguration;
 use Modules\User\Filament\Widgets;
+use Modules\User\Filament\Widgets\RecentLoginsWidget;
+use Modules\User\Filament\Widgets\UsersChartWidget;
+use Modules\Xot\Filament\Pages\XotBaseDashboard;
+use Override;
 
-class Dashboard extends BaseDashboard
+class Dashboard extends XotBaseDashboard
 {
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-home';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-home';
 
     // protected static string $routePath = 'finance';
     // protected static ?string $title = 'Finance dashboard';
@@ -43,17 +39,14 @@ class Dashboard extends BaseDashboard
         ];
     }
 
-    /**
-     * @return array<string, mixed>
-     */
-    /** @phpstan-ignore-next-line return.type */
+    #[Override]
     public function getFiltersFormSchema(): array
     {
         return [
             DatePicker::make('startDate')->native(false),
-            // ->maxDate(fn (Get $get) => $get('endDate') ?: now()),
+            // ->maxDate(fn (\Filament\Schemas\Components\Utilities\Get $get) => $get('endDate') ?: now()),
             DatePicker::make('endDate')->native(false),
-            // ->minDate(fn (Get $get) => $get('startDate') ?: now())
+            // ->minDate(fn (\Filament\Schemas\Components\Utilities\Get $get) => $get('startDate') ?: now())
             // ->maxDate(now()),
         ];
     }

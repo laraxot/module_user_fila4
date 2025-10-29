@@ -7,28 +7,21 @@ namespace Modules\User\Filament\Pages;
 use Filament\Actions\Action;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
-use Filament\Pages\Page;
 use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Tenant\Services\TenantService;
 use Modules\User\Datas\PasswordData;
-use Modules\Xot\Filament\Traits\TransTrait;
-use Filament\Forms\Components\Section;
+use Modules\Xot\Filament\Pages\XotBasePage;
 
 /**
  * Pagina per la gestione delle impostazioni delle password.
  *
  * @property Schema $form
  */
-class Password extends Page implements HasForms
+class Password extends XotBasePage
 {
-    use InteractsWithForms;
-    use TransTrait;
-
     /**
      * Dati del form per la gestione delle password.
      *
@@ -64,7 +57,8 @@ class Password extends Page implements HasForms
     /**
      * Definisce la struttura del form.
      *
-     * @param  Schema  $schema  Il form da configurare
+     * @param Schema $schema Il form da configurare
+     *
      * @return Schema Il form configurato
      */
     public function form(Schema $schema): Schema
@@ -123,7 +117,6 @@ class Password extends Page implements HasForms
      */
     protected function fillForms(): void
     {
-        /** @var array<string, mixed> $data */
         $data = PasswordData::make()->toArray();
 
         $this->form->fill($data);
@@ -144,8 +137,9 @@ class Password extends Page implements HasForms
     /**
      * Gestisce l'aggiornamento del record.
      *
-     * @param  Model  $record  Il record da aggiornare
-     * @param  array<string, mixed>  $data  I dati per l'aggiornamento
+     * @param Model                $record Il record da aggiornare
+     * @param array<string, mixed> $data   I dati per l'aggiornamento
+     *
      * @return Model Il record aggiornato
      */
     protected function handleRecordUpdate(Model $record, array $data): Model

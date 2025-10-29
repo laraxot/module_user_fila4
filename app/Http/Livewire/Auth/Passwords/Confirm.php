@@ -9,7 +9,6 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Livewire\Component;
 use Modules\Xot\Actions\File\ViewCopyAction;
-use Webmozart\Assert\Assert;
 
 class Confirm extends Component
 {
@@ -38,9 +37,6 @@ class Confirm extends Component
          */
         $view = 'pub_theme::livewire.auth.passwords.confirm';
 
-        $result = view($view)->extends('pub_theme::layouts.auth');
-        Assert::isInstanceOf($result, View::class);
-
-        return $result;
+        return view($view)->extends('pub_theme::layouts.auth');
     }
 }

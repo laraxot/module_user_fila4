@@ -68,7 +68,7 @@ class OtherDeviceLogoutListener
         $logs = $user
             ->authentications()
             ->orderByDesc('login_at')
-            ->where(function ($query) use ($newIP, $newUserAgent): void {
+            ->where(function ($query) use ($newIP, $newUserAgent) {
                 $query->where('ip_address', '!=', $newIP)->orWhere('user_agent', '!=', $newUserAgent);
             })
             ->where('login_successful', true)

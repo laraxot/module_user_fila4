@@ -4,9 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Clusters;
 
-use Filament\Clusters\Cluster;
+use Modules\Xot\Filament\Clusters\XotBaseCluster;
 
-class Appearance extends Cluster
+/**
+ * Cluster Appearance per raggruppare pagine di personalizzazione aspetto.
+ *
+ * ⚠️ IMPORTANTE: Estende XotBaseCluster, MAI Filament\Clusters\Cluster direttamente!
+ *
+ * @see \Modules\Xot\Filament\Clusters\XotBaseCluster
+ * @see \Modules\User\docs\errori\class-page-not-found.md
+ */
+class Appearance extends XotBaseCluster
 {
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-squares-2x2';
 }

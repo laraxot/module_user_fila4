@@ -24,6 +24,20 @@ class DomainsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'domains';
 
+    /**
+     * @return array<string, Component>
+     */
+    #[Override]
+    public function getFormSchema(): array
+    {
+        return [
+            'domain' => TextInput::make('domain')
+                ->required()
+                ->prefix('http(s)://')
+                ->suffix('.'.request()->getHost())
+                ->maxLength(255),
+        ];
+    }
 
     #[Override]
     public function table(Table $table): Table
@@ -33,16 +47,7 @@ class DomainsRelationManager extends XotBaseRelationManager
             ->columns([
                 TextColumn::make('domain'),
                 TextColumn::make('full-domain')->getStateUsing(
-                    static function ($record) {
-                        if (!is_object($record) || !property_exists($record, 'domain')) {
-                            return '';
-                        }
-
-                        /** @var string $domain */
-                        $domain = $record->domain ?? '';
-
-                        return Str::of($domain)->append('.')->append(request()->getHost())->toString();
-                    }
+                    static fn ($record) => Str::of($record->domain)->append('.')->append(request()->getHost()),
                 ),
             ])
             ->filters([])

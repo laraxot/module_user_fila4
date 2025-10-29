@@ -31,10 +31,6 @@ class ManageRolePermissions extends ManageRelatedRecords
         return 'Permissions';
     }
 
-    /**
-     * @return array<string, mixed>
-     */
-    /** @phpstan-ignore-next-line return.type */
     public function getFormSchema(): array
     {
         return [

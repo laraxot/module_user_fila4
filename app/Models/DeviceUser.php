@@ -18,9 +18,11 @@ use Override;
  * Modules\User\Models\DeviceUser.
  *
  * @property Device|null $device
+ *
  * @method static Builder|DeviceUser newModelQuery()
  * @method static Builder|DeviceUser newQuery()
  * @method static Builder|DeviceUser query()
+ *
  * @property string $id
  * @property string $device_id
  * @property string $user_id
@@ -32,6 +34,7 @@ use Override;
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
  * @property string|null $created_by
+ *
  * @method static Builder|DeviceUser whereCreatedAt($value)
  * @method static Builder|DeviceUser whereCreatedBy($value)
  * @method static Builder|DeviceUser whereDeviceId($value)
@@ -43,16 +46,18 @@ use Override;
  * @method static Builder|DeviceUser whereUpdatedAt($value)
  * @method static Builder|DeviceUser whereUpdatedBy($value)
  * @method static Builder|DeviceUser whereUserId($value)
+ *
  * @property ProfileContract|null $profile
  * @property UserContract|null $user
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
- * @method static \Modules\User\Database\Factories\DeviceUserFactory factory($count = null, $state = [])
+ *
+ * @mixin IdeHelperDeviceUser
  * @mixin \Eloquent
  */
 class DeviceUser extends BasePivot
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
+    use HasFactory;
 
     /** @var list<string> */
     protected $fillable = [

@@ -4,56 +4,64 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Carbon;
+use Modules\User\Database\Factories\TeamFactory;
+use Modules\Xot\Contracts\ProfileContract;
 
 /**
- * Team Model.
- * 
- * Extends BaseTeam which already implements all TeamContract methods.
+ * Class Modules\User\Models\Team.
  *
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Membership> $memberships
- * @property-read int|null $memberships_count
- * @property-read \Modules\Xot\Contracts\UserContract|null $owner
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\TeamInvitation> $teamInvitations
- * @property-read int|null $team_invitations_count
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
- * @method static \Modules\User\Database\Factories\TeamFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Team newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Team newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Team query()
+ * @property string $id
+ * @property string $user_id (DC2Type:guid)
+ * @property string $name
+ * @property int $personal_team
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property Carbon|null $deleted_at
+ * @property string|null $deleted_by
+ * @property ProfileContract|null $creator
+ * @property TeamUser $pivot
+ * @property Collection<int, User> $members
+ * @property int|null $members_count
+ * @property User|null $owner
+ * @property Collection<int, TeamInvitation> $teamInvitations
+ * @property int|null $team_invitations_count
+ * @property ProfileContract|null $updater
+ * @property Collection<int, User> $users
+ * @property int|null $users_count
+ *
+ * @method static TeamFactory factory($count = null, $state = [])
+ * @method static Builder|Team newModelQuery()
+ * @method static Builder|Team newQuery()
+ * @method static Builder|Team query()
+ * @method static Builder|Team whereCreatedAt($value)
+ * @method static Builder|Team whereCreatedBy($value)
+ * @method static Builder|Team whereDeletedAt($value)
+ * @method static Builder|Team whereDeletedBy($value)
+ * @method static Builder|Team whereId($value)
+ * @method static Builder|Team whereName($value)
+ * @method static Builder|Team wherePersonalTeam($value)
+ * @method static Builder|Team whereUpdatedAt($value)
+ * @method static Builder|Team whereUpdatedBy($value)
+ * @method static Builder|Team whereUserId($value)
+ *
+ * @property string|null $code
+ *
+ * @method static Builder|Team whereCode($value)
+ *
+ * @property string|null $uuid
+ *
+ * @method static Builder<static>|Team whereUuid($value)
+ *
+ * @property string|null $owner_id
+ *
+ * @method static Builder<static>|Team whereOwnerId($value)
+ *
+ * @mixin IdeHelperTeam
  * @mixin \Eloquent
  */
-class Team extends BaseTeam
-{
-
-    /**
-     * The connection name for the model.
-     *
-     * @var string
-     */
-    protected $connection = 'user';
-    
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'personal_team' => 'boolean',
-            'deleted_at' => 'datetime',
-        ];
-    }
-
-    /**
-     * Get the memberships for the team.
-     *
-     * @return HasMany<Membership, $this>
-     */
-    public function memberships(): HasMany
-    {
-        return $this->hasMany(Membership::class);
-    }
-}
+class Team extends BaseTeam {}

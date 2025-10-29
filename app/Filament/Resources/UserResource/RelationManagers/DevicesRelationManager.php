@@ -16,9 +16,6 @@ class DevicesRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'devices';
 
-    /**
-     * @return array<string, TextColumn>
-     */
     public static function extendTableCallback(): array
     {
         return [
@@ -27,6 +24,16 @@ class DevicesRelationManager extends XotBaseRelationManager
         ];
     }
 
+    /**
+     * @return array<string, Component>
+     */
+    #[Override]
+    public function getFormSchema(): array
+    {
+        return [
+            'device' => TextInput::make('device')->required()->maxLength(255),
+        ];
+    }
 
     #[Override]
     public function table(Table $table): Table

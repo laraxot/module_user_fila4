@@ -9,9 +9,7 @@ use Filament\Forms;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Contracts\HasForms;
-use Filament\Pages\Page;
+use Modules\Xot\Filament\Pages\XotBasePage;
 use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Database\Eloquent\Model;
@@ -20,13 +18,9 @@ use Modules\User\Filament\Clusters\Appearance;
 /**
  * @property Schema $form
  */
-class Favicon extends Page implements HasForms
+class Favicon extends XotBasePage
 {
-    use InteractsWithForms;
-
-    public ?array $data = [];
-
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
+    
 
     protected string $view = 'user::filament.clusters.appearance.pages.favicon';
 

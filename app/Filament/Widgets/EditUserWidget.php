@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+use BackedEnum;
+use Exception;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Schema;
 use Filament\Widgets\Widget;
@@ -15,7 +17,7 @@ use Illuminate\Support\Str;
 use Livewire\Features\SupportRedirects\Redirector;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
-use Webmozart\Assert\Assert;
+use Override;
 
 /**
  * EditUserWidget: Widget generico per la modifica dati utente.
@@ -27,11 +29,11 @@ use Webmozart\Assert\Assert;
  *
  * Il widget è completamente generico e riutilizzabile per qualsiasi tipo di utente.
  *
- * @property string $type
- * @property string $resource
- * @property string $model
- * @property string $action
- * @property Model $record
+ * @property-read string $type
+ * @property-read string $resource
+ * @property-read string $model
+ * @property-read string $action
+ * @property-read Model $record
  * @property array|null $data
  */
 class EditUserWidget extends XotBaseWidget
@@ -64,7 +66,7 @@ class EditUserWidget extends XotBaseWidget
     {
         $this->type = $type;
         $this->resource = XotData::make()->getUserResourceClassByType($type);
-        $this->model = (string) $this->resource::getModel();
+        $this->model = $this->resource::getModel();
         $this->action = Str::of($this->model)
             ->replace('\Models\\', '\Actions\\')
             ->append('\UpdateUserAction')
@@ -83,12 +85,11 @@ class EditUserWidget extends XotBaseWidget
      * Ottiene il modello per il form.
      * Se viene fornito un userId, carica quell'utente, altrimenti usa l'utente autenticato.
      */
-    #[\Override]
+    #[Override]
     protected function getFormModel(?int $userId = null): Model
     {
         if ($userId) {
             $user = $this->model::findOrFail($userId);
-            Assert::isInstanceOf($user, Model::class);
 
             return $user;
         }
@@ -96,28 +97,19 @@ class EditUserWidget extends XotBaseWidget
         // Se non è specificato un userId, usa l'utente correntemente autenticato
         $currentUser = Auth::user();
         if ($currentUser && $currentUser instanceof $this->model) {
-            Assert::isInstanceOf($currentUser, Model::class);
-
             return $currentUser;
         }
 
         // Fallback: cerca un utente del tipo corretto associato all'utente autenticato
         if ($currentUser) {
-            $query = $this->model::where('user_id', $currentUser->id);
-            Assert::isInstanceOf($query, \Illuminate\Database\Eloquent\Builder::class);
-            $user = $query->first();
+            $user = $this->model::where('user_id', $currentUser->id)->first();
             if ($user) {
-                Assert::isInstanceOf($user, Model::class);
-
                 return $user;
             }
         }
 
         // Ultimo fallback: nuovo modello
-        $model = app($this->model);
-        Assert::isInstanceOf($model, Model::class);
-
-        return $model;
+        return app($this->model);
     }
 
     /**
@@ -125,10 +117,7 @@ class EditUserWidget extends XotBaseWidget
      *
      * @return array<string, mixed>
      */
-    #[\Override]
-    /**
-     * @return array<string, mixed>
-     */
+    #[Override]
     public function getFormFill(): array
     {
         $model = $this->record ?: $this->getFormModel();
@@ -136,28 +125,18 @@ class EditUserWidget extends XotBaseWidget
         // Se il modello ha un ID, significa che è stato trovato nel database
         if ($model->exists) {
             try {
-                $data = $model->toArray();
-                Assert::isArray($data);
-
-                /** @var array<string, mixed> $result */
-                $result = $data;
-
-                return $result;
-            } catch (\Exception $e) {
+                return $model->toArray();
+            } catch (Exception $e) {
                 // Se toArray() fallisce (problemi con enum), usa getAttributes()
                 Log::warning("Errore in toArray() per modello {$this->model}: ".$e->getMessage());
                 $attributes = $model->getAttributes();
-                Assert::isArray($attributes);
 
                 // Gestisci specificamente gli enum se presenti
-                if (isset($attributes['type']) && ($model->type ?? null) instanceof \BackedEnum) {
+                if (isset($attributes['type']) && ($model->type ?? null) instanceof BackedEnum) {
                     $attributes['type'] = $model->type->value;
                 }
 
-                /** @var array<string, mixed> $attributesResult */
-                $attributesResult = $attributes;
-
-                return $attributesResult;
+                return $attributes;
             }
         }
 
@@ -165,13 +144,8 @@ class EditUserWidget extends XotBaseWidget
         $fillable = $model->getFillable();
         $appends = $model->getAppends();
         $fields = array_merge($fillable, $appends);
-        $data = array_fill_keys($fields, null);
-        // Assert::isArray($data); // This assertion is always true since $data is created from array_fill_keys
 
-        /** @var array<string, mixed> $finalResult */
-        $finalResult = $data;
-
-        return $finalResult;
+        return array_fill_keys($fields, null);
     }
 
     /**
@@ -179,19 +153,10 @@ class EditUserWidget extends XotBaseWidget
      *
      * @return array<int|string, Component>
      */
-    #[\Override]
-    /**
-     * @return array<string, mixed>
-     */
+    #[Override]
     public function getFormSchema(): array
     {
-        $schema = $this->resource::getFormSchemaWidget();
-        Assert::isArray($schema);
-
-        /** @var array<int|string, Component> $result */
-        $result = $schema;
-
-        return $result;
+        return $this->resource::getFormSchemaWidget();
     }
 
     /**
@@ -205,12 +170,7 @@ class EditUserWidget extends XotBaseWidget
         $record = $this->record;
 
         // Delega l'aggiornamento all'action specifica
-        $action = app($this->action);
-        Assert::object($action);
-        if (! method_exists($action, 'execute')) {
-            throw new \RuntimeException('Action must have execute method');
-        }
-        $user = $action->execute($record, $data);
+        $user = app($this->action)->execute($record, $data);
 
         // Notifica successo
         session()->flash('message', __('user::profile.update_success'));
@@ -230,12 +190,12 @@ class EditUserWidget extends XotBaseWidget
 
         // L'utente può modificare solo il proprio profilo
         return
-            $currentUser
-            && (
-                ($currentUser->id ?? null) !== null
-                        && ($this->record->id ?? null) !== null
-                        && $currentUser->id === $this->record->id
-                    || ($currentUser->id ?? null) !== null && $currentUser->id === ($this->record->user_id ?? null)
+            $currentUser &&
+            (
+                ($currentUser->id ?? null) !== null &&
+                        ($this->record->id ?? null) !== null &&
+                        $currentUser->id === $this->record->id ||
+                    ($currentUser->id ?? null) !== null && $currentUser->id === ($this->record->user_id ?? null)
             );
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Database\Seeders;
 
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Modules\User\Models\AuthenticationLog;
@@ -15,8 +16,6 @@ use Modules\User\Models\Role;
 use Modules\User\Models\SocialProvider;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
-use Modules\Xot\Actions\Cast\SafeIntCastAction;
-use Webmozart\Assert\Assert;
 
 /**
  * Seeder per creare grandi quantità di dati per il modulo User.
@@ -58,7 +57,7 @@ class UserMassSeeder extends Seeder
 
             $this->command->info("🎉 Seeding modulo User completato in {$executionTime} secondi!");
             $this->displaySummary();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->command->error('❌ Errore durante il seeding: '.$e->getMessage());
             throw $e;
         }
@@ -202,46 +201,30 @@ class UserMassSeeder extends Seeder
         $this->command->info('👤 Creazione utenti con profili completi...');
 
         // Crea 200 utenti generici
-        /** @var \Illuminate\Database\Eloquent\Factories\Factory<User> $userFactory */
-        $userFactory = User::factory();
-        $users = $userFactory
+        $users = User::factory()
             ->count(200)
             ->create([
                 'email_verified_at' => Carbon::now(),
                 'created_at' => Carbon::now()->subDays(rand(1, 365)),
             ]);
-        Assert::isInstanceOf($users, \Illuminate\Database\Eloquent\Collection::class);
 
         // Crea profili per tutti gli utenti
-        /** @var \Illuminate\Database\Eloquent\Collection<int, User> $userCollection */
-        $userCollection = $users;
-        foreach ($userCollection as $user) {
-            /** @var string $userId */
-            $userId = $user->id;
-            /** @var \Illuminate\Support\Carbon $createdAt */
-            $createdAt = $user->created_at;
-            /** @var \Illuminate\Support\Carbon $updatedAt */
-            $updatedAt = $user->updated_at;
-            /** @var \Illuminate\Database\Eloquent\Factories\Factory<Profile> $profileFactory */
-            $profileFactory = Profile::factory();
-            $profileFactory->create([
-                'user_id' => $userId,
-                'created_at' => $createdAt,
-                'updated_at' => $updatedAt,
+        foreach ($users as $user) {
+            Profile::factory()->create([
+                'user_id' => $user->id,
+                'created_at' => $user->created_at,
+                'updated_at' => $user->updated_at,
             ]);
         }
 
         // Assegna ruoli casuali
         $roles = Role::all();
-        foreach ($userCollection as $user) {
+        foreach ($users as $user) {
             $randomRole = $roles->random();
-            // assign by role name to satisfy assignRole() accepted types
-            $user->assignRole($randomRole->name);
+            $user->assignRole($randomRole);
         }
 
-        $count = SafeIntCastAction::cast($users->count());
-        // Assert::integer($count); // This assertion is always true since SafeIntCastAction::cast() returns int
-        $this->command->info('✅ Creati '.(string) $count.' utenti con profili completi');
+        $this->command->info('✅ Creati '.$users->count().' utenti con profili completi');
     }
 
     /**
@@ -252,17 +235,13 @@ class UserMassSeeder extends Seeder
         $this->command->info('📝 Creazione log di autenticazione...');
 
         // Crea 1000 log di autenticazione
-        /** @var \Illuminate\Database\Eloquent\Factories\Factory<AuthenticationLog> $logFactory */
-        $logFactory = AuthenticationLog::factory();
-        $logs = $logFactory
+        $logs = AuthenticationLog::factory()
             ->count(1000)
             ->create([
                 'created_at' => Carbon::now()->subDays(rand(1, 30)),
             ]);
 
-        $count = SafeIntCastAction::cast($logs->count());
-        // Assert::integer($count); // This assertion is always true since SafeIntCastAction::cast() returns int
-        $this->command->info('✅ Creati '.(string) $count.' log di autenticazione');
+        $this->command->info('✅ Creati '.$logs->count().' log di autenticazione');
     }
 
     /**
@@ -273,17 +252,13 @@ class UserMassSeeder extends Seeder
         $this->command->info('📱 Creazione dispositivi utente...');
 
         // Crea 500 dispositivi
-        /** @var \Illuminate\Database\Eloquent\Factories\Factory<Device> $deviceFactory */
-        $deviceFactory = Device::factory();
-        $devices = $deviceFactory
+        $devices = Device::factory()
             ->count(500)
             ->create([
                 'created_at' => Carbon::now()->subDays(rand(1, 90)),
             ]);
 
-        $count = SafeIntCastAction::cast($devices->count());
-        // Assert::integer($count); // This assertion is always true since SafeIntCastAction::cast() returns int
-        $this->command->info('✅ Creati '.(string) $count.' dispositivi utente');
+        $this->command->info('✅ Creati '.$devices->count().' dispositivi utente');
     }
 
     /**
@@ -294,17 +269,13 @@ class UserMassSeeder extends Seeder
         $this->command->info('🔗 Creazione provider social...');
 
         // Crea 100 provider social
-        /** @var \Illuminate\Database\Eloquent\Factories\Factory<SocialProvider> $providerFactory */
-        $providerFactory = SocialProvider::factory();
-        $providers = $providerFactory
+        $providers = SocialProvider::factory()
             ->count(100)
             ->create([
                 'created_at' => Carbon::now()->subDays(rand(1, 180)),
             ]);
 
-        $count = SafeIntCastAction::cast($providers->count());
-        // Assert::integer($count); // This assertion is always true since SafeIntCastAction::cast() returns int
-        $this->command->info('✅ Creati '.(string) $count.' provider social');
+        $this->command->info('✅ Creati '.$providers->count().' provider social');
     }
 
     /**
@@ -317,9 +288,7 @@ class UserMassSeeder extends Seeder
 
         try {
             // Conta utenti
-            /** @var int $totalUsers */
             $totalUsers = User::count();
-            /** @var int $verifiedUsers */
             $verifiedUsers = User::whereNotNull('email_verified_at')->count();
 
             $this->command->info('│ 👥 Utenti totali:           '.
@@ -365,7 +334,7 @@ class UserMassSeeder extends Seeder
             $this->command->info('│ 🔗 Provider social:         '.
             str_pad((string) $totalProviders, 6, ' ', STR_PAD_LEFT).
                 ' │');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->command->info('│ ❌ Errore nel conteggio: '.$e->getMessage());
         }
 

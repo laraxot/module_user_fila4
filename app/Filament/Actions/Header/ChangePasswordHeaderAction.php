@@ -25,17 +25,14 @@ class ChangePasswordHeaderAction extends Action
             ->icon('heroicon-o-key')
             ->action(function (UserContract $record, array $data): void {
                 $old_password = $record->getAttribute('password');
-                $newPassword = $data['new_password'] ?? null;
-                if (is_string($newPassword) && $newPassword !== '') {
-                    $res = tap($record)->update([
-                        'password' => Hash::make($newPassword),
-                    ]);
+                $res = tap($record)->update([
+                    'password' => Hash::make($data['new_password']),
+                ]);
 
-                    Notification::make()
-                        ->success()
-                        ->title(__('user::notifications.password_changed_successfully.title'))
-                        ->body(__('user::notifications.password_changed_successfully.message'));
-                }
+                Notification::make()
+                    ->success()
+                    ->title(__('user::notifications.password_changed_successfully.title'))
+                    ->body(__('user::notifications.password_changed_successfully.message'));
             })
             ->schema([
                 /*
@@ -50,9 +47,7 @@ class ChangePasswordHeaderAction extends Action
                 TextInput::make('new_password_confirmation')
                     ->password()
                     ->placeholder(__('user::fields.confirm_password.placeholder'))
-                    ->rule('required', static function (callable $get): bool {
-                        return (bool) $get('new_password');
-                    })
+                    ->rule('required', static fn ($get): bool => (bool) $get('new_password'))
                     ->same('new_password'),
             ]);
     }

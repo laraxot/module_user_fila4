@@ -24,7 +24,6 @@ class SocialiteUserPolicy extends UserBasePolicy
     {
         return
             $user->hasPermissionTo('socialite-user.view') ||
-            /* @phpstan-ignore-next-line property.notFound */
             $user->id === $socialiteUser->user_id ||
             $user->hasRole('super-admin');
     }
@@ -44,7 +43,6 @@ class SocialiteUserPolicy extends UserBasePolicy
     {
         return
             $user->hasPermissionTo('socialite-user.update') ||
-            /* @phpstan-ignore-next-line property.notFound */
             $user->id === $socialiteUser->user_id ||
             $user->hasRole('super-admin');
     }
@@ -54,14 +52,9 @@ class SocialiteUserPolicy extends UserBasePolicy
      */
     public function delete(UserContract $user, SocialiteUser $socialiteUser): bool
     {
-        /** @var string $userId */
-        $userId = $user->id;
-        /** @var string $socialiteUserId */
-        /* @phpstan-ignore-next-line property.notFound */
-        $socialiteUserId = $socialiteUser->user_id;
         return
             $user->hasPermissionTo('socialite-user.delete') ||
-            $userId === $socialiteUserId ||
+            $user->id === $socialiteUser->user_id ||
             $user->hasRole('super-admin');
     }
 

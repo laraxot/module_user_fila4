@@ -27,7 +27,6 @@ trait HasTenants
     public function canAccessTenant(Model $tenant): bool
     {
         return $this->tenants()->whereKey($tenant)->exists();
-         //return $this->tenants()->where('tenant_id', $tenant->getKey())->exists();
     }
 
     /**
@@ -37,16 +36,10 @@ trait HasTenants
      */
     public function getTenants(Panel $_panel): array|Collection
     {
-        try {
-            // Usa il metodo tenants() per ottenere la relazione correttamente
-            /** @var Collection<int, Model> $tenants */
-            $tenants = $this->tenants()->get();
+        /** @var Collection<int, Model> $tenants */
+        $tenants = $this->tenants;
 
-            return $tenants;
-        } catch (\Exception $e) {
-            // In caso di errore, restituisci una collection vuota per evitare problemi con il selector
-            return collect();
-        }
+        return $tenants;
     }
 
     /**
@@ -62,23 +55,4 @@ trait HasTenants
 
         return $this->belongsToManyX($tenant_class);
     }
-
-   
-   
-    /**
-     * Get the user's current tenant.
-     */
-    public function getCurrentTenant(): ?\Illuminate\Database\Eloquent\Model
-    {
-        return $this->currentTenant ?? null;
-    }
-
-    /**
-     * Set the current tenant for the user.
-     */
-    public function setCurrentTenant(\Illuminate\Database\Eloquent\Model $tenant): void
-    {
-        $this->currentTenant = $tenant;
-    }
-
 }

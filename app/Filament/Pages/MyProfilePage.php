@@ -9,16 +9,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages;
 
-use Exception;
 use Filament\Actions\Action;
 use Filament\Facades\Filament;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
-use Filament\Pages\Auth\EditProfile;
-use Filament\Pages\Page;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
@@ -27,17 +22,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Modules\User\Datas\PasswordData;
+use Modules\Xot\Filament\Pages\XotBasePage;
 
 /**
- * @property \Filament\Schemas\Schema $form
- * @property \Filament\Schemas\Schema $editProfileForm
- * @property \Filament\Schemas\Schema $editPasswordForm
+ * @property Schema $form
+ * @property Schema $editProfileForm
+ * @property Schema $editPasswordForm
  */
-class MyProfilePage extends Page implements HasForms
+class MyProfilePage extends XotBasePage
 {
-    // class MyProfilePage extends EditProfile
-    use InteractsWithForms;
-
     public ?array $profileData = [];
 
     public ?array $passwordData = [];
@@ -125,9 +118,7 @@ class MyProfilePage extends Page implements HasForms
         $user = Filament::auth()->user();
 
         if (! ($user instanceof Model)) {
-            throw new Exception(
-                'The authenticated user object must be an Eloquent model to allow the profile page to update it.',
-            );
+            throw new \Exception('The authenticated user object must be an Eloquent model to allow the profile page to update it.');
         }
 
         return $user;
@@ -162,10 +153,6 @@ class MyProfilePage extends Page implements HasForms
     // {
     //     return filament('filament-breezy')->getRegisteredMyProfileComponents();
     // }
-    /**
-     * @return array<string, mixed>
-     */
-    /** @phpstan-ignore-next-line return.type */
     public function getFormSchema(): array
     {
         return [
@@ -269,9 +256,7 @@ class MyProfilePage extends Page implements HasForms
 
     protected function handleRecordUpdate(Model $record, array $data): Model
     {
-        /** @var array<string, mixed> $typedData */
-        $typedData = $data;
-        $record->update($typedData);
+        $record->update($data);
 
         return $record;
     }

@@ -8,24 +8,18 @@ use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Contracts\HasForms;
-use Filament\Pages\Page;
 use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Clusters\Appearance;
+use Modules\Xot\Filament\Pages\XotBasePage;
 
 /**
  * @property Schema $form
  */
-class Logo extends Page implements HasForms
+class Logo extends XotBasePage
 {
-    use InteractsWithForms;
-
     public ?array $logoData = [];
-
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
     protected string $view = 'user::filament.clusters.appearance.pages.logo';
 
@@ -92,7 +86,7 @@ class Logo extends Page implements HasForms
     }
 
     /**
-     * @param  array<string, mixed>  $data
+     * @param array<string, mixed> $data
      */
     protected function handleRecordUpdate(Model $record, array $data): Model
     {

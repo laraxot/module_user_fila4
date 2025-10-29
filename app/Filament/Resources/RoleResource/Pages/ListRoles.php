@@ -17,9 +17,6 @@ class ListRoles extends XotBaseListRecords
     protected static string $resource = RoleResource::class;
 
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableColumns(): array
     {
         return [
@@ -32,9 +29,6 @@ class ListRoles extends XotBaseListRecords
     }
 
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableFilters(): array
     {
         return [

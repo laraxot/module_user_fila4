@@ -48,22 +48,16 @@ class EditRole extends XotBaseEditRecord
         ];
     }
 
-    /**
-     * @param array<string, mixed> $data
-     * @return array<string, mixed>
-     */
     protected function mutateFormDataBeforeSave(array $data): array
     {
         $this->permissions = collect($data)
             ->filter(
                 static fn ($_permission, $key): bool => (
-                    ! \in_array((string) $key, ['name', 'guard_name', 'select_all'], true) && Str::contains((string) $key, '_')
+                    ! \in_array($key, ['name', 'guard_name', 'select_all'], false) && Str::contains($key, '_')
                 ),
             )
             ->keys();
 
-        /** @var array<string, mixed> $only */
-        $only = Arr::only($data, ['name', 'guard_name']);
-        return $only;
+        return Arr::only($data, ['name', 'guard_name']);
     }
 }

@@ -28,42 +28,26 @@ class ChangeProfilePasswordAction extends Action
     {
         parent::setUp();
         $this->translateLabel()
+            ->tooltip(__('user::user.actions.change_password'))
             ->icon('heroicon-o-key')
             ->action(static function (ProfileContract $record, array $data): void {
-                // Retrieve related user model (not the relation object)
-                /** @var \Illuminate\Database\Eloquent\Model|null $user */
                 $user = $record->user;
-                /** @var array<string, mixed> $profile_data */
                 $profile_data = Arr::except($record->toArray(), ['id']);
-
-                if (! $user instanceof \Illuminate\Database\Eloquent\Model) {
-                    $userClass = XotData::make()->getUserClass();
-                    $email = $record->email ?? '';
-                    $existing = XotData::make()->getUserByEmail($email);
-                    if (! $existing instanceof \Illuminate\Database\Eloquent\Model) {
-                        // Create a new user model and associate it to the profile via belongsTo
-                        /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
-                        $user = $userClass::query()->create($profile_data);
-                    } else {
-                        $user = $existing;
-                    }
-
-                    // Associate and persist the relation (belongsTo)
-                    if ($user instanceof \Illuminate\Database\Eloquent\Model && $user instanceof \Modules\Xot\Contracts\UserContract) {
-                        $record->user()->associate($user);
-                    }
-                    $record->save();
-                } else {
-                    // User already exists, we can proceed with password update
+                if ($user === null) {
+                    $user_class = XotData::make()->getUserClass();
+                    /** @var UserContract */
+                    $user = XotData::make()->getUserByEmail($record->email);
                 }
 
-                $newPassword = $data['new_password'] ?? null;
-                if (is_string($newPassword) && $newPassword !== '') {
-                    $user->update([
-                        'password' => Hash::make($newPassword),
-                    ]);
-                    Notification::make()->success()->title('Password changed successfully.');
+                if ($user === null) {
+                    $user = $record->user()->create($profile_data);
                 }
+                // @phpstan-ignore argument.type, method.notFound
+                $user->profile()->save($record);
+                $user->update([
+                    'password' => Hash::make($data['new_password']),
+                ]);
+                Notification::make()->success()->title('Password changed successfully.');
             })
             ->schema([
                 /*
@@ -75,9 +59,7 @@ class ChangeProfilePasswordAction extends Action
                 PasswordData::make()->getPasswordFormComponent('new_password'),
                 TextInput::make('new_password_confirmation')
                     ->password()
-                    ->rule('required', static function (callable $get): bool {
-                        return (bool) $get('new_password');
-                    })
+                    ->rule('required', static fn ($get): bool => (bool) $get('new_password'))
                     ->same('new_password'),
             ]);
     }

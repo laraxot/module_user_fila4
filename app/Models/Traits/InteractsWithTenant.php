@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\User\Contracts\TeamContract;
 use Modules\User\Models\Scopes\TenantScope;
 use Modules\User\Models\Tenant;
+use Throwable;
 
 /**
  * @property TeamContract $currentTeam
@@ -57,7 +58,7 @@ trait InteractsWithTenant
     {
         try {
             $this->currentTenant = Filament::getTenant();
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             // Se Filament non è disponibile, lascia il tenant come null
             $this->currentTenant = null;
         }
@@ -71,30 +72,11 @@ trait InteractsWithTenant
         static::addGlobalScope(new TenantScope);
 
         static::creating(static function ($model): void {
-            if (! is_object($model)) {
-                return;
-            }
-
-            // ✅ FIX: Verifica contesto prima di chiamare Filament::getTenant()
-            // In contesto console (Artisan), non c'è sessione Filament attiva
-            if (app()->runningInConsole()) {
-                // In console, permettiamo la creazione senza tenant_id
-                // I comandi console devono gestire tenant_id manualmente se necessario
-                return;
-            }
-
-            try {
+            if ($model !== null) {
                 $tenant = Filament::getTenant();
-                if ($tenant !== null && is_object($tenant) && method_exists($tenant, 'getKey')) {
-                    $tenantId = $tenant->getKey();
-                    if (is_int($tenantId) && property_exists($model, 'tenant_id')) {
-                        $model->tenant_id = $tenantId;
-                    }
+                if ($tenant !== null) {
+                    $model->tenant_id = $tenant->getKey();
                 }
-            } catch (\Throwable $e) {
-                // In caso di errore nel recupero tenant, continua senza impostarlo
-                // Questo permette la creazione di utenti in contesti non-standard
-                // Log per debugging ma non bloccare l'operazione
             }
         });
     }
