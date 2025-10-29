@@ -76,9 +76,9 @@ class ListProfiles extends XotBaseListRecords
     {
         return [
             'is_active' => TernaryFilter::make('is_active')
-                ->placeholder(static::trans('filters.is_active.all'))
-                ->trueLabel(static::trans('filters.is_active.active'))
-                ->falseLabel(static::trans('filters.is_active.inactive'))
+                ->placeholder((string) static::trans('filters.is_active.all'))
+                ->trueLabel((string) static::trans('filters.is_active.active'))
+                ->falseLabel((string) static::trans('filters.is_active.inactive'))
                 ->queries(
                     true: static fn (Builder $query) => $query->where('is_active', '=', true),
                     false: static fn (Builder $query) => $query->where('is_active', '=', false),

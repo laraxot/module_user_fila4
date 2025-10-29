@@ -38,7 +38,7 @@ class UserObserver
             // Crea il personal team
             $personalTeam = Team::create([
                 'user_id' => $user->id,
-                'name' => $user->name . "'s Team",
+                'name' => $user->name."'s Team",
                 'personal_team' => true,
             ]);
 

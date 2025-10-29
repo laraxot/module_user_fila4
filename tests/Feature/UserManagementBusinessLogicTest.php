@@ -14,6 +14,8 @@ use Modules\User\Models\Role;
 use Modules\User\Models\User;
 use Tests\TestCase;
 
+use function Safe\json_encode;
+
 class UserManagementBusinessLogicTest extends TestCase
 {
     use RefreshDatabase;
