@@ -95,7 +95,7 @@ class LoginWidget extends XotBaseWidget
 {
     protected static string $view = 'user::filament.widgets.auth.login-form';
 
-    public function form(Form $form): Form
+    public function form(\Filament\Schemas\Schema $form): \Filament\Schemas\Schema
     {
         return $form
             ->schema([
