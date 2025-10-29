@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 <x-filament::section>
     <x-slot name="heading">
         {{ __('user::widgets.edit_user.title') }}
