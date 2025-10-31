@@ -26,6 +26,9 @@ abstract class BaseViewUser extends XotBaseViewRecord
      * @return array<string, mixed>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getInfolistSchema(): array
     {
         return [

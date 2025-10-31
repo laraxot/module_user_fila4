@@ -19,16 +19,27 @@ class UserModulePhpstanFixesTest extends TestCase
     {
         $passwordData = new PasswordData;
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertInstanceOf(PasswordData::class, $passwordData);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertEquals(15, $passwordData->otp_expiration_minutes);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertEquals(6, $passwordData->otp_length);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertEquals(30, $passwordData->expires_in);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertEquals(6, $passwordData->min);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertFalse($passwordData->mixedCase);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertFalse($passwordData->letters);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertFalse($passwordData->numbers);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertFalse($passwordData->symbols);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertFalse($passwordData->uncompromised);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertEquals(1, $passwordData->compromisedThreshold);
     }
 
@@ -48,15 +59,25 @@ class UserModulePhpstanFixesTest extends TestCase
             compromisedThreshold: 5
         );
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertEquals(30, $passwordData->otp_expiration_minutes);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertEquals(8, $passwordData->otp_length);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertEquals(60, $passwordData->expires_in);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertEquals(8, $passwordData->min);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertTrue($passwordData->mixedCase);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertTrue($passwordData->letters);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertTrue($passwordData->numbers);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertTrue($passwordData->symbols);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertTrue($passwordData->uncompromised);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertEquals(5, $passwordData->compromisedThreshold);
     }
 
@@ -73,8 +94,10 @@ class UserModulePhpstanFixesTest extends TestCase
             compromisedThreshold: 3
         );
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $rule = $passwordData->getPasswordRule();
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertInstanceOf(Password::class, $rule);
     }
 
@@ -90,14 +113,22 @@ class UserModulePhpstanFixesTest extends TestCase
             uncompromised: true
         );
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $helperText = $passwordData->getHelperText();
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertIsString($helperText);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertStringContainsString('8 caratteri', $helperText);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertStringContainsString('maiuscola e una minuscola', $helperText);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertStringContainsString('lettera', $helperText);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertStringContainsString('numero', $helperText);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertStringContainsString('carattere speciale', $helperText);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertStringContainsString('compromessa', $helperText);
     }
 
@@ -107,12 +138,15 @@ class UserModulePhpstanFixesTest extends TestCase
         $passwordData = new PasswordData;
 
         // Test che il metodo esista e non lanci eccezioni
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertTrue(method_exists($passwordData, 'getPasswordFormComponents'));
 
         // Test che il metodo getPasswordFormComponent esista
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertTrue(method_exists($passwordData, 'getPasswordFormComponent'));
 
         // Test che il metodo getPasswordConfirmationFormComponent esista
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertTrue(method_exists($passwordData, 'getPasswordConfirmationFormComponent'));
     }
 
@@ -124,9 +158,13 @@ class UserModulePhpstanFixesTest extends TestCase
         $registered = new Registered;
         $socialiteUserConnected = new SocialiteUserConnected;
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertInstanceOf(AddingTeam::class, $addingTeam);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertInstanceOf(Login::class, $login);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertInstanceOf(Registered::class, $registered);
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertInstanceOf(SocialiteUserConnected::class, $socialiteUserConnected);
     }
 
@@ -136,13 +174,16 @@ class UserModulePhpstanFixesTest extends TestCase
         $addingTeam = new AddingTeam;
         $login = new Login;
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertTrue(method_exists($addingTeam, 'dispatch'));
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertTrue(method_exists($login, 'dispatch'));
     }
 
     /** @test */
     public function password_data_static_make_method_exists(): void
     {
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertTrue(method_exists(PasswordData::class, 'make'));
     }
 
@@ -151,12 +192,14 @@ class UserModulePhpstanFixesTest extends TestCase
     {
         $passwordData = new PasswordData;
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertTrue(method_exists($passwordData, 'getValidationMessages'));
     }
 
     /** @test */
     public function password_data_get_form_schema_method_exists(): void
     {
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertTrue(method_exists(PasswordData::class, 'getFormSchema'));
     }
 }

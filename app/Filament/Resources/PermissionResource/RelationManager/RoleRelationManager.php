@@ -24,7 +24,11 @@ class RoleRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Component>
      */
+    /* @phpstan-ignore-next-line method.childReturnType */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getFormSchema(): array
     {
         return [

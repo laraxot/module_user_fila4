@@ -4,18 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphPivot;
-use Modules\Xot\Actions\Factory\GetFactoryAction;
 use Modules\Xot\Traits\Updater;
 
 /**
  * Class BaseMorphPivot.
  */
-abstract class BaseMorphPivot extends MorphPivot
+abstract class BaseMorphPivot extends \Modules\Xot\Models\XotBaseMorphPivot
 {
-    use HasFactory;
+    use \Modules\Xot\Models\Traits\HasXotFactory;
     use Updater;
 
     // use HasUuids;
@@ -63,17 +60,6 @@ abstract class BaseMorphPivot extends MorphPivot
         'user_id',
         'note',
     ];
-
-    /**
-     * Create a new factory instance for the model.
-     *
-     * @return Factory<static>
-     */
-    protected static function newFactory()
-    {
-        // return app(\Modules\Xot\Actions\Factory\GetFactoryAction::class)->execute(static::class);
-        return app(GetFactoryAction::class)->execute(static::class);
-    }
 
     /** @return array<string, string> */
     protected function casts(): array

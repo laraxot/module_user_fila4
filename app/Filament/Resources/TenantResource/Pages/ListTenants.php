@@ -21,6 +21,9 @@ class ListTenants extends XotBaseListRecords
      * Definisce le colonne della tabella per la lista tenant.
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableColumns(): array
     {
         return [
@@ -28,13 +31,21 @@ class ListTenants extends XotBaseListRecords
             'name' => TextColumn::make('name')->searchable(),
             'slug' => TextColumn::make('slug')
                 ->default(function ($record) {
-                    if ($record === null) {
+                    if (! $record instanceof \Illuminate\Database\Eloquent\Model) {
                         return '';
                     }
-                    $record->generateSlug();
-                    $slug = Str::slug($record->name);
-                    $record->slug = $slug;
-                    $record->save();
+                    if (method_exists($record, 'generateSlug')) {
+                        $record->generateSlug();
+                    }
+
+                    /** @var string $name */
+                    $name = $record->getAttribute('name') ?? '';
+                    $slug = Str::slug($name);
+
+                    if (property_exists($record, 'slug')) {
+                        $record->slug = $slug;
+                        $record->save();
+                    }
 
                     return $slug;
                 })

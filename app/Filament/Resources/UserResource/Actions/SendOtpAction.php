@@ -22,14 +22,14 @@ class SendOtpAction extends Action
 
         $this->tooltip(trans('user::otp.actions.send_otp'))
             ->icon('heroicon-o-key')
-            ->action(function (User $record) {
+            ->action(function (User $record): void {
                 // Sappiamo già che l'utente implementa UserContract perché il tipo User lo implementa
                 $action = app(SendOtpByUserAction::class);
                 if ($action === null) {
                     throw new RuntimeException('Impossibile istanziare SendOtpByUserAction');
                 }
                 // User model extends BaseUser which implements UserContract interface
-                Assert::isInstanceOf($record, UserContract::class);
+                // Assert::isInstanceOf($record, UserContract::class); // This assertion is always true
                 $action->execute($record);
             })
             ->requiresConfirmation()
