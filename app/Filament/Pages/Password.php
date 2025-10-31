@@ -117,6 +117,7 @@ class Password extends XotBasePage
      */
     protected function fillForms(): void
     {
+        /** @var array<string, mixed> $data */
         $data = PasswordData::make()->toArray();
 
         $this->form->fill($data);

@@ -3,7 +3,6 @@
 namespace Modules\User\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Database\Eloquent\Model;
 use Modules\User\Models\Tenant;
 use Illuminate\Support\Str;
 
