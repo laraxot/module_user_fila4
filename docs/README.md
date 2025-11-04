@@ -35,6 +35,40 @@ Il modulo supporta diversi tipi di utenti con logiche specifiche:
 - **LoginWidget**: Form di login multi-tipo
 - **UserStatsWidget**: Statistiche utenti
 - **SecurityAlertsWidget**: Allerte sicurezza
+- **EditProfile**: Pagina modifica profilo utente
+- **PasswordResetConfirmWidget**: Widget conferma reset password
+
+## 🔧 Correzioni Recenti (2025-11-04)
+
+### Merge Conflicts Risolti
+- ✅ **EditProfile.php**: Rimossi marker Git (`=======`, `>>>>>>>`)
+- ✅ **PasswordResetConfirmWidget.php**: 
+  - Rimossi 10 import duplicati
+  - Corrette 5 proprietà duplicate
+  - Fixato metodo `confirmPasswordReset()` con if duplicati
+  - Corretta logica auto-login dopo reset password
+
+### Pattern Corretti
+```php
+// ❌ PRIMA (merge conflict)
+if ($this->currentState !== 'form') {
+if ('form' !== $this->currentState) {
+    return;
+}
+
+// ✅ DOPO
+if ($this->currentState !== 'form') {
+    return;
+}
+```
+
+### File Locking Applicato
+Tutti i file del modulo User ora seguono il **File Locking Pattern**:
+- Prima di modificare: `touch file.php.lock`
+- Se lock esiste: SKIPPA
+- Dopo modifica: `rm file.php.lock`
+
+**Riferimento:** [File Locking Pattern](../../Xot/docs/file-locking-pattern.md)
 
 ## Architettura Tecnica
 

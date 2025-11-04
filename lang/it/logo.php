@@ -27,6 +27,10 @@ return [
         'updateLogoAction' => [
             'label' => 'updateLogoAction',
             'tooltip' => 'updateLogoAction',
+            'icon' => 'updateLogoAction',
         ],
+    ],
+    'navigation' => [
+        'group' => 'logo.navigation',
     ],
 ];

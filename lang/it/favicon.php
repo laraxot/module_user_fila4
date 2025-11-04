@@ -34,4 +34,7 @@ return [
             'label' => 'updateAction',
         ],
     ],
+    'navigation' => [
+        'group' => 'favicon.navigation',
+    ],
 ];

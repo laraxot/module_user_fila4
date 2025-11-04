@@ -34,4 +34,7 @@ return [
             'label' => 'updateAction',
         ],
     ],
+    'navigation' => [
+        'group' => 'custom css.navigation',
+    ],
 ];

@@ -40,4 +40,7 @@ return [
             'label' => 'updateAction',
         ],
     ],
+    'navigation' => [
+        'group' => 'colors.navigation',
+    ],
 ];
