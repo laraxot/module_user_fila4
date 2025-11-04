@@ -145,10 +145,12 @@ return [
         'cancel' => [
             'icon' => 'cancel',
             'label' => 'cancel',
+            'tooltip' => 'cancel',
         ],
         'attachAnother' => [
             'icon' => 'attachAnother',
             'label' => 'attachAnother',
+            'tooltip' => 'attachAnother',
         ],
         'attach' => [
             'label' => 'attach',
@@ -158,6 +160,7 @@ return [
         'submit' => [
             'label' => 'submit',
             'icon' => 'submit',
+            'tooltip' => 'submit',
         ],
         'profile' => [
             'tooltip' => 'profile',

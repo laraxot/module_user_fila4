@@ -42,23 +42,20 @@ class RegistrationWidget extends XotBaseWidget
     {
         $this->type = $type;
         $this->resource = XotData::make()->getUserResourceClassByType($type);
-        $this->model = (string) $this->resource::getModel();
+        $this->model = $this->resource::getModel();
         $this->action = Str::of($this->model)
             ->replace('\\Models\\', '\\Actions\\')
             ->append('\\RegisterAction')
             ->toString();
         $record = $this->getFormModel();
         $data = $this->getFormFill();
-        // Assert::isArray($data); // This assertion is always true since getFormFill() returns array
-        /** @var array<string, mixed> $typedData */
-        $typedData = $data;
-        $this->data = $typedData;
-        $this->form->fill($typedData);
+        $this->data = $data;
+        $this->form->fill($data);
         $this->form->model($record);
         $this->record = $record;
     }
 
-    #[\Override]
+    #[Override]
     public function getFormModel(): Model
     {
         $data = request()->all();
@@ -67,16 +64,12 @@ class RegistrationWidget extends XotBaseWidget
 
         $user = $this->model::firstWhere('email', $email);
         if ($user === null) {
-            $model = app($this->model);
-            Assert::isInstanceOf($model, Model::class);
-
-            return $model;
+            return app($this->model);
         }
 
-        Assert::isInstanceOf($user, Model::class);
-        $remember_token = $user->getAttribute('remember_token');
+        $remember_token = $user->remember_token;
         if ($remember_token === null) {
-            $user->setAttribute('remember_token', Str::uuid()->toString());
+            $user->remember_token = Str::uuid()->toString();
             $user->save();
         }
 
@@ -86,16 +79,10 @@ class RegistrationWidget extends XotBaseWidget
             return $user;
         }
 
-        $model = app($this->model);
-        Assert::isInstanceOf($model, Model::class);
-
-        return $model;
+        return app($this->model);
     }
 
-    #[\Override]
-    /**
-     * @return array<string, mixed>
-     */
+    #[Override]
     public function getFormFill(): array
     {
         $data = parent::getFormFill();
@@ -104,19 +91,10 @@ class RegistrationWidget extends XotBaseWidget
         return $data;
     }
 
-    #[\Override]
-    /**
-     * @return array<string, mixed>
-     */
+    #[Override]
     public function getFormSchema(): array
     {
-        $schema = $this->resource::getFormSchemaWidget();
-        Assert::isArray($schema);
-
-        /** @var array<int|string, \Filament\Schemas\Components\Component> $result */
-        $result = $schema;
-
-        return $result;
+        return $this->resource::getFormSchemaWidget();
     }
 
     /**
@@ -131,12 +109,7 @@ class RegistrationWidget extends XotBaseWidget
         $data = array_merge($this->data ?? [], $data);
         $record = $this->record;
 
-        $action = app($this->action);
-        Assert::object($action);
-        if (! method_exists($action, 'execute')) {
-            throw new \RuntimeException('Action must have execute method');
-        }
-        $user = $action->execute($record, $data);
+        $user = app($this->action)->execute($record, $data);
 
         $lang = app()->getLocale();
         $route = route('pages.view', ['slug' => $this->type.'_register_complete']);

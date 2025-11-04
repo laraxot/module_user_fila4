@@ -24,7 +24,6 @@ class PasswordResetPolicy extends UserBasePolicy
     {
         return
             $user->hasPermissionTo('password-reset.view') ||
-            /* @phpstan-ignore-next-line property.notFound */
             $user->email === $passwordReset->email ||
             $user->hasRole('super-admin');
     }

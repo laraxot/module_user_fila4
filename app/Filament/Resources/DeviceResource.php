@@ -18,7 +18,7 @@ class DeviceResource extends XotBaseResource
     #[Override]
     public static function getFormSchema(): array
     {
-        return array_values([
+        return [
             'uuid' => TextInput::make('uuid')->label(__('user::device.fields.uuid.label'))->maxLength(255),
             'mobile_id' => TextInput::make('mobile_id')
                 ->label(__('user::device.fields.mobile_id.label'))
@@ -49,5 +49,6 @@ class DeviceResource extends XotBaseResource
             'is_mobile' => Toggle::make('is_mobile')->label(__('user::device.fields.is_mobile.label')),
             'is_tablet' => Toggle::make('is_tablet')->label(__('user::device.fields.is_tablet.label')),
             'is_phone' => Toggle::make('is_phone')->label(__('user::device.fields.is_phone.label')),
-        ]);}
+        ];
+    }
 }

@@ -3,8 +3,8 @@
 namespace Modules\User\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Modules\User\Models\Tenant;
 use Illuminate\Support\Str;
+use Modules\User\Models\Tenant;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\User\Models\Tenant>
@@ -26,7 +26,7 @@ class TenantFactory extends Factory
     public function definition(): array
     {
         $name = $this->faker->company();
-        
+
         return [
             'id' => $this->faker->uuid(),
             'name' => $name,

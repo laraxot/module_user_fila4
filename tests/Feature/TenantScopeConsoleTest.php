@@ -34,7 +34,7 @@ describe('TenantScope Console Context Behavior', function (): void {
         });
 
         it('executes make:filament-user command successfully', function (): void {
-            $email = 'artisan-test-'.time().'@example.com';
+            $email = 'artisan-test-' . time() . '@example.com';
 
             // Esegui comando make:filament-user
             $exitCode = Artisan::call('make:filament-user', [
@@ -78,7 +78,7 @@ describe('TenantScope Console Context Behavior', function (): void {
         it('automatically sets tenant_id when creating user in HTTP context', function (): void {
             // Simula contesto HTTP con tenant attivo
             $this->actingAs(User::factory()->create());
-
+            
             // Mock Filament::getTenant() per ritornare tenant
             Filament::shouldReceive('getTenant')
                 ->andReturn($this->tenant1);
@@ -114,7 +114,7 @@ describe('TenantScope Console Context Behavior', function (): void {
             $adminUser = User::factory()->create([
                 'tenant_id' => $this->tenant1->id,
             ]);
-
+            
             $this->actingAs($adminUser);
 
             // Mock Filament per ritornare tenant1
@@ -223,3 +223,5 @@ describe('InteractsWithTenant Trait Behavior', function (): void {
             ->and($user->name)->toBe('Creating Event Test');
     });
 });
+
+

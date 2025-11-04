@@ -20,6 +20,16 @@ class ClientsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'clients';
 
+    /**
+     * @return array<string, Component>
+     */
+    #[Override]
+    public function getFormSchema(): array
+    {
+        return [
+            'name' => TextInput::make('name')->required()->maxLength(255),
+        ];
+    }
 
     #[Override]
     public function table(Table $table): Table

@@ -77,6 +77,7 @@ return [
         'openFilters' => [
             'icon' => 'openFilters',
             'label' => 'openFilters',
+            'tooltip' => 'openFilters',
         ],
         'delete' => [
             'icon' => 'delete',
