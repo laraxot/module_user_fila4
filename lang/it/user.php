@@ -1,6 +1,7 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 declare(strict_types=1);
 
 return [
@@ -675,6 +676,8 @@ return [
     'label' => 'user',
 ];
 =======
+=======
+>>>>>>> cebb28c (.)
 return array (
   'navigation' => 
   array (
@@ -1360,4 +1363,7 @@ return array (
   'search_placeholder' => 'Cerca per nome, email o ruolo...',
   'label' => 'user',
 );
+<<<<<<< HEAD
 >>>>>>> 1724879 (.)
+=======
+>>>>>>> cebb28c (.)
