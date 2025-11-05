@@ -4,8 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+<<<<<<< HEAD
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\TextInput;
+=======
+use Filament\Schemas\Schema;
+use Override;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Checkbox;
+use Filament\Forms;
+>>>>>>> e52a4c8 (.)
 use Illuminate\Support\Facades\Auth;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
 use Override;
@@ -16,10 +24,20 @@ use Override;
  * - Usa solo componenti Filament importati
  * - Validazione e sicurezza integrate
  * - Facilmente estendibile (2FA, captcha, login social)
+<<<<<<< HEAD
  */
 class LoginWidget extends XotBaseWidget
 {
     public ?array $data = [];
+=======
+ *
+ * @property array<string, mixed>|null $data
+ * @property Schema $form
+ */
+class LoginWidget extends XotBaseWidget
+{
+    public null|array $data = [];
+>>>>>>> e52a4c8 (.)
 
     /**
      * Blade view del widget nel modulo User.
