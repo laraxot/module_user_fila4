@@ -16,7 +16,11 @@ use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Wizard\Step;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
+<<<<<<< HEAD
 use Filament\Forms\Form;
+=======
+use Filament\Schemas\Schema;
+>>>>>>> 1724879 (.)
 use Filament\Widgets\Widget;
 use Illuminate\Auth\Events\Registered;
 >>>>>>> 3753a57 (.)
