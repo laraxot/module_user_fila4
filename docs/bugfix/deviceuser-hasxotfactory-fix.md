@@ -91,3 +91,4 @@ php artisan tinker
 **Modulo**: User  
 **File Modificati**: `Modules/User/app/Models/BasePivot.php`
 
+
