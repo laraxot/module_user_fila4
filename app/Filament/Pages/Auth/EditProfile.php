@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Pages\Auth;
 
 use Filament\Forms\Form;
+<<<<<<< HEAD
 use Filament\Forms\Form;
+=======
+>>>>>>> a63f578 (.)
 use Modules\User\Datas\PasswordData;
 
 class EditProfile extends \Filament\Auth\Pages\EditProfile
