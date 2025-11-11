@@ -90,7 +90,7 @@ test('role can be deleted', function (): void {
 });
 
 test('role can have permissions', function (): void {
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create([
         'name' => 'test-permission',
         'guard_name' => 'web',
@@ -106,9 +106,9 @@ test('role can have permissions', function (): void {
 });
 
 test('role can have multiple permissions', function (): void {
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var Permission */
         $permission1 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'permission-1']);
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var Permission */
         $permission2 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'permission-2']);
 
     /** @phpstan-ignore-next-line property.notFound */
@@ -123,7 +123,7 @@ test('role can have multiple permissions', function (): void {
 });
 
 test('role can revoke permissions', function (): void {
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'test-permission']);
 
     /** @phpstan-ignore-next-line property.notFound */
@@ -161,7 +161,7 @@ test('role has timestamps', function (): void {
 });
 
 test('role can be created with factory', function (): void {
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var Role */
         $role = Role/** @phpstan-ignore-line */ ::factory()->create();
 
     expect($role)->toBeInstanceOf(Role::class);
@@ -170,7 +170,7 @@ test('role can be created with factory', function (): void {
 });
 
 test('role can be created with specific attributes', function (): void {
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var Role */
         $role = Role/** @phpstan-ignore-line */ ::factory()->create([
         'name' => 'custom-role',
         'guard_name' => 'custom-guard',
@@ -184,7 +184,7 @@ test('role can check if it has any permissions', function (): void {
     /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->hasAnyPermission([]))->toBeFalse();
 
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'test-permission']);
     /** @phpstan-ignore-next-line property.notFound */
     $this->role->givePermissionTo($permission);
@@ -194,9 +194,9 @@ test('role can check if it has any permissions', function (): void {
 });
 
 test('role can check if it has all permissions', function (): void {
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var Permission */
         $permission1 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'permission-1']);
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var Permission */
         $permission2 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'permission-2']);
 
     /** @phpstan-ignore-next-line property.notFound */
