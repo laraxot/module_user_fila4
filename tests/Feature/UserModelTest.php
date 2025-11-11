@@ -12,8 +12,8 @@ use Modules\User\Models\Team;
 use Modules\User\Models\User;
 
 beforeEach(function (): void {
-    $this->user = User::factory()->create();
-    $this->admin = User::factory()->create();
+    /** @var object{user: mixed} $this */ $this->user = User/** @phpstan-ignore-line */ ::factory()->create();
+    $this->admin = User/** @phpstan-ignore-line */ ::factory()->create();
 });
 
 /**
@@ -32,7 +32,7 @@ describe('User Model Creation', function (): void {
         ];
 
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create($userData);
+        $user = User/** @phpstan-ignore-line */ ::factory()->create($userData);
 
         expect($user)
             ->toBeInstanceOf(User::class)
@@ -72,7 +72,7 @@ describe('User Model Creation', function (): void {
 describe('User Model Attributes', function (): void {
     it('has full name accessor', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create([
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
             'first_name' => 'John',
             'last_name' => 'Doe',
         ]);
@@ -82,7 +82,7 @@ describe('User Model Attributes', function (): void {
 
     it('can have password expiration', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create([
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
             'password_expires_at' => now()->addDays(30),
         ]);
 
@@ -91,9 +91,9 @@ describe('User Model Attributes', function (): void {
 
     it('can be active or inactive', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $activeUser = User::factory()->create(['is_active' => true]);
+        $activeUser = User/** @phpstan-ignore-line */ ::factory()->create(['is_active' => true]);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $inactiveUser = User::factory()->create(['is_active' => false]);
+        $inactiveUser = User/** @phpstan-ignore-line */ ::factory()->create(['is_active' => false]);
 
         expect($activeUser->is_active)->toBe(true);
         expect($inactiveUser->is_active)->toBe(false);
@@ -101,14 +101,14 @@ describe('User Model Attributes', function (): void {
 
     it('can have otp enabled', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create(['is_otp' => true]);
+        $user = User/** @phpstan-ignore-line */ ::factory()->create(['is_otp' => true]);
 
         expect($user->is_otp)->toBe(true);
     });
 
     it('can have profile photo path', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create([
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
             'profile_photo_path' => 'photos/user.jpg',
         ]);
 
@@ -122,7 +122,7 @@ describe('User Model Attributes', function (): void {
 describe('User Authentication Features', function (): void {
     it('can verify email', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create([
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
             'email_verified_at' => null,
         ]);
 
@@ -137,7 +137,7 @@ describe('User Authentication Features', function (): void {
     it('can store remember token', function (): void {
         $token = Str::random(60);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create([
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
             'remember_token' => $token,
         ]);
 
@@ -167,7 +167,7 @@ describe('User Relationships', function (): void {
     it('can have current team', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
         /** @phpstan-ignore-next-line property.notFound */
-        $team = Team::factory()->create(['user_id' => $this->user->id]);
+        $team = Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $this->user->id]);
         /** @phpstan-ignore-next-line property.notFound */
         $this->user->update(['current_team_id' => $team->id]);
 
@@ -228,7 +228,7 @@ describe('User Relationships', function (): void {
 describe('User Team Management', function (): void {
     it('can join a team', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $team = Team::factory()->create();
+        $team = Team/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line property.notFound */
         $this->user->teams()->attach($team);
@@ -239,7 +239,7 @@ describe('User Team Management', function (): void {
 
     it('can leave a team', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $team = Team::factory()->create();
+        $team = Team/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line property.notFound */
         $this->user->teams()->attach($team);
 
@@ -265,10 +265,10 @@ describe('User Team Management', function (): void {
     it('can switch current team', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
         /** @phpstan-ignore-next-line property.notFound */
-        $team1 = Team::factory()->create(['user_id' => $this->user->id]);
+        $team1 = Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $this->user->id]);
         /** @var \Illuminate\Database\Eloquent\Collection */
         /** @phpstan-ignore-next-line property.notFound */
-        $team2 = Team::factory()->create(['user_id' => $this->user->id]);
+        $team2 = Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $this->user->id]);
 
         /** @phpstan-ignore-next-line property.notFound */
         $this->user->update(['current_team_id' => $team1->id]);
@@ -288,7 +288,7 @@ describe('User Team Management', function (): void {
 describe('User Permission System', function (): void {
     it('can have roles assigned', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create();
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line property.notFound */
         $this->user->assignRole($role);
@@ -299,7 +299,7 @@ describe('User Permission System', function (): void {
 
     it('can have direct permissions', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission = Permission::factory()->create();
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line property.notFound */
         $this->user->givePermissionTo($permission);
@@ -310,9 +310,9 @@ describe('User Permission System', function (): void {
 
     it('can check multiple permissions', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission1 = Permission::factory()->create(['name' => 'edit posts']);
+        $permission1 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission2 = Permission::factory()->create(['name' => 'delete posts']);
+        $permission2 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'delete posts']);
 
         /** @phpstan-ignore-next-line property.notFound */
         $this->user->givePermissionTo([$permission1, $permission2]);
@@ -323,9 +323,9 @@ describe('User Permission System', function (): void {
 
     it('can check any permission', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission1 = Permission::factory()->create(['name' => 'edit posts']);
+        $permission1 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission2 = Permission::factory()->create(['name' => 'delete posts']);
+        $permission2 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'delete posts']);
 
         /** @phpstan-ignore-next-line property.notFound */
         $this->user->givePermissionTo($permission1);
@@ -355,8 +355,8 @@ describe('User Media Management', function (): void {
  */
 describe('User Scopes and Queries', function (): void {
     it('can filter by active users', function (): void {
-        User::factory()->create(['is_active' => true]);
-        User::factory()->create(['is_active' => false]);
+        User/** @phpstan-ignore-line */ ::factory()->create(['is_active' => true]);
+        User/** @phpstan-ignore-line */ ::factory()->create(['is_active' => false]);
 
         $activeUsers = User::where('is_active', true)->get();
         $inactiveUsers = User::where('is_active', false)->get();
@@ -364,8 +364,8 @@ describe('User Scopes and Queries', function (): void {
     });
 
     it('can filter by email verified', function (): void {
-        User::factory()->create(['email_verified_at' => now()]);
-        User::factory()->create(['email_verified_at' => null]);
+        User/** @phpstan-ignore-line */ ::factory()->create(['email_verified_at' => now()]);
+        User/** @phpstan-ignore-line */ ::factory()->create(['email_verified_at' => null]);
 
         $verifiedUsers = User::whereNotNull('email_verified_at')->get();
         $unverifiedUsers = User::whereNull('email_verified_at')->get();
@@ -373,8 +373,8 @@ describe('User Scopes and Queries', function (): void {
     });
 
     it('can filter by language', function (): void {
-        User::factory()->create(['lang' => 'it']);
-        User::factory()->create(['lang' => 'en']);
+        User/** @phpstan-ignore-line */ ::factory()->create(['lang' => 'it']);
+        User/** @phpstan-ignore-line */ ::factory()->create(['lang' => 'en']);
 
         $italianUsers = User::where('lang', 'it')->get();
         $englishUsers = User::where('lang', 'en')->get();

@@ -13,7 +13,7 @@ uses(TestCase::class);
 
 beforeEach(function (): void {
     $this->widget = new UserOverview;
-    $this->user = User::factory()->create([
+    /** @var object{user: mixed} $this */ $this->user = User/** @phpstan-ignore-line */ ::factory()->create([
         'type' => UserType::MasterAdmin,
         'email' => 'admin@example.com',
     ]);

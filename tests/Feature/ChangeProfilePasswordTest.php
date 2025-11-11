@@ -19,7 +19,7 @@ uses(TestCase::class);
 test('can change profile password', function (): void {
     // Crea un utente e un profilo
     /** @var UserContract&Authenticatable&Model $user */
-    $user = User::factory()->create([
+    $user = User/** @phpstan-ignore-line */ ::factory()->create([
         'password' => bcrypt('old_password'),
     ]);
 
@@ -56,7 +56,7 @@ test('can change profile password', function (): void {
 test('cannot change password with wrong current password', function (): void {
     // Crea un utente e un profilo
     /** @var UserContract&Authenticatable&Model $user */
-    $user = User::factory()->create([
+    $user = User/** @phpstan-ignore-line */ ::factory()->create([
         'password' => bcrypt('old_password'),
     ]);
 

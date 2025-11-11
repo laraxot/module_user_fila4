@@ -23,7 +23,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class OauthClient extends Model
 {
-    /** @use HasFactory<ModulesSERDATABASEFACTORIESOAUTHCLIENTFACTORY> */
     use \Modules\Xot\Models\Traits\HasXotFactory;
     
     /** @var string */
