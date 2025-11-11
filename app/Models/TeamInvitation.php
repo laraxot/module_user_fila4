@@ -10,6 +10,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Team Invitation Model
+ *
+ * @property-read \Modules\User\Models\Team|null $team
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TeamInvitation newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TeamInvitation newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TeamInvitation query()
+ * @mixin \Eloquent
  */
 class TeamInvitation extends Model
 {

@@ -46,7 +46,7 @@ class ViewUser extends BaseViewUser
     }
 =======
    
-    /**
+   /**
     * @return array<string, mixed>
     */
    public function getFooterWidgets(): array
@@ -59,4 +59,5 @@ class ViewUser extends BaseViewUser
     
 >>>>>>> e058848 (.)
 }
+
 

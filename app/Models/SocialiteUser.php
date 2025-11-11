@@ -54,7 +54,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string|null $name
 >>>>>>> e058848 (.)
  */
-/** */
+/**
+ * @property-read \Modules\Fixcity\Models\Profile|null $creator
+ * @property-read \Modules\Fixcity\Models\Profile|null $updater
+ * @property-read \Modules\User\Models\User|null $user
+ * @method static \Modules\User\Database\Factories\SocialiteUserFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SocialiteUser newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SocialiteUser newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SocialiteUser query()
+ * @mixin \Eloquent
+ */
 class SocialiteUser extends BaseModel
 {
     /** @var string */

@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Modules\User\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -17,8 +18,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $role
  * @property \DateTime|null $created_at
  * @property \DateTime|null $updated_at
+ * @property-read \Modules\User\Models\Team|null $team
+ * @property-read \Modules\User\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Membership newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Membership newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Membership query()
+ * @property-read \Modules\Fixcity\Models\Profile|null $creator
+ * @property-read \Modules\Fixcity\Models\Profile|null $updater
+ * @mixin \Eloquent
  */
-class Membership extends Model
+class Membership extends BasePivot
 {
     /** @var string */
     protected $connection = 'user';
