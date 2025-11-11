@@ -55,6 +55,7 @@ class SocialiteUserPolicy extends UserBasePolicy
     public function delete(UserContract $user, SocialiteUser $socialiteUser): bool
     {
         /** @var string $userId */
+        /* @phpstan-ignore-next-line property.notFound */
         $userId = $user->id;
         /** @var string $socialiteUserId */
         /* @phpstan-ignore-next-line property.notFound */

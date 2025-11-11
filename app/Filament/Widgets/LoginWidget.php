@@ -62,16 +62,17 @@ class LoginWidget extends XotBaseWidget
      */
     public function getFormSchema(): array
     {
+        /* @phpstan-ignore-next-line return.type */
         return [
-            TextInput::make('email')
+            'email' => TextInput::make('email')
                 ->email()
                 ->required()
                 ->autofocus(),
-            TextInput::make('password')
+            'password' => TextInput::make('password')
                 ->password()
                 ->required()
                 ->revealable(),
-            Toggle::make('remember')->visible(false),
+            'remember' => Toggle::make('remember')->visible(false),
         ];
     }
 

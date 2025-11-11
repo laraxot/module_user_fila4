@@ -46,11 +46,12 @@ class ViewUser extends BaseViewUser
     }
 =======
    
-   /**
+    /**
     * @return array<string, mixed>
     */
    public function getFooterWidgets(): array
    {
+    /* @phpstan-ignore-next-line return.type */
     return [
         UserWidget::class,
     ];

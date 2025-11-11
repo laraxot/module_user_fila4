@@ -18,13 +18,14 @@ class GetCurrentDeviceActionTest extends TestCase
 
     private GetCurrentDeviceAction $action;
 
-    private Agent $mockAgent;
+    private Agent|Mockery\MockInterface $mockAgent;
 
     protected function setUp(): void
     {
         parent::setUp();
 
         // Mock the Agent class
+        /** @var Agent */
         $this->mockAgent = Mockery::mock(Agent::class);
     }
 
@@ -67,28 +68,27 @@ class GetCurrentDeviceActionTest extends TestCase
         $result = $this->action->execute();
 
         // Assert
-        expect($result)
-            ->toBeInstanceOf(Device::class)
-            ->and($result->device)
-            ->toBe('iPhone')
-            ->and($result->platform)
-            ->toBe('iOS')
-            ->and($result->browser)
-            ->toBe('Safari')
-            ->and($result->is_desktop)
-            ->toBeFalse()
-            ->and($result->is_mobile)
-            ->toBeTrue()
-            ->and($result->is_tablet)
-            ->toBeFalse()
-            ->and($result->is_phone)
-            ->toBeTrue()
-            ->and($result->is_robot)
-            ->toBeFalse()
-            ->and($result->version)
-            ->toBe('15.0')
-            ->and($result->robot)
-            ->toBe('unknown');
+        expect($result)->toBeInstanceOf(Device::class);
+        /* @phpstan-ignore-next-line property.notFound */
+        expect($result->device)->toBe('iPhone');
+        /* @phpstan-ignore-next-line property.notFound */
+        expect($result->platform)->toBe('iOS');
+        /* @phpstan-ignore-next-line property.notFound */
+        expect($result->browser)->toBe('Safari');
+        /* @phpstan-ignore-next-line property.notFound */
+        expect($result->is_desktop)->toBeFalse();
+        /* @phpstan-ignore-next-line property.notFound */
+        expect($result->is_mobile)->toBeTrue();
+        /* @phpstan-ignore-next-line property.notFound */
+        expect($result->is_tablet)->toBeFalse();
+        /* @phpstan-ignore-next-line property.notFound */
+        expect($result->is_phone)->toBeTrue();
+        /* @phpstan-ignore-next-line property.notFound */
+        expect($result->is_robot)->toBeFalse();
+        /* @phpstan-ignore-next-line property.notFound */
+        expect($result->version)->toBe('15.0');
+        /* @phpstan-ignore-next-line property.notFound */
+        expect($result->robot)->toBe('unknown');
     }
 
     /** @test */
