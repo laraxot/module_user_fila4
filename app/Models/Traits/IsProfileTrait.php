@@ -271,11 +271,7 @@ trait IsProfileTrait
      * Get the user's user_name.
      * Ottiene il nome utente dal modello utente collegato.
      *
-<<<<<<< HEAD
      * @return Attribute<string|null, never>
-=======
-     * @return Attribute
->>>>>>> 44e65d8 (.)
      */
     protected function userName(): Attribute
     {
@@ -293,11 +289,7 @@ trait IsProfileTrait
      * Get the user's avatar URL.
      * Recupera l'URL dell'avatar dell'utente dalla MediaLibrary.
      *
-<<<<<<< HEAD
      * @return Attribute<string, never>
-=======
-     * @return Attribute
->>>>>>> 44e65d8 (.)
      */
     protected function avatar(): Attribute
     {
