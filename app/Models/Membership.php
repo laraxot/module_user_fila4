@@ -54,7 +54,10 @@ use Modules\Xot\Contracts\ProfileContract;
 class Membership extends BasePivot
 {
     use HasFactory;
+<<<<<<< HEAD
 
+=======
+>>>>>>> fbc8f8e (.)
     /** @var bool */
     public $incrementing = true;
 
