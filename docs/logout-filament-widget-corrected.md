@@ -20,7 +20,7 @@ Questo documento descrive l'implementazione corretta del logout utilizzando un w
 Il metodo `form()` nella classe `XotBaseWidget` è dichiarato come `final` e non può essere sovrascritto nelle classi derivate:
 
 ```php
-final public function form(Form $form): Form
+final public function form(\Filament\Schemas\Schema $form): \Filament\Schemas\Schema
 {
     return $form
         ->schema($this->getFormSchema())
