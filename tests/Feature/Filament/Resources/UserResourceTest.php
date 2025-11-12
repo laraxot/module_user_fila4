@@ -8,8 +8,6 @@ use Filament\Schemas\Components\Section;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\HtmlString;
 use Modules\User\Enums\UserType;
-=======
->>>>>>> fbc8f8e (.)
 use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
 use Modules\User\Filament\Resources\UserResource\Pages\EditUser;
@@ -17,7 +15,6 @@ use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\User\Models\User;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 use Tests\TestCase;
->>>>>>> 3753a57 (.)
 
 uses(TestCase::class);
 

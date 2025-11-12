@@ -17,8 +17,6 @@ use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Filament\Actions\Header\ExportXlsAction;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Override;
-use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
->>>>>>> 3753a57 (.)
 
 abstract class BaseListUsers extends XotBaseListRecords
 {

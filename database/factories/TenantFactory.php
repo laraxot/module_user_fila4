@@ -37,6 +37,5 @@ class TenantFactory extends Factory
             'database' => $this->faker->word(),
             'is_active' => $this->faker->boolean(),
         ];
->>>>>>> 3753a57 (.)
     }
 }

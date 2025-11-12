@@ -10,8 +10,6 @@ namespace Modules\User\Datas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TextInput as FormsTextInput;
-=======
->>>>>>> fbc8f8e (.)
 use Filament\Forms\Get;
 use Filament\Schemas\Components\Component;
 use Illuminate\Validation\Rules\Password;
@@ -41,7 +39,6 @@ class PasswordData extends Data
     ) {}
 
     private static ?self $instance = null;
->>>>>>> 3753a57 (.)
 
     /**
      * Crea un'istanza della classe PasswordData.
@@ -49,7 +46,6 @@ class PasswordData extends Data
     public static function make(): self
     {
         if (! self::$instance) {
->>>>>>> 3753a57 (.)
             /** @var array<string, mixed> $data */
             $data = TenantService::getConfig('password');
             self::$instance = self::from($data);
@@ -103,7 +99,6 @@ class PasswordData extends Data
     public function getHelperText(): string
     {
         $msg = 'La password deve essere composta da minimo '.$this->min.' caratteri';
->>>>>>> 3753a57 (.)
 
         if ($this->mixedCase) {
             $msg .= ', contenere almeno una lettera maiuscola e una minuscola';

@@ -20,6 +20,20 @@ BaseModel (User)
 Tenant, Authentication, OauthClient, etc.
 ```
 
+### ⚠️ Magic Properties - Regola Critica
+
+**IMPORTANTE**: I modelli Laravel/Eloquent usano **magic properties** (`__get()`, `__set()`). **NON usare MAI `property_exists()` per controllare attributi dei modelli**.
+
+```php
+// ❌ SBAGLIATO
+if (property_exists($user, 'email')) { ... }
+
+// ✅ CORRETTO
+if (isset($user->email)) { ... }
+```
+
+Vedi [Magic Properties Documentation](../../../Xot/docs/models/magic-properties.md) per dettagli completi.
+
 ## Base Classes
 
 ### BaseModel

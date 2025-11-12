@@ -257,3 +257,10 @@ Il comando dovrebbe restituire solo:
 
 *Ultimo aggiornamento: 15 ottobre 2025*
 *Autore: Refactoring automatico con Claude Code*
+
+## Aggiornamento 2025-11
+
+- `Modules\User\Models\Extra` usa ora `getConnectionName()` pubblico per forzare la connection `user` senza violare le proprietà @final ereditate.
+- PHPStan L10 ✅, PHPMD ✅, PHPInsights ✅ (nessun avviso dopo refactor).
+- Regola: quando serve una connection custom, override tramite metodo, mai riscrivere `$connection` nelle sottoclassi.
+

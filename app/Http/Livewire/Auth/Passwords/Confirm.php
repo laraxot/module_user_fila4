@@ -41,6 +41,5 @@ class Confirm extends Component
         $result = view($view)->extends('pub_theme::layouts.auth');
 
         return $result;
->>>>>>> 3753a57 (.)
     }
 }
