@@ -22,7 +22,15 @@ class OauthPersonalAccessClientFactory extends Factory
     public function definition(): array
     {
         /** @phpstan-ignore-next-line - Factory method returns proper object */
+<<<<<<< HEAD
         $client = OauthClient::factory()->create();
+=======
+        $clientFactory = OauthClient::factory();
+        Assert::isInstanceOf($clientFactory, \Illuminate\Database\Eloquent\Factories\Factory::class);
+
+        $client = $clientFactory->create();
+        Assert::isInstanceOf($client, OauthClient::class);
+>>>>>>> 6849bc76 (.)
 
         /** @phpstan-ignore-next-line - Method exists on Eloquent model */
         $clientId = $client->getKey();

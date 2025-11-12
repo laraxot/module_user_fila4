@@ -61,7 +61,11 @@ class RegistrationWidget extends XotBaseWidget
     }
 
     #[Override]
+<<<<<<< HEAD
     protected function getFormModel(): Model
+=======
+    public function getFormModel(): Model
+>>>>>>> 6849bc76 (.)
     {
         $data = request()->all();
         $email = Arr::get($data, 'email');

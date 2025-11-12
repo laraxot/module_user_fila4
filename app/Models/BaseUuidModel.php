@@ -19,7 +19,7 @@ abstract class BaseUuidModel extends XotBaseUuidModel
 {
     // use Searchable;
     // //use Cachable;
-    use \Modules\Xot\Models\Traits\HasXotFactory;
+    use HasFactory;
     use HasUuids;
     use Updater;
 
@@ -58,7 +58,21 @@ abstract class BaseUuidModel extends XotBaseUuidModel
         // 'password'
     ];
 
+<<<<<<< HEAD
    
+=======
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return Factory<static>
+     */
+    protected static function newFactory()
+    {
+        // return app(\Modules\Xot\Actions\Factory\GetFactoryAction::class)->execute(static::class);
+        return app(GetFactoryAction::class)->execute(static::class);
+    }
+
+>>>>>>> 6849bc76 (.)
     /** @return array<string, string> */
     protected function casts(): array
     {

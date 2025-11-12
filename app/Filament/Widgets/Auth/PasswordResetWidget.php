@@ -61,6 +61,7 @@ class PasswordResetWidget extends XotBaseWidget
                         return new HtmlString($str);
                     }
 
+                    return null;
                 })
                 ->reactive(),
         ];

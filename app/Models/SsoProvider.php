@@ -31,8 +31,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  *
  * @mixin IdeHelperSsoProvider
  *
+<<<<<<< HEAD
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+=======
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+>>>>>>> 6849bc76 (.)
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\User> $users
  * @property-read int|null $users_count
  *

@@ -229,6 +229,7 @@ class EditUserWidget extends XotBaseWidget
         $currentUser = Auth::user();
 
         // L'utente può modificare solo il proprio profilo
+<<<<<<< HEAD
         return $currentUser && (
             (
                 ($currentUser->id ?? null) !== null &&
@@ -240,6 +241,16 @@ class EditUserWidget extends XotBaseWidget
                 $currentUser->id === ($this->record->user_id ?? null)
             )
         );
+=======
+        return
+            $currentUser &&
+            (
+                ($currentUser->id ?? null) !== null &&
+                        ($this->record->id ?? null) !== null &&
+                        $currentUser->id === $this->record->id ||
+                    ($currentUser->id ?? null) !== null && $currentUser->id === ($this->record->user_id ?? null)
+            );
+>>>>>>> 6849bc76 (.)
     }
 }
 

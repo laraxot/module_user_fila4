@@ -28,7 +28,11 @@ use Modules\User\Database\Factories\AuthenticationFactory;
  * @property string $authenticatable_id The ID of the authenticatable model
  * @property Carbon|null $created_at When the record was created
  * @property Carbon|null $updated_at When the record was last updated
+<<<<<<< HEAD
  * @property-read Model $authenticatable The authenticatable model instance
+=======
+ * @property-read Model|\Eloquent $authenticatable The authenticatable model instance
+>>>>>>> 6849bc76 (.)
  *
  * @method static Builder<static>|Authentication newModelQuery()
  * @method static Builder<static>|Authentication newQuery()
@@ -54,7 +58,15 @@ use Modules\User\Database\Factories\AuthenticationFactory;
  */
 class Authentication extends Model
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
+    use HasFactory;
+
+    /**
+     * Create a new factory instance for the model.
+     */
+    protected static function newFactory(): AuthenticationFactory
+    {
+        return AuthenticationFactory::new();
+    }
 
 
 

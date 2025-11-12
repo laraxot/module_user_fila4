@@ -138,7 +138,11 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     use HasApiTokens;
     use HasAuthenticationLogTrait;
     use HasChildren;
+<<<<<<< HEAD
     use \Modules\Xot\Models\Traits\HasXotFactory;
+=======
+    use HasFactory;
+>>>>>>> 6849bc76 (.)
     use HasPermissions;
     use HasRoles;
     use HasTeams;
@@ -462,7 +466,19 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         }
     }
 
+<<<<<<< HEAD
   
+=======
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return Factory
+     */
+    protected static function newFactory()
+    {
+        return app(GetFactoryAction::class)->execute(static::class);
+    }
+>>>>>>> 6849bc76 (.)
 
     /** @return array<string, string> */
     protected function casts(): array

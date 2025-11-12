@@ -375,3 +375,5 @@ Quando crei un nuovo modello nel modulo User:
 **Versione:** 2.0 - Correzione gerarchia modelli  
 **Status:** ✅ Production Ready
 
+
+

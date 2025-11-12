@@ -23,7 +23,11 @@ use Modules\Xot\Filament\Pages\XotBasePage;
  * @see \Modules\Xot\Filament\Pages\XotBasePage
  * @see \Modules\User\docs\errori\class-page-not-found.md
  */
+<<<<<<< HEAD
 final class Colors extends XotBasePage
+=======
+class Colors extends XotBasePage
+>>>>>>> 6849bc76 (.)
 {
     // $data è già definita in XotBasePage, non ridichiarare!
 

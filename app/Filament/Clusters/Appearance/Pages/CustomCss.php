@@ -18,7 +18,11 @@ use Modules\Xot\Filament\Pages\XotBasePage;
 /**
  * @property Schema $form
  */
+<<<<<<< HEAD
 final class CustomCss extends XotBasePage
+=======
+class CustomCss extends XotBasePage
+>>>>>>> 6849bc76 (.)
 {
     protected string $view = 'user::filament.clusters.appearance.pages.custom-css';
 

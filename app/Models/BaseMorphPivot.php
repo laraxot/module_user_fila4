@@ -15,7 +15,7 @@ use Modules\Xot\Traits\Updater;
  */
 abstract class BaseMorphPivot extends MorphPivot
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
+    use HasFactory;
     use Updater;
 
     // use HasUuids;
@@ -64,7 +64,20 @@ abstract class BaseMorphPivot extends MorphPivot
         'note',
     ];
 
+<<<<<<< HEAD
     
+=======
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return Factory<static>
+     */
+    protected static function newFactory()
+    {
+        // return app(\Modules\Xot\Actions\Factory\GetFactoryAction::class)->execute(static::class);
+        return app(GetFactoryAction::class)->execute(static::class);
+    }
+>>>>>>> 6849bc76 (.)
 
     /** @return array<string, string> */
     protected function casts(): array

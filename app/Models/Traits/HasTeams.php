@@ -186,11 +186,19 @@ trait HasTeams
         })->filter();
 
         $owner = $this->owner;
+<<<<<<< HEAD
         if ($owner !== null && $owner instanceof \Modules\User\Models\User) {
             return $users->merge([$owner]);
         }
 
         return $users;
+=======
+        if ($owner === null) {
+            return $this->teamUsers;
+        }
+
+        return $this->teamUsers->merge([$owner]);
+>>>>>>> 6849bc76 (.)
     }
 
     /**

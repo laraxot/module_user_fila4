@@ -76,10 +76,18 @@ class RegisterTenant extends BaseRegisterTenant
         Assert::implementsInterface($tenant, TenantContract::class);
         Assert::isInstanceOf($tenant, BaseTenant::class);
 
+<<<<<<< HEAD
         // BaseTenant always has users() method
         /** @var \Illuminate\Database\Eloquent\Relations\BelongsToMany $usersRelation */
         $usersRelation = $tenant->users();
         $usersRelation->attach(auth()->user());
+=======
+        if (method_exists($tenant, 'users')) {
+            /** @var \Illuminate\Database\Eloquent\Relations\BelongsToMany $usersRelation */
+            $usersRelation = $tenant->users();
+            $usersRelation->attach(auth()->user());
+        }
+>>>>>>> 6849bc76 (.)
 
         return $tenant;
     }
