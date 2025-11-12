@@ -31,7 +31,11 @@ use Override;
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
  * @property string|null $created_by
+<<<<<<< HEAD
  * @property Model $authenticatable
+=======
+ * @property Model|\Eloquent $authenticatable
+>>>>>>> ceff73a (.)
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  *
@@ -55,6 +59,10 @@ use Override;
  * @method static Builder|AuthenticationLog whereUserAgent($value)
  *
  * @mixin IdeHelperAuthenticationLog
+<<<<<<< HEAD
+=======
+ * @mixin \Eloquent
+>>>>>>> ceff73a (.)
  */
 class AuthenticationLog extends BaseModel
 {
