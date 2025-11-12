@@ -54,8 +54,12 @@ class TeamUser extends BaseTeamUser
 {
     use HasFactory;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
     protected $connection = 'user';
 }

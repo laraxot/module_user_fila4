@@ -55,9 +55,13 @@ class Membership extends BasePivot
 {
     use HasFactory;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
     /** @var bool */
     public $incrementing = true;
 

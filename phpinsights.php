@@ -19,6 +19,9 @@ use SlevomatCodingStandard\Sniffs\TypeHints\ReturnTypeHintSniff;
 return [
     /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      * |--------------------------------------------------------------------------
      * | Default Preset
      * |--------------------------------------------------------------------------
@@ -61,6 +64,7 @@ return [
      * | mind that all added `Insights` must belong to a specific `Metric`.
      * |
      */
+<<<<<<< HEAD
 =======
     |--------------------------------------------------------------------------
     | Default Preset
@@ -107,23 +111,31 @@ return [
     |
     */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
     'exclude' => [
         //  'path/to/directory-or-file'
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     'add' => [
         Classes::class => [
             ForbiddenFinalClasses::class,
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     'remove' => [
         AlphabeticallySortedUsesSniff::class,
         DeclareStrictTypesSniff::class,
@@ -137,15 +149,21 @@ return [
         UselessFunctionDocCommentSniff::class,
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     'config' => [
         ForbiddenPrivateMethods::class => [
             'title' => 'The usage of private methods is not idiomatic in Laravel.',
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     /*
      * |--------------------------------------------------------------------------
      * | Requirements
@@ -156,6 +174,7 @@ return [
      * | code will be returned. This is optional and individually defined.
      * |
      */
+<<<<<<< HEAD
 =======
 
     /*
@@ -169,6 +188,8 @@ return [
     |
     */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
     'requirements' => [
         //        'min-quality' => 0,
@@ -178,6 +199,9 @@ return [
         //        'disable-security-check' => false,
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     /*
      * |--------------------------------------------------------------------------
      * | Threads
@@ -188,6 +212,7 @@ return [
      * | the max core number available. It accepts null value or integer > 0.
      * |
      */
+<<<<<<< HEAD
 =======
 
     /*
@@ -201,6 +226,8 @@ return [
     |
     */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
     'threads' => null,
 ];

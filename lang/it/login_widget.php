@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 return [
@@ -45,6 +48,7 @@ return [
         'errors_title' => 'Si sono verificati degli errori',
     ],
 ];
+<<<<<<< HEAD
 =======
 return array (
   'fields' => 
@@ -97,3 +101,5 @@ return array (
   ),
 );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
