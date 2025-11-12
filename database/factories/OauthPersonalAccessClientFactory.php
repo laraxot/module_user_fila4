@@ -10,9 +10,17 @@ use Modules\User\Models\OauthPersonalAccessClient;
 use Webmozart\Assert\Assert;
 
 /**
+<<<<<<< HEAD
  * OauthPersonalAccessClient Factory.
  *
+=======
+ * OauthPersonalAccessClient Factory
+<<<<<<< HEAD
+>>>>>>> 4cdb5c7 (.)
  *
+=======
+ * 
+>>>>>>> fbc8f8e (.)
  * @extends Factory<OauthPersonalAccessClient>
  */
 class OauthPersonalAccessClientFactory extends Factory

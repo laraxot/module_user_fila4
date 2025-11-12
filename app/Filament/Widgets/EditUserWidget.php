@@ -4,9 +4,22 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+<<<<<<< HEAD
 use BackedEnum;
 use Exception;
 use Filament\Schemas\Components\Component;
+=======
+<<<<<<< HEAD
+use Filament\Schemas\Components\Component;
+use Override;
+=======
+>>>>>>> fbc8f8e (.)
+use Exception;
+use BackedEnum;
+use Illuminate\Http\RedirectResponse;
+use Livewire\Features\SupportRedirects\Redirector;
+<<<<<<< HEAD
+>>>>>>> 4cdb5c7 (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Wizard\Step;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -27,13 +40,44 @@ use Webmozart\Assert\Assert;
 /**
  * EditUserWidget: Widget generico per la modifica dati utente.
  *
+=======
+use Filament\Forms\Form;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+use Filament\Widgets\Widget;
+use Illuminate\Http\Request;
+use Webmozart\Assert\Assert;
+use Modules\Xot\Datas\XotData;
+use Livewire\Attributes\Validate;
+use Illuminate\Support\HtmlString;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Filament\Forms\Contracts\HasForms;
+use Illuminate\Database\Eloquent\Model;
+use Filament\Forms\Components\TextInput;
+use Modules\Xot\Contracts\UserContract;
+use Filament\Forms\Components\Wizard\Step;
+use Filament\Forms\Concerns\InteractsWithForms;
+use Modules\Xot\Filament\Widgets\XotBaseWidget;
+use Illuminate\Support\Facades\Log;
+
+/**
+ * EditUserWidget: Widget generico per la modifica dati utente.
+ * 
+>>>>>>> fbc8f8e (.)
  * Segue il pattern di delegazione del RegistrationWidget:
  * - Raccoglie i dati dal form
  * - Determina dinamicamente la risorsa, il modello e l'action da eseguire
  * - Delega la logica di salvataggio a una UpdateAction specifica del modulo
+<<<<<<< HEAD
  *
  * Il widget è completamente generico e riutilizzabile per qualsiasi tipo di utente.
  *
+=======
+ * 
+ * Il widget è completamente generico e riutilizzabile per qualsiasi tipo di utente.
+ * 
+>>>>>>> fbc8f8e (.)
  * @property-read string $type
  * @property-read string $resource
  * @property-read string $model
@@ -44,11 +88,27 @@ use Webmozart\Assert\Assert;
 class EditUserWidget extends XotBaseWidget
 {
     /** @var array<string, mixed>|null */
+<<<<<<< HEAD
     public ?array $data = [];
 
     /** @var array<string, int|null>|int|string */
     protected int | string | array $columnSpan = 'full';
     
+=======
+<<<<<<< HEAD
+    public null|array $data = [];
+
+    /** @var array<string, int|null>|int|string */
+    protected int|string|array $columnSpan = 'full';
+
+=======
+    public ?array $data = [];
+    
+    /** @var array<string, int|null>|int|string */
+    protected int | string | array $columnSpan = 'full';
+    
+>>>>>>> fbc8f8e (.)
+>>>>>>> 4cdb5c7 (.)
     public string $type;
 
     public string $resource;
@@ -67,6 +127,7 @@ class EditUserWidget extends XotBaseWidget
     /**
      * Initialize the widget with user type and optional user ID.
      */
+<<<<<<< HEAD
     public function mount(string $type, ?int $userId = null): void
     {
         $this->type = $type;
@@ -76,6 +137,18 @@ class EditUserWidget extends XotBaseWidget
         Assert::string($modelClass, 'Model class must be a string');
         $this->model = $modelClass;
 
+=======
+<<<<<<< HEAD
+    public function mount(string $type, null|int $userId = null): void
+=======
+    public function mount(string $type, ?int $userId = null): void
+>>>>>>> fbc8f8e (.)
+    {
+        $this->type = $type;
+        $this->resource = XotData::make()->getUserResourceClassByType($type);
+        $this->model = $this->resource::getModel();
+<<<<<<< HEAD
+>>>>>>> 4cdb5c7 (.)
         $this->action = Str::of($this->model)
             ->replace('\\Models\\', '\\Actions\\')
             ->append('\\UpdateUserAction')
@@ -84,6 +157,13 @@ class EditUserWidget extends XotBaseWidget
         $record = $this->getFormModel($userId);
         $data = $this->getFormFill();
 
+=======
+        $this->action = Str::of($this->model)->replace('\Models\\', '\Actions\\')->append('\UpdateUserAction')->toString();
+        
+        $record = $this->getFormModel($userId);
+        $data = $this->getFormFill();
+        
+>>>>>>> fbc8f8e (.)
         $this->form->fill($data);
         $this->form->model($record);
         $this->data = $data;
@@ -94,8 +174,16 @@ class EditUserWidget extends XotBaseWidget
      * Ottiene il modello per il form.
      * Se viene fornito un userId, carica quell'utente, altrimenti usa l'utente autenticato.
      */
+<<<<<<< HEAD
     #[Override]
+<<<<<<< HEAD
     protected function getFormModel(?int $userId = null): Model
+=======
+    protected function getFormModel(null|int $userId = null): Model
+=======
+    protected function getFormModel(?int $userId = null): Model
+>>>>>>> fbc8f8e (.)
+>>>>>>> 4cdb5c7 (.)
     {
         /** @var class-string<Model> $modelClass */
         $modelClass = $this->model;
@@ -137,11 +225,18 @@ class EditUserWidget extends XotBaseWidget
      *
      * @return array<string, mixed>
      */
+<<<<<<< HEAD
     #[Override]
     public function getFormFill(): array
     {
         $model = $this->record ?: $this->getFormModel();
 
+=======
+    public function getFormFill(): array
+    {
+        $model = $this->record ?? $this->getFormModel();
+        
+>>>>>>> fbc8f8e (.)
         // Se il modello ha un ID, significa che è stato trovato nel database
         if ($model->exists) {
             try {
@@ -155,33 +250,58 @@ class EditUserWidget extends XotBaseWidget
 
                 /** @var array<string, mixed> $attributes */
                 $attributes = $model->getAttributes();
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> fbc8f8e (.)
                 // Gestisci specificamente gli enum se presenti
                 if (isset($attributes['type']) && ($model->type ?? null) instanceof BackedEnum) {
                     $attributes['type'] = $model->type->value;
                 }
+<<<<<<< HEAD
 
                 return $attributes;
             }
         }
 
+=======
+                
+                return $attributes;
+            }
+        }
+        
+>>>>>>> fbc8f8e (.)
         // Se è un nuovo modello, restituisci solo i campi fillable con valori null
         $fillable = $model->getFillable();
         $appends = $model->getAppends();
         $fields = array_merge($fillable, $appends);
+<<<<<<< HEAD
 
+<<<<<<< HEAD
         /** @var array<string, mixed> $result */
         $result = array_fill_keys($fields, null);
 
         return $result;
+=======
+=======
+        
+>>>>>>> fbc8f8e (.)
+        return array_fill_keys($fields, null);
+>>>>>>> 4cdb5c7 (.)
     }
 
     /**
      * Ottiene lo schema del form dalla resource.
      *
+<<<<<<< HEAD
      * @return array<int|string, Component>
      */
     #[Override]
+=======
+     * @return array<int|string, \Filament\Schemas\Components\Component>
+     */
+>>>>>>> fbc8f8e (.)
     public function getFormSchema(): array
     {
         /** @var array<int|string, Component> $schema */
@@ -199,6 +319,7 @@ class EditUserWidget extends XotBaseWidget
     {
         $data = $this->form->getState();
         $record = $this->record;
+<<<<<<< HEAD
 
         // Delega l'aggiornamento all'action specifica
         $actionInstance = app($this->action);
@@ -218,6 +339,18 @@ class EditUserWidget extends XotBaseWidget
         // Aggiorna il form con i nuovi dati
         $this->form->fill($this->getFormFill());
 
+=======
+       
+        // Delega l'aggiornamento all'action specifica
+        $user = app($this->action)->execute($record, $data);
+        
+        // Notifica successo
+        session()->flash('message', __('user::profile.update_success'));
+        
+        // Aggiorna il form con i nuovi dati
+        $this->form->fill($this->getFormFill());
+        
+>>>>>>> fbc8f8e (.)
         return redirect()->back();
     }
 
@@ -227,6 +360,7 @@ class EditUserWidget extends XotBaseWidget
     public function canEdit(): bool
     {
         $currentUser = Auth::user();
+<<<<<<< HEAD
 
         // L'utente può modificare solo il proprio profilo
 <<<<<<< HEAD
@@ -240,6 +374,13 @@ class EditUserWidget extends XotBaseWidget
                 ($currentUser->id ?? null) !== null &&
                 $currentUser->id === ($this->record->user_id ?? null)
             )
+=======
+        
+        // L'utente può modificare solo il proprio profilo
+        return $currentUser && (
+            (($currentUser->id ?? null) !== null && ($this->record->id ?? null) !== null && $currentUser->id === $this->record->id) ||
+            (($currentUser->id ?? null) !== null && $currentUser->id === ($this->record->user_id ?? null))
+>>>>>>> fbc8f8e (.)
         );
 =======
         return
