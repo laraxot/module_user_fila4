@@ -37,16 +37,10 @@ trait HasTenants
      */
     public function getTenants(Panel $_panel): array|Collection
     {
-        try {
-            // Usa il metodo tenants() per ottenere la relazione correttamente
-            /** @var Collection<int, Model> $tenants */
-            $tenants = $this->tenants()->get();
+        /** @var Collection<int, Model> $tenants */
+        $tenants = $this->tenants;
 
-            return $tenants;
-        } catch (\Exception $e) {
-            // In caso di errore, restituisci una collection vuota per evitare problemi con il selector
-            return collect();
-        }
+        return $tenants;
     }
 
     /**

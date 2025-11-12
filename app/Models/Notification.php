@@ -5,36 +5,38 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Modules\User\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
  * Notification Model
  *
- * @property string $id
- * @property string $type
- * @property string $notifiable_type
- * @property string $notifiable_id
- * @property array $data
+ * @property string         $id
+ * @property string         $type
+ * @property string         $notifiable_type
+ * @property string         $notifiable_id
+ * @property array          $data
  * @property \DateTime|null $read_at
  * @property \DateTime|null $created_at
  * @property \DateTime|null $updated_at
  */
 /**
- * @property string $id
- * @property string $type
- * @property string $notifiable_type
- * @property int $notifiable_id
- * @property array<array-key, mixed> $data
- * @property \Illuminate\Support\Carbon|null $read_at
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string|null $updated_by
- * @property string|null $created_by
- * @property string|null $deleted_at
- * @property string|null $deleted_by
- * @property-read Model|\Eloquent $notifiable
- * @method static \Modules\User\Database\Factories\NotificationFactory factory($count = null, $state = [])
+ * @property string                                      $id
+ * @property string                                      $type
+ * @property string                                      $notifiable_type
+ * @property int                                         $notifiable_id
+ * @property array<array-key, mixed>                     $data
+ * @property \Illuminate\Support\Carbon|null             $read_at
+ * @property \Illuminate\Support\Carbon|null             $created_at
+ * @property \Illuminate\Support\Carbon|null             $updated_at
+ * @property string|null                                 $updated_by
+ * @property string|null                                 $created_by
+ * @property string|null                                 $deleted_at
+ * @property string|null                                 $deleted_by
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property Model|\Eloquent                             $notifiable
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
+ * @method static \Modules\User\Database\Factories\NotificationFactory       factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Notification newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Notification newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Notification query()
@@ -50,6 +52,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Notification whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Notification whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Notification whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class Notification extends BaseModel
@@ -72,7 +75,7 @@ class Notification extends BaseModel
 
     /**
      * Get the attributes that should be cast.
-     * 
+     *
      * @return array<string, string>
      */
     protected function casts(): array
@@ -113,7 +116,7 @@ class Notification extends BaseModel
     public function isRead(): bool
     {
         /* @phpstan-ignore-next-line property.notFound */
-        return !is_null($this->read_at);
+        return null !== $this->read_at;
     }
 
     /**
@@ -122,6 +125,6 @@ class Notification extends BaseModel
     public function isUnread(): bool
     {
         /* @phpstan-ignore-next-line property.notFound */
-        return is_null($this->read_at);
+        return null === $this->read_at;
     }
 }

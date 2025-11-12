@@ -12,9 +12,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  *
  * @property-read \Modules\User\Models\Team|null $team
  * @property-read \Modules\User\Models\User|null $user
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TeamUser newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TeamUser newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TeamUser query()
+ *
  * @mixin \Eloquent
  */
 class TeamUser extends BasePivot

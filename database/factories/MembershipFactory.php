@@ -45,6 +45,7 @@ class MembershipFactory extends Factory
      */
     public function forTeam(Team $team): static
     {
+        return $this->state(fn (array $_attributes): array => [
             'team_id' => $team->id,
         ]);
     }
@@ -54,6 +55,7 @@ class MembershipFactory extends Factory
      */
     public function forUser(User $user): static
     {
+        return $this->state(fn (array $_attributes): array => [
             'user_id' => $user->id,
         ]);
     }
@@ -63,6 +65,7 @@ class MembershipFactory extends Factory
      */
     public function admin(): static
     {
+        return $this->state(fn (array $_attributes): array => [
             'role' => 'admin',
         ]);
     }
@@ -72,6 +75,7 @@ class MembershipFactory extends Factory
      */
     public function editor(): static
     {
+        return $this->state(fn (array $_attributes): array => [
             'role' => 'editor',
         ]);
     }
@@ -81,6 +85,7 @@ class MembershipFactory extends Factory
      */
     public function member(): static
     {
+        return $this->state(fn (array $_attributes): array => [
             'role' => 'member',
         ]);
     }
@@ -90,6 +95,7 @@ class MembershipFactory extends Factory
      */
     public function viewer(): static
     {
+        return $this->state(fn (array $_attributes): array => [
             'role' => 'viewer',
         ]);
     }

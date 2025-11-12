@@ -4,16 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Modules\User\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Modules\User\Models\BaseModel;
 
 /**
  * Team Invitation Model
  *
  * @property-read \Modules\User\Models\Team|null $team
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TeamInvitation newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TeamInvitation newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TeamInvitation query()
+ *
  * @mixin \Eloquent
  */
 class TeamInvitation extends BaseModel

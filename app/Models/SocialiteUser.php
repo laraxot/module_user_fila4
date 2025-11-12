@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Modules\User\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -56,10 +55,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 /**
  * @property-read \Modules\User\Models\User|null $user
+ *
  * @method static \Modules\User\Database\Factories\SocialiteUserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|SocialiteUser newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|SocialiteUser newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|SocialiteUser query()
+ *
  * @mixin \Eloquent
  */
 class SocialiteUser extends BaseModel

@@ -290,6 +290,7 @@ test('it correctly manages team permissions', function (): void {
  */
 test('it handles edge cases', function (): void {
     // Test: User without ID
+    $newUser = new User;
     expect($newUser->belongsToTeams())->toBeFalse();
 
     // Test: Team without owner

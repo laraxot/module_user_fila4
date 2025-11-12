@@ -5,31 +5,33 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Modules\User\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Authentication Log Model
  *
- * @property string $id
- * @property string $authenticatable_id
- * @property string $authenticatable_type
- * @property string|null $ip_address
- * @property string|null $user_agent
+ * @property string         $id
+ * @property string         $authenticatable_id
+ * @property string         $authenticatable_type
+ * @property string|null    $ip_address
+ * @property string|null    $user_agent
  * @property \DateTime|null $login_at
  * @property \DateTime|null $logout_at
- * @property bool $login_successful
- * @property string|null $location
+ * @property bool           $login_successful
+ * @property string|null    $location
  * @property \DateTime|null $created_at
  * @property \DateTime|null $updated_at
  */
 /**
- * @property-read \Modules\User\Models\User|null $user
- * @method static \Modules\User\Database\Factories\AuthenticationLogFactory factory($count = null, $state = [])
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property User|null                                   $user
+ *
+ * @method static \Modules\User\Database\Factories\AuthenticationLogFactory       factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|AuthenticationLog newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|AuthenticationLog newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|AuthenticationLog query()
+ *
  * @mixin \Eloquent
  */
 class AuthenticationLog extends BaseModel
@@ -54,7 +56,7 @@ class AuthenticationLog extends BaseModel
 
     /**
      * Get the attributes that should be cast.
-     * 
+     *
      * @return array<string, string>
      */
     protected function casts(): array

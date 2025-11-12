@@ -21,6 +21,7 @@ class RoleHasPermissionFactory extends Factory
     public function definition(): array
     {
         return [
+            'permission_id' => fn () => Permission::create([
                 'name' => fake()->unique()->slug(),
                 'guard_name' => 'web',
             ])->id,

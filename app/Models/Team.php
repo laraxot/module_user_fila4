@@ -8,32 +8,26 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Team Model.
- * 
+ *
  * Extends BaseTeam which already implements all TeamContract methods.
  *
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Membership> $memberships
- * @property-read int|null $memberships_count
- * @property-read \Modules\Xot\Contracts\UserContract|null $owner
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\TeamInvitation> $teamInvitations
- * @property-read int|null $team_invitations_count
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
- * @method static \Modules\User\Database\Factories\TeamFactory factory($count = null, $state = [])
+ * @property \Modules\Xot\Contracts\ProfileContract|null                   $creator
+ * @property \Illuminate\Database\Eloquent\Collection<int, Membership>     $memberships
+ * @property int|null                                                      $memberships_count
+ * @property \Modules\User\Models\User|null                                $owner
+ * @property \Illuminate\Database\Eloquent\Collection<int, TeamInvitation> $teamInvitations
+ * @property int|null                                                      $team_invitations_count
+ * @property \Modules\Xot\Contracts\ProfileContract|null                   $updater
+ *
+ * @method static \Modules\User\Database\Factories\TeamFactory       factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Team newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Team newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Team query()
+ *
  * @mixin \Eloquent
  */
 class Team extends BaseTeam
 {
-
-    /**
-     * The connection name for the model.
-     *
-     * @var string
-     */
-    protected $connection = 'user';
-    
     /**
      * Get the attributes that should be cast.
      *

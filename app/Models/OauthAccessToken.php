@@ -5,27 +5,30 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Modules\User\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * OAuth Access Token Model
  *
- * @property string $id
- * @property string $user_id
- * @property string $client_id
- * @property string|null $name
- * @property string|null $scopes
- * @property bool $revoked
+ * @property string         $id
+ * @property string         $user_id
+ * @property string         $client_id
+ * @property string|null    $name
+ * @property string|null    $scopes
+ * @property bool           $revoked
  * @property \DateTime|null $expires_at
  */
 /**
- * @property-read \Modules\User\Models\OauthClient|null $client
- * @property-read \Modules\User\Models\User|null $user
- * @method static \Modules\User\Database\Factories\OauthAccessTokenFactory factory($count = null, $state = [])
+ * @property OauthClient|null                            $client
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property User|null                                   $user
+ *
+ * @method static \Modules\User\Database\Factories\OauthAccessTokenFactory       factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthAccessToken newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthAccessToken newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthAccessToken query()
+ *
  * @mixin \Eloquent
  */
 class OauthAccessToken extends BaseModel
@@ -49,7 +52,7 @@ class OauthAccessToken extends BaseModel
 
     /**
      * Get the attributes that should be cast.
-     * 
+     *
      * @return array<string, string>
      */
     protected function casts(): array

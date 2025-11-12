@@ -7,7 +7,6 @@ namespace Modules\User\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * OAuth Client Model
@@ -23,16 +22,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\OauthAccessToken> $accessTokens
  * @property-read int|null $access_tokens_count
  * @property-read \Modules\User\Models\User|null $user
+ *
  * @method static \Modules\User\Database\Factories\OauthClientFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthClient newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthClient newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthClient query()
+ *
  * @mixin \Eloquent
  */
 class OauthClient extends BaseModel
 {
     use \Modules\Xot\Models\Traits\HasXotFactory;
-    
+
     /** @var string */
     protected $connection = 'user';
 
@@ -56,7 +57,7 @@ class OauthClient extends BaseModel
 
     /**
      * Get the attributes that should be cast.
-     * 
+     *
      * @return array<string, string>
      */
     protected function casts(): array

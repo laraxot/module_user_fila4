@@ -7,21 +7,14 @@ namespace Modules\User\Models;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * TenantUser Pivot Model
- *
- * Represents the many-to-many relationship between Tenant and User models.
- *
- * @property int $tenant_id
- * @property int $user_id
- * @property string|null $role
+ * TenantUser Model
  *
  * @property-read \Modules\User\Models\Tenant|null $tenant
  * @property-read \Modules\User\Models\User|null $user
- *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TenantUser newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TenantUser newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TenantUser query()
- * @mixin \Illuminate\Database\Eloquent\Relations\Pivot
+ * @mixin \Eloquent
  */
 class TenantUser extends BasePivot
 {

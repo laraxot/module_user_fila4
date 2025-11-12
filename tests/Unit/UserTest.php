@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Enums\UserType;
-use Modules\User\Models\User;
+use Modules\Xot\Datas\XotData;
 use Tests\TestCase;
 
 /**
- * @property User $user
+ * @property mixed $user
  */
 uses(TestCase::class);
 
 beforeEach(function (): void {
     /** @var object{user: mixed} $this */ $this->user = User/** @phpstan-ignore-line */ ::factory()->create([
-        'type' => UserType::MasterAdmin,
-        'email' => fake()->unique()->safeEmail(),
-        'password' => Hash::make('password123'),
-    ]);
+            'type' => UserType::MasterAdmin,
+            'email' => fake()->unique()->safeEmail(),
+            'password' => Hash::make('password123'),
+        ]);
 });
 
 test('user can be created', function (): void {
@@ -76,7 +76,8 @@ test('user can be deleted', function (): void {
     /** @phpstan-ignore-next-line property.notFound */
     $this->user->delete();
 
-    expect(User::find($userId))->toBeNull();
+    $userClass = XotData::make()->getUserClass();
+    expect($userClass::find($userId))->toBeNull();
 });
 
 test('user has fillable attributes', function (): void {
@@ -97,7 +98,8 @@ test('user has hidden attributes', function (): void {
 });
 
 test('user can be found by email', function (): void {
-    $foundUser = User::where('email', 'admin@example.com')->first();
+    $userClass = XotData::make()->getUserClass();
+    $foundUser = $userClass::where('email', 'admin@example.com')->first();
 
     expect($foundUser)->toBeInstanceOf(User::class);
     /** @phpstan-ignore-next-line property.notFound */
@@ -105,7 +107,8 @@ test('user can be found by email', function (): void {
 });
 
 test('user can be found by type', function (): void {
-    $admins = User::where('type', UserType::MasterAdmin)->get();
+    $userClass = XotData::make()->getUserClass();
+    $admins = $userClass::where('type', UserType::MasterAdmin)->get();
 
     expect($admins)->toHaveCount(1);
     /** @phpstan-ignore-next-line property.notFound */
@@ -114,9 +117,9 @@ test('user can be found by type', function (): void {
 
 test('user can be created with different types', function (): void {
     /** @var User */
-        $boUser = User/** @phpstan-ignore-line */ ::factory()->create(['type' => UserType::BoUser]);
+    $boUser = User/** @phpstan-ignore-line */ ::factory()->create(['type' => UserType::BoUser]);
     /** @var User */
-        $customerUser = User/** @phpstan-ignore-line */ ::factory()->create(['type' => UserType::CustomerUser]);
+    $customerUser = User/** @phpstan-ignore-line */ ::factory()->create(['type' => UserType::CustomerUser]);
 
     expect($boUser->type)->toBe(UserType::BoUser);
     expect($customerUser->type)->toBe(UserType::CustomerUser);

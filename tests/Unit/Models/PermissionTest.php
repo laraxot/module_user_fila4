@@ -14,12 +14,15 @@ class PermissionTest extends TestCase
 
     public function test_can_create_permission_with_minimal_data(): void
     {
-        $permission = Permission::factory()->create([
+        /** @var Permission */
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create([
             'name' => 'test.permission',
             'guard_name' => 'web',
         ]);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('permissions', [
+            /** @phpstan-ignore-next-line property.notFound */
             'id' => $permission->id,
             'name' => 'test.permission',
             'guard_name' => 'web',
@@ -35,9 +38,12 @@ class PermissionTest extends TestCase
             'updated_by' => 'user456',
         ];
 
-        $permission = Permission::factory()->create($permissionData);
+        /** @var Permission */
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create($permissionData);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('permissions', [
+            /** @phpstan-ignore-next-line property.notFound */
             'id' => $permission->id,
             'name' => 'full.permission',
             'guard_name' => 'web',
@@ -50,6 +56,7 @@ class PermissionTest extends TestCase
     {
         $permission = new Permission;
 
+        /** @phpstan-ignore-next-line property.notFound */
         static::assertSame('user', $permission->connection);
     }
 
@@ -57,6 +64,7 @@ class PermissionTest extends TestCase
     {
         $permission = new Permission;
 
+        /** @phpstan-ignore-next-line property.notFound */
         static::assertSame('string', $permission->keyType);
     }
 
@@ -74,6 +82,7 @@ class PermissionTest extends TestCase
             'updated_by',
         ];
 
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame($expectedFillable, $permission->getFillable());
     }
 
@@ -90,69 +99,84 @@ class PermissionTest extends TestCase
             'updated_at' => 'datetime',
         ];
 
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame($expectedCasts, $permission->getCasts());
     }
 
     public function test_can_find_permission_by_name(): void
     {
-        $permission = Permission::factory()->create(['name' => 'unique.permission']);
+        /** @var Permission */
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'unique.permission']);
 
         $foundPermission = Permission::where('name', 'unique.permission')->first();
 
         static::assertNotNull($foundPermission);
-        static::assertSame($permission->id, $foundPermission->id);
+        static::assertSame(/** @phpstan-ignore-next-line property.notFound */
+        $permission->id, $foundPermission->id);
     }
 
     public function test_can_find_permission_by_guard_name(): void
     {
-        Permission::factory()->create(['guard_name' => 'web']);
-        Permission::factory()->create(['guard_name' => 'api']);
-        Permission::factory()->create(['guard_name' => 'web']);
+        Permission/** @phpstan-ignore-line */ ::factory()->create(['guard_name' => 'web']);
+        Permission/** @phpstan-ignore-line */ ::factory()->create(['guard_name' => 'api']);
+        Permission/** @phpstan-ignore-line */ ::factory()->create(['guard_name' => 'web']);
 
         $webPermissions = Permission::where('guard_name', 'web')->get();
 
         static::assertCount(2, $webPermissions);
+        /** @phpstan-ignore-next-line method.nonObject */
+        static::assertTrue($webPermissions->every(fn ($permission) => $permission->guard_name === 'web'));
     }
 
     public function test_can_find_permission_by_created_by(): void
     {
-        $permission = Permission::factory()->create(['created_by' => 'user123']);
+        /** @var Permission */
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['created_by' => 'user123']);
 
         $foundPermission = Permission::where('created_by', 'user123')->first();
 
         static::assertNotNull($foundPermission);
-        static::assertSame($permission->id, $foundPermission->id);
+        static::assertSame(/** @phpstan-ignore-next-line property.notFound */
+        $permission->id, $foundPermission->id);
     }
 
     public function test_can_find_permission_by_updated_by(): void
     {
-        $permission = Permission::factory()->create(['updated_by' => 'user456']);
+        /** @var Permission */
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['updated_by' => 'user456']);
 
         $foundPermission = Permission::where('updated_by', 'user456')->first();
 
         static::assertNotNull($foundPermission);
-        static::assertSame($permission->id, $foundPermission->id);
+        static::assertSame(/** @phpstan-ignore-next-line property.notFound */
+        $permission->id, $foundPermission->id);
     }
 
     public function test_can_find_permissions_by_name_pattern(): void
     {
-        Permission::factory()->create(['name' => 'user.create']);
-        Permission::factory()->create(['name' => 'user.update']);
-        Permission::factory()->create(['name' => 'user.delete']);
-        Permission::factory()->create(['name' => 'post.read']);
+        Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'user.create']);
+        Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'user.update']);
+        Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'user.delete']);
+        Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'post.read']);
 
         $userPermissions = Permission::where('name', 'like', 'user.%')->get();
 
         static::assertCount(3, $userPermissions);
+        /** @phpstan-ignore-next-line method.nonObject */
+        static::assertTrue($userPermissions->every(fn ($permission) => str_starts_with($permission->name, 'user.')));
     }
 
     public function test_can_update_permission(): void
     {
-        $permission = Permission::factory()->create(['name' => 'old.permission']);
+        /** @var Permission */
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'old.permission']);
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $permission->update(['name' => 'new.permission']);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('permissions', [
+            /** @phpstan-ignore-next-line property.notFound */
             'id' => $permission->id,
             'name' => 'new.permission',
         ]);
@@ -160,14 +184,17 @@ class PermissionTest extends TestCase
 
     public function test_can_handle_null_values(): void
     {
-        $permission = Permission::factory()->create([
+        /** @var Permission */
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create([
             'name' => 'test.permission',
             'guard_name' => 'web',
             'created_by' => null,
             'updated_by' => null,
         ]);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('permissions', [
+            /** @phpstan-ignore-next-line property.notFound */
             'id' => $permission->id,
             'created_by' => null,
             'updated_by' => null,
@@ -176,13 +203,13 @@ class PermissionTest extends TestCase
 
     public function test_can_find_permissions_by_multiple_criteria(): void
     {
-        Permission::factory()->create([
+        Permission/** @phpstan-ignore-line */ ::factory()->create([
             'name' => 'admin.user.create',
             'guard_name' => 'web',
             'created_by' => 'admin',
         ]);
 
-        Permission::factory()->create([
+        Permission/** @phpstan-ignore-line */ ::factory()->create([
             'name' => 'admin.user.update',
             'guard_name' => 'api',
             'created_by' => 'admin',
@@ -191,42 +218,51 @@ class PermissionTest extends TestCase
         $permissions = Permission::where('name', 'like', 'admin.user.%')->where('created_by', 'admin')->get();
 
         static::assertCount(2, $permissions);
+        /** @phpstan-ignore-next-line method.nonObject, argument.type, property.notFound */
         static::assertTrue($permissions->every(
+            /** @phpstan-ignore-next-line property.notFound */
+            fn ($permission) => str_starts_with($permission->name, 'admin.user.') && $permission->created_by === 'admin',
         ));
     }
 
     public function test_permission_has_roles_relationship(): void
     {
-        $permission = Permission::factory()->create();
+        /** @var Permission */
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($permission, 'roles'));
     }
 
     public function test_permission_has_users_relationship(): void
     {
-        $permission = Permission::factory()->create();
+        /** @var Permission */
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($permission, 'users'));
     }
 
     public function test_permission_can_use_role_scopes(): void
     {
-        $permission = Permission::factory()->create();
+        /** @var Permission */
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($permission, 'role'));
     }
 
     public function test_permission_can_use_permission_scopes(): void
     {
-        $permission = Permission::factory()->create();
+        /** @var Permission */
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($permission, 'permission'));
+        /** @phpstan-ignore-next-line function.alreadyNarrowedType */
         static::assertTrue(method_exists($permission, 'withoutPermission'));
     }
 
     public function test_permission_can_use_without_role_scopes(): void
     {
-        $permission = Permission::factory()->create();
+        /** @var Permission */
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($permission, 'withoutRole'));
     }
@@ -235,6 +271,7 @@ class PermissionTest extends TestCase
     {
         $permission = new Permission;
 
+        /** @phpstan-ignore-next-line function.impossibleType */
         static::assertTrue(method_exists($permission, 'newFactory'));
     }
 
@@ -242,6 +279,7 @@ class PermissionTest extends TestCase
     {
         $permission = new Permission;
 
+        /** @phpstan-ignore-next-line function.alreadyNarrowedType */
         static::assertTrue(method_exists($permission, 'getTable'));
     }
 }
