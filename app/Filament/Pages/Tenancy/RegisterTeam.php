@@ -22,43 +22,12 @@ class RegisterTeam extends RegisterTenant
      */
     /** @phpstan-ignore-next-line return.type */
     public function getFormSchema(): array
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
     {
         return [
             TextInput::make('name'),
             // ...
         ];
     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/develop
-{
-    
-        
-    return [
-              
-                    TextInput::make('name'),
-                    // ...
-                
-      ];
-}
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 
     /**
      * @param  array<string, mixed>  $data

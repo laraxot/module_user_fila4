@@ -42,13 +42,8 @@ public function getTableColumns(): array
 - Aggiornare anche override, chiamate e test.
 
 ## Collegamenti
-<<<<<<< HEAD
 - [Regola Generale - Modulo Xot](../../../Xot/docs/FILAMENT_TABLE_COLUMNS.md)
 - [Regola Globale - Root Docs](../../../../docs/filament-table-columns.md)
-=======
-- [Regola Generale - Modulo Xot](../../../Xot/project_docs/FILAMENT_TABLE_COLUMNS.md)
-- [Regola Globale - Root Docs](../../../../project_docs/filament-table-columns.md)
->>>>>>> 81efa49 (.)
 
 ---
 
