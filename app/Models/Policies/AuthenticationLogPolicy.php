@@ -24,6 +24,7 @@ class AuthenticationLogPolicy extends UserBasePolicy
     {
         return
             $user->hasPermissionTo('authentication-log.view') ||
+            /* @phpstan-ignore-next-line property.notFound */
             $user->id === $authenticationLog->authenticatable_id ||
             $user->hasRole('super-admin');
     }

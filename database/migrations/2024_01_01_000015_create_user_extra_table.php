@@ -9,9 +9,6 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /*
  * Class CreateExtraTable.
  */
-return new class extends XotBaseMigration
-{
-    protected ?string $model_class = Extra::class;
 
     /**
      * Run the migrations.

@@ -21,38 +21,11 @@ class UsersRelationManager extends XotBaseRelationManager
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    /**
-     * @return array<Component>
-     */
-    #[Override]
-    public function getFormSchema(): array
-    {
-        return [
-            TextInput::make('name')->required()->maxLength(255),
-            TextInput::make('email')
-                ->email()
-                ->required()
-                ->unique(ignoreRecord: true)
-                ->maxLength(255),
-            DateTimePicker::make('email_verified_at')->nullable(),
-            TextInput::make('password')
-                ->password()
-                ->required(fn ($context) => $context === 'create')
-                ->minLength(8)
-                ->same('password_confirmation')
-                ->dehydrated(filled(...))
-                ->dehydrateStateUsing(bcrypt(...)),
-            TextInput::make('password_confirmation')
-                ->password()
-                ->required(fn ($context) => $context === 'create')
-                ->minLength(8),
-        ];
-    }
 
-    /**
-     * @return array<string, Column>
-     */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableColumns(): array
     {
         return [

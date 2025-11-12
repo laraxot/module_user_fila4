@@ -4,58 +4,76 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-// use Laravel\Passport\AccessToken as PassportAccessToken;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Carbon;
-use Laravel\Passport\Token as PassportToken;
-use Modules\Xot\Contracts\UserContract;
+use Illuminate\Database\Eloquent\Model;
+use Modules\User\Models\BaseModel;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Modules\User\Models\OauthAccessToken.
+ * OAuth Access Token Model
  *
  * @property string $id
- * @property string|null $user_id
+ * @property string $user_id
  * @property string $client_id
  * @property string|null $name
- * @property array|null $scopes
+ * @property string|null $scopes
  * @property bool $revoked
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property Carbon|null $expires_at
- * @property OauthClient|null $client
- * @property UserContract|null $user
- *
- * @method static Builder|OauthAccessToken newModelQuery()
- * @method static Builder|OauthAccessToken newQuery()
- * @method static Builder|OauthAccessToken query()
- * @method static Builder|OauthAccessToken whereClientId($value)
- * @method static Builder|OauthAccessToken whereCreatedAt($value)
- * @method static Builder|OauthAccessToken whereExpiresAt($value)
- * @method static Builder|OauthAccessToken whereId($value)
- * @method static Builder|OauthAccessToken whereName($value)
- * @method static Builder|OauthAccessToken whereRevoked($value)
- * @method static Builder|OauthAccessToken whereScopes($value)
- * @method static Builder|OauthAccessToken whereUpdatedAt($value)
- * @method static Builder|OauthAccessToken whereUserId($value)
- *
- * @property OauthRefreshToken|null $refreshToken
- * @property string|null $updated_by
- * @property string|null $created_by
- * @property string|null $deleted_at
- * @property string|null $deleted_by
- *
- * @method static Builder<static>|OauthAccessToken whereCreatedBy($value)
- * @method static Builder<static>|OauthAccessToken whereDeletedAt($value)
- * @method static Builder<static>|OauthAccessToken whereDeletedBy($value)
- * @method static Builder<static>|OauthAccessToken whereUpdatedBy($value)
- *
- * @mixin IdeHelperOauthAccessToken
+ * @property \DateTime|null $expires_at
+ */
+/**
+ * @property-read \Modules\User\Models\OauthClient|null $client
+ * @property-read \Modules\User\Models\User|null $user
+ * @method static \Modules\User\Database\Factories\OauthAccessTokenFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthAccessToken newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthAccessToken newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthAccessToken query()
  * @mixin \Eloquent
  */
-class OauthAccessToken extends PassportToken
+class OauthAccessToken extends BaseModel
 {
     /** @var string */
     protected $connection = 'user';
 
-    // protected $fillable = ['id', 'user_id', 'client_id', 'name', 'scopes', 'revoked', 'expires_at'];
+    /** @var string */
+    protected $table = 'oauth_access_tokens';
+
+    /** @var list<string> */
+    protected $fillable = [
+        'id',
+        'user_id',
+        'client_id',
+        'name',
+        'scopes',
+        'revoked',
+        'expires_at',
+    ];
+
+    /**
+     * Get the attributes that should be cast.
+     * 
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'scopes' => 'array',
+            'revoked' => 'boolean',
+            'expires_at' => 'datetime',
+        ];
+    }
+
+    /**
+     * Get the user that owns the access token.
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the client that owns the access token.
+     */
+    public function client(): BelongsTo
+    {
+        return $this->belongsTo(OauthClient::class, 'client_id');
+    }
 }

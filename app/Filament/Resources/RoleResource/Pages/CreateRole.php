@@ -17,12 +17,16 @@ class CreateRole extends XotBaseCreateRecord
 
     protected static string $resource = RoleResource::class;
 
+    /**
+     * @param array<string, mixed> $data
+     * @return array<string, mixed>
+     */
     protected function mutateFormDataBeforeCreate(array $data): array
     {
         $this->permissions = collect($data)
             ->filter(
                 static fn ($_permission, $key): bool => (
-                    ! in_array($key, ['name', 'guard_name', 'select_all'], false) && Str::contains($key, '_')
+                    ! in_array((string) $key, ['name', 'guard_name', 'select_all'], true) && Str::contains((string) $key, '_')
                 ),
             )
             ->keys();

@@ -8,8 +8,6 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /*
  * Class CreateLiveuserUsersTable.
  */
-return new class extends XotBaseMigration
-{
     /**
      * Run the migrations.
      */

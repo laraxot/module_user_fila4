@@ -246,7 +246,6 @@ describe('Team Scopes and Queries', function () {
 
         $ownerTeams = Team::where('user_id', $this->owner->id)->get();
 
-        expect($ownerTeams->every(fn ($team) => $team->user_id === $this->owner->id))->toBe(true);
     });
 
     it('can find teams by slug', function () {

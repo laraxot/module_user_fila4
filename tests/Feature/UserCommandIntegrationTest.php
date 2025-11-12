@@ -16,12 +16,10 @@ uses(RefreshDatabase::class);
 
 describe('User Command Integration', function () {
     beforeEach(function () {
-        $this->command = new ChangeTypeCommand;
     });
 
     it('can be registered with Laravel artisan', function () {
         // Test that the command can be registered
-        $application = new Application;
         $application->add($this->command);
 
         expect($application->has('user:change-type'))->toBeTrue();
@@ -63,7 +61,6 @@ describe('User Command Integration', function () {
         expect(class_exists('Webmozart\Assert\Assert'))->toBeTrue();
 
         // Test basic assertion functionality
-        expect(fn () => Assert::notNull('test'))->not->toThrow(Exception::class);
     });
 
     it('integrates with Illuminate Support Arr', function () {
@@ -141,7 +138,6 @@ describe('User Command Integration', function () {
 
     it('can work with type checking utilities', function () {
         // Test type checking functions used in the command
-        $testObject = new stdClass;
         $testObject->value = 'test';
         $testObject->getLabel = fn () => 'Test Label';
 
@@ -244,7 +240,6 @@ describe('User Command Integration', function () {
 
     it('can handle object property access safely', function () {
         // Test safe property access patterns
-        $testObject = new stdClass;
         $testObject->testProperty = 'test_value';
 
         expect(property_exists($testObject, 'testProperty'))

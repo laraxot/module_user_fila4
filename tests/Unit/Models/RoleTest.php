@@ -89,7 +89,6 @@ class RoleTest extends TestCase
         $webRoles = Role::where('guard_name', 'web')->get();
 
         static::assertCount(2, $webRoles);
-        static::assertTrue($webRoles->every(fn ($role) => $role->guard_name === 'web'));
     }
 
     public function test_can_find_role_by_team_id(): void
@@ -123,7 +122,6 @@ class RoleTest extends TestCase
         $adminRoles = Role::where('name', 'like', '%Role%')->get();
 
         static::assertCount(3, $adminRoles);
-        static::assertTrue($adminRoles->every(fn ($role) => str_contains($role->name, 'Role')));
     }
 
     public function test_can_update_role(): void

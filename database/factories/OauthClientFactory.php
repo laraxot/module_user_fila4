@@ -67,7 +67,6 @@ class OauthClientFactory extends Factory
      */
     public function personalAccess(): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'personal_access_client' => true,
             'password_client' => false,
             'name' => 'Personal Access Client',
@@ -79,7 +78,6 @@ class OauthClientFactory extends Factory
      */
     public function password(): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'password_client' => true,
             'personal_access_client' => false,
             'name' => 'Password Grant Client',
@@ -91,7 +89,6 @@ class OauthClientFactory extends Factory
      */
     public function revoked(): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'revoked' => true,
         ]);
     }
@@ -101,7 +98,6 @@ class OauthClientFactory extends Factory
      */
     public function active(): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'revoked' => false,
         ]);
     }
@@ -111,7 +107,6 @@ class OauthClientFactory extends Factory
      */
     public function forUser(User $user): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'user_id' => $user->id,
         ]);
     }
@@ -121,7 +116,6 @@ class OauthClientFactory extends Factory
      */
     public function withRedirectUri(string $redirectUri): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'redirect' => $redirectUri,
         ]);
     }
@@ -133,7 +127,6 @@ class OauthClientFactory extends Factory
      */
     public function withScopes(array $scopes): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'scopes' => $scopes,
         ]);
     }

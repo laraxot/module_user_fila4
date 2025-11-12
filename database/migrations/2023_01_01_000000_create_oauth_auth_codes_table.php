@@ -7,8 +7,6 @@ use Modules\User\Models\OauthClient;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 use Modules\Xot\Datas\XotData;
 
-return new class extends XotBaseMigration
-{
     public function up(): void
     {
         $xot = XotData::make();

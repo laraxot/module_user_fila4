@@ -9,13 +9,6 @@ return [
         'icon' => 'heroicon-o-user-plus',
         'sort' => 50,
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     'pages' => [
         'registration' => [
             'title' => 'Registrazione Utente',
@@ -28,13 +21,6 @@ return [
             'description' => 'Segui la procedura guidata per completare la registrazione',
         ],
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     'steps' => [
         'personal_info' => [
             'label' => 'Dati Personali',
@@ -97,13 +83,6 @@ return [
             'help' => 'Compila le informazioni necessarie per la pre-visita',
         ],
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     'fields' => [
         'name' => [
             'label' => 'Nome',
@@ -261,13 +240,6 @@ return [
             'help' => 'Eventuali annotazioni del team di moderazione',
         ],
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     'actions' => [
         'register' => [
             'label' => 'Registrati',
@@ -292,13 +264,6 @@ return [
             'error' => 'Errore durante il salvataggio della bozza',
         ],
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     'messages' => [
         'welcome' => 'Benvenuto nella procedura di registrazione',
         'step_completed' => 'Passaggio completato con successo',

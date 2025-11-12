@@ -58,15 +58,15 @@ class UserServiceProvider extends XotBaseServiceProvider
      */
     protected function registerTeamModelBindings(): void
     {
-        $this->app->bind('team_user_model', fn () => TeamUser::class);
+        $this->app->bind('team_user_model', fn() => TeamUser::class);
 
-        $this->app->bind('team_invitation_model', fn () => TeamInvitation::class);
+        $this->app->bind('team_invitation_model', fn() => TeamInvitation::class);
     }
 
     public function registerMailsNotification(): void
     {
         $app_name = config('app.name');
-        if (! is_string($app_name)) {
+        if (!is_string($app_name)) {
             $app_name = '';
         }
 
@@ -148,7 +148,7 @@ class UserServiceProvider extends XotBaseServiceProvider
     public function registerPulse(): void
     {
         Config::set('pulse.path', 'pulse/admin');
-        Gate::define('viewPulse', fn (UserContract $user): bool => $user->hasRole('super-admin'));
+        Gate::define('viewPulse', fn(UserContract $user): bool => $user->hasRole('super-admin'));
     }
 
     public function registerPasswordRules(): void

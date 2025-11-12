@@ -33,7 +33,6 @@ class PermissionRoleFactory extends Factory
     public function definition(): array
     {
         return [
-            'permission_id' => fn () => Permission::create([
                 'name' => fake()->unique()->slug(),
                 'guard_name' => 'web',
             ])->id,
@@ -49,7 +48,6 @@ class PermissionRoleFactory extends Factory
      */
     public function forPermission(Permission $permission): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'permission_id' => $permission->id,
         ]);
     }
@@ -59,7 +57,6 @@ class PermissionRoleFactory extends Factory
      */
     public function forRole(Role $role): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'role_id' => $role->id,
         ]);
     }

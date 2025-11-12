@@ -23,6 +23,9 @@ class ListUsers extends BaseListUsers
     protected static string $resource = UserResource::class;
 
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableColumns(): array
     {
         return [
@@ -40,6 +43,9 @@ class ListUsers extends BaseListUsers
      * @return array<BaseFilter>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableFilters(): array
     {
         return [
@@ -56,6 +62,9 @@ class ListUsers extends BaseListUsers
      * @phpstan-ignore-next-line
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableActions(): array
     {
         /** @phpstan-ignore-next-line */
@@ -82,6 +91,9 @@ class ListUsers extends BaseListUsers
      * @return array<string, BulkAction>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableBulkActions(): array
     {
         return [

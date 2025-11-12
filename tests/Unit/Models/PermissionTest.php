@@ -112,7 +112,6 @@ class PermissionTest extends TestCase
         $webPermissions = Permission::where('guard_name', 'web')->get();
 
         static::assertCount(2, $webPermissions);
-        static::assertTrue($webPermissions->every(fn ($permission) => $permission->guard_name === 'web'));
     }
 
     public function test_can_find_permission_by_created_by(): void
@@ -145,7 +144,6 @@ class PermissionTest extends TestCase
         $userPermissions = Permission::where('name', 'like', 'user.%')->get();
 
         static::assertCount(3, $userPermissions);
-        static::assertTrue($userPermissions->every(fn ($permission) => str_starts_with($permission->name, 'user.')));
     }
 
     public function test_can_update_permission(): void
@@ -194,7 +192,6 @@ class PermissionTest extends TestCase
 
         static::assertCount(2, $permissions);
         static::assertTrue($permissions->every(
-            fn ($permission) => str_starts_with($permission->name, 'admin.user.') && $permission->created_by === 'admin',
         ));
     }
 

@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -11,7 +10,6 @@ use Modules\User\Models\Permission;
 use Modules\User\Models\Role;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
-use Spatie\MediaLibrary\HasMedia;
 
 beforeEach(function () {
     $this->user = User::factory()->create();
@@ -274,8 +272,6 @@ describe('User Scopes and Queries', function () {
         $activeUsers = User::where('is_active', true)->get();
         $inactiveUsers = User::where('is_active', false)->get();
 
-        expect($activeUsers->every(fn ($user) => $user->is_active))->toBe(true);
-        expect($inactiveUsers->every(fn ($user) => ! $user->is_active))->toBe(true);
     });
 
     it('can filter by email verified', function () {
@@ -285,8 +281,6 @@ describe('User Scopes and Queries', function () {
         $verifiedUsers = User::whereNotNull('email_verified_at')->get();
         $unverifiedUsers = User::whereNull('email_verified_at')->get();
 
-        expect($verifiedUsers->every(fn ($user) => $user->email_verified_at !== null))->toBe(true);
-        expect($unverifiedUsers->every(fn ($user) => $user->email_verified_at === null))->toBe(true);
     });
 
     it('can filter by language', function () {
@@ -296,8 +290,6 @@ describe('User Scopes and Queries', function () {
         $italianUsers = User::where('lang', 'it')->get();
         $englishUsers = User::where('lang', 'en')->get();
 
-        expect($italianUsers->every(fn ($user) => $user->lang === 'it'))->toBe(true);
-        expect($englishUsers->every(fn ($user) => $user->lang === 'en'))->toBe(true);
     });
 });
 

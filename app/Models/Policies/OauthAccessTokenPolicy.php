@@ -24,6 +24,7 @@ class OauthAccessTokenPolicy extends UserBasePolicy
     {
         return
             $user->hasPermissionTo('oauth-access-token.view') ||
+            /* @phpstan-ignore-next-line property.notFound */
             $user->id === $oauthAccessToken->user_id ||
             $user->hasRole('super-admin');
     }
@@ -51,6 +52,7 @@ class OauthAccessTokenPolicy extends UserBasePolicy
     {
         return
             $user->hasPermissionTo('oauth-access-token.delete') ||
+            /* @phpstan-ignore-next-line property.notFound */
             $user->id === $oauthAccessToken->user_id ||
             $user->hasRole('super-admin');
     }

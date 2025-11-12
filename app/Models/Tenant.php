@@ -4,34 +4,80 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection as EloquentCollection;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Media\Models\Media;
-use Modules\User\Database\Factories\TenantFactory;
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\Xot\Contracts\UserContract;
-use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Modules\User\Models\Tenant.
+ * Tenant Model
  *
- * @method static TenantFactory factory($count = null, $state = [])
- * @method static Builder|Tenant newModelQuery()
- * @method static Builder|Tenant newQuery()
- * @method static Builder|Tenant query()
- *
- * @property EloquentCollection<int, Model&UserContract> $members
- * @property int|null $members_count
- * @property ProfileContract|null $creator
- * @property ProfileContract|null $updater
- * @property MediaCollection<int, Media> $media
- * @property int|null $media_count
- * @property TenantUser $pivot
- * @property EloquentCollection<int, User> $users
- * @property int|null $users_count
- *
- * @mixin IdeHelperTenant
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\User> $users
+ * @property-read int|null $users_count
+ * @method static \Modules\User\Database\Factories\TenantFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Tenant newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Tenant newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Tenant query()
  * @mixin \Eloquent
  */
-class Tenant extends BaseTenant {}
+class Tenant extends BaseModel
+{
+    use \Modules\Xot\Models\Traits\HasXotFactory;
+
+    /** @var string */
+    protected $connection = 'user';
+
+    /** @var string */
+    protected $table = 'tenants';
+
+    /** @var list<string> */
+    protected $fillable = [
+        'name',
+        'slug',
+        'domain',
+        'database',
+        'is_active',
+    ];
+
+    /**
+     * Generate a slug for the tenant based on its name.
+     */
+    public function generateSlug(): void
+    {
+        $this->slug = \Illuminate\Support\Str::slug($this->name);
+    }
+
+    /**
+     * Boot the model.
+     */
+    protected static function boot(): void
+    {
+        parent::boot();
+
+        static::creating(function (self $tenant): void {
+            if (empty($tenant->slug)) {
+                $tenant->generateSlug();
+            }
+        });
+    }
+
+    /**
+     * Get the attributes that should be cast.
+     * 
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'is_active' => 'boolean',
+        ];
+    }
+
+    /**
+     * Get the users that belong to the tenant.
+     */
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'tenant_user')
+            ->withPivot('role')
+            ->withTimestamps();
+    }
+}

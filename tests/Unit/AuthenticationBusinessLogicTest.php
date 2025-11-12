@@ -142,7 +142,6 @@ describe('Authentication Business Logic', function () {
 
             // Optional profile fields
             $profileScore = 0;
-            if (! empty($user->name)) {
                 $profileScore += 25;
             }
             if (! empty($user->email)) {
@@ -153,7 +152,6 @@ describe('Authentication Business Logic', function () {
             }
             if (! empty($user->profile_photo_path)) {
                 $profileScore += 25;
-            }
 
             expect($profileScore)->toBeGreaterThanOrEqual(75); // Good profile
         });

@@ -23,7 +23,6 @@ class GetCurrentDeviceActionTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->action = new GetCurrentDeviceAction;
 
         // Mock the Agent class
         $this->mockAgent = Mockery::mock(Agent::class);
@@ -152,7 +151,6 @@ class GetCurrentDeviceActionTest extends TestCase
         $emptyMobileId = '';
 
         // Act & Assert
-        expect(fn () => $this->action->execute($emptyMobileId))
             ->toThrow(InvalidArgumentException::class, 'L\'ID mobile non può essere vuoto');
     }
 

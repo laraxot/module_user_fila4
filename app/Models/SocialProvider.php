@@ -53,9 +53,9 @@ use Override;
  * @method static Builder|SocialProvider whereUpdatedAt($value)
  * @method static Builder|SocialProvider whereUpdatedBy($value)
  *
- * @mixin IdeHelperSocialProvider
  * @mixin \Eloquent
  */
+/** */
 class SocialProvider extends BaseModel
 {
     use SushiToPhpArray;
@@ -92,6 +92,9 @@ class SocialProvider extends BaseModel
         'updated_by' => 'string',
     ];
 
+    /**
+     * @return list<array<string, mixed>>
+     */
     public function getRows(): array
     {
         return $this->getSushiRows();

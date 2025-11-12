@@ -44,7 +44,6 @@ class TeamUserFactory extends Factory
      */
     public function forTeam(Team $team): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'team_id' => $team->id,
         ]);
     }
@@ -54,7 +53,6 @@ class TeamUserFactory extends Factory
      */
     public function forUser(User $user): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'user_id' => $user->id,
         ]);
     }
@@ -64,7 +62,6 @@ class TeamUserFactory extends Factory
      */
     public function owner(): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'role' => 'owner',
         ]);
     }
@@ -74,7 +71,6 @@ class TeamUserFactory extends Factory
      */
     public function admin(): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'role' => 'admin',
         ]);
     }
@@ -84,7 +80,6 @@ class TeamUserFactory extends Factory
      */
     public function member(): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'role' => 'member',
         ]);
     }
