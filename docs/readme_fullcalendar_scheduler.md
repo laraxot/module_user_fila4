@@ -32,11 +32,7 @@ Questa documentazione è stata creata per risolvere i problemi comuni relativi a
 ## 🔍 Ricerca Effettuata
 
 ### Fonti Analizzate
-<<<<<<< HEAD
 - **Documentazione ufficiale**: https://fullcalendar.io/docs/schedulerLicenseKey
-=======
-- **Documentazione ufficiale**: https://fullcalendar.io/project_docs/schedulerLicenseKey
->>>>>>> 81efa49 (.)
 - **GitHub Issues**: 17+ issue analizzati sui problemi di licenza
 - **Community feedback**: Stack Overflow, forum, discussioni
 - **Bug reports**: Problemi noti nelle versioni 5.x e 6.x
@@ -207,11 +203,7 @@ Log::info('FullCalendar configured', [
 
 ### Risorse Esterne
 - **FullCalendar Sales**: sales@fullcalendar.io
-<<<<<<< HEAD
 - **Documentation**: https://fullcalendar.io/docs/
-=======
-- **Documentation**: https://fullcalendar.io/project_docs/
->>>>>>> 81efa49 (.)
 - **GitHub Issues**: https://github.com/fullcalendar/fullcalendar/issues
 
 ## 🔄 Manutenzione

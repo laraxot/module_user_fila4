@@ -9,20 +9,6 @@ return [
         'icon' => 'heroicon-o-user-plus',
         'sort' => 50,
     ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     'pages' => [
         'registration' => [
             'title' => 'Registrazione Utente',
@@ -35,20 +21,6 @@ return [
             'description' => 'Segui la procedura guidata per completare la registrazione',
         ],
     ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     'steps' => [
         'personal_info' => [
             'label' => 'Dati Personali',
@@ -111,20 +83,6 @@ return [
             'help' => 'Compila le informazioni necessarie per la pre-visita',
         ],
     ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     'fields' => [
         'name' => [
             'label' => 'Nome',
@@ -282,20 +240,6 @@ return [
             'help' => 'Eventuali annotazioni del team di moderazione',
         ],
     ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     'actions' => [
         'register' => [
             'label' => 'Registrati',
@@ -320,20 +264,6 @@ return [
             'error' => 'Errore durante il salvataggio della bozza',
         ],
     ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     'messages' => [
         'welcome' => 'Benvenuto nella procedura di registrazione',
         'step_completed' => 'Passaggio completato con successo',
