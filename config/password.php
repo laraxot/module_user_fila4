@@ -4,12 +4,17 @@ declare(strict_types=1);
 
 return [
 <<<<<<< HEAD
+<<<<<<< HEAD
     'otp_expiration_minutes' => 15, // Durata in minuti della validità della password temporanea
     'otp_length' => 6, // Lunghezza del codice OTP
 =======
     'otp_expiration_minutes' => 15,  // Durata in minuti della validità della password temporanea
     'otp_length' => 6,  // Lunghezza del codice OTP
 >>>>>>> fbc8f8e (.)
+=======
+    'otp_expiration_minutes' => 15, // Durata in minuti della validità della password temporanea
+    'otp_length' => 6, // Lunghezza del codice OTP
+>>>>>>> 6d20fbe (.)
     'expires_in' => 30, // The number of days before the password expires.
     'min' => 6, // The minimum size of the password.
     'mixedCase' => false, // If the password requires at least one uppercase and one lowercase letter.
@@ -24,6 +29,9 @@ return [
 
 /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
  *
  * $inputs = [
  * 'email'    => 'foo',
@@ -49,6 +57,7 @@ return [
  * print_r( $validation->errors()->all() );
  * }
  *
+<<<<<<< HEAD
 =======
 
    $inputs = [
@@ -76,4 +85,6 @@ return [
     }
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
  */

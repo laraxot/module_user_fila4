@@ -143,6 +143,9 @@ class Permission extends SpatiePermission
 >>>>>>> 6849bc76 (.)
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)

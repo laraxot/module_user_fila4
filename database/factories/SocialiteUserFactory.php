@@ -11,10 +11,14 @@ use Modules\User\Models\User;
 /**
  * SocialiteUser Factory
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
 =======
  * 
 >>>>>>> fbc8f8e (.)
+=======
+ *
+>>>>>>> 6d20fbe (.)
  * @extends Factory<SocialiteUser>
  */
 class SocialiteUserFactory extends Factory
@@ -25,10 +29,14 @@ class SocialiteUserFactory extends Factory
     {
         $provider = $this->faker->randomElement(['google', 'facebook', 'github', 'twitter']);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
         return [
             'user_id' => User::factory(),
             'provider' => $provider,
