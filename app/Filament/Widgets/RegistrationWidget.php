@@ -4,22 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-use Override;
-use Illuminate\Http\RedirectResponse;
-use Livewire\Features\SupportRedirects\Redirector;
-use Filament\Actions\Concerns\InteractsWithRecord;
-use Filament\Forms\Components\Checkbox;
-use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Components\Wizard\Step;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Contracts\HasForms;
-use Filament\Schemas\Schema;
-use Filament\Widgets\Widget;
-use Illuminate\Auth\Events\Registered;
->>>>>>> 3753a57 (.)
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -36,43 +20,7 @@ class RegistrationWidget extends XotBaseWidget
     public ?array $data = [];
 
     protected int|string|array $columnSpan = 'full';
-<<<<<<< HEAD
 
-=======
-=======
-use Illuminate\Http\RedirectResponse;
-use Livewire\Features\SupportRedirects\Redirector;
-use Filament\Forms\Form;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-use Filament\Widgets\Widget;
-use Illuminate\Http\Request;
-use Webmozart\Assert\Assert;
-use Modules\Xot\Datas\XotData;
-use Livewire\Attributes\Validate;
-use Illuminate\Support\HtmlString;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Filament\Forms\Contracts\HasForms;
-use Illuminate\Auth\Events\Registered;
-use Filament\Forms\Components\Checkbox;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Xot\Contracts\UserContract;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Wizard\Step;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Modules\Xot\Filament\Widgets\XotBaseWidget;
-use Filament\Actions\Concerns\InteractsWithRecord;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
-
-class RegistrationWidget extends XotBaseWidget
-{
-    
-    public ?array $data = [];
-    protected int | string | array $columnSpan = 'full';
->>>>>>> fbc8f8e (.)
 >>>>>>> 3753a57 (.)
     public string $type;
 
@@ -83,11 +31,7 @@ class RegistrationWidget extends XotBaseWidget
     public string $action;
 
     public Model $record;
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> fbc8f8e (.)
     /**
      * @phpstan-var class-string
      *
@@ -95,23 +39,14 @@ class RegistrationWidget extends XotBaseWidget
      */
     protected string $view = 'pub_theme::filament.widgets.registration';
 
-<<<<<<< HEAD
     public function mount(string $type, Request $_request): void
-=======
-    public function mount(string $type, Request $request): void
->>>>>>> fbc8f8e (.)
     {
         $this->type = $type;
         $this->resource = XotData::make()->getUserResourceClassByType($type);
-<<<<<<< HEAD
 
         $modelClass = $this->resource::getModel();
         $this->model = is_string($modelClass) ? $modelClass : '';
 
-=======
-        $this->model = $this->resource::getModel();
-<<<<<<< HEAD
->>>>>>> 3753a57 (.)
         $this->action = Str::of($this->model)
             ->replace('\\Models\\', '\\Actions\\')
             ->append('\\RegisterAction')
@@ -160,7 +95,6 @@ class RegistrationWidget extends XotBaseWidget
 
             return $model;
         }
-<<<<<<< HEAD
 
 <<<<<<< HEAD
         // PHPStan Level 10: Uso getAttribute() per evitare undefined property error
@@ -168,10 +102,6 @@ class RegistrationWidget extends XotBaseWidget
         $remember_token = $user->getAttribute('remember_token');
         if ($remember_token === null && $user->isFillable('remember_token')) {
             $user->setAttribute('remember_token', Str::uuid()->toString());
-=======
-=======
-        
->>>>>>> fbc8f8e (.)
         $remember_token = $user->remember_token;
         if ($remember_token === null) {
             $user->remember_token = Str::uuid()->toString();
@@ -179,17 +109,12 @@ class RegistrationWidget extends XotBaseWidget
             $user->save();
             $remember_token = $user->getAttribute('remember_token');
         }
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> fbc8f8e (.)
         if ($remember_token === $token) {
             $this->record = $user;
 
             return $user;
         }
-<<<<<<< HEAD
 
         /** @var \Illuminate\Database\Eloquent\Model $modelInstance */
         $modelInstance = app($this->model);
@@ -207,21 +132,6 @@ class RegistrationWidget extends XotBaseWidget
     }
 
     #[Override]
-=======
-        
-        return app($this->model);
-    }
-
-    public function getFormFill(): array{
-        $data=parent::getFormFill();
-        $data['type']=$this->type;
-        
-        return $data;
-    }
-
-   
-
->>>>>>> fbc8f8e (.)
     public function getFormSchema(): array
     {
         /** @var array<int|string, \Filament\Schemas\Components\Component> $schema */
@@ -235,7 +145,6 @@ class RegistrationWidget extends XotBaseWidget
      */
     public function register(): RedirectResponse|Redirector
     {
-<<<<<<< HEAD
         $lang = app()->getLocale();
 
         $data = $this->form->getState();
@@ -256,24 +165,4 @@ class RegistrationWidget extends XotBaseWidget
         // return redirect()->route('pages.view', ['slug' => $this->type . '_register_complete','lang'=>$lang]);
         return redirect($route);
     }
-=======
-        $lang=app()->getLocale();
-        
-        $data = $this->form->getState();
-        
-        $data=array_merge($this->data ?? [],$data);
-        $record = $this->record;
-       
-        $user = app($this->action)->execute($record, $data);
-
-        $lang=app()->getLocale();
-        $route=route('pages.view', ['slug' => $this->type . '_register_complete']);
-        $route=LaravelLocalization::localizeUrl($route,$lang);
-        
-        //return redirect()->route('pages.view', ['slug' => $this->type . '_register_complete','lang'=>$lang]);
-        return redirect($route);
-    }
-
-    
->>>>>>> fbc8f8e (.)
 }

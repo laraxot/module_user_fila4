@@ -6,11 +6,7 @@ use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Filament\Widgets\LoginWidget;
 use Modules\User\Models\User;
-<<<<<<< HEAD
 use Tests\TestCase;
-=======
-<<<<<<< HEAD
->>>>>>> 3753a57 (.)
 
 =======
 >>>>>>> fbc8f8e (.)

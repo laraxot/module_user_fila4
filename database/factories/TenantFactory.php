@@ -27,7 +27,6 @@ class TenantFactory extends Factory
      */
     public function definition(): array
     {
-<<<<<<< HEAD
         $name = $this->faker->company();
 
         return [
@@ -38,13 +37,6 @@ class TenantFactory extends Factory
             'database' => $this->faker->word(),
             'is_active' => $this->faker->boolean(),
         ];
-=======
-<<<<<<< HEAD
-        return [];
-=======
-        return [
-        ];
->>>>>>> fbc8f8e (.)
 >>>>>>> 3753a57 (.)
     }
 }
