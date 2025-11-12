@@ -4,12 +4,7 @@
 
 ## 📊 Panoramica Generale
 
-<<<<<<< HEAD
 Il modulo User è il cuore del sistema di autenticazione e gestione utenti di SaluteOra, fornendo tutte le funzionalità per la gestione di utenti, ruoli, permessi, team e tenant. Questo documento fornisce un'analisi completa dello stato attuale di factory, seeder e test, con focus sulla business logic.
-=======
-Il modulo User è il cuore del sistema di autenticazione e gestione utenti di , fornendo tutte le funzionalità per la gestione di utenti, ruoli, permessi, team e tenant. Questo documento fornisce un'analisi completa dello stato attuale di factory, seeder e test, con focus sulla business logic.
-Il modulo User è il cuore del sistema di autenticazione e gestione utenti di <nome progetto>, fornendo tutte le funzionalità per la gestione di utenti, ruoli, permessi, team e tenant. Questo documento fornisce un'analisi completa dello stato attuale di factory, seeder e test, con focus sulla business logic.
->>>>>>> 041533e (.)
 
 ## 🏗️ Struttura Modelli e Relazioni
 
@@ -288,12 +283,7 @@ Il modulo User è il cuore del sistema di autenticazione e gestione utenti di <n
 **Ultimo aggiornamento**: Dicembre 2024
 **Versione**: 1.0
 **Stato**: In Progress
-<<<<<<< HEAD
 **Responsabile**: Team Sviluppo SaluteOra
-=======
-**Responsabile**: Team Sviluppo 
-**Responsabile**: Team Sviluppo <nome progetto>
->>>>>>> 041533e (.)
 **Prossima Revisione**: Gennaio 2025
 
 >>>>>>> 6849bc76 (.)
