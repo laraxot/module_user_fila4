@@ -225,12 +225,7 @@ return redirect()->to('/' . $locale);
 
 ## Collegamenti Utili
 
-<<<<<<< HEAD
 - [Documentazione Laravel Authentication](https://laravel.com/docs/10.x/authentication)
 - [Documentazione Folio](https://laravel.com/docs/10.x/folio)
-=======
-- [Documentazione Laravel Authentication](https://laravel.com/project_docs/10.x/authentication)
-- [Documentazione Folio](https://laravel.com/project_docs/10.x/folio)
->>>>>>> 81efa49 (.)
 - [Documentazione Filament](https://filamentphp.com/docs)
 >>>>>>> 6849bc76 (.)
