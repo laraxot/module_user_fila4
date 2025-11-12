@@ -18,4 +18,20 @@ abstract class TestCase extends BaseTestCase
         // Set up any module-specific test configuration here
         $this->artisan('module:migrate', ['module' => 'User']);
     }
+<<<<<<< HEAD
 }
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> a12f125f4a (.)
+=======
+}
+>>>>>>> b93ef594b4 (.)
+=======
+}
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)

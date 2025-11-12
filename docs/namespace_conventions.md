@@ -189,9 +189,15 @@ Se l'override del tema non funziona:
 
 ## Collegamenti
 
+<<<<<<< HEAD
 - [Documentazione Laravel View](https://laravel.com/docs/views)
 - [Regole Struttura Directory Auth](../../../.windsurf/rules/translations.md#regola-critica-struttura-directory-auth-laravel)
 - [Documentazione Tema One](../../../Themes/One/docs/README.md)
+=======
+- [Documentazione Laravel View](https://laravel.com/project_docs/views)
+- [Regole Struttura Directory Auth](../../../.windsurf/rules/translations.md#regola-critica-struttura-directory-auth-laravel)
+- [Documentazione Tema One](../../../Themes/One/project_docs/README.md)
+>>>>>>> 81efa49 (.)
 
 ---
 
