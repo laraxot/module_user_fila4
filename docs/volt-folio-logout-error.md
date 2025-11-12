@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Errore nel Logout con Volt e Folio
 
 ## Il Problema
@@ -166,3 +167,5 @@ use function Livewire\Volt\{state, mount};
 
 **Errore risolto: aggiungi `@volt` come prima riga!**
 >>>>>>> 7c0a965 (.)
+=======
+>>>>>>> 1b6d4b9 (.)
