@@ -40,19 +40,15 @@ class UserResource extends XotBaseResource
     //    static::$extendFormCallback = $callback;
     // }
 
-    /**
-     * @return array<int, \Filament\Schemas\Components\Component>
-     */
     #[Override]
     public static function getFormSchema(): array
     {
-        return array_values([
+        return [
             'section01' => Section::make([
                 'name' => TextInput::make('name')->required(),
                 'email' => TextInput::make('email')->required()->unique(ignoreRecord: true),
                 'password' => TextInput::make('password')
                     ->password()
-<<<<<<< HEAD
                     ->dehydrateStateUsing(function ($state): ?string {
                         // Type narrowing for PHPStan Level 10
                         if (! is_string($state) || empty($state)) {
@@ -66,18 +62,10 @@ class UserResource extends XotBaseResource
             'section02' => Section::make([
                 'created_at' => Placeholder::make('created_at')->content(static function ($record) {
                     // Type narrowing for PHPStan Level 10
-=======
-                    ->dehydrateStateUsing(fn(?string $state): ?string => !empty($state) ? Hash::make($state) : null)
-                    ->required(fn(mixed $livewire): bool => $livewire instanceof CreateUser),
-            ])->columnSpan(8),
-            'section02' => Section::make([
-                'created_at' => Placeholder::make('created_at')->content(static function (mixed $record): HtmlString|string {
->>>>>>> e058848 (.)
                     if (! $record instanceof \Illuminate\Database\Eloquent\Model) {
                         return new HtmlString('&mdash;');
                     }
 
-<<<<<<< HEAD
                     // PHPStan Level 10: hasAttribute() invece di property_exists() per Eloquent
                     if (! $record->hasAttribute('created_at')) {
                         return new HtmlString('&mdash;');
@@ -96,18 +84,9 @@ class UserResource extends XotBaseResource
                     } else {
                         return new HtmlString('&mdash;');
                     }
-=======
-                    /** @var \Carbon\Carbon|null $createdAt */
-                    $createdAt = $record->getAttribute('created_at');
-                    if ($createdAt === null || ! $createdAt instanceof \Carbon\Carbon) {
-                        return new HtmlString('&mdash;');
-                    }
-
-                    return $createdAt->diffForHumans();
->>>>>>> e058848 (.)
                 }),
             ])->columnSpan(4),
-        ]);
+        ];
     }
 
     // public static function enablePasswordUpdates(bool|Closure $condition = true): void

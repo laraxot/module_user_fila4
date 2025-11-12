@@ -42,7 +42,7 @@ new class extends Component {
                 'email' => $this->email,
                 'password' => $this->password,
             ],
-            function ($user, $password): void {
+            function ($user, $password) {
                 $user->password = Hash::make($password);
 
                 $user->setRememberToken(Str::random(60));

@@ -4,86 +4,73 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Support\Carbon;
+use Laravel\Passport\Client as PassportClient;
+use Laravel\Passport\Database\Factories\ClientFactory;
+use Modules\Xot\Contracts\UserContract;
 
 /**
- * OAuth Client Model
+ * Modules\User\Models\OauthClient.
  *
- * @property string $user_id
+ * @property string $id
+ * @property string|null $user_id
  * @property string $name
- * @property string $secret
+ * @property string|null $secret
  * @property string|null $provider
  * @property string $redirect
  * @property bool $personal_access_client
  * @property bool $password_client
  * @property bool $revoked
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\OauthAccessToken> $accessTokens
- * @property-read int|null $access_tokens_count
- * @property-read \Modules\User\Models\User|null $user
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Collection<int, OauthAuthCode> $authCodes
+ * @property int|null $auth_codes_count
+ * @property array|null $grant_types
+ * @property string|null $plain_secret
+ * @property array|null $scopes
+ * @property Collection<int, OauthAccessToken> $tokens
+ * @property int|null $tokens_count
+ * @property UserContract|null $user
  *
- * @method static \Modules\User\Database\Factories\OauthClientFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthClient newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthClient newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|OauthClient query()
+ * @method static ClientFactory factory($count = null, $state = [])
+ * @method static Builder|OauthClient newModelQuery()
+ * @method static Builder|OauthClient newQuery()
+ * @method static Builder|OauthClient query()
+ * @method static Builder|OauthClient whereCreatedAt($value)
+ * @method static Builder|OauthClient whereId($value)
+ * @method static Builder|OauthClient whereName($value)
+ * @method static Builder|OauthClient wherePasswordClient($value)
+ * @method static Builder|OauthClient wherePersonalAccessClient($value)
+ * @method static Builder|OauthClient whereProvider($value)
+ * @method static Builder|OauthClient whereRedirect($value)
+ * @method static Builder|OauthClient whereRevoked($value)
+ * @method static Builder|OauthClient whereSecret($value)
+ * @method static Builder|OauthClient whereUpdatedAt($value)
+ * @method static Builder|OauthClient whereUserId($value)
  *
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ *
+ * @method static Builder|OauthClient whereCreatedBy($value)
+ * @method static Builder|OauthClient whereUpdatedBy($value)
+ *
+ * @mixin IdeHelperOauthClient
  * @mixin \Eloquent
  */
-class OauthClient extends BaseModel
+class OauthClient extends PassportClient
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
+    use HasUuids;
 
     /** @var string */
     protected $connection = 'user';
 
-    /** @var string */
-    protected $table = 'oauth_clients';
-
-    /** @var list<string> */
-    protected $fillable = [
-        'id',
-        'user_id',
-        'name',
-        'secret',
-        'provider',
-        'redirect',
-        'personal_access_client',
-        'password_client',
-        'revoked',
-        'grant_types',
-        'scopes',
-    ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
+    /*
+     * protected $fillable = [
+     * 'id', 'user_id', 'name', 'secret', 'provider', 'redirect',
+     * 'personal_access_client', 'password_client', 'revoked',
+     * ];
      */
-    protected function casts(): array
-    {
-        return [
-            'personal_access_client' => 'boolean',
-            'password_client' => 'boolean',
-            'revoked' => 'boolean',
-            'grant_types' => 'array',
-            'scopes' => 'array',
-        ];
-    }
-
-    /**
-     * Get the user that owns the client.
-     */
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    /**
-     * Get the access tokens for the client.
-     */
-    public function accessTokens(): HasMany
-    {
-        return $this->hasMany(OauthAccessToken::class, 'client_id');
-    }
 }

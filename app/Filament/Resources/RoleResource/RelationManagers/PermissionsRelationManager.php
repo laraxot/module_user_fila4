@@ -20,7 +20,25 @@ class PermissionsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'permissions';
 
+    /**
+     * Configura lo schema del form per la gestione dei permessi.
+     *
+     * @return array<string, Component>
+     */
+    #[Override]
+    public function getFormSchema(): array
+    {
+        return [
+            'name' => TextInput::make('name')
+                ->required()
+                ->maxLength(255)
+                ->placeholder(__('Inserisci il nome del permesso')),
+        ];
+    }
 
+    /**
+     * Configura la tabella per la visualizzazione e la gestione dei permessi.
+     */
     #[Override]
     public function table(Table $table): Table
     {

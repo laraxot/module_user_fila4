@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Models\AuthenticationLog;
 
-describe('User Authentication', function (): void {
-    it('can authenticate user with correct credentials', function (): void {
+describe('User Authentication', function () {
+    it('can authenticate user with correct credentials', function () {
         $user = createUser([
             'email' => 'test@example.com',
             'password' => Hash::make('password123'),
@@ -22,7 +22,7 @@ describe('User Authentication', function (): void {
         expect($authenticated)->toBeTrue()->and(Auth::user()?->id)->toBe($user->id);
     });
 
-    it('cannot authenticate inactive user', function (): void {
+    it('cannot authenticate inactive user', function () {
         createUser([
             'email' => 'inactive@example.com',
             'password' => Hash::make('password123'),
@@ -37,7 +37,7 @@ describe('User Authentication', function (): void {
         expect($authenticated)->toBeFalse();
     });
 
-    it('logs authentication attempts', function (): void {
+    it('logs authentication attempts', function () {
         $user = createUser([
             'email' => 'test@example.com',
             'password' => Hash::make('password123'),
@@ -55,7 +55,7 @@ describe('User Authentication', function (): void {
             ->toBeInstanceOf(AuthenticationLog::class);
     });
 
-    it('handles password expiration', function (): void {
+    it('handles password expiration', function () {
         $user = createUser([
             'password_expires_at' => now()->subDay(),
         ]);
@@ -63,7 +63,7 @@ describe('User Authentication', function (): void {
         expect($user->password_expires_at->isPast())->toBeTrue();
     });
 
-    it('supports OTP authentication', function (): void {
+    it('supports OTP authentication', function () {
         $user = createUser(['is_otp' => true]);
 
         expect($user->is_otp)->toBeTrue();

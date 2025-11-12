@@ -9,11 +9,8 @@ use Tests\TestCase;
 
 uses(TestCase::class);
 
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('Authentication Business Logic', function (): void {
-    beforeEach(function (): void {
+describe('Authentication Business Logic', function () {
+    beforeEach(function () {
         // In-memory test data following CLAUDE.md guidelines - no database
         $this->userData = [
             'id' => 1001,
@@ -79,9 +76,8 @@ describe('Authentication Business Logic', function (): void {
         ];
     });
 
-    describe('User Authentication Logic', function (): void {
-        it('validates user account status', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+    describe('User Authentication Logic', function () {
+        it('validates user account status', function () {
             $user = (object) $this->userData;
 
             // Business Logic: User must be active and verified
@@ -90,8 +86,7 @@ describe('Authentication Business Logic', function (): void {
             expect($user->locked_until)->toBeNull();
         });
 
-        it('validates email format and verification', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+        it('validates email format and verification', function () {
             $user = (object) $this->userData;
 
             // Business Logic: Email must be valid format and verified
@@ -100,8 +95,7 @@ describe('Authentication Business Logic', function (): void {
             expect($user->email_verified_at->isPast())->toBeTrue();
         });
 
-        it('handles password security requirements', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+        it('handles password security requirements', function () {
             $user = (object) $this->userData;
 
             // Business Logic: Password must be hashed and have expiration
@@ -111,8 +105,7 @@ describe('Authentication Business Logic', function (): void {
             expect($user->password_expires_at->isFuture())->toBeTrue();
         });
 
-        it('tracks login attempts and lockouts', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+        it('tracks login attempts and lockouts', function () {
             $user = (object) $this->userData;
             $maxAttempts = 5;
             $lockoutMinutes = 30;
@@ -122,7 +115,6 @@ describe('Authentication Business Logic', function (): void {
             expect($user->locked_until)->toBeNull(); // Not locked
 
             // Simulate lockout scenario
-            /** @phpstan-ignore-next-line property.notFound */
             $userLocked = (object) array_merge($this->userData, [
                 'failed_login_attempts' => 5,
                 'locked_until' => Carbon::now()->addMinutes($lockoutMinutes),
@@ -132,8 +124,7 @@ describe('Authentication Business Logic', function (): void {
             expect($userLocked->locked_until->isFuture())->toBeTrue();
         });
 
-        it('manages session and remember tokens', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+        it('manages session and remember tokens', function () {
             $user = (object) $this->userData;
 
             // Business Logic: Remember token for persistent sessions
@@ -142,8 +133,7 @@ describe('Authentication Business Logic', function (): void {
             expect($user->last_login_at)->toBeInstanceOf(Carbon::class);
         });
 
-        it('validates profile completeness', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+        it('validates profile completeness', function () {
             $user = (object) $this->userData;
 
             // Business Logic: User profile requirements
@@ -169,11 +159,9 @@ describe('Authentication Business Logic', function (): void {
         });
     });
 
-    describe('Team Management Logic', function (): void {
-        it('validates team ownership and membership', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+    describe('Team Management Logic', function () {
+        it('validates team ownership and membership', function () {
             $team = (object) $this->teamData;
-            /** @phpstan-ignore-next-line property.notFound */
             $user = (object) $this->userData;
 
             // Business Logic: User can own and belong to teams
@@ -182,8 +170,7 @@ describe('Authentication Business Logic', function (): void {
             expect($team->is_active)->toBeTrue();
         });
 
-        it('distinguishes personal vs organizational teams', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+        it('distinguishes personal vs organizational teams', function () {
             $team = (object) $this->teamData;
 
             // Business Logic: Personal teams vs organizational teams
@@ -201,8 +188,7 @@ describe('Authentication Business Logic', function (): void {
             expect($personalTeam->name)->toContain('Personal');
         });
 
-        it('validates team settings and preferences', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+        it('validates team settings and preferences', function () {
             $team = (object) $this->teamData;
             $settings = $team->settings;
 
@@ -212,16 +198,12 @@ describe('Authentication Business Logic', function (): void {
             expect($settings)->toHaveKey('notification_preferences');
 
             // Italian healthcare team defaults
-            /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
             expect($settings['timezone'])->toBe('Europe/Rome');
-            /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
             expect($settings['language'])->toBe('it');
-            /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
             expect($settings['notification_preferences'])->toContain('email');
         });
 
-        it('handles team switching logic', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+        it('handles team switching logic', function () {
             $user = (object) $this->userData;
             $availableTeams = [2001, 2002, 2003]; // Teams user belongs to
             $newTeamId = 2002;
@@ -231,7 +213,6 @@ describe('Authentication Business Logic', function (): void {
             expect($availableTeams)->toContain($newTeamId);
 
             // Simulate team switch
-            /** @phpstan-ignore-next-line property.notFound */
             $userAfterSwitch = (object) array_merge($this->userData, [
                 'current_team_id' => $newTeamId,
             ]);
@@ -240,9 +221,8 @@ describe('Authentication Business Logic', function (): void {
         });
     });
 
-    describe('Role-Based Access Control', function (): void {
-        it('validates role structure and permissions', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+    describe('Role-Based Access Control', function () {
+        it('validates role structure and permissions', function () {
             $role = (object) $this->roleData;
 
             // Business Logic: Role must have name, guard, and permissions
@@ -252,8 +232,7 @@ describe('Authentication Business Logic', function (): void {
             expect(count($role->permissions))->toBeGreaterThan(0);
         });
 
-        it('validates healthcare-specific permissions', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+        it('validates healthcare-specific permissions', function () {
             $role = (object) $this->roleData;
             $healthcarePermissions = [
                 'view_patients',
@@ -280,7 +259,7 @@ describe('Authentication Business Logic', function (): void {
             expect($hasAppointmentAccess)->toBeTrue();
         });
 
-        it('handles permission inheritance and hierarchy', function (): void {
+        it('handles permission inheritance and hierarchy', function () {
             $roles = [
                 (object) ['name' => 'admin', 'level' => 1, 'permissions' => ['*']],
                 (object) ['name' => 'doctor', 'level' => 2, 'permissions' => ['view_patients', 'create_appointments']],
@@ -291,15 +270,12 @@ describe('Authentication Business Logic', function (): void {
             // Business Logic: Higher level roles have more permissions
             usort($roles, fn ($a, $b) => $a->level <=> $b->level);
 
-            /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
             expect($roles[0]->name)->toBe('admin'); // Highest level
-            /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
             expect($roles[0]->permissions)->toContain('*'); // All permissions
-            /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
             expect(count($roles[1]->permissions))->toBeGreaterThan(count($roles[2]->permissions));
         });
 
-        it('validates contextual permissions for teams', function (): void {
+        it('validates contextual permissions for teams', function () {
             $userTeamPermissions = [
                 'team_2001' => ['view_patients', 'create_appointments'],
                 'team_2002' => ['view_patients'], // Limited access to other team
@@ -309,9 +285,7 @@ describe('Authentication Business Logic', function (): void {
             $otherTeam = 'team_2002';
 
             // Business Logic: Permissions can vary by team context
-            /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
             $currentPermissions = $userTeamPermissions[$currentTeam];
-            /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
             $otherPermissions = $userTeamPermissions[$otherTeam];
 
             expect(count($currentPermissions))->toBeGreaterThan(count($otherPermissions));
@@ -320,9 +294,8 @@ describe('Authentication Business Logic', function (): void {
         });
     });
 
-    describe('OAuth Integration Logic', function (): void {
-        it('validates OAuth provider configuration', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+    describe('OAuth Integration Logic', function () {
+        it('validates OAuth provider configuration', function () {
             $oauth = (object) $this->oauthData;
             $supportedProviders = ['google', 'facebook', 'azure', 'github'];
 
@@ -332,8 +305,7 @@ describe('Authentication Business Logic', function (): void {
             expect($oauth->user_id)->toBe(1001);
         });
 
-        it('handles OAuth token lifecycle', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+        it('handles OAuth token lifecycle', function () {
             $oauth = (object) $this->oauthData;
 
             // Business Logic: OAuth tokens have expiration
@@ -345,8 +317,7 @@ describe('Authentication Business Logic', function (): void {
             expect($oauth->expires_at->isFuture())->toBeTrue();
         });
 
-        it('validates OAuth scope permissions', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+        it('validates OAuth scope permissions', function () {
             $oauth = (object) $this->oauthData;
             $requiredScopes = ['email', 'profile'];
 
@@ -361,21 +332,19 @@ describe('Authentication Business Logic', function (): void {
             // These would be added for healthcare-specific OAuth flows
         });
 
-        it('handles OAuth provider fallbacks', function (): void {
+        it('handles OAuth provider fallbacks', function () {
             $primaryProvider = 'google';
             $fallbackProviders = ['azure', 'facebook'];
             $allProviders = array_merge([$primaryProvider], $fallbackProviders);
 
             // Business Logic: Must have fallback options
             expect(count($allProviders))->toBeGreaterThan(1);
-            /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
             expect($allProviders[0])->toBe($primaryProvider);
         });
     });
 
-    describe('Device Management Logic', function (): void {
-        it('validates device registration', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+    describe('Device Management Logic', function () {
+        it('validates device registration', function () {
             $device = (object) $this->deviceData;
             $validDeviceTypes = ['mobile', 'tablet', 'desktop', 'web'];
 
@@ -385,8 +354,7 @@ describe('Authentication Business Logic', function (): void {
             expect($device->user_id)->toBe(1001);
         });
 
-        it('tracks device activity and trust', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+        it('tracks device activity and trust', function () {
             $device = (object) $this->deviceData;
 
             // Business Logic: Device trust and activity tracking
@@ -398,8 +366,7 @@ describe('Authentication Business Logic', function (): void {
             expect($device->last_active->isAfter($inactiveThreshold))->toBeTrue();
         });
 
-        it('validates push notification setup', function (): void {
-            /** @phpstan-ignore-next-line property.notFound */
+        it('validates push notification setup', function () {
             $device = (object) $this->deviceData;
 
             // Business Logic: Mobile devices should have push tokens
@@ -409,7 +376,7 @@ describe('Authentication Business Logic', function (): void {
             }
         });
 
-        it('handles device limit enforcement', function (): void {
+        it('handles device limit enforcement', function () {
             $userDevices = [
                 ['type' => 'mobile', 'name' => 'iPhone 14'],
                 ['type' => 'desktop', 'name' => 'MacBook Pro'],
@@ -425,8 +392,8 @@ describe('Authentication Business Logic', function (): void {
         });
     });
 
-    describe('Session Security Logic', function (): void {
-        it('validates session timeout logic', function (): void {
+    describe('Session Security Logic', function () {
+        it('validates session timeout logic', function () {
             $sessionData = [
                 'started_at' => Carbon::now()->subHours(1),
                 'last_activity' => Carbon::now()->subMinutes(10),
@@ -444,7 +411,7 @@ describe('Authentication Business Logic', function (): void {
             expect($timeSinceStart)->toBeLessThan($session->max_lifetime_hours);
         });
 
-        it('handles concurrent session limits', function (): void {
+        it('handles concurrent session limits', function () {
             $userActiveSessions = [
                 ['id' => 'sess_1', 'device' => 'mobile', 'started' => Carbon::now()->subHour()],
                 ['id' => 'sess_2', 'device' => 'desktop', 'started' => Carbon::now()->subMinutes(30)],
@@ -456,7 +423,7 @@ describe('Authentication Business Logic', function (): void {
             expect(count($userActiveSessions))->toBeLessThanOrEqual($maxConcurrentSessions);
         });
 
-        it('validates IP-based security checks', function (): void {
+        it('validates IP-based security checks', function () {
             $loginAttempt = [
                 'ip_address' => '192.168.1.100',
                 'user_agent' => 'Mozilla/5.0 Chrome',

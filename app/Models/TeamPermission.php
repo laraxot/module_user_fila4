@@ -6,6 +6,7 @@ namespace Modules\User\Models;
 
 use DateTime;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -26,9 +27,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static Builder<static>|TeamPermission newQuery()
  * @method static Builder<static>|TeamPermission query()
  *
+ * @mixin IdeHelperTeamPermission
  * @mixin \Eloquent
  */
-class TeamPermission extends BaseModel
+class TeamPermission extends Model
 {
     /**
      * The database connection that should be used by the model.
@@ -61,6 +63,6 @@ class TeamPermission extends BaseModel
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(\Modules\User\Models\User::class);
+        return $this->belongsTo(User::class);
     }
 }

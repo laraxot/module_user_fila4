@@ -40,14 +40,7 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @method static Builder<static>|PasswordReset whereUuid($value)
  *
- * @mixin \Eloquent
- */
-/**
- * @method static \Modules\User\Database\Factories\PasswordResetFactory factory($count = null, $state = [])
- * @method static Builder<static>|PasswordReset newModelQuery()
- * @method static Builder<static>|PasswordReset newQuery()
- * @method static Builder<static>|PasswordReset query()
- *
+ * @mixin IdeHelperPasswordReset
  * @mixin \Eloquent
  */
 class PasswordReset extends BaseModel

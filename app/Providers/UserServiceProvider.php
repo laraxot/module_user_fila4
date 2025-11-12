@@ -22,8 +22,8 @@ use Modules\User\Datas\PasswordData;
 use Modules\User\Models\TeamInvitation;
 use Modules\User\Models\TeamUser;
 use Modules\Xot\Contracts\UserContract;
-use Modules\Xot\Datas\XotData;
 use Modules\Xot\Providers\XotBaseServiceProvider;
+use Override;
 use SocialiteProviders\Manager\ServiceProvider as SocialiteServiceProvider;
 use Webmozart\Assert\Assert;
 
@@ -35,27 +35,22 @@ class UserServiceProvider extends XotBaseServiceProvider
 
     protected string $module_ns = __NAMESPACE__;
 
-    #[\Override]
+    #[Override]
     public function boot(): void
     {
         parent::boot();
-        
         $this->registerAuthenticationProviders();
         $this->registerEventListener();
         $this->registerPasswordRules();
         $this->registerPulse();
         $this->registerMailsNotification();
-        //$this->registerObservers();
-        
     }
 
-    #[\Override]
+    #[Override]
     public function register(): void
     {
         parent::register();
-        /*
         $this->registerTeamModelBindings();
-        */
     }
 
     /**
@@ -96,7 +91,6 @@ class UserServiceProvider extends XotBaseServiceProvider
             // ✅ FIX CRITICO: Imposta il destinatario dell'email con metodo Laravel standard
             if (method_exists($notifiable, 'getEmailForPasswordReset')) {
                 $emailAddress = $notifiable->getEmailForPasswordReset();
-<<<<<<< HEAD
                 if (is_string($emailAddress) || is_array($emailAddress) || is_object($emailAddress)) {
                     $email->to($emailAddress);
                 }
@@ -105,14 +99,6 @@ class UserServiceProvider extends XotBaseServiceProvider
                 if (is_string($emailAddress) || is_array($emailAddress) || is_object($emailAddress)) {
                     $email->to($emailAddress);
                 }
-=======
-                Assert::string($emailAddress);
-                $email->to($emailAddress);
-            } elseif (isset($notifiable->email)) {
-                $emailAddress = $notifiable->email;
-                Assert::string($emailAddress);
-                $email->to($emailAddress);
->>>>>>> e058848 (.)
             } else {
                 // Fallback per debug
                 Log::error('SpatieEmail: Destinatario email non trovato', [
@@ -203,17 +189,5 @@ class UserServiceProvider extends XotBaseServiceProvider
             'view-user' => 'View user information',
             'core-technicians' => 'the technicians can ',
         ]);
-    }
-
-    /**
-     * Register model observers.
-     */
-    protected function registerObservers(): void
-    {
-        // Register UserObserver only if personal team creation is enabled
-        $userClass = XotData::make()->getUserClass();
-        if (config('user.create_personal_team', false)) {
-            $userClass::observe(UserObserver::class);
-        }
     }
 }

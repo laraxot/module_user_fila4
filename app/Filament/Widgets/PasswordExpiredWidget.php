@@ -29,7 +29,7 @@ use Override;
 /**
  * Widget for handling expired password reset.
  *
- * @property Schema $form
+ * @property \Filament\Schemas\Schema $form
  * @property string|null $current_password
  * @property string|null $password
  * @property string|null $passwordConfirmation
@@ -59,15 +59,11 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
     /**
      * Get the form schema for password reset.
      *
-     * @return array<int, Component>
+     * @return array<int, \Filament\Schemas\Components\Component>
      */
-    #[\Override]
-    /**
-     * @return array<string, mixed>
-     */
+    #[Override]
     public function getFormSchema(): array
     {
-<<<<<<< HEAD
         $schema = [
             $this->getCurrentPasswordFormComponent(),
             ...PasswordData::make()->getPasswordFormComponents('password'),
@@ -76,17 +72,6 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
         // Ensure list type for PHPStan Level 10
         /** @var array<int, \Filament\Schemas\Components\Component> $result */
         $result = array_values($schema);
-=======
-        $components = [
-            $this->getCurrentPasswordFormComponent(),
-            ...PasswordData::make()->getPasswordFormComponents('password'),
-        ];
-        // Assert::isArray($components); // This assertion is always true since $components is created from array_merge
-        Assert::allIsInstanceOf($components, Component::class);
-
-        /** @var array<int, Component> $result */
-        $result = array_values($components);
->>>>>>> e058848 (.)
 
         return $result;
     }
@@ -204,7 +189,7 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
      *
      * @return array<int, Action|ActionGroup>
      */
-    #[\Override]
+    #[Override]
     protected function getFormActions(): array
     {
         return [

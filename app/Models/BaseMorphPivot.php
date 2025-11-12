@@ -4,13 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphPivot;
+use Modules\Xot\Actions\Factory\GetFactoryAction;
 use Modules\Xot\Traits\Updater;
 
 /**
  * Class BaseMorphPivot.
  */
-abstract class BaseMorphPivot extends \Modules\Xot\Models\XotBaseMorphPivot
+abstract class BaseMorphPivot extends MorphPivot
 {
     use HasFactory;
     use Updater;
@@ -61,7 +64,6 @@ abstract class BaseMorphPivot extends \Modules\Xot\Models\XotBaseMorphPivot
         'note',
     ];
 
-<<<<<<< HEAD
     
 =======
     /**
@@ -76,8 +78,6 @@ abstract class BaseMorphPivot extends \Modules\Xot\Models\XotBaseMorphPivot
     }
 >>>>>>> 6849bc76 (.)
 
-=======
->>>>>>> e058848 (.)
     /** @return array<string, string> */
     protected function casts(): array
     {

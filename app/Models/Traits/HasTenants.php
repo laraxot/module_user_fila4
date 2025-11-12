@@ -27,7 +27,6 @@ trait HasTenants
     public function canAccessTenant(Model $tenant): bool
     {
         return $this->tenants()->whereKey($tenant)->exists();
-         //return $this->tenants()->where('tenant_id', $tenant->getKey())->exists();
     }
 
     /**
@@ -56,23 +55,4 @@ trait HasTenants
 
         return $this->belongsToManyX($tenant_class);
     }
-
-   
-   
-    /**
-     * Get the user's current tenant.
-     */
-    public function getCurrentTenant(): ?\Illuminate\Database\Eloquent\Model
-    {
-        return $this->currentTenant ?? null;
-    }
-
-    /**
-     * Set the current tenant for the user.
-     */
-    public function setCurrentTenant(\Illuminate\Database\Eloquent\Model $tenant): void
-    {
-        $this->currentTenant = $tenant;
-    }
-
 }

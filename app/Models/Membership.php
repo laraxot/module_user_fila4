@@ -4,56 +4,63 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Carbon;
+use Modules\Xot\Contracts\ProfileContract;
 
 /**
- * Membership Model
+ * Modules\User\Models\Membership.
  *
- * @property string $id
- * @property string $team_id
- * @property string $user_id
  * @property string $role
- * @property \DateTime|null $created_at
- * @property \DateTime|null $updated_at
- * @property-read \Modules\User\Models\Team|null $team
- * @property-read \Modules\User\Models\User|null $user
  *
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Membership newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Membership newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Membership query()
+ * @method static Builder|Membership newModelQuery()
+ * @method static Builder|Membership newQuery()
+ * @method static Builder|Membership query()
  *
+ * @property int $id
+ * @property string $uuid
+ * @property string|null $team_id
+ * @property string|null $user_id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $created_by
+ * @property string|null $updated_by
+ * @property string|null $customer_id
+ *
+ * @method static Builder|Membership whereCreatedAt($value)
+ * @method static Builder|Membership whereCreatedBy($value)
+ * @method static Builder|Membership whereCustomerId($value)
+ * @method static Builder|Membership whereId($value)
+ * @method static Builder|Membership whereRole($value)
+ * @method static Builder|Membership whereTeamId($value)
+ * @method static Builder|Membership whereUpdatedAt($value)
+ * @method static Builder|Membership whereUpdatedBy($value)
+ * @method static Builder|Membership whereUserId($value)
+ * @method static Builder|Membership whereUuid($value)
+ *
+ * @property Carbon|null $deleted_at
+ * @property string|null $deleted_by
+ *
+ * @method static Builder|Membership whereDeletedAt($value)
+ * @method static Builder|Membership whereDeletedBy($value)
+ *
+ * @property ProfileContract|null $creator
+ * @property ProfileContract|null $updater
+ *
+ * @mixin IdeHelperMembership
  * @mixin \Eloquent
  */
 class Membership extends BasePivot
 {
+    use HasFactory;
+
+    /** @var bool */
+    public $incrementing = true;
+
     /** @var string */
     protected $connection = 'user';
 
     /** @var string */
-    protected $table = 'memberships';
-
-    /** @var list<string> */
-    protected $fillable = [
-        'team_id',
-        'user_id',
-        'role',
-        'customer_id',
-    ];
-
-    /**
-     * Get the team that owns the membership.
-     */
-    public function team(): BelongsTo
-    {
-        return $this->belongsTo(Team::class);
-    }
-
-    /**
-     * Get the user that owns the membership.
-     */
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $table = 'team_user';
 }

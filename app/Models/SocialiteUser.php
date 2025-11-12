@@ -2,19 +2,32 @@
 
 declare(strict_types=1);
 
+/**
+ * inspired by  DutchCodingCompany\FilamentSocialite.
+ */
+
 namespace Modules\User\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Carbon;
+use Modules\User\Database\Factories\SocialiteUserFactory;
+use Modules\Xot\Contracts\ProfileContract;
+use Modules\Xot\Contracts\UserContract;
+use Modules\Xot\Datas\XotData;
 
 /**
- * Socialite User Model
+ * Modules\User\Models\SocialiteUser.
  *
+ * @property int $id
  * @property string $user_id
  * @property string $provider
  * @property string $provider_id
+ * @property string|null $token
+ * @property string|null $name
+ * @property string|null $email
  * @property string|null $avatar
-<<<<<<< HEAD
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
@@ -48,44 +61,26 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  *
  * @mixin IdeHelperSocialiteUser
  * @mixin \Eloquent
-=======
- * @property string|null $email
- * @property string|null $name
->>>>>>> e058848 (.)
- */
-/**
- * @property-read \Modules\User\Models\User|null $user
- *
- * @method static \Modules\User\Database\Factories\SocialiteUserFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SocialiteUser newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SocialiteUser newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SocialiteUser query()
- *
- * @mixin \Eloquent
  */
 class SocialiteUser extends BaseModel
 {
-    /** @var string */
-    protected $connection = 'user';
-
-    /** @var string */
-    protected $table = 'socialite_users';
-
     /** @var list<string> */
     protected $fillable = [
+        // 'id',
         'user_id',
         'provider',
         'provider_id',
-        'avatar',
-        'email',
+        'token',
         'name',
+        'email',
+        'avatar',
     ];
 
-    /**
-     * Get the user that owns the socialite user.
-     */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        /** @var class-string<Model> */
+        $user_class = XotData::make()->getUserClass();
+
+        return $this->belongsTo($user_class);
     }
 }
