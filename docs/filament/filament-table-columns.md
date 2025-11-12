@@ -1,9 +1,15 @@
 # Convenzione Metodo getTableColumns per Filament Table
 
 ## Motivazione della Modifica
+<<<<<<< HEAD
 Per uniformarsi allo standard Filament e migliorare la coerenza del codice, il metodo precedentemente chiamato `getTableColumns` è stato rinominato in `getTableColumns` su tutte le risorse Filament del modulo User.
 
 - **Vecchio nome:** `getTableColumns`
+=======
+Per uniformarsi allo standard Filament e migliorare la coerenza del codice, il metodo precedentemente chiamato `getListTableColumns` è stato rinominato in `getTableColumns` su tutte le risorse Filament del modulo User.
+
+- **Vecchio nome:** `getListTableColumns`
+>>>>>>> 7c0a965 (.)
 - **Nuovo nome:** `getTableColumns`
 
 Questa modifica:
@@ -14,7 +20,11 @@ Questa modifica:
 ## Esempio di Refactoring
 ```php
 // Prima
+<<<<<<< HEAD
 public function getTableColumns(): array
+=======
+public function getListTableColumns(): array
+>>>>>>> 7c0a965 (.)
 {
     return [ ... ];
 }
