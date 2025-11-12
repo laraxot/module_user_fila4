@@ -182,8 +182,14 @@ public function getTableActions(): array
 
 ## Link a Documentazione Correlata
 
+<<<<<<< HEAD
 - [XotBaseRelationManager](/laravel/Modules/Xot/docs/filament/relation_managers.md)
 - [HasXotTable Trait](/laravel/Modules/Xot/docs/filament/xot_table.md)
 - [Regole di Traduzione per Filament](/laravel/Modules/Xot/docs/translation_rules.md)
+=======
+- [XotBaseRelationManager](/laravel/Modules/Xot/project_docs/filament/relation_managers.md)
+- [HasXotTable Trait](/laravel/Modules/Xot/project_docs/filament/xot_table.md)
+- [Regole di Traduzione per Filament](/laravel/Modules/Xot/project_docs/translation_rules.md)
+>>>>>>> 81efa49 (.)
 
 >>>>>>> 6849bc76 (.)

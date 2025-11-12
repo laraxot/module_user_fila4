@@ -5,8 +5,13 @@
 ## Collegamenti correlati
 - [README modulo User](./README.md)
 - [Best Practices Componenti di Autenticazione](./AUTH_COMPONENTS_BEST_PRACTICES.md)
+<<<<<<< HEAD
 - [Utilizzo di Laravel Localization](/laravel/Modules/Lang/docs/LARAVEL_LOCALIZATION_USAGE.md)
 - [Collegamenti Documentazione](/docs/collegamenti-documentazione.md)
+=======
+- [Utilizzo di Laravel Localization](/laravel/Modules/Lang/project_docs/LARAVEL_LOCALIZATION_USAGE.md)
+- [Collegamenti Documentazione](/project_docs/collegamenti-documentazione.md)
+>>>>>>> 81efa49 (.)
 
 ## Panoramica
 
@@ -237,8 +242,14 @@ $this->redirect(LaravelLocalization::getLocalizedURL($locale, route('home')));
 
 ## Riferimenti
 
+<<<<<<< HEAD
 - [Documentazione Laravel Authentication](https://laravel.com/docs/10.x/authentication)
 - [Documentazione Livewire Volt](https://livewire.laravel.com/docs/volt)
 - [Documentazione Laravel Folio](https://laravel.com/docs/10.x/folio)
+=======
+- [Documentazione Laravel Authentication](https://laravel.com/project_docs/10.x/authentication)
+- [Documentazione Livewire Volt](https://livewire.laravel.com/project_docs/volt)
+- [Documentazione Laravel Folio](https://laravel.com/project_docs/10.x/folio)
+>>>>>>> 81efa49 (.)
 - [Documentazione Laravel Localization](https://github.com/mcamara/laravel-localization)
 >>>>>>> 6849bc76 (.)

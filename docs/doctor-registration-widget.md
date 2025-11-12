@@ -242,8 +242,13 @@ The SaluteOra Team'
 
 ## Collegamenti Bidirezionali
 
+<<<<<<< HEAD
 - [Email Doctor Registration](/var/www/html/saluteora/docs/email-doctor-registration.md)
 - [Registrazione Odontoiatra](/var/www/html/saluteora/docs/roadmap_frontoffice/13-registrazione-odontoiatra.md)
+=======
+- [Email Doctor Registration](/var/www/html/saluteora/project_docs/email-doctor-registration.md)
+- [Registrazione Odontoiatra](/var/www/html/saluteora/project_docs/roadmap_frontoffice/13-registrazione-odontoiatra.md)
+>>>>>>> 81efa49 (.)
 - [DoctorResource](/var/www/html/saluteora/laravel/Modules/Patient/app/Filament/Resources/DoctorResource.php)
 - [RegistrationWidget](/var/www/html/saluteora/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php)
 >>>>>>> 6849bc76 (.)
