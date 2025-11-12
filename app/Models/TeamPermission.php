@@ -6,7 +6,6 @@ namespace Modules\User\Models;
 
 use DateTime;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Modules\User\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -28,7 +27,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static Builder<static>|TeamPermission query()
  * @mixin \Eloquent
  */
-class TeamPermission extends Model
+class TeamPermission extends BaseModel
 {
     /**
      * The database connection that should be used by the model.

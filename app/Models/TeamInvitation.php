@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Modules\User\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -17,7 +16,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TeamInvitation query()
  * @mixin \Eloquent
  */
-class TeamInvitation extends Model
+class TeamInvitation extends BaseModel
 {
     /** @var string */
     protected $connection = 'user';

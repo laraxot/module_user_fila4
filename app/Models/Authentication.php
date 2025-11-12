@@ -56,7 +56,7 @@ use Modules\User\Database\Factories\AuthenticationFactory;
  *
  * @mixin \Eloquent
  */
-class Authentication extends Model
+class Authentication extends BaseModel
 {
     use \Modules\Xot\Models\Traits\HasXotFactory;
 

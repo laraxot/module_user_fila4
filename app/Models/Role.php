@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Modules\Xot\Models\Traits\HasXotFactory;
 use Modules\User\Database\Factories\RoleFactory;
 use Spatie\Permission\Models\Role as SpatieRole;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * Role Model
@@ -31,6 +32,7 @@ use Spatie\Permission\Models\Role as SpatieRole;
  */
 class Role extends SpatieRole
 {
+    use HasXotFactory;
     /** @var string */
     protected $connection = 'user';
 
@@ -45,29 +47,7 @@ class Role extends SpatieRole
         'description',
     ];
 
-    /**
-     * Get the users that belong to the role.
-     */
-    public function users(): BelongsToMany
-    {
-        return $this->belongsToMany(User::class, 'model_has_roles', 'role_id', 'model_id')
-            ->where('model_type', User::class);
-    }
-
-    /**
-     * Get the permissions that belong to the role.
-     */
-    public function permissions(): BelongsToMany
-    {
-        return $this->belongsToMany(Permission::class, 'role_has_permissions', 'role_id', 'permission_id');
-    }
+   
 
 
-    /**
-     * Get the factory instance for the model.
-     */
-    public static function factory(): RoleFactory
-    {
-        return RoleFactory::new();
-    }
 }
