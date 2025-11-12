@@ -31,6 +31,7 @@ class ResetPassword extends BaseNotification
         Assert::string($action = Lang::get('user::email.reset_password'));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new MailMessage()
 =======
         return (new MailMessage)
@@ -40,5 +41,15 @@ class ResetPassword extends BaseNotification
             ->action($action, $url)
             // ->line(Lang::get('user::email.password_reset_expiration', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
             ->line(Lang::get('user::email.password_if_not_requested'));
+=======
+        $mailMessage = new MailMessage();
+        $mailMessage = $mailMessage->subject($subject);
+        $mailMessage = $mailMessage->line(Lang::get('user::email.password_cause_of_email'));
+        $mailMessage = $mailMessage->action($action, $url);
+        // $mailMessage = $mailMessage->line(Lang::get('user::email.password_reset_expiration', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]));
+        $mailMessage = $mailMessage->line(Lang::get('user::email.password_if_not_requested'));
+        
+        return $mailMessage;
+>>>>>>> 6d20fbe (.)
     }
 }

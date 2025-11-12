@@ -10,12 +10,17 @@ use Filament\Actions\DetachBulkAction;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\RelationManagers\RelationManager;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 =======
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
 >>>>>>> fbc8f8e (.)
+=======
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
+>>>>>>> 6d20fbe (.)
 use Filament\Tables\Table;
 
 class TeamsRelationManager extends RelationManager
@@ -28,6 +33,9 @@ class TeamsRelationManager extends RelationManager
             ->recordTitleAttribute('name')
             ->columns([
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                 TextColumn::make('name')->searchable()->sortable(),
                 IconColumn::make('personal_team')
                     ->boolean()
@@ -50,6 +58,7 @@ class TeamsRelationManager extends RelationManager
                         'current_team_id' => null,
                     ]);
                 }),
+<<<<<<< HEAD
 =======
                 TextColumn::make('name')
                     ->searchable()
@@ -80,6 +89,8 @@ class TeamsRelationManager extends RelationManager
                         ]);
                     }),
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             ])
             ->toolbarActions([
                 DetachBulkAction::make(),
@@ -89,6 +100,7 @@ class TeamsRelationManager extends RelationManager
     public function getTableColumns(): array
     {
         return [
+<<<<<<< HEAD
 <<<<<<< HEAD
             TextColumn::make('name')->searchable()->sortable(),
             TextColumn::make('personal_team')->sortable(),
@@ -103,6 +115,11 @@ class TeamsRelationManager extends RelationManager
                 ->dateTime()
                 ->sortable(),
 >>>>>>> fbc8f8e (.)
+=======
+            TextColumn::make('name')->searchable()->sortable(),
+            TextColumn::make('personal_team')->sortable(),
+            TextColumn::make('created_at')->dateTime()->sortable(),
+>>>>>>> 6d20fbe (.)
         ];
     }
 }

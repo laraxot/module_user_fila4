@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 # Architettura Autenticazione
 
 ## Overview
@@ -77,6 +80,7 @@ app/Filament/Widgets/
 ### 3. Sicurezza
 - [ ] Rate limiting
 - [ ] Session handling
+<<<<<<< HEAD
 - [ ] Error handling 
 =======
 # Autenticazione in Predict
@@ -211,3 +215,6 @@ Route::middleware('guest')->group(function () {
 ### Logout con Volt e Folio
 Per dettagli sull'implementazione del logout utilizzando Volt e Folio, consultare la [documentazione del modulo User](../laravel/Modules/User/project_docs/VOLT_FOLIO_LOGOUT_ERROR.md). 
 >>>>>>> fbc8f8e (.)
+=======
+- [ ] Error handling 
+>>>>>>> 6d20fbe (.)
