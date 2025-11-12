@@ -99,7 +99,10 @@ Questo errore è **GRAVISSIMO** perché:
 ## COLLEGAMENTI
 
 - [Factory Audit Complete Analysis](../../../docs/factory-audit-complete-analysis.md)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 041533e (.)
 - [User Module README](./README.md)
 - [Factory PHPStan Fixes](./phpstan/factory-fixes.md)
 - [Database Documentation](./database/README.md)
