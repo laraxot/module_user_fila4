@@ -7,8 +7,11 @@ namespace Modules\User\Filament\Pages\Tenancy;
 use Filament\Pages\Tenancy\RegisterTenant as BaseRegisterTenant;
 use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Modules\User\Contracts\TenantContract;
+use Modules\User\Models\BaseTenant;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Traits\TransTrait;
 use Webmozart\Assert\Assert;
@@ -40,21 +43,30 @@ class RegisterTenant extends BaseRegisterTenant
     {
         $tenantClass = XotData::make()->getTenantClass();
         $resource = Str::of($tenantClass)
-            ->replace('\Models\\', '\Filament\Resources\\')
+            ->replace('\\Models\\', '\\Filament\\Resources\\')
             ->append('Resource')
             ->toString();
         $this->resource = $resource;
 
-        return $schema->components($this->getFormSchema());
-    }
+        /** @var array<\Filament\Schemas\Components\Component> $components */
+        $components = $this->getFormSchema();
 
-    public function getFormSchema(): array
-    {
-        return $this->resource::getFormSchema();
+        return $schema->components($components);
     }
 
     /**
-     * @param  array<string, mixed>  $data
+     * @return array<\Filament\Schemas\Components\Component>
+     */
+    public function getFormSchema(): array
+    {
+        /** @var array<\Filament\Schemas\Components\Component> $schema */
+        $schema = $this->resource::getFormSchema();
+
+        return $schema;
+    }
+
+    /**
+     * @param  array<string, string|int|bool|null>  $data
      */
     protected function handleRegistration(array $data): Model
     {
@@ -62,8 +74,12 @@ class RegisterTenant extends BaseRegisterTenant
 
         $tenant = $tenantClass::create($data);
         Assert::implementsInterface($tenant, TenantContract::class);
+        Assert::isInstanceOf($tenant, BaseTenant::class);
 
-        $tenant->users()->attach(auth()->user());
+        // BaseTenant always has users() method
+        /** @var \Illuminate\Database\Eloquent\Relations\BelongsToMany $usersRelation */
+        $usersRelation = $tenant->users();
+        $usersRelation->attach(auth()->user());
 
         return $tenant;
     }

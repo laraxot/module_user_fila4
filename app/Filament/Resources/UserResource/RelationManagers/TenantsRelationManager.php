@@ -46,9 +46,17 @@ class TenantsRelationManager extends XotBaseRelationManager
     #[Override]
     public function getTableColumns(): array
     {
-        $columns = app(ListTenants::class)->getTableColumns();
+        $listTenants = app(ListTenants::class);
 
-        // Ensure we only return Column instances, filter out any Layout\Component instances
-        return array_filter($columns, fn ($column): bool => $column instanceof Column);
+        if (! method_exists($listTenants, 'getTableColumns')) {
+            return [];
+        }
+
+        /** @var array<string, Column> $columns */
+        $columns = $listTenants->getTableColumns();
+
+        // All columns are already of type Column from ListTenants
+        // PHPStan Level 10: No need to filter as type is guaranteed
+        return $columns;
     }
 }

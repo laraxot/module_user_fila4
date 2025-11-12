@@ -28,7 +28,7 @@ abstract class BaseEditUser extends EditRecord
 
     protected function mutateFormDataBeforeSave(array $data): array
     {
-        Assert::isArray($data);
+        // PHPStan Level 10: $data is already typed as array, no need for assertion
         if (! array_key_exists('new_password', $data) || ! filled($data['new_password'])) {
             return $data;
         }

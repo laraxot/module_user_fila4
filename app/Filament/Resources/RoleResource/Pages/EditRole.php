@@ -58,6 +58,9 @@ class EditRole extends XotBaseEditRecord
             )
             ->keys();
 
-        return Arr::only($data, ['name', 'guard_name']);
+        /** @var array<string, mixed> $result */
+        $result = Arr::only($data, ['name', 'guard_name']);
+
+        return $result;
     }
 }

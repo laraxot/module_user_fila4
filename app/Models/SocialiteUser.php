@@ -57,10 +57,9 @@ use Modules\Xot\Datas\XotData;
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  *
- * @mixin IdeHelperSocialiteUser
- *
  * @method static SocialiteUserFactory factory($count = null, $state = [])
  *
+ * @mixin IdeHelperSocialiteUser
  * @mixin \Eloquent
  */
 class SocialiteUser extends BaseModel

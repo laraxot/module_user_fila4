@@ -9,19 +9,17 @@ use Filament\Forms;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
-use Modules\Xot\Filament\Pages\XotBasePage;
 use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Clusters\Appearance;
+use Modules\Xot\Filament\Pages\XotBasePage;
 
 /**
  * @property Schema $form
  */
-class Favicon extends XotBasePage
+final class Favicon extends XotBasePage
 {
-    
-
     protected string $view = 'user::filament.clusters.appearance.pages.favicon';
 
     protected static ?string $cluster = Appearance::class;

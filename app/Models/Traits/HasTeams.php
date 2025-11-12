@@ -27,7 +27,7 @@ use Webmozart\Assert\Assert;
  * @property int|null $current_team_id
  * @property Collection<int, TeamContract> $teams
  * @property Collection<int, TeamContract> $ownedTeams
- * @property Collection<int, UserContract> $teamUsers
+ * @property Collection<int, Membership> $teamUsers
  * @property UserContract|null $owner
  */
 trait HasTeams
@@ -173,16 +173,24 @@ trait HasTeams
     /**
      * Get all of the team's users including its owner.
      *
-     * @return Collection<int, UserContract>
+     * @return Collection<int, \Modules\User\Models\User>
      */
     public function getAllTeamUsersAttribute(): Collection
     {
+        // teamUsers are Membership objects, we need to extract the User models
+        /** @var Collection<int, \Modules\User\Models\User> $users */
+        $users = $this->teamUsers->map(function ($membership) {
+            // Membership always extends Model, check only if user attribute exists
+            $user = $membership->getAttribute('user');
+            return $user !== null ? $user : null;
+        })->filter();
+
         $owner = $this->owner;
-        if ($owner === null) {
-            return $this->teamUsers;
+        if ($owner !== null && $owner instanceof \Modules\User\Models\User) {
+            return $users->merge([$owner]);
         }
 
-        return $this->teamUsers->merge([$owner]);
+        return $users;
     }
 
     /**
@@ -190,7 +198,18 @@ trait HasTeams
      */
     public function hasTeamMember(UserContract $user): bool
     {
-        if ($this->teamUsers->contains($user)) {
+        // Check if user is in teamUsers (checking by key since Membership != UserContract)
+        $userFound = $this->teamUsers->first(function ($membership) use ($user) {
+            // Membership always extends Model
+            $memberUser = $membership->getAttribute('user');
+            if (is_object($memberUser) && method_exists($memberUser, 'getKey')) {
+                $memberUserKey = $memberUser->getKey();
+                return $memberUserKey !== null && $memberUserKey === $user->getKey();
+            }
+            return false;
+        });
+
+        if ($userFound !== null) {
             return true;
         }
 

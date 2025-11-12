@@ -85,13 +85,17 @@ final class UsersRelationManager extends XotBaseRelationManager
                     DatePicker::make('created_from'),
                     DatePicker::make('created_until'),
                 ])
-                ->query(fn (Builder $query, array $data): Builder => $query->when($data['created_from'], fn (
-                    Builder $query,
-                    $date,
-                ) => $query->whereDate('created_at', '>=', $date))->when($data['created_until'], fn (
-                    Builder $query,
-                    $date,
-                ) => $query->whereDate('created_at', '<=', $date)))
+                ->query(function (Builder $query, array $data): Builder {
+                    if (isset($data['created_from']) && is_string($data['created_from']) && $data['created_from'] !== '') {
+                        $query->whereDate('created_at', '>=', $data['created_from']);
+                    }
+
+                    if (isset($data['created_until']) && is_string($data['created_until']) && $data['created_until'] !== '') {
+                        $query->whereDate('created_at', '<=', $data['created_until']);
+                    }
+
+                    return $query;
+                })
                 ->columns(2),
         ];
     }

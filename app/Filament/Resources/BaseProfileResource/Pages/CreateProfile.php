@@ -6,7 +6,6 @@ namespace Modules\User\Filament\Resources\BaseProfileResource\Pages;
 
 use Illuminate\Support\Arr;
 use Modules\User\Filament\Resources\BaseProfileResource;
-use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
 
@@ -23,7 +22,7 @@ class CreateProfile extends XotBaseCreateRecord
         }
         $user_data = array_merge($user_data, $extra);
         $user_class = XotData::make()->getUserClass();
-        /** @var UserContract */
+        /** @var array<string, mixed> $user_data */
         $user = $user_class::create($user_data);
         $data['user_id'] = $user->getKey();
 

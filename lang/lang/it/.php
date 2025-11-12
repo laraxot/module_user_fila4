@@ -1,4 +1,5 @@
-<?php return array (
+<?php 
+return array (
   'fields' => 
   array (
     'startDate' => 
@@ -10,4 +11,4 @@
       'label' => 'endDate',
     ),
   ),
-);
+);

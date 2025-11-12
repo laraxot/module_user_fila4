@@ -9,7 +9,6 @@ use Modules\User\Actions\Otp\SendOtpByUserAction;
 use Modules\User\Models\User;
 use Modules\Xot\Contracts\UserContract;
 use RuntimeException;
-use Webmozart\Assert\Assert;
 
 /**
  * Azione Filament per l'invio di un OTP all'utente.
@@ -23,13 +22,12 @@ class SendOtpAction extends Action
         $this->tooltip(trans('user::otp.actions.send_otp'))
             ->icon('heroicon-o-key')
             ->action(function (User $record) {
-                // Sappiamo già che l'utente implementa UserContract perché il tipo User lo implementa
+                // User already implements UserContract, no need for assertion
                 $action = app(SendOtpByUserAction::class);
                 if ($action === null) {
                     throw new RuntimeException('Impossibile istanziare SendOtpByUserAction');
                 }
-                // User model extends BaseUser which implements UserContract interface
-                Assert::isInstanceOf($record, UserContract::class);
+                // PHPStan Level 10: User extends BaseUser which implements UserContract
                 $action->execute($record);
             })
             ->requiresConfirmation()

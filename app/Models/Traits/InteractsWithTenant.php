@@ -72,10 +72,13 @@ trait InteractsWithTenant
         static::addGlobalScope(new TenantScope);
 
         static::creating(static function ($model): void {
-            if ($model !== null) {
+            // PHPStan Level 10: Verifica se il modello ha tenant_id
+            // Uso isFillable() invece di property_exists() per Eloquent magic properties
+            if ($model !== null && $model instanceof \Illuminate\Database\Eloquent\Model && $model->isFillable('tenant_id')) {
                 $tenant = Filament::getTenant();
                 if ($tenant !== null) {
-                    $model->tenant_id = $tenant->getKey();
+                    // Usa setAttribute() invece di assegnazione diretta per PHPStan
+                    $model->setAttribute('tenant_id', $tenant->getKey());
                 }
             }
         });

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Notifications\Auth;
 
-use Illuminate\Notifications\AnonymousNotifiable;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\AnonymousNotifiable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Modules\User\Datas\PasswordData;
@@ -29,7 +29,7 @@ class Otp extends Notification implements ShouldQueue
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $_notifiable L'entità da notificare
+     * @param  mixed  $_notifiable  L'entità da notificare
      * @return array<int, string>
      */
     public function via(mixed $_notifiable): array
@@ -40,7 +40,7 @@ class Otp extends Notification implements ShouldQueue
     /**
      * Get the mail representation of the notification.
      *
-     * @param AnonymousNotifiable $notifiable
+     * @param  AnonymousNotifiable  $notifiable
      * @return MailMessage
      */
     public function toMail($notifiable)
@@ -49,7 +49,7 @@ class Otp extends Notification implements ShouldQueue
         /** @var string */
         $app_name = config('app.name');
 
-        $mailMessage = new MailMessage();
+        $mailMessage = new MailMessage;
         $mailMessage = $mailMessage->template('user::notifications.email');
         $mailMessage = $mailMessage->subject(__('user::otp.mail.subject'));
         $mailMessage = $mailMessage->greeting(__('user::otp.mail.greeting'));
@@ -57,7 +57,7 @@ class Otp extends Notification implements ShouldQueue
         $mailMessage = $mailMessage->line(__('user::otp.mail.line2', ['minutes' => $pwd->otp_expiration_minutes]));
         $mailMessage = $mailMessage->line(__('user::otp.mail.line3'));
         $mailMessage = $mailMessage->action('vai', url('/'));
-        
+
         return $mailMessage
             ->salutation(__('user::otp.mail.salutation', ['app_name' => $app_name]));
     }

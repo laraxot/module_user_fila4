@@ -25,6 +25,11 @@ class UsersChartWidget extends ChartWidget implements HasActions, HasForms
     use InteractsWithForms;
     // use InteractsWithPageFilters; // Temporaneamente commentato per evitare conflitti trait in Filament 4.x
 
+    /**
+     * @var array<string, mixed>|null
+     */
+    public ?array $pageFilters = null;
+
     public string $chart_id = '';
 
     protected ?string $pollingInterval = null;
@@ -63,8 +68,14 @@ class UsersChartWidget extends ChartWidget implements HasActions, HasForms
         // $this->testAction();
 
         try {
-            Assert::nullOrString($startDate = $this->pageFilters['startDate'] ?? null);
-            Assert::nullOrString($endDate = $this->pageFilters['endDate'] ?? null);
+            // Type narrowing for PHPStan Level 10
+            $pageFilters = isset($this->pageFilters) && is_array($this->pageFilters) ? $this->pageFilters : null;
+
+            $startDateValue = is_array($pageFilters) && isset($pageFilters['startDate']) ? $pageFilters['startDate'] : null;
+            $endDateValue = is_array($pageFilters) && isset($pageFilters['endDate']) ? $pageFilters['endDate'] : null;
+
+            Assert::nullOrString($startDate = $startDateValue);
+            Assert::nullOrString($endDate = $endDateValue);
             if ($endDate === null) {
                 $endDate = Carbon::now()->format('Y-m-d H:i:s');
             }

@@ -12,6 +12,7 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Modules\User\Models\User;
 
 class TeamsRelationManager extends RelationManager
 {
@@ -25,7 +26,22 @@ class TeamsRelationManager extends RelationManager
                 TextColumn::make('name')->searchable()->sortable(),
                 IconColumn::make('personal_team')
                     ->boolean()
-                    ->default(fn ($record, $livewire) => $livewire->getOwnerRecord()->current_team_id === $record->id),
+                    ->default(function ($record, $livewire): bool {
+                        /**
+                         * @var \Illuminate\Database\Eloquent\Model $record
+                         * @var \Filament\Resources\RelationManagers\RelationManager $livewire
+                         */
+                        $user = $livewire->getOwnerRecord();
+
+                        if (! $user instanceof User) {
+                            return false;
+                        }
+
+                        /** @var int|string $recordId */
+                        $recordId = $record->getKey();
+
+                        return $user->current_team_id === $recordId;
+                    }),
             ])
             ->filters([
 
@@ -38,8 +54,16 @@ class TeamsRelationManager extends RelationManager
             ])
             ->recordActions([
                 DetachAction::make()->after(function ($record, $livewire): void {
+                    /**
+                     * @var \Illuminate\Database\Eloquent\Model $record
+                     * @var \Filament\Resources\RelationManagers\RelationManager $livewire
+                     */
                     $user = $livewire->getOwnerRecord();
-                    $team_id = $record->getKey();
+
+                    if (! $user instanceof User) {
+                        return;
+                    }
+
                     $user->update([
                         'current_team_id' => null,
                     ]);

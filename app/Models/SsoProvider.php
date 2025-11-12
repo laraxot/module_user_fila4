@@ -28,6 +28,37 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $created_by
  * @property string|null $updated_by
+ *
+ * @mixin IdeHelperSsoProvider
+ *
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\User> $users
+ * @property-read int|null $users_count
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereClientId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereClientSecret($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereDisplayName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereDomainWhitelist($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereEntityId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereMetadataUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereRedirectUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereRoleMapping($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereScopes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereSettings($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereUpdatedBy($value)
+ *
+ * @mixin \Eloquent
  */
 class SsoProvider extends BaseModel
 {

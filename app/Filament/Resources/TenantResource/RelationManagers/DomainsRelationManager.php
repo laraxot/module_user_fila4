@@ -47,7 +47,8 @@ class DomainsRelationManager extends XotBaseRelationManager
             ->columns([
                 TextColumn::make('domain'),
                 TextColumn::make('full-domain')->getStateUsing(
-                    static fn ($record) => Str::of($record->domain)->append('.')->append(request()->getHost()),
+                    static fn ($record) => is_object($record) && isset($record->domain) && is_string($record->domain) ?
+                        Str::of($record->domain)->append('.')->append(request()->getHost()) : '',
                 ),
             ])
             ->filters([])

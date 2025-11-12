@@ -38,12 +38,12 @@ class UserObserver
             // Crea il personal team
             $personalTeam = Team::create([
                 'user_id' => $user->id,
-                'name' => $user->name . "'s Team",
+                'name' => $user->name."'s Team",
                 'personal_team' => true,
             ]);
 
             // Imposta come current team
-            $user->current_team_id = $personalTeam->id;
+            $user->current_team_id = is_int($personalTeam->id) ? $personalTeam->id : (int) $personalTeam->id;
             $user->saveQuietly(); // Evita di triggerare eventi ricorsivi
         } catch (\Throwable $e) {
             // Log dell'errore ma non bloccare la creazione dell'utente

@@ -7,7 +7,7 @@ namespace Modules\User\Filament\Actions;
 use Filament\Actions\Action;
 use Filament\Forms\Components\TextInput;
 
-class AlwaysAskPasswordConfirmationAction extends Action
+final class AlwaysAskPasswordConfirmationAction extends Action
 {
     protected function setUp(): void
     {

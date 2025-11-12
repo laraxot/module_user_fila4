@@ -40,6 +40,9 @@ class DevicesRelationManager extends XotBaseRelationManager
     {
         $table = DeviceResource::table($table);
 
+        /**
+         * @var array<\Filament\Tables\Columns\Column|\Filament\Tables\Columns\ColumnGroup|\Filament\Tables\Columns\Layout\Component> $columns
+         */
         $columns = array_merge($table->getColumns(), static::extendTableCallback());
 
         $table = $table->columns($columns);

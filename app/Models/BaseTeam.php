@@ -162,7 +162,15 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     #[Override]
     public function hasUserWithEmail(string $email): bool
     {
-        return $this->allUsers()->contains(static fn ($user): bool => $user->email === $email);
+        return $this->allUsers()->contains(static function ($user) use ($email): bool {
+            // PHPStan Level 10: $user è sempre Model Eloquent da allUsers()
+            // Uso isset() invece di property_exists() per magic properties
+            if (! is_object($user) || ! isset($user->email)) {
+                return false;
+            }
+
+            return $user->email === $email;
+        });
     }
 
     /**

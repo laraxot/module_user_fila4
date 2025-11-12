@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\User\Database\Factories\ExtraFactory;
 use Modules\Xot\Contracts\ProfileContract;
-use Modules\Xot\Models\Extra as XotBaseExtra;
+use Modules\Xot\Models\BaseExtra;
 use Spatie\SchemalessAttributes\SchemalessAttributes;
 
 /**
@@ -48,8 +48,10 @@ use Spatie\SchemalessAttributes\SchemalessAttributes;
  * @mixin IdeHelperExtra
  * @mixin \Eloquent
  */
-class Extra extends XotBaseExtra
+final class Extra extends BaseExtra
 {
-    /** @var string */
-    protected $connection = 'user';
+    public function getConnectionName(): string
+    {
+        return 'user';
+    }
 }

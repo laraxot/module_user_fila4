@@ -49,16 +49,41 @@ class UserResource extends XotBaseResource
                 'email' => TextInput::make('email')->required()->unique(ignoreRecord: true),
                 'password' => TextInput::make('password')
                     ->password()
-                    ->dehydrateStateUsing(fn ($state) => ! empty($state) ? Hash::make($state) : null)
+                    ->dehydrateStateUsing(function ($state): ?string {
+                        // Type narrowing for PHPStan Level 10
+                        if (! is_string($state) || empty($state)) {
+                            return null;
+                        }
+
+                        return Hash::make($state);
+                    })
                     ->required(fn ($livewire) => $livewire instanceof CreateUser),
             ])->columnSpan(8),
             'section02' => Section::make([
                 'created_at' => Placeholder::make('created_at')->content(static function ($record) {
-                    if ($record === null || $record->created_at === null) {
+                    // Type narrowing for PHPStan Level 10
+                    if (! $record instanceof \Illuminate\Database\Eloquent\Model) {
                         return new HtmlString('&mdash;');
                     }
 
-                    return $record->created_at->diffForHumans();
+                    // PHPStan Level 10: hasAttribute() invece di property_exists() per Eloquent
+                    if (! $record->hasAttribute('created_at')) {
+                        return new HtmlString('&mdash;');
+                    }
+
+                    /** @var \Carbon\Carbon|null $createdAt */
+                    $createdAt = $record->getAttribute('created_at');
+
+                    if ($createdAt === null) {
+                        return new HtmlString('&mdash;');
+                    }
+                    if ($createdAt instanceof \Carbon\CarbonInterface) {
+                        return $createdAt->diffForHumans();
+                    } elseif ($createdAt instanceof \DateTimeInterface) {
+                        return $createdAt->format('Y-m-d H:i:s');
+                    } else {
+                        return new HtmlString('&mdash;');
+                    }
                 }),
             ])->columnSpan(4),
         ];

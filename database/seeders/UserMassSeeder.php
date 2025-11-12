@@ -7,6 +7,7 @@ namespace Modules\User\Database\Seeders;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Seeder;
 use Modules\User\Models\AuthenticationLog;
 use Modules\User\Models\Device;
@@ -201,7 +202,9 @@ class UserMassSeeder extends Seeder
         $this->command->info('👤 Creazione utenti con profili completi...');
 
         // Crea 200 utenti generici
-        $users = User::factory()
+        /** @var EloquentCollection<int, User> $users */
+        $users = /** @phpstan-ignore-next-line - Factory method returns proper collection */
+User::factory()
             ->count(200)
             ->create([
                 'email_verified_at' => Carbon::now(),
@@ -209,8 +212,11 @@ class UserMassSeeder extends Seeder
             ]);
 
         // Crea profili per tutti gli utenti
+        /** @var EloquentCollection<int, User> $users */
         foreach ($users as $user) {
-            Profile::factory()->create([
+            /** @var User $user */
+            /** @phpstan-ignore-next-line - Factory method returns proper object */
+Profile::factory()->create([
                 'user_id' => $user->id,
                 'created_at' => $user->created_at,
                 'updated_at' => $user->updated_at,
@@ -218,13 +224,18 @@ class UserMassSeeder extends Seeder
         }
 
         // Assegna ruoli casuali
+        /** @var EloquentCollection<int, Role> $roles */
         $roles = Role::all();
+
+        /** @var EloquentCollection<int, User> $users */
         foreach ($users as $user) {
+            /** @var User $user */
+            /** @var Role $randomRole */
             $randomRole = $roles->random();
             $user->assignRole($randomRole);
         }
 
-        $this->command->info('✅ Creati '.$users->count().' utenti con profili completi');
+        $this->command->info('✅ Creati '.(string) $users->count().' utenti con profili completi');
     }
 
     /**
@@ -235,13 +246,15 @@ class UserMassSeeder extends Seeder
         $this->command->info('📝 Creazione log di autenticazione...');
 
         // Crea 1000 log di autenticazione
-        $logs = AuthenticationLog::factory()
+        /** @var EloquentCollection<int, AuthenticationLog> $logs */
+        $logs = /** @phpstan-ignore-next-line - Factory method returns proper collection */
+AuthenticationLog::factory()
             ->count(1000)
             ->create([
                 'created_at' => Carbon::now()->subDays(rand(1, 30)),
             ]);
 
-        $this->command->info('✅ Creati '.$logs->count().' log di autenticazione');
+        $this->command->info('✅ Creati '.(string) $logs->count().' log di autenticazione');
     }
 
     /**
@@ -252,13 +265,14 @@ class UserMassSeeder extends Seeder
         $this->command->info('📱 Creazione dispositivi utente...');
 
         // Crea 500 dispositivi
+        /** @var EloquentCollection<int, Device> $devices */
         $devices = Device::factory()
             ->count(500)
             ->create([
                 'created_at' => Carbon::now()->subDays(rand(1, 90)),
             ]);
 
-        $this->command->info('✅ Creati '.$devices->count().' dispositivi utente');
+        $this->command->info('✅ Creati '.(string) $devices->count().' dispositivi utente');
     }
 
     /**
@@ -269,13 +283,14 @@ class UserMassSeeder extends Seeder
         $this->command->info('🔗 Creazione provider social...');
 
         // Crea 100 provider social
+        /** @var EloquentCollection<int, SocialProvider> $providers */
         $providers = SocialProvider::factory()
             ->count(100)
             ->create([
                 'created_at' => Carbon::now()->subDays(rand(1, 180)),
             ]);
 
-        $this->command->info('✅ Creati '.$providers->count().' provider social');
+        $this->command->info('✅ Creati '.(string) $providers->count().' provider social');
     }
 
     /**

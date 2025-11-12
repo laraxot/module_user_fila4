@@ -13,21 +13,33 @@ use Illuminate\Support\Facades\Auth;
 
 class PasswordExpiryMiddleware
 {
+    /**
+     * @param  Closure(Request): (Response|RedirectResponse)  $next
+     */
     public function handle(Request $request, Closure $next): Response|RedirectResponse
     {
         if ($request->routeIs('password.change') || $request->routeIs('password.update')) {
-            return $next($request);
+            /** @var Response|RedirectResponse $response */
+            $response = $next($request);
+
+            return $response;
         }
 
         if ($request->routeIs($this->getPasswordExpiryRoute()) || $request->routeIs('*.auth.*')) {
-            return $next($request);
+            /** @var Response|RedirectResponse $response */
+            $response = $next($request);
+
+            return $response;
         }
 
         if ($this->passwordHasExpired()) {
             return redirect(route($this->getPasswordExpiryRoute()));
         }
 
-        return $next($request);
+        /** @var Response|RedirectResponse $response */
+        $response = $next($request);
+
+        return $response;
     }
 
     public function getPasswordExpiryRoute(): string

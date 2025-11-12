@@ -130,16 +130,15 @@ use Throwable;
  * @method static Builder|User whereIsOtp($value)
  * @method static Builder|User wherePasswordExpiresAt($value)
  * @method static Builder|User whereSurname($value)
- * @method static static|null firstWhere($column, $operator = null, $value = null, $boolean = 'and')
  *
- * @mixin IdeHelperBaseUser
+ * @mixin \Eloquent
  */
 abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, UserContract
 {
     use HasApiTokens;
     use HasAuthenticationLogTrait;
     use HasChildren;
-    use HasFactory;
+    use \Modules\Xot\Models\Traits\HasXotFactory;
     use HasPermissions;
     use HasRoles;
     use HasTeams;
@@ -448,7 +447,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
 
         try {
             $value = $candidate;
-            while (static::query()->firstWhere(['name' => $value]) !== null) {
+            while (self::firstWhere(['name' => $value]) !== null) {
                 $i++;
                 $value = $name.'-'.$i;
             }
@@ -463,15 +462,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         }
     }
 
-    /**
-     * Create a new factory instance for the model.
-     *
-     * @return Factory
-     */
-    protected static function newFactory()
-    {
-        return app(GetFactoryAction::class)->execute(static::class);
-    }
+  
 
     /** @return array<string, string> */
     protected function casts(): array
@@ -517,7 +508,9 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         // Per gli altri tipi, implementiamo una logica di base
         if (is_array($roles) || $roles instanceof \Illuminate\Support\Collection) {
             foreach ($roles as $role) {
-                if ($this->hasRole($role, $guard)) {
+                // Type narrowing per $role
+                $roleParam = is_string($role) || is_int($role) || $role instanceof \Spatie\Permission\Contracts\Role ? $role : (string) $role;
+                if ($this->hasRole($roleParam, $guard)) {
                     return true;
                 }
             }

@@ -176,6 +176,8 @@ class UserSeeder extends Seeder
         // Team di amministrazione
         /** @var \Illuminate\Database\Eloquent\Factories\Factory<Team> $adminFactory */
         $adminFactory = Team::factory();
+        Assert::isInstanceOf($adminFactory, \Illuminate\Database\Eloquent\Factories\Factory::class);
+        /** @phpstan-ignore-next-line - Factory method returns proper object */
         $adminTeam = $adminFactory->create([
             'name' => 'Amministratori',
             'personal_team' => false,
@@ -185,6 +187,8 @@ class UserSeeder extends Seeder
         // Team di sviluppo
         /** @var \Illuminate\Database\Eloquent\Factories\Factory<Team> $devFactory */
         $devFactory = Team::factory();
+        Assert::isInstanceOf($devFactory, \Illuminate\Database\Eloquent\Factories\Factory::class);
+        /** @phpstan-ignore-next-line - Factory method returns proper object */
         $devTeam = $devFactory->create([
             'name' => 'Sviluppatori',
             'personal_team' => false,
@@ -194,6 +198,8 @@ class UserSeeder extends Seeder
         // Team di supporto
         /** @var \Illuminate\Database\Eloquent\Factories\Factory<Team> $supportFactory */
         $supportFactory = Team::factory();
+        Assert::isInstanceOf($supportFactory, \Illuminate\Database\Eloquent\Factories\Factory::class);
+        /** @phpstan-ignore-next-line - Factory method returns proper object */
         $supportTeam = $supportFactory->create([
             'name' => 'Supporto Clienti',
             'personal_team' => false,
@@ -202,18 +208,24 @@ class UserSeeder extends Seeder
         // Team di marketing
         /** @var \Illuminate\Database\Eloquent\Factories\Factory<Team> $marketingFactory */
         $marketingFactory = Team::factory();
+        Assert::isInstanceOf($marketingFactory, \Illuminate\Database\Eloquent\Factories\Factory::class);
+        /** @phpstan-ignore-next-line - Factory method returns proper object */
         $marketingTeam = $marketingFactory->create([
             'name' => 'Marketing',
             'personal_team' => false,
         ]);
+        Assert::isInstanceOf($marketingTeam, Team::class);
 
         // Team generale
         /** @var \Illuminate\Database\Eloquent\Factories\Factory<Team> $generalFactory */
         $generalFactory = Team::factory();
+        Assert::isInstanceOf($generalFactory, \Illuminate\Database\Eloquent\Factories\Factory::class);
+        /** @phpstan-ignore-next-line - Factory method returns proper object */
         $generalTeam = $generalFactory->create([
             'name' => 'Team Generale',
             'personal_team' => false,
         ]);
+        Assert::isInstanceOf($generalTeam, Team::class);
 
         $this->command->info('   ✓ Creati 5 team di sistema');
     }

@@ -12,9 +12,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\BaseFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Arr;
 use Modules\User\Filament\Resources\BaseProfileResource;
-use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Override;
@@ -37,28 +35,49 @@ class ListProfiles extends XotBaseListRecords
                 ->sortable()
                 ->searchable()
                 ->default(function ($record) {
-                    $user = $record->user;
+                    if (! is_object($record)) {
+                        return '--';
+                    }
+
+                    // PHPStan Level 10: isset() invece di property_exists() per Eloquent relations/attributes
+                    $userValue = isset($record->user) ? $record->user : null;
                     $user_class = XotData::make()->getUserClass();
-                    if ($user === null) {
-                        if ($record->email === null) {
-                            $record->update(['email' => fake()->email()]);
+
+                    if ($userValue === null) {
+                        $emailValue = isset($record->email) ? $record->email : null;
+
+                        if ($emailValue === null) {
+                            if (method_exists($record, 'update')) {
+                                $record->update(['email' => fake()->email()]);
+                            }
+                            $emailValue = isset($record->email) ? $record->email : '';
                         }
+
+                        if (! is_string($emailValue)) {
+                            return '--';
+                        }
+
                         try {
-                            /** @var UserContract */
-                            $user = XotData::make()->getUserByEmail($record->email);
+                            $userValue = XotData::make()->getUserByEmail($emailValue);
                         } catch (Exception $e) {
                             return '--';
                         }
                     }
-                    if ($user === null) {
-                        $data = $record->toArray();
-                        $user_data = Arr::except($data, ['id']);
-                        /** @var UserContract */
-                        $user = $user_class::create($user_data);
-                    }
-                    $record->update(['user_id' => $user->id]);
 
-                    return $user->name;
+                    if (! is_object($userValue)) {
+                        return '--';
+                    }
+
+                    // PHPStan Level 10: isset() per magic properties di User model
+                    $userId = isset($userValue->id) ? $userValue->id : null;
+
+                    if ($userId !== null && method_exists($record, 'update')) {
+                        $record->update(['user_id' => $userId]);
+                    }
+
+                    $userName = isset($userValue->name) ? $userValue->name : '--';
+
+                    return is_string($userName) ? $userName : '--';
                 }),
             'first_name' => TextColumn::make('first_name')->sortable()->searchable(),
             'last_name' => TextColumn::make('last_name')->sortable()->searchable(),

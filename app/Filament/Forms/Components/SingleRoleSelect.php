@@ -11,33 +11,23 @@ class SingleRoleSelect extends Select
 {
     protected string $optionValueProperty = 'id';
 
-    // /*
     protected function setUp(): void
     {
         parent::setUp();
-        $options = Role::all()->pluck('name', 'id')->toArray();
+        
+        /** @var view-string $viewString */
+        $viewString = 'user::filament.forms.components.single-role-select';
+        $this->view($viewString);
+        
+        /** @var array<int|string, string> $options */
+        $options = Role::query()->pluck('name', 'id')->toArray();
 
-        $this->options(fn (): array => $options) // Ruoli dal DB
-            // ->searchable() // Permette la ricerca
-            // ->preload() // Precarica i risultati
+        $this->options(fn (): array => $options)
             ->placeholder('Select a role');
     }
-
-    // */
 
     public function getOptionValueProperty(): string
     {
         return $this->optionValueProperty;
     }
-
-    /*
-     * public static function make(string $name): static
-     * {
-     * return parent::make($name)
-     * ->options(Role::all()->pluck('name', 'id')->toArray()) // Ruoli dal DB
-     * ->searchable() // Permette la ricerca
-     * ->preload() // Precarica i risultati
-     * ->placeholder('Select a role');
-     * }
-     */
 }

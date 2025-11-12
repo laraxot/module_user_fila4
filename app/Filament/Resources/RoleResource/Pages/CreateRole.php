@@ -27,6 +27,7 @@ class CreateRole extends XotBaseCreateRecord
             )
             ->keys();
 
+        /** @var array<string, mixed> $res */
         $res = Arr::only($data, ['name', 'guard_name', 'team_id']);
         if (! isset($res['team_id'])) {
             $res['team_id'] = null;

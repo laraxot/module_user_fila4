@@ -10,24 +10,23 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\Pages;
 
 use Filament\Actions\DeleteAction;
-use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\Hash;
 use InvalidArgumentException;
 use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Models\User;
+use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
 use Webmozart\Assert\Assert;
 
 /**
  * Pagina per la modifica degli utenti con particolare gestione della password.
  */
-class EditUser extends EditRecord
+class EditUser extends XotBaseEditRecord
 {
-    // //
     protected static string $resource = UserResource::class;
 
     protected function mutateFormDataBeforeSave(array $data): array
     {
-        Assert::isArray($data);
+        // PHPStan Level 10: $data is already typed as array, no need for assertion
         if (! array_key_exists('new_password', $data) || ! filled($data['new_password'])) {
             return $data;
         }

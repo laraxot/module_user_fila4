@@ -19,5 +19,35 @@ use Override;
 
 class Dashboard extends XotBaseDashboard
 {
-    
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-home';
+
+    // protected static string $routePath = 'finance';
+    // protected static ?string $title = 'Finance dashboard';
+    // protected static ?int $navigationSort = 15;
+
+    // protected static string $view = 'user::filament.pages.dashboard';
+
+    /**
+     * @return array<class-string<Widget>|WidgetConfiguration>
+     */
+    public function getWidgets(): array
+    {
+        return [
+            UsersChartWidget::make(['chart_id' => 'bb']),
+            // Widgets\UsersChartWidget::make(['chart_id' => 'aa']),
+            RecentLoginsWidget::class,
+        ];
+    }
+
+    #[Override]
+    public function getFiltersFormSchema(): array
+    {
+        return [
+            DatePicker::make('startDate')->native(false),
+            // ->maxDate(fn (\Filament\Schemas\Components\Utilities\Get $get) => $get('endDate') ?: now()),
+            DatePicker::make('endDate')->native(false),
+            // ->minDate(fn (\Filament\Schemas\Components\Utilities\Get $get) => $get('startDate') ?: now())
+            // ->maxDate(now()),
+        ];
+    }
 }

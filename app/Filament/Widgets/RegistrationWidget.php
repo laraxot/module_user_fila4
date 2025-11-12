@@ -42,13 +42,18 @@ class RegistrationWidget extends XotBaseWidget
     {
         $this->type = $type;
         $this->resource = XotData::make()->getUserResourceClassByType($type);
-        $this->model = $this->resource::getModel();
+
+        $modelClass = $this->resource::getModel();
+        $this->model = is_string($modelClass) ? $modelClass : '';
+
         $this->action = Str::of($this->model)
             ->replace('\\Models\\', '\\Actions\\')
             ->append('\\RegisterAction')
             ->toString();
         $record = $this->getFormModel();
         $data = $this->getFormFill();
+
+        /** @var array<string, mixed> $data */
         $this->data = $data;
         $this->form->fill($data);
         $this->form->model($record);
@@ -56,21 +61,28 @@ class RegistrationWidget extends XotBaseWidget
     }
 
     #[Override]
-    public function getFormModel(): Model
+    protected function getFormModel(): Model
     {
         $data = request()->all();
         $email = Arr::get($data, 'email');
         $token = Arr::get($data, 'token');
 
+        /** @var Model|null $user */
         $user = $this->model::firstWhere('email', $email);
         if ($user === null) {
-            return app($this->model);
+            /** @var Model $model */
+            $model = app($this->model);
+
+            return $model;
         }
 
-        $remember_token = $user->remember_token;
-        if ($remember_token === null) {
-            $user->remember_token = Str::uuid()->toString();
+        // PHPStan Level 10: Uso getAttribute() per evitare undefined property error
+        /** @var string|null $remember_token */
+        $remember_token = $user->getAttribute('remember_token');
+        if ($remember_token === null && $user->isFillable('remember_token')) {
+            $user->setAttribute('remember_token', Str::uuid()->toString());
             $user->save();
+            $remember_token = $user->getAttribute('remember_token');
         }
 
         if ($remember_token === $token) {
@@ -79,7 +91,10 @@ class RegistrationWidget extends XotBaseWidget
             return $user;
         }
 
-        return app($this->model);
+        /** @var \Illuminate\Database\Eloquent\Model $modelInstance */
+        $modelInstance = app($this->model);
+
+        return $modelInstance;
     }
 
     #[Override]
@@ -94,7 +109,10 @@ class RegistrationWidget extends XotBaseWidget
     #[Override]
     public function getFormSchema(): array
     {
-        return $this->resource::getFormSchemaWidget();
+        /** @var array<int|string, \Filament\Schemas\Components\Component> $schema */
+        $schema = $this->resource::getFormSchemaWidget();
+
+        return $schema;
     }
 
     /**
@@ -109,7 +127,11 @@ class RegistrationWidget extends XotBaseWidget
         $data = array_merge($this->data ?? [], $data);
         $record = $this->record;
 
-        $user = app($this->action)->execute($record, $data);
+        /** @var object{execute: callable} $actionInstance */
+        $actionInstance = app($this->action);
+
+        /** @phpstan-ignore method.notFound */
+        $user = $actionInstance->execute($record, $data);
 
         $lang = app()->getLocale();
         $route = route('pages.view', ['slug' => $this->type.'_register_complete']);

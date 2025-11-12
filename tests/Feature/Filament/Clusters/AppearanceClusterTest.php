@@ -105,4 +105,3 @@ test('cluster pages are accessible', function () {
             ->toBeTrue("Page {$pageClass} deve esistere");
     }
 });
-

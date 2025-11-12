@@ -9,10 +9,9 @@ use Filament\Actions\ActionGroup;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\Relation;
 use Modules\User\Models\AuthenticationLog;
 
-class RecentLoginsWidget extends BaseWidget
+final class RecentLoginsWidget extends BaseWidget
 {
     protected static ?string $heading = 'Recent Logins'; // Rendi static la proprietà
 
@@ -21,12 +20,12 @@ class RecentLoginsWidget extends BaseWidget
     /**
      * Define the query to fetch recent logins.
      */
-    protected function getTableQuery(): Builder|Relation|null
+    protected function getTableQuery(): Builder
     {
         return AuthenticationLog::query()
             ->where('login_successful', true)
             ->orderBy('login_at', 'desc')
-            ->limit(10); // Mostra gli ultimi 10 logins
+            ->limit(10);
     }
 
     /**

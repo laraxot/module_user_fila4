@@ -49,16 +49,28 @@ abstract class BaseUserResource extends XotBaseResource
                 'email' => TextInput::make('email')->required()->unique(ignoreRecord: true),
                 'password' => TextInput::make('password')
                     ->password()
-                    ->dehydrateStateUsing(fn ($state) => ! empty($state) ? Hash::make($state) : null)
+                    ->dehydrateStateUsing(function ($state) {
+                        if (empty($state)) {
+                            return null;
+                        }
+
+                        return is_string($state) ? Hash::make($state) : null;
+                    })
                     ->required(fn ($livewire) => $livewire instanceof CreateUser),
             ])->columnSpan(8),
             'section02' => Section::make([
                 'created_at' => Placeholder::make('created_at')->content(static function ($record) {
-                    if ($record === null || $record->created_at === null) {
+                    if ($record === null || ! $record instanceof \Illuminate\Database\Eloquent\Model) {
                         return new HtmlString('&mdash;');
                     }
 
-                    return $record->created_at->diffForHumans();
+                    if (! isset($record->created_at) || ! ($record->created_at instanceof \DateTimeInterface)) {
+                        return new HtmlString('&mdash;');
+                    }
+
+                    $createdAt = $record->created_at;
+
+                    return $createdAt instanceof \Carbon\CarbonInterface ? $createdAt->diffForHumans() : $createdAt->format('Y-m-d H:i:s');
                 }),
             ])->columnSpan(4),
         ];

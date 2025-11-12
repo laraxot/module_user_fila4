@@ -58,15 +58,14 @@ use Webmozart\Assert\Assert;
  *
  * @property PermissionRole|null $pivot
  *
- * @mixin IdeHelperPermission
- *
  * @method static PermissionFactory factory($count = null, $state = [])
  *
+ * @mixin IdeHelperPermission
  * @mixin \Eloquent
  */
 class Permission extends SpatiePermission
 {
-    use HasFactory;
+    use \Modules\Xot\Models\Traits\HasXotFactory;
     use RelationX;
 
     /** @var string */
@@ -124,14 +123,5 @@ class Permission extends SpatiePermission
         return $this->belongsToManyX($userClass);
     }
 
-    /**
-     * @see vendor/ laravel / framework / src / Illuminate / Database / Eloquent / Factories / HasFactory.php
-     * Create a new factory instance for the model.
-     *
-     * @return Factory<static>
-     */
-    protected static function newFactory()
-    {
-        return app(GetFactoryAction::class)->execute(static::class);
-    }
+   
 }

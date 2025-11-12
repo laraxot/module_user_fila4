@@ -142,10 +142,12 @@ return [
         'applyFilters' => [
             'label' => 'applyFilters',
             'icon' => 'applyFilters',
+            'tooltip' => 'applyFilters',
         ],
         'openFilters' => [
             'label' => 'openFilters',
             'icon' => 'openFilters',
+            'tooltip' => 'openFilters',
         ],
         'resetFilters' => [
             'label' => 'resetFilters',
@@ -172,6 +174,7 @@ return [
         'profile' => [
             'icon' => 'profile',
             'label' => 'profile',
+            'tooltip' => 'profile',
         ],
         'view' => [
             'icon' => 'view',

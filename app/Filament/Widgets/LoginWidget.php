@@ -131,7 +131,12 @@ class LoginWidget extends XotBaseWidget
             // $this->form->callAfter();
 
             foreach ($e->errors() as $field => $messages) {
-                // Semplificato: aggiungi sempre l'errore al campo specifico
+                // PHPStan Level 10: Ensure messages is array
+                if (! is_array($messages)) {
+                    $messages = [$messages];
+                }
+
+                /** @var array<int|string, mixed> $messages */
                 $this->addError($field, implode(' ', $messages));
             }
         } catch (Exception $e) {

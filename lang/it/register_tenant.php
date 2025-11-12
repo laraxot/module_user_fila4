@@ -185,6 +185,18 @@ return [
         ],
         'register' => [
             'label' => 'register',
+            'tooltip' => 'register',
+            'icon' => 'register',
+        ],
+        'logout' => [
+            'tooltip' => 'logout',
+            'icon' => 'logout',
+            'label' => 'logout',
+        ],
+        'profile' => [
+            'tooltip' => 'profile',
+            'icon' => 'profile',
+            'label' => 'profile',
         ],
     ],
     'steps' => [

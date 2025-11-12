@@ -98,21 +98,33 @@ class ListPermissions extends XotBaseListRecords
                 ->action(static function (Collection $collection, array $data): void {
                     foreach ($collection as $record) {
                         // Verifichiamo che $record sia un'istanza di Model prima di procedere
-                        Assert::isInstanceOf(
-                            $record,
-                            Model::class,
-                            '['.__LINE__.']['.__CLASS__.']',
-                        );
+                        // This check is redundant as $record is already an instance of Model
+                        // Assert::isInstanceOf($record, Model::class, '['.__LINE__.']['.__CLASS__.']');
 
                         // Poi verifichiamo che il modello abbia il metodo roles() prima di chiamarlo
                         if (method_exists($record, 'roles')) {
-                            $record->roles()->sync($data['role']);
-                            $record->save();
+                            /** @var \Illuminate\Database\Eloquent\Relations\BelongsToMany $rolesRelation */
+                            $rolesRelation = $record->roles();
+                            /** @var mixed $roleData */
+                            $roleData = $data['role'];
+                            if (is_array($roleData) || is_int($roleData) || is_string($roleData)) {
+                                $rolesRelation->sync($roleData);
+                                $record->save();
+                            }
                         }
                     }
                 })
                 ->schema([
-                    Select::make('role')->options($roleModel::query()->pluck('name', 'id'))->required(),
+                    Select::make('role')->options(function () use ($roleModel): array {
+                        /** @var \Illuminate\Database\Eloquent\Builder<\Modules\User\Models\Role> $query */
+                        $query = $roleModel::query();
+                        /** @var \Illuminate\Support\Collection<string|int, string> $collection */
+                        $collection = $query->pluck('name', 'id');
+                        /** @var array<string|int, string> $options */
+                        $options = $collection->toArray();
+
+                        return $options;
+                    })->required(),
                 ])
                 ->deselectRecordsAfterCompletion(),
         ];

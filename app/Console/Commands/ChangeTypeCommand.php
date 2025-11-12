@@ -88,10 +88,21 @@ class ChangeTypeCommand extends Command
 
         $newTypeEnum = $typeClass::tryFrom($newType);
         Assert::notNull($newTypeEnum);
+        Assert::isInstanceOf($newTypeEnum, \Filament\Support\Contracts\HasLabel::class);
 
+        /** @var \BackedEnum&\Filament\Support\Contracts\HasLabel $newTypeEnum */
         $user->type = $newTypeEnum;
         $user->save();
 
-        $this->info("User type changed to '{$newTypeEnum->getLabel()}' for {$email}");
+        $label = $newTypeEnum->getLabel();
+        $labelString = '';
+        if (is_string($label)) {
+            $labelString = $label;
+        } elseif ($label instanceof \Illuminate\Contracts\Support\Htmlable) {
+            $labelString = $label->toHtml();
+        } else {
+            $labelString = (string) $label;
+        }
+        $this->info("User type changed to '{$labelString}' for {$email}");
     }
 }

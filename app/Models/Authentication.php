@@ -47,18 +47,16 @@ use Modules\User\Database\Factories\AuthenticationFactory;
  * @method static Builder<static>|Authentication whereAuthenticatableId($value)
  *
  * @mixin IdeHelperAuthentication
+ *
+ * @method static \Modules\User\Database\Factories\AuthenticationFactory factory($count = null, $state = [])
+ *
+ * @mixin \Eloquent
  */
 class Authentication extends Model
 {
-    use HasFactory;
+    use \Modules\Xot\Models\Traits\HasXotFactory;
 
-    /**
-     * Create a new factory instance for the model.
-     */
-    protected static function newFactory(): AuthenticationFactory
-    {
-        return AuthenticationFactory::new();
-    }
+
 
     /**
      * The attributes that are mass assignable.

@@ -41,9 +41,9 @@ class RolesRelationManager extends XotBaseRelationManager
     public function getTableColumns(): array
     {
         return [
-            TextColumn::make('id'),
-            TextColumn::make('name'),
-            TextColumn::make('team_id'),
+            'id' => TextColumn::make('id'),
+            'name' => TextColumn::make('name'),
+            'team_id' => TextColumn::make('team_id'),
         ];
     }
 
@@ -55,11 +55,14 @@ class RolesRelationManager extends XotBaseRelationManager
     {
         $xotData = XotData::make();
 
-        return [
+        /** @var array<string, Action> $parentActions */
+        $parentActions = parent::getTableHeaderActions();
 
-            ...parent::getTableHeaderActions(),
-            'attach' => AttachRoleAction::make(),
-
-        ];
+        return array_merge(
+            $parentActions,
+            [
+                'attach' => AttachRoleAction::make(),
+            ]
+        );
     }
 }

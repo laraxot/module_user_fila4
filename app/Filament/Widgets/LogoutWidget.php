@@ -37,14 +37,12 @@ use Throwable;
 class LogoutWidget extends XotBaseWidget
 {
     /**
-     * The view that should be used to render the widget.
+     * The view to render the widget.
      *
      * IMPORTANT: When using @livewire() directly in Blade templates,
      * the path should be without the module namespace.
-     *
-     *
-     * @phpstan-ignore property.phpDocType
      */
+    /** @phpstan-ignore-next-line property.defaultValue */
     protected string $view = 'user::widgets.logout';
 
     /**

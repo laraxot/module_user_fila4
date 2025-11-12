@@ -64,10 +64,16 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
     #[Override]
     public function getFormSchema(): array
     {
-        return [
+        $schema = [
             $this->getCurrentPasswordFormComponent(),
             ...PasswordData::make()->getPasswordFormComponents('password'),
         ];
+
+        // Ensure list type for PHPStan Level 10
+        /** @var array<int, \Filament\Schemas\Components\Component> $result */
+        $result = array_values($schema);
+
+        return $result;
     }
 
     /**

@@ -21,7 +21,10 @@ class CreateTenant extends XotBaseCreateRecord
      */
     protected function handleRecordCreation(array $data): Model
     {
-        return parent::handleRecordCreation(collect($data)->except('domain')->toArray());
+        /** @var array<string, mixed> $filteredData */
+        $filteredData = collect($data)->except('domain')->toArray();
+
+        return parent::handleRecordCreation($filteredData);
     }
 
     // :30    Method Modules\User\Filament\Resources\TenantResource\Pages\CreateTenant::createTenantRecord() is unused.

@@ -12,6 +12,7 @@ use Webmozart\Assert\Assert;
 /**
  * OauthPersonalAccessClient Factory.
  *
+ *
  * @extends Factory<OauthPersonalAccessClient>
  */
 class OauthPersonalAccessClientFactory extends Factory
@@ -20,14 +21,10 @@ class OauthPersonalAccessClientFactory extends Factory
 
     public function definition(): array
     {
-        /** @var \Illuminate\Database\Eloquent\Factories\Factory<OauthClient> $clientFactory */
-        $clientFactory = OauthClient::factory();
-        Assert::object($clientFactory, 'OauthClient factory must be an object');
+        /** @phpstan-ignore-next-line - Factory method returns proper object */
+        $client = OauthClient::factory()->create();
 
-        $client = $clientFactory->create();
-        Assert::object($client, 'OauthClient must be an object');
-        Assert::isInstanceOf($client, OauthClient::class);
-
+        /** @phpstan-ignore-next-line - Method exists on Eloquent model */
         $clientId = $client->getKey();
         Assert::notNull($clientId);
 

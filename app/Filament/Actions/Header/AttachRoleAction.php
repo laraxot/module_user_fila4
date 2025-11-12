@@ -12,7 +12,7 @@ use Filament\Actions\AttachAction;
 use Filament\Forms\Components\Select;
 use Modules\Xot\Datas\XotData;
 
-class AttachRoleAction extends AttachAction
+final class AttachRoleAction extends AttachAction
 {
     protected function setUp(): void
     {
@@ -28,7 +28,7 @@ class AttachRoleAction extends AttachAction
             });
     }
 
-    public static function getDefaultName(): ?string
+    public static function getDefaultName(): string
     {
         return 'attachRole';
     }

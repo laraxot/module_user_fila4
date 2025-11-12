@@ -27,7 +27,6 @@ use Modules\Xot\Filament\Pages\XotBasePage;
  */
 class Alignment extends XotBasePage
 {
-
     protected string $view = 'user::filament.clusters.appearance.pages.alignment';
 
     protected static ?string $cluster = Appearance::class;

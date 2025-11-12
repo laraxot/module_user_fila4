@@ -78,9 +78,8 @@ class DeviceData extends Data
         // fare contract
         // Assert::isInstanceOf($synchronizationClass,Model::class,'['.__LINE__.']['.class_basename($this).']');
         // $synchronization = Synchronization::create([
-        /**
-         * @phpstan-ignore staticMethod.nonObject
-         */
+        /** @var class-string<\Illuminate\Database\Eloquent\Model> $synchronizationClass */
+        /** @var \Illuminate\Database\Eloquent\Model $synchronization */
         $synchronization = $synchronizationClass::create([
             // $synchronization = Synchronization::create([
             'user_id' => auth()->id(),
@@ -91,8 +90,11 @@ class DeviceData extends Data
             'called_at' => Carbon::now(),
             // fulfilled_at
         ]);
-        Assert::string($synchronizationId = $synchronization->id, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
-        $this->synchronizationId = $synchronizationId;
+        Assert::object($synchronization);
+
+        $syncId = $synchronization->getAttribute('id');
+        Assert::string($syncId, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
+        $this->synchronizationId = $syncId;
 
         return $this->synchronizationId;
     }

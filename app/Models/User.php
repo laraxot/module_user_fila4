@@ -122,6 +122,11 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @method static Builder<static>|User whereType($value)
  *
  * @mixin IdeHelperUser
+ *
+ * @property string|null $facebook_id
+ *
+ * @method static Builder<static>|User whereFacebookId($value)
+ *
  * @mixin \Eloquent
  */
 class User extends BaseUser

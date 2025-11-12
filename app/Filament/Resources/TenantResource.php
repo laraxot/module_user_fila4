@@ -60,8 +60,10 @@ class TenantResource extends XotBaseResource
                         )
                         ->live(onBlur: true)
                         ->afterStateUpdated(function (callable $set, $state) {
-                            $set('slug', Str::slug($state));
-                            $set('domain', Str::slug($state));
+                            if (is_string($state)) {
+                                $set('slug', Str::slug($state));
+                                $set('domain', Str::slug($state));
+                            }
                         })
                         ->columnSpanFull()
                         ->placeholder('Nome del tenant')

@@ -2,24 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Modules\User\Database\Migrations;
-
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-                $table->uuid('owner_id')->nullable()->after('id');
+return new class extends XotBaseMigration {
+    /**
+     * Nome della tabella gestita dalla migrazione.
+     */
+    protected string $table_name = 'teams';
 
-                // opzionale: $table->foreign('owner_id')->references('id')->on('users')->nullOnDelete();
-            }
-        });
-    }
-
-    public function down(): void
+    /**
+     * Esegue la migrazione.
+     */
+    public function up(): void
     {
-        Schema::connection('user')->table('teams', function (Blueprint $table): void {
-            if (Schema::connection('user')->hasColumn('teams', 'owner_id')) {
-                $table->dropColumn('owner_id');
+        $this->tableUpdate(function (Blueprint $table): void {
+            if (! $this->hasColumn('owner_id')) {
+                $table->uuid('owner_id')->nullable()->after('id');
             }
         });
     }
