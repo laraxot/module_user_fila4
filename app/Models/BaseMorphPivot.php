@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphPivot;
-use Modules\Xot\Actions\Factory\GetFactoryAction;
 use Modules\Xot\Traits\Updater;
 
 /**
@@ -79,6 +76,8 @@ abstract class BaseMorphPivot extends MorphPivot
     }
 >>>>>>> 6849bc76 (.)
 
+=======
+>>>>>>> e058848 (.)
     /** @return array<string, string> */
     protected function casts(): array
     {

@@ -45,7 +45,6 @@ use Spatie\SchemalessAttributes\SchemalessAttributes;
  *
  * @method static ExtraFactory factory($count = null, $state = [])
  *
- * @mixin IdeHelperExtra
  * @mixin \Eloquent
  */
 final class Extra extends BaseExtra

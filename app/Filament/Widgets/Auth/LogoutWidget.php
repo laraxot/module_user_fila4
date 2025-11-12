@@ -47,6 +47,9 @@ class LogoutWidget extends XotBaseWidget
      * @return array<string, Component>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getFormSchema(): array
     {
         $view = 'filament.widgets.auth.logout-message';
@@ -66,6 +69,9 @@ class LogoutWidget extends XotBaseWidget
      * @return array<Action>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getFormActions(): array
     {
         return [

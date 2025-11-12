@@ -55,6 +55,9 @@ abstract class BaseListUsers extends XotBaseListRecords
      */
 <<<<<<< HEAD
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableColumns(): array
     {
         return [
@@ -103,8 +106,14 @@ abstract class BaseListUsers extends XotBaseListRecords
      */
 <<<<<<< HEAD
     #[Override]
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+    /**
+     * @return array<string, mixed>
+     */
+>>>>>>> e058848 (.)
     public function getTableFilters(): array
     {
         return [
@@ -136,6 +145,9 @@ abstract class BaseListUsers extends XotBaseListRecords
     /** @phpstan-ignore-next-line */
 <<<<<<< HEAD
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableActions(): array
     {
         $actions = [

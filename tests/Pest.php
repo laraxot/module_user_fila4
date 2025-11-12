@@ -48,22 +48,42 @@ expect()->extend('toBeProfile', fn () => $this->toBeInstanceOf(Profile::class));
  * |
  */
 
+/**
+ * @param array<string, mixed> $attributes
+ */
 function createUser(array $attributes = []): User
 {
-    return User::factory()->create($attributes);
+    $User = User::factory()->create($attributes);
+    assert($User instanceof User);
+    return $User;
 }
 
+/**
+ * @param array<string, mixed> $attributes
+ */
 function makeUser(array $attributes = []): User
 {
-    return User::factory()->make($attributes);
+    $User = User::factory()->make($attributes);
+    assert($User instanceof User);
+    return $User;
 }
 
+/**
+ * @param array<string, mixed> $attributes
+ */
 function createTeam(array $attributes = []): Team
 {
-    return Team::factory()->create($attributes);
+    $Team = Team::factory()->create($attributes);
+    assert($Team instanceof Team);
+    return $Team;
 }
 
+/**
+ * @param array<string, mixed> $attributes
+ */
 function createProfile(array $attributes = []): Profile
 {
-    return Profile::factory()->create($attributes);
+    $Profile = Profile::factory()->create($attributes);
+    assert($Profile instanceof Profile);
+    return $Profile;
 }

@@ -4,23 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Collection as EloquentCollection;
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Support\Carbon;
 use Modules\User\Database\Factories\PermissionFactory;
-use Modules\Xot\Actions\Factory\GetFactoryAction;
-use Modules\Xot\Contracts\UserContract;
-use Modules\Xot\Datas\XotData;
-use Modules\Xot\Models\Traits\RelationX;
-use Spatie\Permission\Models\Permission as SpatiePermission;
-use Webmozart\Assert\Assert;
 
 /**
+<<<<<<< HEAD
  * Class Permission.
  *
  * Extends Spatie's Permission model to interact with the permission system.
@@ -62,8 +51,11 @@ use Webmozart\Assert\Assert;
  *
  * @mixin IdeHelperPermission
  * @mixin \Eloquent
+=======
+ * Permission Model
+>>>>>>> e058848 (.)
  */
-class Permission extends SpatiePermission
+class Permission extends Model
 {
 <<<<<<< HEAD
     use \Modules\Xot\Models\Traits\HasXotFactory;
@@ -72,59 +64,29 @@ class Permission extends SpatiePermission
 >>>>>>> 6849bc76 (.)
     use RelationX;
 
+=======
+>>>>>>> e058848 (.)
     /** @var string */
     protected $connection = 'user';
 
     /** @var string */
-    protected $keyType = 'string';
+    protected $table = 'permissions';
 
     /** @var list<string> */
     protected $fillable = [
-        'id',
         'name',
         'guard_name',
-        'created_at',
-        'updated_at',
-        'created_by',
-        'updated_by',
+        'display_name',
+        'description',
     ];
 
-    /** @return array<string, string> */
-    protected function casts(): array
-    {
-        return [
-            'id' => 'string',
-            'uuid' => 'string',
-            'name' => 'string',
-            'guard_name' => 'string',
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-        ];
-    }
-
-    public function getTable(): string
-    {
-        Assert::string($table = config('permission.table_names.permissions'));
-
-        return $table;
-    }
-
     /**
-     * The roles associated with the permission.
-     */
-    public function roles(): BelongsToMany
-    {
-        return $this->belongsToManyX(Role::class);
-    }
-
-    /**
-     * The users associated with the permission.
+     * Get the users that have the permission.
      */
     public function users(): BelongsToMany
     {
-        $userClass = XotData::make()->getUserClass();
-
-        return $this->belongsToManyX($userClass);
+        return $this->belongsToMany(User::class, 'model_has_permissions', 'permission_id', 'model_id')
+            ->where('model_type', User::class);
     }
 
 <<<<<<< HEAD
@@ -142,3 +104,21 @@ class Permission extends SpatiePermission
     }
 >>>>>>> 6849bc76 (.)
 }
+=======
+    /**
+     * Get the roles that have the permission.
+     */
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(Role::class, 'role_has_permissions', 'permission_id', 'role_id');
+    }
+
+    /**
+     * Get the factory instance for the model.
+     */
+    public static function factory(): PermissionFactory
+    {
+        return PermissionFactory::new();
+    }
+}
+>>>>>>> e058848 (.)

@@ -43,6 +43,9 @@ class RegisterWidget extends XotBaseWidget
     }
 
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getFormSchema(): array
     {
         return [

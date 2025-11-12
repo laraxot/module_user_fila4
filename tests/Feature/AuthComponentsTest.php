@@ -75,8 +75,13 @@ describe('Authentication Flow with Reorganized Components', function (): void {
     });
 
     test('password confirmation uses reorganized components', function (): void {
+<<<<<<< HEAD
         /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
+=======
+        /** @var \Illuminate\Database\Eloquent\Collection */
+        $user = User::factory()->create();
+>>>>>>> e058848 (.)
 
         actingAs($user)
             ->get('/user/confirm-password')
@@ -95,8 +100,13 @@ describe('Authentication Flow with Reorganized Components', function (): void {
 
 describe('User Profile Components Tests', function (): void {
     test('profile pages use reorganized components correctly', function (): void {
+<<<<<<< HEAD
         /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
+=======
+        /** @var \Illuminate\Database\Eloquent\Collection */
+        $user = User::factory()->create();
+>>>>>>> e058848 (.)
 
         $response = actingAs($user)->get('/user/profile');
 
@@ -108,8 +118,13 @@ describe('User Profile Components Tests', function (): void {
         // Test that action-section component works in profile pages
         expect(View::exists('pub_theme::components.layout.sections.action-section'))->toBeTrue();
 
+<<<<<<< HEAD
         /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
+=======
+        /** @var \Illuminate\Database\Eloquent\Collection */
+        $user = User::factory()->create();
+>>>>>>> e058848 (.)
 
         // Access a profile page that likely uses action-section
         actingAs($user)

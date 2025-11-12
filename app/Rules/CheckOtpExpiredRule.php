@@ -25,7 +25,9 @@ class CheckOtpExpiredRule implements ValidationRule
      */
     public function validate(string $_attribute, mixed $_value, Closure $fail): void
     {
-        if ($this->user->updated_at === null) {
+        /** @var \Illuminate\Support\Carbon|null $updatedAt */
+        $updatedAt = $this->user->updated_at;
+        if ($updatedAt === null) {
             $fail($this->message);
 
             return;
@@ -33,7 +35,12 @@ class CheckOtpExpiredRule implements ValidationRule
 
         $pwd_data = PasswordData::make();
         $otpExpirationMinutes = $pwd_data->otp_expiration_minutes;
-        $otp_expires_at = $this->user->updated_at->addMinutes($otpExpirationMinutes);
+        $updatedAt = $this->user->updated_at;
+        if ($updatedAt === null) {
+            $fail($this->message);
+            return;
+        }
+        $otp_expires_at = $updatedAt->addMinutes($otpExpirationMinutes);
 
         if (now()->greaterThan($otp_expires_at)) {
             $fail($this->message);

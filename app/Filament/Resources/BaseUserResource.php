@@ -43,12 +43,13 @@ abstract class BaseUserResource extends XotBaseResource
     #[Override]
     public static function getFormSchema(): array
     {
-        return [
+        return array_values([
             'section01' => Section::make([
-                'name' => TextInput::make('name')->required(),
-                'email' => TextInput::make('email')->required()->unique(ignoreRecord: true),
-                'password' => TextInput::make('password')
+                TextInput::make('name')->required(),
+                TextInput::make('email')->required()->unique(ignoreRecord: true),
+                TextInput::make('password')
                     ->password()
+<<<<<<< HEAD
                     ->dehydrateStateUsing(function ($state) {
                         if (empty($state)) {
                             return null;
@@ -71,9 +72,30 @@ abstract class BaseUserResource extends XotBaseResource
                     $createdAt = $record->created_at;
 
                     return $createdAt instanceof \Carbon\CarbonInterface ? $createdAt->diffForHumans() : $createdAt->format('Y-m-d H:i:s');
+=======
+                    ->dehydrateStateUsing(static function ($state): ?string {
+                        if ($state === null) {
+                            return null;
+                        }
+                        $value = is_string($state) ? $state : (string) $state;
+                        return $value !== '' ? Hash::make($value) : null;
+                    })
+                    ->required(fn($livewire) => $livewire instanceof CreateUser),
+            ])->columnSpan(8),
+            'section02' => Section::make([
+                Placeholder::make('created_at')->content(static function ($record) {
+                    if ($record === null || !is_object($record) || !property_exists($record, 'created_at')) {
+                        return new HtmlString('&mdash;');
+                    }
+                    $createdAt = $record->created_at ?? null;
+                    if ($createdAt === null || !is_object($createdAt) || !method_exists($createdAt, 'diffForHumans')) {
+                        return new HtmlString('&mdash;');
+                    }
+                    return $createdAt->diffForHumans();
+>>>>>>> e058848 (.)
                 }),
             ])->columnSpan(4),
-        ];
+        ]);
     }
 
     // public static function enablePasswordUpdates(bool|Closure $condition = true): void

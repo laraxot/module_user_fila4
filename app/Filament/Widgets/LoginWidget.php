@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+<<<<<<< HEAD
 use Exception;
+=======
+>>>>>>> e058848 (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Notifications\Notification;
@@ -22,7 +25,7 @@ use Override;
  * - Estende XotBaseWidget
  * - Usa solo componenti Filament importati
  * - Validazione e sicurezza integrate
- * - Facilmente estendibile (2FA, captcha, login social)
+ * - Facilmente estendibile (2FA, captcha, login social).
  *
  * @property array<string, mixed>|null $data
  */
@@ -53,7 +56,10 @@ class LoginWidget extends XotBaseWidget
      *
      * @return array<int, Component>
      */
-    #[Override]
+    #[\Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getFormSchema(): array
     {
         return [
@@ -72,7 +78,11 @@ class LoginWidget extends XotBaseWidget
     /**
      * Get the form model.
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> e058848 (.)
     protected function getFormModel(): ?Model
     {
         return null;
@@ -83,7 +93,10 @@ class LoginWidget extends XotBaseWidget
      *
      * @return array<string, mixed>
      */
-    #[Override]
+    #[\Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getFormFill(): array
     {
         return [
@@ -95,7 +108,7 @@ class LoginWidget extends XotBaseWidget
     /**
      * Handle login form submission.
      */
-    #[Override]
+    #[\Override]
     public function save(): void
     {
         try {
@@ -106,9 +119,13 @@ class LoginWidget extends XotBaseWidget
             $attempt_data = Arr::only($data, ['email', 'password']);
 
             if (! Auth::attempt($attempt_data, $remember)) {
+<<<<<<< HEAD
                 throw ValidationException::withMessages([
                     'email' => [__('user::messages.credentials_incorrect')],
                 ]);
+=======
+                throw ValidationException::withMessages(['email' => [__('user::messages.credentials_incorrect')]]);
+>>>>>>> e058848 (.)
             }
 
             session()->regenerate();
@@ -131,6 +148,7 @@ class LoginWidget extends XotBaseWidget
             // $this->form->callAfter();
 
             foreach ($e->errors() as $field => $messages) {
+<<<<<<< HEAD
                 // PHPStan Level 10: Ensure messages is array
                 if (! is_array($messages)) {
                     $messages = [$messages];
@@ -138,8 +156,12 @@ class LoginWidget extends XotBaseWidget
 
                 /** @var array<int|string, mixed> $messages */
                 $this->addError($field, implode(' ', $messages));
+=======
+                // Semplificato: aggiungi sempre l'errore al campo specifico
+                $this->addError($field, implode(' ', (array) $messages));
+>>>>>>> e058848 (.)
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             report($e);
 
             Notification::make()
