@@ -53,6 +53,9 @@ use Modules\Xot\Contracts\ProfileContract;
 class TeamUser extends BaseTeamUser
 {
     use HasFactory;
+<<<<<<< HEAD
 
+=======
+>>>>>>> fbc8f8e (.)
     protected $connection = 'user';
 }
