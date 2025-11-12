@@ -135,10 +135,3 @@ class Permission extends SpatiePermission
         return app(GetFactoryAction::class)->execute(static::class);
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)

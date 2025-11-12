@@ -1,9 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 
@@ -15,19 +11,6 @@ use function Laravel\Folio\name;
 name('password.confirm');
 
 new class extends Component {
-<<<<<<< HEAD
-=======
-use function Laravel\Folio\name;
-use Livewire\Volt\Component;
-use Livewire\Attributes\Validate;
-
-name('password.confirm');
-
-new class extends Component
-{
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     #[Validate('required|current_password')]
     public $password = '';
 
@@ -74,12 +57,4 @@ new class extends Component
         </div>
     </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 </x-layouts.main>
-=======
-</x-layouts.main>
->>>>>>> fbc8f8e (.)
-=======
-</x-layouts.main>
->>>>>>> 6d20fbe (.)

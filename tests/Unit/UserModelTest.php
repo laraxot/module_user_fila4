@@ -8,10 +8,6 @@ uses(TestCase::class);
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
 use Modules\User\Models\AuthenticationLog;
 use Modules\User\Models\Profile;
 use Modules\User\Models\Team;
@@ -20,18 +16,6 @@ use Modules\User\Models\User;
 // In-memory helper: build a User without touching DB
 function stubUser(array $attributes = []): User
 {
-<<<<<<< HEAD
-=======
-use Modules\User\Models\User;
-use Modules\User\Models\Team;
-use Modules\User\Models\Profile;
-use Modules\User\Models\AuthenticationLog;
-
-// In-memory helper: build a User without touching DB
-function stubUser(array $attributes = []): User {
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     $defaults = [
         'first_name' => 'John',
         'last_name' => 'Doe',
@@ -72,17 +56,7 @@ describe('User Model', function () {
     it('can be created (in-memory)', function () {
         $user = stubUser();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         expect($user)->toBeInstanceOf(User::class)->and($user->exists)->toBeFalse()->and($user->email)->toBeString();
-=======
-        expect($user)->toBeInstanceOf(User::class)
-            ->and($user->exists)->toBeFalse()
-            ->and($user->email)->toBeString();
->>>>>>> fbc8f8e (.)
-=======
-        expect($user)->toBeInstanceOf(User::class)->and($user->exists)->toBeFalse()->and($user->email)->toBeString();
->>>>>>> 6d20fbe (.)
     });
 
     it('supports mass-assignment of expected attributes (behavior)', function () {
@@ -96,10 +70,6 @@ describe('User Model', function () {
             'is_otp' => true,
         ];
         $user = new User($data);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         expect($user->first_name)
             ->toBe('Jane')
             ->and($user->last_name)
@@ -115,28 +85,9 @@ describe('User Model', function () {
     });
 
     it('declares sensitive attributes as hidden (without serialization)', function () {
-<<<<<<< HEAD
-        $hidden = new User()->getHidden();
-        expect($hidden)->toContain('password')->and($hidden)->toContain('remember_token');
-=======
-        expect($user->first_name)->toBe('Jane')
-            ->and($user->last_name)->toBe('Roe')
-            ->and($user->email)->toBe('jane.roe@example.test')
-            ->and($user->lang)->toBe('en')
-            ->and($user->is_active)->toBeFalse()
-            ->and($user->is_otp)->toBeTrue();
-    });
-
-    it('declares sensitive attributes as hidden (without serialization)', function () {
-        $hidden = (new User())->getHidden();
-        expect($hidden)->toContain('password')
-            ->and($hidden)->toContain('remember_token');
->>>>>>> fbc8f8e (.)
-=======
         $user = new User();
         $hidden = $user->getHidden();
         expect($hidden)->toContain('password')->and($hidden)->toContain('remember_token');
->>>>>>> 6d20fbe (.)
     });
 
     it('casts attributes correctly', function () {
@@ -147,10 +98,6 @@ describe('User Model', function () {
             'is_otp' => false,
         ]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         expect($user->email_verified_at)
             ->toBeInstanceOf(Carbon::class)
             ->and($user->created_at)
@@ -159,15 +106,6 @@ describe('User Model', function () {
             ->toBeBool()
             ->and($user->is_otp)
             ->toBeBool();
-<<<<<<< HEAD
-=======
-        expect($user->email_verified_at)->toBeInstanceOf(Carbon::class)
-            ->and($user->created_at)->toBeInstanceOf(Carbon::class)
-            ->and($user->is_active)->toBeBool()
-            ->and($user->is_otp)->toBeBool();
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     });
 
     describe('Relationships', function () {
@@ -207,15 +145,7 @@ describe('User Model', function () {
         it('has full_name accessor', function () {
             $user = stubUser([
                 'first_name' => 'John',
-<<<<<<< HEAD
-<<<<<<< HEAD
                 'last_name' => 'Doe',
-=======
-                'last_name' => 'Doe'
->>>>>>> fbc8f8e (.)
-=======
-                'last_name' => 'Doe',
->>>>>>> 6d20fbe (.)
             ]);
 
             expect($user->full_name)->toBe('John Doe');
@@ -224,15 +154,7 @@ describe('User Model', function () {
         it('handles null names in full_name accessor', function () {
             $user = stubUser([
                 'first_name' => 'John',
-<<<<<<< HEAD
-<<<<<<< HEAD
                 'last_name' => null,
-=======
-                'last_name' => null
->>>>>>> fbc8f8e (.)
-=======
-                'last_name' => null,
->>>>>>> 6d20fbe (.)
             ]);
 
             // Some implementations may include a trailing space when last_name is null
@@ -242,22 +164,11 @@ describe('User Model', function () {
         it('hashes password when set', function () {
             $user = stubUser(['password' => 'plain-password']);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
             expect($user->password)
                 ->not
                 ->toBe('plain-password')
                 ->and(password_verify('plain-password', $user->password))
                 ->toBeTrue();
-<<<<<<< HEAD
-=======
-            expect($user->password)->not->toBe('plain-password')
-                ->and(password_verify('plain-password', $user->password))->toBeTrue();
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
         });
     });
 
@@ -289,48 +200,20 @@ describe('User Model', function () {
             $u1 = stubUser(['is_active' => true]);
             $u2 = stubUser(['is_active' => false]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
             $active = collect([$u1, $u2])->filter(fn(User $u) => $u->is_active === true);
             $inactive = collect([$u1, $u2])->filter(fn(User $u) => $u->is_active === false);
 
             expect($active)->toHaveCount(1)->and($inactive)->toHaveCount(1);
-<<<<<<< HEAD
-=======
-            $active = collect([$u1, $u2])->filter(fn (User $u) => $u->is_active === true);
-            $inactive = collect([$u1, $u2])->filter(fn (User $u) => $u->is_active === false);
-
-            expect($active)->toHaveCount(1)
-                ->and($inactive)->toHaveCount(1);
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
         });
 
         it('exposes email verification flag for filtering (in-memory)', function () {
             $u1 = stubUser(['email_verified_at' => Carbon::now()]);
             $u2 = stubUser(['email_verified_at' => null]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
             $verified = collect([$u1, $u2])->filter(fn(User $u) => $u->email_verified_at !== null);
             $unverified = collect([$u1, $u2])->filter(fn(User $u) => $u->email_verified_at === null);
 
             expect($verified)->toHaveCount(1)->and($unverified)->toHaveCount(1);
-<<<<<<< HEAD
-=======
-            $verified = collect([$u1, $u2])->filter(fn (User $u) => $u->email_verified_at !== null);
-            $unverified = collect([$u1, $u2])->filter(fn (User $u) => $u->email_verified_at === null);
-
-            expect($verified)->toHaveCount(1)
-                ->and($unverified)->toHaveCount(1);
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
         });
 
         it('exposes language for filtering (in-memory)', function () {
@@ -353,21 +236,10 @@ describe('User Model', function () {
             $user = stubUser();
 
             // created_by/updated_by may be null in-memory; assert timestamps typing only
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
             expect($user->created_at)
                 ->toBeInstanceOf(Carbon::class)
                 ->and($user->updated_at)
                 ->toBeInstanceOf(Carbon::class);
-<<<<<<< HEAD
-=======
-            expect($user->created_at)->toBeInstanceOf(Carbon::class)
-                ->and($user->updated_at)->toBeInstanceOf(Carbon::class);
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
         });
     });
 
