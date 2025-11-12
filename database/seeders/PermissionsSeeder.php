@@ -43,4 +43,8 @@ class PermissionsSeeder extends Seeder
             'view_doctors',
         ]);
     }
+<<<<<<< HEAD
 }
+=======
+} 
+>>>>>>> fbc8f8e (.)

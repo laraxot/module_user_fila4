@@ -2,7 +2,14 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use Illuminate\Database\QueryException;
+=======
+namespace Modules\User\Tests\Feature\UserBusinessLogicTest;
+
+namespace Modules\User\Tests\Unit\Widgets;
+
+>>>>>>> fbc8f8e (.)
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Models\Permission;
 use Modules\User\Models\Profile;
@@ -22,6 +29,7 @@ describe('User Business Logic Integration', function () {
             $weakPassword = '123456';
             $strongPassword = 'SecurePass123!';
 
+<<<<<<< HEAD
             // Verifica che la password debole non sia accettabile
             $weakHash = Hash::make($weakPassword);
             $weakUser = User::factory()->create(['password' => $weakHash]);
@@ -33,6 +41,8 @@ describe('User Business Logic Integration', function () {
             expect($weakUser->password)->not->toBe($weakPassword);
             expect($strongUser->password)->not->toBe($strongPassword);
 
+=======
+>>>>>>> fbc8f8e (.)
             // Verifica che entrambe le password siano hashate
             expect(Hash::check($weakPassword, $weakUser->password))->toBeTrue();
             expect(Hash::check($strongPassword, $strongUser->password))->toBeTrue();
@@ -41,24 +51,30 @@ describe('User Business Logic Integration', function () {
         it('enforces email uniqueness across the system', function () {
             $email = 'test@example.com';
 
+<<<<<<< HEAD
             // Primo utente con email
             $user1 = User::factory()->create(['email' => $email]);
 
             // Tentativo di creare secondo utente con stessa email
             $this->expectException(QueryException::class);
 
+=======
+>>>>>>> fbc8f8e (.)
             User::factory()->create(['email' => $email]);
         });
 
         it('enforces username uniqueness when required', function () {
             $username = 'testuser';
 
+<<<<<<< HEAD
             // Primo utente con username
             $user1 = User::factory()->create(['username' => $username]);
 
             // Tentativo di creare secondo utente con stesso username
             $this->expectException(QueryException::class);
 
+=======
+>>>>>>> fbc8f8e (.)
             User::factory()->create(['username' => $username]);
         });
     });
@@ -67,6 +83,7 @@ describe('User Business Logic Integration', function () {
         it('enforces profile completion requirements', function () {
             $user = User::factory()->create([
                 'first_name' => null,
+<<<<<<< HEAD
                 'last_name' => null,
             ]);
 
@@ -79,6 +96,8 @@ describe('User Business Logic Integration', function () {
                 'first_name' => 'Mario',
                 'last_name' => 'Rossi',
             ]);
+=======
+>>>>>>> fbc8f8e (.)
 
             $user->refresh();
             expect($user->first_name)->toBe('Mario');
@@ -89,12 +108,15 @@ describe('User Business Logic Integration', function () {
             $invalidData = [
                 'email' => 'invalid-email',
                 'phone' => 'not-a-phone',
+<<<<<<< HEAD
                 'date_of_birth' => 'invalid-date',
             ];
 
             // Verifica che i dati non validi non possano essere salvati
             foreach ($invalidData as $field => $value) {
                 $this->expectException(QueryException::class);
+=======
+>>>>>>> fbc8f8e (.)
 
                 User::factory()->create([$field => $value]);
             }
@@ -102,6 +124,7 @@ describe('User Business Logic Integration', function () {
 
         it('enforces age restrictions for certain operations', function () {
             $underageUser = User::factory()->create([
+<<<<<<< HEAD
                 'date_of_birth' => now()->subYears(16),
             ]);
 
@@ -111,6 +134,8 @@ describe('User Business Logic Integration', function () {
 
             $underageAge = now()->diffInYears($underageUser->date_of_birth);
             $adultAge = now()->diffInYears($adultUser->date_of_birth);
+=======
+>>>>>>> fbc8f8e (.)
 
             expect($underageAge)->toBeLessThan(18);
             expect($adultAge)->toBeGreaterThanOrEqual(18);
@@ -127,6 +152,7 @@ describe('User Business Logic Integration', function () {
                 $user->teams()->attach($team->id);
             }
 
+<<<<<<< HEAD
             // Verifica che l'utente sia membro di tutti i team
             expect($user->teams)->toHaveCount(5);
 
@@ -134,6 +160,8 @@ describe('User Business Logic Integration', function () {
             $existingTeam = $user->teams->first();
             $user->teams()->attach($existingTeam->id);
 
+=======
+>>>>>>> fbc8f8e (.)
             // Non dovrebbe creare duplicati
             expect($user->teams()->count())->toBe(5);
         });
@@ -147,9 +175,12 @@ describe('User Business Logic Integration', function () {
             $moderatorRole = Role::factory()->create(['name' => 'moderator', 'level' => 2]);
             $adminRole = Role::factory()->create(['name' => 'admin', 'level' => 3]);
 
+<<<<<<< HEAD
             // Assegnazione ruolo base
             $user->teams()->attach($team->id, ['role' => 'member']);
 
+=======
+>>>>>>> fbc8f8e (.)
             // Verifica che l'utente abbia il ruolo corretto
             $userTeam = $user->teams()->where('team_id', $team->id)->first();
             expect($userTeam->pivot->role)->toBe('member');
@@ -160,12 +191,15 @@ describe('User Business Logic Integration', function () {
             $member = User::factory()->create();
             $team = Team::factory()->create(['user_id' => $owner->id]);
 
+<<<<<<< HEAD
             // Verifica che solo il proprietario possa eliminare il team
             expect($team->user_id)->toBe($owner->id);
 
             // Tentativo di eliminazione da parte di un membro
             $member->teams()->attach($team->id);
 
+=======
+>>>>>>> fbc8f8e (.)
             // Il membro non dovrebbe poter eliminare il team
             expect($team->user_id)->toBe($owner->id);
         });
@@ -177,12 +211,15 @@ describe('User Business Logic Integration', function () {
             $role = Role::factory()->create(['name' => 'editor']);
             $permission = Permission::factory()->create(['name' => 'edit_posts']);
 
+<<<<<<< HEAD
             // Assegnazione ruolo all'utente
             $user->roles()->attach($role->id);
 
             // Assegnazione permesso al ruolo
             $role->permissions()->attach($permission->id);
 
+=======
+>>>>>>> fbc8f8e (.)
             // Verifica che l'utente erediti il permesso dal ruolo
             $userPermissions = $user->getAllPermissions();
             expect($userPermissions)->toContain($permission);
@@ -200,11 +237,14 @@ describe('User Business Logic Integration', function () {
             $user->permissions()->attach([
                 $readPermission->id,
                 $writePermission->id,
+<<<<<<< HEAD
                 $deletePermission->id,
             ]);
 
             // Verifica che tutti i permessi siano assegnati
             expect($user->permissions)->toHaveCount(3);
+=======
+>>>>>>> fbc8f8e (.)
 
             // Verifica che non ci siano conflitti
             $userPermissions = $user->permissions->pluck('name')->toArray();
@@ -240,12 +280,15 @@ describe('User Business Logic Integration', function () {
             $profile = Profile::factory()->create(['user_id' => $user->id]);
             $team = Team::factory()->create();
 
+<<<<<<< HEAD
             // Verifica che le relazioni siano mantenute
             expect($profile->user_id)->toBe($user->id);
 
             // Tentativo di eliminare utente con relazioni
             $this->expectException(QueryException::class);
 
+=======
+>>>>>>> fbc8f8e (.)
             $user->delete();
         });
 
@@ -253,6 +296,7 @@ describe('User Business Logic Integration', function () {
             $user = User::factory()->create([
                 'first_name' => 'Mario',
                 'last_name' => 'Rossi',
+<<<<<<< HEAD
                 'email' => 'mario.rossi@example.com',
             ]);
 
@@ -265,6 +309,8 @@ describe('User Business Logic Integration', function () {
                 'first_name' => 'Marco',
                 'email' => 'marco.rossi@example.com',
             ]);
+=======
+>>>>>>> fbc8f8e (.)
 
             $user->refresh();
             expect($user->full_name)->toBe('Marco Rossi');
@@ -275,12 +321,15 @@ describe('User Business Logic Integration', function () {
             $user = User::factory()->create();
             $originalEmail = $user->email;
 
+<<<<<<< HEAD
             // Modifica email (operazione sensibile)
             $user->update(['email' => 'newemail@example.com']);
 
             // Verifica che i timestamp siano aggiornati
             expect($user->updated_at)->not->toBe($user->created_at);
 
+=======
+>>>>>>> fbc8f8e (.)
             // Verifica che l'email sia stata modificata
             expect($user->email)->not->toBe($originalEmail);
             expect($user->email)->toBe('newemail@example.com');
@@ -290,6 +339,7 @@ describe('User Business Logic Integration', function () {
     describe('Security Business Rules', function () {
         it('enforces password expiration policies', function () {
             $user = User::factory()->create([
+<<<<<<< HEAD
                 'password_expires_at' => now()->subDays(1),
             ]);
 
@@ -302,6 +352,8 @@ describe('User Business Logic Integration', function () {
                 'password' => Hash::make('NewPassword123!'),
                 'password_expires_at' => now()->addDays(90),
             ]);
+=======
+>>>>>>> fbc8f8e (.)
 
             $user->refresh();
             $isExpired = $user->password_expires_at->isFuture();
@@ -311,6 +363,7 @@ describe('User Business Logic Integration', function () {
         it('enforces account lockout policies', function () {
             $user = User::factory()->create([
                 'failed_login_attempts' => 5,
+<<<<<<< HEAD
                 'locked_until' => now()->addMinutes(30),
             ]);
 
@@ -323,6 +376,8 @@ describe('User Business Logic Integration', function () {
                 'failed_login_attempts' => 0,
                 'locked_until' => null,
             ]);
+=======
+>>>>>>> fbc8f8e (.)
 
             $user->refresh();
             expect($user->failed_login_attempts)->toBe(0);
@@ -332,6 +387,7 @@ describe('User Business Logic Integration', function () {
         it('enforces session management policies', function () {
             $user = User::factory()->create([
                 'last_login_at' => now()->subHours(2),
+<<<<<<< HEAD
                 'last_activity_at' => now()->subMinutes(30),
             ]);
 
@@ -344,6 +400,8 @@ describe('User Business Logic Integration', function () {
 
             // Aggiornamento attività
             $user->update(['last_activity_at' => now()]);
+=======
+>>>>>>> fbc8f8e (.)
 
             $user->refresh();
             expect($user->last_activity_at->diffInMinutes(now()))->toBeLessThan(1);

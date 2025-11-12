@@ -27,8 +27,12 @@ class Confirm extends Component
 
     public function render(): View|Factory
     {
+<<<<<<< HEAD
         app(ViewCopyAction::class)
             ->execute('user::livewire.auth.passwords.confirm', 'pub_theme::livewire.auth.passwords.confirm');
+=======
+        app(ViewCopyAction::class)->execute('user::livewire.auth.passwords.confirm', 'pub_theme::livewire.auth.passwords.confirm');
+>>>>>>> fbc8f8e (.)
         app(ViewCopyAction::class)->execute('user::layouts.auth', 'pub_theme::layouts.auth');
         app(ViewCopyAction::class)->execute('user::layouts.base', 'pub_theme::layouts.base');
 
@@ -37,9 +41,18 @@ class Confirm extends Component
          */
         $view = 'pub_theme::livewire.auth.passwords.confirm';
 
+<<<<<<< HEAD
         /** @var View|Factory $result */
         $result = view($view)->extends('pub_theme::layouts.auth');
 
         return $result;
+=======
+<<<<<<< HEAD
+        return view($view)->extends('pub_theme::layouts.auth');
+=======
+        return view($view)
+            ->extends('pub_theme::layouts.auth');
+>>>>>>> fbc8f8e (.)
+>>>>>>> 3753a57 (.)
     }
 }

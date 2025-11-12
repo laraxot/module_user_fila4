@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 
@@ -12,6 +13,17 @@ use function Laravel\Folio\name;
 name('password.request');
 
 new class extends Component {
+=======
+use Illuminate\Support\Facades\Password;
+use function Laravel\Folio\name;
+use Livewire\Volt\Component;
+use Livewire\Attributes\Validate;
+
+name('password.request');
+
+new class extends Component
+{
+>>>>>>> fbc8f8e (.)
     #[Validate('required|email')]
     public $email = null;
 
@@ -23,7 +35,11 @@ new class extends Component {
 
         $response = Password::broker()->sendResetLink(['email' => $this->email]);
 
+<<<<<<< HEAD
         if ($response === Password::RESET_LINK_SENT) {
+=======
+        if ($response == Password::RESET_LINK_SENT) {
+>>>>>>> fbc8f8e (.)
             $this->emailSentMessage = trans($response);
 
             return;
@@ -84,4 +100,8 @@ new class extends Component {
 
     </div>
 
+<<<<<<< HEAD
 </x-layouts.main>
+=======
+</x-layouts.main>
+>>>>>>> fbc8f8e (.)
