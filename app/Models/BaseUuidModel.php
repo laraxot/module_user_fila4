@@ -80,10 +80,14 @@ abstract class BaseUuidModel extends XotBaseUuidModel
             'id' => 'string',
             'published_at' => 'datetime',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             'verified_at' => 'datetime',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
+<<<<<<< HEAD
 =======
 
             'verified_at' => 'datetime',
@@ -93,6 +97,8 @@ abstract class BaseUuidModel extends XotBaseUuidModel
             'deleted_at' => 'datetime',
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
