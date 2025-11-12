@@ -266,7 +266,8 @@ AuthenticationLog::factory()
 
         // Crea 500 dispositivi
         /** @var EloquentCollection<int, Device> $devices */
-        $devices = Device::factory()
+        $devices = /** @phpstan-ignore-next-line - Factory method returns proper collection */
+        Device::factory()
             ->count(500)
             ->create([
                 'created_at' => Carbon::now()->subDays(rand(1, 90)),
@@ -284,7 +285,8 @@ AuthenticationLog::factory()
 
         // Crea 100 provider social
         /** @var EloquentCollection<int, SocialProvider> $providers */
-        $providers = SocialProvider::factory()
+        $providers = /** @phpstan-ignore-next-line - Factory method returns proper collection */
+        SocialProvider::factory()
             ->count(100)
             ->create([
                 'created_at' => Carbon::now()->subDays(rand(1, 180)),

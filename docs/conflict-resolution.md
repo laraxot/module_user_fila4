@@ -18,7 +18,7 @@
 
 ## Verifiche Effettuate
 - `php -l` su tutte le migrazioni/factory aggiornate: ✅
-- `./vendor/bin/phpstan analyse Modules/User` → ❌ (debito storico nei seeder, fuori scope)
+- `./vendor/bin/phpstan analyse Modules/User` → ✅ nessun errore (factory e seeder tipizzati)
 
 ## Note
 - Le migrazioni seguono la regola Laraxot: `return new class() extends XotBaseMigration { ... };`
