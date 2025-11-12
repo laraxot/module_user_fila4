@@ -6,7 +6,6 @@ namespace Modules\User\Filament\Resources\BaseProfileResource\Pages;
 
 use Illuminate\Support\Arr;
 use Modules\User\Filament\Resources\BaseProfileResource;
-use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
 
