@@ -61,7 +61,12 @@ mount(function() {
 
 ## Utilizzo Corretto di LaravelLocalization
 
+<<<<<<< HEAD
 Per garantire la compatibilità con il sistema di localizzazione di SaluteOra, è importante utilizzare le funzioni del pacchetto `mcamara/laravel-localization` invece di `app()->getLocale()`:
+=======
+Per garantire la compatibilità con il sistema di localizzazione di , è importante utilizzare le funzioni del pacchetto `mcamara/laravel-localization` invece di `app()->getLocale()`:
+Per garantire la compatibilità con il sistema di localizzazione di <nome progetto>, è importante utilizzare le funzioni del pacchetto `mcamara/laravel-localization` invece di `app()->getLocale()`:
+>>>>>>> 041533e (.)
 
 ```php
 // ERRATO
@@ -73,7 +78,12 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 $this->redirect(LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), route('home')));
 ```
 
+<<<<<<< HEAD
 Questo garantisce che l'utente venga reindirizzato alla versione localizzata della home page dopo il logout, rispettando le convenzioni di SaluteOra per la gestione della localizzazione.
+=======
+Questo garantisce che l'utente venga reindirizzato alla versione localizzata della home page dopo il logout, rispettando le convenzioni di  per la gestione della localizzazione.
+Questo garantisce che l'utente venga reindirizzato alla versione localizzata della home page dopo il logout, rispettando le convenzioni di <nome progetto> per la gestione della localizzazione.
+>>>>>>> 041533e (.)
 
 ## Template Blade con Componenti Filament
 
@@ -105,7 +115,12 @@ Il template Blade per il logout dovrebbe utilizzare i componenti Filament e most
 2. **Feedback Visivo**: L'utente riceve un feedback chiaro durante il processo di logout
 3. **Gestione Errori Robusta**: Gli errori vengono catturati e gestiti appropriatamente
 4. **Esperienza Utente Migliorata**: L'interfaccia è più intuitiva e reattiva
+<<<<<<< HEAD
 5. **Localizzazione Corretta**: Gli URL generati rispettano le convenzioni di SaluteOra per la localizzazione
+=======
+5. **Localizzazione Corretta**: Gli URL generati rispettano le convenzioni di  per la localizzazione
+5. **Localizzazione Corretta**: Gli URL generati rispettano le convenzioni di <nome progetto> per la localizzazione
+>>>>>>> 041533e (.)
 
 ## Chiavi di Traduzione per il Logout
 
