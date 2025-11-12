@@ -126,7 +126,12 @@ done
 1. **Dati Realistici**: Non solo lorem ipsum, ma dati significativi
 2. **Relazioni**: Gestire correttamente foreign key e relazioni
 3. **Stati**: Metodi per creare istanze in stati specifici
+<<<<<<< HEAD
 4. **Localizzazione**: Dati italiani per SaluteOra (CAP, città, regioni)
+=======
+4. **Localizzazione**: Dati italiani per  (CAP, città, regioni)
+4. **Localizzazione**: Dati italiani per <nome progetto> (CAP, città, regioni)
+>>>>>>> 041533e (.)
 5. **Variabilità**: Stati diversi per testing completo
 
 ## Impatto Sistemico Risolto
@@ -152,7 +157,10 @@ done
 - [Geo Factory Audit](../../Geo/docs/missing-factories-audit.md)
 - [Laravel Factory Best Practices](../../../docs/laravel-factory-best-practices.md)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 041533e (.)
 ---
 
 **🚨 ERRORE GRAVISSIMO DA NON RIPETERE MAI PIÙ**
