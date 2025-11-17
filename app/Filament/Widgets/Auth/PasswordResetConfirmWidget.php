@@ -137,7 +137,7 @@ class PasswordResetConfirmWidget extends XotBaseWidget
 
                 // Auto-login the user after successful password reset
                 // $user = \Modules\Xot\Datas\XotData::make()->getUserClass()::where('email', $data['email'])->first();
-                Assert::string($email = $data['email'], __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
+                Assert::string($email = $data['email'], __FILE__.':'.__LINE__.' - '.class_basename(self::class));
                 $user = XotData::make()->getUserByEmail($email);
                 // if ($user) {
                 Auth::guard()->login($user);
@@ -152,30 +152,6 @@ class PasswordResetConfirmWidget extends XotBaseWidget
         } catch (Exception $e) {
             $this->handleResetError('passwords.generic_error');
         }
-    }
-
-    /**
-     * Handle password reset errors.
-     */
-    protected function handleResetError(string $response): void
-    {
-        $this->currentState = 'error';
-
-        // Map Laravel password reset responses to user-friendly messages
-        $errorMessages = [
-            Password::INVALID_TOKEN => __('user::auth.password_reset.errors.invalid_token'),
-            Password::INVALID_USER => __('user::auth.password_reset.errors.invalid_user'),
-            'passwords.generic_error' => __('user::auth.password_reset.errors.generic'),
-        ];
-
-        $this->errorMessage = $errorMessages[$response] ?? trans($response);
-
-        Notification::make()
-            ->title(__('user::auth.password_reset.errors.title'))
-            ->body($this->errorMessage)
-            ->danger()
-            ->duration(10000)
-            ->send();
     }
 
     /**
@@ -234,5 +210,29 @@ class PasswordResetConfirmWidget extends XotBaseWidget
     public function hasError(): bool
     {
         return $this->currentState === 'error';
+    }
+
+    /**
+     * Handle password reset errors.
+     */
+    protected function handleResetError(string $response): void
+    {
+        $this->currentState = 'error';
+
+        // Map Laravel password reset responses to user-friendly messages
+        $errorMessages = [
+            Password::INVALID_TOKEN => __('user::auth.password_reset.errors.invalid_token'),
+            Password::INVALID_USER => __('user::auth.password_reset.errors.invalid_user'),
+            'passwords.generic_error' => __('user::auth.password_reset.errors.generic'),
+        ];
+
+        $this->errorMessage = $errorMessages[$response] ?? trans($response);
+
+        Notification::make()
+            ->title(__('user::auth.password_reset.errors.title'))
+            ->body($this->errorMessage)
+            ->danger()
+            ->duration(10000)
+            ->send();
     }
 }

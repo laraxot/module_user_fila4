@@ -33,14 +33,14 @@ abstract class BaseUuidModel extends XotBaseUuidModel
     /** @var bool */
     public $incrementing = false;
 
+    /** @var bool */
+    public $timestamps = true;
+
     /** @var string */
     protected $keyType = 'string';
 
     /** @var string */
     protected $primaryKey = 'id';
-
-    /** @var bool */
-    public $timestamps = true;
 
     /** @var int */
     protected $perPage = 30;

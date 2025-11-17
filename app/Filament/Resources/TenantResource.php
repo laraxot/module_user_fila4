@@ -10,7 +10,6 @@ namespace Modules\User\Filament\Resources;
 
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\TextInput;
-use Filament\Resources\Resource;
 use Filament\Schemas\Components\Section;
 use Filament\Support\Components\Component;
 use Illuminate\Database\Eloquent\Model;
@@ -19,7 +18,6 @@ use Modules\User\Filament\Resources\TenantResource\Pages\CreateTenant;
 use Modules\User\Filament\Resources\TenantResource\Pages\EditTenant;
 use Modules\User\Filament\Resources\TenantResource\Pages\ListTenants;
 use Modules\User\Filament\Resources\TenantResource\Pages\ViewTenant;
-use Modules\User\Filament\Resources\TenantResource\RelationManagers;
 use Modules\User\Filament\Resources\TenantResource\RelationManagers\UsersRelationManager;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\XotBaseResource;
@@ -38,9 +36,7 @@ class TenantResource extends XotBaseResource
     public static function getModel(): string
     {
         $xot = XotData::make();
-        $model = $xot->getTenantClass();
-
-        return $model;
+        return $xot->getTenantClass();
     }
 
     /**
@@ -59,7 +55,7 @@ class TenantResource extends XotBaseResource
                             ignoreRecord: true,
                         )
                         ->live(onBlur: true)
-                        ->afterStateUpdated(function (callable $set, $state) {
+                        ->afterStateUpdated(function (callable $set, $state): void {
                             if (is_string($state)) {
                                 $set('slug', Str::slug($state));
                                 $set('domain', Str::slug($state));

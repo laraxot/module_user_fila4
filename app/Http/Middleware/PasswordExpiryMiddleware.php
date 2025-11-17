@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Http\Middleware;
 
 use Closure;
-use Filament\Facades\Filament;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -20,16 +19,12 @@ class PasswordExpiryMiddleware
     {
         if ($request->routeIs('password.change') || $request->routeIs('password.update')) {
             /** @var Response|RedirectResponse $response */
-            $response = $next($request);
-
-            return $response;
+            return $next($request);
         }
 
         if ($request->routeIs($this->getPasswordExpiryRoute()) || $request->routeIs('*.auth.*')) {
             /** @var Response|RedirectResponse $response */
-            $response = $next($request);
-
-            return $response;
+            return $next($request);
         }
 
         if ($this->passwordHasExpired()) {
@@ -37,9 +32,7 @@ class PasswordExpiryMiddleware
         }
 
         /** @var Response|RedirectResponse $response */
-        $response = $next($request);
-
-        return $response;
+        return $next($request);
     }
 
     public function getPasswordExpiryRoute(): string

@@ -10,8 +10,6 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\ExportBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\BaseFilter;
-use Filament\Tables\Filters\Filter;
-use Illuminate\Database\Query\Builder;
 use Modules\User\Filament\Actions\ChangePasswordAction;
 use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
@@ -70,14 +68,6 @@ class ListUsers extends BaseListUsers
         ];
     }
 
-    #[Override]
-    protected function getHeaderWidgets(): array
-    {
-        return [
-            UserOverview::class,
-        ];
-    }
-
     /**
      * @return array<string, BulkAction>
      */
@@ -87,6 +77,14 @@ class ListUsers extends BaseListUsers
         return [
             'delete' => DeleteBulkAction::make(),
             'export' => ExportBulkAction::make(),
+        ];
+    }
+
+    #[Override]
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            UserOverview::class,
         ];
     }
 }

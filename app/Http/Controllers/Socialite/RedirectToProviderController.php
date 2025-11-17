@@ -14,9 +14,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Request;
 use Laravel\Socialite\Facades\Socialite;
 use Modules\User\Actions\Socialite\GetProviderScopesAction;
-use Modules\User\Actions\Socialite\IsProviderConfiguredAction;
 use Modules\User\Actions\Socialite\ValidateProviderAction;
-use Modules\User\Exceptions\ProviderNotConfigured;
 
 class RedirectToProviderController extends Controller
 {

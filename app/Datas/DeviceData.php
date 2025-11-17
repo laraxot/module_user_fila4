@@ -93,7 +93,7 @@ class DeviceData extends Data
         Assert::object($synchronization);
 
         $syncId = $synchronization->getAttribute('id');
-        Assert::string($syncId, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
+        Assert::string($syncId, __FILE__.':'.__LINE__.' - '.class_basename(self::class));
         $this->synchronizationId = $syncId;
 
         return $this->synchronizationId;

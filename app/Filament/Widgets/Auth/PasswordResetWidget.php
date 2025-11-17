@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
-use Filament\Forms;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
@@ -60,7 +59,6 @@ class PasswordResetWidget extends XotBaseWidget
 
                         return new HtmlString($str);
                     }
-
                 })
                 ->reactive(),
         ];

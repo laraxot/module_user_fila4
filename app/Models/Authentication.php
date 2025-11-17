@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Carbon;
 
@@ -70,6 +69,11 @@ class Authentication extends BaseModel
         'authenticatable_id',
     ];
 
+    public function authenticatable(): MorphTo
+    {
+        return $this->morphTo();
+    }
+
     /**
      * The attributes that should be cast.
      *
@@ -82,10 +86,5 @@ class Authentication extends BaseModel
             'logout_at' => 'datetime',
             'login_successful' => 'boolean',
         ];
-    }
-
-    public function authenticatable(): MorphTo
-    {
-        return $this->morphTo();
     }
 }

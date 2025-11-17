@@ -27,14 +27,12 @@ class RegisterTenant extends BaseRegisterTenant
         if (Str::startsWith($func, 'get_')) {
             $func = Str::of($func)->after('get_')->toString();
         }
-        $key = Str::of(class_basename(__CLASS__))
+        $key = Str::of(class_basename(self::class))
             ->snake()
             ->prepend('actions.')
             ->append('.'.$func)
             ->toString();
-        $str = static::transClass($tenantClass, $key);
-
-        return $str;
+        return static::transClass($tenantClass, $key);
     }
 
     public function form(Schema $schema): Schema
@@ -58,9 +56,7 @@ class RegisterTenant extends BaseRegisterTenant
     public function getFormSchema(): array
     {
         /** @var array<\Filament\Schemas\Components\Component> $schema */
-        $schema = $this->resource::getFormSchema();
-
-        return $schema;
+        return $this->resource::getFormSchema();
     }
 
     /**

@@ -91,6 +91,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @method static Builder|User withoutRole($roles, $guard = null)
  *
  * @property string $last_name
+ *
  * @property-read Team|null $currentTeam
  * @property-read MediaCollection<int, Media> $media
  * @property-read int|null $media_count
@@ -99,6 +100,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @property-read Collection<int, Membership> $teamUsers
  * @property-read int|null $team_users_count
  * @property-read Collection<int, \Modules\User\Models\User> $all_team_users
+ *
  * @property string|null $phone
  * @property string|null $address
  * @property string|null $city

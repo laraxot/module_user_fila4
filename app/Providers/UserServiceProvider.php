@@ -11,7 +11,6 @@ namespace Modules\User\Providers;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Log;
@@ -53,16 +52,6 @@ class UserServiceProvider extends XotBaseServiceProvider
         $this->registerTeamModelBindings();
     }
 
-    /**
-     * Register the team model bindings.
-     */
-    protected function registerTeamModelBindings(): void
-    {
-        $this->app->bind('team_user_model', fn () => TeamUser::class);
-
-        $this->app->bind('team_invitation_model', fn () => TeamInvitation::class);
-    }
-
     public function registerMailsNotification(): void
     {
         $app_name = config('app.name');
@@ -102,7 +91,7 @@ class UserServiceProvider extends XotBaseServiceProvider
             } else {
                 // Fallback per debug
                 Log::error('SpatieEmail: Destinatario email non trovato', [
-                    'notifiable_class' => get_class($notifiable),
+                    'notifiable_class' => $notifiable::class,
                     'notifiable_id' => $notifiable->id ?? 'unknown',
                 ]);
             }
@@ -158,6 +147,16 @@ class UserServiceProvider extends XotBaseServiceProvider
 
             return $pwd->getPasswordRule();
         });
+    }
+
+    /**
+     * Register the team model bindings.
+     */
+    protected function registerTeamModelBindings(): void
+    {
+        $this->app->bind('team_user_model', fn () => TeamUser::class);
+
+        $this->app->bind('team_invitation_model', fn () => TeamInvitation::class);
     }
 
     protected function registerAuthenticationProviders(): void

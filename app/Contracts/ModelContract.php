@@ -24,23 +24,25 @@ interface ModelContract
      *
      * @return static The model instance without relations
      */
-    public function withoutRelations();
+    public function withoutRelations(): static;
 
     /**
      * Fill the model with an array of attributes. Force mass assignment.
      *
      * @param  array<string, mixed>  $attributes  Gli attributi da assegnare al modello
+     *
      * @return static Il modello stesso
      */
-    public function forceFill(array $attributes);
+    public function forceFill(array $attributes): static;
 
     /**
      * Save the model to the database.
      *
      * @param  array<string, mixed>  $options  Opzioni per il salvataggio
+     *
      * @return bool True se il salvataggio è avvenuto con successo, false altrimenti
      */
-    public function save(array $options = []);
+    public function save(array $options = []): bool;
 
     /*
      * Save a new model and return the instance. Allow mass-assignment.
@@ -56,14 +58,14 @@ interface ModelContract
      *
      * @return array<string, mixed> Il modello convertito in array
      */
-    public function toArray();
+    public function toArray(): array;
 
     /**
      * Get the value of the model's primary key.
      *
      * @return string|int|null Il valore della chiave primaria
      */
-    public function getKey();
+    public function getKey(): string|int|null;
 
     /*
      * Add a basic where clause to the query.

@@ -11,12 +11,9 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Schemas\Components\Component;
-use Filament\Schemas\Schema;
-use Filament\Widgets\Widget;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules\Password as PasswordRule;
 use Modules\User\Datas\PasswordData;
 use Modules\User\Http\Response\PasswordResetResponse;
 use Modules\User\Models\User;
@@ -71,9 +68,7 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
 
         // Ensure list type for PHPStan Level 10
         /** @var array<int, \Filament\Schemas\Components\Component> $result */
-        $result = array_values($schema);
-
-        return $result;
+        return array_values($schema);
     }
 
     /**
@@ -130,7 +125,7 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
         $user->setAttribute('password', Hash::make($newPassword));
         $user->save();
 
-        return new PasswordResetResponse;
+        return new PasswordResetResponse();
     }
 
     /**

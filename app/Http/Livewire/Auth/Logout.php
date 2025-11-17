@@ -28,10 +28,8 @@ class Logout extends Component
 
     /**
      * Esegui logout, invalidazione sessione e redirect.
-     *
-     * @return RedirectResponse|null
      */
-    public function mount()
+    public function mount(): ?RedirectResponse
     {
         try {
             // Rate limit

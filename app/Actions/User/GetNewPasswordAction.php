@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace Modules\User\Actions\User;
 
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 use Modules\Xot\Actions\String\GetPronounceablePasswordAction;
 use Modules\Xot\Contracts\UserContract;
-use Modules\Xot\Datas\XotData;
 use Spatie\QueueableAction\QueueableAction;
 
 class GetNewPasswordAction

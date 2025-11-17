@@ -36,14 +36,6 @@ use Throwable;
  */
 class LogoutWidget extends XotBaseWidget
 {
-    /**
-     * The view to render the widget.
-     *
-     * IMPORTANT: When using @livewire() directly in Blade templates,
-     * the path should be without the module namespace.
-     */
-    /** @phpstan-ignore-next-line property.defaultValue */
-    protected string $view = 'user::widgets.logout';
 
     /**
      * Widget data array.
@@ -59,6 +51,14 @@ class LogoutWidget extends XotBaseWidget
      * Indicates if the logout process is in progress.
      */
     public bool $isLoggingOut = false;
+    /**
+     * The view to render the widget.
+     *
+     * IMPORTANT: When using @livewire() directly in Blade templates,
+     * the path should be without the module namespace.
+     */
+    /** @phpstan-ignore-next-line property.defaultValue */
+    protected string $view = 'user::widgets.logout';
 
     /**
      * Mount the widget and initialize the form.
@@ -101,7 +101,6 @@ class LogoutWidget extends XotBaseWidget
      * 5. Dispatches post-logout events
      * 6. Logs the operation
      * 7. Handles redirection with proper localization
-     *
      *
      * @throws RuntimeException If the logout process fails
      */
@@ -240,19 +239,18 @@ class LogoutWidget extends XotBaseWidget
         $redirect = redirect($this->getLocalizedHomeUrl())->with('success', __('user::auth.logout_success'));
 
         $redirect->send();
-        exit();
+        exit;
     }
 
     /**
      * Handle any errors that occur during logout.
-     *
      *
      * @throws RuntimeException
      */
     protected function handleLogoutError(Throwable $e): void
     {
         Log::error('Logout error: '.$e->getMessage(), [
-            'exception' => get_class($e),
+            'exception' => $e::class,
             'trace' => $e->getTraceAsString(),
         ]);
 

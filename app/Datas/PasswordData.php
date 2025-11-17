@@ -10,8 +10,6 @@ namespace Modules\User\Datas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TextInput as FormsTextInput;
-use Filament\Forms\Get;
-use Filament\Schemas\Components\Component;
 use Illuminate\Validation\Rules\Password;
 use InvalidArgumentException;
 use Modules\Tenant\Services\TenantService;
@@ -23,6 +21,8 @@ use Spatie\LaravelData\Data;
  */
 class PasswordData extends Data
 {
+
+    private static ?self $instance = null;
     public function __construct(
         public int $otp_expiration_minutes = 5,
         public int $otp_length = 6,
@@ -36,9 +36,8 @@ class PasswordData extends Data
         public int $compromisedThreshold = 0,
         public ?string $failMessage = null,
         private ?string $field_name = null,
-    ) {}
-
-    private static ?self $instance = null;
+    ) {
+    }
 
     /**
      * Crea un'istanza della classe PasswordData.

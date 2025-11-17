@@ -22,8 +22,7 @@ class OauthClientPolicy extends UserBasePolicy
      */
     public function view(UserContract $user, OauthClient $oauthClient): bool
     {
-        return
-            $user->hasPermissionTo('oauth-client.view') ||
+        return $user->hasPermissionTo('oauth-client.view') ||
             $user->id === $oauthClient->user_id ||
             $user->hasRole('super-admin');
     }

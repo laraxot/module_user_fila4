@@ -79,11 +79,11 @@ class UserResource extends XotBaseResource
                     }
                     if ($createdAt instanceof \Carbon\CarbonInterface) {
                         return $createdAt->diffForHumans();
-                    } elseif ($createdAt instanceof \DateTimeInterface) {
-                        return $createdAt->format('Y-m-d H:i:s');
-                    } else {
-                        return new HtmlString('&mdash;');
                     }
+                    if ($createdAt instanceof \DateTimeInterface) {
+                        return $createdAt->format('Y-m-d H:i:s');
+                    }
+                    return new HtmlString('&mdash;');
                 }),
             ])->columnSpan(4),
         ];

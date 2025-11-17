@@ -12,7 +12,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
-use Modules\User\Actions\Socialite\IsProviderConfiguredAction;
 use Modules\User\Actions\Socialite\IsRegistrationEnabledAction;
 use Modules\User\Actions\Socialite\IsUserAllowedAction;
 use Modules\User\Actions\Socialite\LoginUserAction;
@@ -25,7 +24,6 @@ use Modules\User\Actions\Socialite\SetDefaultRolesBySocialiteUserAction;
 use Modules\User\Actions\Socialite\ValidateProviderAction;
 use Modules\User\Events\RegistrationNotEnabled;
 use Modules\User\Events\UserNotAllowed;
-use Modules\User\Exceptions\ProviderNotConfigured;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 

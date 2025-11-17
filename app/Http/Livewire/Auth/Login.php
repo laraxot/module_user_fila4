@@ -17,7 +17,6 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Modules\Xot\Actions\File\ViewCopyAction;
 
 /**
  * Componente Livewire per la gestione del login.
@@ -42,41 +41,6 @@ class Login extends Component implements HasActions, HasForms
     public function mount(): void
     {
         $this->form->fill();
-    }
-
-    /**
-     * Definisce lo schema del form.
-     *
-     * @return array<TextInput|Checkbox>
-     */
-    protected function getFormSchema(): array
-    {
-        return [
-            TextInput::make('email')
-                ->email()
-                ->required()
-                ->label(__('Email'))
-                ->placeholder(__('Inserisci la tua email'))
-                ->suffixIcon('heroicon-m-envelope')
-                ->autofocus()
-                ->live()
-                ->afterStateUpdated(fn ($_state) => $this->validateOnly('email'))
-                ->dehydrated(),
-            TextInput::make('password')
-                ->password()
-                ->required()
-                ->label(__('Password'))
-                ->placeholder(__('Inserisci la tua password'))
-                ->suffixIcon('heroicon-m-key')
-                ->revealable()
-                ->minLength(8)
-                ->maxLength(255)
-                ->dehydrated(),
-            Checkbox::make('remember')
-                ->label(__('Ricordami'))
-                ->default(false)
-                ->dehydrated(),
-        ];
     }
 
     /**
@@ -121,6 +85,50 @@ class Login extends Component implements HasActions, HasForms
     }
 
     /**
+     * Renderizza il componente.
+     */
+    public function render(): View|Factory
+    {
+        // app(ViewCopyAction::class)->execute('user::livewire.auth.login', 'pub_theme::livewire.auth.login');
+        return view('user::livewire.auth.login');
+    }
+
+    /**
+     * Definisce lo schema del form.
+     *
+     * @return array<TextInput|Checkbox>
+     */
+    protected function getFormSchema(): array
+    {
+        return [
+            TextInput::make('email')
+                ->email()
+                ->required()
+                ->label(__('Email'))
+                ->placeholder(__('Inserisci la tua email'))
+                ->suffixIcon('heroicon-m-envelope')
+                ->autofocus()
+                ->live()
+                ->afterStateUpdated(fn ($_state) => $this->validateOnly('email'))
+                ->dehydrated(),
+            TextInput::make('password')
+                ->password()
+                ->required()
+                ->label(__('Password'))
+                ->placeholder(__('Inserisci la tua password'))
+                ->suffixIcon('heroicon-m-key')
+                ->revealable()
+                ->minLength(8)
+                ->maxLength(255)
+                ->dehydrated(),
+            Checkbox::make('remember')
+                ->label(__('Ricordami'))
+                ->default(false)
+                ->dehydrated(),
+        ];
+    }
+
+    /**
      * Determina l'URL di redirect appropriato per l'utente autenticato.
      */
     protected function getRedirectUrl(): RedirectResponse
@@ -149,14 +157,5 @@ class Login extends Component implements HasActions, HasForms
 
         // Utente senza ruoli admin - redirect alla homepage
         return redirect()->to('/'.app()->getLocale());
-    }
-
-    /**
-     * Renderizza il componente.
-     */
-    public function render(): View|Factory
-    {
-        // app(ViewCopyAction::class)->execute('user::livewire.auth.login', 'pub_theme::livewire.auth.login');
-        return view('user::livewire.auth.login');
     }
 }

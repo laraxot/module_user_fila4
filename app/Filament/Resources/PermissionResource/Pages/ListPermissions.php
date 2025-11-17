@@ -19,7 +19,6 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\BaseFilter;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Resources\PermissionResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Override;
@@ -74,17 +73,6 @@ class ListPermissions extends XotBaseListRecords
     }
 
     /**
-     * @return array<string, Action>
-     */
-    #[Override]
-    protected function getHeaderActions(): array
-    {
-        return [
-            'create' => CreateAction::make(),
-        ];
-    }
-
-    /**
      * @return array<string, BulkAction>
      */
     #[Override]
@@ -121,12 +109,21 @@ class ListPermissions extends XotBaseListRecords
                         /** @var \Illuminate\Support\Collection<string|int, string> $collection */
                         $collection = $query->pluck('name', 'id');
                         /** @var array<string|int, string> $options */
-                        $options = $collection->toArray();
-
-                        return $options;
+                        return $collection->toArray();
                     })->required(),
                 ])
                 ->deselectRecordsAfterCompletion(),
+        ];
+    }
+
+    /**
+     * @return array<string, Action>
+     */
+    #[Override]
+    protected function getHeaderActions(): array
+    {
+        return [
+            'create' => CreateAction::make(),
         ];
     }
 }

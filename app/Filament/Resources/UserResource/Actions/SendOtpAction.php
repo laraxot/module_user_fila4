@@ -7,7 +7,6 @@ namespace Modules\User\Filament\Resources\UserResource\Actions;
 use Filament\Actions\Action;
 use Modules\User\Actions\Otp\SendOtpByUserAction;
 use Modules\User\Models\User;
-use Modules\Xot\Contracts\UserContract;
 use RuntimeException;
 
 /**
@@ -21,7 +20,7 @@ class SendOtpAction extends Action
 
         $this->tooltip(trans('user::otp.actions.send_otp'))
             ->icon('heroicon-o-key')
-            ->action(function (User $record) {
+            ->action(function (User $record): void {
                 // User already implements UserContract, no need for assertion
                 $action = app(SendOtpByUserAction::class);
                 if ($action === null) {

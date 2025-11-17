@@ -6,7 +6,6 @@ namespace Modules\User\Http\Volt;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
-use Volt\Routing\Attribute\Post;
 
 /*
  * Attribute class Volt\Routing\Attribute\Post does not exist.

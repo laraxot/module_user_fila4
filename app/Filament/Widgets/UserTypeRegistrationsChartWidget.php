@@ -13,13 +13,13 @@ use Override;
 
 class UserTypeRegistrationsChartWidget extends XotBaseChartWidget
 {
+
+    public string $model;
     protected ?string $heading = null;
 
     protected static ?int $sort = 1;
 
     protected static bool $isLazy = true;
-
-    public string $model;
 
     #[Override]
     public function getHeading(): ?string
@@ -66,7 +66,7 @@ class UserTypeRegistrationsChartWidget extends XotBaseChartWidget
                 'datasets' => [
                     [
                         'label' => static::transClass($this->model, 'widgets.user_type_registrations_chart.label'),
-                        'data' => $data->map(fn (mixed $value) => ($value instanceof TrendValue)
+                        'data' => $data->map(fn (mixed $value) => $value instanceof TrendValue
                             ? $value->aggregate
                             : 0),
                         'backgroundColor' => 'rgba(59, 130, 246, 0.5)',
@@ -75,7 +75,7 @@ class UserTypeRegistrationsChartWidget extends XotBaseChartWidget
                         'tension' => 0.4,
                     ],
                 ],
-                'labels' => $data->map(fn (mixed $value) => ($value instanceof TrendValue)
+                'labels' => $data->map(fn (mixed $value) => $value instanceof TrendValue
                     ? \Carbon\Carbon::parse($value->date)->format('d/m')
                     : ''),
             ];

@@ -12,8 +12,6 @@ use Modules\User\Events\NewPasswordSet;
 use Modules\Xot\Datas\XotData;
 use Webmozart\Assert\Assert;
 
-use function Laravel\Prompts\password;
-
 class ChangePasswordCommand extends Command
 {
     protected $signature = 'user:change-password';
@@ -35,7 +33,7 @@ class ChangePasswordCommand extends Command
         if (! $user->exists()) {
             Assert::false(
                 $user->exists(),
-                __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__).' - User model should exist in database before password change'
+                __FILE__.':'.__LINE__.' - '.class_basename(self::class).' - User model should exist in database before password change'
             );
             $this->error('User not found or not persisted. Please create the user first (name, email, type, etc.).');
 

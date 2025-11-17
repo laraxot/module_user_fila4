@@ -69,7 +69,7 @@ trait InteractsWithTenant
      */
     protected static function bootInteractsWithTenant(): void
     {
-        static::addGlobalScope(new TenantScope);
+        static::addGlobalScope(new TenantScope());
 
         static::creating(static function ($model): void {
             // PHPStan Level 10: Verifica se il modello ha tenant_id
@@ -116,7 +116,7 @@ trait InteractsWithTenant
         if ($tenant !== null) {
             $tenantId = $tenant->getKey();
             if ($tenantId !== null) {
-                static::addGlobalScope(new TenantScope);
+                static::addGlobalScope(new TenantScope());
             }
         }
     }

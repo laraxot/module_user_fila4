@@ -6,9 +6,7 @@ namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
-use Filament\Schemas\Schema;
 use Filament\Tables\Columns\Column;
-use Filament\Tables\Table;
 use Modules\User\Filament\Resources\TenantResource\Pages\ListTenants;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Override;
@@ -53,10 +51,9 @@ class TenantsRelationManager extends XotBaseRelationManager
         }
 
         /** @var array<string, Column> $columns */
-        $columns = $listTenants->getTableColumns();
+        return $listTenants->getTableColumns();
 
         // All columns are already of type Column from ListTenants
         // PHPStan Level 10: No need to filter as type is guaranteed
-        return $columns;
     }
 }

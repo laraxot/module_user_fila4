@@ -29,8 +29,6 @@ class UsersRelationManager extends XotBaseRelationManager
     #[Override]
     public function table(Table $table): Table
     {
-        $table = UserResource::table($table);
-
-        return $table;
+        return UserResource::table($table);
     }
 }

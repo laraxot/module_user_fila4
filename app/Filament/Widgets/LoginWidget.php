@@ -9,7 +9,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Component;
-use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
@@ -67,15 +66,6 @@ class LoginWidget extends XotBaseWidget
                 ->revealable(),
             Toggle::make('remember')->visible(false),
         ];
-    }
-
-    /**
-     * Get the form model.
-     */
-    #[Override]
-    protected function getFormModel(): ?Model
-    {
-        return null;
     }
 
     /**
@@ -154,5 +144,14 @@ class LoginWidget extends XotBaseWidget
 
             $this->addError('email', __('user::messages.login_error'));
         }
+    }
+
+    /**
+     * Get the form model.
+     */
+    #[Override]
+    protected function getFormModel(): ?Model
+    {
+        return null;
     }
 }

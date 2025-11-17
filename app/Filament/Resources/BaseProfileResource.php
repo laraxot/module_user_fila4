@@ -5,11 +5,8 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 // // use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable; // Temporaneamente commentato per compatibilità Filament 4.x
-use Filament\Forms;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
-use Illuminate\Database\Eloquent\Collection;
-use Modules\User\Filament\Resources\BaseProfileResource\Pages;
 use Modules\User\Filament\Resources\BaseProfileResource\Pages\ListProfiles;
 use Modules\User\Models\BaseProfile;
 use Modules\Xot\Filament\Resources\XotBaseResource;

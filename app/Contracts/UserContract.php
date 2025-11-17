@@ -80,10 +80,8 @@ interface UserContract extends Authenticatable
 
     /**
      * Determine if the user has the given role.
-     *
-     * @param  string|array|Role|\Illuminate\Support\Collection  $roles
      */
-    public function hasRole($roles, ?string $guard = null): bool;
+    public function hasRole(string|array|Role|\Illuminate\Support\Collection $roles, ?string $guard = null): bool;
 
     /**
      * Get the user's authentication logs.

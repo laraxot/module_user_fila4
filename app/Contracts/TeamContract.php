@@ -97,10 +97,9 @@ interface TeamContract extends ModelContract
     /**
      * Reload a fresh model instance from the database.
      *
-     * @param  array|string  $with
      * @return static|null
      */
-    public function fresh($with = []);
+    public function fresh(array|string $with = []): ?static;
 
     public function members(): BelongsToMany;
 }

@@ -69,7 +69,7 @@ abstract class BaseMorphPivot extends MorphPivot
      *
      * @return Factory<static>
      */
-    protected static function newFactory()
+    protected static function newFactory(): Factory
     {
         // return app(\Modules\Xot\Actions\Factory\GetFactoryAction::class)->execute(static::class);
         return app(GetFactoryAction::class)->execute(static::class);

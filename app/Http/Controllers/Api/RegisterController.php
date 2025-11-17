@@ -13,6 +13,7 @@
  * If the validation fails, an error response is returned with the validation errors.
  *
  * @param  Request  $request  The incoming request
+ *
  * @return JsonResponse The JSON response
  */
 declare(strict_types=1);

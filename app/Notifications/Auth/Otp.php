@@ -24,12 +24,14 @@ class Otp extends Notification implements ShouldQueue
     public function __construct(
         public UserContract $user,
         public string $code,
-    ) {}
+    ) {
+    }
 
     /**
      * Get the notification's delivery channels.
      *
      * @param  mixed  $_notifiable  L'entità da notificare
+     *
      * @return array<int, string>
      */
     public function via(mixed $_notifiable): array
@@ -39,17 +41,14 @@ class Otp extends Notification implements ShouldQueue
 
     /**
      * Get the mail representation of the notification.
-     *
-     * @param  AnonymousNotifiable  $notifiable
-     * @return MailMessage
      */
-    public function toMail($notifiable)
+    public function toMail(AnonymousNotifiable $notifiable): MailMessage
     {
         $pwd = PasswordData::make();
         /** @var string */
         $app_name = config('app.name');
 
-        $mailMessage = new MailMessage;
+        $mailMessage = new MailMessage();
         $mailMessage = $mailMessage->template('user::notifications.email');
         $mailMessage = $mailMessage->subject(__('user::otp.mail.subject'));
         $mailMessage = $mailMessage->greeting(__('user::otp.mail.greeting'));
@@ -64,10 +63,8 @@ class Otp extends Notification implements ShouldQueue
 
     /**
      * Get the array representation of the notification.
-     *
-     * @return array
      */
-    public function toArray(UserContract $notifiable)
+    public function toArray(UserContract $notifiable): array
     {
         return [];
     }

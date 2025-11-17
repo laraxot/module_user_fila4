@@ -18,17 +18,6 @@ final class RecentLoginsWidget extends BaseWidget
     protected int|string|array $columnSpan = 'full';
 
     /**
-     * Define the query to fetch recent logins.
-     */
-    protected function getTableQuery(): Builder
-    {
-        return AuthenticationLog::query()
-            ->where('login_successful', true)
-            ->orderBy('login_at', 'desc')
-            ->limit(10);
-    }
-
-    /**
      * Define the columns to display in the table.
      */
     public function getTableColumns(): array
@@ -49,5 +38,16 @@ final class RecentLoginsWidget extends BaseWidget
     public function getTableActions(): array
     {
         return [];
+    }
+
+    /**
+     * Define the query to fetch recent logins.
+     */
+    protected function getTableQuery(): Builder
+    {
+        return AuthenticationLog::query()
+            ->where('login_successful', true)
+            ->orderBy('login_at', 'desc')
+            ->limit(10);
     }
 }

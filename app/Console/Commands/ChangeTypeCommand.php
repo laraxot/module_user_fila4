@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace Modules\User\Console\Commands;
 
 use Illuminate\Console\Command;
+use function Laravel\Prompts\select;
+use function Laravel\Prompts\text;
 use Modules\Xot\Actions\Cast\SafeObjectCastAction;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Webmozart\Assert\Assert;
-
-use function Laravel\Prompts\select;
-use function Laravel\Prompts\text;
 
 /**
  * Command to change user type based on project configuration.

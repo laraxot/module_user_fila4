@@ -13,7 +13,6 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Widgets\ChartWidget;
 // use Filament\Widgets\Concerns\InteractsWithPageFilters; // Temporaneamente commentato per evitare conflitti trait in Filament 4.x
 use Flowframe\Trend\Trend;
-use Flowframe\Trend\TrendValue;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Carbon;
 use Modules\User\Models\AuthenticationLog;
@@ -48,7 +47,7 @@ class UsersChartWidget extends ChartWidget implements HasActions, HasForms
     {
         return Action::make('test')
             ->requiresConfirmation()
-            ->action(function (array $arguments) {
+            ->action(function (array $arguments): void {
                 dd('Test action called', $arguments);
             });
     }

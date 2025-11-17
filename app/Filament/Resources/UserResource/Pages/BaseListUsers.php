@@ -8,12 +8,8 @@ use Filament\Actions\Action;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\BaseFilter;
-use Filament\Tables\Filters\Filter;
-use Illuminate\Database\Query\Builder;
 use Modules\User\Filament\Actions\ChangePasswordAction;
 use Modules\User\Filament\Resources\UserResource;
-use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
-use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Filament\Actions\Header\ExportXlsAction;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Override;
@@ -33,19 +29,6 @@ abstract class BaseListUsers extends XotBaseListRecords
         return [
             'name' => TextColumn::make('name')->searchable(),
             'email' => TextColumn::make('email')->searchable(),
-        ];
-    }
-
-    /**
-     * Get the header actions.
-     *
-     * @return array<string, Action>
-     */
-    #[Override]
-    protected function getHeaderActions(): array
-    {
-        return [
-            'export_xls' => ExportXlsAction::make('export_xls'),
         ];
     }
 
@@ -85,7 +68,7 @@ abstract class BaseListUsers extends XotBaseListRecords
 
         // Add parent actions - merge arrays
         $parentActions = parent::getTableActions();
-        $actions = array_merge($actions, $parentActions);
+        return array_merge($actions, $parentActions);
 
         /*
          * // Add deactivate action
@@ -96,7 +79,19 @@ abstract class BaseListUsers extends XotBaseListRecords
          * ->action(static fn (UserContract $user) => $user->delete());
          */
         /** @phpstan-ignore-next-line */
-        return $actions;
+    }
+
+    /**
+     * Get the header actions.
+     *
+     * @return array<string, Action>
+     */
+    #[Override]
+    protected function getHeaderActions(): array
+    {
+        return [
+            'export_xls' => ExportXlsAction::make('export_xls'),
+        ];
     }
 
     /**

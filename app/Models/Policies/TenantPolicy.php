@@ -22,8 +22,7 @@ class TenantPolicy extends UserBasePolicy
      */
     public function view(UserContract $user, Tenant $tenant): bool
     {
-        return
-            $user->hasPermissionTo('tenant.view') ||
+        return $user->hasPermissionTo('tenant.view') ||
             $user->tenants->contains($tenant->id) ||
             $user->hasRole('super-admin');
     }

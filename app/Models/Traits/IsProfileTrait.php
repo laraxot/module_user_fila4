@@ -65,6 +65,7 @@ trait IsProfileTrait
      * Utilizza prima i dati del profilo, altrimenti ricade sul nome dell'utente.
      *
      * @param  string|null  $value  Il valore attuale dell'attributo
+     *
      * @return string|null Il nome completo dell'utente
      */
     public function getFullNameAttribute(?string $value): ?string
@@ -91,6 +92,7 @@ trait IsProfileTrait
      * Se non presente nel profilo, lo recupera dall'utente collegato.
      *
      * @param  string|null  $value  Il valore attuale dell'attributo
+     *
      * @return string|null Il nome dell'utente
      */
     public function getFirstNameAttribute(?string $value): ?string
@@ -118,6 +120,7 @@ trait IsProfileTrait
      * Se non presente nel profilo, lo recupera dall'utente collegato.
      *
      * @param  string|null  $value  Il valore attuale dell'attributo
+     *
      * @return string|null Il cognome dell'utente
      */
     public function getLastNameAttribute(?string $value): ?string
@@ -259,12 +262,11 @@ trait IsProfileTrait
     public function getMobileDeviceTokens(): Collection
     {
         // PHPStan livello 9 richiede il controllo che il risultato sia del tipo corretto
-        $tokens = $this->mobileDeviceUsers()
+        return $this->mobileDeviceUsers()
             ->pluck('token')
             ->filter(fn ($value) => $value !== null && is_string($value));
 
         /** @var Collection<int|string, string> */
-        return $tokens;
     }
 
     /**
@@ -294,9 +296,7 @@ trait IsProfileTrait
     protected function avatar(): Attribute
     {
         return Attribute::make(get: function (): string {
-            $value = $this->getFirstMediaUrl('avatar');
-
-            return $value;
+            return $this->getFirstMediaUrl('avatar');
         });
     }
 }

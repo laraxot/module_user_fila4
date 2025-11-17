@@ -37,6 +37,7 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * @property array $preferences
  * @property string $status
  * @property SchemalessAttributes $extra
+ *
  * @property-read string $avatar
  * @property-read ProfileContract|null $creator
  * @property-read Collection<int, DeviceUser> $deviceUsers

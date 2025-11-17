@@ -11,7 +11,6 @@ namespace Modules\User\Filament\Pages;
 use Filament\Forms\Components\DatePicker;
 use Filament\Widgets\Widget;
 use Filament\Widgets\WidgetConfiguration;
-use Modules\User\Filament\Widgets;
 use Modules\User\Filament\Widgets\RecentLoginsWidget;
 use Modules\User\Filament\Widgets\UsersChartWidget;
 use Modules\Xot\Filament\Pages\XotBaseDashboard;

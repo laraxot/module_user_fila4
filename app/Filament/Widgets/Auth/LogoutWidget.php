@@ -174,7 +174,7 @@ class LogoutWidget extends XotBaseWidget
     protected function redirectAfterLogout(): void
     {
         redirect($this->getLocalizedHomeUrl())->with('success', __('user::auth.logout_success'))->send();
-        exit();
+        exit;
     }
 
     /**

@@ -28,7 +28,6 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Laravel\Passport\HasApiTokens;
-use Modules\TechPlanner\Models\Profile;
 use Modules\User\Database\Factories\UserFactory;
 use Modules\User\Models\Traits\HasAuthenticationLogTrait;
 use Modules\User\Models\Traits\HasTeams;
@@ -149,6 +148,9 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
 
     public $incrementing = false;
 
+    /** @var Pivot|null */
+    public $pivot;
+
     /** @var string */
     protected $connection = 'user';
 
@@ -213,9 +215,6 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
      */
     protected $guard_name = 'web';
 
-    /** @var Pivot|null */
-    public $pivot;
-
     public function __construct(array $attributes = [])
     {
         // Concateno i fillable del parent con quelli della classe corrente
@@ -266,12 +265,11 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             $profileClass = XotData::make()->getProfileClass();
             if (class_exists($profileClass)) {
                 return $this->hasOne($profileClass);
-            } else {
-                // Fallback: se non riesce a ottenere la classe Profile, usa una relazione generica
-                // Questo evita l'errore "Target [Illuminate\Database\Eloquent\Model] is not instantiable"
-                // Utilizziamo una classe che sicuramente esiste nel sistema
-                return $this->hasOne(Model::class);
             }
+            // Fallback: se non riesce a ottenere la classe Profile, usa una relazione generica
+            // Questo evita l'errore "Target [Illuminate\Database\Eloquent\Model] is not instantiable"
+            // Utilizziamo una classe che sicuramente esiste nel sistema
+            return $this->hasOne(Model::class);
         } catch (Exception $e) {
             // Fallback: se non riesce a ottenere la classe Profile, usa una relazione generica
             // Questo evita l'errore "Target [Illuminate\Database\Eloquent\Model] is not instantiable"
@@ -346,7 +344,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
 
     public function treeSons(): Collection
     {
-        return $this->teams ?? new Collection;
+        return $this->teams ?? new Collection();
     }
 
     /**
@@ -386,7 +384,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
      *
      * @return MorphMany<Notification, static|$this>
      */
-    public function notifications()
+    public function notifications(): MorphMany
     {
         // @phpstan-ignore return.type
         return $this->morphMany(Notification::class, 'notifiable');
@@ -461,39 +459,6 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         }
     }
 
-    /**
-     * Create a new factory instance for the model.
-     *
-     * @return Factory
-     */
-    protected static function newFactory()
-    {
-        return app(GetFactoryAction::class)->execute(static::class);
-    }
-
-    /** @return array<string, string> */
-    protected function casts(): array
-    {
-        return [
-            'id' => 'string',
-            'email_verified_at' => 'datetime',
-            // 'password' => 'hashed', //Call to undefined cast [hashed] on column [password] in model [Modules\User\Models\User].
-            'is_active' => 'boolean',
-            'roles.pivot.id' => 'string',
-            // https://github.com/beitsafe/laravel-uuid-auditing
-            // ALTER TABLE model_has_role CHANGE COLUMN `id` `id` CHAR(37) NOT NULL DEFAULT uuid();
-
-            'is_otp' => 'boolean',
-            'password_expires_at' => 'datetime',
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-            'deleted_at' => 'datetime',
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-        ];
-    }
-
     // public function authentications(): MorphMany
     // {
     //    return $this->morphMany(\Modules\User\Models\Authentication::class, 'authenticatable');
@@ -549,5 +514,36 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             return;
         }
         $this->attributes['password'] = $value;
+    }
+
+    /**
+     * Create a new factory instance for the model.
+     */
+    protected static function newFactory(): Factory
+    {
+        return app(GetFactoryAction::class)->execute(static::class);
+    }
+
+    /** @return array<string, string> */
+    protected function casts(): array
+    {
+        return [
+            'id' => 'string',
+            'email_verified_at' => 'datetime',
+            // 'password' => 'hashed', //Call to undefined cast [hashed] on column [password] in model [Modules\User\Models\User].
+            'is_active' => 'boolean',
+            'roles.pivot.id' => 'string',
+            // https://github.com/beitsafe/laravel-uuid-auditing
+            // ALTER TABLE model_has_role CHANGE COLUMN `id` `id` CHAR(37) NOT NULL DEFAULT uuid();
+
+            'is_otp' => 'boolean',
+            'password_expires_at' => 'datetime',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+        ];
     }
 }

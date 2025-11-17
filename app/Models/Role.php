@@ -96,19 +96,6 @@ class Role extends SpatieRole
         return $table;
     }
 
-    /** @return array<string, string> */
-    protected function casts(): array
-    {
-        return [
-            'id' => 'string',
-            'uuid' => 'string',
-            'name' => 'string',
-            'guard_name' => 'string',
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-        ];
-    }
-
     /**
      * Get all of the teams the user belongs to.
      */
@@ -127,5 +114,18 @@ class Role extends SpatieRole
     public function permissions(): BelongsToMany
     {
         return $this->belongsToManyX(Permission::class);
+    }
+
+    /** @return array<string, string> */
+    protected function casts(): array
+    {
+        return [
+            'id' => 'string',
+            'uuid' => 'string',
+            'name' => 'string',
+            'guard_name' => 'string',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+        ];
     }
 }

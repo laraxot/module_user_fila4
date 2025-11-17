@@ -40,17 +40,17 @@ class ListProfiles extends XotBaseListRecords
                     }
 
                     // PHPStan Level 10: isset() invece di property_exists() per Eloquent relations/attributes
-                    $userValue = isset($record->user) ? $record->user : null;
+                    $userValue = $record->user ?? null;
                     $user_class = XotData::make()->getUserClass();
 
                     if ($userValue === null) {
-                        $emailValue = isset($record->email) ? $record->email : null;
+                        $emailValue = $record->email ?? null;
 
                         if ($emailValue === null) {
                             if (method_exists($record, 'update')) {
                                 $record->update(['email' => fake()->email()]);
                             }
-                            $emailValue = isset($record->email) ? $record->email : '';
+                            $emailValue = $record->email ?? '';
                         }
 
                         if (! is_string($emailValue)) {
@@ -69,13 +69,13 @@ class ListProfiles extends XotBaseListRecords
                     }
 
                     // PHPStan Level 10: isset() per magic properties di User model
-                    $userId = isset($userValue->id) ? $userValue->id : null;
+                    $userId = $userValue->id ?? null;
 
                     if ($userId !== null && method_exists($record, 'update')) {
                         $record->update(['user_id' => $userId]);
                     }
 
-                    $userName = isset($userValue->name) ? $userValue->name : '--';
+                    $userName = $userValue->name ?? '--';
 
                     return is_string($userName) ? $userName : '--';
                 }),

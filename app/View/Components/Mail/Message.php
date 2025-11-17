@@ -18,14 +18,13 @@ class Message extends Component
      */
     public function __construct(
         // public string $message
-    ) {}
+    ) {
+    }
 
     /**
      * Get the view / contents that represent the component.
-     *
-     * @return View|Closure|string
      */
-    public function render()
+    public function render(): View|Closure|string
     {
         $metatag = MetatagData::make();
         $view = 'user::components.mail.html.message';

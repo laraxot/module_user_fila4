@@ -22,8 +22,7 @@ class PasswordResetPolicy extends UserBasePolicy
      */
     public function view(UserContract $user, PasswordReset $passwordReset): bool
     {
-        return
-            $user->hasPermissionTo('password-reset.view') ||
+        return $user->hasPermissionTo('password-reset.view') ||
             $user->email === $passwordReset->email ||
             $user->hasRole('super-admin');
     }

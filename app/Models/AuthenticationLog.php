@@ -73,19 +73,6 @@ class AuthenticationLog extends BaseModel
         'location',
     ];
 
-    /** @return array<string, string> */
-    #[Override]
-    protected function casts(): array
-    {
-        return [
-            'cleared_by_user' => 'boolean',
-            'location' => 'array',
-            'login_successful' => 'boolean',
-            'login_at' => 'datetime',
-            'logout_at' => 'datetime',
-        ];
-    }
-
     // public function __construct(array $attributes = [])
     // {
     // if (! isset($this->connection)) {
@@ -103,5 +90,18 @@ class AuthenticationLog extends BaseModel
     public function authenticatable(): MorphTo
     {
         return $this->morphTo();
+    }
+
+    /** @return array<string, string> */
+    #[Override]
+    protected function casts(): array
+    {
+        return [
+            'cleared_by_user' => 'boolean',
+            'location' => 'array',
+            'login_successful' => 'boolean',
+            'login_at' => 'datetime',
+            'logout_at' => 'datetime',
+        ];
     }
 }

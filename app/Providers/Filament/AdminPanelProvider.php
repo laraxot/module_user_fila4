@@ -8,12 +8,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Providers\Filament;
 
-use Filament\Navigation\MenuItem;
 use Filament\Panel;
 use Filament\Support\Facades\FilamentView;
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\View;
-use Modules\User\Filament\Pages\MyProfilePage;
 use Modules\Xot\Providers\Filament\XotBasePanelProvider;
 use Override;
 

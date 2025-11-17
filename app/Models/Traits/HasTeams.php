@@ -34,12 +34,8 @@ trait HasTeams
 {
     /**
      * Add a user to the team.
-     *
-     * @param  Model  $user
-     * @param  Model|null  $role
-     * @return Model
      */
-    public function addTeamMember($user, $role = null)
+    public function addTeamMember(Model $user, ?Model $role = null): Model
     {
         $teamUser = $this->teamUsers()->create([
             'user_id' => $user->getKey(),
@@ -81,21 +77,6 @@ trait HasTeams
         Assert::isInstanceOf($found, TeamContract::class, 'Team must implement TeamContract.');
 
         return true;
-    }
-
-    /**
-     * Boot the HasTeams trait.
-     *
-     * @return void
-     */
-    protected static function bootHasTeams()
-    {
-        /*
-         * static::deleting(function ($team) {
-         * $team->teamUsers()->delete();
-         * $team->teamInvitations()->delete();
-         * });
-         */
     }
 
     /**
@@ -297,9 +278,7 @@ trait HasTeams
     public function teamUsers(): HasMany
     {
         /** @var HasMany<Membership, $this> $relation */
-        $relation = $this->hasMany(Membership::class, 'user_id');
-
-        return $relation;
+        return $this->hasMany(Membership::class, 'user_id');
     }
 
     /**
@@ -317,7 +296,7 @@ trait HasTeams
         // Accesso sicuro alla proprietà role usando getAttribute
         $role = $teamUser->getAttribute('role');
 
-        return ($role instanceof Role) ? $role : null;
+        return $role instanceof Role ? $role : null;
     }
 
     /**
@@ -339,11 +318,8 @@ trait HasTeams
 
     /**
      * Remove a user from the team.
-     *
-     * @param  Model  $user
-     * @return void
      */
-    public function removeTeamMember($user)
+    public function removeTeamMember(Model $user): void
     {
         $this->teamUsers()->where('user_id', $user->getKey())->delete();
 
@@ -356,9 +332,7 @@ trait HasTeams
     public function personalTeam(): ?TeamContract
     {
         /** @var TeamContract|null */
-        $personalTeam = $this->ownedTeams->where('personal_team', true)->first();
-
-        return $personalTeam;
+        return $this->ownedTeams->where('personal_team', true)->first();
     }
 
     /**
@@ -414,9 +388,7 @@ trait HasTeams
         $teamClass = $xot->getTeamClass();
 
         /** @var BelongsToMany<Model&TeamContract, Model> $relation */
-        $relation = $this->belongsToMany($teamClass, 'team_user', 'user_id', 'team_id')->using(Membership::class);
-
-        return $relation;
+        return $this->belongsToMany($teamClass, 'team_user', 'user_id', 'team_id')->using(Membership::class);
     }
 
     /**
@@ -505,5 +477,18 @@ trait HasTeams
     public function checkTeamOwnership(TeamContract $team): bool
     {
         return $this->ownsTeam($team);
+    }
+
+    /**
+     * Boot the HasTeams trait.
+     */
+    protected static function bootHasTeams(): void
+    {
+        /*
+         * static::deleting(function ($team) {
+         * $team->teamUsers()->delete();
+         * $team->teamInvitations()->delete();
+         * });
+         */
     }
 }

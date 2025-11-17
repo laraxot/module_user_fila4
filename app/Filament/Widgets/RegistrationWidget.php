@@ -19,8 +19,6 @@ class RegistrationWidget extends XotBaseWidget
 {
     public ?array $data = [];
 
-    protected int|string|array $columnSpan = 'full';
-
     public string $type;
 
     public string $resource;
@@ -30,6 +28,8 @@ class RegistrationWidget extends XotBaseWidget
     public string $action;
 
     public Model $record;
+
+    protected int|string|array $columnSpan = 'full';
 
     /**
      * @phpstan-var class-string
@@ -62,7 +62,6 @@ class RegistrationWidget extends XotBaseWidget
 
     public function getFormModel(): Model
     {
-
         $data = request()->all();
         $email = Arr::get($data, 'email');
         $token = Arr::get($data, 'token');
@@ -71,9 +70,7 @@ class RegistrationWidget extends XotBaseWidget
         $user = $this->model::firstWhere('email', $email);
         if ($user === null) {
             /** @var Model $model */
-            $model = app($this->model);
-
-            return $model;
+            return app($this->model);
         }
 
         $remember_token = $user->getAttribute('remember_token');
@@ -90,9 +87,7 @@ class RegistrationWidget extends XotBaseWidget
         }
 
         /** @var \Illuminate\Database\Eloquent\Model $modelInstance */
-        $modelInstance = app($this->model);
-
-        return $modelInstance;
+        return app($this->model);
     }
 
     #[Override]
@@ -108,9 +103,7 @@ class RegistrationWidget extends XotBaseWidget
     public function getFormSchema(): array
     {
         /** @var array<int|string, \Filament\Schemas\Components\Component> $schema */
-        $schema = $this->resource::getFormSchemaWidget();
-
-        return $schema;
+        return $this->resource::getFormSchemaWidget();
     }
 
     /**

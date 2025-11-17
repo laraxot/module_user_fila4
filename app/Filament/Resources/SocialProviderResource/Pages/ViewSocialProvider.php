@@ -10,7 +10,6 @@ use Filament\Schemas\Components\Section;
 use Modules\User\Filament\Resources\SocialProviderResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 use Override;
-
 use function Safe\json_encode;
 
 class ViewSocialProvider extends XotBaseViewRecord

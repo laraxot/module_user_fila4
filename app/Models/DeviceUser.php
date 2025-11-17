@@ -94,7 +94,7 @@ class DeviceUser extends BasePivot
      */
     public function profile(): BelongsTo
     {
-        /* @var class-string<Model> */
+        /** @var class-string<Model> */
         $profileClass = XotData::make()->getProfileClass();
 
         return $this->belongsTo($profileClass, 'user_id', 'user_id');
