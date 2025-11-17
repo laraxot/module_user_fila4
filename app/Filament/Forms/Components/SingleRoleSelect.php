@@ -14,11 +14,11 @@ class SingleRoleSelect extends Select
     protected function setUp(): void
     {
         parent::setUp();
-        
+
         /** @var view-string $viewString */
         $viewString = 'user::filament.forms.components.single-role-select';
         $this->view($viewString);
-        
+
         /** @var array<int|string, string> $options */
         $options = Role::query()->pluck('name', 'id')->toArray();
 

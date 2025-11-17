@@ -62,10 +62,24 @@ class ChangeTypeCommand extends Command
         }
 
         $childTypes = $xot->getUserChildTypes();
-        /** @phpstan-ignore nullsafe.neverNull */
-        $typeLabel = $user->type?->getLabel() ?? 'None';
-        $typeLabelString = is_string($typeLabel) ? $typeLabel : $typeLabel->toHtml();
-        $this->info('Current user type: '.$typeLabelString);
+
+        // Get type label - BackedEnum needs HasLabel implementation
+        $typeLabel = 'None';
+        if ($user->type !== null && is_object($user->type) && method_exists($user->type, 'getLabel')) {
+            $enumType = $user->type;
+            /** @var string|\Illuminate\Contracts\Support\Htmlable|mixed */
+            $label = $enumType->getLabel();
+            if (is_string($label)) {
+                $typeLabel = $label;
+            } elseif ($label instanceof \Illuminate\Contracts\Support\Htmlable) {
+                $typeLabel = $label->toHtml();
+            } else {
+                $typeLabel = (string) $label;
+            }
+        }
+
+        Assert::string($typeLabel);
+        $this->info('Current user type: '.$typeLabel);
 
         $typeClass = $xot->getUserChildTypeClass();
         /** @var array<string, string> */

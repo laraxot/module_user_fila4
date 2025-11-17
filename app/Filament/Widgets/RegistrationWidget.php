@@ -21,7 +21,6 @@ class RegistrationWidget extends XotBaseWidget
 
     protected int|string|array $columnSpan = 'full';
 
->>>>>>> 3753a57 (.)
     public string $type;
 
     public string $resource;
@@ -61,28 +60,9 @@ class RegistrationWidget extends XotBaseWidget
         $this->record = $record;
     }
 
-    #[Override]
-<<<<<<< HEAD
-    protected function getFormModel(): Model
-=======
     public function getFormModel(): Model
->>>>>>> 6849bc76 (.)
     {
-=======
-        $this->action = Str::of($this->model)->replace('\\Models\\', '\\Actions\\')->append('\\RegisterAction')->toString();
-        $record = $this->getFormModel();
-        $data = $this->getFormFill();
-        $this->data = $data; 
-        $this->form->fill($data);
-        $this->form->model($record);
-        $this->record = $record;
-        
-    }
 
-    public function getFormModel(): Model
-    {
-       
->>>>>>> fbc8f8e (.)
         $data = request()->all();
         $email = Arr::get($data, 'email');
         $token = Arr::get($data, 'token');
@@ -96,16 +76,9 @@ class RegistrationWidget extends XotBaseWidget
             return $model;
         }
 
-<<<<<<< HEAD
-        // PHPStan Level 10: Uso getAttribute() per evitare undefined property error
-        /** @var string|null $remember_token */
         $remember_token = $user->getAttribute('remember_token');
-        if ($remember_token === null && $user->isFillable('remember_token')) {
-            $user->setAttribute('remember_token', Str::uuid()->toString());
-        $remember_token = $user->remember_token;
-        if ($remember_token === null) {
-            $user->remember_token = Str::uuid()->toString();
->>>>>>> 3753a57 (.)
+        if ($token) {
+            $user->setAttribute('remember_token', $token);
             $user->save();
             $remember_token = $user->getAttribute('remember_token');
         }

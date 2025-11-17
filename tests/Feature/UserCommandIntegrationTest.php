@@ -145,9 +145,11 @@ describe('User Command Integration', function () {
         $testObject->value = 'test';
         $testObject->getLabel = fn () => 'Test Label';
 
+        $objectData = (array) $testObject;
+
         expect(is_object($testObject))
             ->toBeTrue()
-            ->and(property_exists($testObject, 'value'))
+            ->and(array_key_exists('value', $objectData))
             ->toBeTrue()
             ->and(($testObject->value ?? null) !== null)
             ->toBeTrue();
@@ -247,9 +249,11 @@ describe('User Command Integration', function () {
         $testObject = new stdClass;
         $testObject->testProperty = 'test_value';
 
-        expect(property_exists($testObject, 'testProperty'))
+        $objectData = (array) $testObject;
+
+        expect(array_key_exists('testProperty', $objectData))
             ->toBeTrue()
-            ->and(property_exists($testObject, 'nonExistentProperty'))
+            ->and(array_key_exists('nonExistentProperty', $objectData))
             ->toBeFalse();
     });
 });

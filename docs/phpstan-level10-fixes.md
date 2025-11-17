@@ -302,14 +302,29 @@ if (method_exists($profileFactory, 'create')) {
 }
 ```
 
-## Risultati Finali
+## Nuovi bloccanti rilevati (phpstan analyse Modules – 15 Nov 2025)
 
-**✅ MODULO USER COMPLETAMENTE PHPSTAN LEVEL 10 COMPLIANT**
+| File | Errore | Piano |
+| --- | --- | --- |
+| `app/Models/Permission.php` | `unexpected T_PUBLIC` e `:` → classe corrotta | Ripristinare dichiarazioni proprietà/relazioni seguendo `./roles-permissions.md` |
+| `database/migrations/2023_01_01_000004_create_team_user_table.php` | `unexpected T_PROTECTED/T_PUBLIC` | Rimuovere metodi incollati da classe, riportare a migrazione standard (vedi `./database/migrations-guide.md`) |
+| `database/migrations/2023_01_01_000006_create_teams_table.php` | come sopra | Idem |
+| `database/migrations/2023_01_22_000007_create_permissions_table.php` | `}` extra | Chiudere classi correttamente |
+| `database/migrations/2025_05_16_221811_add_owner_id_to_teams_table.php` | `}` extra | Verificare rollback |
+| `database/seeders/UserMassSeeder.php` | Token `->` errati, metodi privati fuori classe | Ricostruire seeder coerente con `./database-population.md` |
 
-- **Errori iniziali**: 20
-- **Errori finali**: 0
-- **Tempo di implementazione**: ~30 minuti
-- **Principi applicati**: Type guards, PHPDoc completo, interface segregation
+### Workflow documentato
+1. Creare lock sui file (`touch database/seeders/UserMassSeeder.php.lock`).
+2. Confrontare con business logic in `./business-logic-analysis.md`.
+3. Applicare fix rispettando `declare(strict_types=1);`, tipizzazione e pattern DRY.
+4. Eseguire `./vendor/bin/phpstan analyse Modules/User --level=10`.
+5. Annotare i fix in questo documento e nel `CHANGELOG.md` del modulo.
+
+## Risultati Finali (aggiornamento)
+
+- **Stato attuale**: ⚠️ **Non ancora compliant** – presenti 6 file con errori sintattici.
+- **Obiettivo**: ripristinare struttura file, rieseguire PHPStan livello 10 entro sprint attuale.
+- **Principi da applicare**: type hints rigorosi, DTO documentati, rispetto `Eloquent magic` (`isset()`).
 
 ## Considerazioni Future
 
@@ -320,6 +335,6 @@ if (method_exists($profileFactory, 'create')) {
 
 ---
 
-**Ultimo aggiornamento**: 2025-11-05
-**Stato**: ✅ PHPStan Level 10 Compliant
-**Verificato con**: `./vendor/bin/phpstan analyse Modules/User --level=10` 
+**Ultimo aggiornamento**: 2025-11-15
+**Stato**: ⚠️ PHPStan Level 10 con bloccanti aperti
+**Ultima esecuzione**: `./vendor/bin/phpstan analyse Modules --level=10` (output incluso nel report principale)

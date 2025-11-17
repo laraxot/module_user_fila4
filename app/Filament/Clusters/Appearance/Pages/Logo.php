@@ -17,11 +17,7 @@ use Modules\Xot\Filament\Pages\XotBasePage;
 /**
  * @property Schema $form
  */
-<<<<<<< HEAD
-final class Logo extends XotBasePage
-=======
 class Logo extends XotBasePage
->>>>>>> 6849bc76 (.)
 {
     public ?array $logoData = [];
 

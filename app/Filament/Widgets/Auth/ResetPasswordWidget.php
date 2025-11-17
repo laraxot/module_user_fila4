@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
-use Override;
 
 /**
  * Reset password widget for user password reset functionality.
@@ -43,11 +42,6 @@ class ResetPasswordWidget extends XotBaseWidget
      *
      * @return array<string, Component>
      */
-<<<<<<< HEAD
-    #[\Override]
-=======
-    #[Override]
->>>>>>> 6849bc76 (.)
     public function getFormSchema(): array
     {
         return [

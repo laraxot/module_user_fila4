@@ -64,8 +64,6 @@ abstract class BaseMorphPivot extends MorphPivot
         'note',
     ];
 
-    
-=======
     /**
      * Create a new factory instance for the model.
      *
@@ -76,7 +74,6 @@ abstract class BaseMorphPivot extends MorphPivot
         // return app(\Modules\Xot\Actions\Factory\GetFactoryAction::class)->execute(static::class);
         return app(GetFactoryAction::class)->execute(static::class);
     }
->>>>>>> 6849bc76 (.)
 
     /** @return array<string, string> */
     protected function casts(): array

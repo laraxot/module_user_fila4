@@ -182,23 +182,16 @@ trait HasTeams
         $users = $this->teamUsers->map(function ($membership) {
             // Membership always extends Model, check only if user attribute exists
             $user = $membership->getAttribute('user');
+
             return $user !== null ? $user : null;
         })->filter();
 
         $owner = $this->owner;
-<<<<<<< HEAD
         if ($owner !== null && $owner instanceof \Modules\User\Models\User) {
             return $users->merge([$owner]);
         }
 
         return $users;
-=======
-        if ($owner === null) {
-            return $this->teamUsers;
-        }
-
-        return $this->teamUsers->merge([$owner]);
->>>>>>> 6849bc76 (.)
     }
 
     /**
@@ -212,8 +205,10 @@ trait HasTeams
             $memberUser = $membership->getAttribute('user');
             if (is_object($memberUser) && method_exists($memberUser, 'getKey')) {
                 $memberUserKey = $memberUser->getKey();
+
                 return $memberUserKey !== null && $memberUserKey === $user->getKey();
             }
+
             return false;
         });
 

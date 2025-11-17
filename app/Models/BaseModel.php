@@ -16,11 +16,7 @@ use Modules\Xot\Traits\Updater;
  */
 abstract class BaseModel extends Model
 {
-<<<<<<< HEAD
     use \Modules\Xot\Models\Traits\HasXotFactory;
-=======
-    use HasFactory;
->>>>>>> 6849bc76 (.)
     use RelationX;
     use Updater;
 
@@ -59,9 +55,6 @@ abstract class BaseModel extends Model
         // 'password'
     ];
 
-<<<<<<< HEAD
-    
-=======
     /**
      * @see vendor/ laravel / framework / src / Illuminate / Database / Eloquent / Factories / HasFactory.php
      * Create a new factory instance for the model.
@@ -72,7 +65,6 @@ abstract class BaseModel extends Model
     {
         return app(GetFactoryAction::class)->execute(static::class);
     }
->>>>>>> 6849bc76 (.)
 
     /** @return array<string, string> */
     protected function casts(): array

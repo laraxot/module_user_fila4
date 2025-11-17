@@ -7,8 +7,6 @@ namespace Modules\User\Filament\Pages\Tenancy;
 use Filament\Pages\Tenancy\RegisterTenant as BaseRegisterTenant;
 use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Modules\User\Contracts\TenantContract;
 use Modules\User\Models\BaseTenant;
@@ -75,19 +73,6 @@ class RegisterTenant extends BaseRegisterTenant
         $tenant = $tenantClass::create($data);
         Assert::implementsInterface($tenant, TenantContract::class);
         Assert::isInstanceOf($tenant, BaseTenant::class);
-
-<<<<<<< HEAD
-        // BaseTenant always has users() method
-        /** @var \Illuminate\Database\Eloquent\Relations\BelongsToMany $usersRelation */
-        $usersRelation = $tenant->users();
-        $usersRelation->attach(auth()->user());
-=======
-        if (method_exists($tenant, 'users')) {
-            /** @var \Illuminate\Database\Eloquent\Relations\BelongsToMany $usersRelation */
-            $usersRelation = $tenant->users();
-            $usersRelation->attach(auth()->user());
-        }
->>>>>>> 6849bc76 (.)
 
         return $tenant;
     }

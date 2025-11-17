@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -138,16 +137,12 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     use HasApiTokens;
     use HasAuthenticationLogTrait;
     use HasChildren;
-<<<<<<< HEAD
-    use \Modules\Xot\Models\Traits\HasXotFactory;
-=======
-    use HasFactory;
->>>>>>> 6849bc76 (.)
     use HasPermissions;
     use HasRoles;
     use HasTeams;
     use HasUuids;
     use InteractsWithMedia;
+    use \Modules\Xot\Models\Traits\HasXotFactory;
     use Notifiable;
     use RelationX;
     use Traits\HasTenants;
@@ -466,9 +461,6 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         }
     }
 
-<<<<<<< HEAD
-  
-=======
     /**
      * Create a new factory instance for the model.
      *
@@ -478,7 +470,6 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     {
         return app(GetFactoryAction::class)->execute(static::class);
     }
->>>>>>> 6849bc76 (.)
 
     /** @return array<string, string> */
     protected function casts(): array
