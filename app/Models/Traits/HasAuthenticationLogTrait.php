@@ -18,10 +18,8 @@ use Modules\User\Models\AuthenticationLog;
  *
  * @property MorphMany<AuthenticationLog, $this> $authentications The authentication logs related to the model.
  * @property MorphOne<AuthenticationLog, $this> $latestAuthentication The most recent authentication log entry.
- *
  * @property-read string|null $login_at The timestamp of the last login.
  * @property-read string|null $ip_address The IP address of the last login.
- *
  * @property MorphMany<AuthenticationLog> $authentications
  * @property MorphOne<AuthenticationLog> $latestAuthentication
  * @property Carbon|null $login_at

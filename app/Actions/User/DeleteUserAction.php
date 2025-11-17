@@ -19,7 +19,6 @@ class DeleteUserAction
      *
      * @param  User  $user  L'utente da eliminare
      * @param  string  $confirmPassword  La password di conferma
-     *
      * @return array{success: bool, message: string} Risultato dell'operazione
      */
     public function execute(User $user, string $confirmPassword): array

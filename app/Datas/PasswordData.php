@@ -21,8 +21,8 @@ use Spatie\LaravelData\Data;
  */
 class PasswordData extends Data
 {
-
     private static ?self $instance = null;
+
     public function __construct(
         public int $otp_expiration_minutes = 5,
         public int $otp_length = 6,
@@ -36,8 +36,7 @@ class PasswordData extends Data
         public int $compromisedThreshold = 0,
         public ?string $failMessage = null,
         private ?string $field_name = null,
-    ) {
-    }
+    ) {}
 
     /**
      * Crea un'istanza della classe PasswordData.

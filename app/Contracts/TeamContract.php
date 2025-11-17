@@ -41,7 +41,7 @@ use Modules\Xot\Contracts\UserContract;
  *
  * @mixin \Eloquent
  */
-interface TeamContract extends ModelContract
+interface TeamContract extends \Modules\Xot\Contracts\ModelContract
 {
     /**
      * Get the owner of the team.
@@ -96,8 +96,6 @@ interface TeamContract extends ModelContract
 
     /**
      * Reload a fresh model instance from the database.
-     *
-     * @return static|null
      */
     public function fresh(array|string $with = []): ?static;
 

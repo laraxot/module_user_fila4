@@ -9,6 +9,7 @@ use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -88,15 +89,15 @@ class Register extends Component implements HasSchemas
 
         Assert::string($data['password']);
 
-        /** @var UserContract */
+        /** @var UserContract $user */
         $user = $user_class::create([
             'email' => $data['email'],
             'name' => $data['name'],
             'password' => Hash::make($data['password']),
         ]);
 
+        Assert::isInstanceOf($user, Authenticatable::class);
         event(new Registered($user));
-
         Auth::login($user, true);
 
         return redirect()->intended(route('home'));

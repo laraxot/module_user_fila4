@@ -25,8 +25,8 @@ class CreateUserAction
     /**
      * Execute the action to create a new user from socialite authentication.
      *
-     * @param  string  $provider  The socialite provider name (e.g., 'github', 'google')
-     * @param  SocialiteUserContract  $oauthUser  The socialite user instance
+     * @param string                $provider  The socialite provider name (e.g., 'github', 'google')
+     * @param SocialiteUserContract $oauthUser The socialite user instance
      *
      * @return UserContract The created user instance
      */
@@ -64,6 +64,8 @@ class CreateUserAction
 
         // Return the refreshed user instance
         /** @var UserContract $refreshedUser */
-        return $newlyCreatedUser->refresh();
+        $refreshedUser = $newlyCreatedUser->refresh();
+
+        return $refreshedUser;
     }
 }

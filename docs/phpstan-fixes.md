@@ -1,10 +1,20 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+## 2025-11-17 – Filament Tenancy e Console Commands
+
+- **RegisterTenant**: introdotta `resolveResourceClass()` con assert esplicito su `class-string` per eliminare gli errori di tipizzazione (`class-string|null`). Usare sempre `Assert::classExists()` quando si costruisce il nome risorsa partendo dal modello tenant.
+- **TenantsRelationManager**: quando si riutilizzano le colonne da altre pagine Filament, filtrare e rimappare i risultati per restituire `array<string, Column>` (uso di `getName()` come chiave).
+- **Comandi Socialite/Role**: tutte le interazioni con `roles`/`currentTeam` devono passare dalle relazioni (`roles()->pluck(...)`, `getRelationValue('currentTeam')`) evitando accessi diretti a proprietà magic.
+
+## 2025-11-18 – Widget Registrazione e flusso Reset
+
+- **PasswordResetConfirmWidget**: dopo il reset la login viene effettuata su un `UserContract` assicurato `Authenticatable` via `Assert::isInstanceOf()`, eliminando l'`instanceof` sempre vero.
+- **RegistrationWidget**:
+  - `$data` è ora sempre `array<string, mixed>` (prima poteva essere `null`), grazie a `SafeArrayCastAction`.
+  - Lo schema è esplicitamente `array<int|string, Component>` e `array_merge` usa un array iniziale noto, evitando gli errori `assign.propertyType` e `argument.type`.
+- **Livewire Auth\Register**: rimosso l'`instanceof` ridondante; il `UserContract` viene validato con `Assert::isInstanceOf()` prima di notificare e loggare l'utente.
+- **BaseUser::withAccessToken()`** restituisce ora `$this`, allineando il return type con quanto richiesto da PHPStan.
+- **HasTeams/HasTenants**: aggiornati i phpdoc delle relazioni (`BelongsToMany<Model&TeamContract, BaseUser, Membership>`) e la collection dei tenant viene mappata a `Model`, eliminando gli errori di covarianza.
+
 # User Module - PHPStan Fixes Session 2025-10-01
-=======
-# PHPStan Fixes and Type System Improvements
->>>>>>> d89ae0a (.)
 
 ## ⚠️ Stato: IN PROGRESS - 95 errori rimanenti
 
@@ -26,7 +36,6 @@
 
 **Codice rimosso**:
 ```php
-<<<<<<< HEAD
 // Linee 377-381: Blocco orfano #1
 {
     if ($value !== null) {
@@ -193,6 +202,31 @@ public function canAccessTenant(\Illuminate\Database\Eloquent\Model $tenant): bo
 
 ---
 
+## Aggiornamento 17 Novembre 2025 - Socialite & CLI
+
+### LoginUserAction
+- Aggiunto `Assert::isInstanceOf($user, Authenticatable::class)` per garantire compatibilità con `Filament::auth()->login()` e rimuovere l'errore `argument.type`.
+
+### CreateUserAction
+- Rimossi `@var` inesistenti prima del `return $newlyCreatedUser->refresh();` per evitare warning PHPStan.
+
+### ChangeTypeCommand
+- `User::$type` ora riceve la stringa del valore enum (`(string) $newTypeEnum->value`) al posto dell'intero `BackedEnum`, eliminando l'errore `assign.propertyType`.
+
+### AssignModuleCommand / RemoveRoleCommand
+- Evitato l'accesso diretto a `$user->roles` (magia Eloquent). Vengono utilizzati `roles()->get()` e PHPDoc esplicito per ottenere collezioni tipizzate; risolti `property.notFound`, `foreach.nonIterable`, `property.nonObject`.
+
+### User Contract (Xot)
+- Estesa la PHPDoc dell'interfaccia `Modules\Xot\Contracts\UserContract` con `@property TeamContract|null $currentTeam` e collection tipizzate (`$roles`, `$teams`) per zittire tutti gli errori `property.notFound` in policy, comandi e widget che lavorano via contratto.
+
+## Aggiornamento 18 Novembre 2025 - Filament Widgets e Relazioni
+
+- **PasswordResetConfirmWidget**: documentato il tipo restituito da `getUserByEmail()` e ridotto il login automatico a un semplice controllo `null`, così PHPStan non segnala più `instanceof.alwaysTrue`.
+- **RegistrationWidget**: allineata la proprietà `$data` alla firma di `XotBaseWidget` (`?array`), aggiunti PHPDoc generici e normalizzazioni (`array_merge` con `array<string, mixed>`), schema verificato con `Assert::isArray()`. Risolti `assign.propertyType`, `argument.type` e `return.type`.
+- **HasTeams**: la relazione `teams()` specifica ora `BelongsToMany<Model&TeamContract, Model, Membership, 'pivot'>`, eliminando l’avviso di covarianza.
+- **HasTenants**: `getTenants()` restituisce una `Collection<int, Model>` tipizzata tramite `map`, compatibile col contratto Filament.
+- **ResetPassword Notification**: aggiunta annotazione `@param mixed $url` + `Assert::string($url)` per rispettare la firma contravariante di `Illuminate\Auth\Notifications\ResetPassword`.
+
 ## 🔧 Best Practices Applicate
 
 ### ✅ FATTO
@@ -239,7 +273,7 @@ public function canAccessTenant(\Illuminate\Database\Eloquent\Model $tenant): bo
 **Obiettivo**: 0 errori User + Xot
 
 
-=======
+
 /**
  * @var view-string
  */
@@ -407,5 +441,3 @@ After applying fixes:
 - Safe functions provide exception-throwing alternatives to standard PHP functions
 - All Filament components should extend XotBase classes for consistency
 - Type system improvements enhance code reliability and maintainability 
->>>>>>> d89ae0a (.)
->>>>>>> 6849bc76 (.)

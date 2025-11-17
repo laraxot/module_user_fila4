@@ -64,6 +64,4 @@ use Modules\Xot\Contracts\ProfileContract;
  * @mixin IdeHelperTeam
  * @mixin \Eloquent
  */
-class Team extends BaseTeam
-{
-}
+class Team extends BaseTeam {}

@@ -10,6 +10,7 @@ namespace Modules\User\Actions\Socialite;
 
 // use DutchCodingCompany\FilamentSocialite\FilamentSocialite;
 use Filament\Facades\Filament;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\RedirectResponse;
 use Modules\User\Events\SocialiteUserConnected;
 use Modules\User\Models\SocialiteUser;
@@ -26,7 +27,15 @@ class LoginUserAction
     public function execute(SocialiteUser $socialiteUser): RedirectResponse
     {
         Assert::notNull($user = $socialiteUser->user, '['.__FILE__.']['.__LINE__.']');
-        Filament::auth()->login($user);
+
+        if (! $user instanceof Authenticatable) {
+            throw new \LogicException('User instance must implement Authenticatable.');
+        }
+
+        // PHPStan: assicuriamoci che l'utente sia Authenticatable per il login
+        /** @var Authenticatable $authenticatableUser */
+        $authenticatableUser = $user;
+        Filament::auth()->login($authenticatableUser);
         SocialiteUserConnected::dispatch($socialiteUser);
         // session()->regenerate();
 

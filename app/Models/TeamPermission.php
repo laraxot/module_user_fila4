@@ -30,7 +30,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @mixin IdeHelperTeamPermission
  * @mixin \Eloquent
  */
-class TeamPermission extends Model
+class TeamPermission extends BaseModel
 {
     /**
      * The database connection that should be used by the model.

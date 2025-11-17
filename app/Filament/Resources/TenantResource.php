@@ -36,6 +36,7 @@ class TenantResource extends XotBaseResource
     public static function getModel(): string
     {
         $xot = XotData::make();
+
         return $xot->getTenantClass();
     }
 

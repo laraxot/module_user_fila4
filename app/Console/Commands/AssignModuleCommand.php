@@ -6,13 +6,14 @@ namespace Modules\User\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use function Laravel\Prompts\multiselect;
-use function Laravel\Prompts\text;
 use Modules\User\Models\Role;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Nwidart\Modules\Facades\Module;
 use Symfony\Component\Console\Input\InputOption;
+
+use function Laravel\Prompts\multiselect;
+use function Laravel\Prompts\text;
 
 class AssignModuleCommand extends Command
 {
@@ -127,7 +128,9 @@ class AssignModuleCommand extends Command
     {
         $moduleRoles = [];
 
-        foreach ($user->roles as $role) {
+        /** @var \Illuminate\Database\Eloquent\Collection<int, Role> $roles */
+        $roles = $user->roles()->get();
+        foreach ($roles as $role) {
             if (Str::endsWith($role->name, '::admin')) {
                 $moduleName = Str::before($role->name, '::admin');
                 $moduleRoles[$moduleName] = $role->name;

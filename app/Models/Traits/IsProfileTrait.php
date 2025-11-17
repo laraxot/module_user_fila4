@@ -31,10 +31,12 @@ use Illuminate\Support\Collection;
 use Modules\User\Models\Device;
 use Modules\User\Models\DeviceUser;
 use Modules\User\Models\Role;
+use Modules\User\Models\User;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Exceptions\RoleDoesNotExist;
+use Webmozart\Assert\Assert;
 
 /**
  * Trait per aggiungere funzionalità di profilo ai modelli utente.
@@ -65,7 +67,6 @@ trait IsProfileTrait
      * Utilizza prima i dati del profilo, altrimenti ricade sul nome dell'utente.
      *
      * @param  string|null  $value  Il valore attuale dell'attributo
-     *
      * @return string|null Il nome completo dell'utente
      */
     public function getFullNameAttribute(?string $value): ?string
@@ -78,13 +79,16 @@ trait IsProfileTrait
         if ($user === null) {
             return null;
         }
+        Assert::isInstanceOf($user, User::class);
 
-        $res = $this->first_name.' '.$this->last_name;
-        if (mb_strlen($res) > 2) {
+        $res = trim(($this->first_name ?? '').' '.($this->last_name ?? ''));
+        if ($res !== '') {
             return $res;
         }
 
-        return $user->name;
+        $userName = $user->getAttribute('name');
+
+        return \is_string($userName) && $userName !== '' ? $userName : null;
     }
 
     /**
@@ -92,7 +96,6 @@ trait IsProfileTrait
      * Se non presente nel profilo, lo recupera dall'utente collegato.
      *
      * @param  string|null  $value  Il valore attuale dell'attributo
-     *
      * @return string|null Il nome dell'utente
      */
     public function getFirstNameAttribute(?string $value): ?string
@@ -105,14 +108,16 @@ trait IsProfileTrait
         if ($user === null) {
             return null;
         }
+        Assert::isInstanceOf($user, User::class);
 
-        $value = $user->first_name;
-        if ($value === null) {
+        $firstName = $user->getAttribute('first_name');
+        if (! \is_string($firstName) || $firstName === '') {
             return null;
         }
-        $this->update(['first_name' => $value]);
 
-        return $value;
+        $this->update(['first_name' => $firstName]);
+
+        return $firstName;
     }
 
     /**
@@ -120,7 +125,6 @@ trait IsProfileTrait
      * Se non presente nel profilo, lo recupera dall'utente collegato.
      *
      * @param  string|null  $value  Il valore attuale dell'attributo
-     *
      * @return string|null Il cognome dell'utente
      */
     public function getLastNameAttribute(?string $value): ?string
@@ -133,14 +137,16 @@ trait IsProfileTrait
         if ($user === null) {
             return null;
         }
+        Assert::isInstanceOf($user, User::class);
 
-        $value = $user->last_name;
-        if ($value === null) {
+        $lastName = $user->getAttribute('last_name');
+        if (! \is_string($lastName) || $lastName === '') {
             return null;
         }
-        $this->update(['last_name' => $value]);
 
-        return $value;
+        $this->update(['last_name' => $lastName]);
+
+        return $lastName;
     }
 
     /**
@@ -184,6 +190,7 @@ trait IsProfileTrait
         if ($user === null) {
             throw new Exception('['.__LINE__.']['.class_basename($this).']');
         }
+        Assert::isInstanceOf($user, User::class);
         $to_assign = 'super-admin';
         $to_remove = 'negate-super-admin';
         if ($this->isSuperAdmin()) {
@@ -277,14 +284,19 @@ trait IsProfileTrait
      */
     protected function userName(): Attribute
     {
-        return Attribute::make(get: function (): ?string {
-            $user = $this->user;
-            if ($user === null) {
-                return null;
-            }
+        return Attribute::make(
+            get: function (): ?string {
+                $user = $this->user;
+                if ($user === null) {
+                    return null;
+                }
+                Assert::isInstanceOf($user, User::class);
 
-            return $user->name;
-        });
+                $name = $user->getAttribute('name');
+
+                return \is_string($name) && $name !== '' ? $name : null;
+            }
+        );
     }
 
     /**

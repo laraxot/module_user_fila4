@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use DateTime;
-use Exception;
 use Filament\Models\Contracts\HasName;
 use Filament\Models\Contracts\HasTenants;
 use Filament\Panel;
@@ -28,21 +26,24 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Laravel\Passport\HasApiTokens;
+use Laravel\Passport\PersonalAccessTokenResult;
+use Laravel\Passport\Token;
+use Laravel\Passport\TransientToken;
 use Modules\User\Database\Factories\UserFactory;
 use Modules\User\Models\Traits\HasAuthenticationLogTrait;
 use Modules\User\Models\Traits\HasTeams;
 use Modules\Xot\Actions\Factory\GetFactoryAction;
+use Modules\Xot\Contracts\PassportHasApiTokensContract;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Models\Traits\RelationX;
-use Override;
 use Parental\HasChildren;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Permission\Contracts\Role as SpatieRoleContract;
 use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
-use Throwable;
 
 /**
  * Base User Model
@@ -86,12 +87,12 @@ use Throwable;
  * @property bool|null $is_active
  * @property bool|null $is_otp
  * @property string|null $type
- * @property DateTime|null $password_expires_at
- * @property DateTime|null $email_verified_at
+ * @property \DateTime|null $password_expires_at
+ * @property \DateTime|null $email_verified_at
  * @property string|null $remember_token
- * @property DateTime|null $created_at
- * @property DateTime|null $updated_at
- * @property DateTime|null $deleted_at
+ * @property \DateTime|null $created_at
+ * @property \DateTime|null $updated_at
+ * @property \DateTime|null $deleted_at
  * @property string|null $created_by
  * @property string|null $updated_by
  * @property string|null $deleted_by
@@ -131,13 +132,53 @@ use Throwable;
  *
  * @mixin \Eloquent
  */
-abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, UserContract
+abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, PassportHasApiTokensContract, UserContract
 {
-    use HasApiTokens;
+    use HasApiTokens {
+        clients as protected passportClients;
+        tokens as protected passportTokens;
+        token as protected passportToken;
+        tokenCan as protected passportTokenCan;
+        createToken as passportCreateToken;
+        withAccessToken as protected passportWithAccessToken;
+    }
+
+    #[\Override]
+    public function clients(): HasMany
+    {
+        /** @var HasMany $clients */
+        $clients = $this->passportClients();
+
+        return $clients;
+    }
+
+    #[\Override]
+    public function tokens(): HasMany
+    {
+        /** @var HasMany $tokens */
+        $tokens = $this->passportTokens();
+
+        return $tokens;
+    }
+
+    #[\Override]
+    public function token(): Token|TransientToken|null
+    {
+        return $this->passportToken();
+    }
+
+    #[\Override]
+    public function tokenCan(string $scope): bool
+    {
+        return $this->passportTokenCan($scope);
+    }
+
     use HasAuthenticationLogTrait;
     use HasChildren;
     use HasPermissions;
-    use HasRoles;
+    use HasRoles {
+        removeRole as spatieRemoveRole;
+    }
     use HasTeams;
     use HasUuids;
     use InteractsWithMedia;
@@ -222,7 +263,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         try {
             $this->fillable = array_values(array_merge(parent::getFillable(), $this->getFillable()));
             parent::__construct($attributes);
-        } catch (Throwable $e) {
+        } catch (\Throwable $e) {
             // Fallback in case database connection is not available (e.g., during testing)
             $this->fillable = array_values($this->getFillable());
             // Avoid calling parent constructor if database is not available
@@ -245,7 +286,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         $firstName = (string) ($this->getAttribute('first_name') ?? '');
         $lastName = (string) ($this->getAttribute('last_name') ?? '');
 
-        $fullName = trim(sprintf('%s %s %s', $name, $firstName, $lastName));
+        $fullName = trim(\sprintf('%s %s %s', $name, $firstName, $lastName));
 
         // Ensure we always return a non-empty string
         if (empty($fullName)) {
@@ -257,7 +298,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         return $fullName;
     }
 
-    #[Override]
+    #[\Override]
     public function profile(): HasOne
     {
         try {
@@ -266,11 +307,12 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             if (class_exists($profileClass)) {
                 return $this->hasOne($profileClass);
             }
+
             // Fallback: se non riesce a ottenere la classe Profile, usa una relazione generica
             // Questo evita l'errore "Target [Illuminate\Database\Eloquent\Model] is not instantiable"
             // Utilizziamo una classe che sicuramente esiste nel sistema
             return $this->hasOne(Model::class);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             // Fallback: se non riesce a ottenere la classe Profile, usa una relazione generica
             // Questo evita l'errore "Target [Illuminate\Database\Eloquent\Model] is not instantiable"
             // Utilizziamo una classe che sicuramente esiste nel sistema
@@ -293,6 +335,34 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         $role_name = $module.'::admin';
         $role = Role::firstOrCreate(['name' => $role_name]);
         $this->assignRole($role);
+    }
+
+    /**
+     * @param  string  $name
+     */
+    #[\Override]
+    public function createToken($name, array $scopes = []): PersonalAccessTokenResult
+    {
+        return $this->passportCreateToken((string) $name, $scopes);
+    }
+
+    /**
+     * @return static
+     */
+    #[\Override]
+    public function withAccessToken(Token|TransientToken $accessToken): static
+    {
+        $this->passportWithAccessToken($accessToken);
+
+        return $this;
+    }
+
+    #[\Override]
+    public function removeRole(SpatieRoleContract|string|int $role): static
+    {
+        $this->spatieRemoveRole($role);
+
+        return $this;
     }
 
     public function canAccessPanel(Panel $panel): bool
@@ -339,12 +409,12 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
 
     public function treeLabel(): string
     {
-        return strval($this->name ?? $this->email);
+        return (string) ($this->name ?? $this->email);
     }
 
     public function treeSons(): Collection
     {
-        return $this->teams ?? new Collection();
+        return $this->teams ?? new Collection;
     }
 
     /**
@@ -371,7 +441,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     {
         $socialiteUser = $this->socialiteUsers()->firstWhere(['provider' => $provider]);
         if ($socialiteUser === null) {
-            throw new Exception('SocialiteUser not found');
+            throw new \Exception('SocialiteUser not found');
         }
 
         $res = $socialiteUser->{$field};
@@ -427,13 +497,13 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         $candidate = $name.'-'.$i;
 
         // During unit tests, avoid any DB interaction.
-        $isTesting = (function (): bool {
+        $isTesting = (static function (): bool {
             $app = app();
             if (method_exists($app, 'environment') && $app->environment('testing')) {
                 return true;
             }
 
-            return PHP_SAPI === 'cli' && (getenv('APP_ENV') === 'testing' || getenv('ENV') === 'testing');
+            return \PHP_SAPI === 'cli' && (getenv('APP_ENV') === 'testing' || getenv('ENV') === 'testing');
         })();
         if ($isTesting) {
             // Do not call update() here to avoid hitting the database.
@@ -451,7 +521,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             $this->update(['name' => $value]);
 
             return $value;
-        } catch (Throwable $e) {
+        } catch (\Throwable $e) {
             // If any issue occurs (e.g., missing connection/table), fall back without DB.
             $this->attributes['name'] = $candidate;
 
@@ -469,19 +539,19 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
      *
      * @param  array|\Illuminate\Support\Collection|int|\Spatie\Permission\Contracts\Role|string  $roles
      */
-    #[Override]
+    #[\Override]
     public function hasRole($roles, ?string $guard = null): bool
     {
         // Se è una stringa semplice, utilizziamo il metodo interno tramite relazione roles
-        if (is_string($roles)) {
+        if (\is_string($roles)) {
             return once(fn (): bool => $this->roles()->where('name', $roles)->exists());
         }
 
         // Per gli altri tipi, implementiamo una logica di base
-        if (is_array($roles) || $roles instanceof \Illuminate\Support\Collection) {
+        if (\is_array($roles) || $roles instanceof \Illuminate\Support\Collection) {
             foreach ($roles as $role) {
                 // Type narrowing per $role
-                $roleParam = is_string($role) || is_int($role) || $role instanceof \Spatie\Permission\Contracts\Role ? $role : (string) $role;
+                $roleParam = \is_string($role) || \is_int($role) || $role instanceof \Spatie\Permission\Contracts\Role ? $role : (string) $role;
                 if ($this->hasRole($roleParam, $guard)) {
                     return true;
                 }
@@ -494,7 +564,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             return $this->roles()->where('id', $roles->id)->exists();
         }
 
-        if (is_int($roles)) {
+        if (\is_int($roles)) {
             return $this->roles()->where('id', $roles)->exists();
         }
 
@@ -508,7 +578,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
 
             return;
         }
-        if (strlen($value) < 32) {
+        if (\strlen($value) < 32) {
             $this->attributes['password'] = Hash::make($value);
 
             return;

@@ -68,7 +68,9 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
 
         // Ensure list type for PHPStan Level 10
         /** @var array<int, \Filament\Schemas\Components\Component> $result */
-        return array_values($schema);
+        $result = array_values($schema);
+
+        return $result;
     }
 
     /**
@@ -125,7 +127,7 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
         $user->setAttribute('password', Hash::make($newPassword));
         $user->save();
 
-        return new PasswordResetResponse();
+        return new PasswordResetResponse;
     }
 
     /**

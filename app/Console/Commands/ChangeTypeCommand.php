@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace Modules\User\Console\Commands;
 
 use Illuminate\Console\Command;
+
 use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
+
 use Modules\Xot\Actions\Cast\SafeObjectCastAction;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
@@ -64,11 +66,11 @@ class ChangeTypeCommand extends Command
 
         // Get type label - BackedEnum needs HasLabel implementation
         $typeLabel = 'None';
-        if ($user->type !== null && is_object($user->type) && method_exists($user->type, 'getLabel')) {
+        if (isset($user->type) && \is_object($user->type) && method_exists($user->type, 'getLabel')) {
             $enumType = $user->type;
             /** @var string|\Illuminate\Contracts\Support\Htmlable|mixed */
             $label = $enumType->getLabel();
-            if (is_string($label)) {
+            if (\is_string($label)) {
                 $typeLabel = $label;
             } elseif ($label instanceof \Illuminate\Contracts\Support\Htmlable) {
                 $typeLabel = $label->toHtml();
@@ -85,9 +87,9 @@ class ChangeTypeCommand extends Command
         $options = [];
         foreach ($childTypes as $key => $item) {
             if (
-                is_object($item) &&
-                    method_exists($item, 'getLabel') &&
-                    app(SafeObjectCastAction::class)->hasNonNullProperty($item, 'value')
+                \is_object($item)
+                    && method_exists($item, 'getLabel')
+                    && app(SafeObjectCastAction::class)->hasNonNullProperty($item, 'value')
             ) {
                 $value = app(SafeObjectCastAction::class)
                     ->getStringProperty($item, 'value', '');
@@ -104,12 +106,12 @@ class ChangeTypeCommand extends Command
         Assert::isInstanceOf($newTypeEnum, \Filament\Support\Contracts\HasLabel::class);
 
         /** @var \BackedEnum&\Filament\Support\Contracts\HasLabel $newTypeEnum */
-        $user->type = $newTypeEnum;
+        $user->type = (string) $newTypeEnum->value;
         $user->save();
 
         $label = $newTypeEnum->getLabel();
         $labelString = '';
-        if (is_string($label)) {
+        if (\is_string($label)) {
             $labelString = $label;
         } elseif ($label instanceof \Illuminate\Contracts\Support\Htmlable) {
             $labelString = $label->toHtml();

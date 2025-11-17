@@ -36,8 +36,12 @@ trait HasTenants
      */
     public function getTenants(Panel $_panel): array|Collection
     {
-        /** @var Collection<int, Model> $tenants */
-        return $this->tenants;
+        /** @var Collection<int, Model> $result */
+        $result = $this->tenants->map(
+            static fn (Model $tenant): Model => $tenant,
+        );
+
+        return $result;
     }
 
     /**

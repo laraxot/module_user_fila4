@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-use BackedEnum;
-use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -24,12 +22,11 @@ use Webmozart\Assert\Assert;
  * - Determina dinamicamente la risorsa, il modello e l'action da eseguire
  * - Delega la logica di salvataggio a una UpdateAction specifica del modulo
  *
- * @property-read string $type
- * @property-read string $resource
- * @property-read string $model
- * @property-read string $action
- * @property-read Model $record
- *
+ * @property string     $type
+ * @property string     $resource
+ * @property string     $model
+ * @property string     $action
+ * @property Model      $record
  * @property array|null $data
  */
 class EditUserWidget extends XotBaseWidget
@@ -88,20 +85,22 @@ class EditUserWidget extends XotBaseWidget
         // Se il modello ha un ID, significa che è stato trovato nel database
         if ($model->exists) {
             try {
-                /** @var array<string, mixed> $arrayData */
-                return $model->toArray();
-            } catch (Exception $e) {
+                /** @var array<string, mixed> $result */
+                $result = $model->toArray();
+
+                return $result;
+            } catch (\Exception $e) {
                 // Se toArray() fallisce (problemi con enum), usa getAttributes()
                 Log::warning("Errore in toArray() per modello {$this->model}: ".$e->getMessage());
 
-                /** @var array<string, mixed> $attributes */
-                $attributes = $model->getAttributes();
+                /** @var array<string, mixed> $result */
+                $result = $model->getAttributes();
                 // Gestisci specificamente gli enum se presenti
-                if (isset($attributes['type']) && ($model->type ?? null) instanceof BackedEnum) {
-                    $attributes['type'] = $model->type->value;
+                if (isset($result['type']) && ($model->type ?? null) instanceof \BackedEnum) {
+                    $result['type'] = $model->type->value;
                 }
 
-                return $attributes;
+                return $result;
             }
         }
         // Se è un nuovo modello, restituisci solo i campi fillable con valori null
@@ -110,7 +109,9 @@ class EditUserWidget extends XotBaseWidget
         $fields = array_merge($fillable, $appends);
 
         /** @var array<string, mixed> */
-        return array_fill_keys($fields, null);
+        $result = array_fill_keys($fields, null);
+
+        return $result;
     }
 
     /**
@@ -123,8 +124,10 @@ class EditUserWidget extends XotBaseWidget
         $schema = $this->resource::getFormSchemaWidget();
         Assert::isArray($schema, 'Schema must be array');
 
-        /** @var array<int|string, \Filament\Support\Components\Component> */
-        return $schema;
+        /** @var array<int|string, \Filament\Support\Components\Component> $result */
+        $result = $schema;
+
+        return $result;
     }
 
     /**
@@ -147,11 +150,11 @@ class EditUserWidget extends XotBaseWidget
     {
         $currentUser = Auth::user();
 
-        return $currentUser &&
-            (($currentUser->id ?? null) !== null &&
-                        ($this->record->id ?? null) !== null &&
-                        $currentUser->id === $this->record->id ||
-                    ($currentUser->id ?? null) !== null && $currentUser->id === ($this->record->user_id ?? null));
+        return $currentUser
+            && (($currentUser->id ?? null) !== null
+                        && ($this->record->id ?? null) !== null
+                        && $currentUser->id === $this->record->id
+                    || ($currentUser->id ?? null) !== null && $currentUser->id === ($this->record->user_id ?? null));
     }
 
     /**
@@ -163,31 +166,39 @@ class EditUserWidget extends XotBaseWidget
         /** @var class-string<Model> $modelClass */
         $modelClass = $this->model;
         if ($userId) {
-            /** @var \Illuminate\Database\Eloquent\Model $user */
-            return $this->model::findOrFail($userId);
+            /** @var Model $user */
+            $user = $this->model::findOrFail($userId);
+
+            return $user;
         }
 
         // Se non è specificato un userId, usa l'utente correntemente autenticato
         $currentUser = Auth::user();
-        if ($currentUser && is_string($this->model) && $currentUser instanceof $this->model) {
-            return $currentUser;
+        if ($currentUser && \is_string($this->model) && $currentUser instanceof $this->model) {
+            /** @var Model $user */
+            $user = $currentUser;
+
+            return $user;
         }
 
         // Fallback: cerca un utente del tipo corretto associato all'utente autenticato
-        if ($currentUser && is_string($this->model)) {
+        if ($currentUser && \is_string($this->model)) {
             $query = $this->model::where('user_id', $currentUser->id);
 
-            if (is_object($query) && method_exists($query, 'first')) {
+            if (\is_object($query) && method_exists($query, 'first')) {
                 $user = $query->first();
 
                 if ($user instanceof Model) {
+                    /* @var Model $user */
                     return $user;
                 }
             }
         }
 
         // Ultimo fallback: nuovo modello
-        /** @var \Illuminate\Database\Eloquent\Model $modelInstance */
-        return app($this->model);
+        /** @var Model $user */
+        $user = app($this->model);
+
+        return $user;
     }
 }

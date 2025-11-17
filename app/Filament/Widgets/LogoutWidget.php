@@ -36,7 +36,6 @@ use Throwable;
  */
 class LogoutWidget extends XotBaseWidget
 {
-
     /**
      * Widget data array.
      *
@@ -51,6 +50,7 @@ class LogoutWidget extends XotBaseWidget
      * Indicates if the logout process is in progress.
      */
     public bool $isLoggingOut = false;
+
     /**
      * The view to render the widget.
      *

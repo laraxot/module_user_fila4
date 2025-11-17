@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Modules\User\Database\Factories\PermissionFactory;
 use Modules\Xot\Models\Traits\RelationX;
 
-class Permission extends Model
+class Permission extends BaseModel
 {
     use RelationX;
 
@@ -45,9 +45,9 @@ class Permission extends Model
     }
 
     /**
-     * Get the factory instance for the model.
+     * Create a new factory instance for the model.
      */
-    public static function factory(): PermissionFactory
+    protected static function newFactory(): PermissionFactory
     {
         return PermissionFactory::new();
     }

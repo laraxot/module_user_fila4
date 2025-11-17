@@ -138,7 +138,6 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      * Determina se l'utente specificato appartiene al team.
      *
      * @param  UserContract  $user  L'utente da verificare
-     *
      * @return bool True se l'utente appartiene al team, false altrimenti
      */
     #[Override]
@@ -157,7 +156,6 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      * Determina se l'indirizzo email specificato appartiene a un utente del team.
      *
      * @param  string  $email  Indirizzo email da verificare
-     *
      * @return bool True se un utente con quell'email appartiene al team, false altrimenti
      */
     #[Override]
@@ -179,7 +177,6 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      *
      * @param  UserContract  $userContract  L'utente da verificare
      * @param  string  $permission  Il permesso da controllare
-     *
      * @return bool True se l'utente ha il permesso, false altrimenti
      */
     #[Override]

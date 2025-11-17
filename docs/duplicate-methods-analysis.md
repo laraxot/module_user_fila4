@@ -405,10 +405,14 @@ public function members(): BelongsToMany
 - `Permission::factory` - [Modules/User/app/Models/Permission.php:59](Modules/User/app/Models/Permission.php)
 - `Role::factory` - [Modules/User/app/Models/Role.php:69](Modules/User/app/Models/Role.php)
 
-**Signature**:
+**Signature storica**:
 ```php
 public static function factory(): PermissionFactory
 ```
+
+##### ✅ Stato aggiornato (2025-11-17)
+- `Permission` e gli altri modelli usano ora `protected static function newFactory(): PermissionFactory`
+  mantenendo la firma compatibile con `HasFactory::factory($count = null, $state = [])` ed evitando collisioni.
 
 #### 📊 Analisi Refactoring
 
@@ -428,7 +432,8 @@ public static function factory(): PermissionFactory
 
 ##### 💡 Raccomandazione
 
-**Valutare attentamente** - Analizzare le implementazioni specifiche prima di procedere.
+Quando serve una factory custom, sovrascrivere solo `newFactory()` (non `factory()`) e
+lasciare a `HasFactory` la gestione del metodo pubblico compatibile con Laravel 11.
 
 ---
 

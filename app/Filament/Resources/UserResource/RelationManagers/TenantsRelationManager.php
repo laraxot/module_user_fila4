@@ -50,10 +50,18 @@ class TenantsRelationManager extends XotBaseRelationManager
             return [];
         }
 
-        /** @var array<string, Column> $columns */
-        return $listTenants->getTableColumns();
+        $columns = $listTenants->getTableColumns();
 
-        // All columns are already of type Column from ListTenants
-        // PHPStan Level 10: No need to filter as type is guaranteed
+        /** @var array<string, Column> $columnMap */
+        $columnMap = [];
+        foreach ($columns as $column) {
+            if (! $column instanceof Column) {
+                continue;
+            }
+
+            $columnMap[(string) $column->getName()] = $column;
+        }
+
+        return $columnMap;
     }
 }

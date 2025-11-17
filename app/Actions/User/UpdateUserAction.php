@@ -28,7 +28,6 @@ class UpdateUserAction
      *
      * @param  Model  $user  L'utente da aggiornare
      * @param  array<string, mixed>  $data  I dati da aggiornare
-     *
      * @return Model L'utente aggiornato
      *
      * @throws Exception Se l'aggiornamento fallisce
@@ -81,7 +80,6 @@ class UpdateUserAction
      * Prepara i dati per l'aggiornamento rimuovendo campi non aggiornabili.
      *
      * @param  array<string, mixed>  $data
-     *
      * @return array<string, mixed>
      */
     protected function prepareUpdateData(array $data): array

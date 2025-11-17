@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+use Filament\Schemas\Components\Component;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -11,13 +12,17 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Livewire\Features\SupportRedirects\Redirector;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Modules\Xot\Actions\Cast\SafeArrayCastAction;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
-use Override;
+use Webmozart\Assert\Assert;
 
 class RegistrationWidget extends XotBaseWidget
 {
-    public ?array $data = [];
+    /**
+     * @var array<string, mixed>|null
+     */
+    public ?array $data = null;
 
     public string $type;
 
@@ -44,7 +49,7 @@ class RegistrationWidget extends XotBaseWidget
         $this->resource = XotData::make()->getUserResourceClassByType($type);
 
         $modelClass = $this->resource::getModel();
-        $this->model = is_string($modelClass) ? $modelClass : '';
+        $this->model = \is_string($modelClass) ? $modelClass : '';
 
         $this->action = Str::of($this->model)
             ->replace('\\Models\\', '\\Actions\\')
@@ -53,9 +58,8 @@ class RegistrationWidget extends XotBaseWidget
         $record = $this->getFormModel();
         $data = $this->getFormFill();
 
-        /** @var array<string, mixed> $data */
         $this->data = $data;
-        $this->form->fill($data);
+        $this->form->fill($this->data);
         $this->form->model($record);
         $this->record = $record;
     }
@@ -68,9 +72,11 @@ class RegistrationWidget extends XotBaseWidget
 
         /** @var Model|null $user */
         $user = $this->model::firstWhere('email', $email);
-        if ($user === null) {
+        if (null === $user) {
             /** @var Model $model */
-            return app($this->model);
+            $model = app($this->model);
+
+            return $model;
         }
 
         $remember_token = $user->getAttribute('remember_token');
@@ -86,24 +92,36 @@ class RegistrationWidget extends XotBaseWidget
             return $user;
         }
 
-        /** @var \Illuminate\Database\Eloquent\Model $modelInstance */
-        return app($this->model);
+        /** @var Model $model */
+        $model = app($this->model);
+
+        return $model;
     }
 
-    #[Override]
+    /**
+     * @return array<string, mixed>
+     */
+    #[\Override]
     public function getFormFill(): array
     {
-        $data = parent::getFormFill();
+        /** @var array<string, mixed> $data */
+        $data = SafeArrayCastAction::cast(parent::getFormFill());
         $data['type'] = $this->type;
 
         return $data;
     }
 
-    #[Override]
+    /**
+     * @return array<int|string, Component>
+     */
+    #[\Override]
     public function getFormSchema(): array
     {
-        /** @var array<int|string, \Filament\Schemas\Components\Component> $schema */
-        return $this->resource::getFormSchemaWidget();
+        /** @var array<int|string, Component> $schema */
+        $schema = $this->resource::getFormSchemaWidget();
+        Assert::isArray($schema);
+
+        return $schema;
     }
 
     /**
@@ -114,8 +132,9 @@ class RegistrationWidget extends XotBaseWidget
         $lang = app()->getLocale();
 
         $data = $this->form->getState();
-
-        $data = array_merge($this->data ?? [], $data);
+        /** @var array<string, mixed> $initialData */
+        $initialData = $this->data ?? [];
+        $data = array_merge($initialData, $data);
         $record = $this->record;
 
         /** @var object{execute: callable} $actionInstance */

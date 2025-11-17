@@ -27,7 +27,6 @@ class LogoutController extends XotBaseController
      * handling any necessary cleanup tasks related to tokens and sessions.
      *
      * @param  Request  $request  the incoming request containing the authenticated user
-     *
      * @return JsonResponse a JSON response indicating the success of the logout operation
      */
     public function __invoke(Request $request): JsonResponse

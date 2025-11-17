@@ -5,18 +5,20 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Xot\Actions\Factory\GetFactoryAction;
 use Modules\Xot\Models\Traits\RelationX;
+use Modules\Xot\Models\XotBaseModel;
 use Modules\Xot\Traits\Updater;
 
 /**
  * Class BaseModel.
  */
-abstract class BaseModel extends Model
+abstract class BaseModel extends XotBaseModel
 {
     use \Modules\Xot\Models\Traits\HasXotFactory;
     use RelationX;
+    use SoftDeletes;
     use Updater;
 
     /**

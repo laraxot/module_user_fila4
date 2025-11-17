@@ -6,12 +6,12 @@ namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Support\Carbon;
 use Modules\Media\Models\Media;
 use Modules\User\Database\Factories\UserFactory;
 use Modules\Xot\Contracts\ProfileContract;
-use Override;
 use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 
 /**
@@ -91,16 +91,14 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @method static Builder|User withoutRole($roles, $guard = null)
  *
  * @property string $last_name
- *
- * @property-read Team|null $currentTeam
- * @property-read MediaCollection<int, Media> $media
- * @property-read int|null $media_count
- * @property-read Collection<int, SocialiteUser> $socialiteUsers
- * @property-read int|null $socialite_users_count
- * @property-read Collection<int, Membership> $teamUsers
- * @property-read int|null $team_users_count
- * @property-read Collection<int, \Modules\User\Models\User> $all_team_users
- *
+ * @property Team|null $currentTeam
+ * @property MediaCollection<int, Media> $media
+ * @property int|null $media_count
+ * @property Collection<int, SocialiteUser> $socialiteUsers
+ * @property int|null $socialite_users_count
+ * @property Collection<int, Membership> $teamUsers
+ * @property int|null $team_users_count
+ * @property Collection<int, User> $all_team_users
  * @property string|null $phone
  * @property string|null $address
  * @property string|null $city
@@ -140,10 +138,34 @@ class User extends BaseUser
      */
     public $connection = 'user';
 
-    #[Override]
+    #[\Override]
     public function canAccessSocialite(): bool
     {
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;
         return true;
+    }
+
+    /**
+     * Get the user relationship.
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(self::class);
+    }
+
+    /**
+     * Get the creator relationship.
+     */
+    public function creator(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(self::class, 'created_by');
+    }
+
+    /**
+     * Get the updater relationship.
+     */
+    public function updater(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(self::class, 'updated_by');
     }
 }

@@ -40,7 +40,7 @@ class VerifyEmailController extends Controller
             : ($user->email ?? '');
 
         if (! hash_equals(sha1($userEmail), $stringRouteHash)) {
-            throw new AuthorizationException();
+            throw new AuthorizationException;
         }
 
         // Verifichiamo l'email solo se il metodo esiste

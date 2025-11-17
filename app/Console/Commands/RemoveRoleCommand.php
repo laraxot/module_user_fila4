@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Modules\User\Console\Commands;
 
 use Illuminate\Console\Command;
-use function Laravel\Prompts\multiselect;
-use function Laravel\Prompts\text;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Symfony\Component\Console\Input\InputOption;
+
+use function Laravel\Prompts\multiselect;
+use function Laravel\Prompts\text;
 
 class RemoveRoleCommand extends Command
 {
@@ -41,10 +42,10 @@ class RemoveRoleCommand extends Command
          * @var UserContract $user
          */
         $user = XotData::make()->getUserByEmail($email);
-        /**
-         * @var array<string, string>
-         */
-        $opts = $user->roles->pluck('name', 'name')->toArray();
+        /** @var \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Role> $roles */
+        $roles = $user->roles()->get();
+        /** @var array<string, string> $opts */
+        $opts = $roles->pluck('name', 'name')->toArray();
 
         $rows = multiselect(
             label: 'What roles',

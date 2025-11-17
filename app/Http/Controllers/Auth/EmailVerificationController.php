@@ -11,7 +11,6 @@
  *
  * @param  string  $id  the ID of the user to be verified
  * @param  string  $hash  the hash of the user's email address
- *
  * @return RedirectResponse a redirect response to the home page
  *
  * @throws AuthorizationException if the verification fails
@@ -34,15 +33,15 @@ class EmailVerificationController extends Controller
     {
         $user = Auth::user();
         if ($user === null) {
-            throw new AuthorizationException();
+            throw new AuthorizationException;
         }
 
         if (! hash_equals($id, (string) Auth::id())) {
-            throw new AuthorizationException();
+            throw new AuthorizationException;
         }
 
         if (! hash_equals($hash, sha1($user->getEmailForVerification()))) {
-            throw new AuthorizationException();
+            throw new AuthorizationException;
         }
 
         if ($user->hasVerifiedEmail()) {

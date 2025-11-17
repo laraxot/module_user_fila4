@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Pages\Tenancy;
 
 use Filament\Pages\Tenancy\RegisterTenant as BaseRegisterTenant;
+use Filament\Schemas\Components\Component;
 use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -18,7 +19,10 @@ class RegisterTenant extends BaseRegisterTenant
 {
     use TransTrait;
 
-    public string $resource;
+    /**
+     * @var class-string|null
+     */
+    private ?string $resourceClass = null;
 
     public static function getLabel(): string
     {
@@ -32,19 +36,13 @@ class RegisterTenant extends BaseRegisterTenant
             ->prepend('actions.')
             ->append('.'.$func)
             ->toString();
+
         return static::transClass($tenantClass, $key);
     }
 
     public function form(Schema $schema): Schema
     {
-        $tenantClass = XotData::make()->getTenantClass();
-        $resource = Str::of($tenantClass)
-            ->replace('\\Models\\', '\\Filament\\Resources\\')
-            ->append('Resource')
-            ->toString();
-        $this->resource = $resource;
-
-        /** @var array<\Filament\Schemas\Components\Component> $components */
+        /** @var array<Component> $components */
         $components = $this->getFormSchema();
 
         return $schema->components($components);
@@ -55,8 +53,12 @@ class RegisterTenant extends BaseRegisterTenant
      */
     public function getFormSchema(): array
     {
-        /** @var array<\Filament\Schemas\Components\Component> $schema */
-        return $this->resource::getFormSchema();
+        $resourceClass = $this->resolveResourceClass();
+
+        /** @var array<Component> $schema */
+        $schema = $resourceClass::getFormSchema();
+
+        return $schema;
     }
 
     /**
@@ -71,5 +73,29 @@ class RegisterTenant extends BaseRegisterTenant
         Assert::isInstanceOf($tenant, BaseTenant::class);
 
         return $tenant;
+    }
+
+    /**
+     * @return class-string
+     */
+    private function resolveResourceClass(): string
+    {
+        if ($this->resourceClass !== null) {
+            return $this->resourceClass;
+        }
+
+        $tenantClass = XotData::make()->getTenantClass();
+        $resourceClass = Str::of($tenantClass)
+            ->replace('\\Models\\', '\\Filament\\Resources\\')
+            ->append('Resource')
+            ->toString();
+
+        Assert::classExists($resourceClass);
+
+        /** @var class-string $resolved */
+        $resolved = $resourceClass;
+        $this->resourceClass = $resolved;
+
+        return $resolved;
     }
 }

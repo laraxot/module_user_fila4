@@ -17,7 +17,7 @@ use Modules\Xot\Contracts\UserContract;
  *
  * @phpstan-require-extends Model
  */
-interface TenantContract extends ModelContract
+interface TenantContract
 {
     // belongstomany or hasmany ?
     // public function users(): HasMany;

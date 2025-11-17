@@ -10,13 +10,10 @@ namespace Modules\User\Contracts;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Laravel\Passport\PersonalAccessTokenResult;
 use Laravel\Passport\Token;
 use Laravel\Passport\TransientToken;
 
 /**
- * @propery \Laravel\Passport\Token|\Laravel\Passport\TransientToken|null $accessToken;
- *
  * @phpstan-require-extends Model
  */
 interface PassportHasApiTokensContract
@@ -43,8 +40,10 @@ interface PassportHasApiTokensContract
 
     /**
      * Create a new personal access token for the user.
+     *
+     * @param  array<int, string>  $scopes
      */
-    public function createToken(string $name, array $scopes = []): PersonalAccessTokenResult;
+    public function createToken(string $name, array $scopes = []): \Laravel\Passport\PersonalAccessTokenResult;
 
     /**
      * Set the current access token for the user.
