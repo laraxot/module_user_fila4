@@ -70,7 +70,7 @@ use Webmozart\Assert\Assert;
  */
 class Role extends SpatieRole
 {
-    use HasFactory;
+    use \Modules\Xot\Models\Traits\HasXotFactory;
     use RelationX;
 
     // use HasUuids;

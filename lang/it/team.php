@@ -167,6 +167,10 @@ return [
             'icon' => 'profile',
             'label' => 'profile',
         ],
+        'delete' => [
+            'tooltip' => 'delete',
+            'icon' => 'delete',
+        ],
     ],
     'plural' => [
         'model' => [

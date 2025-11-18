@@ -14,7 +14,8 @@ class TenantPolicy extends UserBasePolicy
      */
     public function viewAny(UserContract $user): bool
     {
-        return $user->hasPermissionTo('tenant.view.any');
+        // return $user->hasPermissionTo('tenant.view.any');
+        return false;
     }
 
     /**
