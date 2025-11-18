@@ -35,6 +35,14 @@ return [
         ],
     ],
     'navigation' => [
-        'group' => 'alignment.navigation',
+        'name' => 'Allineamento',
+        'plural' => 'Allineamenti',
+        'group' => [
+            'name' => 'Aspetto',
+            'description' => 'Personalizzazione dell\'aspetto del sistema',
+        ],
+        'label' => 'Allineamento',
+        'sort' => 16,
+        'icon' => 'heroicon-o-adjustments-horizontal',
     ],
 ];

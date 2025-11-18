@@ -30,7 +30,7 @@ use Illuminate\Notifications\DatabaseNotificationCollection;
  */
 class Notification extends BaseNotification
 {
-    use HasFactory;
+    use \Modules\Xot\Models\Traits\HasXotFactory;
 
     /** @var string */
     protected $connection = 'user';

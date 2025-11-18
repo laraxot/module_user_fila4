@@ -35,6 +35,14 @@ return [
         ],
     ],
     'navigation' => [
-        'group' => 'favicon.navigation',
+        'name' => 'Favicon',
+        'plural' => 'Favicon',
+        'group' => [
+            'name' => 'Aspetto',
+            'description' => 'Personalizzazione dell\'aspetto del sistema',
+        ],
+        'label' => 'Favicon',
+        'sort' => 12,
+        'icon' => 'heroicon-o-star',
     ],
 ];

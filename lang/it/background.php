@@ -35,6 +35,14 @@ return [
         ],
     ],
     'navigation' => [
-        'group' => 'background.navigation',
+        'name' => 'Sfondo',
+        'plural' => 'Sfondi',
+        'group' => [
+            'name' => 'Aspetto',
+            'description' => 'Personalizzazione dell\'aspetto del sistema',
+        ],
+        'label' => 'Sfondo',
+        'sort' => 14,
+        'icon' => 'heroicon-o-rectangle-stack',
     ],
 ];

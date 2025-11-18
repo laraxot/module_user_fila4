@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
-        'register' => 'Registra negozio',
-        'edit' => 'Modifica dati negozio',
+        'register' => 'Register Shop',
+        'edit' => 'Edit Shop Data',
     ],
     'fields' => [
-        'name' => 'Nome',
-        'phone' => 'Telefono',
+        'name' => 'Name',
+        'phone' => 'Phone',
         'email' => 'Email',
     ],
     'actions' => [
         'register_tenant' => [
-            'label' => 'Aggiungi Studio',
+            'label' => 'Add Studio',
         ],
     ],
 ];

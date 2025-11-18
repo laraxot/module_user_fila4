@@ -4,9 +4,14 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
-        'label' => 'appearance.navigation',
-        'group' => 'appearance.navigation',
-        'icon' => 'appearance.navigation',
+        'name' => 'Aspetto',
+        'plural' => 'Aspetto',
+        'group' => [
+            'name' => 'Aspetto',
+            'description' => 'Personalizzazione dell\'aspetto del sistema',
+        ],
+        'label' => 'Aspetto',
+        'icon' => 'heroicon-o-paint-brush',
         'sort' => 5,
     ],
 ];

@@ -60,7 +60,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class SsoProvider extends BaseModel
 {
-    use HasFactory;
+    use \Modules\Xot\Models\Traits\HasXotFactory;
 
     /**
      * The attributes that are mass assignable.

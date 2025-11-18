@@ -57,7 +57,7 @@ use Override;
  */
 class DeviceUser extends BasePivot
 {
-    use HasFactory;
+    use \Modules\Xot\Models\Traits\HasXotFactory;
 
     /** @var list<string> */
     protected $fillable = [

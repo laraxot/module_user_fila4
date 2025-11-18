@@ -52,7 +52,7 @@ use Modules\Xot\Contracts\ProfileContract;
  */
 class TeamUser extends BaseTeamUser
 {
-    use HasFactory;
+    use \Modules\Xot\Models\Traits\HasXotFactory;
 
     protected $connection = 'user';
 }

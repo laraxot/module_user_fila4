@@ -31,6 +31,14 @@ return [
         ],
     ],
     'navigation' => [
-        'group' => 'logo.navigation',
+        'name' => 'Logo',
+        'plural' => 'Logo',
+        'group' => [
+            'name' => 'Aspetto',
+            'description' => 'Personalizzazione dell\'aspetto del sistema',
+        ],
+        'label' => 'Logo',
+        'sort' => 10,
+        'icon' => 'heroicon-o-photo',
     ],
 ];

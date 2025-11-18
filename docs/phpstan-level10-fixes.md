@@ -2,6 +2,20 @@
 
 Questo documento traccia gli errori PHPStan di livello 10 identificati nel modulo User e le relative soluzioni implementate.
 
+## Stato Aggiornato (18 novembre 2025)
+
+| Aspetto | Dettagli |
+| --- | --- |
+| Comando eseguito | `./vendor/bin/phpstan analyse Modules/User --level=10` |
+| Esito | ✅ **Nessun errore** |
+| Note | L'analisi completa del modulo User passa al livello 10 senza necessità di ulteriori fix. Manteniamo comunque questa pagina come registro delle correzioni effettuate e delle future regressioni da monitorare. Per allineare il presentation layer, monitorare anche le [linee guida PHPStan del tema Zero](../../../Themes/Zero/docs/phpstan-dry-kiss-theme-guidelines.md). |
+
+### Azioni consigliate
+
+1. Continuare a rieseguire PHPStan livello 10 dopo ogni refactor sostanziale del modulo.
+2. Riutilizzare i pattern documentati sotto in caso di regressioni.
+3. Collegare da altri moduli eventuali dipendenze verso i servizi User per tracciare gli impatti.
+
 ## Errori Identificati e Correzioni Effettuate
 
 ### 1. Uso del tipo mixed in CheckOtpExpiredRule.php

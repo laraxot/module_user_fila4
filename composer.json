@@ -37,6 +37,11 @@
             "Modules\\User\\Database\\Seeders\\": "database/seeders/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\User\\Tests\\": "tests/"
+        }
+    },
     "require": {
         "flowframe/laravel-trend": "*",
         "jenssegers/agent": "*",

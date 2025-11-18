@@ -51,7 +51,7 @@ use Override;
  */
 class TenantUser extends BasePivot
 {
-    use HasFactory;
+    use \Modules\Xot\Models\Traits\HasXotFactory;
 
     protected $connection = 'user';
 
