@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Modules\User\Database\Factories\PermissionFactory;
 use Modules\Xot\Models\Traits\RelationX;
+use Modules\Xot\Models\Traits\HasXotFactory;
+use Spatie\Permission\Models\Permission as SpatiePermission;
 
-class Permission extends BaseModel
+class Permission extends SpatiePermission
 {
     use RelationX;
+    use HasXotFactory;
 
     /** @var string */
     protected $connection = 'user';
@@ -26,29 +26,4 @@ class Permission extends BaseModel
         'display_name',
         'description',
     ];
-
-    /**
-     * Get the users that have the permission.
-     */
-    public function users(): BelongsToMany
-    {
-        return $this->belongsToMany(User::class, 'model_has_permissions', 'permission_id', 'model_id')
-            ->where('model_type', User::class);
-    }
-
-    /**
-     * Get the roles that have the permission.
-     */
-    public function roles(): BelongsToMany
-    {
-        return $this->belongsToMany(Role::class, 'role_has_permissions', 'permission_id', 'role_id');
-    }
-
-    /**
-     * Create a new factory instance for the model.
-     */
-    protected static function newFactory(): PermissionFactory
-    {
-        return PermissionFactory::new();
-    }
 }

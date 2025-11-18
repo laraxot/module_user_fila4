@@ -6,7 +6,7 @@ namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 // //use Laravel\Scout\Searchable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Xot\Models\Traits\HasXotFactory;
 use Modules\Xot\Models\XotBaseUuidModel;
 use Modules\Xot\Traits\Updater;
 
@@ -17,7 +17,7 @@ abstract class BaseUuidModel extends XotBaseUuidModel
 {
     // use Searchable;
     // //use Cachable;
-    use HasFactory;
+    use HasXotFactory;
     use HasUuids;
     use Updater;
 
