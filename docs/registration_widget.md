@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Registration Widget Documentation
 
 ## Overview
@@ -65,4 +63,3 @@ protected function getConfirmationRoute(): string
 
 - [Namespace Issues](../../../docs/references/namespace-issues.md)
 - [Filament Resource Guidelines](../../../Modules/Xot/docs/rules/filament-resource-guidelines.md)
->>>>>>> 6849bc76 (.)

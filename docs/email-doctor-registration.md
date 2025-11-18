@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Invio Email per la Continuazione della Registrazione del Dottore
 
 ## Panoramica del Processo
@@ -431,4 +429,3 @@ Il processo di invio dell'email al dottore con il link per continuare la registr
 3. **Integrazione**: Utilizzo del widget di registrazione generico per la fase iniziale
 4. **Tracciabilità**: Logging delle azioni e degli accessi
 5. **Usabilità**: URL chiaro e diretto per continuare la registrazione
->>>>>>> 6849bc76 (.)

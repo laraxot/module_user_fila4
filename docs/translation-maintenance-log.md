@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Translation Maintenance Log - User Module
 
 ## Overview
@@ -154,4 +152,3 @@ Ogni intervento deve essere documentato seguendo questo template per mantenere l
 **Log iniziato**: 25 Gennaio 2025  
 **Ultimo update**: 25 Gennaio 2025  
 **Prossimo audit**: Da programmare Q1 2025
->>>>>>> 6849bc76 (.)

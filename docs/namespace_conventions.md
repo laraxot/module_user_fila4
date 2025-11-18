@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Convenzioni di Namespace nel Modulo User
 
 ## Principi Fondamentali
@@ -198,4 +196,3 @@ Se l'override del tema non funziona:
 *Documento creato: Dicembre 2024*
 *Ultimo aggiornamento: Dicembre 2024*
 
->>>>>>> 6849bc76 (.)

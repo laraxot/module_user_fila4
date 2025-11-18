@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # dependency-rules
 
 ## Principle (MANDATORY)
@@ -28,4 +26,3 @@
 ## References
 - `laravel/.ai/guidelines/modular-architecture-dependencies.md`
 - `laravel/.ai/guidelines/testing-business-behavior.md`
->>>>>>> 6849bc76 (.)

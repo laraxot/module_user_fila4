@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Implementazione degli Avatar 
 
 ## Collegamenti correlati
@@ -120,4 +118,3 @@ Il sistema di avatar può essere esteso in futuro per includere:
 - [Documentazione SVG](https://developer.mozilla.org/en-US/docs/Web/SVG)
 - [Blade Components Documentation](https://laravel.com/docs/10.x/blade#components)
 - [Architettura Modulare SaluteOra](/docs/architettura-modulare.md)
->>>>>>> 6849bc76 (.)

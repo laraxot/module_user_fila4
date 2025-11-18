@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Colli di Bottiglia - Modulo User
 
 ## 1. Autenticazione 2FA [70%]
@@ -258,4 +256,3 @@
 * [bottlenecks.md](../../../Media/project_docs/performance/bottlenecks.md)
 * [bottlenecks.md](../../../Patient/project_docs/roadmap/bottlenecks.md)
 
->>>>>>> 6849bc76 (.)

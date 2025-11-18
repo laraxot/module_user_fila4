@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Lezioni Apprese dall'Errore Gravissimo delle Factory
 
 ## L'Errore Gravissimo
@@ -159,4 +157,3 @@ done
 Ogni model DEVE avere la sua factory. È obbligatorio per il corretto funzionamento del sistema.
 
 *Ultimo aggiornamento: 2025-01-06*
->>>>>>> 6849bc76 (.)

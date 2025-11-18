@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # PHPStan Array Types Fixes - Modulo User
 
 ## 🚨 REGOLA CRITICA RISPETTATA 🚨
@@ -235,4 +233,3 @@ array<string, mixed> $attributes
 **Errori Identificati**: ~45 errori nel modulo User  
 **phpstan.neon**: ✅ INTOCCATO  
 **Stato**: 📋 Analisi Completata - Pronto per Correzioni
->>>>>>> 6849bc76 (.)

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Analisi Completa Modulo User - Factory, Seeder e Test
 
 ## 📊 Panoramica Generale
@@ -286,4 +284,3 @@ Il modulo User è il cuore del sistema di autenticazione e gestione utenti di Sa
 **Responsabile**: Team Sviluppo SaluteOra
 **Prossima Revisione**: Gennaio 2025
 
->>>>>>> 6849bc76 (.)

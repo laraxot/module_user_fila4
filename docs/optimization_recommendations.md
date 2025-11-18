@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Raccomandazioni di Ottimizzazione - Modulo User
 
 ## 🎯 Stato Attuale e Problemi Critici
@@ -278,4 +276,3 @@ php artisan user:benchmark  # Target: < 100ms
 - [Best Practices User](best-practices/)
 
 *Ultimo aggiornamento: gennaio 2025*
->>>>>>> 6849bc76 (.)

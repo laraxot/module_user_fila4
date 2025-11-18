@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-=======
 # Refactor Completo Campi "Città" - Modulo User
 
 ## Riepilogo Intervento
 
-<<<<<<< HEAD
-Sono stati identificati e corretti tutti i file di traduzione non italiani contenenti "Città" nel modulo User, applicando la struttura completa a 7 elementi secondo gli standard Laraxot <main module>.
-=======
 Sono stati identificati e corretti tutti i file di traduzione non italiani contenenti "Città" nel modulo User, applicando la struttura completa a 7 elementi secondo gli standard Laraxot SaluteOra.
->>>>>>> d89ae0a (.)
 
 ## File Corretti
 
@@ -163,15 +157,9 @@ Tutti i file corretti mantengono:
 
 ## Collegamenti Bidirezionali
 
-<<<<<<< HEAD
-- [Struttura Completa Campi Traduzione](../../../docs/translation-field-structure-complete.md)
-- [<main module> Translation Audit](../../<main module>/docs/translation_audit_city_fields.md)
-- [Translation Syntax Fixes](../../../docs/translation_syntax_fixes.md)
-=======
 - [Struttura Completa Campi Traduzione](../../../project_docs/translation-field-structure-complete.md)
 - [SaluteOra Translation Audit](../../SaluteOra/project_docs/translation_audit_city_fields.md)
 - [Translation Syntax Fixes](../../../project_docs/translation_syntax_fixes.md)
->>>>>>> d89ae0a (.)
 - [User Module Widget Translation Rules](widget-translation-rules.md)
 
 ## Prevenzione Futura
@@ -186,18 +174,9 @@ grep -A 10 -B 2 "label.*City\|label.*Stadt" laravel/Modules/*/lang/
 ```
 
 ### Template di Riferimento
-<<<<<<< HEAD
-Utilizzare la documentazione centrale [`translation-field-structure-complete.md`](../../../docs/translation-field-structure-complete.md) come template per tutti i nuovi campi di traduzione.
-=======
 Utilizzare la documentazione centrale [`translation-field-structure-complete.md`](../../../project_docs/translation-field-structure-complete.md) come template per tutti i nuovi campi di traduzione.
->>>>>>> d89ae0a (.)
 
 ## Ultimo Aggiornamento
 2025-08-08 - Refactor completo campi "Città" modulo User ✅ COMPLETATO
 
-<<<<<<< HEAD
-*Intervento eseguito seguendo rigorosamente i principi DRY + KISS e gli standard Laraxot <main module>*
-=======
 *Intervento eseguito seguendo rigorosamente i principi DRY + KISS e gli standard Laraxot SaluteOra*
->>>>>>> d89ae0a (.)
->>>>>>> 6849bc76 (.)

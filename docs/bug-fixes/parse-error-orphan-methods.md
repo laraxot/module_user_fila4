@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Bug Fix: ParseError - Metodi Orfani Fuori dalla Classe
 
 ## Data
@@ -144,4 +142,3 @@ Questo bug fix ha permesso di completare il miglioramento della qualità del cod
 - Transazioni database
 - Notifiche utente
 - Verifica email
->>>>>>> 6849bc76 (.)

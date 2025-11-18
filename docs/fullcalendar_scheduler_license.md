@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # FullCalendar Scheduler License Configuration
 
 ## License Key Overview
@@ -81,4 +79,3 @@ For license-related issues, contact FullCalendar support:
 ## Version Compatibility
 
 Ensure your license key is compatible with the version of FullCalendar Scheduler you're using. Check the [changelog](https://fullcalendar.io/changelog/) for version-specific requirements.
->>>>>>> 6849bc76 (.)

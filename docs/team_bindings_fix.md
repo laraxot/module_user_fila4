@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Fix Binding Team Models nel Modulo User
 
 ## Panoramica
@@ -167,15 +165,10 @@ $this->assertTrue($user->belongsToTeam($team));
 - [TeamUser Model](../app/Models/TeamUser.php)
 - [TeamInvitation Model](../app/Models/TeamInvitation.php)
 - [UserServiceProvider](../app/Providers/UserServiceProvider.php)
-<<<<<<< HEAD
-- [Critical Errors Documentation](../../SaluteOra/docs/critical-errors-resolved.md)
-=======
 - [Critical Errors Documentation](../../SaluteOra/project_docs/critical-errors-resolved.md)
->>>>>>> 81efa49 (.)
 
 ---
 
 **Autore**: AI Assistant  
 **Data**: Gennaio 2025  
 **Versione**: 1.0  
->>>>>>> 6849bc76 (.)

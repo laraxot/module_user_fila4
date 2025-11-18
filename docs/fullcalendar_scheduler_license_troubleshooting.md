@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # FullCalendar Scheduler License - Troubleshooting e Configurazione Avanzata
 
 ## Panoramica
@@ -419,4 +417,3 @@ La gestione delle licenze FullCalendar Scheduler richiede attenzione particolare
 3. **Workaround disponibili** per bug noti nelle versioni 5.x-6.x
 4. **Configurazione ambiente-specifica** per sviluppo vs produzione
 5. **Monitoring e logging** per troubleshooting proattivo 
->>>>>>> 6849bc76 (.)

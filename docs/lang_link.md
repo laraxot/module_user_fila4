@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Collegamento alle Traduzioni del Modulo User
 
 Questo modulo utilizza le traduzioni centralizzate nella cartella [Lang](../../Lang/docs/).
@@ -31,4 +29,3 @@ Per ogni risorsa o campo localizzato, vedi anche il file corrispondente in quest
 * [lang-link.md](../../../Patient/docs/lang-link.md)
 * [lang-link.md](../../../Cms/docs/lang-link.md)
 
->>>>>>> 6849bc76 (.)

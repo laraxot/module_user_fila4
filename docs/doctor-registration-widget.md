@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Widget di Registrazione del Dottore
 
 ## Panoramica
@@ -246,4 +244,3 @@ The SaluteOra Team'
 - [Registrazione Odontoiatra](/var/www/html/saluteora/docs/roadmap_frontoffice/13-registrazione-odontoiatra.md)
 - [DoctorResource](/var/www/html/saluteora/laravel/Modules/Patient/app/Filament/Resources/DoctorResource.php)
 - [RegistrationWidget](/var/www/html/saluteora/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php)
->>>>>>> 6849bc76 (.)

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Collegamento al Modulo Cms
 
 Questo documento descrive le relazioni e i collegamenti tra il modulo User e il modulo Cms per quanto riguarda i componenti Filament e le convenzioni di namespace.
@@ -40,4 +38,3 @@ Quando aggiungi nuovi componenti Filament nel modulo User, assicurati di:
 * [cms-link.md](../../../UI/docs/cms-link.md)
 * [cms-link.md](../../../Lang/docs/cms-link.md)
 
->>>>>>> 6849bc76 (.)

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Gestione degli Utenti in SaluteOra
 
 ## Panoramica
@@ -111,4 +109,3 @@ $request->validate([
 - [Processo di Registrazione dei Dottori](/laravel/Modules/Patient/docs/DOCTOR_REGISTRATION_PROCESS.md)
 - [Gestione dei File Upload in Filament](/docs/filament-file-uploads.md)
 - [Migrazioni del Database](/docs/database-migrations.md)
->>>>>>> 6849bc76 (.)

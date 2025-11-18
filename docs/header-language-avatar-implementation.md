@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Implementazione del Selettore di Lingua e Avatar Utente nell'Header
 
 ## Collegamenti correlati
@@ -378,4 +376,3 @@ Ecco come dovrebbe apparire il file JSON completo dell'header dopo le modifiche:
 - [Documentazione Alpine.js](https://alpinejs.dev/) - Per le interazioni dropdown
 - [Documentazione Filament](https://filamentphp.com/docs) - Per i componenti UI
 - [Documentazione Laravel Localization](https://laravel.com/docs/10.x/localization) - Per la gestione delle lingue
->>>>>>> 6849bc76 (.)

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Correzioni Traduzioni Navigation - Modulo User
 
 ## Data Intervento
@@ -91,4 +89,3 @@
 
 *Intervento completato il: 2025-08-07*
 *Conforme alle regole DRY + KISS*
->>>>>>> 6849bc76 (.)
