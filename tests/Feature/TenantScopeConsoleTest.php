@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Illuminate\Foundation\Console\Kernel;
+use Illuminate\Database\Eloquent\Collection;
 use Filament\Facades\Filament;
 use Illuminate\Support\Facades\Artisan;
 use Modules\User\Models\Tenant;
@@ -18,7 +20,7 @@ describe('TenantScope Console Context Behavior', function (): void {
         it('allows user creation without tenant in console context', function (): void {
             // Simula contesto console
             $this->app->bind('Illuminate\Contracts\Console\Kernel', function ($app) {
-                return $app->make(\Illuminate\Foundation\Console\Kernel::class);
+                return $app->make(Kernel::class);
             });
 
             // Crea utente senza tenant_id (dovrebbe funzionare in console)
@@ -132,12 +134,12 @@ describe('TenantScope Console Context Behavior', function (): void {
         it('handles gracefully when Filament::getTenant() throws exception', function (): void {
             // Mock Filament per lanciare eccezione
             Filament::shouldReceive('getTenant')
-                ->andThrow(new \RuntimeException('Session not available'));
+                ->andThrow(new RuntimeException('Session not available'));
 
             // Dovrebbe comunque permettere query
             $users = User::all();
 
-            expect($users)->toBeInstanceOf(\Illuminate\Database\Eloquent\Collection::class);
+            expect($users)->toBeInstanceOf(Collection::class);
         });
 
         it('allows user creation when Filament context is not available', function (): void {

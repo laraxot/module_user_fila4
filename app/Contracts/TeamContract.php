@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Contracts;
 
+use Modules\Xot\Contracts\ModelContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -41,7 +42,7 @@ use Modules\Xot\Contracts\UserContract;
  *
  * @mixin \Eloquent
  */
-interface TeamContract extends \Modules\Xot\Contracts\ModelContract
+interface TeamContract extends ModelContract
 {
     /**
      * Get the owner of the team.

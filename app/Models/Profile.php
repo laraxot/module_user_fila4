@@ -41,7 +41,7 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * @property-read ProfileContract|null $creator
  * @property-read Collection<int, DeviceUser> $deviceUsers
  * @property-read int|null $device_users_count
- * @property-read \Modules\User\Models\ProfileTeam|\Modules\User\Models\DeviceProfile|null $pivot
+ * @property-read ProfileTeam|DeviceProfile|null $pivot
  * @property-read Collection<int, Device> $devices
  * @property-read int|null $devices_count
  * @property-read string|null $first_name

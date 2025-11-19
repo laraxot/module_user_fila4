@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\PermissionResource\Pages;
 
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Builder;
+use Modules\User\Models\Role;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\BulkAction;
@@ -91,7 +94,7 @@ class ListPermissions extends XotBaseListRecords
 
                         // Poi verifichiamo che il modello abbia il metodo roles() prima di chiamarlo
                         if (method_exists($record, 'roles')) {
-                            /** @var \Illuminate\Database\Eloquent\Relations\BelongsToMany $rolesRelation */
+                            /** @var BelongsToMany $rolesRelation */
                             $rolesRelation = $record->roles();
                             /** @var mixed $roleData */
                             $roleData = $data['role'];
@@ -104,7 +107,7 @@ class ListPermissions extends XotBaseListRecords
                 })
                 ->schema([
                     Select::make('role')->options(function () use ($roleModel): array {
-                        /** @var \Illuminate\Database\Eloquent\Builder<\Modules\User\Models\Role> $query */
+                        /** @var Builder<Role> $query */
                         $query = $roleModel::query();
                         /** @var \Illuminate\Support\Collection<string|int, string> $collection */
                         $collection = $query->pluck('name', 'id');

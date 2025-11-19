@@ -31,9 +31,10 @@ function stubUser(array $attributes = []): User
         'created_at' => Carbon::now(),
         'updated_at' => Carbon::now(),
     ];
-    if (array_key_exists('password', $attributes) && is_string($attributes['password'])) {
-        $plain = $attributes['password'];
+    
+    $u = new User();
     $u->forceFill(array_merge($defaults, $attributes));
+    
     return $u;
 }
 
@@ -240,7 +241,8 @@ describe('User Model', function () {
 
         it('can own teams (in-memory)', function () {
             $user = stubUser();
-            $team->forceFill(['user_id' => 'owner-id']);
+            $team = new \Modules\Team\Models\Team();
+            $team->forceFill(['user_id' => $user->id]);
             $user->setRelation('ownedTeams', collect([$team]));
 
             expect($user->ownedTeams)->toHaveCount(1);

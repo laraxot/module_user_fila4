@@ -31,7 +31,7 @@ class ViewUser extends BaseViewUser
     public function filtersForm(Schema $schema): Schema
     {
         return $schema
-            ->schema([
+            ->components([
                 DatePicker::make('startDate'),
                 DatePicker::make('endDate'),
             ])->columns(2);

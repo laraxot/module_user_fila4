@@ -48,7 +48,7 @@ class UsersChartWidget extends ChartWidget implements HasActions, HasForms
         return Action::make('test')
             ->requiresConfirmation()
             ->action(function (array $arguments): void {
-                dd('Test action called', $arguments);
+                \Illuminate\Support\Facades\Log::debug('Test action called', $arguments);
             });
     }
 

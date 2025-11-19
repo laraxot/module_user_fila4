@@ -9,6 +9,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Illuminate\Database\Eloquent\Model;
+use DateTimeInterface;
+use Carbon\CarbonInterface;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
@@ -23,7 +26,7 @@ abstract class BaseUserResource extends XotBaseResource
 {
     // protected static ?string $model = \Modules\Xot\Datas\XotData::make()->getUserClass();
 
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-users';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-users';
 
     // Static property Modules\User\Filament\Resources\UserResource::$enablePasswordUpdates is never read, only written.
     // private static bool|\Closure $enablePasswordUpdates = true;
@@ -60,17 +63,17 @@ abstract class BaseUserResource extends XotBaseResource
             ])->columnSpan(8),
             'section02' => Section::make([
                 'created_at' => Placeholder::make('created_at')->content(static function ($record) {
-                    if ($record === null || ! $record instanceof \Illuminate\Database\Eloquent\Model) {
+                    if ($record === null || ! $record instanceof Model) {
                         return new HtmlString('&mdash;');
                     }
 
-                    if (! isset($record->created_at) || ! ($record->created_at instanceof \DateTimeInterface)) {
+                    if (! isset($record->created_at) || ! ($record->created_at instanceof DateTimeInterface)) {
                         return new HtmlString('&mdash;');
                     }
 
                     $createdAt = $record->created_at;
 
-                    return $createdAt instanceof \Carbon\CarbonInterface ? $createdAt->diffForHumans() : $createdAt->format('Y-m-d H:i:s');
+                    return $createdAt instanceof CarbonInterface ? $createdAt->diffForHumans() : $createdAt->format('Y-m-d H:i:s');
                 }),
             ])->columnSpan(4),
         ];

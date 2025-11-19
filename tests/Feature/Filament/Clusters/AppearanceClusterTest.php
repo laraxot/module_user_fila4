@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Modules\Xot\Datas\XotData;
 use Modules\User\Filament\Clusters\Appearance;
 use Modules\User\Filament\Clusters\Appearance\Pages\Alignment;
 use Modules\User\Filament\Clusters\Appearance\Pages\Background;
@@ -85,7 +86,7 @@ test('cluster does not extend Filament directly', function () {
 });
 
 test('cluster pages are accessible', function () {
-    $userClass = \Modules\Xot\Datas\XotData::make()->getUserClass();
+    $userClass = XotData::make()->getUserClass();
     $user = $userClass::factory()->create();
 
     $this->actingAs($user);

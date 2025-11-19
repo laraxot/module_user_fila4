@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
+use Modules\Xot\Models\Traits\HasXotFactory;
 
 /**
  * Modules\User\Models\Membership.
@@ -19,7 +19,6 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|Membership query()
  *
  * @property int $id
- * @property string $uuid
  * @property string|null $team_id
  * @property string|null $user_id
  * @property Carbon|null $created_at
@@ -31,13 +30,11 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|Membership whereCreatedAt($value)
  * @method static Builder|Membership whereCreatedBy($value)
  * @method static Builder|Membership whereCustomerId($value)
- * @method static Builder|Membership whereId($value)
  * @method static Builder|Membership whereRole($value)
  * @method static Builder|Membership whereTeamId($value)
  * @method static Builder|Membership whereUpdatedAt($value)
  * @method static Builder|Membership whereUpdatedBy($value)
  * @method static Builder|Membership whereUserId($value)
- * @method static Builder|Membership whereUuid($value)
  *
  * @property Carbon|null $deleted_at
  * @property string|null $deleted_by
@@ -53,14 +50,32 @@ use Modules\Xot\Contracts\ProfileContract;
  */
 class Membership extends BasePivot
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
-
-    /** @var bool */
-    public $incrementing = true;
+    use HasXotFactory;
 
     /** @var string */
     protected $connection = 'user';
 
     /** @var string */
     protected $table = 'team_user';
+
+    /**
+     * The "type" of the primary key ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'int';
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'id' => 'integer',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+        ];
+    }
 }

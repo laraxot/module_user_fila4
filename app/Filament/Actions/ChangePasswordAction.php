@@ -34,7 +34,7 @@ final class ChangePasswordAction extends Action
                     ->body(__('user::notifications.password_changed_successfully.message'))
                     ->send();
             })
-            ->form(function (): array {
+            ->schema(function (): array {
                 return [
                     PasswordData::make()->getPasswordFormComponent('new_password'),
                     TextInput::make('new_password_confirmation')

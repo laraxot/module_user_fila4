@@ -144,5 +144,5 @@ interface UserContract extends Authenticatable
     /**
      * Remove a role from the user.
      */
-    public function removeRole(string|int|\Spatie\Permission\Contracts\Role $role): static;
+    public function removeRole(string|int|Role $role): static;
 }

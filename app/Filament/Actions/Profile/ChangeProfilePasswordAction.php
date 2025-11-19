@@ -53,7 +53,7 @@ final class ChangeProfilePasswordAction extends Action
                 ]);
                 Notification::make()->success()->title('Password changed successfully.')->send();
             })
-            ->form(function (): array {
+            ->schema(function (): array {
                 return [
                     /*
                      * TextInput::make('new_password')

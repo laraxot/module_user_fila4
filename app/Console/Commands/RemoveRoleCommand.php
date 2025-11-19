@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
+use Illuminate\Database\Eloquent\Collection;
+use Modules\User\Models\Role;
 use Illuminate\Console\Command;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
@@ -42,7 +44,7 @@ class RemoveRoleCommand extends Command
          * @var UserContract $user
          */
         $user = XotData::make()->getUserByEmail($email);
-        /** @var \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Role> $roles */
+        /** @var Collection<int, Role> $roles */
         $roles = $user->roles()->get();
         /** @var array<string, string> $opts */
         $opts = $roles->pluck('name', 'name')->toArray();

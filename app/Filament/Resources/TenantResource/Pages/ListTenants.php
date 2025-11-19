@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\Pages;
 
+use Modules\User\Models\Tenant;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\TenantResource;
@@ -28,7 +29,7 @@ class ListTenants extends XotBaseListRecords
             'name' => TextColumn::make('name')->searchable(),
             'slug' => TextColumn::make('slug')
                 ->default(function ($record) {
-                    if ($record === null || ! $record instanceof \Modules\User\Models\Tenant) {
+                    if ($record === null || ! $record instanceof Tenant) {
                         return '';
                     }
                     $record->generateSlug();

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Modules\Xot\Models\Traits\HasXotFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -30,7 +31,7 @@ use Illuminate\Notifications\DatabaseNotificationCollection;
  */
 class Notification extends BaseNotification
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
+    use HasXotFactory;
 
     /** @var string */
     protected $connection = 'user';

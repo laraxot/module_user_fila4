@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Modules\Xot\Models\Traits\HasXotFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Permission\Models\Role as SpatieRole;
 
 class Role extends SpatieRole
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
+    use HasXotFactory;
 
     protected $fillable = [
         'name',

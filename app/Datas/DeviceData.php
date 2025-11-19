@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Datas;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use Spatie\LaravelData\Data;
@@ -79,7 +80,7 @@ class DeviceData extends Data
         // Assert::isInstanceOf($synchronizationClass,Model::class,'['.__LINE__.']['.class_basename($this).']');
         // $synchronization = Synchronization::create([
         /** @var class-string<\Illuminate\Database\Eloquent\Model> $synchronizationClass */
-        /** @var \Illuminate\Database\Eloquent\Model $synchronization */
+        /** @var Model $synchronization */
         $synchronization = $synchronizationClass::create([
             // $synchronization = Synchronization::create([
             'user_id' => auth()->id(),

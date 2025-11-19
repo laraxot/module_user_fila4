@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
+use Illuminate\Contracts\Support\Htmlable;
+use Filament\Support\Contracts\HasLabel;
+use BackedEnum;
 use Illuminate\Console\Command;
 
 use function Laravel\Prompts\select;
@@ -68,11 +71,11 @@ class ChangeTypeCommand extends Command
         $typeLabel = 'None';
         if (isset($user->type) && \is_object($user->type) && method_exists($user->type, 'getLabel')) {
             $enumType = $user->type;
-            /** @var string|\Illuminate\Contracts\Support\Htmlable|mixed */
+            /** @var string|Htmlable|mixed */
             $label = $enumType->getLabel();
             if (\is_string($label)) {
                 $typeLabel = $label;
-            } elseif ($label instanceof \Illuminate\Contracts\Support\Htmlable) {
+            } elseif ($label instanceof Htmlable) {
                 $typeLabel = $label->toHtml();
             } else {
                 $typeLabel = (string) $label;
@@ -103,9 +106,9 @@ class ChangeTypeCommand extends Command
 
         $newTypeEnum = $typeClass::tryFrom($newType);
         Assert::notNull($newTypeEnum);
-        Assert::isInstanceOf($newTypeEnum, \Filament\Support\Contracts\HasLabel::class);
+        Assert::isInstanceOf($newTypeEnum, HasLabel::class);
 
-        /** @var \BackedEnum&\Filament\Support\Contracts\HasLabel $newTypeEnum */
+        /** @var BackedEnum&HasLabel $newTypeEnum */
         $user->type = (string) $newTypeEnum->value;
         $user->save();
 
@@ -113,7 +116,7 @@ class ChangeTypeCommand extends Command
         $labelString = '';
         if (\is_string($label)) {
             $labelString = $label;
-        } elseif ($label instanceof \Illuminate\Contracts\Support\Htmlable) {
+        } elseif ($label instanceof Htmlable) {
             $labelString = $label->toHtml();
         } else {
             $labelString = (string) $label;

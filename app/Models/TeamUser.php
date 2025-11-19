@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Modules\Xot\Models\Traits\HasXotFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
@@ -52,7 +53,7 @@ use Modules\Xot\Contracts\ProfileContract;
  */
 class TeamUser extends BaseTeamUser
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
+    use HasXotFactory;
 
     protected $connection = 'user';
 }

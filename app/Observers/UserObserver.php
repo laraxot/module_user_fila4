@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Observers;
 
+use Throwable;
+use Illuminate\Support\Facades\Log;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
 
@@ -45,9 +47,9 @@ class UserObserver
             // Imposta come current team
             $user->current_team_id = is_int($personalTeam->id) ? $personalTeam->id : (int) $personalTeam->id;
             $user->saveQuietly(); // Evita di triggerare eventi ricorsivi
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             // Log dell'errore ma non bloccare la creazione dell'utente
-            \Illuminate\Support\Facades\Log::error('Failed to create personal team for user', [
+            Log::error('Failed to create personal team for user', [
                 'user_id' => $user->id,
                 'error' => $e->getMessage(),
             ]);
@@ -68,8 +70,8 @@ class UserObserver
             try {
                 // @phpstan-ignore-next-line - delete() method exists on Model
                 $personalTeam->delete();
-            } catch (\Throwable $e) {
-                \Illuminate\Support\Facades\Log::error('Failed to delete personal team for user', [
+            } catch (Throwable $e) {
+                Log::error('Failed to delete personal team for user', [
                     'user_id' => $user->id,
                     'team_id' => $personalTeam->id,
                     'error' => $e->getMessage(),

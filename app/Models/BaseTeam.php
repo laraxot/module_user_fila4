@@ -126,7 +126,7 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Ottiene tutti i membri del team (alias di users).
      *
-     * @return BelongsToMany<Model, \Modules\User\Models\BaseTeam>
+     * @return BelongsToMany<Model, BaseTeam>
      */
     #[Override]
     public function members(): BelongsToMany
@@ -188,7 +188,7 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Ottiene tutti gli inviti utente pendenti per il team.
      *
-     * @return HasMany<TeamInvitation, \Modules\User\Models\BaseTeam>
+     * @return HasMany<TeamInvitation, BaseTeam>
      *
      * @phpstan-return HasMany<TeamInvitation, $this>
      */

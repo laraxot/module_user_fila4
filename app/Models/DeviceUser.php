@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Modules\Xot\Models\Traits\HasXotFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -57,7 +58,7 @@ use Override;
  */
 class DeviceUser extends BasePivot
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
+    use HasXotFactory;
 
     /** @var list<string> */
     protected $fillable = [

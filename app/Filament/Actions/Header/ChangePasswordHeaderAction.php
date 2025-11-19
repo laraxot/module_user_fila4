@@ -40,7 +40,7 @@ final class ChangePasswordHeaderAction extends Action
                     ->body(__('user::notifications.password_changed_successfully.message'))
                     ->send();
             })
-            ->form(function (): array {
+            ->schema(function (): array {
                 return [
                     /*
                      * TextInput::make('new_password')

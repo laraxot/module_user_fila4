@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Modules\Xot\Models\Traits\HasXotFactory;
+use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -24,43 +28,43 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property array|null $domain_whitelist
  * @property array|null $role_mapping
  * @property bool $is_active
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  * @property string|null $created_by
  * @property string|null $updated_by
  *
  * @mixin IdeHelperSsoProvider
  *
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\User> $users
+ * @property-read Collection<int, User> $users
  * @property-read int|null $users_count
  *
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider query()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereClientId($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereClientSecret($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereDisplayName($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereDomainWhitelist($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereEntityId($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereIsActive($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereMetadataUrl($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereRedirectUrl($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereRoleMapping($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereScopes($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereSettings($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|SsoProvider whereUpdatedBy($value)
+ * @method static Builder<static>|SsoProvider newModelQuery()
+ * @method static Builder<static>|SsoProvider newQuery()
+ * @method static Builder<static>|SsoProvider query()
+ * @method static Builder<static>|SsoProvider whereClientId($value)
+ * @method static Builder<static>|SsoProvider whereClientSecret($value)
+ * @method static Builder<static>|SsoProvider whereCreatedAt($value)
+ * @method static Builder<static>|SsoProvider whereCreatedBy($value)
+ * @method static Builder<static>|SsoProvider whereDisplayName($value)
+ * @method static Builder<static>|SsoProvider whereDomainWhitelist($value)
+ * @method static Builder<static>|SsoProvider whereEntityId($value)
+ * @method static Builder<static>|SsoProvider whereId($value)
+ * @method static Builder<static>|SsoProvider whereIsActive($value)
+ * @method static Builder<static>|SsoProvider whereMetadataUrl($value)
+ * @method static Builder<static>|SsoProvider whereName($value)
+ * @method static Builder<static>|SsoProvider whereRedirectUrl($value)
+ * @method static Builder<static>|SsoProvider whereRoleMapping($value)
+ * @method static Builder<static>|SsoProvider whereScopes($value)
+ * @method static Builder<static>|SsoProvider whereSettings($value)
+ * @method static Builder<static>|SsoProvider whereType($value)
+ * @method static Builder<static>|SsoProvider whereUpdatedAt($value)
+ * @method static Builder<static>|SsoProvider whereUpdatedBy($value)
  *
  * @mixin \Eloquent
  */
 class SsoProvider extends BaseModel
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
+    use HasXotFactory;
 
     /**
      * The attributes that are mass assignable.

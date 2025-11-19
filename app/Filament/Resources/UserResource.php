@@ -9,6 +9,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Illuminate\Database\Eloquent\Model;
+use Carbon\CarbonInterface;
+use DateTimeInterface;
+use Carbon\Carbon;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
@@ -23,7 +27,7 @@ class UserResource extends XotBaseResource
 {
     // protected static ?string $model = \Modules\Xot\Datas\XotData::make()->getUserClass();
 
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-users';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-users';
 
     // Static property Modules\User\Filament\Resources\UserResource::$enablePasswordUpdates is never read, only written.
     // private static bool|\Closure $enablePasswordUpdates = true;
@@ -62,7 +66,7 @@ class UserResource extends XotBaseResource
             'section02' => Section::make([
                 'created_at' => Placeholder::make('created_at')->content(static function ($record) {
                     // Type narrowing for PHPStan Level 10
-                    if (! $record instanceof \Illuminate\Database\Eloquent\Model) {
+                    if (! $record instanceof Model) {
                         return new HtmlString('&mdash;');
                     }
 
@@ -71,16 +75,16 @@ class UserResource extends XotBaseResource
                         return new HtmlString('&mdash;');
                     }
 
-                    /** @var \Carbon\Carbon|null $createdAt */
+                    /** @var Carbon|null $createdAt */
                     $createdAt = $record->getAttribute('created_at');
 
                     if ($createdAt === null) {
                         return new HtmlString('&mdash;');
                     }
-                    if ($createdAt instanceof \Carbon\CarbonInterface) {
+                    if ($createdAt instanceof CarbonInterface) {
                         return $createdAt->diffForHumans();
                     }
-                    if ($createdAt instanceof \DateTimeInterface) {
+                    if ($createdAt instanceof DateTimeInterface) {
                         return $createdAt->format('Y-m-d H:i:s');
                     }
 

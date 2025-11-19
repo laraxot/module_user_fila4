@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Modules\Xot\Models\Traits\HasXotFactory;
+use Modules\User\Database\Factories\AuthenticationFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Carbon;
@@ -44,13 +46,13 @@ use Illuminate\Support\Carbon;
  *
  * @mixin IdeHelperAuthentication
  *
- * @method static \Modules\User\Database\Factories\AuthenticationFactory factory($count = null, $state = [])
+ * @method static AuthenticationFactory factory($count = null, $state = [])
  *
  * @mixin \Eloquent
  */
 class Authentication extends BaseModel
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
+    use HasXotFactory;
 
     /**
      * The attributes that are mass assignable.

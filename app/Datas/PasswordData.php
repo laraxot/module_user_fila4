@@ -134,9 +134,9 @@ class PasswordData extends Data
     /**
      * Get the password form component.
      */
-    public function getPasswordFormComponent(string $field_name): TextInput
+    public function getPasswordFormComponent(string $field_name): FormsTextInput
     {
-        return TextInput::make($field_name)
+        return FormsTextInput::make($field_name)
             ->password()
             ->required()
             ->label(__('Password'))
@@ -148,7 +148,7 @@ class PasswordData extends Data
     /**
      * Get the password confirmation form component.
      */
-    public function getPasswordConfirmationFormComponent(): TextInput
+    public function getPasswordConfirmationFormComponent(): FormsTextInput
     {
         if ($this->field_name === null) {
             throw new RuntimeException(
@@ -156,7 +156,7 @@ class PasswordData extends Data
             );
         }
 
-        return TextInput::make('password_confirmation')
+        return FormsTextInput::make('password_confirmation')
             ->password()
             ->required()
             ->label(__('Conferma Password'))

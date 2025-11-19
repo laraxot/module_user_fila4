@@ -74,7 +74,7 @@ trait InteractsWithTenant
         static::creating(static function ($model): void {
             // PHPStan Level 10: Verifica se il modello ha tenant_id
             // Uso isFillable() invece di property_exists() per Eloquent magic properties
-            if ($model !== null && $model instanceof \Illuminate\Database\Eloquent\Model && $model->isFillable('tenant_id')) {
+            if ($model !== null && $model instanceof Model && $model->isFillable('tenant_id')) {
                 $tenant = Filament::getTenant();
                 if ($tenant !== null) {
                     // Usa setAttribute() invece di assegnazione diretta per PHPStan

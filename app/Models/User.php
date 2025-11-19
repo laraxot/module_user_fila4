@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Override;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -138,7 +140,7 @@ class User extends BaseUser
      */
     public $connection = 'user';
 
-    #[\Override]
+    #[Override]
     public function canAccessSocialite(): bool
     {
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;
@@ -156,7 +158,7 @@ class User extends BaseUser
     /**
      * Get the creator relationship.
      */
-    public function creator(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function creator(): HasOne
     {
         return $this->hasOne(self::class, 'created_by');
     }
@@ -164,7 +166,7 @@ class User extends BaseUser
     /**
      * Get the updater relationship.
      */
-    public function updater(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function updater(): HasOne
     {
         return $this->hasOne(self::class, 'updated_by');
     }

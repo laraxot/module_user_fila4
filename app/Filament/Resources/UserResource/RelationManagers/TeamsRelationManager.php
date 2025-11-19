@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
+use Illuminate\Database\Eloquent\Model;
 use Filament\Actions\AttachAction;
 use Filament\Actions\DetachAction;
 use Filament\Actions\DetachBulkAction;
@@ -28,8 +29,8 @@ class TeamsRelationManager extends RelationManager
                     ->boolean()
                     ->default(function ($record, $livewire): bool {
                         /**
-                         * @var \Illuminate\Database\Eloquent\Model $record
-                         * @var \Filament\Resources\RelationManagers\RelationManager $livewire
+                         * @var Model $record
+                         * @var RelationManager $livewire
                          */
                         $user = $livewire->getOwnerRecord();
 
@@ -55,8 +56,8 @@ class TeamsRelationManager extends RelationManager
             ->recordActions([
                 DetachAction::make()->after(function ($record, $livewire): void {
                     /**
-                     * @var \Illuminate\Database\Eloquent\Model $record
-                     * @var \Filament\Resources\RelationManagers\RelationManager $livewire
+                     * @var Model $record
+                     * @var RelationManager $livewire
                      */
                     $user = $livewire->getOwnerRecord();
 

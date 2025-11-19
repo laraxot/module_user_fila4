@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 use Modules\User\Models\Role;
@@ -128,7 +129,7 @@ class AssignModuleCommand extends Command
     {
         $moduleRoles = [];
 
-        /** @var \Illuminate\Database\Eloquent\Collection<int, Role> $roles */
+        /** @var Collection<int, Role> $roles */
         $roles = $user->roles()->get();
         foreach ($roles as $role) {
             if (Str::endsWith($role->name, '::admin')) {

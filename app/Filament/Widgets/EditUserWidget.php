@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+use Exception;
+use BackedEnum;
+use Filament\Support\Components\Component;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -89,14 +92,14 @@ class EditUserWidget extends XotBaseWidget
                 $result = $model->toArray();
 
                 return $result;
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 // Se toArray() fallisce (problemi con enum), usa getAttributes()
                 Log::warning("Errore in toArray() per modello {$this->model}: ".$e->getMessage());
 
                 /** @var array<string, mixed> $result */
                 $result = $model->getAttributes();
                 // Gestisci specificamente gli enum se presenti
-                if (isset($result['type']) && ($model->type ?? null) instanceof \BackedEnum) {
+                if (isset($result['type']) && ($model->type ?? null) instanceof BackedEnum) {
                     $result['type'] = $model->type->value;
                 }
 
@@ -117,14 +120,14 @@ class EditUserWidget extends XotBaseWidget
     /**
      * Ottiene lo schema del form dalla resource.
      *
-     * @return array<int|string, \Filament\Support\Components\Component>
+     * @return array<int|string, Component>
      */
     public function getFormSchema(): array
     {
         $schema = $this->resource::getFormSchemaWidget();
         Assert::isArray($schema, 'Schema must be array');
 
-        /** @var array<int|string, \Filament\Support\Components\Component> $result */
+        /** @var array<int|string, Component> $result */
         $result = $schema;
 
         return $result;

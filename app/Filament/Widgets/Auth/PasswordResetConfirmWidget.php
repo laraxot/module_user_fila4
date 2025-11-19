@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+use Override;
+use Exception;
+use Modules\Xot\Contracts\UserContract;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Schema;
@@ -62,7 +65,7 @@ class PasswordResetConfirmWidget extends XotBaseWidget
      *
      * @return array<string, mixed>
      */
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         return [
@@ -137,7 +140,7 @@ class PasswordResetConfirmWidget extends XotBaseWidget
                 // Auto-login the user after successful password reset
                 // $user = \Modules\Xot\Datas\XotData::make()->getUserClass()::where('email', $data['email'])->first();
                 Assert::string($email = $data['email'], __FILE__.':'.__LINE__.' - '.class_basename(self::class));
-                /** @var \Modules\Xot\Contracts\UserContract $user */
+                /** @var UserContract $user */
                 $user = XotData::make()->getUserByEmail($email);
                 Assert::isInstanceOf($user, Authenticatable::class);
                 Auth::guard()->login($user);
@@ -148,7 +151,7 @@ class PasswordResetConfirmWidget extends XotBaseWidget
                 /* @phpstan-ignore argument.type */
                 $this->handleResetError($response);
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->handleResetError('passwords.generic_error');
         }
     }

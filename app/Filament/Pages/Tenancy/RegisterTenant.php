@@ -49,7 +49,7 @@ class RegisterTenant extends BaseRegisterTenant
     }
 
     /**
-     * @return array<\Filament\Schemas\Components\Component>
+     * @return array<Component>
      */
     public function getFormSchema(): array
     {

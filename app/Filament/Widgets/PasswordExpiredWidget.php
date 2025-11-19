@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+use Filament\Schemas\Schema;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Facades\Filament;
@@ -26,15 +27,15 @@ use Override;
 /**
  * Widget for handling expired password reset.
  *
- * @property \Filament\Schemas\Schema $form
+ * @property Schema $form
  * @property string|null $current_password
  * @property string|null $password
  * @property string|null $passwordConfirmation
  * @property array<string, mixed>|null $data
  */
-class PasswordExpiredWidget extends XotBaseWidget implements HasForms
+class PasswordExpiredWidget extends XotBaseWidget
 {
-    use InteractsWithForms;
+    // XotBaseWidget already implements HasForms and uses InteractsWithForms
     use TransTrait;
 
     public ?string $current_password = '';

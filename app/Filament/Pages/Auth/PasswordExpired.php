@@ -7,6 +7,7 @@ namespace Modules\User\Filament\Pages\Auth;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
@@ -33,6 +34,7 @@ use Webmozart\Assert\Assert;
 class PasswordExpired extends Page implements HasForms
 {
     use InteractsWithFormActions;
+    use InteractsWithForms;
     use NavigationPageLabelTrait;
 
     public ?string $current_password = '';

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models\Traits;
 
+use Modules\User\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -155,12 +156,12 @@ trait HasTeams
     /**
      * Get all of the team's users including its owner.
      *
-     * @return Collection<int, \Modules\User\Models\User>
+     * @return Collection<int, User>
      */
     public function getAllTeamUsersAttribute(): Collection
     {
         // teamUsers are Membership objects, we need to extract the User models
-        /** @var Collection<int, \Modules\User\Models\User> $users */
+        /** @var Collection<int, User> $users */
         $users = $this->teamUsers->map(static function ($membership) {
             // Membership always extends Model, check only if user attribute exists
             $user = $membership->getAttribute('user');
@@ -169,7 +170,7 @@ trait HasTeams
         })->filter();
 
         $owner = $this->owner;
-        if (null !== $owner && $owner instanceof \Modules\User\Models\User) {
+        if (null !== $owner && $owner instanceof User) {
             return $users->merge([$owner]);
         }
 

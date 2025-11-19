@@ -148,13 +148,15 @@ $tenant->users()->attach($user, [
 $activeTenants = Tenant::active()->get();
 ```
 
-### 2. TeamUser (Pivot)
+### 2. TeamUser (Pivot) / Membership
 
-**File**: `Modules/User/app/Models/TeamUser.php`
+**File**: `Modules/User/app/Models/Membership.php` (alias `TeamUser`)
 **Tabella**: `team_user`
 **Estende**: `BasePivot`
 
 **Scopo**: Gestisce la relazione many-to-many tra Team e User con metadati aggiuntivi.
+
+**✅ Fix Autoincrement (2025-01-22)**: Il modello `Membership` usa correttamente autoincrement (`bigint`) come PRIMARY KEY. La tabella è stata convertita da UUID a autoincrement tramite migrazione. Vedi [membership-autoincrement-fix.md](../membership-autoincrement-fix.md) per dettagli.
 
 **Campi**:
 - `team_id` (foreign key)

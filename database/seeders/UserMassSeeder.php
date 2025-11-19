@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Database\Seeders;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -201,7 +202,7 @@ class UserMassSeeder extends Seeder
         $this->command->info('👤 Creazione utenti con profili completi...');
 
         // Crea 200 utenti generici
-        /** @var \Illuminate\Database\Eloquent\Factories\Factory<User> $factory */
+        /** @var Factory<User> $factory */
         $factory = User::factory();
         $factory
             ->count(200)
