@@ -58,6 +58,9 @@ return [
         'matr' => [
             'label' => 'Matricola',
         ],
+        'photo' => [
+            'label' => 'photo',
+        ],
     ],
     'actions' => [
         'edit' => [
