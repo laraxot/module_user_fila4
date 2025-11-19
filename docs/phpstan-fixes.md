@@ -11,6 +11,7 @@
   - `$data` è ora sempre `array<string, mixed>` (prima poteva essere `null`), grazie a `SafeArrayCastAction`.
   - Lo schema è esplicitamente `array<int|string, Component>` e `array_merge` usa un array iniziale noto, evitando gli errori `assign.propertyType` e `argument.type`.
 - **Livewire Auth\Register**: rimosso l'`instanceof` ridondante; il `UserContract` viene validato con `Assert::isInstanceOf()` prima di notificare e loggare l'utente.
+- **BaseUser::token()**: metodo rimpiazzato per restituire esplicitamente `Token|TransientToken|null` delegando a `HasApiTokens`, eliminando la `declaration must be compatible` sollevata dall'interfaccia `UserContract`.
 - **BaseUser::withAccessToken()`** restituisce ora `$this`, allineando il return type con quanto richiesto da PHPStan.
 - **HasTeams/HasTenants**: aggiornati i phpdoc delle relazioni (`BelongsToMany<Model&TeamContract, BaseUser, Membership>`) e la collection dei tenant viene mappata a `Model`, eliminando gli errori di covarianza.
 

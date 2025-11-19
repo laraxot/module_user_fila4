@@ -80,3 +80,5 @@ Ultimo aggiornamento: 14 Maggio 2025
 
 - [Model Inheritance Analysis](./MODEL_INHERITANCE_ANALYSIS.md) — Analisi completa della gerarchia di ereditarietà dei modelli
 - [Model Inheritance Fixes](./MODEL_INHERITANCE_FIXES.md) — Riepilogo delle correzioni applicate ai modelli (15 Ottobre 2025)
+- [Spatie Permission Philosophy](./spatie-permission-philosophy.md) — Filosofia e pattern per Permission e Role
+- [Vendor Extension Pattern](./vendor-extension-pattern.md) — Pattern generale per estendere classi vendor (Spatie, etc.)
