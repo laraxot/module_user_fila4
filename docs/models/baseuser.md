@@ -83,6 +83,12 @@ Classe base per il modello User che implementa le interfacce `UserContract` e `H
 - La documentazione PHPDoc è completa e in italiano
 
 ## Collegamenti
+<<<<<<< HEAD
 - [Documentazione PHPStan](/docs/modules/user/phpstan.md)
 - [Contratti del Modulo User](/docs/modules/user/contracts.md)
 - [Best Practices per i Modelli](/docs/modules/user/models.md) 
+=======
+- [Documentazione PHPStan](/project_docs/modules/user/phpstan.md)
+- [Contratti del Modulo User](/project_docs/modules/user/contracts.md)
+- [Best Practices per i Modelli](/project_docs/modules/user/models.md) 
+>>>>>>> fbc8f8e (.)
