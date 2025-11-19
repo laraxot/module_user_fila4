@@ -8,6 +8,9 @@ return [
         'name.placeholder' => 'Inserisci il nome del tenant',
         'name.helper_text' => 'Il nome dell\'organizzazione',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         'slug' => 'Slug',
         'slug.helper_text' => 'Identificativo univoco generato automaticamente dal nome',
         'email_address' => 'Email',
@@ -26,6 +29,7 @@ return [
         'primary_color.helper_text' => 'Colore principale del brand',
         'secondary_color' => 'Colore Secondario',
         'secondary_color.helper_text' => 'Colore secondario del brand',
+<<<<<<< HEAD
 =======
 
         'slug' => 'Slug',
@@ -54,6 +58,8 @@ return [
         'secondary_color.helper_text' => 'Colore secondario del brand',
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         'domain' => 'Dominio',
         'domain.placeholder' => 'Inserisci il dominio',
         'domain.helper_text' => 'Il dominio personalizzato per questo tenant',
