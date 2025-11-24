@@ -608,7 +608,6 @@ tests_old
 
 ## Collegamenti alla documentazione generale
 
-<<<<<<< HEAD
 - [Analisi strutturale complessiva](/docs/phpstan/modules_structure_analysis.md)
 - [Report PHPStan](/docs/phpstan/)
 
@@ -630,27 +629,4 @@ tests_old
 * [structure.md](../../../Cms/docs/structure.md)
 * [structure.md](../../../Cms/docs/themes/structure.md)
 * [structure.md](../../../Cms/docs/components/structure.md)
-=======
-- [Analisi strutturale complessiva](/project_docs/phpstan/modules_structure_analysis.md)
-- [Report PHPStan](/project_docs/phpstan/)
-
-
-## Collegamenti tra versioni di structure.md
-* [structure.md](bashscripts/project_docs/structure.md)
-* [structure.md](../../../Gdpr/project_docs/structure.md)
-* [structure.md](../../../Notify/project_docs/structure.md)
-* [structure.md](../../../Xot/project_docs/structure.md)
-* [structure.md](../../../Xot/project_docs/base/structure.md)
-* [structure.md](../../../Xot/project_docs/config/structure.md)
-* [structure.md](../../../User/project_docs/structure.md)
-* [structure.md](../../../UI/project_docs/structure.md)
-* [structure.md](../../../Lang/project_docs/structure.md)
-* [structure.md](../../../Job/project_docs/structure.md)
-* [structure.md](../../../Media/project_docs/structure.md)
-* [structure.md](../../../Tenant/project_docs/structure.md)
-* [structure.md](../../../Activity/project_docs/structure.md)
-* [structure.md](../../../Cms/project_docs/structure.md)
-* [structure.md](../../../Cms/project_docs/themes/structure.md)
-* [structure.md](../../../Cms/project_docs/components/structure.md)
->>>>>>> fbc8f8e (.)
 

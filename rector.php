@@ -3,110 +3,51 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
-use Rector\PHPUnit\Set\PHPUnitLevelSetList;
 use Rector\Set\ValueObject\LevelSetList;
-use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNativeCallRector;
-use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictScalarReturnExprRector;
-use RectorLaravel\Set\LaravelSetList;
+use Rector\Set\ValueObject\SetList;
 
+/**
+ * Standard Rector Configuration for Laravel Modules
+ *
+ * Minimal configuration compatible with base Rector installation
+ * Updated: 2025-11-24
+ */
 return static function (RectorConfig $rectorConfig): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
+    // Paths to analyze
     $rectorConfig->paths([
         __DIR__,
     ]);
-=======
-    $rectorConfig->paths(
-        [
-            __DIR__,
-        ]
-    );
->>>>>>> fbc8f8e (.)
-=======
-    $rectorConfig->paths([
-        __DIR__,
-    ]);
->>>>>>> 6d20fbe (.)
 
-    // register a single rule
-    // $rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
-    // $rectorConfig->rule(RedirectRouteToToRouteHelperRector::class);
-    // $rectorConfig->rules([
-    //    ReturnTypeFromStrictNativeCallRector::class,
-    //    ReturnTypeFromStrictScalarReturnExprRector::class,
-    // ]);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
-    $rectorConfig->rules([
-        ReturnTypeFromStrictNativeCallRector::class,
-        ReturnTypeFromStrictScalarReturnExprRector::class,
-    ]);
-
-    // define sets of rules
-    $rectorConfig->sets([
-        PHPUnitLevelSetList::UP_TO_PHPUNIT_100,
-        // SetList::DEAD_CODE,
-        // SetList::CODE_QUALITY,
-        LevelSetList::UP_TO_PHP_81,
-        LaravelSetList::LARAVEL_100,
-        // SetList::NAMING, // error on injection
-        // SetList::TYPE_DECLARATION,  //------------------------ vedere cosa fa
-        // SetList::CODING_STYLE,
-        // SetList::PRIVATIZATION, //error "final class"
-        // SetList::EARLY_RETURN,
-        // SetList::INSTANCEOF,
-    ]);
-
+    // Paths to skip
     $rectorConfig->skip([
-        // testdummy files
-        '*/build',
-        '*/docs',
-        '*/vendor',
-        './vendor/',
         __DIR__.'/vendor',
+        __DIR__.'/docs',
+        __DIR__.'/tests/coverage',
     ]);
-<<<<<<< HEAD
-=======
-    $rectorConfig->rules(
-        [
-            ReturnTypeFromStrictNativeCallRector::class,
-            ReturnTypeFromStrictScalarReturnExprRector::class,
-        ]
-    );
 
-    // define sets of rules
-    $rectorConfig->sets(
-        [
-            PHPUnitLevelSetList::UP_TO_PHPUNIT_100,
-            // SetList::DEAD_CODE,
-            // SetList::CODE_QUALITY,
-            LevelSetList::UP_TO_PHP_81,
-            LaravelSetList::LARAVEL_100,
+    // PHP version target
+    $rectorConfig->phpVersion(\Rector\ValueObject\PhpVersion::PHP_81);
 
-            // SetList::NAMING, // error on injection
-            // SetList::TYPE_DECLARATION,  //------------------------ vedere cosa fa
-            // SetList::CODING_STYLE,
-            // SetList::PRIVATIZATION, //error "final class"
-            // SetList::EARLY_RETURN,
-            // SetList::INSTANCEOF,
-        ]
-    );
+    // Rule sets
+    $rectorConfig->sets([
+        // PHP 8.1 compatibility
+        LevelSetList::UP_TO_PHP_81,
 
-    $rectorConfig->skip(
-        [
-            // testdummy files
-            '*/build',
-            '*/docs',
-            '*/vendor',
-            './vendor/',
-            __DIR__.'/vendor',
-        ]
-    );
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
+        // Code quality improvements
+        SetList::CODE_QUALITY,
+        SetList::DEAD_CODE,
+        SetList::EARLY_RETURN,
 
+        // Type declarations (commented - enable carefully)
+        // SetList::TYPE_DECLARATION,
+
+        // Coding style
+        // SetList::CODING_STYLE,
+    ]);
+
+    // Import names for cleaner code
     $rectorConfig->importNames();
+
+    // Import short classes
+    $rectorConfig->importShortClasses(false);
 };

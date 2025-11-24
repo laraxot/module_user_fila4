@@ -30,7 +30,7 @@ enum UserType: string implements HasColor, HasIcon, HasLabel
 }
 ```
 
-Il modulo User ha un enum generico che non rispecchia il dominio sanitario di SaluteOra.
+Il modulo User ha un enum generico che non rispecchia il dominio sanitario di <nome progetto>.
 
 **✅ Soluzione DOMAIN-DRIVEN + DRY:**
 ```php
@@ -42,8 +42,8 @@ enum UserType: string implements HasColor, HasIcon, HasLabel
     case SYSTEM = 'system';
 }
 
-// Nel modulo SaluteOra - enum specifico del dominio
-enum SaluteOraUserType: string implements HasColor, HasIcon, HasLabel
+// Nel modulo <nome progetto> - enum specifico del dominio
+enum <nome progetto>UserType: string implements HasColor, HasIcon, HasLabel
 {
     case ADMIN = 'admin';
     case DOCTOR = 'doctor';
