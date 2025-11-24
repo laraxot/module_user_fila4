@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Carbon;
-use Modules\Xot\Contracts\ProfileContract;
 use Parental\HasChildren;
+use Illuminate\Support\Carbon;
+use Modules\Xot\Datas\XotData;
+use Illuminate\Database\Eloquent\Builder;
+use Modules\Xot\Contracts\ProfileContract;
+use Modules\Xot\Models\Traits\HasXotFactory;
 
 /**
  * Modules\User\Models\TeamUser.
@@ -51,9 +53,21 @@ use Parental\HasChildren;
  */
 abstract class BaseTeamUser extends BasePivot
 {
-    use HasChildren;
+    use HasChildren, HasXotFactory;
 
     protected $connection = 'user';
 
     protected $table = 'team_user';
+
+    public function user()
+    {
+        $userClass = XotData::make()->getUserClass();
+        return $this->belongsTo($userClass);
+    }
+
+    public function team()
+    {
+        $teamClass = XotData::make()->getTeamClass();
+        return $this->belongsTo($teamClass);
+    }
 }
