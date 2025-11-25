@@ -313,7 +313,7 @@ php artisan tinker
 
 - [ ] ✅ Test unitari passano
 - [ ] ✅ Test integrazione passano
-- [ ] ✅ PHPStan Level 9 zero errori
+- [ ] ✅ PHPStan level 10 zero errori
 - [ ] ✅ Test manuali OK
 - [ ] ✅ Permission system funziona
 - [ ] ✅ Team membership funziona

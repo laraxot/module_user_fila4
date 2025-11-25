@@ -395,7 +395,7 @@ php artisan auth:clear-resets
 - **Security**: Zero security incidents
 - **Usability**: Tasso registrazione utenti > 95%
 - **Reliability**: Uptime sistema auth > 99.9%
-- **Code Quality**: PHPStan Level 9 compliance
+- **Code Quality**: PHPStan level 10 compliance
 
 ---
 

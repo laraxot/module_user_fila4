@@ -236,7 +236,7 @@ public function run(): void
 - **✅ 85%** Cross-module relations (Studio, Address)
 
 ### Code Quality
-- **✅ PHPStan Level 9**: Zero errors
+- **✅ PHPStan level 10**: Zero errors
 - **✅ PSR-12 Compliant**: Code standards
 - **✅ Strict Types**: Type safety
 - **✅ Complete PHPDoc**: Documentation

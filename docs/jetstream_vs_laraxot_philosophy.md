@@ -37,7 +37,7 @@ Laraxot prende Jetstream e lo **EVOLVE** con:
 1. **belongsToManyX**: Auto-discovery intelligente vs configurazione manuale
 2. **Modelli Pivot Espliciti**: `TeamUser` vs `membership` alias
 3. **Cross-Database Support**: Gestione automatica database multipli
-4. **Tipizzazione Rigorosa**: PHPStan Level 9+ compliance
+4. **Tipizzazione Rigorosa**: PHPStan level 10+ compliance
 5. **Validazione Rigorosa**: `Assert` per controlli runtime
 6. **Modularità**: Ogni modulo ha la sua logica isolata
 
@@ -430,4 +430,4 @@ Un trait che **rispetta la religione Jetstream** ma **evolve con la filosofia La
 
 **Data creazione**: 10 giugno 2025  
 **Conformità**: Laravel Jetstream 5.x + Laraxot PTVX Philosophy  
-**PHPStan**: Level 9+ Compliant
+**PHPStan**: level 10+ Compliant

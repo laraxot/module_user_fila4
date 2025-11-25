@@ -92,7 +92,7 @@ use Webmozart\Assert\Assert;
  *
  * Inspired by Laravel Jetstream but evolved with Laraxot intelligence:
  * - belongsToManyX for auto-discovery
- * - Strict typing for PHPStan Level 9+
+ * - Strict typing for PHPStan level 10+
  * - Runtime validation with Assert
  * - Cross-database support
  * - Explicit pivot models
@@ -339,7 +339,7 @@ trait HasTeams
 
 ### Laraxot Evolution
 - **belongsToManyX**: Auto-discovery intelligente
-- **Strict typing**: PHPStan Level 9+ compliance
+- **Strict typing**: PHPStan level 10+ compliance
 - **Cross-database**: Supporto multi-database
 - **Runtime validation**: Assert per controlli runtime
 - **Explicit pivot models**: TeamUser come modello esplicito
