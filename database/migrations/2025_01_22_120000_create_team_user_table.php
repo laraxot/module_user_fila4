@@ -60,12 +60,12 @@ return new class() extends XotBaseMigration
                 table: $table,
                 hasSoftDeletes: true,
             );
-
+            /*
             // Aggiungiamo l'indice univoco se non esiste già
             // Verifichiamo tramite query SQL se l'indice esiste
             $connection = $this->getConn()->getConnection();
             $database = $connection->getDatabaseName();
-            /** @var array{count: int}|object{count: int}|null $indexExists */
+            //@var array{count: int}|object{count: int}|null $indexExists 
             $indexExists = $connection->selectOne(
                 "SELECT COUNT(*) as count 
                  FROM information_schema.statistics 
@@ -85,6 +85,7 @@ return new class() extends XotBaseMigration
             if ($count === 0) {
                 $table->unique(['team_id', 'user_id'], 'team_user_team_id_user_id_unique');
             }
+            */
         });
     }
 };
