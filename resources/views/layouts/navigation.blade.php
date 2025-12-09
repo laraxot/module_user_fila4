@@ -1,11 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,7 +112,11 @@ declare(strict_types=1);
         </div>
     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 </nav>
 =======
 </nav> 
 >>>>>>> fbc8f8e (.)
+=======
+</nav>
+>>>>>>> 6d20fbe (.)
