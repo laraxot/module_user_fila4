@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Database\Factories;
 
-use Modules\User\Models\AuthenticationLog;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\User\Models\AuthenticationLog;
 
 class AuthenticationLogFactory extends Factory
 {

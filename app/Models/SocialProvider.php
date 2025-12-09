@@ -55,7 +55,6 @@ use Modules\Xot\Contracts\ProfileContract;
  * @mixin IdeHelperSocialProvider
  * @mixin \Eloquent
  */
-/** */
 class SocialProvider extends BaseModel
 {
     use SushiToPhpArray;
