@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Errori PHPStan nelle Policy del Modulo User
 
 ## Problema Identificato (2025-01-06)
@@ -100,4 +98,3 @@ Definire il comportamento tramite trait che implementa il metodo.
 - [Spatie Permission Documentation](https://spatie.be/project_docs/laravel-permission)
 
 *Ultimo aggiornamento: 2025-01-06*
->>>>>>> 6849bc76 (.)

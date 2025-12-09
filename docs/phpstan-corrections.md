@@ -331,7 +331,3 @@ if (method_exists($createdAt, 'diffForHumans')) {
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> e058848 (.)

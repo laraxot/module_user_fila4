@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Aggiornamento relativo a DoctorResource.php
 
 ## Nota del 2025-05-15
@@ -21,4 +19,3 @@ Ho aggiornato ulteriormente la documentazione per riflettere un cambiamento nell
 - [Documentazione DoctorResource](../Modules/Patient/docs/doctor-resource-update.md)
 - [Documentazione principale](../docs/roadmap_frontoffice/08-registrazione-odontoiatra.md)
 - [Documentazione Doctor Model](../Modules/Patient/docs/doctor-model-update.md)
->>>>>>> 6849bc76 (.)

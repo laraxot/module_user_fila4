@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Filosofia dei Comandi Console - Modulo User
 
 ## Principi Fondamentali
@@ -463,4 +461,3 @@ private function getPasswordLegacy(): string
 
 
 
->>>>>>> 6849bc76 (.)

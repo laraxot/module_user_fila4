@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Factory Audit Lessons Learned - User Module
 
 ## ERRORE GRAVISSIMO RISOLTO NEL MODULO USER
@@ -118,4 +116,3 @@ class DeviceProfileFactory extends DeviceUserFactory
 *Creato: 2025-01-06*
 *Modulo: User - 16/16 factory completate*
 *Status: ✅ ERRORE GRAVISSIMO RISOLTO*
->>>>>>> 6849bc76 (.)

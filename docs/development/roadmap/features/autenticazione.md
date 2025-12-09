@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Autenticazione
 
 ## Overview
@@ -91,4 +89,3 @@ Sistema di autenticazione completo con supporto per multiple strategie di login,
 
 ---
 
->>>>>>> 6849bc76 (.)
