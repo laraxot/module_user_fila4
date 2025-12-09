@@ -70,7 +70,7 @@ test('tenant has slug generated from name', function (): void {
 });
 
 test('tenant slug is automatically generated', function (): void {
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var Tenant */
         $newTenant = Tenant/** @phpstan-ignore-line */ ::factory()->create([
         'name' => 'Another Test Tenant',
     ]);

@@ -24,7 +24,7 @@ beforeEach(function (): void {
  */
 test('it correctly checks if user belongs to teams', function (): void {
     // Test: User without teams
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var User */
         $userWithoutTeams = User/** @phpstan-ignore-line */ ::factory()->create();
     expect($userWithoutTeams->belongsToTeams())->toBeFalse();
 
@@ -33,7 +33,7 @@ test('it correctly checks if user belongs to teams', function (): void {
     expect($this->user->belongsToTeams())->toBeTrue();
 
     // Test: User with team membership
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var User */
         $memberUser = User/** @phpstan-ignore-line */ ::factory()->create();
     /** @phpstan-ignore-next-line property.notFound */
     $memberUser->teams()->attach($this->team->id, ['role' => 'member']);
@@ -59,7 +59,7 @@ test('it correctly checks if user belongs to specific team', function (): void {
     expect($this->user->belongsToTeam($this->team))->toBeTrue();
 
     // Test: Non-member team
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var Team */
         $otherTeam = Team/** @phpstan-ignore-line */ ::factory()->create();
     /** @phpstan-ignore-next-line property.notFound */
     expect($this->user->belongsToTeam($otherTeam))->toBeFalse();
@@ -117,7 +117,7 @@ test('it correctly manages current team', function (): void {
     expect($result)->toBeTrue()->and($this->user->current_team_id)->toBeNull();
 
     // Test: Switch to non-member team
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var Team */
         $otherTeam = Team/** @phpstan-ignore-line */ ::factory()->create();
     /** @phpstan-ignore-next-line property.notFound */
     $result = $this->user->switchTeam($otherTeam);
@@ -201,7 +201,7 @@ test('it correctly determines team role', function (): void {
     expect($role)->toBeInstanceOf(Role::class)->name->toBe('admin');
 
     // Test: No role
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var User */
         $otherUser = User/** @phpstan-ignore-line */ ::factory()->create();
     /** @phpstan-ignore-next-line property.notFound */
     expect($otherUser->teamRole($this->team))->toBeNull();
@@ -226,7 +226,7 @@ test('it provides team role name helper', function (): void {
     expect($roleName)->toBe('admin');
 
     // Test: Unknown role
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var Team */
         $otherTeam = Team/** @phpstan-ignore-line */ ::factory()->create();
     /** @phpstan-ignore-next-line property.notFound */
     $roleName = $this->user->teamRoleName($otherTeam);
@@ -256,7 +256,7 @@ test('it correctly checks team role', function (): void {
         ->toBeTrue();
 
     // Test: No role
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var Team */
         $otherTeam = Team/** @phpstan-ignore-line */ ::factory()->create();
     /** @phpstan-ignore-next-line property.notFound */
     expect($this->user->hasTeamRole($otherTeam, 'admin'))->toBeFalse();
@@ -293,7 +293,7 @@ test('it handles edge cases', function (): void {
     expect($newUser->belongsToTeams())->toBeFalse();
 
     // Test: Team without owner
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var Team */
         $teamWithoutOwner = Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => null]);
     /** @phpstan-ignore-next-line property.notFound */
     expect($this->user->ownsTeam($teamWithoutOwner))->toBeFalse();
