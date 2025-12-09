@@ -4,11 +4,38 @@ declare(strict_types=1);
 
 namespace Modules\User\Contracts;
 
+<<<<<<< HEAD
 use Spatie\Permission\Contracts\Role;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+=======
+<<<<<<< HEAD
+use Spatie\Permission\Contracts\Role;
+use Illuminate\Contracts\Auth\Authenticatable;
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+=======
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Collection;
+>>>>>>> a12f125f4a (.)
+=======
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+>>>>>>> b93ef594b4 (.)
+=======
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Collection;
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
 interface UserContract extends Authenticatable
 {
@@ -81,9 +108,29 @@ interface UserContract extends Authenticatable
     /**
      * Determine if the user has the given role.
      *
+<<<<<<< HEAD
      * @param string|array|Role|\Illuminate\Support\Collection $roles
      */
     public function hasRole($roles, null|string $guard = null): bool;
+=======
+<<<<<<< HEAD
+     * @param string|array|Role|\Illuminate\Support\Collection $roles
+     */
+<<<<<<< HEAD
+<<<<<<< HEAD
+    public function hasRole($roles, null|string $guard = null): bool;
+=======
+    public function hasRole($roles, ?string $guard = null): bool;
+>>>>>>> a12f125f4a (.)
+=======
+    public function hasRole($roles, null|string $guard = null): bool;
+>>>>>>> b93ef594b4 (.)
+=======
+     * @param string|array|\Spatie\Permission\Contracts\Role|\Illuminate\Support\Collection $roles
+     */
+    public function hasRole($roles, ?string $guard = null): bool;
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
     /**
      * Get the user's authentication logs.
@@ -103,7 +150,23 @@ interface UserContract extends Authenticatable
     /**
      * Get the user's personal team.
      */
+<<<<<<< HEAD
     public function personalTeam(): null|TeamContract;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    public function personalTeam(): null|TeamContract;
+=======
+    public function personalTeam(): ?TeamContract;
+>>>>>>> a12f125f4a (.)
+=======
+    public function personalTeam(): null|TeamContract;
+>>>>>>> b93ef594b4 (.)
+=======
+    public function personalTeam(): ?TeamContract;
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
     /**
      * Switch the user's context to the given team.

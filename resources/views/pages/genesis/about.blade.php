@@ -1,5 +1,11 @@
 <?php
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
 declare(strict_types=1);
 
 
@@ -10,6 +16,40 @@ use function Laravel\Folio\name;
 name('genesis.about');
 
 new class extends Component {};
+<<<<<<< HEAD
+=======
+=======
+use function Laravel\Folio\{name};
+=======
+declare(strict_types=1);
+
+
+>>>>>>> b93ef594b4 (.)
+use Livewire\Volt\Component;
+
+use function Laravel\Folio\name;
+
+name('genesis.about');
+
+<<<<<<< HEAD
+new class extends Component
+{
+};
+>>>>>>> a12f125f4a (.)
+=======
+new class extends Component {};
+>>>>>>> b93ef594b4 (.)
+=======
+use function Laravel\Folio\{name};
+use Livewire\Volt\Component;
+
+name('genesis.about');
+
+new class extends Component
+{
+};
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 ?>
 
 <x-layouts.marketing>
@@ -151,4 +191,20 @@ new class extends Component {};
         </div>
 
     </div>
+<<<<<<< HEAD
 </x-layouts.marketing>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+</x-layouts.marketing>
+=======
+</x-layouts.marketing>
+>>>>>>> a12f125f4a (.)
+=======
+</x-layouts.marketing>
+>>>>>>> b93ef594b4 (.)
+=======
+</x-layouts.marketing>
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
