@@ -14,6 +14,7 @@ class ProfileTest extends TestCase
 
     public function testCanCreateProfileWithMinimalData(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create([
             'first_name' => 'John',
             'last_name' => 'Doe',
@@ -21,6 +22,7 @@ class ProfileTest extends TestCase
             'email' => 'john@example.com',
         ]);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('profiles', [
             'id' => $profile->id,
             'first_name' => 'John',
@@ -47,8 +49,10 @@ class ProfileTest extends TestCase
             'extra' => ['skills' => ['PHP', 'Laravel'], 'experience' => 5],
         ];
 
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create($profileData);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('profiles', [
             'id' => $profile->id,
             'first_name' => 'Jane',
@@ -73,6 +77,7 @@ class ProfileTest extends TestCase
         $profile = new Profile;
 
         $expectedAttributes = ['extra'];
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame($expectedAttributes, $profile->getSchemalessAttributes());
     }
 
@@ -80,11 +85,13 @@ class ProfileTest extends TestCase
     {
         $profile = new Profile;
 
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('profiles', $profile->getTable());
     }
 
     public function testCanFindProfileByEmail(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create(['email' => 'unique@example.com']);
 
         $foundProfile = Profile::where('email', 'unique@example.com')->first();
@@ -95,6 +102,7 @@ class ProfileTest extends TestCase
 
     public function testCanFindProfileByUserName(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create(['user_name' => 'uniqueuser']);
 
         $foundProfile = Profile::where('user_name', 'uniqueuser')->first();
@@ -105,6 +113,7 @@ class ProfileTest extends TestCase
 
     public function testCanFindProfileByFirstName(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create(['first_name' => 'Unique']);
 
         $foundProfile = Profile::where('first_name', 'Unique')->first();
@@ -115,6 +124,7 @@ class ProfileTest extends TestCase
 
     public function testCanFindProfileByLastName(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create(['last_name' => 'Unique']);
 
         $foundProfile = Profile::where('last_name', 'Unique')->first();
@@ -125,6 +135,7 @@ class ProfileTest extends TestCase
 
     public function testCanFindProfileByPhone(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create(['phone' => '+1234567890']);
 
         $foundProfile = Profile::where('phone', '+1234567890')->first();
@@ -142,6 +153,7 @@ class ProfileTest extends TestCase
         $activeProfiles = Profile::where('status', 'active')->get();
 
         static::assertCount(1, $activeProfiles);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('active', $activeProfiles->first()->status);
     }
 
@@ -154,6 +166,7 @@ class ProfileTest extends TestCase
         $utcProfiles = Profile::where('timezone', 'UTC')->get();
 
         static::assertCount(1, $utcProfiles);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('UTC', $utcProfiles->first()->timezone);
     }
 
@@ -166,6 +179,7 @@ class ProfileTest extends TestCase
         $englishProfiles = Profile::where('locale', 'en')->get();
 
         static::assertCount(1, $englishProfiles);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('en', $englishProfiles->first()->locale);
     }
 
@@ -178,6 +192,7 @@ class ProfileTest extends TestCase
         $doeProfiles = Profile::where('last_name', 'like', '%Doe%')->get();
 
         static::assertCount(2, $doeProfiles);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($doeProfiles->every(fn ($profile) => str_contains($profile->last_name, 'Doe')));
     }
 
@@ -190,15 +205,19 @@ class ProfileTest extends TestCase
         $devProfiles = Profile::where('bio', 'like', '%Developer%')->get();
 
         static::assertCount(1, $devProfiles);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertTrue($devProfiles->every(fn ($profile) => str_contains($profile->bio, 'Developer')));
     }
 
     public function testCanUpdateProfile(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create(['first_name' => 'Old Name']);
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $profile->update(['first_name' => 'New Name']);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('profiles', [
             'id' => $profile->id,
             'first_name' => 'New Name',
@@ -207,6 +226,7 @@ class ProfileTest extends TestCase
 
     public function testCanHandleNullValues(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create([
             'first_name' => 'Test',
             'last_name' => 'User',
@@ -219,6 +239,7 @@ class ProfileTest extends TestCase
             'locale' => null,
         ]);
 
+        /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('profiles', [
             'id' => $profile->id,
             'phone' => null,
@@ -252,12 +273,15 @@ class ProfileTest extends TestCase
         $profiles = Profile::where('status', 'active')->where('timezone', 'UTC')->get();
 
         static::assertCount(1, $profiles);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('active', $profiles->first()->status);
+        /** @phpstan-ignore-next-line method.nonObject */
         static::assertSame('UTC', $profiles->first()->timezone);
     }
 
     public function testProfileHasRolesRelationship(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create();
 
         static::assertTrue(method_exists($profile, 'roles'));
@@ -265,6 +289,7 @@ class ProfileTest extends TestCase
 
     public function testProfileHasPermissionsRelationship(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create();
 
         static::assertTrue(method_exists($profile, 'permissions'));
@@ -272,6 +297,7 @@ class ProfileTest extends TestCase
 
     public function testProfileHasTeamsRelationship(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create();
 
         static::assertTrue(method_exists($profile, 'teams'));
@@ -279,6 +305,7 @@ class ProfileTest extends TestCase
 
     public function testProfileHasDevicesRelationship(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create();
 
         static::assertTrue(method_exists($profile, 'devices'));
@@ -286,6 +313,7 @@ class ProfileTest extends TestCase
 
     public function testProfileHasMediaRelationship(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create();
 
         static::assertTrue(method_exists($profile, 'media'));
@@ -293,6 +321,7 @@ class ProfileTest extends TestCase
 
     public function testProfileCanUsePermissionScopes(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create();
 
         static::assertTrue(method_exists($profile, 'permission'));
@@ -301,6 +330,7 @@ class ProfileTest extends TestCase
 
     public function testProfileCanUseRoleScopes(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create();
 
         static::assertTrue(method_exists($profile, 'role'));
@@ -309,6 +339,7 @@ class ProfileTest extends TestCase
 
     public function testProfileCanUseExtraAttributesScopes(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create();
 
         static::assertTrue(method_exists($profile, 'withExtraAttributes'));
@@ -316,6 +347,7 @@ class ProfileTest extends TestCase
 
     public function testProfileHasFactory(): void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile::factory()->create();
 
         static::assertNotNull($profile->id);
