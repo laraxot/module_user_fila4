@@ -92,7 +92,11 @@ render(function (View $view) {
 ### Prefissi di Lingua negli URL
 
 <nome progetto> utilizza prefissi di lingua negli URL. Tutti i link devono includere la locale corrente:
+<<<<<<< HEAD
 SaluteOra utilizza prefissi di lingua negli URL. Tutti i link devono includere la locale corrente:
+=======
+<nome progetto> utilizza prefissi di lingua negli URL. Tutti i link devono includere la locale corrente:
+>>>>>>> 041533e (.)
 
 ```
 /{locale}/percorso/pagina
