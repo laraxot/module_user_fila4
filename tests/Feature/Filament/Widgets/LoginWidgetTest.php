@@ -6,6 +6,7 @@ use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Filament\Widgets\LoginWidget;
 use Modules\User\Models\User;
+use Tests\TestCase;
 
 use function Pest\Laravel\assertAuthenticatedAs;
 
@@ -14,11 +15,11 @@ use Tests\TestCase;
 uses(TestCase::class);
 
 beforeEach(function (): void {
-    $this->widget = new LoginWidget();
+    $this->widget = new LoginWidget;
 });
 
 test('it can render widget', function (): void {
-    $widget = new LoginWidget();
+    $widget = new LoginWidget;
 
     // Use reflection to access the protected view property
     $reflection = new ReflectionClass($widget);
@@ -50,7 +51,7 @@ test('it can authenticate user', function (): void {
     }
 
     /** @var User $user */
-    $user = User/** @phpstan-ignore-line */ ::factory()->create([
+    $user = User::factory()->create([
         'email' => 'test@example.com',
         'password' => Hash::make('password123'),
     ]);
