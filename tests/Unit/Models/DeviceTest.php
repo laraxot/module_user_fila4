@@ -325,7 +325,7 @@ class DeviceTest extends TestCase
 
     public function testDeviceHasFillableAttributes(): void
     {
-        $device = new Device();
+        $device = new Device;
 
         $expectedFillable = [
             'id',
@@ -349,7 +349,7 @@ class DeviceTest extends TestCase
 
     public function testDeviceHasCasts(): void
     {
-        $device = new Device();
+        $device = new Device;
 
         $expectedCasts = [
             'id' => 'string',

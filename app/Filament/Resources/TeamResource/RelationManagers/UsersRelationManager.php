@@ -17,6 +17,7 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+use Override;
 
 class UsersRelationManager extends XotBaseRelationManager
 {

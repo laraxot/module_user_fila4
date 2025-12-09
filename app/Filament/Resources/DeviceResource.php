@@ -9,6 +9,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Modules\User\Models\Device;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+use Override;
 
 class DeviceResource extends XotBaseResource
 {

@@ -70,7 +70,7 @@ class ProfileTest extends TestCase
 
     public function testProfileHasSchemalessAttributes(): void
     {
-        $profile = new Profile();
+        $profile = new Profile;
 
         $expectedAttributes = ['extra'];
         static::assertSame($expectedAttributes, $profile->getSchemalessAttributes());
@@ -78,7 +78,7 @@ class ProfileTest extends TestCase
 
     public function testProfileHasTableName(): void
     {
-        $profile = new Profile();
+        $profile = new Profile;
 
         static::assertSame('profiles', $profile->getTable());
     }
