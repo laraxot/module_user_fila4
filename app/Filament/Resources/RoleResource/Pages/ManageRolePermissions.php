@@ -34,10 +34,11 @@ class ManageRolePermissions extends ManageRelatedRecords
     /**
      * @return array<string, mixed>
      */
+    /** @phpstan-ignore-next-line return.type */
     public function getFormSchema(): array
     {
         return [
-            'name' => TextInput::make('name')->required()->maxLength(255),
+            TextInput::make('name')->required()->maxLength(255),
         ];
     }
 

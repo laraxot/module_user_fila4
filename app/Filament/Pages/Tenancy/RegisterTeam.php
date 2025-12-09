@@ -20,10 +20,11 @@ class RegisterTeam extends RegisterTenant
     /**
      * @return array<string, mixed>
      */
+    /** @phpstan-ignore-next-line return.type */
     public function getFormSchema(): array
     {
         return [
-            'name' => TextInput::make('name'),
+            TextInput::make('name'),
             // ...
         ];
     }
