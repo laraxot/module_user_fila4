@@ -287,7 +287,10 @@ dump($variable);
 
 - [README Modulo User](../README.md)
 - [Best Practices Testing](../../../docs/testing-best-practices.md)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 041533e (.)
 - [Architettura Modulo User](../architecture/README.md)
 - [Factory e Seeder](../models/factory-seeder-status.md)
 
@@ -295,3 +298,9 @@ dump($variable);
 
 *Ultimo aggiornamento: 2025-01-06*
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 041533e (.)
