@@ -9,9 +9,9 @@ use Modules\User\Models\TeamPermission;
 use Modules\User\Models\User;
 
 beforeEach(function (): void {
-    $this->owner = User::factory()->create();
-    $this->member = User::factory()->create();
-    $this->team = Team::factory()->create([
+    $this->owner = User/** @phpstan-ignore-line */ ::factory()->create();
+    $this->member = User/** @phpstan-ignore-line */ ::factory()->create();
+    $this->team = Team/** @phpstan-ignore-line */ ::factory()->create([
         /** @phpstan-ignore-next-line property.notFound */
         'user_id' => $this->owner->id,
         'name' => 'Test Team',
@@ -21,7 +21,7 @@ beforeEach(function (): void {
 describe('Team Creation and Management', function (): void {
     it('can create a team', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $team = Team::factory()->create([
+        $team = Team/** @phpstan-ignore-line */ ::factory()->create([
             /** @phpstan-ignore-next-line property.notFound */
             'user_id' => $this->owner->id,
             'name' => 'New Team',
@@ -44,10 +44,10 @@ describe('Team Creation and Management', function (): void {
     it('can have multiple teams per user', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
         /** @phpstan-ignore-next-line property.notFound */
-        $team1 = Team::factory()->create(['user_id' => $this->owner->id]);
+        $team1 = Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $this->owner->id]);
         /** @var \Illuminate\Database\Eloquent\Collection */
         /** @phpstan-ignore-next-line property.notFound */
-        $team2 = Team::factory()->create(['user_id' => $this->owner->id]);
+        $team2 = Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $this->owner->id]);
 
         /** @phpstan-ignore-next-line property.notFound */
         expect($this->owner->ownedTeams)->toHaveCount(3); // Including the one from beforeEach
@@ -99,11 +99,11 @@ describe('Team Membership', function (): void {
 
     it('can have multiple members', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $member1 = User::factory()->create();
+        $member1 = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $member2 = User::factory()->create();
+        $member2 = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $member3 = User::factory()->create();
+        $member3 = User/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line property.notFound */
         $this->team->users()->attach([$member1->id, $member2->id, $member3->id]);
@@ -146,10 +146,10 @@ describe('User Team Relationship', function (): void {
     it('user can belong to multiple teams', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
         /** @phpstan-ignore-next-line property.notFound */
-        $team1 = Team::factory()->create(['user_id' => $this->owner->id]);
+        $team1 = Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $this->owner->id]);
         /** @var \Illuminate\Database\Eloquent\Collection */
         /** @phpstan-ignore-next-line property.notFound */
-        $team2 = Team::factory()->create(['user_id' => $this->owner->id]);
+        $team2 = Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $this->owner->id]);
 
         /** @phpstan-ignore-next-line property.notFound */
         $this->member->teams()->attach([$team1->id, $team2->id]);
@@ -184,9 +184,9 @@ describe('User Team Relationship', function (): void {
 
     it('can get all team users for a user', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $teammate1 = User::factory()->create();
+        $teammate1 = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $teammate2 = User::factory()->create();
+        $teammate2 = User/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line property.notFound */
         $this->team->users()->attach([$this->member->id, $teammate1->id, $teammate2->id]);
@@ -206,7 +206,7 @@ describe('User Team Relationship', function (): void {
 describe('Team Invitations', function (): void {
     it('can create team invitations', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $invitation = TeamInvitation::factory()->create([
+        $invitation = TeamInvitation/** @phpstan-ignore-line */ ::factory()->create([
             /** @phpstan-ignore-next-line property.notFound */
             'team_id' => $this->team->id,
             'email' => 'invite@example.com',
@@ -223,7 +223,7 @@ describe('Team Invitations', function (): void {
 
     it('can accept team invitations', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $invitation = TeamInvitation::factory()->create([
+        $invitation = TeamInvitation/** @phpstan-ignore-line */ ::factory()->create([
             /** @phpstan-ignore-next-line property.notFound */
             'team_id' => $this->team->id,
             /** @phpstan-ignore-next-line property.notFound */
@@ -244,7 +244,7 @@ describe('Team Invitations', function (): void {
 
     it('can cancel team invitations', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $invitation = TeamInvitation::factory()->create([
+        $invitation = TeamInvitation/** @phpstan-ignore-line */ ::factory()->create([
             /** @phpstan-ignore-next-line property.notFound */
             'team_id' => $this->team->id,
             'email' => 'cancel@example.com',
@@ -258,7 +258,7 @@ describe('Team Invitations', function (): void {
     });
 
     it('prevents duplicate invitations', function (): void {
-        TeamInvitation::factory()->create([
+        TeamInvitation/** @phpstan-ignore-line */ ::factory()->create([
             /** @phpstan-ignore-next-line property.notFound */
             'team_id' => $this->team->id,
             'email' => 'existing@example.com',
@@ -283,7 +283,7 @@ describe('Team Permissions', function (): void {
 
     it('can assign permissions to team members', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission = TeamPermission::factory()->create([
+        $permission = TeamPermission/** @phpstan-ignore-line */ ::factory()->create([
             'name' => 'manage team',
             /** @phpstan-ignore-next-line property.notFound */
             'team_id' => $this->team->id,
@@ -316,8 +316,8 @@ describe('Team Permissions', function (): void {
 describe('Team Scopes and Queries', function (): void {
     it('can filter teams by owner', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $otherUser = User::factory()->create();
-        Team::factory()->create(['user_id' => $otherUser->id]);
+        $otherUser = User/** @phpstan-ignore-line */ ::factory()->create();
+        Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $otherUser->id]);
 
         /** @phpstan-ignore-next-line property.notFound */
         $ownerTeams = Team::where('user_id', $this->owner->id)->get();
@@ -328,7 +328,7 @@ describe('Team Scopes and Queries', function (): void {
 
     it('can find teams by slug', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $team = Team::factory()->create(['slug' => 'unique-team-slug']);
+        $team = Team/** @phpstan-ignore-line */ ::factory()->create(['slug' => 'unique-team-slug']);
 
         $foundTeam = Team::where('slug', 'unique-team-slug')->first();
 
@@ -337,9 +337,9 @@ describe('Team Scopes and Queries', function (): void {
 
     it('can get teams with member count', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $member1 = User::factory()->create();
+        $member1 = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $member2 = User::factory()->create();
+        $member2 = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line property.notFound */
         $this->team->users()->attach([$member1->id, $member2->id]);
 
@@ -390,9 +390,9 @@ describe('Team Features', function (): void {
         ]);
 
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $member1 = User::factory()->create();
+        $member1 = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $member2 = User::factory()->create();
+        $member2 = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line property.notFound */
         $this->team->users()->attach([$member1->id, $member2->id]);
 

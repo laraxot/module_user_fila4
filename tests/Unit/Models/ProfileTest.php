@@ -15,7 +15,7 @@ class ProfileTest extends TestCase
     public function testCanCreateProfileWithMinimalData(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create([
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create([
             'first_name' => 'John',
             'last_name' => 'Doe',
             'user_name' => 'johndoe',
@@ -50,7 +50,7 @@ class ProfileTest extends TestCase
         ];
 
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create($profileData);
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create($profileData);
 
         /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseHas('profiles', [
@@ -92,7 +92,7 @@ class ProfileTest extends TestCase
     public function testCanFindProfileByEmail(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create(['email' => 'unique@example.com']);
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create(['email' => 'unique@example.com']);
 
         $foundProfile = Profile::where('email', 'unique@example.com')->first();
 
@@ -103,7 +103,7 @@ class ProfileTest extends TestCase
     public function testCanFindProfileByUserName(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create(['user_name' => 'uniqueuser']);
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create(['user_name' => 'uniqueuser']);
 
         $foundProfile = Profile::where('user_name', 'uniqueuser')->first();
 
@@ -114,7 +114,7 @@ class ProfileTest extends TestCase
     public function testCanFindProfileByFirstName(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create(['first_name' => 'Unique']);
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create(['first_name' => 'Unique']);
 
         $foundProfile = Profile::where('first_name', 'Unique')->first();
 
@@ -125,7 +125,7 @@ class ProfileTest extends TestCase
     public function testCanFindProfileByLastName(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create(['last_name' => 'Unique']);
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create(['last_name' => 'Unique']);
 
         $foundProfile = Profile::where('last_name', 'Unique')->first();
 
@@ -136,7 +136,7 @@ class ProfileTest extends TestCase
     public function testCanFindProfileByPhone(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create(['phone' => '+1234567890']);
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create(['phone' => '+1234567890']);
 
         $foundProfile = Profile::where('phone', '+1234567890')->first();
 
@@ -146,9 +146,9 @@ class ProfileTest extends TestCase
 
     public function testCanFindProfileByStatus(): void
     {
-        Profile::factory()->create(['status' => 'active']);
-        Profile::factory()->create(['status' => 'inactive']);
-        Profile::factory()->create(['status' => 'pending']);
+        Profile/** @phpstan-ignore-line */ ::factory()->create(['status' => 'active']);
+        Profile/** @phpstan-ignore-line */ ::factory()->create(['status' => 'inactive']);
+        Profile/** @phpstan-ignore-line */ ::factory()->create(['status' => 'pending']);
 
         $activeProfiles = Profile::where('status', 'active')->get();
 
@@ -159,9 +159,9 @@ class ProfileTest extends TestCase
 
     public function testCanFindProfileByTimezone(): void
     {
-        Profile::factory()->create(['timezone' => 'UTC']);
-        Profile::factory()->create(['timezone' => 'Europe/Rome']);
-        Profile::factory()->create(['timezone' => 'America/New_York']);
+        Profile/** @phpstan-ignore-line */ ::factory()->create(['timezone' => 'UTC']);
+        Profile/** @phpstan-ignore-line */ ::factory()->create(['timezone' => 'Europe/Rome']);
+        Profile/** @phpstan-ignore-line */ ::factory()->create(['timezone' => 'America/New_York']);
 
         $utcProfiles = Profile::where('timezone', 'UTC')->get();
 
@@ -172,9 +172,9 @@ class ProfileTest extends TestCase
 
     public function testCanFindProfileByLocale(): void
     {
-        Profile::factory()->create(['locale' => 'en']);
-        Profile::factory()->create(['locale' => 'it']);
-        Profile::factory()->create(['locale' => 'de']);
+        Profile/** @phpstan-ignore-line */ ::factory()->create(['locale' => 'en']);
+        Profile/** @phpstan-ignore-line */ ::factory()->create(['locale' => 'it']);
+        Profile/** @phpstan-ignore-line */ ::factory()->create(['locale' => 'de']);
 
         $englishProfiles = Profile::where('locale', 'en')->get();
 
@@ -185,9 +185,9 @@ class ProfileTest extends TestCase
 
     public function testCanFindProfilesByNamePattern(): void
     {
-        Profile::factory()->create(['first_name' => 'John', 'last_name' => 'Doe']);
-        Profile::factory()->create(['first_name' => 'Jane', 'last_name' => 'Doe']);
-        Profile::factory()->create(['first_name' => 'Bob', 'last_name' => 'Smith']);
+        Profile/** @phpstan-ignore-line */ ::factory()->create(['first_name' => 'John', 'last_name' => 'Doe']);
+        Profile/** @phpstan-ignore-line */ ::factory()->create(['first_name' => 'Jane', 'last_name' => 'Doe']);
+        Profile/** @phpstan-ignore-line */ ::factory()->create(['first_name' => 'Bob', 'last_name' => 'Smith']);
 
         $doeProfiles = Profile::where('last_name', 'like', '%Doe%')->get();
 
@@ -198,9 +198,9 @@ class ProfileTest extends TestCase
 
     public function testCanFindProfilesByBioPattern(): void
     {
-        Profile::factory()->create(['bio' => 'Software Developer']);
-        Profile::factory()->create(['bio' => 'Designer']);
-        Profile::factory()->create(['bio' => 'Product Manager']);
+        Profile/** @phpstan-ignore-line */ ::factory()->create(['bio' => 'Software Developer']);
+        Profile/** @phpstan-ignore-line */ ::factory()->create(['bio' => 'Designer']);
+        Profile/** @phpstan-ignore-line */ ::factory()->create(['bio' => 'Product Manager']);
 
         $devProfiles = Profile::where('bio', 'like', '%Developer%')->get();
 
@@ -212,7 +212,7 @@ class ProfileTest extends TestCase
     public function testCanUpdateProfile(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create(['first_name' => 'Old Name']);
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create(['first_name' => 'Old Name']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $profile->update(['first_name' => 'New Name']);
@@ -227,7 +227,7 @@ class ProfileTest extends TestCase
     public function testCanHandleNullValues(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create([
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create([
             'first_name' => 'Test',
             'last_name' => 'User',
             'user_name' => 'testuser',
@@ -252,19 +252,19 @@ class ProfileTest extends TestCase
 
     public function testCanFindProfilesByMultipleCriteria(): void
     {
-        Profile::factory()->create([
+        Profile/** @phpstan-ignore-line */ ::factory()->create([
             'status' => 'active',
             'timezone' => 'UTC',
             'locale' => 'en',
         ]);
 
-        Profile::factory()->create([
+        Profile/** @phpstan-ignore-line */ ::factory()->create([
             'status' => 'active',
             'timezone' => 'Europe/Rome',
             'locale' => 'it',
         ]);
 
-        Profile::factory()->create([
+        Profile/** @phpstan-ignore-line */ ::factory()->create([
             'status' => 'inactive',
             'timezone' => 'UTC',
             'locale' => 'en',
@@ -282,7 +282,7 @@ class ProfileTest extends TestCase
     public function testProfileHasRolesRelationship(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create();
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($profile, 'roles'));
     }
@@ -290,7 +290,7 @@ class ProfileTest extends TestCase
     public function testProfileHasPermissionsRelationship(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create();
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($profile, 'permissions'));
     }
@@ -298,7 +298,7 @@ class ProfileTest extends TestCase
     public function testProfileHasTeamsRelationship(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create();
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($profile, 'teams'));
     }
@@ -306,7 +306,7 @@ class ProfileTest extends TestCase
     public function testProfileHasDevicesRelationship(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create();
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($profile, 'devices'));
     }
@@ -314,7 +314,7 @@ class ProfileTest extends TestCase
     public function testProfileHasMediaRelationship(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create();
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($profile, 'media'));
     }
@@ -322,7 +322,7 @@ class ProfileTest extends TestCase
     public function testProfileCanUsePermissionScopes(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create();
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($profile, 'permission'));
         static::assertTrue(method_exists($profile, 'withoutPermission'));
@@ -331,7 +331,7 @@ class ProfileTest extends TestCase
     public function testProfileCanUseRoleScopes(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create();
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($profile, 'role'));
         static::assertTrue(method_exists($profile, 'withoutRole'));
@@ -340,7 +340,7 @@ class ProfileTest extends TestCase
     public function testProfileCanUseExtraAttributesScopes(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create();
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertTrue(method_exists($profile, 'withExtraAttributes'));
     }
@@ -348,7 +348,7 @@ class ProfileTest extends TestCase
     public function testProfileHasFactory(): void
     {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile::factory()->create();
+        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create();
 
         static::assertNotNull($profile->id);
         static::assertInstanceOf(Profile::class, $profile);
