@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 
@@ -10,6 +11,16 @@ use function Laravel\Folio\name;
 name('genesis.about');
 
 new class extends Component {};
+=======
+use function Laravel\Folio\{name};
+use Livewire\Volt\Component;
+
+name('genesis.about');
+
+new class extends Component
+{
+};
+>>>>>>> fbc8f8e (.)
 ?>
 
 <x-layouts.marketing>
@@ -151,4 +162,8 @@ new class extends Component {};
         </div>
 
     </div>
+<<<<<<< HEAD
 </x-layouts.marketing>
+=======
+</x-layouts.marketing>
+>>>>>>> fbc8f8e (.)
