@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Modules\User\Actions\Socialite;
 
 // use DutchCodingCompany\FilamentSocialite\FilamentSocialite;
+use LogicException;
 use Filament\Facades\Filament;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\RedirectResponse;
@@ -29,7 +30,7 @@ class LoginUserAction
         Assert::notNull($user = $socialiteUser->user, '['.__FILE__.']['.__LINE__.']');
 
         if (! $user instanceof Authenticatable) {
-            throw new \LogicException('User instance must implement Authenticatable.');
+            throw new LogicException('User instance must implement Authenticatable.');
         }
 
         // PHPStan: assicuriamoci che l'utente sia Authenticatable per il login

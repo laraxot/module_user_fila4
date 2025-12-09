@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Contracts;
 
+use Laravel\Passport\PersonalAccessTokenResult;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Passport\PersonalAccessTokenResult;

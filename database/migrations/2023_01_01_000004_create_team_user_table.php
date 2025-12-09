@@ -5,8 +5,7 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-return new class extends XotBaseMigration
-{
+return new class extends XotBaseMigration {
     /**
      * Nome della tabella gestita dalla migrazione.
      */
@@ -19,14 +18,13 @@ return new class extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(static function (Blueprint $table): void {
-            // $table->uuid('id')->primary();
-            $table->id();
+            // Rimuoviamo l'id auto-increment e usiamo chiave composita per tabella pivot
             $table->foreignId('team_id');
-            $table->uuid('user_id')->nullable()->index();
-            // $table->foreignIdFor(\Modules\Xot\Datas\XotData::make()->getUserClass());
+            $table->uuid('user_id')->nullable();
             $table->string('role')->nullable();
 
-            // $table->unique(['team_id', 'user_id']);
+            // Chiave primaria composita per tabella pivot
+            $table->primary(['team_id', 'user_id']);
         });
 
         // -- UPDATE --
