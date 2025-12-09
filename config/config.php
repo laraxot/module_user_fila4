@@ -17,4 +17,20 @@ return [
     'providers' => [
         'Modules\\User\\Providers\\UserServiceProvider',
     ],
+
+    /**
+     * Automatically create a personal team for new users.
+     *
+     * When enabled, a personal team will be created automatically
+     * when a new user is created via the UserObserver.
+     */
+    'create_personal_team' => env('USER_CREATE_PERSONAL_TEAM', false),
+
+    /**
+     * Automatically set current team after user creation.
+     *
+     * When enabled, the user's current_team_id will be set to their
+     * personal team (if exists) or first available team.
+     */
+    'auto_set_current_team' => env('USER_AUTO_SET_CURRENT_TEAM', false),
 ];

@@ -42,7 +42,15 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @mixin \Eloquent
  */
-/** */
+/**
+ * @property-read \Modules\Fixcity\Models\Profile|null $creator
+ * @property-read \Modules\Fixcity\Models\Profile|null $updater
+ * @method static \Modules\User\Database\Factories\PasswordResetFactory factory($count = null, $state = [])
+ * @method static Builder<static>|PasswordReset newModelQuery()
+ * @method static Builder<static>|PasswordReset newQuery()
+ * @method static Builder<static>|PasswordReset query()
+ * @mixin \Eloquent
+ */
 class PasswordReset extends BaseModel
 {
     /**
