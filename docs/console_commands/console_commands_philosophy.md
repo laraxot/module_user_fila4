@@ -461,10 +461,3 @@ private function getPasswordLegacy(): string
 
 
 
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 041533e (.)

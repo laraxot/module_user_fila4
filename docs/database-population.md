@@ -294,7 +294,6 @@ echo "User roles: " . $user->roles()->count() . "\n";
 - [Testing Guidelines](./testing.md)
 - [Database Schema](./database-schema.md)
 
-<<<<<<< HEAD
 ---
 
 **Ultimo aggiornamento**: Gennaio 2025
@@ -304,6 +303,4 @@ echo "User roles: " . $user->roles()->count() . "\n";
 
 
 
-=======
->>>>>>> 041533e (.)
 
