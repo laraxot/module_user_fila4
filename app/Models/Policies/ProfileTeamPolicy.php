@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Models\Policies;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class ProfileTeamPolicy extends UserBasePolicy
 {
 =======
@@ -73,4 +74,8 @@ class ProfileTeamPolicy extends UserBasePolicy
         return $user->hasRole('super-admin');
     }
 >>>>>>> fbc8f8e (.)
+=======
+class ProfileTeamPolicy extends UserBasePolicy
+{
+>>>>>>> 6d20fbe (.)
 }

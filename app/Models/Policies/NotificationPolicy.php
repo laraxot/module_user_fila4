@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Models\Policies;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class NotificationPolicy extends UserBasePolicy
 {
 =======
@@ -75,4 +76,8 @@ class NotificationPolicy extends UserBasePolicy
                $user->hasRole('super-admin');
     }
 >>>>>>> fbc8f8e (.)
+=======
+class NotificationPolicy extends UserBasePolicy
+{
+>>>>>>> 6d20fbe (.)
 }
