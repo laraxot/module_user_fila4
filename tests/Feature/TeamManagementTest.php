@@ -159,6 +159,7 @@ describe('Team Invitations', function () {
             'role' => 'member',
         ]);
 
+    /** @phpstan-ignore-next-line property.notFound, method.nonObject, argument.templateType */
         expect($invitation)
             ->toBeInstanceOf(TeamInvitation::class)
             ->team_id->toBe($this->team->id)
