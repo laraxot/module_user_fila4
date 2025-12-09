@@ -44,3 +44,4 @@ class ViewUser extends BaseViewUser
         ];
     }
 }
+
