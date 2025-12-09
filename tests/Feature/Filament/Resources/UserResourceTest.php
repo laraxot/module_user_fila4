@@ -3,14 +3,8 @@
 declare(strict_types=1);
 
 use Filament\Forms\Components\Placeholder;
-<<<<<<< HEAD
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
-=======
-use Modules\Xot\Filament\Resources\XotBaseResource;
-use Illuminate\Support\HtmlString;
-<<<<<<< HEAD
->>>>>>> 3753a57 (.)
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\HtmlString;
 use Modules\User\Enums\UserType;
@@ -21,15 +15,8 @@ use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
 use Modules\User\Filament\Resources\UserResource\Pages\EditUser;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\User\Models\User;
-<<<<<<< HEAD
 use Modules\Xot\Filament\Resources\XotBaseResource;
 use Tests\TestCase;
-=======
-<<<<<<< HEAD
-=======
-use Modules\User\Enums\UserType;
-use Illuminate\Support\Facades\Hash;
->>>>>>> fbc8f8e (.)
 >>>>>>> 3753a57 (.)
 
 uses(TestCase::class);
