@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Log;
 =======
 >>>>>>> fbc8f8e (.)
+=======
+use Illuminate\Support\Facades\Log;
+>>>>>>> 6d20fbe (.)
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
@@ -19,15 +23,21 @@ use Livewire\Attributes\Validate;
 use Livewire\Volt\Component;
 use Modules\User\Models\User;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 use Webmozart\Assert\Assert;
 
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
+<<<<<<< HEAD
 =======
 use function Laravel\Folio\{middleware, name};
 use Webmozart\Assert\Assert;
 use Illuminate\Support\Facades\Log;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 name('profile.edit');
 middleware(['auth', 'verified']);
@@ -35,30 +45,42 @@ middleware(['auth', 'verified']);
 /**
  * Profile edit component for managing user profile, password updates, and account deletion.
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
 =======
  * 
 >>>>>>> fbc8f8e (.)
+=======
+ *
+>>>>>>> 6d20fbe (.)
  * Provides secure functionality for:
  * - Updating profile information with validation
  * - Changing passwords with security checks
  * - Account deletion with confirmation
  * - Comprehensive audit logging
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
 =======
  * 
 >>>>>>> fbc8f8e (.)
+=======
+ *
+>>>>>>> 6d20fbe (.)
  * Follows strict type safety and comprehensive error handling patterns.
  */
 $component = new class extends Component {
     /**
      * Current user's first name.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
 =======
      * 
 >>>>>>> fbc8f8e (.)
+=======
+     *
+>>>>>>> 6d20fbe (.)
      * @var string
      */
     #[Validate('required|string|max:100')]
@@ -67,10 +89,14 @@ $component = new class extends Component {
     /**
      * Current user's last name.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
 =======
      * 
 >>>>>>> fbc8f8e (.)
+=======
+     *
+>>>>>>> 6d20fbe (.)
      * @var string
      */
     #[Validate('required|string|max:100')]
@@ -79,10 +105,14 @@ $component = new class extends Component {
     /**
      * Current user's email address.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
 =======
      * 
 >>>>>>> fbc8f8e (.)
+=======
+     *
+>>>>>>> 6d20fbe (.)
      * @var string
      */
     #[Validate('required|email|max:255')]
@@ -91,10 +121,14 @@ $component = new class extends Component {
     /**
      * User ID (locked to prevent tampering).
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
 =======
      * 
 >>>>>>> fbc8f8e (.)
+=======
+     *
+>>>>>>> 6d20fbe (.)
      * @var int
      */
     #[Locked]
@@ -103,10 +137,14 @@ $component = new class extends Component {
     /**
      * Current password for verification.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
 =======
      * 
 >>>>>>> fbc8f8e (.)
+=======
+     *
+>>>>>>> 6d20fbe (.)
      * @var string
      */
     #[Validate('required|current_password')]
@@ -115,10 +153,14 @@ $component = new class extends Component {
     /**
      * New password for password updates.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
 =======
      * 
 >>>>>>> fbc8f8e (.)
+=======
+     *
+>>>>>>> 6d20fbe (.)
      * @var string
      */
     #[Validate('required|min:8|confirmed')]
@@ -127,10 +169,14 @@ $component = new class extends Component {
     /**
      * Password confirmation.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
 =======
      * 
 >>>>>>> fbc8f8e (.)
+=======
+     *
+>>>>>>> 6d20fbe (.)
      * @var string
      */
     public string $password_confirmation = '';
@@ -138,10 +184,14 @@ $component = new class extends Component {
     /**
      * Password for account deletion confirmation.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
 =======
      * 
 >>>>>>> fbc8f8e (.)
+=======
+     *
+>>>>>>> 6d20fbe (.)
      * @var string
      */
     #[Validate('required|current_password')]
@@ -159,24 +209,33 @@ $component = new class extends Component {
             Assert::notNull($user, 'User must be authenticated');
             Assert::isInstanceOf($user, User::class, 'User must be an instance of User model');
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
             // Type-safe property initialization
             $this->first_name = (string) ($user->first_name ?? '');
             $this->last_name = (string) ($user->last_name ?? '');
             $this->email = (string) ($user->email ?? '');
             $this->user_id = (int) ($user->id ?? 0);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
             Assert::stringNotEmpty($this->first_name, 'User first name cannot be empty');
             Assert::stringNotEmpty($this->last_name, 'User last name cannot be empty');
             Assert::stringNotEmpty($this->email, 'User email cannot be empty');
             Assert::greaterThan($this->user_id, 0, 'User ID must be positive');
+<<<<<<< HEAD
 <<<<<<< HEAD
 
             // Validate email format
@@ -190,12 +249,18 @@ $component = new class extends Component {
             );
             
 >>>>>>> fbc8f8e (.)
+=======
+
+            // Validate email format
+            Assert::true(filter_var($this->email, FILTER_VALIDATE_EMAIL) !== false, 'User email must be valid');
+>>>>>>> 6d20fbe (.)
         } catch (\Webmozart\Assert\InvalidArgumentException $e) {
             Log::error('Profile mount validation failed', [
                 'error' => $e->getMessage(),
                 'user_id' => Auth::id(),
                 'trace' => $e->getTraceAsString(),
             ]);
+<<<<<<< HEAD
 <<<<<<< HEAD
 
             // Redirect to login if user data is corrupted
@@ -206,6 +271,11 @@ $component = new class extends Component {
             redirect()->route('login')->with('error', 'Invalid user session. Please log in again.');
             
 >>>>>>> fbc8f8e (.)
+=======
+
+            // Redirect to login if user data is corrupted
+            redirect()->route('login')->with('error', 'Invalid user session. Please log in again.');
+>>>>>>> 6d20fbe (.)
         } catch (\Exception $e) {
             Log::error('Profile mount failed', [
                 'error' => $e->getMessage(),
@@ -215,10 +285,14 @@ $component = new class extends Component {
                 'trace' => $e->getTraceAsString(),
             ]);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
             redirect()->route('dashboard')->with('error', 'Unable to load profile data.');
         }
     }
@@ -242,16 +316,22 @@ $component = new class extends Component {
                 'last_name' => ['required', 'string', 'max:100'],
                 'email' => [
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                     'required',
                     'email',
                     'max:255',
                     Rule::unique('users')->ignore($this->user_id),
+<<<<<<< HEAD
 =======
                     'required', 
                     'email', 
                     'max:255', 
                     Rule::unique('users')->ignore($this->user_id)
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
                 ],
             ]);
 
@@ -263,12 +343,16 @@ $component = new class extends Component {
             // Check if email has changed for additional validation
             $emailChanged = $user->email !== $validated['email'];
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 
             if ($emailChanged) {
                 // Additional email validation for changes
                 Assert::false(
                     User::where('email', $validated['email'])->where('id', '!=', $this->user_id)->exists(),
                     'Email is already in use by another user',
+<<<<<<< HEAD
 =======
             
             if ($emailChanged) {
@@ -279,6 +363,8 @@ $component = new class extends Component {
                         ->exists(),
                     'Email is already in use by another user'
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
                 );
             }
 
@@ -324,16 +410,22 @@ $component = new class extends Component {
 
             // Show success message
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             $message = $emailChanged
                 ? 'Profile updated successfully. Please verify your new email address.'
                 : 'Profile updated successfully.';
 
+<<<<<<< HEAD
 =======
             $message = $emailChanged 
                 ? 'Profile updated successfully. Please verify your new email address.'
                 : 'Profile updated successfully.';
                 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             session()->flash('status', $message);
 
             // Send email verification if email changed
@@ -341,9 +433,12 @@ $component = new class extends Component {
                 $user->sendEmailVerificationNotification();
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         } catch (\Illuminate\Validation\ValidationException $e) {
             // Re-throw validation exceptions to display form errors
             Log::warning('Profile update validation failed', [
@@ -353,9 +448,12 @@ $component = new class extends Component {
             ]);
             throw $e;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         } catch (\Webmozart\Assert\InvalidArgumentException $e) {
             Log::error('Profile update assertion failed', [
                 'error' => $e->getMessage(),
@@ -367,9 +465,12 @@ $component = new class extends Component {
 
             session()->flash('error', 'Profile update failed: ' . $e->getMessage());
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         } catch (\Exception $e) {
             Log::error('Profile update failed with unexpected error', [
                 'error' => $e->getMessage(),
@@ -411,6 +512,7 @@ $component = new class extends Component {
 
             // Verify current password
 <<<<<<< HEAD
+<<<<<<< HEAD
             Assert::true(Hash::check($this->current_password, $user->password), 'Current password is incorrect');
 =======
             Assert::true(
@@ -418,15 +520,22 @@ $component = new class extends Component {
                 'Current password is incorrect'
             );
 >>>>>>> fbc8f8e (.)
+=======
+            Assert::true(Hash::check($this->current_password, $user->password), 'Current password is incorrect');
+>>>>>>> 6d20fbe (.)
 
             // Ensure new password is different from current
             Assert::false(
                 Hash::check($this->password, $user->password),
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'New password must be different from current password',
 =======
                 'New password must be different from current password'
 >>>>>>> fbc8f8e (.)
+=======
+                'New password must be different from current password',
+>>>>>>> 6d20fbe (.)
             );
 
             // Update password with secure hash
@@ -451,14 +560,20 @@ $component = new class extends Component {
             $this->reset(['current_password', 'password', 'password_confirmation']);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             session()->flash(
                 'status',
                 'Password updated successfully. You have been logged out of other devices for security.',
             );
+<<<<<<< HEAD
 =======
             session()->flash('status', 'Password updated successfully. You have been logged out of other devices for security.');
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         } catch (\Illuminate\Validation\ValidationException $e) {
             // Re-throw validation exceptions to display form errors
             Log::warning('Password update validation failed', [
@@ -467,9 +582,12 @@ $component = new class extends Component {
             ]);
             throw $e;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         } catch (\Webmozart\Assert\InvalidArgumentException $e) {
             Log::error('Password update assertion failed', [
                 'error' => $e->getMessage(),
@@ -481,9 +599,12 @@ $component = new class extends Component {
             $this->reset(['current_password', 'password', 'password_confirmation']);
             session()->flash('error', 'Password update failed: ' . $e->getMessage());
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         } catch (\Exception $e) {
             Log::error('Password update failed with unexpected error', [
                 'error' => $e->getMessage(),
@@ -521,10 +642,14 @@ $component = new class extends Component {
             Assert::true(
                 Hash::check($this->delete_password, $user->password),
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'Password is incorrect for account deletion',
 =======
                 'Password is incorrect for account deletion'
 >>>>>>> fbc8f8e (.)
+=======
+                'Password is incorrect for account deletion',
+>>>>>>> 6d20fbe (.)
             );
 
             // Store user data for logging before deletion
@@ -558,9 +683,12 @@ $component = new class extends Component {
             // Redirect to home with success message
             return Redirect::to('/')->with('status', 'Your account has been deleted successfully.');
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         } catch (\Illuminate\Validation\ValidationException $e) {
             // Re-throw validation exceptions to display form errors
             Log::warning('Account deletion validation failed', [
@@ -569,9 +697,12 @@ $component = new class extends Component {
             ]);
             throw $e;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         } catch (\Webmozart\Assert\InvalidArgumentException $e) {
             Log::error('Account deletion assertion failed', [
                 'error' => $e->getMessage(),
@@ -584,9 +715,12 @@ $component = new class extends Component {
             session()->flash('error', 'Account deletion failed: ' . $e->getMessage());
             return Redirect::back();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         } catch (\Exception $e) {
             Log::error('Account deletion failed with unexpected error', [
                 'error' => $e->getMessage(),
@@ -630,16 +764,22 @@ $component = new class extends Component {
             'last_name' => ['required', 'string', 'min:2', 'max:100'],
             'email' => [
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                 'required',
                 'email',
                 'max:255',
                 Rule::unique('users')->ignore($this->user_id),
+<<<<<<< HEAD
 =======
                 'required', 
                 'email', 
                 'max:255', 
                 Rule::unique('users')->ignore($this->user_id)
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             ],
         ];
     }

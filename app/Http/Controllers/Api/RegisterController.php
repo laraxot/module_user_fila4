@@ -38,6 +38,9 @@ class RegisterController extends XotBaseController
         $success = [];
         $messages = __('user::validation');
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $validator = Validator::make(
             $request->all(),
             [
@@ -49,6 +52,7 @@ class RegisterController extends XotBaseController
             ],
             $messages,
         );
+<<<<<<< HEAD
 =======
         $validator = Validator::make($request->all(), [
             'name' => 'required',
@@ -58,10 +62,13 @@ class RegisterController extends XotBaseController
             'c_password' => 'required|same:password',
         ], $messages);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         if ($validator->fails()) {
             return $this->sendError('Validation Error.', $validator->errors()->all());
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         /** @var array<string, mixed> $input */
         $input = $request->all();
@@ -70,6 +77,11 @@ class RegisterController extends XotBaseController
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
 >>>>>>> fbc8f8e (.)
+=======
+        /** @var array<string, mixed> $input */
+        $input = $request->all();
+        $input['password'] = bcrypt((string) $input['password']);
+>>>>>>> 6d20fbe (.)
         $user_class = XotData::make()->getUserClass();
         /** @var UserContract */
         $user = $user_class::create($input);
