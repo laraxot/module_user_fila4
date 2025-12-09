@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🔄 Migrazione da Filament 3 a Filament 4
 
 ## Panoramica
@@ -211,3 +212,5 @@ Dopo la migrazione:
 - Testare sempre le pagine di autenticazione dopo aggiornamenti
 - Utilizzare i componenti nativi di Filament quando possibile
 - Seguire le best practices per la personalizzazione
+=======
+>>>>>>> d89ae0a (.)
