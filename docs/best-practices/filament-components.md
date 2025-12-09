@@ -86,6 +86,7 @@ composer show filament/spatie-laravel-media-library-plugin
 
 ## Risorse Utili
 - [Documentazione Filament](https://filamentphp.com/docs)
+<<<<<<< HEAD
 - [Componenti Blade](https://laravel.com/docs/blade)
 - [TailwindCSS](https://tailwindcss.com/docs) 
 
@@ -94,4 +95,14 @@ composer show filament/spatie-laravel-media-library-plugin
 * [filament-components.md](../../../Cms/docs/best-practices/filament-components.md)
 * [filament-components.md](../../../Cms/docs/filament-components.md)
 * [filament-components.md](laravel/docs/rules/filament-components.md)
+=======
+- [Componenti Blade](https://laravel.com/project_docs/blade)
+- [TailwindCSS](https://tailwindcss.com/docs) 
+
+## Collegamenti tra versioni di filament-components.md
+* [filament-components.md](../../../User/project_docs/best-practices/filament-components.md)
+* [filament-components.md](../../../Cms/project_docs/best-practices/filament-components.md)
+* [filament-components.md](../../../Cms/project_docs/filament-components.md)
+* [filament-components.md](laravel/project_docs/rules/filament-components.md)
+>>>>>>> fbc8f8e (.)
 
