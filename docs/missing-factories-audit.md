@@ -134,11 +134,8 @@
 ## Collegamenti
 
 - [README Modulo User](./README.md)
-<<<<<<< HEAD
-- [Factory Audit Root](../../../project_docs/factory-audit-2025.md)
-=======
 - [Factory Audit Root](../../../docs/factory-audit-2025.md)
->>>>>>> 2805232 (.)
+
 - [Models Documentation](./models/README.md)
 
 ---

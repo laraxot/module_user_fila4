@@ -2,27 +2,12 @@
 # LARAXOT MODULE USER - .GITIGNORE
 # ==============================================
 # Modulo User Laraxot - Template standardizzato
-<<<<<<< HEAD
-# Ultimo aggiornamento: 2025-01-06
-=======
 # Ultimo aggiornamento: 2025-01-31
->>>>>>> 2805232 (.)
 # ==============================================
 
 # ==============================================
 # DEPENDENCIES & PACKAGES
 # ==============================================
-<<<<<<< HEAD
-vendor/
-/vendor/
-node_modules/
-/node_modules/
-/docs/vendor/
-package-lock.json
-yarn.lock
-yarn-error.log
-composer.lock
-=======
 /vendor/
 /vendor
 /node_modules/
@@ -33,7 +18,6 @@ yarn.lock
 composer.lock
 yarn-error.log
 npm-debug.log
->>>>>>> 2805232 (.)
 
 # ==============================================
 # BUILD & COMPILED FILES
@@ -56,10 +40,6 @@ cache/*
 *.swp
 *.swo
 *.stackdump
-<<<<<<< HEAD
-*.exe
-=======
->>>>>>> 2805232 (.)
 *:Zone.Identifier
 v8-compile-cache-*
 .php-cs-fixer.cache
@@ -71,10 +51,6 @@ v8-compile-cache-*
 *.log
 error_log
 npm-debug.log*
-<<<<<<< HEAD
-npm-debug.log
-=======
->>>>>>> 2805232 (.)
 yarn-error.log*
 lerna-debug.log*
 
@@ -145,21 +121,6 @@ docs/phpstan/
 docs/cache/
 
 # ==============================================
-<<<<<<< HEAD
-# OLD DIRECTORIES (LEGACY CLEANUP)
-# ==============================================
-resources/views/Components_old/
-resources/views/Components_old
-database/Migrations_old/
-database/Migrations_old
-database/Seeders_old/
-database/Seeders_old
-database/Factories_old/
-database/Factories_old
-database/Factories_
-database_old/
-database_old
-=======
 # LANGUAGE FILES
 # ==============================================
 lang/lang/
@@ -173,7 +134,6 @@ database/Migrations_old/
 database/Seeders_old/
 database/Factories_old/
 database_old/
->>>>>>> 2805232 (.)
 
 # ==============================================
 # MODULE SPECIFIC - USER
@@ -182,12 +142,12 @@ database_old/
 config/local.php
 config/development.php
 
-# Cache autenticazione
-storage/framework/cache/
-storage/framework/sessions/
-storage/framework/views/
+# Cache utenti
+storage/users/
+storage/profiles/
+storage/avatars/
 
-# File di test temporanei
+# File di test utenti
 test_users.json
 user_test_data.csv
 
@@ -195,11 +155,7 @@ user_test_data.csv
 # END OF USER .GITIGNORE
 # ==============================================
 
-# 🚫 File specifici del progetto
+# File specifici del progetto
 *.fila2
 laravel
-<<<<<<< HEAD
 public_html
-=======
-public_html
->>>>>>> 2805232 (.)
