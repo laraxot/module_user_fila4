@@ -2,7 +2,11 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 namespace Modules\Notify\Filament\Forms\Components;
+=======
+namespace Modules\User\Filament\Forms\Components;
+>>>>>>> 4b219c8 (.)
 
 use Filament\Forms\Components\Select;
 use Modules\User\Models\Role;
