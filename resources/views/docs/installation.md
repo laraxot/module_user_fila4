@@ -4,7 +4,11 @@
 
 - PHP 8.1+
 - Laravel 10+
+<<<<<<< HEAD
 - Filament 4.3+
+=======
+- Filament 3.3+
+>>>>>>> 81efa49 (.)
 - Node.js 16+
 - NPM 8+
 
@@ -17,7 +21,10 @@ Aggiungi il tema al tuo `composer.json`:
 ```json
 {
     "require": {
+<<<<<<< HEAD
         "<nome progetto>/theme-one": "^1.0"
+=======
+>>>>>>> 81efa49 (.)
         "saluteora/theme-one": "^1.0"
     }
 }
@@ -99,7 +106,10 @@ Personalizza la configurazione del tema in `config/theme.php`:
 ```php
 return [
     'name' => 'One',
+<<<<<<< HEAD
     'description' => 'Tema predefinito per ',
+=======
+>>>>>>> 81efa49 (.)
     'description' => 'Tema predefinito per SaluteOra',
     'version' => '1.0.0',
     // ...
