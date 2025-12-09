@@ -56,6 +56,7 @@ class OauthAccessTokenFactory extends Factory
      */
     public function revoked(): static
     {
+        return $this->state(fn (array $_attributes): array => [
             'revoked' => true,
         ]);
     }
@@ -65,6 +66,7 @@ class OauthAccessTokenFactory extends Factory
      */
     public function active(): static
     {
+        return $this->state(fn (array $_attributes): array => [
             'revoked' => false,
             'expires_at' => $this->faker->dateTimeBetween('+1 day', '+1 year'),
         ]);
@@ -75,6 +77,7 @@ class OauthAccessTokenFactory extends Factory
      */
     public function forUser(User $user): static
     {
+        return $this->state(fn (array $_attributes): array => [
             'user_id' => $user->id,
         ]);
     }
@@ -84,6 +87,7 @@ class OauthAccessTokenFactory extends Factory
      */
     public function forClient(OauthClient $client): static
     {
+        return $this->state(fn (array $_attributes): array => [
             'client_id' => $client->id,
         ]);
     }
@@ -95,6 +99,7 @@ class OauthAccessTokenFactory extends Factory
      */
     public function withScopes(array $scopes): static
     {
+        return $this->state(fn (array $_attributes): array => [
             'scopes' => $scopes,
         ]);
     }

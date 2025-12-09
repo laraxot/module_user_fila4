@@ -43,6 +43,7 @@ class TenantUserFactory extends Factory
      */
     public function forTenant(Tenant $tenant): static
     {
+        return $this->state(fn (array $_attributes): array => [
             'tenant_id' => $tenant->id,
         ]);
     }
@@ -52,7 +53,10 @@ class TenantUserFactory extends Factory
      */
     public function forUser(User $user): static
     {
-            'user_id' => $user->id,
+        /** @var string $userId */
+        $userId = $user->id;
+        return $this->state(fn (array $_attributes): array => [
+            'user_id' => $userId,
         ]);
     }
 }
