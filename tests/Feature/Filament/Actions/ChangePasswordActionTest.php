@@ -14,7 +14,7 @@ uses(TestCase::class);
 
 beforeEach(function (): void {
     // Use in-memory model to avoid DB constraints between tests
-    $this->user = User::factory()->make([
+    /** @var object{user: mixed} $this */ $this->user = User/** @phpstan-ignore-line */ ::factory()->make([
         'type' => UserType::MasterAdmin,
         'email' => 'admin+'.uniqid('', true).'@example.com',
         'password' => Hash::make('oldpassword'),

@@ -9,7 +9,7 @@ use Tests\TestCase;
 uses(TestCase::class);
 
 beforeEach(function (): void {
-    $this->role = Role::factory()->create([
+    $this->role = Role/** @phpstan-ignore-line */ ::factory()->create([
         'name' => 'test-role',
         'guard_name' => 'web',
     ]);
@@ -91,7 +91,7 @@ test('role can be deleted', function (): void {
 
 test('role can have permissions', function (): void {
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission = Permission::factory()->create([
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create([
         'name' => 'test-permission',
         'guard_name' => 'web',
     ]);
@@ -107,9 +107,9 @@ test('role can have permissions', function (): void {
 
 test('role can have multiple permissions', function (): void {
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission1 = Permission::factory()->create(['name' => 'permission-1']);
+        $permission1 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'permission-1']);
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission2 = Permission::factory()->create(['name' => 'permission-2']);
+        $permission2 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'permission-2']);
 
     /** @phpstan-ignore-next-line property.notFound */
     $this->role->syncPermissions([$permission1, $permission2]);
@@ -124,7 +124,7 @@ test('role can have multiple permissions', function (): void {
 
 test('role can revoke permissions', function (): void {
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission = Permission::factory()->create(['name' => 'test-permission']);
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'test-permission']);
 
     /** @phpstan-ignore-next-line property.notFound */
     $this->role->givePermissionTo($permission);
@@ -162,7 +162,7 @@ test('role has timestamps', function (): void {
 
 test('role can be created with factory', function (): void {
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create();
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create();
 
     expect($role)->toBeInstanceOf(Role::class);
     expect($role->name)->not->toBeEmpty();
@@ -171,7 +171,7 @@ test('role can be created with factory', function (): void {
 
 test('role can be created with specific attributes', function (): void {
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create([
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create([
         'name' => 'custom-role',
         'guard_name' => 'custom-guard',
     ]);
@@ -185,7 +185,7 @@ test('role can check if it has any permissions', function (): void {
     expect($this->role->hasAnyPermission([]))->toBeFalse();
 
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission = Permission::factory()->create(['name' => 'test-permission']);
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'test-permission']);
     /** @phpstan-ignore-next-line property.notFound */
     $this->role->givePermissionTo($permission);
 
@@ -195,9 +195,9 @@ test('role can check if it has any permissions', function (): void {
 
 test('role can check if it has all permissions', function (): void {
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission1 = Permission::factory()->create(['name' => 'permission-1']);
+        $permission1 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'permission-1']);
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission2 = Permission::factory()->create(['name' => 'permission-2']);
+        $permission2 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'permission-2']);
 
     /** @phpstan-ignore-next-line property.notFound */
     $this->role->syncPermissions([$permission1, $permission2]);
