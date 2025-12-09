@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -102,4 +105,8 @@ declare(strict_types=1);
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </nav>
+=======
+</nav> 
+>>>>>>> fbc8f8e (.)
