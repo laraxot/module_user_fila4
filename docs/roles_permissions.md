@@ -28,4 +28,8 @@ UPDATE permissions SET guard_name = 'web' WHERE guard_name = '' OR guard_name IS
 ```
 
 ## Collegamento regole generali
+<<<<<<< HEAD
 Vedi anche: ../../Xot/docs/roles-permissions.md
+=======
+Vedi anche: ../../Xot/project_docs/roles-permissions.md
+>>>>>>> 041533e (.)
