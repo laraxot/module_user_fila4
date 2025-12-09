@@ -37,9 +37,9 @@ class LoginWidget extends XotBaseWidget
     public function getFormSchema(): array
     {
         return [
-            TextInput::make('email')->email()->required(),
-            TextInput::make('password')->password()->required(),
-            Checkbox::make('remember'),
+            'email' => TextInput::make('email')->email()->required(),
+            'password' => TextInput::make('password')->password()->required(),
+            'remember' => Checkbox::make('remember'),
         ];
     }
 
