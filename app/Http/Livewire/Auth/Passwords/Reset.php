@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Auth\Passwords;
 
-<<<<<<< HEAD
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\PasswordBroker;
@@ -12,17 +11,6 @@ use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
-=======
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\Model;
-use Livewire\Features\SupportRedirects\Redirector;
-use Illuminate\Contracts\Auth\PasswordBroker;
-use Illuminate\Contracts\View\View;
-use Illuminate\Contracts\View\Factory;
-use Modules\Xot\Actions\File\ViewCopyAction;
-use Illuminate\Contracts\Auth\StatefulGuard;
-use Illuminate\Auth\Events\PasswordReset;
->>>>>>> 2805232 (.)
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -30,11 +18,8 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password as PasswordRule;
 use Livewire\Component;
-<<<<<<< HEAD
 use Livewire\Features\SupportRedirects\Redirector;
 use Modules\Xot\Actions\File\ViewCopyAction;
-=======
->>>>>>> 2805232 (.)
 use Webmozart\Assert\Assert;
 
 class Reset extends Component
@@ -74,7 +59,7 @@ class Reset extends Component
                 'password' => $this->password,
             ],
             function (Authenticatable $user, string $password): void {
-                /** @var Model&Authenticatable $user */
+                /* @var Model&Authenticatable $user */
                 $user->setAttribute('password', Hash::make($password));
                 $user->setRememberToken(Str::random(60));
                 $user->save();
@@ -86,26 +71,16 @@ class Reset extends Component
         );
 
         /* @phpstan-ignore argument.type */
-<<<<<<< HEAD
         Assert::string($response_lang = trans((string) $response));
 
-        if ($response === Password::PASSWORD_RESET) {
+        if (Password::PASSWORD_RESET === $response) {
             session()->flash($response_lang);
 
-=======
-        Assert::string($response_lang = trans($response));
-
-        if ($response === Password::PASSWORD_RESET) {
-            session()->flash($response_lang);
->>>>>>> 2805232 (.)
             return redirect(route('home'));
         }
 
         $this->addError('email', $response_lang);
-<<<<<<< HEAD
 
-=======
->>>>>>> 2805232 (.)
         return null;
     }
 
