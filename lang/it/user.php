@@ -674,6 +674,12 @@ return [
     ],
     'search_placeholder' => 'Cerca per nome, email o ruolo...',
     'label' => 'user',
+    'sections' => [
+        'empty' => [
+            'heading' => 'empty',
+            'label' => 'empty',
+        ],
+    ],
 ];
 =======
 =======
