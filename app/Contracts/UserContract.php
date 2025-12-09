@@ -6,21 +6,9 @@ namespace Modules\User\Contracts;
 
 use Spatie\Permission\Contracts\Role;
 use Illuminate\Contracts\Auth\Authenticatable;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-=======
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Collection;
->>>>>>> fbc8f8e (.)
-=======
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
->>>>>>> 6d20fbe (.)
 
 interface UserContract extends Authenticatable
 {
@@ -95,15 +83,7 @@ interface UserContract extends Authenticatable
      *
      * @param string|array|Role|\Illuminate\Support\Collection $roles
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function hasRole($roles, null|string $guard = null): bool;
-=======
-    public function hasRole($roles, ?string $guard = null): bool;
->>>>>>> fbc8f8e (.)
-=======
-    public function hasRole($roles, null|string $guard = null): bool;
->>>>>>> 6d20fbe (.)
 
     /**
      * Get the user's authentication logs.
@@ -123,15 +103,7 @@ interface UserContract extends Authenticatable
     /**
      * Get the user's personal team.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function personalTeam(): null|TeamContract;
-=======
-    public function personalTeam(): ?TeamContract;
->>>>>>> fbc8f8e (.)
-=======
-    public function personalTeam(): null|TeamContract;
->>>>>>> 6d20fbe (.)
 
     /**
      * Switch the user's context to the given team.
