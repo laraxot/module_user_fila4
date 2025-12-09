@@ -8,8 +8,6 @@ use Modules\User\Filament\Widgets\LoginWidget;
 use Modules\User\Models\User;
 use Tests\TestCase;
 
-=======
->>>>>>> fbc8f8e (.)
 use function Pest\Laravel\assertAuthenticatedAs;
 
 use Tests\TestCase;
