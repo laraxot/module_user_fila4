@@ -8,8 +8,14 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Laravel\Passport\PersonalAccessTokenResult;
+use Laravel\Passport\Token;
+use Laravel\Passport\TransientToken;
 use Spatie\Permission\Contracts\Role;
 
+/**
+ * User contract interface.
+ */
 interface UserContract extends Authenticatable
 {
     /**
@@ -112,4 +118,31 @@ interface UserContract extends Authenticatable
      * Get all of the teams the user owns or belongs to.
      */
     public function allTeams(): Collection;
+
+    /**
+     * Check if the user can access Socialite.
+     */
+    public function canAccessSocialite(): bool;
+
+    /**
+     * Get the current access token being used by the user.
+     */
+    public function token(): Token|TransientToken|null;
+
+    /**
+     * Create a new personal access token for the user.
+     *
+     * @param  array<int, string>  $scopes
+     */
+    public function createToken(string $name, array $scopes = []): PersonalAccessTokenResult;
+
+    /**
+     * Get the user's tenants.
+     */
+    public function tenants(): BelongsToMany;
+
+    /**
+     * Remove a role from the user.
+     */
+    public function removeRole(string|int|\Spatie\Permission\Contracts\Role $role): static;
 }

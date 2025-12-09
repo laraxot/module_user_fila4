@@ -15,7 +15,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Xot\Actions\Cast\SafeArrayCastAction;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
-use Override;
+use Webmozart\Assert\Assert;
 
 class RegistrationWidget extends XotBaseWidget
 {
