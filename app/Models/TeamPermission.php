@@ -31,6 +31,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class TeamPermission extends BaseModel
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     /**
      * The database connection that should be used by the model.
      *
@@ -42,6 +45,7 @@ class TeamPermission extends BaseModel
      * The attributes that are mass assignable.
      *
      * @var list<string>
+<<<<<<< HEAD
 =======
     /** 
      * The database connection that should be used by the model.
@@ -55,6 +59,8 @@ class TeamPermission extends BaseModel
      *
      * @var list<string> 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
      */
     protected $fillable = [
         'team_id',
