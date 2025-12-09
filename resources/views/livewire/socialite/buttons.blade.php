@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 <div>
     @if (count($providers))
         <div class="relative flex items-center justify-center text-center mb-">

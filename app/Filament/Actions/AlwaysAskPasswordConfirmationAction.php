@@ -13,6 +13,7 @@ final class AlwaysAskPasswordConfirmationAction extends Action
     {
         $this->requiresConfirmation()
             ->modalHeading(__('filament-jet::jet.password_confirmation_modal.heading'))
+<<<<<<< HEAD
             ->modalSubheading(__('filament-jet::jet.password_confirmation_modal.description'))
             ->schema([
                 TextInput::make('current_password')
@@ -20,5 +21,19 @@ final class AlwaysAskPasswordConfirmationAction extends Action
                     ->password()
                     ->rule('current_password'),
             ]);
+=======
+            ->modalSubheading(
+                __('filament-jet::jet.password_confirmation_modal.description')
+            )
+            ->schema(
+                [
+                    TextInput::make('current_password')
+
+                        ->required()
+                        ->password()
+                        ->rule('current_password'),
+                ]
+            );
+>>>>>>> fbc8f8e (.)
     }
 }
