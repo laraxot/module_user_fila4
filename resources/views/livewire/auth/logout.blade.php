@@ -1,11 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 <x-layouts.app>
     <div class="min-h-screen flex items-center justify-center">
         <div class="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow">

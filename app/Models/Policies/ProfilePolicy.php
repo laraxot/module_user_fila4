@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Models\Policies;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class ProfilePolicy extends UserBasePolicy
 {
 =======
@@ -70,4 +71,8 @@ class ProfilePolicy extends UserBasePolicy
         return $this->hasPermission($user, 'profile.force-delete');
     }
 >>>>>>> fbc8f8e (.)
+=======
+class ProfilePolicy extends UserBasePolicy
+{
+>>>>>>> 6d20fbe (.)
 }
