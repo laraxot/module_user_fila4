@@ -16,12 +16,7 @@
         }
     },
     "require": {
-<<<<<<< HEAD
-        "filament/filament": "^3.4",
-        "filament/tables": "^3.4"
-=======
         "filament/filament": "^4.0",
         "filament/tables": "^4.0"
->>>>>>> ceff73a (.)
     }
 }
