@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 
@@ -17,6 +20,7 @@ use function Laravel\Folio\name;
 name('password.reset');
 
 new class extends Component {
+<<<<<<< HEAD
 =======
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +38,8 @@ name('password.reset');
 new class extends Component
 {
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     #[Validate('required')]
     public $token;
 
@@ -74,10 +80,14 @@ new class extends Component
         );
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         if ($response === Password::PASSWORD_RESET) {
 =======
         if ($response == Password::PASSWORD_RESET) {
 >>>>>>> fbc8f8e (.)
+=======
+        if ($response === Password::PASSWORD_RESET) {
+>>>>>>> 6d20fbe (.)
             session()->flash(trans($response));
 
             return redirect('/');
@@ -113,7 +123,11 @@ new class extends Component
         </div>
     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 </x-layouts.main>
 =======
 </x-layouts.main>
 >>>>>>> fbc8f8e (.)
+=======
+</x-layouts.main>
+>>>>>>> 6d20fbe (.)
