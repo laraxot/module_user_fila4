@@ -110,34 +110,42 @@ return [
         'reorderRecords' => [
             'icon' => 'reorderRecords',
             'label' => 'reorderRecords',
+            'tooltip' => 'reorderRecords',
         ],
         'cancel' => [
             'icon' => 'ui-cancel',
             'label' => 'cancel',
+            'tooltip' => 'cancel',
         ],
         'attachAnother' => [
             'icon' => 'attachAnother',
             'label' => 'attachAnother',
+            'tooltip' => 'attachAnother',
         ],
         'submit' => [
             'icon' => 'submit',
             'label' => 'submit',
+            'tooltip' => 'submit',
         ],
         'detach' => [
             'icon' => 'detach',
             'label' => 'detach',
+            'tooltip' => 'detach',
         ],
         'edit' => [
             'label' => 'edit',
             'icon' => 'edit',
+            'tooltip' => 'edit',
         ],
         'attach' => [
             'label' => 'attach',
             'icon' => 'attach',
+            'tooltip' => 'attach',
         ],
         'create' => [
             'label' => 'create',
             'icon' => 'ui-create',
+            'tooltip' => 'create',
         ],
         'applyFilters' => [
             'label' => 'applyFilters',
@@ -170,6 +178,7 @@ return [
         'logout' => [
             'icon' => 'logout',
             'label' => 'logout',
+            'tooltip' => 'logout',
         ],
         'profile' => [
             'icon' => 'profile',

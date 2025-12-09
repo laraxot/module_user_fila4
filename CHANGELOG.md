@@ -8,17 +8,6 @@ e questo progetto aderisce al [Semantic Versioning](https://semver.org/spec/v2.0
 ## [Unreleased]
 
 ### Fixed
-- **Architettura Modelli: Correzione Ereditarietà Classi Base (15 Ottobre 2025)**
-  - `Tenant.php`: Ora estende `BaseModel` invece di `Model`
-  - `TeamUser.php`: Ora estende `BasePivot` invece di `Model`
-  - `SsoProvider.php`: Ora estende `BaseModel` invece di `Model`
-  - `TeamInvitation.php`: Ora estende `BaseModel` invece di `Model`
-  - `TeamPermission.php`: Ora estende `BasePivot` invece di `Model`
-  - `Authentication.php`: Cleanup import, confermata estensione `BaseModel`
-  - Rimosso proprietà ridondante `$connection = 'user'` (automatica da BaseModel)
-  - Rimossi traits ridondanti già presenti in BaseModel (HasFactory, Updater)
-  - **Benefici:** ~50 righe duplicate eliminate, gerarchia consistente
-  - **Docs:** `docs/models/base-classes-hierarchy.md`, `docs/fixes/base-classes-corrections-2025-10-15.md`
 - Rimosso il modificatore `static` dal metodo `getTableColumns()` in `TeamsRelationManager` per risolvere l'errore di compatibilità con Filament
 - Aggiornata la documentazione degli errori comuni di Filament
 - Aggiunta checklist per la correzione degli errori nei RelationManager
