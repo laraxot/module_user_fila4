@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Models\Policies;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class DevicePolicy extends UserBasePolicy
 {
 =======
@@ -74,4 +75,8 @@ class DevicePolicy extends UserBasePolicy
                $user->hasRole('super-admin');
     }
 >>>>>>> fbc8f8e (.)
+=======
+class DevicePolicy extends UserBasePolicy
+{
+>>>>>>> 6d20fbe (.)
 }

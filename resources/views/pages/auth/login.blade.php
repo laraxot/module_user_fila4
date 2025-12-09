@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 
@@ -16,6 +19,7 @@ middleware(['guest']);
 name('login');
 
 new class extends Component {
+<<<<<<< HEAD
 =======
 use App\Models\User;
 use Illuminate\Auth\Events\Login;
@@ -29,6 +33,8 @@ name('login');
 new class extends Component
 {
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     #[Validate('required|email')]
     public $email = '';
 
@@ -94,7 +100,11 @@ new class extends Component
     </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 </x-layouts.main>
 =======
 </x-layouts.main>
 >>>>>>> fbc8f8e (.)
+=======
+</x-layouts.main>
+>>>>>>> 6d20fbe (.)

@@ -8,6 +8,9 @@ return [
         'name.placeholder' => 'Inserisci il nome del provider',
         'name.helper_text' => 'Il nome del provider social (es. Facebook, Google)',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         'scopes' => 'Ambiti',
         'scopes.placeholder' => 'Inserisci gli ambiti di accesso',
         'scopes.helper_text' => 'Gli ambiti di accesso richiesti dal provider',
@@ -20,6 +23,7 @@ return [
         'active.helper_text' => 'Se il provider è attualmente attivo',
         'socialite' => 'Socialite',
         'socialite.helper_text' => 'Se il provider usa Laravel Socialite',
+<<<<<<< HEAD
 =======
 
         'scopes' => 'Ambiti',
@@ -40,6 +44,8 @@ return [
         'socialite.helper_text' => 'Se il provider usa Laravel Socialite',
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         'svg' => 'SVG',
         'svg.placeholder' => 'Inserisci il codice SVG dell\'icona',
         'svg.helper_text' => 'L\'icona SVG del provider social',
