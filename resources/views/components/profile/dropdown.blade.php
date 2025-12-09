@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 @props([
     'alignment' => 'right',
     'width' => '48',
@@ -49,4 +52,8 @@ switch ($width) {
             {{ $content }}
         </div>
     </div>
+<<<<<<< HEAD
 </div>
+=======
+</div> 
+>>>>>>> fbc8f8e (.)

@@ -9,6 +9,10 @@ return [
         'icon' => 'heroicon-o-user-plus',
         'sort' => 50,
     ],
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
     'pages' => [
         'registration' => [
             'title' => 'Registrazione Utente',
@@ -21,6 +25,10 @@ return [
             'description' => 'Segui la procedura guidata per completare la registrazione',
         ],
     ],
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
     'steps' => [
         'personal_info' => [
             'label' => 'Dati Personali',
@@ -83,6 +91,10 @@ return [
             'help' => 'Compila le informazioni necessarie per la pre-visita',
         ],
     ],
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
     'fields' => [
         'name' => [
             'label' => 'Nome',
@@ -240,6 +252,10 @@ return [
             'help' => 'Eventuali annotazioni del team di moderazione',
         ],
     ],
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
     'actions' => [
         'register' => [
             'label' => 'Registrati',
@@ -264,6 +280,10 @@ return [
             'error' => 'Errore durante il salvataggio della bozza',
         ],
     ],
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
     'messages' => [
         'welcome' => 'Benvenuto nella procedura di registrazione',
         'step_completed' => 'Passaggio completato con successo',
