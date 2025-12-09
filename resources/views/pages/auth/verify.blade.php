@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 
@@ -15,6 +18,7 @@ middleware(['auth', 'throttle:6,1']);
 name('verification.notice');
 
 new class extends Component {
+<<<<<<< HEAD
 =======
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +31,8 @@ name('verification.notice');
 new class extends Component
 {
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     public function resend()
     {
         $user = auth()->user();
@@ -95,7 +101,11 @@ new class extends Component
     </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 </x-layouts.main>
 =======
 </x-layouts.main>
 >>>>>>> fbc8f8e (.)
+=======
+</x-layouts.main>
+>>>>>>> 6d20fbe (.)
