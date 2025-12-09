@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 <x-filament-widgets::widget>
     <div class="text-center mb-4">
         <div class="flex justify-center">
@@ -15,11 +18,19 @@ declare(strict_types=1);
         <p class="mt-2 text-gray-600">{{ __('user::password_expired.sub_heading') }}</p>
     </div>
     
+<<<<<<< HEAD
     <x-filament-schemas::form wire:submit="resetPassword">
+=======
+    <x-filament-panels::form wire:submit="resetPassword">
+>>>>>>> fbc8f8e (.)
         {{ $this->form }}
         
         <x-filament::button type="submit" class="mt-4">
             @lang('user::password_expired.actions.reset_password.label') <x-filament::loading-indicator class="h-5 w-5" wire:loading wire:target="submit"/>
         </x-filament::button>
+<<<<<<< HEAD
     </x-filament-schemas::form>
+=======
+    </x-filament-panels::form>
+>>>>>>> fbc8f8e (.)
 </x-filament-widgets::widget>
