@@ -10,7 +10,7 @@ use Modules\User\Models\PermissionRole;
 use Modules\User\Models\Role;
 
 /**
- * PermissionRole Factory
+ * PermissionRole Factory.
  *
  * Factory for creating PermissionRole model instances for testing and seeding.
  *
@@ -33,11 +33,11 @@ class PermissionRoleFactory extends Factory
     public function definition(): array
     {
         return [
-            'permission_id' => fn() => Permission::create([
+            'permission_id' => fn () => Permission::create([
                 'name' => fake()->unique()->slug(),
                 'guard_name' => 'web',
             ])->id,
-            'role_id' => fn() => Role::create([
+            'role_id' => fn () => Role::create([
                 'name' => fake()->unique()->slug(),
                 'guard_name' => 'web',
             ])->id,
@@ -46,26 +46,20 @@ class PermissionRoleFactory extends Factory
 
     /**
      * Create permission-role relationship for a specific permission.
-     *
-     * @param Permission $permission
-     * @return static
      */
     public function forPermission(Permission $permission): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'permission_id' => $permission->id,
         ]);
     }
 
     /**
      * Create permission-role relationship for a specific role.
-     *
-     * @param Role $role
-     * @return static
      */
     public function forRole(Role $role): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'role_id' => $role->id,
         ]);
     }

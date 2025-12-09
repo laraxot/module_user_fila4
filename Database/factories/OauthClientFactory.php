@@ -9,7 +9,7 @@ use Modules\User\Models\OauthClient;
 use Modules\User\Models\User;
 
 /**
- * OauthClient Factory
+ * OauthClient Factory.
  *
  * Factory for creating OauthClient model instances for testing and seeding.
  *
@@ -34,7 +34,7 @@ class OauthClientFactory extends Factory
         return [
             'id' => $this->faker->uuid(),
             'user_id' => $this->faker->optional()->randomElement([User::factory(), null]),
-            'name' => $this->faker->company() . ' App',
+            'name' => $this->faker->company().' App',
             'secret' => $this->faker->sha256(),
             'provider' => $this->faker->optional()->randomElement(['users', 'admins']),
             'redirect' => $this->faker->url(),
@@ -64,12 +64,10 @@ class OauthClientFactory extends Factory
 
     /**
      * Create a personal access client.
-     *
-     * @return static
      */
     public function personalAccess(): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'personal_access_client' => true,
             'password_client' => false,
             'name' => 'Personal Access Client',
@@ -78,12 +76,10 @@ class OauthClientFactory extends Factory
 
     /**
      * Create a password client.
-     *
-     * @return static
      */
     public function password(): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'password_client' => true,
             'personal_access_client' => false,
             'name' => 'Password Grant Client',
@@ -92,50 +88,40 @@ class OauthClientFactory extends Factory
 
     /**
      * Create a revoked client.
-     *
-     * @return static
      */
     public function revoked(): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'revoked' => true,
         ]);
     }
 
     /**
      * Create an active client.
-     *
-     * @return static
      */
     public function active(): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'revoked' => false,
         ]);
     }
 
     /**
      * Create client for a specific user.
-     *
-     * @param User $user
-     * @return static
      */
     public function forUser(User $user): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'user_id' => $user->id,
         ]);
     }
 
     /**
      * Create client with specific redirect URI.
-     *
-     * @param string $redirectUri
-     * @return static
      */
     public function withRedirectUri(string $redirectUri): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'redirect' => $redirectUri,
         ]);
     }
@@ -144,11 +130,10 @@ class OauthClientFactory extends Factory
      * Create client with specific scopes.
      *
      * @param array<string> $scopes
-     * @return static
      */
     public function withScopes(array $scopes): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'scopes' => $scopes,
         ]);
     }

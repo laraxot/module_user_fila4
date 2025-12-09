@@ -9,7 +9,7 @@ use Modules\User\Models\OauthAccessToken;
 use Modules\User\Models\OauthRefreshToken;
 
 /**
- * OauthRefreshToken Factory
+ * OauthRefreshToken Factory.
  *
  * @extends Factory<OauthRefreshToken>
  */
@@ -21,7 +21,7 @@ class OauthRefreshTokenFactory extends Factory
     {
         return [
             'id' => $this->faker->sha256(),
-            'access_token_id' => fn() => OauthAccessToken::create([
+            'access_token_id' => fn () => OauthAccessToken::create([
                 'id' => $this->faker->sha256(),
                 'user_id' => null,
                 'client_id' => $this->faker->sha256(),

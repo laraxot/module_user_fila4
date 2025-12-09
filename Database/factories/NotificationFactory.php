@@ -9,7 +9,7 @@ use Modules\User\Models\Notification;
 use Modules\User\Models\User;
 
 /**
- * Notification Factory
+ * Notification Factory.
  *
  * Factory for creating Notification model instances for testing and seeding.
  *
@@ -53,37 +53,30 @@ class NotificationFactory extends Factory
 
     /**
      * Create an unread notification.
-     *
-     * @return static
      */
     public function unread(): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'read_at' => null,
         ]);
     }
 
     /**
      * Create a read notification.
-     *
-     * @return static
      */
     public function read(): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'read_at' => $this->faker->dateTimeBetween('-1 month', 'now'),
         ]);
     }
 
     /**
      * Create notification for a specific user.
-     *
-     * @param User $user
-     * @return static
      */
     public function forUser(User $user): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'notifiable_type' => User::class,
             'notifiable_id' => $user->id,
         ]);
@@ -91,12 +84,10 @@ class NotificationFactory extends Factory
 
     /**
      * Create notification with high priority.
-     *
-     * @return static
      */
     public function highPriority(): static
     {
-        return $this->state(fn(array $attributes): array => [
+        return $this->state(fn (array $attributes): array => [
             'data' => array_merge(
                 is_array($attributes['data'] ?? null)
                     ? $attributes['data']
@@ -115,13 +106,10 @@ class NotificationFactory extends Factory
 
     /**
      * Create notification with specific type.
-     *
-     * @param string $type
-     * @return static
      */
     public function ofType(string $type): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'type' => $type,
         ]);
     }

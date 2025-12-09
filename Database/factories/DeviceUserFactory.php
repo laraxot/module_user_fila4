@@ -10,7 +10,7 @@ use Modules\User\Models\DeviceUser;
 use Modules\User\Models\User;
 
 /**
- * DeviceUser Factory
+ * DeviceUser Factory.
  *
  * Factory for creating DeviceUser model instances for testing and seeding.
  *
@@ -46,38 +46,30 @@ class DeviceUserFactory extends Factory
 
     /**
      * Create a device-user relationship for a specific user.
-     *
-     * @param User $user
-     * @return static
      */
     public function forUser(User $user): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'user_id' => $user->id,
         ]);
     }
 
     /**
      * Create a device-user relationship for a specific device.
-     *
-     * @param Device $device
-     * @return static
      */
     public function forDevice(Device $device): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'device_id' => $device->id,
         ]);
     }
 
     /**
      * Indicate that the user is currently logged in.
-     *
-     * @return static
      */
     public function loggedIn(): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'login_at' => $this->faker->dateTimeBetween('-1 day', 'now'),
             'logout_at' => null,
         ]);
@@ -85,14 +77,12 @@ class DeviceUserFactory extends Factory
 
     /**
      * Indicate that the user is logged out.
-     *
-     * @return static
      */
     public function loggedOut(): static
     {
         $loginAt = $this->faker->dateTimeBetween('-1 month', '-1 day');
 
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'login_at' => $loginAt,
             'logout_at' => $this->faker->dateTimeBetween($loginAt, 'now'),
         ]);

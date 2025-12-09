@@ -10,7 +10,7 @@ use Modules\User\Models\TeamUser;
 use Modules\User\Models\User;
 
 /**
- * TeamUser Factory
+ * TeamUser Factory.
  *
  * Factory for creating TeamUser model instances for testing and seeding.
  *
@@ -41,62 +41,50 @@ class TeamUserFactory extends Factory
 
     /**
      * Create team-user relationship for a specific team.
-     *
-     * @param Team $team
-     * @return static
      */
     public function forTeam(Team $team): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'team_id' => $team->id,
         ]);
     }
 
     /**
      * Create team-user relationship for a specific user.
-     *
-     * @param User $user
-     * @return static
      */
     public function forUser(User $user): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'user_id' => $user->id,
         ]);
     }
 
     /**
      * Set the role to owner.
-     *
-     * @return static
      */
     public function owner(): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'role' => 'owner',
         ]);
     }
 
     /**
      * Set the role to admin.
-     *
-     * @return static
      */
     public function admin(): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'role' => 'admin',
         ]);
     }
 
     /**
      * Set the role to member.
-     *
-     * @return static
      */
     public function member(): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'role' => 'member',
         ]);
     }

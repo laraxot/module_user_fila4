@@ -4,15 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Database\Factories;
 
-use Override;
 use Modules\User\Models\DeviceProfile;
 
 /**
- * DeviceProfile Factory
+ * DeviceProfile Factory.
  *
  * Factory for creating DeviceProfile model instances for testing and seeding.
  * Extends DeviceUserFactory since DeviceProfile extends DeviceUser.
- *
  */
 class DeviceProfileFactory extends DeviceUserFactory
 {
@@ -29,7 +27,7 @@ class DeviceProfileFactory extends DeviceUserFactory
      *
      * @return array<string, mixed>
      */
-    #[Override]
+    #[\Override]
     public function definition(): array
     {
         return array_merge(

@@ -10,7 +10,7 @@ use Modules\User\Models\OauthClient;
 use Modules\User\Models\User;
 
 /**
- * OauthAccessToken Factory
+ * OauthAccessToken Factory.
  *
  * Factory for creating OauthAccessToken model instances for testing and seeding.
  *
@@ -53,24 +53,20 @@ class OauthAccessTokenFactory extends Factory
 
     /**
      * Create a revoked token.
-     *
-     * @return static
      */
     public function revoked(): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'revoked' => true,
         ]);
     }
 
     /**
      * Create an active token.
-     *
-     * @return static
      */
     public function active(): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'revoked' => false,
             'expires_at' => $this->faker->dateTimeBetween('+1 day', '+1 year'),
         ]);
@@ -78,26 +74,20 @@ class OauthAccessTokenFactory extends Factory
 
     /**
      * Create token for a specific user.
-     *
-     * @param User $user
-     * @return static
      */
     public function forUser(User $user): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'user_id' => $user->id,
         ]);
     }
 
     /**
      * Create token for a specific client.
-     *
-     * @param OauthClient $client
-     * @return static
      */
     public function forClient(OauthClient $client): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'client_id' => $client->id,
         ]);
     }
@@ -106,11 +96,10 @@ class OauthAccessTokenFactory extends Factory
      * Create token with specific scopes.
      *
      * @param array<string> $scopes
-     * @return static
      */
     public function withScopes(array $scopes): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'scopes' => $scopes,
         ]);
     }

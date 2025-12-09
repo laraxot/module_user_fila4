@@ -24,11 +24,11 @@ return new class extends XotBaseMigration {
         });
         // -- UPDATE --
         $this->tableUpdate(function (Blueprint $table): void {
-            if (!$this->hasColumn('push_notifications_token')) {
+            if (! $this->hasColumn('push_notifications_token')) {
                 $table->string('push_notifications_token')->nullable();
             }
 
-            if (!$this->hasColumn('push_notifications_enabled')) {
+            if (! $this->hasColumn('push_notifications_enabled')) {
                 $table->boolean('push_notifications_enabled')->nullable();
             }
             // -- change
@@ -36,7 +36,7 @@ return new class extends XotBaseMigration {
                 $table->string('device_id', 36)->nullable()->change();
             }
             // dddx($this->getColumnType('device_id'));//varchar
-            if ($this->getColumnType('user_id') === 'uuid') {
+            if ('uuid' === $this->getColumnType('user_id')) {
                 $table->string('user_id', 36)->nullable()->change();
             }
 

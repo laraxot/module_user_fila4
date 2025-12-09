@@ -10,7 +10,7 @@ use Modules\User\Models\TenantUser;
 use Modules\User\Models\User;
 
 /**
- * TenantUser Factory
+ * TenantUser Factory.
  *
  * Factory for creating TenantUser model instances for testing and seeding.
  *
@@ -40,26 +40,20 @@ class TenantUserFactory extends Factory
 
     /**
      * Create tenant-user relationship for a specific tenant.
-     *
-     * @param Tenant $tenant
-     * @return static
      */
     public function forTenant(Tenant $tenant): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'tenant_id' => $tenant->id,
         ]);
     }
 
     /**
      * Create tenant-user relationship for a specific user.
-     *
-     * @param User $user
-     * @return static
      */
     public function forUser(User $user): static
     {
-        return $this->state(fn(array $_attributes): array => [
+        return $this->state(fn (array $_attributes): array => [
             'user_id' => $user->id,
         ]);
     }

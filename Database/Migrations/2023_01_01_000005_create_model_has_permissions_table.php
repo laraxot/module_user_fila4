@@ -25,10 +25,10 @@ return new class extends XotBaseMigration {
         // -- UPDATE --
         $this->tableUpdate(function (Blueprint $table): void {
             $team_class = XotData::make()->getTeamClass();
-            if (!$this->hasColumn('team_id')) {
+            if (! $this->hasColumn('team_id')) {
                 $table->foreignIdFor($team_class, 'team_id')->nullable();
             }
-            if ($this->getColumnType('model_id') === 'uuid') {
+            if ('uuid' === $this->getColumnType('model_id')) {
                 $table->string('model_id', 36)->index()->change();
             }
             $this->updateTimestamps($table);

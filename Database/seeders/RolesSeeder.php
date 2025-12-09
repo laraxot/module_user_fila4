@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Collection;
-use Modules\User\Enums\UserTypeEnum;
 use Modules\User\Models\Role;
 
 class RolesSeeder extends Seeder
@@ -44,7 +42,7 @@ class RolesSeeder extends Seeder
         $this->command->table(
             self::$OUTPUT_TABLE_HEADERS,
             collect($roles)
-                ->map(fn(Role $role, int $index) => [
+                ->map(fn (Role $role, int $index) => [
                     $index + 1,
                     $role->name,
                     $role->guard_name,
