@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Modules\Media\Models\Media;
-use Modules\User\Contracts\UserContract;
+use Modules\Xot\Contracts\UserContract;
 use Modules\User\Database\Factories\ProfileFactory;
 use Modules\Xot\Contracts\ProfileContract;
 use Spatie\MediaLibrary\HasMedia;
