@@ -36,11 +36,7 @@ Questo documento fornisce una checklist per verificare la corretta struttura del
 - ✅ `Modules/User/config/module.php`
 - ✅ `Modules/User/routes/web.php`
 - ✅ `Modules/User/database/migrations/create_users_table.php`
-<<<<<<< HEAD
 - ✅ `Modules/User/docs/USER_GUIDE.md`
-=======
-- ✅ `Modules/User/project_docs/USER_GUIDE.md`
->>>>>>> 81efa49 (.)
 
 ### ✅ Migration (tabelle, colonne, relazioni)
 - ✅ `Modules/User/database/migrations/2025_05_16_221811_add_owner_id_to_teams_table.php`
@@ -66,19 +62,11 @@ Questo documento fornisce una checklist per verificare la corretta struttura del
 ```bash
 
 # Verifica percorsi PHP errati (fuori da app/)
-<<<<<<< HEAD
 find Modules/User -type f -name "*.php" -not -path "*/app/*" -not -path "*/routes/*" -not -path "*/config/*" -not -path "*/database/*" -not -path "*/lang/*" -not -path "*/resources/*" -not -path "*/tests/*" -not -path "*/docs/*" | grep -v composer.json
-=======
-find Modules/User -type f -name "*.php" -not -path "*/app/*" -not -path "*/routes/*" -not -path "*/config/*" -not -path "*/database/*" -not -path "*/lang/*" -not -path "*/resources/*" -not -path "*/tests/*" -not -path "*/project_docs/*" | grep -v composer.json
->>>>>>> 81efa49 (.)
 
 # Verifica case sensitivity
 find Modules/User -type d -name "Resources" -o -name "Lang" -o -name "Config" -o -name "Routes"
 ```
 
 ## Per saperne di più
-<<<<<<< HEAD
 Consultare il documento completo: `/Modules/Xot/docs/DIRECTORY-STRUCTURE-GUIDE.md`
-=======
-Consultare il documento completo: `/Modules/Xot/project_docs/DIRECTORY-STRUCTURE-GUIDE.md`
->>>>>>> 81efa49 (.)
