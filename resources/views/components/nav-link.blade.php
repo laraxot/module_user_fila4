@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 @props(['active'])
 
 @php
@@ -13,4 +16,8 @@ $classes = ($active ?? false)
 
 <a {{ $attributes->merge(['class' => $classes]) }}>
     {{ $slot }}
+<<<<<<< HEAD
 </a>
+=======
+</a> 
+>>>>>>> fbc8f8e (.)
