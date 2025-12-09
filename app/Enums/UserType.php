@@ -32,6 +32,7 @@ enum UserType: string implements HasColor, HasIcon, HasLabel
     {
         return match ($this) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             self::MasterAdmin, self::System, self::CustomerUser, self::BoUser => self::WEB,
 =======
             self::MasterAdmin,
@@ -39,6 +40,9 @@ enum UserType: string implements HasColor, HasIcon, HasLabel
             self::CustomerUser,
             self::BoUser => self::WEB,
 >>>>>>> fbc8f8e (.)
+=======
+            self::MasterAdmin, self::System, self::CustomerUser, self::BoUser => self::WEB,
+>>>>>>> 6d20fbe (.)
             self::Technician => self::API,
         };
     }

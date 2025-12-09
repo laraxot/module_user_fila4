@@ -1,11 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 <header x-data="{ open: false }" class="bg-white border-b border-gray-200/80 dark:bg-gray-900/40 dark:border-gray-200/[15%]">
     <!-- Primary Navigation Menu -->
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -82,7 +88,11 @@ declare(strict_types=1);
         </div>
     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 </header>
 =======
 </header>
 >>>>>>> fbc8f8e (.)
+=======
+</header>
+>>>>>>> 6d20fbe (.)
