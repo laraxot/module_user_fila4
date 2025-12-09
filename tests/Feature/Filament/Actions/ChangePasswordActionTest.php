@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Notification;
 use Modules\User\Enums\UserType;
 use Modules\User\Filament\Actions\ChangePasswordAction;
 use Modules\User\Models\User;
+use Tests\TestCase;
 
 uses(TestCase::class);
 
