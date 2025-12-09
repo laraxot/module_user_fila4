@@ -28,11 +28,7 @@ class RegistrationForm extends Component
         $this->form->fill();
     }
 
-<<<<<<< HEAD
     public function form(\Filament\Schemas\Schema $schema): \Filament\Schemas\Schema
-=======
-    public function form(Form $form): Form
->>>>>>> 4b219c8 (.)
     {
         return $form
             ->schema([
