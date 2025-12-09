@@ -1,12 +1,5 @@
 <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> fbc8f8e (.)
-=======
-
->>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 return [
