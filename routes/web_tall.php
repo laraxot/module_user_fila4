@@ -27,7 +27,7 @@ use Modules\User\Http\Livewire\Auth\Verify;
  */
 
 // Route::view('/', 'welcome')->name('home');
-Route::prefix('{lang}')->group(function () {
+Route::prefix('{lang}')->group(function (): void {
     Route::middleware('guest')
         ->namespace('\Modules\User\Http\Livewire\Auth')
         ->group(static function (): void {

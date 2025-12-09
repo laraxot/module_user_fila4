@@ -9,15 +9,18 @@ use Tests\TestCase;
 uses(TestCase::class);
 
 beforeEach(function (): void {
-    $this->role = Role::factory()->create([
+    $this->role = Role/** @phpstan-ignore-line */ ::factory()->create([
         'name' => 'test-role',
         'guard_name' => 'web',
     ]);
 });
 
 test('role can be created', function (): void {
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role)->toBeInstanceOf(Role::class);
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->name)->toBe('test-role');
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->guard_name)->toBe('web');
 });
 
@@ -28,6 +31,7 @@ test('role has correct constants', function (): void {
 });
 
 test('role has correct table configuration', function (): void {
+    /** @phpstan-ignore-next-line property.notFound */
     $table = $this->role->getTable();
 
     expect($table)->toBeString();
@@ -35,6 +39,7 @@ test('role has correct table configuration', function (): void {
 });
 
 test('role has correct casts', function (): void {
+    /** @phpstan-ignore-next-line property.notFound */
     $casts = $this->role->getCasts();
 
     expect($casts)->toHaveKey('id');
@@ -44,64 +49,91 @@ test('role has correct casts', function (): void {
     expect($casts)->toHaveKey('created_at');
     expect($casts)->toHaveKey('updated_at');
 
+    /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
     expect($casts['id'])->toBe('string');
+    /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
     expect($casts['uuid'])->toBe('string');
+    /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
     expect($casts['name'])->toBe('string');
+    /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
     expect($casts['guard_name'])->toBe('string');
+    /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
     expect($casts['created_at'])->toBe('datetime');
+    /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
     expect($casts['updated_at'])->toBe('datetime');
 });
 
 test('role can be updated', function (): void {
+    /** @phpstan-ignore-next-line property.notFound */
     $this->role->update([
         'name' => 'updated-role',
         'guard_name' => 'api',
     ]);
 
+    /** @phpstan-ignore-next-line property.notFound */
     $this->role->refresh();
 
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->name)->toBe('updated-role');
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->guard_name)->toBe('api');
 });
 
 test('role can be deleted', function (): void {
+    /** @phpstan-ignore-next-line property.notFound */
     $roleId = $this->role->id;
 
+    /** @phpstan-ignore-next-line property.notFound */
     $this->role->delete();
 
     expect(Role::find($roleId))->toBeNull();
 });
 
 test('role can have permissions', function (): void {
-    $permission = Permission::factory()->create([
+    /** @var Permission */
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create([
         'name' => 'test-permission',
         'guard_name' => 'web',
     ]);
 
+    /** @phpstan-ignore-next-line property.notFound */
     $this->role->givePermissionTo($permission);
 
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->hasPermissionTo($permission))->toBeTrue();
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->permissions)->toHaveCount(1);
 });
 
 test('role can have multiple permissions', function (): void {
-    $permission1 = Permission::factory()->create(['name' => 'permission-1']);
-    $permission2 = Permission::factory()->create(['name' => 'permission-2']);
+    /** @var Permission */
+        $permission1 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'permission-1']);
+    /** @var Permission */
+        $permission2 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'permission-2']);
 
+    /** @phpstan-ignore-next-line property.notFound */
     $this->role->syncPermissions([$permission1, $permission2]);
 
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->permissions)->toHaveCount(2);
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->hasPermissionTo($permission1))->toBeTrue();
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->hasPermissionTo($permission2))->toBeTrue();
 });
 
 test('role can revoke permissions', function (): void {
-    $permission = Permission::factory()->create(['name' => 'test-permission']);
+    /** @var Permission */
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'test-permission']);
 
+    /** @phpstan-ignore-next-line property.notFound */
     $this->role->givePermissionTo($permission);
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->hasPermissionTo($permission))->toBeTrue();
 
+    /** @phpstan-ignore-next-line property.notFound */
     $this->role->revokePermissionTo($permission);
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->hasPermissionTo($permission))->toBeFalse();
 });
 
@@ -109,6 +141,7 @@ test('role can be found by name', function (): void {
     $foundRole = Role::where('name', 'test-role')->first();
 
     expect($foundRole)->toBeInstanceOf(Role::class);
+    /** @phpstan-ignore-next-line property.notFound */
     expect($foundRole->id)->toBe($this->role->id);
 });
 
@@ -116,16 +149,20 @@ test('role can be found by guard', function (): void {
     $webRoles = Role::where('guard_name', 'web')->get();
 
     expect($webRoles)->toHaveCount(1);
+    /** @phpstan-ignore-next-line property.notFound */
     expect($webRoles->first()->id)->toBe($this->role->id);
 });
 
 test('role has timestamps', function (): void {
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->created_at)->not->toBeNull();
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->updated_at)->not->toBeNull();
 });
 
 test('role can be created with factory', function (): void {
-    $role = Role::factory()->create();
+    /** @var Role */
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create();
 
     expect($role)->toBeInstanceOf(Role::class);
     expect($role->name)->not->toBeEmpty();
@@ -133,7 +170,8 @@ test('role can be created with factory', function (): void {
 });
 
 test('role can be created with specific attributes', function (): void {
-    $role = Role::factory()->create([
+    /** @var Role */
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create([
         'name' => 'custom-role',
         'guard_name' => 'custom-guard',
     ]);
@@ -143,21 +181,31 @@ test('role can be created with specific attributes', function (): void {
 });
 
 test('role can check if it has any permissions', function (): void {
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->hasAnyPermission([]))->toBeFalse();
 
-    $permission = Permission::factory()->create(['name' => 'test-permission']);
+    /** @var Permission */
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'test-permission']);
+    /** @phpstan-ignore-next-line property.notFound */
     $this->role->givePermissionTo($permission);
 
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->hasAnyPermission([$permission]))->toBeTrue();
 });
 
 test('role can check if it has all permissions', function (): void {
-    $permission1 = Permission::factory()->create(['name' => 'permission-1']);
-    $permission2 = Permission::factory()->create(['name' => 'permission-2']);
+    /** @var Permission */
+        $permission1 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'permission-1']);
+    /** @var Permission */
+        $permission2 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'permission-2']);
 
+    /** @phpstan-ignore-next-line property.notFound */
     $this->role->syncPermissions([$permission1, $permission2]);
 
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->hasAllPermissions([$permission1, $permission2]))->toBeTrue();
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->hasAllPermissions([$permission1]))->toBeTrue();
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->role->hasAllPermissions([$permission1, $permission2, 'non-existent']))->toBeFalse();
 });

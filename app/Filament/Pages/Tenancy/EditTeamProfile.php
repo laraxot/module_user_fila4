@@ -14,6 +14,10 @@ class EditTeamProfile extends EditTenantProfile
         return 'Team profile';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
+    /** @phpstan-ignore-next-line return.type */
     public function getFormSchema(): array
     {
         return [
