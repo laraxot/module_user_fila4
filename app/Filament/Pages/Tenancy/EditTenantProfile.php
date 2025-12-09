@@ -8,15 +8,7 @@ use Filament\Pages\Tenancy\EditTenantProfile as BaseEditTenantProfile;
 use Filament\Schemas\Schema;
 use Modules\Xot\Datas\XotData;
 use Webmozart\Assert\Assert;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Filament\Forms\Form;
-=======
 use Filament\Schemas\Schema;
->>>>>>> 1724879 (.)
-=======
-use Filament\Schemas\Schema;
->>>>>>> cebb28c (.)
 
 class EditTenantProfile extends BaseEditTenantProfile
 {
@@ -25,11 +17,11 @@ class EditTenantProfile extends BaseEditTenantProfile
         return __('user::tenancy.navigation.edit');
     }
 
-    public function form(\Filament\Schemas\Schema $form): \Filament\Schemas\Schema
+    public function form(Schema $schema): Schema
     {
         $resource = XotData::make()->getTenantResourceClass();
 
-        Assert::isInstanceOf($res = $resource::form($form), Schema::class);
+        Assert::isInstanceOf($res = $resource::form($schema), Schema::class);
 
         return $res;
 
