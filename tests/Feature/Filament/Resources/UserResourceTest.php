@@ -95,7 +95,7 @@ test('user resource has correct form schema', function (): void {
  * @property \Modules\User\Models\User $user
  */
 test('user resource has combined relation manager tabs', function (): void {
-    $resource = new UserResource();
+    $resource = new UserResource;
 
     expect($resource->hasCombinedRelationManagerTabsWithContent())->toBeTrue();
 });
@@ -104,7 +104,7 @@ test('user resource has combined relation manager tabs', function (): void {
  * @property \Modules\User\Models\User $user
  */
 test('user resource extends correct base class', function (): void {
-    $resource = new UserResource();
+    $resource = new UserResource;
 
     expect($resource)->toBeInstanceOf(XotBaseResource::class);
 });
@@ -167,11 +167,11 @@ test('user resource password field is required only on create', function (): voi
     $passwordField = collect($section01Schema)->firstWhere('name', 'password');
 
     // Test with CreateUser page
-    $createUserPage = new CreateUser();
+    $createUserPage = new CreateUser;
     expect($passwordField->isRequired($createUserPage))->toBeTrue();
 
     // Test with EditUser page
-    $editUserPage = new EditUser();
+    $editUserPage = new EditUser;
     expect($passwordField->isRequired($editUserPage))->toBeFalse();
 });
 
@@ -237,7 +237,7 @@ test('user resource created_at field shows diff for humans', function (): void {
  * @property \Modules\User\Models\User $user
  */
 test('user resource can be instantiated', function (): void {
-    $resource = new UserResource();
+    $resource = new UserResource;
 
     expect($resource)->toBeInstanceOf(UserResource::class);
 });
@@ -247,7 +247,7 @@ test('user resource can be instantiated', function (): void {
  */
 test('user resource has correct model', function (): void {
     // Since the model is commented out, we'll test the default behavior
-    $resource = new UserResource();
+    $resource = new UserResource;
 
     // The resource should work with the default model resolution
     expect($resource)->toBeInstanceOf(UserResource::class);
