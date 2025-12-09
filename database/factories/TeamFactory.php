@@ -7,40 +7,77 @@ namespace Modules\User\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
+use Modules\Xot\Actions\Cast\SafeStringCastAction;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\User\Models\Team>
+ * Factory per il modello Team del modulo User.
+ *
+ * @extends Factory<Team>
  */
 class TeamFactory extends Factory
 {
     /**
-     * The name of the factory's corresponding model.
+     * Il nome del modello corrispondente alla factory.
      *
-     * @var class-string<\Modules\User\Models\Team>
+     * @var class-string<Team>
      */
     protected $model = Team::class;
 
     /**
-     * Define the model's default state.
+     * Definisce lo stato di default del modello.
      *
      * @return array<string, mixed>
      */
     public function definition(): array
     {
+        $teamTypes = [
+            'Amministrazione',
+            'Sviluppo',
+            'Marketing',
+            'Vendite',
+            'Supporto Clienti',
+            'Risorse Umane',
+            'Contabilità',
+            'Produzione',
+            'Qualità',
+            'Logistica',
+        ];
+
         return [
-            'name' => $this->faker->company(),
+            'name' => app(SafeStringCastAction::class)->execute($this->faker->randomElement($teamTypes)).' Team',
             'user_id' => User::factory(),
             'personal_team' => false,
         ];
     }
 
     /**
-     * Indicate that the team is a personal team.
+     * Indica che il team è un team personale.
      */
     public function personal(): static
     {
-        return $this->state(fn (array $attributes) => [
+        return $this->state(fn (array $_attributes) => [
             'personal_team' => true,
+            'name' => $this->faker->firstName()."'s Team",
+        ]);
+    }
+
+    /**
+     * Crea un team con un owner specifico.
+     */
+    public function ownedBy(int $userId): static
+    {
+        return $this->state(fn (array $_attributes) => [
+            'user_id' => $userId,
+        ]);
+    }
+
+    /**
+     * Crea un team con un nome specifico.
+     */
+    public function withName(string $name): static
+    {
+        return $this->state(fn (array $_attributes) => [
+            'name' => $name.' Team',
         ]);
     }
 }
