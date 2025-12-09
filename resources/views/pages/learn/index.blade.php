@@ -1,5 +1,11 @@
 <?php
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
 declare(strict_types=1);
 
 
@@ -8,7 +14,31 @@ use Livewire\Volt\Component;
 
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
+<<<<<<< HEAD
 
+=======
+=======
+use Illuminate\Support\Facades\Http;
+=======
+declare(strict_types=1);
+>>>>>>> b93ef594b4 (.)
+
+
+use Illuminate\Support\Facades\Http;
+use Livewire\Volt\Component;
+>>>>>>> a12f125f4a (.)
+
+use function Laravel\Folio\middleware;
+use function Laravel\Folio\name;
+
+=======
+use Illuminate\Support\Facades\Http;
+
+use function Laravel\Folio\{middleware, name};
+use Livewire\Volt\Component;
+
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 name('learn');
 middleware(['auth', 'verified']);
 

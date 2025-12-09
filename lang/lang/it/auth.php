@@ -4,8 +4,21 @@ declare(strict_types=1);
 
 return [
     'login-via' => 'Accedi con',
+<<<<<<< HEAD
     'login-failed' => 'Login fallito, riprova.',
     'user-not-allowed' => 'La tua email non è autorizzata.',
+=======
+<<<<<<< HEAD
+    'login-failed' => 'Login fallito, riprova.',
+    'user-not-allowed' => 'La tua email non è autorizzata.',
+=======
+
+    'login-failed' => 'Login fallito, riprova.',
+
+    'user-not-allowed' => 'La tua email non è autorizzata.',
+
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     'registration-not-enabled' => 'Non è possibile registrare un nuovo utente.',
     'Sign in to your account' => 'Accedi al tuo account',
     'create a new account' => 'Crea un nuovo account',
