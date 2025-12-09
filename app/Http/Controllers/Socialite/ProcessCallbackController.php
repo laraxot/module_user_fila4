@@ -26,6 +26,7 @@ use Modules\User\Events\RegistrationNotEnabled;
 use Modules\User\Events\UserNotAllowed;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
+use Webmozart\Assert\Assert;
 
 class ProcessCallbackController extends Controller
 {
