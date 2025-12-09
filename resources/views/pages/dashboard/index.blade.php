@@ -1,11 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
 declare(strict_types=1);
 
 
@@ -18,43 +12,6 @@ name('dashboard');
 middleware(['auth', 'verified']);
 
 new class extends Component {};
-<<<<<<< HEAD
-=======
-=======
-use function Laravel\Folio\{middleware, name};
-=======
-declare(strict_types=1);
-
-
->>>>>>> b93ef594b4 (.)
-use Livewire\Volt\Component;
-
-use function Laravel\Folio\middleware;
-use function Laravel\Folio\name;
-
-name('dashboard');
-middleware(['auth', 'verified']);
-
-<<<<<<< HEAD
-new class extends Component
-{
-};
->>>>>>> a12f125f4a (.)
-=======
-new class extends Component {};
->>>>>>> b93ef594b4 (.)
-=======
-use function Laravel\Folio\{middleware, name};
-use Livewire\Volt\Component;
-
-name('dashboard');
-middleware(['auth', 'verified']);
-
-new class extends Component
-{
-};
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 ?>
 
 <x-layouts.app>
@@ -88,20 +45,4 @@ new class extends Component
             </div>
         </div>
     @endvolt
-<<<<<<< HEAD
 </x-layouts.app>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-</x-layouts.app>
-=======
-</x-layouts.app>
->>>>>>> a12f125f4a (.)
-=======
-</x-layouts.app>
->>>>>>> b93ef594b4 (.)
-=======
-</x-layouts.app>
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
