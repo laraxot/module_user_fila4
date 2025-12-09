@@ -17,6 +17,9 @@ use Modules\User\Http\Livewire\Auth\Verify;
 
 /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
  * |--------------------------------------------------------------------------
  * | Web Routes
  * |--------------------------------------------------------------------------
@@ -26,6 +29,7 @@ use Modules\User\Http\Livewire\Auth\Verify;
  * | contains the "web" middleware group. Now create something great!
  * |
  */
+<<<<<<< HEAD
 =======
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +41,8 @@ use Modules\User\Http\Livewire\Auth\Verify;
 |
 */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 // Route::view('/', 'welcome')->name('home');
 Route::prefix('{lang}')->group(function (): void {
@@ -44,6 +50,9 @@ Route::prefix('{lang}')->group(function (): void {
         ->namespace('\Modules\User\Http\Livewire\Auth')
         ->group(static function (): void {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             Route::get('login', 'Login')->name('login');
 
             Route::get('register', Register::class)->name('register');
@@ -56,6 +65,7 @@ Route::prefix('{lang}')->group(function (): void {
             'password.reset',
         );
     });
+<<<<<<< HEAD
 =======
             Route::get('login', 'Login')
                 ->name('login');
@@ -74,6 +84,8 @@ Route::prefix('{lang}')->group(function (): void {
                 ->name('password.reset');
         });
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
     Route::middleware('auth')
         ->namespace('\Modules\User\Http\Livewire\Auth')
@@ -83,6 +95,9 @@ Route::prefix('{lang}')->group(function (): void {
                 ->name('verification.notice');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             Route::get('password/confirm', Confirm::class)->name(
                 'password.confirm',
             );
@@ -90,6 +105,7 @@ Route::prefix('{lang}')->group(function (): void {
 
     Route::middleware('auth')
         // ->namespace('\Modules\User\Http\Livewire\Auth')
+<<<<<<< HEAD
 =======
             Route::get('password/confirm', Confirm::class)
                 ->name('password.confirm');
@@ -98,23 +114,32 @@ Route::prefix('{lang}')->group(function (): void {
     Route::middleware('auth')
     // ->namespace('\Modules\User\Http\Livewire\Auth')
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         ->group(static function (): void {
             Route::get('email/verify/{id}/{hash}', EmailVerificationController::class)
                 ->middleware('signed')
                 ->name('verification.verify');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             Route::match(['get', 'post'], 'logout', LogoutController::class)->name('logout');
 =======
             Route::match(['get', 'post'], 'logout', LogoutController::class)
                 ->name('logout');
 >>>>>>> fbc8f8e (.)
+=======
+            Route::match(['get', 'post'], 'logout', LogoutController::class)->name('logout');
+>>>>>>> 6d20fbe (.)
         });
 })->whereIn('lang', ['it', 'en']);
 
 Route::namespace('Socialite')
     ->name('socialite.')
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     ->group(static function (): void {
         Route::get(
             '/login/{provider}',
@@ -127,6 +152,7 @@ Route::namespace('Socialite')
 
         // ->name('oauth.callback');
     });
+<<<<<<< HEAD
 =======
     ->group(
         static function (): void {
@@ -145,3 +171,5 @@ Route::namespace('Socialite')
         }
     );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)

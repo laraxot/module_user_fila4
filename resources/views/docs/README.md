@@ -1,11 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 # Tema One per 
 
 ## Introduzione
 
 Il Tema One è il tema predefinito per , basato su Filament 3.3. Questo tema fornisce un'interfaccia moderna e responsive per il frontend del sito.
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 # Tema One per SaluteOra
 
 ## Introduzione
@@ -81,13 +87,19 @@ Esempio:
 ## Integrazione con il Modulo CMS
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 Il tema One si integra con il modulo CMS per la gestione dei contenuti. I contenuti sono definiti in file JSON nella directory `config/local/<nome progetto>/database/content/pages`.
 
 ## Supporto
 
 Per supporto tecnico, contattare il team . 
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 Il tema One si integra con il modulo CMS per la gestione dei contenuti. I contenuti sono definiti in file JSON nella directory `config/local/saluteora/database/content/pages`.
 
 ## Supporto
