@@ -10,9 +10,15 @@ use Illuminate\Database\Eloquent\Model;
  * @phpstan-require-extends Model
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 interface HasShieldPermissions
 {
 }
 =======
 interface HasShieldPermissions {}
 >>>>>>> fbc8f8e (.)
+=======
+interface HasShieldPermissions
+{
+}
+>>>>>>> 6d20fbe (.)

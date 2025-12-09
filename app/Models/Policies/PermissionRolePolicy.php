@@ -5,12 +5,17 @@ declare(strict_types=1);
 namespace Modules\User\Models\Policies;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\User\Models\PermissionRole;
 use Modules\Xot\Contracts\UserContract;
 =======
 use Modules\User\Contracts\UserContract;
 use Modules\User\Models\PermissionRole;
 >>>>>>> fbc8f8e (.)
+=======
+use Modules\User\Models\PermissionRole;
+use Modules\Xot\Contracts\UserContract;
+>>>>>>> 6d20fbe (.)
 
 class PermissionRolePolicy extends UserBasePolicy
 {
@@ -21,6 +26,9 @@ class PermissionRolePolicy extends UserBasePolicy
     {
         return $user->hasPermissionTo('permission-role.view.any');
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     }
 
     /**
@@ -32,6 +40,7 @@ class PermissionRolePolicy extends UserBasePolicy
     }
 
     /**
+<<<<<<< HEAD
 =======
     }    /**
      * Determine whether the user can view the model.
@@ -41,12 +50,17 @@ class PermissionRolePolicy extends UserBasePolicy
         return $user->hasRole('super-admin');
     }    /**
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
      * Determine whether the user can create models.
      */
     public function create(UserContract $user): bool
     {
         return $user->hasPermissionTo('permission-role.create');
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     }
 
     /**
@@ -74,6 +88,7 @@ class PermissionRolePolicy extends UserBasePolicy
     }
 
     /**
+<<<<<<< HEAD
 =======
     }    /**
      * Determine whether the user can update the model.
@@ -95,14 +110,20 @@ class PermissionRolePolicy extends UserBasePolicy
         return $user->hasRole('super-admin');
     }    /**
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
      * Determine whether the user can permanently delete the model.
      */
     public function forceDelete(UserContract $user, PermissionRole $permissionRole): bool
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $user->hasPermissionTo('permission-role.force-delete') || $user->hasRole('super-admin');
 =======
         return $user->hasRole('super-admin');
 >>>>>>> fbc8f8e (.)
+=======
+        return $user->hasPermissionTo('permission-role.force-delete') || $user->hasRole('super-admin');
+>>>>>>> 6d20fbe (.)
     }
 }

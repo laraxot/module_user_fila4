@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Models\Policies;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class AuthenticationPolicy extends UserBasePolicy
 {
 =======
@@ -74,4 +75,8 @@ class AuthenticationPolicy extends UserBasePolicy
                $user->hasRole('super-admin');
     }
 >>>>>>> fbc8f8e (.)
+=======
+class AuthenticationPolicy extends UserBasePolicy
+{
+>>>>>>> 6d20fbe (.)
 }
