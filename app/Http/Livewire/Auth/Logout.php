@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Http\Livewire\Auth;
 
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
-use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -61,7 +60,7 @@ class Logout extends Component
 
             // Redirect alla pagina di login
             return redirect()->route('login');
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             Log::error('Logout failed', [
                 'error' => $e->getMessage(),
                 'user_id' => Auth::id(),

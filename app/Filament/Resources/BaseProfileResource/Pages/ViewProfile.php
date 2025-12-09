@@ -13,7 +13,6 @@ use Filament\Schemas\Components\Section;
 use Filament\Support\Components\Component;
 use Modules\User\Filament\Resources\BaseProfileResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
-use Override;
 
 class ViewProfile extends XotBaseViewRecord
 {
@@ -22,7 +21,7 @@ class ViewProfile extends XotBaseViewRecord
     /**
      * @return array<int, Component>
      */
-    #[Override]
+    #[\Override]
     public function getInfolistSchema(): array
     {
         return [
