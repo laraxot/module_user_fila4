@@ -44,12 +44,4 @@ return [
             'too_many_attempts' => 'Troppi tentativi, riprova più tardi',
         ],
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
 ];
-=======
-]; 
->>>>>>> fbc8f8e (.)
-=======
-];
->>>>>>> 6d20fbe (.)
