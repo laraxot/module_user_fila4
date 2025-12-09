@@ -30,6 +30,7 @@ class UserWidget extends Widget
     }
         */
 
+<<<<<<< HEAD
     /**
      * @return array<string, mixed>
      */
@@ -41,4 +42,14 @@ class UserWidget extends Widget
         // PHPStan Level 10: Ensure we always return array
         return $data ?? [];
     }
+=======
+        /**
+         * @return array<string, mixed>
+         */
+        public function getViewData(): array
+        {
+            $data = $this->pageFilters ?? [];
+            return $data;
+        }
+>>>>>>> e058848 (.)
 }
