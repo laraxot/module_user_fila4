@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 <x-filament-panels::page>
 
 <div
@@ -63,6 +66,7 @@ declare(strict_types=1);
 </div>
 
 
+<<<<<<< HEAD
     <x-filament-schemas::form wire:submit="updateData">
         {{ $this->form }}
 
@@ -71,5 +75,15 @@ declare(strict_types=1);
         />
 
     </x-filament-schemas::form>
+=======
+    <x-filament-panels::form wire:submit="updateData">
+        {{ $this->form }}
+
+        <x-filament-panels::form.actions
+            :actions="$this->getUpdateFormActions()"
+        />
+
+    </x-filament-panels::form>
+>>>>>>> fbc8f8e (.)
 
 </x-filament-panels::page>

@@ -5,10 +5,21 @@ declare(strict_types=1);
 namespace Modules\User\Tests\Feature;
 
 use Illuminate\Database\QueryException;
+<<<<<<< HEAD
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
 use Tests\TestCase;
+=======
+use Modules\User\Models\Team;
+use Modules\User\Models\User;
+use Modules\User\Models\TeamUser;
+use Modules\User\Models\TeamPermission;
+use Modules\User\Models\TeamInvitation;
+use Modules\User\Models\Membership;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+>>>>>>> fbc8f8e (.)
 
 class TeamManagementBusinessLogicTest extends TestCase
 {
@@ -832,3 +843,7 @@ class TeamManagementBusinessLogicTest extends TestCase
         ]);
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
