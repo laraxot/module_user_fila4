@@ -22,7 +22,7 @@ use Modules\Xot\Filament\Pages\XotBasePage;
  * @see XotBasePage
  * @see \Modules\User\docs\errori\class-page-not-found.md
  */
-class Colors extends XotBasePage
+final class Colors extends XotBasePage
 {
     // $data è già definita in XotBasePage, non ridichiarare!
 

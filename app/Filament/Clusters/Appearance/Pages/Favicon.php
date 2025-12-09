@@ -17,7 +17,7 @@ use Modules\Xot\Filament\Pages\XotBasePage;
 /**
  * @property Schema $form
  */
-class Favicon extends XotBasePage
+final class Favicon extends XotBasePage
 {
     protected string $view = 'user::filament.clusters.appearance.pages.favicon';
 

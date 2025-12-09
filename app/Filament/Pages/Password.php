@@ -57,8 +57,7 @@ class Password extends XotBasePage
     /**
      * Definisce la struttura del form.
      *
-     * @param Schema $schema Il form da configurare
-     *
+     * @param  Schema  $schema  Il form da configurare
      * @return Schema Il form configurato
      */
     public function form(Schema $schema): Schema
@@ -117,6 +116,7 @@ class Password extends XotBasePage
      */
     protected function fillForms(): void
     {
+        /** @var array<string, mixed> $data */
         $data = PasswordData::make()->toArray();
 
         $this->form->fill($data);
@@ -137,9 +137,8 @@ class Password extends XotBasePage
     /**
      * Gestisce l'aggiornamento del record.
      *
-     * @param Model                $record Il record da aggiornare
-     * @param array<string, mixed> $data   I dati per l'aggiornamento
-     *
+     * @param  Model  $record  Il record da aggiornare
+     * @param  array<string, mixed>  $data  I dati per l'aggiornamento
      * @return Model Il record aggiornato
      */
     protected function handleRecordUpdate(Model $record, array $data): Model

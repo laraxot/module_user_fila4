@@ -15,7 +15,6 @@ use Modules\User\Models\User;
  * Bug Fix: 2025-01-14
  * Issue: make:filament-user crashava con loop infinito
  */
-
 test('currentTeam getter does not crash when user has no teams', function (): void {
     // Arrange: Crea un utente senza team
     $user = User::factory()->create([
