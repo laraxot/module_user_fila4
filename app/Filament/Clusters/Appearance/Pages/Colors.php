@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Clusters\Appearance\Pages;
 
-use Filament\Schemas\Schema;
 use Filament\Actions\Action;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Schemas\Schema;
