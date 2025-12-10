@@ -151,6 +151,9 @@ class User extends BaseUser
      */
 <<<<<<< HEAD
     public $connection = 'user';
+=======
+    public $connection = 'mysql';
+>>>>>>> 44e65d8 (.)
 
 <<<<<<< HEAD
     #[Override]
