@@ -26,7 +26,6 @@ use Modules\User\Events\RegistrationNotEnabled;
 use Modules\User\Events\UserNotAllowed;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
-use Webmozart\Assert\Assert;
 
 class ProcessCallbackController extends Controller
 {
@@ -43,7 +42,7 @@ class ProcessCallbackController extends Controller
 
         // Try to retrieve existing user
         $oauthUser = app(RetrieveOauthUserAction::class)->execute($provider);
-        if (null === $oauthUser) {
+        if ($oauthUser === null) {
             return app(RedirectToLoginAction::class)->execute('auth.login-failed');
         }
 
@@ -83,7 +82,7 @@ class ProcessCallbackController extends Controller
         $user = $user_class::query()->firstWhere(['email' => $oauthUser->getEmail()]);
 
         // Handle registration
-        if (null !== $user) {
+        if ($user !== null) {
             $socialiteUser = app(RegisterSocialiteUserAction::class)->execute($provider, $oauthUser, $user);
         } else {
             $socialiteUser = app(RegisterOauthUserAction::class)->execute($provider, $oauthUser);
@@ -97,7 +96,7 @@ class ProcessCallbackController extends Controller
         // Verifichiamo prima se l'utente può accedere al socialite
         /** @var UserContract|null $authUser */
         $authUser = Auth::user();
-        if (null !== $authUser && method_exists($authUser, 'canAccessSocialite') && ! $authUser->canAccessSocialite()) {
+        if ($authUser !== null && method_exists($authUser, 'canAccessSocialite') && ! $authUser->canAccessSocialite()) {
             return redirect()->route(
                 optional(Auth::check()) ? 'filament.user.pages.dashboard' : 'filament.user.auth.login',
             );
