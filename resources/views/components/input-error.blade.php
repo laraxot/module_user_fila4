@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 @props(['messages'])
 
 @if ($messages)
@@ -11,4 +14,8 @@ declare(strict_types=1);
             <li>{{ $message }}</li>
         @endforeach
     </ul>
+<<<<<<< HEAD
 @endif
+=======
+@endif 
+>>>>>>> fbc8f8e (.)

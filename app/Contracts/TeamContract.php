@@ -113,9 +113,15 @@ interface TeamContract extends ModelContract
 
     /* --non qui
      * Get the disk that profile photos should be stored on.
+<<<<<<< HEAD
      *
      * public function profilePhotoDisk(): string;
      */
+=======
+
+    public function profilePhotoDisk(): string;
+    */
+>>>>>>> fbc8f8e (.)
 
     public function members(): BelongsToMany;
 }

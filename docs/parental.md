@@ -370,5 +370,9 @@ class Doctor extends User
 
 - [Documentazione ufficiale di Tighten/Parental](https://github.com/tighten/parental)
 - [Laravel Nova Support](https://github.com/tighten/parental#laravel-nova-support)
+<<<<<<< HEAD
 - [Laravel Documentation - Eloquent ORM](https://laravel.com/docs/10.x/eloquent)
+=======
+- [Laravel Documentation - Eloquent ORM](https://laravel.com/project_docs/10.x/eloquent)
+>>>>>>> fbc8f8e (.)
 - [Single Table Inheritance Pattern](https://martinfowler.com/eaaCatalog/singleTableInheritance.html) di Martin Fowler 
