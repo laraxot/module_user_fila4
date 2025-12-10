@@ -1,17 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
-<<<<<<< HEAD
-=======
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 @props(['active'])
 
 @php
@@ -22,12 +13,4 @@ $classes = ($active ?? false)
 
 <a {{ $attributes->merge(['class' => $classes]) }}>
     {{ $slot }}
-<<<<<<< HEAD
-<<<<<<< HEAD
 </a>
-=======
-</a> 
->>>>>>> fbc8f8e (.)
-=======
-</a>
->>>>>>> 6d20fbe (.)
