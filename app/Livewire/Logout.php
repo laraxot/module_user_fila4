@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Livewire;
 
-use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +32,7 @@ class Logout extends Component
             session()->regenerateToken();
 
             return redirect()->route('home');
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->processing = false;
             session()->flash('error', __('Errore durante il logout. Riprova.'));
 
