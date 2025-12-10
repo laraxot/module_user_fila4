@@ -2,9 +2,7 @@
 
 ## Descrizione
 Classe base per il modello User che implementa le interfacce `UserContract` e `HasTeamsContract`.
-
 ## Proprietà
-
 ### Attributi del Modello
 - `id` (string): UUID dell'utente
 - `name` (string|null): Nome completo dell'utente
@@ -19,7 +17,6 @@ Classe base per il modello User che implementa le interfacce `UserContract` e `H
 - `password_expires_at` (DateTime|null): Data di scadenza della password
 - `email_verified_at` (DateTime|null): Data di verifica email
 - `remember_token` (string|null): Token per "ricordami"
-
 ### Attributi di Sistema
 - `created_at` (DateTime|null): Data di creazione
 - `updated_at` (DateTime|null): Data di ultimo aggiornamento
@@ -28,7 +25,6 @@ Classe base per il modello User che implementa le interfacce `UserContract` e `H
 - `updated_by` (string|null): ID ultimo utente che ha modificato
 - `deleted_by` (string|null): ID utente che ha cancellato
 - `profile_photo_path` (string|null): Percorso foto profilo
-
 ### Relazioni
 - `clients` (Collection<int, OauthClient>): Client OAuth
 - `currentTeam` (Team|null): Team corrente
@@ -41,10 +37,7 @@ Classe base per il modello User che implementa le interfacce `UserContract` e `H
 - `tenants` (Collection<int, Tenant>): Tenant di appartenenza
 - `tokens` (Collection<int, OauthAccessToken>): Token OAuth
 - `socialiteUsers` (Collection<int, SocialiteUser>): Account social collegati
-
 ## Metodi
-
-### Relazioni
 - `tenants()`: BelongsToMany<Tenant>
 - `teams()`: BelongsToMany<Team>
 - `ownedTeams()`: HasMany<Team>
@@ -53,18 +46,15 @@ Classe base per il modello User che implementa le interfacce `UserContract` e `H
 - `socialiteUsers()`: HasMany<SocialiteUser>
 - `notifications()`: MorphMany<DatabaseNotification>
 - `latestAuthentication()`: MorphOne<AuthenticationLog>
-
 ### Gestione Team
 - `belongsToTeam(TeamContract $team)`: bool
 - `ownsTeam(TeamContract $team)`: bool
 - `teamPermissions(TeamContract $team)`: array<string, bool>
 - `hasTeamPermission(TeamContract $team, string $permission)`: bool
-
 ### Gestione Ruoli
 - `hasRole($roles, ?string $guard = null)`: bool
 - `assignRole($roles)`: $this
 - `removeRole($role)`: $this
-
 ## Trait Utilizzati
 - HasApiTokens
 - HasFactory
@@ -75,20 +65,15 @@ Classe base per il modello User che implementa le interfacce `UserContract` e `H
 - HasTenantsRelation
 - Notifiable
 - RelationX
-
 ## Note PHPStan
 - Tutti i metodi sono correttamente tipizzati
 - Le relazioni utilizzano tipi generici
 - I controlli di tipo sono implementati con `instanceof`
 - La documentazione PHPDoc è completa e in italiano
-
 ## Collegamenti
-<<<<<<< HEAD
 - [Documentazione PHPStan](/docs/modules/user/phpstan.md)
 - [Contratti del Modulo User](/docs/modules/user/contracts.md)
 - [Best Practices per i Modelli](/docs/modules/user/models.md) 
-=======
 - [Documentazione PHPStan](/project_docs/modules/user/phpstan.md)
 - [Contratti del Modulo User](/project_docs/modules/user/contracts.md)
 - [Best Practices per i Modelli](/project_docs/modules/user/models.md) 
->>>>>>> fbc8f8e (.)
