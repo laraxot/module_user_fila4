@@ -31,7 +31,28 @@ enum UserType: string implements HasColor, HasIcon, HasLabel
     public function getDefaultGuard(): string
     {
         return match ($this) {
+<<<<<<< HEAD
             self::MasterAdmin, self::System, self::CustomerUser, self::BoUser => self::WEB,
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+            self::MasterAdmin, self::System, self::CustomerUser, self::BoUser => self::WEB,
+=======
+=======
+>>>>>>> origin/develop
+            self::MasterAdmin,
+            self::System,
+            self::CustomerUser,
+            self::BoUser => self::WEB,
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+            self::MasterAdmin, self::System, self::CustomerUser, self::BoUser => self::WEB,
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             self::Technician => self::API,
         };
     }
