@@ -26,7 +26,7 @@ use Override;
 
 class PermissionResource extends XotBaseResource
 {
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-lock-closed';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-lock-closed';
 
     protected static ?string $model = Permission::class;
 

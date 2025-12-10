@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
+use Filament\Tables\Columns\Column;
+use Filament\Tables\Columns\ColumnGroup;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\Column;
