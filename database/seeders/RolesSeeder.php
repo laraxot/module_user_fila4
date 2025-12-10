@@ -21,10 +21,13 @@ class RolesSeeder extends Seeder
     ];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     /**
      * Run the database seeds.
      */
@@ -33,10 +36,13 @@ class RolesSeeder extends Seeder
         $roles = [];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         // Display results in a table format
         $this->displayResults($roles);
     }
@@ -50,6 +56,9 @@ class RolesSeeder extends Seeder
     {
         $this->command->info('Roles seeded successfully:');
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $this->command->table(
             self::$OUTPUT_TABLE_HEADERS,
             collect($roles)
@@ -60,6 +69,7 @@ class RolesSeeder extends Seeder
                 ])
                 ->toArray(),
         );
+<<<<<<< HEAD
 =======
         $this->command->table(self::$OUTPUT_TABLE_HEADERS, collect($roles)->map(function (Role $role, int $index) {
             return [
@@ -69,5 +79,7 @@ class RolesSeeder extends Seeder
             ];
         })->toArray());
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 }
