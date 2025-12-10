@@ -35,6 +35,14 @@ class FailedLoginListener
             // $location = optional(geoip()->getLocation($ip))->toArray();
             $location = [];
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
             $log = $event
                 ->user
                 ->authentications()
@@ -45,6 +53,26 @@ class FailedLoginListener
                     'login_successful' => false,
                     'location' => $location,
                 ]);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+            $log = $event->user->authentications()->create([
+                'ip_address' => $ip,
+                'user_agent' => $userAgent,
+                'login_at' => now(),
+                'login_successful' => false,
+                'location' => $location,
+            ]);
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
             // if (config('authentication-log.notifications.failed-login.enabled')) {
             //    $failedLogin = config('authentication-log.notifications.failed-login.template') ?? FailedLogin::class;
