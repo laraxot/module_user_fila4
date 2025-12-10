@@ -1,8 +1,12 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> fbc8f8e (.)
+=======
+
+>>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 // Includi l'autoloader di Composer per accedere alle classi PhpCsFixer
@@ -24,6 +28,9 @@ $finder = PhpCsFixer\Finder::create()
 
 $config = new PhpCsFixer\Config();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 $config->setRules([
     '@Symfony' => true,
     'array_indentation' => true,
@@ -48,6 +55,7 @@ $config->setRules([
 ])->setFinder($finder);
 
 return $config;
+<<<<<<< HEAD
 =======
 $config
     ->setRules([
@@ -76,3 +84,5 @@ $config
 
 return $config;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
