@@ -16,22 +16,6 @@ trait PasswordValidationRules
      */
     protected function passwordRules(): array
     {
-<<<<<<< HEAD
         return ['required', 'string', new Password(), 'confirmed'];
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return ['required', 'string', new Password(), 'confirmed'];
-=======
-        return ['required', 'string', new Password, 'confirmed'];
->>>>>>> a12f125f4a (.)
-=======
-        return ['required', 'string', new Password(), 'confirmed'];
->>>>>>> b93ef594b4 (.)
-=======
-        return ['required', 'string', new Password, 'confirmed'];
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 }
