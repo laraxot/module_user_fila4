@@ -18,7 +18,7 @@ return new class extends Migration {
 >>>>>>> a382d4f1 (.)
     public function up(): void
     {
-        Schema::create('authentications', function (Blueprint $table) {
+        Schema::create('authentications', function (Blueprint $table): void {
             $table->id();
             $table->string('type');
             $table->string('ip_address')->nullable();
