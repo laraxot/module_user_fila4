@@ -4,14 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Events;
 
-<<<<<<< HEAD
 use Illuminate\Broadcasting\Channel;
-=======
-<<<<<<< HEAD
-use Illuminate\Broadcasting\Channel;
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -34,15 +27,7 @@ class NewPasswordSet
     /**
      * Get the channels the event should broadcast on.
      *
-<<<<<<< HEAD
      * @return array<int, Channel>
-=======
-<<<<<<< HEAD
-     * @return array<int, Channel>
-=======
-     * @return array<int, \Illuminate\Broadcasting\Channel>
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
      */
     public function broadcastOn(): array
     {
