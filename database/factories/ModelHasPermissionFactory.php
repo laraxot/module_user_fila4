@@ -25,10 +25,14 @@ class ModelHasPermissionFactory extends Factory
     public function definition(): array
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return [];
 =======
         return [
         ];
 >>>>>>> fbc8f8e (.)
+=======
+        return [];
+>>>>>>> 6d20fbe (.)
     }
 }

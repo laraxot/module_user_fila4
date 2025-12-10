@@ -10,11 +10,15 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 return new class extends XotBaseMigration {
 =======
 return new class extends XotBaseMigration
 {
 >>>>>>> fbc8f8e (.)
+=======
+return new class extends XotBaseMigration {
+>>>>>>> 6d20fbe (.)
     /**
      * <<<<<<< HEAD
      * Run the migrations.
@@ -31,6 +35,9 @@ return new class extends XotBaseMigration
     {
         // -- CREATE --
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $this->tableCreate(static function (Blueprint $table): void {
             $table->id();
             $table->uuid('uuid')->nullable()->index();
@@ -60,6 +67,7 @@ return new class extends XotBaseMigration
 
             // $this->updateUser($table);
         });
+<<<<<<< HEAD
 =======
         $this->tableCreate(
             static function (Blueprint $table): void {
@@ -94,5 +102,7 @@ return new class extends XotBaseMigration
             }
         );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 };

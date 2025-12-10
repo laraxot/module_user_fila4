@@ -1,11 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 @props([
     'label' => null,
     'id' => null,
@@ -30,7 +36,11 @@ declare(strict_types=1);
         <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
     @enderror
 <<<<<<< HEAD
+<<<<<<< HEAD
 </div>
 =======
 </div>
 >>>>>>> fbc8f8e (.)
+=======
+</div>
+>>>>>>> 6d20fbe (.)

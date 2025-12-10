@@ -47,9 +47,12 @@ class CreateTenant extends XotBaseCreateRecord
     //     $record = $record::find($record->);
     //     $record->domains()->create(['domain' => collect($data)->get('domain')]);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     //     return $record;
     // }
 }
