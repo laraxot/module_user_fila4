@@ -784,7 +784,6 @@ class TeamManagementBusinessLogicTest extends TestCase
         /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertSoftDeleted('teams', ['id' => $team->id]);
         /** @phpstan-ignore-next-line property.notFound, method.nonObject */
-        /** @phpstan-ignore-next-line property.notFound */
         $this->assertDatabaseHas('teams', ['id' => $team->id]);
     }
 
@@ -805,7 +804,6 @@ class TeamManagementBusinessLogicTest extends TestCase
         /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertNotSoftDeleted('teams', ['id' => $team->id]);
         /** @phpstan-ignore-next-line property.notFound, method.nonObject */
-        /** @phpstan-ignore-next-line property.notFound */
         $this->assertDatabaseHas('teams', ['id' => $team->id]);
     }
 
@@ -826,7 +824,6 @@ class TeamManagementBusinessLogicTest extends TestCase
 
         // Assert
         /** @phpstan-ignore-next-line property.notFound, method.nonObject */
-        /** @phpstan-ignore-next-line property.notFound */
         $this->assertDatabaseMissing('teams', ['id' => $team->id]);
         /** @phpstan-ignore-next-line property.notFound, method.nonObject */
         $this->assertDatabaseMissing('team_user', [

@@ -38,7 +38,7 @@ class ManageRolePermissions extends ManageRelatedRecords
     public function getFormSchema(): array
     {
         return [
-            'name' => TextInput::make('name')->required()->maxLength(255),
+            TextInput::make('name')->required()->maxLength(255),
         ];
     }
 

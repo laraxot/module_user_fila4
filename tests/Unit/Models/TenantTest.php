@@ -19,8 +19,8 @@ class TenantTest extends TestCase
         ]);
 
         $this->assertDatabaseHas('tenants', [
-            'id' => /** @phpstan-ignore-next-line property.notFound */
-        $tenant->id,
+            /** @phpstan-ignore-next-line property.notFound */
+            'id' => $tenant->id,
             'name' => 'Test Tenant',
         ]);
     }
@@ -40,8 +40,8 @@ class TenantTest extends TestCase
         $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create($tenantData);
 
         $this->assertDatabaseHas('tenants', [
-            'id' => /** @phpstan-ignore-next-line property.notFound */
-        $tenant->id,
+            /** @phpstan-ignore-next-line property.notFound */
+            'id' => $tenant->id,
             'name' => 'Full Tenant',
             'slug' => 'full-tenant',
             'domain' => 'fulltenant.com',
@@ -50,15 +50,14 @@ class TenantTest extends TestCase
         ]);
 
         // Verifica campi JSON
-        static::assertSame(['theme' => 'dark', 'features' => ['chat', 'analytics']], /** @phpstan-ignore-next-line property.notFound */
-        $tenant->settings);
+        /** @phpstan-ignore-next-line property.notFound */
+        static::assertSame(['theme' => 'dark', 'features' => ['chat', 'analytics']], $tenant->settings);
     }
 
     public function testTenantHasSoftDeletes(): void
     {
         $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create();
-        $tenantId = /** @phpstan-ignore-next-line property.notFound */
-        $tenant->id;
+        $tenantId = $tenant->id;
 
         $tenant->delete();
 
@@ -75,8 +74,7 @@ class TenantTest extends TestCase
         }
 
         $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create();
-        $tenantId = /** @phpstan-ignore-next-line property.notFound */
-        $tenant->id;
+        $tenantId = $tenant->id;
 
         $tenant->delete();
         $this->assertSoftDeleted('tenants', ['id' => $tenantId]);
@@ -96,8 +94,7 @@ class TenantTest extends TestCase
         $foundTenant = Tenant::where('name', 'Unique Tenant Name')->first();
 
         static::assertNotNull($foundTenant);
-        static::assertSame(/** @phpstan-ignore-next-line property.notFound */
-        $tenant->id, $foundTenant->id);
+        static::assertSame($tenant->id, $foundTenant->id);
     }
 
     public function testCanFindTenantBySlug(): void
@@ -107,8 +104,7 @@ class TenantTest extends TestCase
         $foundTenant = Tenant::where('slug', 'unique-tenant')->first();
 
         static::assertNotNull($foundTenant);
-        static::assertSame(/** @phpstan-ignore-next-line property.notFound */
-        $tenant->id, $foundTenant->id);
+        static::assertSame($tenant->id, $foundTenant->id);
     }
 
     public function testCanFindTenantByDomain(): void
@@ -118,8 +114,7 @@ class TenantTest extends TestCase
         $foundTenant = Tenant::where('domain', 'uniquetenant.com')->first();
 
         static::assertNotNull($foundTenant);
-        static::assertSame(/** @phpstan-ignore-next-line property.notFound */
-        $tenant->id, $foundTenant->id);
+        static::assertSame($tenant->id, $foundTenant->id);
     }
 
     public function testCanFindTenantByDatabase(): void
@@ -129,8 +124,7 @@ class TenantTest extends TestCase
         $foundTenant = Tenant::where('database', 'unique_db')->first();
 
         static::assertNotNull($foundTenant);
-        static::assertSame(/** @phpstan-ignore-next-line property.notFound */
-        $tenant->id, $foundTenant->id);
+        static::assertSame($tenant->id, $foundTenant->id);
     }
 
     public function testCanFindActiveTenants(): void
@@ -173,8 +167,7 @@ class TenantTest extends TestCase
         $tenant->update(['name' => 'New Name']);
 
         $this->assertDatabaseHas('tenants', [
-            'id' => /** @phpstan-ignore-next-line property.notFound */
-        $tenant->id,
+            'id' => $tenant->id,
             'name' => 'New Name',
         ]);
     }
@@ -189,8 +182,7 @@ class TenantTest extends TestCase
         ]);
 
         $this->assertDatabaseHas('tenants', [
-            'id' => /** @phpstan-ignore-next-line property.notFound */
-        $tenant->id,
+            'id' => $tenant->id,
             'slug' => null,
             'domain' => null,
             'database' => null,
@@ -243,8 +235,7 @@ class TenantTest extends TestCase
     {
         $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create();
 
-        static::assertNotNull(/** @phpstan-ignore-next-line property.notFound */
-        $tenant->id);
+        static::assertNotNull($tenant->id);
         static::assertInstanceOf(Tenant::class, $tenant);
     }
 
