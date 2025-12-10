@@ -1,8 +1,26 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 <x-filament-panels::page>
 
 <div
@@ -63,6 +81,12 @@ declare(strict_types=1);
 </div>
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
     <x-filament-schemas::form wire:submit="updateData">
         {{ $this->form }}
 
@@ -71,5 +95,35 @@ declare(strict_types=1);
         />
 
     </x-filament-schemas::form>
+<<<<<<< HEAD
+=======
+=======
+    <x-filament-panels::form wire:submit="updateData">
+=======
+    <x-filament-schemas::form wire:submit="updateData">
+>>>>>>> b93ef594b4 (.)
+        {{ $this->form }}
+
+        <x-filament::actions
+            :actions="$this->getUpdateFormActions()"
+        />
+
+<<<<<<< HEAD
+    </x-filament-panels::form>
+>>>>>>> a12f125f4a (.)
+=======
+    </x-filament-schemas::form>
+>>>>>>> b93ef594b4 (.)
+=======
+    <x-filament-panels::form wire:submit="updateData">
+        {{ $this->form }}
+
+        <x-filament-panels::form.actions
+            :actions="$this->getUpdateFormActions()"
+        />
+
+    </x-filament-panels::form>
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
 </x-filament-panels::page>
