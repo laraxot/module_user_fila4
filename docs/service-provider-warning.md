@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # AVVERTENZA: Modifiche ai ServiceProvider Base
 
 ## Introduzione
@@ -137,4 +135,3 @@ Le modifiche ai ServiceProvider possono sembrare una soluzione rapida per proble
 ## Collegamenti
 - [XotBaseServiceProvider.md](/var/www/html/_bases/base_predict_fila3_mono/laravel/Modules/Xot/docs/providers/xotbaseserviceprovider.md)
 - [SERVICE-PROVIDER-BEST-PRACTICES.md](/var/www/html/_bases/base_predict_fila3_mono/laravel/Modules/Xot/docs/SERVICE-PROVIDER-BEST-PRACTICES.md)
->>>>>>> 6849bc76 (.)

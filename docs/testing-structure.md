@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Struttura dei Tests del Modulo User
 
 ## Panoramica
@@ -299,4 +297,3 @@ dump($variable);
 
 
 
->>>>>>> 6849bc76 (.)

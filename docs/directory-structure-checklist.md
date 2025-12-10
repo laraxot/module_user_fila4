@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Checklist per la Struttura delle Directory nei Moduli Windsurf/Xot
 
 ## Panoramica
@@ -72,4 +70,3 @@ find Modules/User -type d -name "Resources" -o -name "Lang" -o -name "Config" -o
 
 ## Per saperne di più
 Consultare il documento completo: `/Modules/Xot/docs/DIRECTORY-STRUCTURE-GUIDE.md`
->>>>>>> 6849bc76 (.)

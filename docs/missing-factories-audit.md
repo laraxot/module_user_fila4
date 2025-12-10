@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Factory Mancanti - Modulo User
 
 ## Situazione Critica Identificata
@@ -142,4 +140,3 @@
 ---
 **Errore gravissimo da non ripetere mai più**  
 *Ultimo aggiornamento: 2025-01-06*
->>>>>>> 6849bc76 (.)

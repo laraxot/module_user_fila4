@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Convenzioni Path nei Moduli Laravel
 
 ## Collegamenti correlati
@@ -290,4 +288,3 @@ namespace Modules\User\Http\Controllers;
 - Spostare migration tra cartelle senza aggiornare la history
 - Dimenticare di aggiornare la documentazione dopo lo spostamento
 - Creare migration duplicate in più moduli 
->>>>>>> 6849bc76 (.)

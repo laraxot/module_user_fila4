@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Risoluzione Conflitti Git - Modulo User (2025-01-27)
 
 ## Data
@@ -310,4 +308,3 @@ La risoluzione dei conflitti Git ha migliorato significativamente la stabilità 
 - [ ] Creare test di regressione per prevenire conflitti futuri
 
 --- 
->>>>>>> 6849bc76 (.)
