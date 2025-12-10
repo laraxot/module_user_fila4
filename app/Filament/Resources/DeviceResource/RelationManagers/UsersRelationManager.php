@@ -9,7 +9,6 @@ use Filament\Schemas\Components\Component;
 use Filament\Tables\Table;
 use Modules\User\Filament\Resources\UserResource;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-use Override;
 
 class UsersRelationManager extends XotBaseRelationManager
 {

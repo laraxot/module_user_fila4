@@ -20,8 +20,6 @@ class ResetPassword extends BaseNotification
 
     /**
      * Get the reset password notification mail message for the given URL.
-     *
-     * @param  mixed  $url
      */
     protected function buildMailMessage($url): MailMessage
     {

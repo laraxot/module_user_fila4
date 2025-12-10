@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 use Carbon\CarbonInterface;
-use DateTimeInterface;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
