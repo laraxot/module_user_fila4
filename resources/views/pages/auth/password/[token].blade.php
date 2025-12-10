@@ -1,21 +1,9 @@
 <?php
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
 declare(strict_types=1);
 
 
 use Illuminate\Auth\Events\PasswordReset;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
@@ -28,48 +16,6 @@ use function Laravel\Folio\name;
 name('password.reset');
 
 new class extends Component {
-<<<<<<< HEAD
-=======
-=======
-use Illuminate\Support\Str;
-=======
->>>>>>> b93ef594b4 (.)
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
-use Illuminate\Support\Str;
-use Livewire\Attributes\Validate;
-use Livewire\Volt\Component;
-
-use function Laravel\Folio\name;
-
-name('password.reset');
-
-<<<<<<< HEAD
-new class extends Component
-{
->>>>>>> a12f125f4a (.)
-=======
-new class extends Component {
->>>>>>> b93ef594b4 (.)
-=======
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
-use Illuminate\Auth\Events\PasswordReset;
-
-use function Laravel\Folio\name;
-
-use Livewire\Volt\Component;
-use Livewire\Attributes\Validate;
-
-name('password.reset');
-
-new class extends Component
-{
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     #[Validate('required')]
     public $token;
 
@@ -109,23 +55,7 @@ new class extends Component
             },
         );
 
-<<<<<<< HEAD
         if ($response === Password::PASSWORD_RESET) {
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if ($response === Password::PASSWORD_RESET) {
-=======
-        if ($response == Password::PASSWORD_RESET) {
->>>>>>> a12f125f4a (.)
-=======
-        if ($response === Password::PASSWORD_RESET) {
->>>>>>> b93ef594b4 (.)
-=======
-        if ($response == Password::PASSWORD_RESET) {
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
             session()->flash(trans($response));
 
             return redirect('/');
@@ -160,20 +90,4 @@ new class extends Component
             </div>
         </div>
     </div>
-<<<<<<< HEAD
 </x-layouts.main>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-</x-layouts.main>
-=======
-</x-layouts.main>
->>>>>>> a12f125f4a (.)
-=======
-</x-layouts.main>
->>>>>>> b93ef594b4 (.)
-=======
-</x-layouts.main>
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
