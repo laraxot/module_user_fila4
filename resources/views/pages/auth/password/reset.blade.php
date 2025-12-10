@@ -1,5 +1,11 @@
 <?php
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
 declare(strict_types=1);
 
 
@@ -12,6 +18,41 @@ use function Laravel\Folio\name;
 name('password.request');
 
 new class extends Component {
+<<<<<<< HEAD
+=======
+=======
+=======
+declare(strict_types=1);
+
+
+>>>>>>> b93ef594b4 (.)
+use Illuminate\Support\Facades\Password;
+use Livewire\Attributes\Validate;
+use Livewire\Volt\Component;
+
+use function Laravel\Folio\name;
+
+name('password.request');
+
+<<<<<<< HEAD
+new class extends Component
+{
+>>>>>>> a12f125f4a (.)
+=======
+new class extends Component {
+>>>>>>> b93ef594b4 (.)
+=======
+use Illuminate\Support\Facades\Password;
+use function Laravel\Folio\name;
+use Livewire\Volt\Component;
+use Livewire\Attributes\Validate;
+
+name('password.request');
+
+new class extends Component
+{
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     #[Validate('required|email')]
     public $email = null;
 
@@ -23,7 +64,23 @@ new class extends Component {
 
         $response = Password::broker()->sendResetLink(['email' => $this->email]);
 
+<<<<<<< HEAD
         if ($response === Password::RESET_LINK_SENT) {
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        if ($response === Password::RESET_LINK_SENT) {
+=======
+        if ($response == Password::RESET_LINK_SENT) {
+>>>>>>> a12f125f4a (.)
+=======
+        if ($response === Password::RESET_LINK_SENT) {
+>>>>>>> b93ef594b4 (.)
+=======
+        if ($response == Password::RESET_LINK_SENT) {
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             $this->emailSentMessage = trans($response);
 
             return;
@@ -84,4 +141,20 @@ new class extends Component {
 
     </div>
 
+<<<<<<< HEAD
 </x-layouts.main>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+</x-layouts.main>
+=======
+</x-layouts.main>
+>>>>>>> a12f125f4a (.)
+=======
+</x-layouts.main>
+>>>>>>> b93ef594b4 (.)
+=======
+</x-layouts.main>
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
