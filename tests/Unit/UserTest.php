@@ -113,9 +113,9 @@ test('user can be found by type', function (): void {
 });
 
 test('user can be created with different types', function (): void {
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var User */
         $boUser = User/** @phpstan-ignore-line */ ::factory()->create(['type' => UserType::BoUser]);
-    /** @var \Illuminate\Database\Eloquent\Collection */
+    /** @var User */
         $customerUser = User/** @phpstan-ignore-line */ ::factory()->create(['type' => UserType::CustomerUser]);
 
     expect($boUser->type)->toBe(UserType::BoUser);

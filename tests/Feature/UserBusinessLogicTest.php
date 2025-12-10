@@ -27,12 +27,12 @@ describe('User Business Logic Integration', function (): void {
 
             // Verifica che la password debole non sia accettabile
             $weakHash = Hash::make($weakPassword);
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $weakUser = User/** @phpstan-ignore-line */ ::factory()->create(['password' => $weakHash]);
 
             // Verifica che la password forte sia accettabile
             $strongHash = Hash::make($strongPassword);
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $strongUser = User/** @phpstan-ignore-line */ ::factory()->create(['password' => $strongHash]);
 
             expect($weakUser->password)->not->toBe($weakPassword);
@@ -47,7 +47,7 @@ describe('User Business Logic Integration', function (): void {
             $email = 'test@example.com';
 
             // Primo utente con email
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $user1 = User/** @phpstan-ignore-line */ ::factory()->create(['email' => $email]);
 
             // Tentativo di creare secondo utente con stessa email
@@ -61,7 +61,7 @@ describe('User Business Logic Integration', function (): void {
             $username = 'testuser';
 
             // Primo utente con username
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $user1 = User/** @phpstan-ignore-line */ ::factory()->create(['username' => $username]);
 
             // Tentativo di creare secondo utente con stesso username
@@ -74,7 +74,7 @@ describe('User Business Logic Integration', function (): void {
 
     describe('User Profile Business Rules', function (): void {
         it('enforces profile completion requirements', function (): void {
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
                 'first_name' => null,
                 'last_name' => null,
@@ -114,12 +114,12 @@ describe('User Business Logic Integration', function (): void {
         });
 
         it('enforces age restrictions for certain operations', function (): void {
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $underageUser = User/** @phpstan-ignore-line */ ::factory()->create([
                 'date_of_birth' => now()->subYears(16),
             ]);
 
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $adultUser = User/** @phpstan-ignore-line */ ::factory()->create([
                 'date_of_birth' => now()->subYears(25),
             ]);
@@ -134,9 +134,9 @@ describe('User Business Logic Integration', function (): void {
 
     describe('Team Management Business Rules', function (): void {
         it('enforces team membership limits', function (): void {
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var Team */
         $teams = Team::factory()->count(5)->create();
 
             // Aggiunta utente a tutti i team
@@ -158,17 +158,17 @@ describe('User Business Logic Integration', function (): void {
         });
 
         it('enforces team role hierarchy', function (): void {
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
 
             // Ruoli con livelli di autorità
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var Role */
         $memberRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'member', 'level' => 1]);
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var Role */
         $moderatorRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'moderator', 'level' => 2]);
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var Role */
         $adminRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'admin', 'level' => 3]);
 
             // Assegnazione ruolo base
@@ -182,11 +182,11 @@ describe('User Business Logic Integration', function (): void {
         });
 
         it('enforces team ownership rules', function (): void {
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $owner = User/** @phpstan-ignore-line */ ::factory()->create();
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $member = User/** @phpstan-ignore-line */ ::factory()->create();
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $owner->id]);
 
             // Verifica che solo il proprietario possa eliminare il team
@@ -203,11 +203,11 @@ describe('User Business Logic Integration', function (): void {
 
     describe('Permission and Role Business Rules', function (): void {
         it('enforces permission inheritance', function (): void {
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var Role */
         $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'editor']);
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit_posts']);
 
             // Assegnazione ruolo all'utente
@@ -225,15 +225,15 @@ describe('User Business Logic Integration', function (): void {
         });
 
         it('enforces permission conflicts', function (): void {
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
 
             // Permessi che si escludono a vicenda
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var Permission */
         $readPermission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'read_posts']);
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var Permission */
         $writePermission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'write_posts']);
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var Permission */
         $deletePermission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'delete_posts']);
 
             // Assegnazione permessi all'utente
@@ -255,19 +255,19 @@ describe('User Business Logic Integration', function (): void {
         });
 
         it('enforces role-based access control', function (): void {
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $admin = User/** @phpstan-ignore-line */ ::factory()->create();
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $moderator = User/** @phpstan-ignore-line */ ::factory()->create();
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
 
             // Ruoli con livelli di accesso
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var Role */
         $adminRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'admin', 'level' => 3]);
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var Role */
         $moderatorRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'moderator', 'level' => 2]);
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var Role */
         $userRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'user', 'level' => 1]);
 
             // Assegnazione ruoli
@@ -286,11 +286,11 @@ describe('User Business Logic Integration', function (): void {
 
     describe('Data Integrity Business Rules', function (): void {
         it('enforces referential integrity for user relationships', function (): void {
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
             /** @var \Illuminate\Database\Eloquent\Collection */
         $profile = Profile/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $user->id]);
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
 
             // Verifica che le relazioni siano mantenute
@@ -305,7 +305,7 @@ describe('User Business Logic Integration', function (): void {
         });
 
         it('enforces data consistency across user attributes', function (): void {
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
                 'first_name' => 'Mario',
                 'last_name' => 'Rossi',
@@ -330,7 +330,7 @@ describe('User Business Logic Integration', function (): void {
         });
 
         it('enforces audit trail for sensitive operations', function (): void {
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
             $originalEmail = $user->email;
 
@@ -349,7 +349,7 @@ describe('User Business Logic Integration', function (): void {
 
     describe('Security Business Rules', function (): void {
         it('enforces password expiration policies', function (): void {
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
                 'password_expires_at' => now()->subDays(1),
             ]);
@@ -372,7 +372,7 @@ describe('User Business Logic Integration', function (): void {
         });
 
         it('enforces account lockout policies', function (): void {
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
                 'failed_login_attempts' => 5,
                 'locked_until' => now()->addMinutes(30),
@@ -396,7 +396,7 @@ describe('User Business Logic Integration', function (): void {
         });
 
         it('enforces session management policies', function (): void {
-            /** @var \Illuminate\Database\Eloquent\Collection */
+            /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
                 'last_login_at' => now()->subHours(2),
                 'last_activity_at' => now()->subMinutes(30),
