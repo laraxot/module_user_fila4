@@ -40,9 +40,9 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|Feature whereUpdatedBy($value)
  * @method static Builder|Feature whereValue($value)
  *
- * @mixin IdeHelperFeature
  * @mixin \Eloquent
  */
+/** */
 class Feature extends BaseModel
 {
     /** @var list<string> */
