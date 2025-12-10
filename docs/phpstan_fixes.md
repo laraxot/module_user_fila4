@@ -48,5 +48,13 @@ Questo garantisce che PHPStan possa risolvere correttamente il tipo `Builder` ut
 
 Questo garantisce che PHPStan possa risolvere correttamente il tipo `Builder` utilizzando il namespace completo `\Illuminate\Database\Eloquent\Builder`. 
 
+<<<<<<< HEAD
 ---
 
+=======
+### BaseTeamUser: tipizzazione relazioni user() e team()
+
+Per il modello `BaseTeamUser` sono stati aggiunti i return type espliciti `BelongsTo` ai metodi `user()` e `team()` e completati i PHPDoc generici sulle relazioni verso `UserContract` e `TeamContract`, in modo che PHPStan possa inferire correttamente i tipi delle relazioni dinamiche.
+
+---
+>>>>>>> laraxot/develop

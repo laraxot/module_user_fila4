@@ -17,7 +17,10 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> laraxot/develop
 
 class UsersRelationManager extends XotBaseRelationManager
 {

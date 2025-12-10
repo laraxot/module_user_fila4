@@ -7,7 +7,10 @@ namespace Modules\User\Filament\Resources\ProfileResource\Pages;
 use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\ProfileResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> laraxot/develop
 
 class ListProfiles extends XotBaseListRecords
 {

@@ -11,8 +11,12 @@ use Modules\Xot\Datas\XotData;
 /*
  * Class CreateModelHasRolesTable.
  */
+<<<<<<< HEAD
 return new class extends XotBaseMigration
 {
+=======
+return new class extends XotBaseMigration {
+>>>>>>> laraxot/develop
     /**
      * Run the migrations.
      */

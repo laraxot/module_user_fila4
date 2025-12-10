@@ -33,7 +33,11 @@ Fornisce i trait base condivisi:
 
 ```php
 // In BaseUser
+<<<<<<< HEAD
 use HasFactory;           // Laravel factory support
+=======
+use \Modules\Xot\Models\Traits\HasXotFactory;           // Laravel factory support
+>>>>>>> laraxot/develop
 use Notifiable;          // Laravel notifications
 use HasApiTokens;        // API authentication
 use HasTeams;            // Team management

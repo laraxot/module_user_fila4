@@ -34,4 +34,10 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @mixin IdeHelperTenant
  * @mixin \Eloquent
  */
+<<<<<<< HEAD
 class Tenant extends BaseTenant {}
+=======
+class Tenant extends BaseTenant
+{
+}
+>>>>>>> laraxot/develop

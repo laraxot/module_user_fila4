@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
 use Override;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+=======
+>>>>>>> laraxot/develop
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+<<<<<<< HEAD
+=======
+use Illuminate\Database\Eloquent\Relations\HasOne;
+>>>>>>> laraxot/develop
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Support\Carbon;
 use Modules\Media\Models\Media;
@@ -139,9 +146,19 @@ class User extends BaseUser
      *
      * @var string
      */
+<<<<<<< HEAD
     public $connection = 'user';
 
     #[Override]
+=======
+<<<<<<< HEAD
+    public $connection = 'user';
+=======
+    public $connection = 'mysql';
+>>>>>>> 44e65d8 (.)
+
+    #[\Override]
+>>>>>>> laraxot/develop
     public function canAccessSocialite(): bool
     {
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;

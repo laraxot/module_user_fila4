@@ -7,7 +7,10 @@ namespace Modules\User\Observers;
 use Illuminate\Support\Facades\Log;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 use Throwable;
+=======
+>>>>>>> laraxot/develop
 
 /**
  * Observer per gestire eventi del modello User.

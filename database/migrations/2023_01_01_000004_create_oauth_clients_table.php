@@ -6,8 +6,12 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 use Modules\Xot\Datas\XotData;
 
+<<<<<<< HEAD
 return new class() extends XotBaseMigration
 {
+=======
+return new class extends XotBaseMigration {
+>>>>>>> laraxot/develop
     public function up(): void
     {
         $this->tableCreate(static function (Blueprint $table): void {

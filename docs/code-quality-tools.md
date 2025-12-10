@@ -14,7 +14,11 @@ Il modulo User utilizza una suite completa di strumenti di analisi del codice pe
 ## 🛠️ STRUMENTI INTEGRATI
 
 ### **PHP/Laravel**
+<<<<<<< HEAD
 - **PHPStan Level 9**: ✅ 0 errori
+=======
+- **PHPStan level 10**: ✅ 0 errori
+>>>>>>> laraxot/develop
 - **PHPMD**: ✅ 0 violations
 - **PHP CS Fixer**: ✅ Configurato
 - **Laravel Pint**: ✅ Configurato
@@ -32,7 +36,11 @@ Il modulo User utilizza una suite completa di strumenti di analisi del codice pe
 ## 📊 METRICHE CORRENTI
 
 ### **PHP Quality**
+<<<<<<< HEAD
 - **PHPStan**: Level 9 (massimo)
+=======
+- **PHPStan**: level 10 (massimo)
+>>>>>>> laraxot/develop
 - **Errori**: 0
 - **File Analizzati**: 145 → 0 errori
 - **Status**: ✅ PULITO

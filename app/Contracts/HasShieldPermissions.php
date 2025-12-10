@@ -9,4 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @phpstan-require-extends Model
  */
+<<<<<<< HEAD
 interface HasShieldPermissions {}
+=======
+interface HasShieldPermissions
+{
+}
+>>>>>>> laraxot/develop

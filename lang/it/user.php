@@ -1,5 +1,10 @@
 <?php
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> laraxot/develop
 declare(strict_types=1);
 
 return [
@@ -679,6 +684,12 @@ return [
         ],
     ],
 ];
+<<<<<<< HEAD
+=======
+=======
+=======
+>>>>>>> cebb28c (.)
+>>>>>>> laraxot/develop
 return array (
   'navigation' => 
   array (
@@ -1399,3 +1410,10 @@ return array (
   'search_placeholder' => 'Cerca per nome, email o ruolo...',
   'label' => 'user',
 );
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 1724879 (.)
+=======
+>>>>>>> cebb28c (.)
+>>>>>>> laraxot/develop

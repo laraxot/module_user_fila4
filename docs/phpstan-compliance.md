@@ -9,7 +9,11 @@
 
 ## Compliance Summary
 
+<<<<<<< HEAD
 The User module is fully compliant with PHPStan level 9 analysis, demonstrating:
+=======
+The User module is fully compliant with PHPStan level 10 analysis, demonstrating:
+>>>>>>> laraxot/develop
 
 - ✅ Rigorous type hints implementation
 - ✅ Proper null handling

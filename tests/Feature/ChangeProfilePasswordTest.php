@@ -9,12 +9,19 @@ use Modules\User\Models\User;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
+<<<<<<< HEAD
 use Tests\TestCase;
+=======
+>>>>>>> laraxot/develop
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\post;
 
 use Tests\TestCase;
+<<<<<<< HEAD
+=======
+use Tests\TestCase;
+>>>>>>> laraxot/develop
 
 uses(TestCase::class);
 

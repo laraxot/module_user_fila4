@@ -4,11 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
 use Modules\Xot\Models\Traits\HasXotFactory;
+=======
+>>>>>>> laraxot/develop
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Models\Traits\HasXotFactory;
+<<<<<<< HEAD
+=======
+use Modules\Xot\Models\Traits\HasXotFactory;
+>>>>>>> laraxot/develop
 
 /**
  * Modules\User\Models\TenantUser.

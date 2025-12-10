@@ -14,8 +14,12 @@ use Modules\User\Tests\TestCase;
 uses(TestCase::class, RefreshDatabase::class);
 
 beforeEach(function () {
+<<<<<<< HEAD
     $this->baseUser = new class() extends BaseUser
     {
+=======
+    $this->baseUser = new class extends BaseUser {
+>>>>>>> laraxot/develop
         protected $table = 'test_users';
     };
 });

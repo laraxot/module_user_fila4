@@ -8,7 +8,10 @@ use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> laraxot/develop
 
 class TeamResource extends XotBaseResource
 {

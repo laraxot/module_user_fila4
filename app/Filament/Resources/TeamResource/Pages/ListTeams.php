@@ -7,7 +7,10 @@ namespace Modules\User\Filament\Resources\TeamResource\Pages;
 use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\TeamResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> laraxot/develop
 
 class ListTeams extends XotBaseListRecords
 {

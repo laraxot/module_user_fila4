@@ -12,7 +12,10 @@ namespace Modules\User\Actions\Socialite;
 use Filament\Facades\Filament;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\RedirectResponse;
+<<<<<<< HEAD
 use LogicException;
+=======
+>>>>>>> laraxot/develop
 use Modules\User\Events\SocialiteUserConnected;
 use Modules\User\Models\SocialiteUser;
 use Spatie\QueueableAction\QueueableAction;
@@ -30,7 +33,11 @@ class LoginUserAction
         Assert::notNull($user = $socialiteUser->user, '['.__FILE__.']['.__LINE__.']');
 
         if (! $user instanceof Authenticatable) {
+<<<<<<< HEAD
             throw new LogicException('User instance must implement Authenticatable.');
+=======
+            throw new \LogicException('User instance must implement Authenticatable.');
+>>>>>>> laraxot/develop
         }
 
         // PHPStan: assicuriamoci che l'utente sia Authenticatable per il login

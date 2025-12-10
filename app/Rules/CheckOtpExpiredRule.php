@@ -17,7 +17,12 @@ class CheckOtpExpiredRule implements ValidationRule
 
     public function __construct(
         private User $user,
+<<<<<<< HEAD
     ) {}
+=======
+    ) {
+    }
+>>>>>>> laraxot/develop
 
     /**
      * Run the validation rule.

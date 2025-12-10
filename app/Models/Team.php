@@ -64,4 +64,10 @@ use Modules\Xot\Contracts\ProfileContract;
  * @mixin IdeHelperTeam
  * @mixin \Eloquent
  */
+<<<<<<< HEAD
 class Team extends BaseTeam {}
+=======
+class Team extends BaseTeam
+{
+}
+>>>>>>> laraxot/develop

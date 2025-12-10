@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+<<<<<<< HEAD
 use Modules\User\Models\BaseModel;
+=======
+>>>>>>> laraxot/develop
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -61,6 +64,10 @@ class TeamPermission extends BaseModel
      */
     public function user(): BelongsTo
     {
+<<<<<<< HEAD
         return $this->belongsTo(\Modules\User\Models\User::class);
+=======
+        return $this->belongsTo(User::class);
+>>>>>>> laraxot/develop
     }
 }

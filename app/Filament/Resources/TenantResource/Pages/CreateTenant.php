@@ -10,7 +10,10 @@ namespace Modules\User\Filament\Resources\TenantResource\Pages;
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Resources\TenantResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
+<<<<<<< HEAD
 use Throwable;
+=======
+>>>>>>> laraxot/develop
 
 class CreateTenant extends XotBaseCreateRecord
 {
