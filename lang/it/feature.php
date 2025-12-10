@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 return [
@@ -70,6 +73,7 @@ return [
         'label' => 'feature.model',
     ],
 ];
+<<<<<<< HEAD
 =======
 return array (
   'resources' => 'Risorse',
@@ -151,3 +155,5 @@ return array (
   ),
 );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
