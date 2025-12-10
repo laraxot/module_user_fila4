@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 return [
@@ -40,6 +43,7 @@ return [
         'icon' => 'heroicon-o-shield-check',
     ],
 ];
+<<<<<<< HEAD
 =======
 return array (
   'fields' => 
@@ -83,3 +87,5 @@ return array (
   ),
 );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)

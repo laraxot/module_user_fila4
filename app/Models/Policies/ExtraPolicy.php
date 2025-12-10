@@ -5,12 +5,17 @@ declare(strict_types=1);
 namespace Modules\User\Models\Policies;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\User\Models\Extra;
 use Modules\Xot\Contracts\UserContract;
 =======
 use Modules\User\Contracts\UserContract;
 use Modules\User\Models\Extra;
 >>>>>>> fbc8f8e (.)
+=======
+use Modules\User\Models\Extra;
+use Modules\Xot\Contracts\UserContract;
+>>>>>>> 6d20fbe (.)
 
 class ExtraPolicy extends UserBasePolicy
 {
@@ -26,6 +31,7 @@ class ExtraPolicy extends UserBasePolicy
      * Determine whether the user can view the model.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function view(UserContract $user, Extra $_extra): bool
     {
         return $user->hasPermissionTo('extra.view') || $user->hasRole('super-admin');
@@ -35,6 +41,11 @@ class ExtraPolicy extends UserBasePolicy
         return $user->id === $extra->user_id ||
                $user->hasRole('super-admin');
 >>>>>>> fbc8f8e (.)
+=======
+    public function view(UserContract $user, Extra $_extra): bool
+    {
+        return $user->hasPermissionTo('extra.view') || $user->hasRole('super-admin');
+>>>>>>> 6d20fbe (.)
     }
 
     /**
@@ -49,6 +60,7 @@ class ExtraPolicy extends UserBasePolicy
      * Determine whether the user can update the model.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function update(UserContract $user, Extra $_extra): bool
     {
         return $user->hasPermissionTo('extra.update') || $user->hasRole('super-admin');
@@ -58,11 +70,17 @@ class ExtraPolicy extends UserBasePolicy
         return $user->id === $extra->user_id ||
                $user->hasRole('super-admin');
 >>>>>>> fbc8f8e (.)
+=======
+    public function update(UserContract $user, Extra $_extra): bool
+    {
+        return $user->hasPermissionTo('extra.update') || $user->hasRole('super-admin');
+>>>>>>> 6d20fbe (.)
     }
 
     /**
      * Determine whether the user can delete the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function delete(UserContract $user, Extra $_extra): bool
     {
@@ -73,11 +91,17 @@ class ExtraPolicy extends UserBasePolicy
         return $user->id === $extra->user_id ||
                $user->hasRole('super-admin');
 >>>>>>> fbc8f8e (.)
+=======
+    public function delete(UserContract $user, Extra $_extra): bool
+    {
+        return $user->hasPermissionTo('extra.delete') || $user->hasRole('super-admin');
+>>>>>>> 6d20fbe (.)
     }
 
     /**
      * Determine whether the user can restore the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function restore(UserContract $user, Extra $_extra): bool
     {
@@ -87,6 +111,11 @@ class ExtraPolicy extends UserBasePolicy
     {
         return $user->hasRole('super-admin');
 >>>>>>> fbc8f8e (.)
+=======
+    public function restore(UserContract $user, Extra $_extra): bool
+    {
+        return $user->hasPermissionTo('extra.restore') || $user->hasRole('super-admin');
+>>>>>>> 6d20fbe (.)
     }
 
     /**
@@ -95,9 +124,13 @@ class ExtraPolicy extends UserBasePolicy
     public function forceDelete(UserContract $user, Extra $extra): bool
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $user->hasPermissionTo('extra.force-delete') || $user->hasRole('super-admin');
 =======
         return $user->hasRole('super-admin');
 >>>>>>> fbc8f8e (.)
+=======
+        return $user->hasPermissionTo('extra.force-delete') || $user->hasRole('super-admin');
+>>>>>>> 6d20fbe (.)
     }
 }
