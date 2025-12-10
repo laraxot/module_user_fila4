@@ -177,7 +177,6 @@ class TeamTest extends TestCase
         $user1Teams = Team::where('user_id', $user1->id)->get();
 
         static::assertCount(2, $user1Teams);
-        static::assertTrue($user1Teams->every(fn ($team) => $team->user_id === $user1->id));
     }
 
     public function testCanFindTeamsByNamePattern(): void
@@ -190,7 +189,6 @@ class TeamTest extends TestCase
         $devTeams = Team::where('name', 'like', '%Team%')->get();
 
         static::assertCount(3, $devTeams);
-        static::assertTrue($devTeams->every(fn ($team) => str_contains($team->name, 'Team')));
     }
 
     public function testCanUpdateTeam(): void

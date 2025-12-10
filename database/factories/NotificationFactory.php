@@ -56,7 +56,6 @@ class NotificationFactory extends Factory
      */
     public function unread(): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'read_at' => null,
         ]);
     }
@@ -66,7 +65,6 @@ class NotificationFactory extends Factory
      */
     public function read(): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'read_at' => $this->faker->dateTimeBetween('-1 month', 'now'),
         ]);
     }
@@ -76,7 +74,6 @@ class NotificationFactory extends Factory
      */
     public function forUser(User $user): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'notifiable_type' => User::class,
             'notifiable_id' => $user->id,
         ]);
@@ -109,7 +106,6 @@ class NotificationFactory extends Factory
      */
     public function ofType(string $type): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'type' => $type,
         ]);
     }

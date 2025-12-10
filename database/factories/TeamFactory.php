@@ -55,7 +55,6 @@ class TeamFactory extends Factory
      */
     public function personal(): static
     {
-        return $this->state(fn (array $_attributes) => [
             'personal_team' => true,
             'name' => $this->faker->firstName()."'s Team",
         ]);
@@ -66,7 +65,6 @@ class TeamFactory extends Factory
      */
     public function ownedBy(int $userId): static
     {
-        return $this->state(fn (array $_attributes) => [
             'user_id' => $userId,
         ]);
     }
@@ -76,8 +74,6 @@ class TeamFactory extends Factory
      */
     public function withName(string $name): static
     {
-        return $this->state(fn (array $_attributes) => [
-            'name' => $name.' Team',
         ]);
     }
 }

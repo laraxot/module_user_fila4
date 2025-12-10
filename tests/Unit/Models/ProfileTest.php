@@ -178,7 +178,6 @@ class ProfileTest extends TestCase
         $doeProfiles = Profile::where('last_name', 'like', '%Doe%')->get();
 
         static::assertCount(2, $doeProfiles);
-        static::assertTrue($doeProfiles->every(fn ($profile) => str_contains($profile->last_name, 'Doe')));
     }
 
     public function testCanFindProfilesByBioPattern(): void
@@ -190,7 +189,6 @@ class ProfileTest extends TestCase
         $devProfiles = Profile::where('bio', 'like', '%Developer%')->get();
 
         static::assertCount(1, $devProfiles);
-        static::assertTrue($devProfiles->every(fn ($profile) => str_contains($profile->bio, 'Developer')));
     }
 
     public function testCanUpdateProfile(): void

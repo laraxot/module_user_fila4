@@ -8,12 +8,5 @@ class Register extends \Filament\Auth\Pages\Register
 {
     /* var view-string */
     // protected static string $view = 'filament-panels::pages.auth.register';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     // Any customizations will go here
 }

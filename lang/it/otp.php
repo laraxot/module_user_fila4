@@ -35,13 +35,6 @@ return [
     ],
     'reset_password' => 'Reimposta Password',
     'password_reset' => 'Password Reimpostata',
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     'mail' => [
         'subject' => 'Codice OTP',
         'greeting' => 'Ciao!',
@@ -50,26 +43,12 @@ return [
         'line3' => 'Se non hai richiesto un codice, ignora questa email.',
         'salutation' => 'Cordiali saluti, :app_name',
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     'view' => [
         'time_left' => 'secondi rimasti',
         'resend_code' => 'Invia nuovamente il codice',
         'verify' => 'Verifica',
         'go_back' => 'Torna Indietro',
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     'notifications' => [
         'title' => 'Codice OTP Inviato',
         'body' => 'Il codice di verifica è stato inviato al tuo indirizzo email. Sarà valido per :seconds secondi.',
@@ -96,13 +75,6 @@ return [
     'exceptions' => [
         'column_not_found' => 'La colonna ":column_name" o la colonna della password ":password_column_name" non è stata trovata nella tabella ":table_name". Pubblica le migrazioni e eseguile, se l\'errore persiste, pubblica il file di configurazione e aggiorna i valori di table_name, column_name, e password_column_name.',
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     'validation' => [
         'invalid_code' => 'Il codice inserito non è valido.',
         'expired_code' => 'Il codice inserito è scaduto.',

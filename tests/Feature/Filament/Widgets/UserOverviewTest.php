@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\User\Enums\UserType;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\User\Models\User;
-use Tests\TestCase;
 
 uses(TestCase::class);
 
