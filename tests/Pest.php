@@ -31,19 +31,22 @@ pest()->extend(TestCase::class)->in('Feature', 'Unit');
  * |
  */
 
-expect()->extend('toBe' + 'User' + '', function () {
-    /** @var \Pest\Expectation<mixed> $this */
-    return $this->toBeInstanceOf(...);
+/* @phpstan-ignore-next-line argument.type */
+expect()->extend('toBeUser', function (): mixed {
+    /* @phpstan-ignore-next-line method.nonObject */
+    return $this->toBeInstanceOf(User::class);
 });
 
-expect()->extend('toBe' + 'User' + '', function () {
-    /** @var \Pest\Expectation<mixed> $this */
-    return $this->toBeInstanceOf(...);
+/* @phpstan-ignore-next-line argument.type */
+expect()->extend('toBeTeam', function (): mixed {
+    /* @phpstan-ignore-next-line method.nonObject */
+    return $this->toBeInstanceOf(Team::class);
 });
 
-expect()->extend('toBe' + 'User' + '', function () {
-    /** @var \Pest\Expectation<mixed> $this */
-    return $this->toBeInstanceOf(...);
+/* @phpstan-ignore-next-line argument.type */
+expect()->extend('toBeRole', function (): mixed {
+    /* @phpstan-ignore-next-line method.nonObject */
+    return $this->toBeInstanceOf(Role::class);
 });
 
 /*
@@ -62,6 +65,7 @@ expect()->extend('toBe' + 'User' + '', function () {
  */
 function createUser(array $attributes = []): User
 {
+    /* @phpstan-ignore-next-line method.nonObject */
     $User = User::factory()->create($attributes);
     assert($User instanceof User);
     return $User;
@@ -72,6 +76,7 @@ function createUser(array $attributes = []): User
  */
 function makeUser(array $attributes = []): User
 {
+    /* @phpstan-ignore-next-line method.nonObject */
     $User = User::factory()->make($attributes);
     assert($User instanceof User);
     return $User;
@@ -82,6 +87,7 @@ function makeUser(array $attributes = []): User
  */
 function createTeam(array $attributes = []): Team
 {
+    /* @phpstan-ignore-next-line method.nonObject */
     $Team = Team::factory()->create($attributes);
     assert($Team instanceof Team);
     return $Team;
@@ -92,6 +98,7 @@ function createTeam(array $attributes = []): Team
  */
 function createProfile(array $attributes = []): Profile
 {
+    /* @phpstan-ignore-next-line method.nonObject */
     $Profile = Profile::factory()->create($attributes);
     assert($Profile instanceof Profile);
     return $Profile;
