@@ -17,7 +17,7 @@ class EditTeamProfile extends EditTenantProfile
     public function getFormSchema(): array
     {
         return [
-            'name' => TextInput::make('name'),
+            TextInput::make('name'),
             // ...
         ];
     }
