@@ -13,7 +13,10 @@ Documentazione della risoluzione dei conflitti Git nel modulo User, inclusi i fi
 - [Filament Widgets Structure](/laravel/Modules/User/docs/widgets_structure.md)
 - [BaseUser Documentation](/laravel/Modules/User/docs/BaseUser.md)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 041533e (.)
 ## File Risolti
 
 ### 1. Modelli e Trait
