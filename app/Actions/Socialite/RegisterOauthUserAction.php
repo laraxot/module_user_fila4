@@ -23,6 +23,9 @@ class RegisterOauthUserAction
         $socialiteUser = DB::transaction(static function () use ($provider, $oauthUser) {
             // Create a user
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             $user = app(CreateUserAction::class)->execute(
                 provider: $provider,
                 oauthUser: $oauthUser,
@@ -34,6 +37,7 @@ class RegisterOauthUserAction
                 oauthUser: $oauthUser,
                 user: $user,
             );
+<<<<<<< HEAD
 =======
             $user = app(CreateUserAction::class)
                 ->execute(provider: $provider, oauthUser: $oauthUser);
@@ -42,6 +46,8 @@ class RegisterOauthUserAction
             return app(CreateSocialiteUserAction::class)
                 ->execute(provider: $provider, oauthUser: $oauthUser, user: $user);
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         });
         // Dispatch the registered event
         Registered::dispatch($socialiteUser);

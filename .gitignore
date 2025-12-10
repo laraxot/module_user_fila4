@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 # ==============================================
 # LARAXOT MODULE USER - .GITIGNORE
 # ==============================================
@@ -161,6 +164,7 @@ user_test_data.csv
 *.fila2
 laravel
 public_html
+<<<<<<< HEAD
 =======
 # Dependencies
 vendor/
@@ -196,3 +200,5 @@ docs/cache/
 # PHPStan documentation
 docs/phpstan/
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)

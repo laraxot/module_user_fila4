@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 return [
@@ -276,6 +279,7 @@ return [
     ],
     'label' => 'team',
 ];
+<<<<<<< HEAD
 =======
 return array (
   'navigation' => 
@@ -416,3 +420,5 @@ return array (
   ),
 );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
