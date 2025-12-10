@@ -24,30 +24,11 @@ class SetDefaultRolesBySocialiteUserAction
     public function __construct(
         private readonly string $provider,
     ) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         $this->domainAnalyzer = app(EmailDomainAnalyzer::class, [
             'ssoProvider' => $this->provider,
         ]);
 
         $this->defaultUserGuard = Guard::getDefaultName(XotData::make()->getUserClass());
-<<<<<<< HEAD
-=======
-        $this->domainAnalyzer = app(
-            EmailDomainAnalyzer::class,
-            [
-                'ssoProvider' => $this->provider,
-            ]
-        );
-
-        $this->defaultUserGuard = Guard::getDefaultName(
-            XotData::make()->getUserClass()
-        );
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     }
 
     public function execute(UserContract $userModel, SocialiteUserContract $oauthUser): void
@@ -70,10 +51,6 @@ class SetDefaultRolesBySocialiteUserAction
         }
 
         $defaultRoleNames = $this->domainAnalyzer->hasFirstPartyDomain()
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
             ? ((array) config(sprintf('services.%s.email_domains.first_party.role_names_search', $this->provider)))
             : ((array) config(sprintf('services.%s.email_domains.client.role_names_search', $this->provider)));
 
@@ -83,22 +60,6 @@ class SetDefaultRolesBySocialiteUserAction
                     $query->orWhere('name', 'LIKE', $roleName);
                 }
             })
-<<<<<<< HEAD
-=======
-            ? (array) config(sprintf('services.%s.email_domains.first_party.role_names_search', $this->provider))
-            : (array) config(sprintf('services.%s.email_domains.client.role_names_search', $this->provider));
-
-        $rolesToSet = Role::query()
-            ->where(
-                static function (Builder $query) use ($defaultRoleNames): void {
-                    foreach ($defaultRoleNames as $roleName) {
-                        $query->orWhere('name', 'LIKE', $roleName);
-                    }
-                }
-            )
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
             ->where('guard_name', '=', $this->defaultUserGuard)
             ->get();
 
