@@ -49,8 +49,10 @@ class DeviceUserFactory extends Factory
      */
     public function forUser(User $user): static
     {
+        /** @var string $userId */
+        $userId = $user->id;
         return $this->state(fn (array $_attributes): array => [
-            'user_id' => $user->id,
+            'user_id' => $userId,
         ]);
     }
 

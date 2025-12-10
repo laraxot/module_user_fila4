@@ -67,6 +67,9 @@ class PasswordResetConfirmWidget extends XotBaseWidget
      * @return array<string, mixed>
      */
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getFormSchema(): array
     {
         return [
