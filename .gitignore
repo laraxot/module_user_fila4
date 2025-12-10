@@ -2,12 +2,17 @@
 # LARAXOT MODULE USER - .GITIGNORE
 # ==============================================
 # Modulo User Laraxot - Template standardizzato
+<<<<<<< HEAD
 # Ultimo aggiornamento: 2025-01-06
+=======
+# Ultimo aggiornamento: 2025-01-31
+>>>>>>> 2805232 (.)
 # ==============================================
 
 # ==============================================
 # DEPENDENCIES & PACKAGES
 # ==============================================
+<<<<<<< HEAD
 vendor/
 /vendor/
 node_modules/
@@ -17,6 +22,18 @@ package-lock.json
 yarn.lock
 yarn-error.log
 composer.lock
+=======
+/vendor/
+/vendor
+/node_modules/
+/node_modules
+/docs/vendor/
+package-lock.json
+yarn.lock
+composer.lock
+yarn-error.log
+npm-debug.log
+>>>>>>> 2805232 (.)
 
 # ==============================================
 # BUILD & COMPILED FILES
@@ -39,7 +56,10 @@ cache/*
 *.swp
 *.swo
 *.stackdump
+<<<<<<< HEAD
 *.exe
+=======
+>>>>>>> 2805232 (.)
 *:Zone.Identifier
 v8-compile-cache-*
 .php-cs-fixer.cache
@@ -51,7 +71,10 @@ v8-compile-cache-*
 *.log
 error_log
 npm-debug.log*
+<<<<<<< HEAD
 npm-debug.log
+=======
+>>>>>>> 2805232 (.)
 yarn-error.log*
 lerna-debug.log*
 
@@ -122,6 +145,7 @@ docs/phpstan/
 docs/cache/
 
 # ==============================================
+<<<<<<< HEAD
 # OLD DIRECTORIES (LEGACY CLEANUP)
 # ==============================================
 resources/views/Components_old/
@@ -135,6 +159,21 @@ database/Factories_old
 database/Factories_
 database_old/
 database_old
+=======
+# LANGUAGE FILES
+# ==============================================
+lang/lang/
+resources/lang/
+
+# ==============================================
+# OLD DIRECTORIES (LEGACY CLEANUP)
+# ==============================================
+resources/views/Components_old/
+database/Migrations_old/
+database/Seeders_old/
+database/Factories_old/
+database_old/
+>>>>>>> 2805232 (.)
 
 # ==============================================
 # MODULE SPECIFIC - USER
@@ -159,4 +198,8 @@ user_test_data.csv
 # 🚫 File specifici del progetto
 *.fila2
 laravel
+<<<<<<< HEAD
 public_html
+=======
+public_html
+>>>>>>> 2805232 (.)
