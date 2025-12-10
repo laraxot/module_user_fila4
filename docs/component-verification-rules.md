@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Regole per la Verifica dei Componenti Blade
 
 ## ERRORE CRITICO DA NON RIPETERE MAI
@@ -150,3 +151,5 @@ Prima di usare qualsiasi componente:
 - [Laravel Blade Components](https://laravel.com/project_docs/blade#components)
 >>>>>>> 0104676f (.)
 - [Componenti UI del Progetto](../../../Themes/Sixteen/resources/views/components/ui/)
+=======
+>>>>>>> ebb22862 (.)

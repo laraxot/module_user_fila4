@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Modules\User\Http\Livewire\Auth\Passwords;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> laraxot/develop
+=======
+>>>>>>> ebb22862 (.)
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\PasswordBroker;
@@ -15,6 +18,7 @@ use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -29,6 +33,8 @@ use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Auth\Events\PasswordReset;
 >>>>>>> 44e65d8 (.)
 >>>>>>> laraxot/develop
+=======
+>>>>>>> ebb22862 (.)
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -37,6 +43,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password as PasswordRule;
 use Livewire\Component;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Livewire\Features\SupportRedirects\Redirector;
 use Modules\Xot\Actions\File\ViewCopyAction;
 =======
@@ -46,6 +53,10 @@ use Modules\Xot\Actions\File\ViewCopyAction;
 =======
 >>>>>>> 44e65d8 (.)
 >>>>>>> laraxot/develop
+=======
+use Livewire\Features\SupportRedirects\Redirector;
+use Modules\Xot\Actions\File\ViewCopyAction;
+>>>>>>> ebb22862 (.)
 use Webmozart\Assert\Assert;
 
 class Reset extends Component
@@ -98,6 +109,7 @@ class Reset extends Component
 
         /* @phpstan-ignore argument.type */
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> laraxot/develop
@@ -115,10 +127,18 @@ class Reset extends Component
             session()->flash($response_lang);
 >>>>>>> 44e65d8 (.)
 >>>>>>> laraxot/develop
+=======
+        Assert::string($response_lang = trans((string) $response));
+
+        if ($response === Password::PASSWORD_RESET) {
+            session()->flash($response_lang);
+
+>>>>>>> ebb22862 (.)
             return redirect(route('home'));
         }
 
         $this->addError('email', $response_lang);
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
@@ -127,6 +147,9 @@ class Reset extends Component
 =======
 >>>>>>> 44e65d8 (.)
 >>>>>>> laraxot/develop
+=======
+
+>>>>>>> ebb22862 (.)
         return null;
     }
 

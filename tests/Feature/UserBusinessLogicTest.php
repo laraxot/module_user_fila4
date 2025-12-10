@@ -10,30 +10,25 @@ use Modules\User\Models\Role;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
 
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Business Logic Integration', function (): void {
-    beforeEach(function (): void {
-        /** @var object{user: mixed} $this */ $this->user = User/** @phpstan-ignore-line */ ::factory()->create();
-        $this->admin = User/** @phpstan-ignore-line */ ::factory()->create();
-        $this->team = Team/** @phpstan-ignore-line */ ::factory()->create();
+describe('User Business Logic Integration', function () {
+    beforeEach(function () {
+        $this->user = User::factory()->create();
+        $this->admin = User::factory()->create();
+        $this->team = Team::factory()->create();
     });
 
-    describe('User Authentication Business Rules', function (): void {
-        it('enforces password complexity requirements', function (): void {
+    describe('User Authentication Business Rules', function () {
+        it('enforces password complexity requirements', function () {
             $weakPassword = '123456';
             $strongPassword = 'SecurePass123!';
 
             // Verifica che la password debole non sia accettabile
             $weakHash = Hash::make($weakPassword);
-            /** @var User */
-        $weakUser = User/** @phpstan-ignore-line */ ::factory()->create(['password' => $weakHash]);
+            $weakUser = User::factory()->create(['password' => $weakHash]);
 
             // Verifica che la password forte sia accettabile
             $strongHash = Hash::make($strongPassword);
-            /** @var User */
-        $strongUser = User/** @phpstan-ignore-line */ ::factory()->create(['password' => $strongHash]);
+            $strongUser = User::factory()->create(['password' => $strongHash]);
 
             expect($weakUser->password)->not->toBe($weakPassword);
             expect($strongUser->password)->not->toBe($strongPassword);
@@ -43,39 +38,34 @@ describe('User Business Logic Integration', function (): void {
             expect(Hash::check($strongPassword, $strongUser->password))->toBeTrue();
         });
 
-        it('enforces email uniqueness across the system', function (): void {
+        it('enforces email uniqueness across the system', function () {
             $email = 'test@example.com';
 
             // Primo utente con email
-            /** @var User */
-        $user1 = User/** @phpstan-ignore-line */ ::factory()->create(['email' => $email]);
+            $user1 = User::factory()->create(['email' => $email]);
 
             // Tentativo di creare secondo utente con stessa email
-            /** @phpstan-ignore-next-line property.notFound */
             $this->expectException(QueryException::class);
 
-            User/** @phpstan-ignore-line */ ::factory()->create(['email' => $email]);
+            User::factory()->create(['email' => $email]);
         });
 
-        it('enforces username uniqueness when required', function (): void {
+        it('enforces username uniqueness when required', function () {
             $username = 'testuser';
 
             // Primo utente con username
-            /** @var User */
-        $user1 = User/** @phpstan-ignore-line */ ::factory()->create(['username' => $username]);
+            $user1 = User::factory()->create(['username' => $username]);
 
             // Tentativo di creare secondo utente con stesso username
-            /** @phpstan-ignore-next-line property.notFound */
             $this->expectException(QueryException::class);
 
-            User/** @phpstan-ignore-line */ ::factory()->create(['username' => $username]);
+            User::factory()->create(['username' => $username]);
         });
     });
 
-    describe('User Profile Business Rules', function (): void {
-        it('enforces profile completion requirements', function (): void {
-            /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+    describe('User Profile Business Rules', function () {
+        it('enforces profile completion requirements', function () {
+            $user = User::factory()->create([
                 'first_name' => null,
                 'last_name' => null,
             ]);
@@ -85,19 +75,17 @@ describe('User Business Logic Integration', function (): void {
             expect($user->last_name)->toBeNull();
 
             // Aggiornamento con dati completi
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->update([
                 'first_name' => 'Mario',
                 'last_name' => 'Rossi',
             ]);
 
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->refresh();
             expect($user->first_name)->toBe('Mario');
             expect($user->last_name)->toBe('Rossi');
         });
 
-        it('enforces data validation rules', function (): void {
+        it('enforces data validation rules', function () {
             $invalidData = [
                 'email' => 'invalid-email',
                 'phone' => 'not-a-phone',
@@ -106,21 +94,18 @@ describe('User Business Logic Integration', function (): void {
 
             // Verifica che i dati non validi non possano essere salvati
             foreach ($invalidData as $field => $value) {
-                /** @phpstan-ignore-next-line property.notFound */
                 $this->expectException(QueryException::class);
 
-                User/** @phpstan-ignore-line */ ::factory()->create([$field => $value]);
+                User::factory()->create([$field => $value]);
             }
         });
 
-        it('enforces age restrictions for certain operations', function (): void {
-            /** @var User */
-        $underageUser = User/** @phpstan-ignore-line */ ::factory()->create([
+        it('enforces age restrictions for certain operations', function () {
+            $underageUser = User::factory()->create([
                 'date_of_birth' => now()->subYears(16),
             ]);
 
-            /** @var User */
-        $adultUser = User/** @phpstan-ignore-line */ ::factory()->create([
+            $adultUser = User::factory()->create([
                 'date_of_birth' => now()->subYears(25),
             ]);
 
@@ -132,16 +117,13 @@ describe('User Business Logic Integration', function (): void {
         });
     });
 
-    describe('Team Management Business Rules', function (): void {
-        it('enforces team membership limits', function (): void {
-            /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
-            /** @var Team */
-        $teams = Team::factory()->count(5)->create();
+    describe('Team Management Business Rules', function () {
+        it('enforces team membership limits', function () {
+            $user = User::factory()->create();
+            $teams = Team::factory()->count(5)->create();
 
             // Aggiunta utente a tutti i team
             foreach ($teams as $team) {
-                /** @phpstan-ignore-next-line method.nonObject */
                 $user->teams()->attach($team->id);
             }
 
@@ -150,50 +132,38 @@ describe('User Business Logic Integration', function (): void {
 
             // Verifica che non possa essere aggiunto a un team già membro
             $existingTeam = $user->teams->first();
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->teams()->attach($existingTeam->id);
 
             // Non dovrebbe creare duplicati
             expect($user->teams()->count())->toBe(5);
         });
 
-        it('enforces team role hierarchy', function (): void {
-            /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
-            /** @var Team */
-        $team = Team/** @phpstan-ignore-line */ ::factory()->create();
+        it('enforces team role hierarchy', function () {
+            $user = User::factory()->create();
+            $team = Team::factory()->create();
 
             // Ruoli con livelli di autorità
-            /** @var Role */
-        $memberRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'member', 'level' => 1]);
-            /** @var Role */
-        $moderatorRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'moderator', 'level' => 2]);
-            /** @var Role */
-        $adminRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'admin', 'level' => 3]);
+            $memberRole = Role::factory()->create(['name' => 'member', 'level' => 1]);
+            $moderatorRole = Role::factory()->create(['name' => 'moderator', 'level' => 2]);
+            $adminRole = Role::factory()->create(['name' => 'admin', 'level' => 3]);
 
             // Assegnazione ruolo base
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->teams()->attach($team->id, ['role' => 'member']);
 
             // Verifica che l'utente abbia il ruolo corretto
-            /** @phpstan-ignore-next-line method.nonObject */
             $userTeam = $user->teams()->where('team_id', $team->id)->first();
             expect($userTeam->pivot->role)->toBe('member');
         });
 
-        it('enforces team ownership rules', function (): void {
-            /** @var User */
-        $owner = User/** @phpstan-ignore-line */ ::factory()->create();
-            /** @var User */
-        $member = User/** @phpstan-ignore-line */ ::factory()->create();
-            /** @var Team */
-        $team = Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $owner->id]);
+        it('enforces team ownership rules', function () {
+            $owner = User::factory()->create();
+            $member = User::factory()->create();
+            $team = Team::factory()->create(['user_id' => $owner->id]);
 
             // Verifica che solo il proprietario possa eliminare il team
             expect($team->user_id)->toBe($owner->id);
 
             // Tentativo di eliminazione da parte di un membro
-            /** @phpstan-ignore-next-line method.nonObject */
             $member->teams()->attach($team->id);
 
             // Il membro non dovrebbe poter eliminare il team
@@ -201,43 +171,32 @@ describe('User Business Logic Integration', function (): void {
         });
     });
 
-    describe('Permission and Role Business Rules', function (): void {
-        it('enforces permission inheritance', function (): void {
-            /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
-            /** @var Role */
-        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'editor']);
-            /** @var Permission */
-        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit_posts']);
+    describe('Permission and Role Business Rules', function () {
+        it('enforces permission inheritance', function () {
+            $user = User::factory()->create();
+            $role = Role::factory()->create(['name' => 'editor']);
+            $permission = Permission::factory()->create(['name' => 'edit_posts']);
 
             // Assegnazione ruolo all'utente
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->roles()->attach($role->id);
 
             // Assegnazione permesso al ruolo
-            /** @phpstan-ignore-next-line method.nonObject */
             $role->permissions()->attach($permission->id);
 
             // Verifica che l'utente erediti il permesso dal ruolo
-            /** @phpstan-ignore-next-line method.nonObject */
             $userPermissions = $user->getAllPermissions();
             expect($userPermissions)->toContain($permission);
         });
 
-        it('enforces permission conflicts', function (): void {
-            /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
+        it('enforces permission conflicts', function () {
+            $user = User::factory()->create();
 
             // Permessi che si escludono a vicenda
-            /** @var Permission */
-        $readPermission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'read_posts']);
-            /** @var Permission */
-        $writePermission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'write_posts']);
-            /** @var Permission */
-        $deletePermission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'delete_posts']);
+            $readPermission = Permission::factory()->create(['name' => 'read_posts']);
+            $writePermission = Permission::factory()->create(['name' => 'write_posts']);
+            $deletePermission = Permission::factory()->create(['name' => 'delete_posts']);
 
             // Assegnazione permessi all'utente
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->permissions()->attach([
                 $readPermission->id,
                 $writePermission->id,
@@ -254,28 +213,19 @@ describe('User Business Logic Integration', function (): void {
             expect($userPermissions)->toContain('delete_posts');
         });
 
-        it('enforces role-based access control', function (): void {
-            /** @var User */
-        $admin = User/** @phpstan-ignore-line */ ::factory()->create();
-            /** @var User */
-        $moderator = User/** @phpstan-ignore-line */ ::factory()->create();
-            /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
+        it('enforces role-based access control', function () {
+            $admin = User::factory()->create();
+            $moderator = User::factory()->create();
+            $user = User::factory()->create();
 
             // Ruoli con livelli di accesso
-            /** @var Role */
-        $adminRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'admin', 'level' => 3]);
-            /** @var Role */
-        $moderatorRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'moderator', 'level' => 2]);
-            /** @var Role */
-        $userRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'user', 'level' => 1]);
+            $adminRole = Role::factory()->create(['name' => 'admin', 'level' => 3]);
+            $moderatorRole = Role::factory()->create(['name' => 'moderator', 'level' => 2]);
+            $userRole = Role::factory()->create(['name' => 'user', 'level' => 1]);
 
             // Assegnazione ruoli
-            /** @phpstan-ignore-next-line method.nonObject */
             $admin->roles()->attach($adminRole->id);
-            /** @phpstan-ignore-next-line method.nonObject */
             $moderator->roles()->attach($moderatorRole->id);
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->roles()->attach($userRole->id);
 
             // Verifica livelli di accesso
@@ -284,29 +234,23 @@ describe('User Business Logic Integration', function (): void {
         });
     });
 
-    describe('Data Integrity Business Rules', function (): void {
-        it('enforces referential integrity for user relationships', function (): void {
-            /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
-            /** @var \Illuminate\Database\Eloquent\Collection */
-        $profile = Profile/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $user->id]);
-            /** @var Team */
-        $team = Team/** @phpstan-ignore-line */ ::factory()->create();
+    describe('Data Integrity Business Rules', function () {
+        it('enforces referential integrity for user relationships', function () {
+            $user = User::factory()->create();
+            $profile = Profile::factory()->create(['user_id' => $user->id]);
+            $team = Team::factory()->create();
 
             // Verifica che le relazioni siano mantenute
             expect($profile->user_id)->toBe($user->id);
 
             // Tentativo di eliminare utente con relazioni
-            /** @phpstan-ignore-next-line property.notFound */
             $this->expectException(QueryException::class);
 
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->delete();
         });
 
-        it('enforces data consistency across user attributes', function (): void {
-            /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+        it('enforces data consistency across user attributes', function () {
+            $user = User::factory()->create([
                 'first_name' => 'Mario',
                 'last_name' => 'Rossi',
                 'email' => 'mario.rossi@example.com',
@@ -317,25 +261,21 @@ describe('User Business Logic Integration', function (): void {
             expect($user->email)->toBe('mario.rossi@example.com');
 
             // Aggiornamento che mantiene la coerenza
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->update([
                 'first_name' => 'Marco',
                 'email' => 'marco.rossi@example.com',
             ]);
 
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->refresh();
             expect($user->full_name)->toBe('Marco Rossi');
             expect($user->email)->toBe('marco.rossi@example.com');
         });
 
-        it('enforces audit trail for sensitive operations', function (): void {
-            /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
+        it('enforces audit trail for sensitive operations', function () {
+            $user = User::factory()->create();
             $originalEmail = $user->email;
 
             // Modifica email (operazione sensibile)
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->update(['email' => 'newemail@example.com']);
 
             // Verifica che i timestamp siano aggiornati
@@ -347,10 +287,9 @@ describe('User Business Logic Integration', function (): void {
         });
     });
 
-    describe('Security Business Rules', function (): void {
-        it('enforces password expiration policies', function (): void {
-            /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+    describe('Security Business Rules', function () {
+        it('enforces password expiration policies', function () {
+            $user = User::factory()->create([
                 'password_expires_at' => now()->subDays(1),
             ]);
 
@@ -359,21 +298,18 @@ describe('User Business Logic Integration', function (): void {
             expect($isExpired)->toBeTrue();
 
             // Aggiornamento password con nuova scadenza
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->update([
                 'password' => Hash::make('NewPassword123!'),
                 'password_expires_at' => now()->addDays(90),
             ]);
 
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->refresh();
             $isExpired = $user->password_expires_at->isFuture();
             expect($isExpired)->toBeTrue();
         });
 
-        it('enforces account lockout policies', function (): void {
-            /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+        it('enforces account lockout policies', function () {
+            $user = User::factory()->create([
                 'failed_login_attempts' => 5,
                 'locked_until' => now()->addMinutes(30),
             ]);
@@ -383,21 +319,18 @@ describe('User Business Logic Integration', function (): void {
             expect($isLocked)->toBeTrue();
 
             // Sblocco account
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->update([
                 'failed_login_attempts' => 0,
                 'locked_until' => null,
             ]);
 
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->refresh();
             expect($user->failed_login_attempts)->toBe(0);
             expect($user->locked_until)->toBeNull();
         });
 
-        it('enforces session management policies', function (): void {
-            /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+        it('enforces session management policies', function () {
+            $user = User::factory()->create([
                 'last_login_at' => now()->subHours(2),
                 'last_activity_at' => now()->subMinutes(30),
             ]);
@@ -410,10 +343,8 @@ describe('User Business Logic Integration', function (): void {
             expect($lastActivity->diffInMinutes(now()))->toBeLessThan(60);
 
             // Aggiornamento attività
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->update(['last_activity_at' => now()]);
 
-            /** @phpstan-ignore-next-line method.nonObject */
             $user->refresh();
             expect($user->last_activity_at->diffInMinutes(now()))->toBeLessThan(1);
         });

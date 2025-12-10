@@ -33,11 +33,12 @@ class PermissionResource extends XotBaseResource
     #[\Override]
     public static function getFormSchema(): array
     {
-        return array_values([
+        return [
             'name' => TextInput::make('name')->required()->maxLength(255),
             'guard_name' => TextInput::make('guard_name')->required()->maxLength(255),
             'active' => Toggle::make('active')->required(),
-        ]);}
+        ];
+    }
 
     #[\Override]
     public static function getRelations(): array

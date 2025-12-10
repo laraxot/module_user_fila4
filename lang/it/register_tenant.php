@@ -198,29 +198,6 @@ return [
             'icon' => 'profile',
             'label' => 'profile',
         ],
-        'logout' => [
-            'label' => 'logout',
-        ],
-        'attach' => [
-            'icon' => 'attach',
-            'label' => 'attach',
-        ],
-        'detach' => [
-            'icon' => 'detach',
-            'label' => 'detach',
-        ],
-        'edit' => [
-            'icon' => 'edit',
-            'label' => 'edit',
-        ],
-        'create' => [
-            'icon' => 'create',
-            'label' => 'create',
-        ],
-        'delete' => [
-            'icon' => 'delete',
-            'label' => 'delete',
-        ],
     ],
     'steps' => [
         'basic_info' => [

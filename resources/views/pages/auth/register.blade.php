@@ -10,6 +10,7 @@ use Filament\Forms\Components\Wizard;
 use Filament\Schemas\Components\Wizard\Step;
 use Filament\Forms\Concerns\InteractsWithForms;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Schemas\Schema;
 =======
 <<<<<<< HEAD
@@ -18,6 +19,9 @@ use Filament\Schemas\Schema;
 use Filament\Forms\Form;
 >>>>>>> 44e65d8 (.)
 >>>>>>> laraxot/develop
+=======
+use Filament\Schemas\Schema;
+>>>>>>> ebb22862 (.)
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;

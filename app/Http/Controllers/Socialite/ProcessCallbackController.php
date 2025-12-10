@@ -26,7 +26,6 @@ use Modules\User\Events\RegistrationNotEnabled;
 use Modules\User\Events\UserNotAllowed;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
-use Webmozart\Assert\Assert;
 
 class ProcessCallbackController extends Controller
 {
@@ -45,6 +44,7 @@ class ProcessCallbackController extends Controller
         $oauthUser = app(RetrieveOauthUserAction::class)->execute($provider);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         if ($oauthUser === null) {
 =======
         if (null === $oauthUser) {
@@ -52,6 +52,9 @@ class ProcessCallbackController extends Controller
 =======
         if (null === $oauthUser) {
 >>>>>>> a382d4f1 (.)
+=======
+        if ($oauthUser === null) {
+>>>>>>> ebb22862 (.)
             return app(RedirectToLoginAction::class)->execute('auth.login-failed');
         }
 
@@ -93,6 +96,7 @@ class ProcessCallbackController extends Controller
         // Handle registration
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         if ($user !== null) {
 =======
         if (null !== $user) {
@@ -100,6 +104,9 @@ class ProcessCallbackController extends Controller
 =======
         if (null !== $user) {
 >>>>>>> a382d4f1 (.)
+=======
+        if ($user !== null) {
+>>>>>>> ebb22862 (.)
             $socialiteUser = app(RegisterSocialiteUserAction::class)->execute($provider, $oauthUser, $user);
         } else {
             $socialiteUser = app(RegisterOauthUserAction::class)->execute($provider, $oauthUser);
@@ -115,6 +122,7 @@ class ProcessCallbackController extends Controller
         $authUser = Auth::user();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         if ($authUser !== null && method_exists($authUser, 'canAccessSocialite') && ! $authUser->canAccessSocialite()) {
 =======
         if (null !== $authUser && method_exists($authUser, 'canAccessSocialite') && ! $authUser->canAccessSocialite()) {
@@ -122,6 +130,9 @@ class ProcessCallbackController extends Controller
 =======
         if (null !== $authUser && method_exists($authUser, 'canAccessSocialite') && ! $authUser->canAccessSocialite()) {
 >>>>>>> a382d4f1 (.)
+=======
+        if ($authUser !== null && method_exists($authUser, 'canAccessSocialite') && ! $authUser->canAccessSocialite()) {
+>>>>>>> ebb22862 (.)
             return redirect()->route(
                 optional(Auth::check()) ? 'filament.user.pages.dashboard' : 'filament.user.auth.login',
             );
