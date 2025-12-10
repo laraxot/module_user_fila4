@@ -1,11 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 @props([
     'type' => 'primary', 
     'size' => 'md', 
@@ -57,7 +63,11 @@ switch ($tag ?? 'button') {
 <{!! $tagAttr !!} {!! $attributes->except(['class']) !!} class="{{ $sizeClasses }} {{ $typeClasses }} cursor-pointer inline-flex items-center w-full justify-center disabled:opacity-50 font-semibold focus:outline-none">
     {{ $slot }}
 <<<<<<< HEAD
+<<<<<<< HEAD
 </{{ $tagClose }}>
 =======
 </{{ $tagClose }}>
 >>>>>>> fbc8f8e (.)
+=======
+</{{ $tagClose }}>
+>>>>>>> 6d20fbe (.)
