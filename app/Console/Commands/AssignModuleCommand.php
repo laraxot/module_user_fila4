@@ -88,7 +88,7 @@ class AssignModuleCommand extends Command
             $role = Role::firstOrCreate(['name' => $role_name], []);
 
             // Assign the role to the user
-            $user->assignRole($role);
+            $user->assignRole($role->name);
 
             $this->info("✓ Assigned module: {$module}");
         }
