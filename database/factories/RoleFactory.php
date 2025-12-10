@@ -8,81 +8,29 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\User\Models\Role;
 
 /**
- * Factory per il modello Role del modulo User.
- *
- * @extends Factory<Role>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\User\Models\Role>
  */
 class RoleFactory extends Factory
 {
     /**
-     * Il nome del modello corrispondente alla factory.
+     * The name of the factory's corresponding model.
      *
-     * @var class-string<Role>
+     * @var class-string<\Modules\User\Models\Role>
      */
     protected $model = Role::class;
 
     /**
-     * Definisce lo stato di default del modello.
+     * Define the model's default state.
      *
      * @return array<string, mixed>
      */
     public function definition(): array
     {
-        $roles = [
-            'admin' => 'Administrator',
-            'manager' => 'Manager',
-            'editor' => 'Editor',
-            'user' => 'User',
-            'moderator' => 'Moderator',
-            'viewer' => 'Viewer',
-            'contributor' => 'Contributor',
-            'analyst' => 'Analyst',
-            'support' => 'Support Agent',
-            'developer' => 'Developer',
-        ];
-
-        $role = $this->faker->randomElement($roles);
-        $name = array_search($role, $roles, strict: true);
-
         return [
-            'name' => $name,
+            'name' => $this->faker->unique()->word(),
             'guard_name' => 'web',
+            'display_name' => $this->faker->words(2, true),
+            'description' => $this->faker->sentence(),
         ];
-    }
-
-    /**
-     * Crea un ruolo admin.
-     */
-    public function admin(): static
-    {
-            'name' => 'admin',
-        ]);
-    }
-
-    /**
-     * Crea un ruolo manager.
-     */
-    public function manager(): static
-    {
-            'name' => 'manager',
-        ]);
-    }
-
-    /**
-     * Crea un ruolo user.
-     */
-    public function user(): static
-    {
-            'name' => 'user',
-        ]);
-    }
-
-    /**
-     * Crea un ruolo con un guard specifico.
-     */
-    public function withGuard(string $guard): static
-    {
-            'guard_name' => $guard,
-        ]);
     }
 }

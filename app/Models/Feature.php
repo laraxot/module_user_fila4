@@ -47,6 +47,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|Feature newModelQuery()
  * @method static Builder<static>|Feature newQuery()
  * @method static Builder<static>|Feature query()
+ *
  * @mixin \Eloquent
  */
 class Feature extends BaseModel
