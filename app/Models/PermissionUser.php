@@ -17,8 +17,10 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|PermissionUser newQuery()
  * @method static Builder<static>|PermissionUser query()
  *
+ * @mixin IdeHelperPermissionUser
  * @mixin \Eloquent
  */
+<<<<<<< HEAD
 <<<<<<< HEAD
 class PermissionUser extends ModelHasPermission {}
 =======
@@ -26,3 +28,8 @@ class PermissionUser extends ModelHasPermission
 {
 }
 >>>>>>> laraxot/develop
+=======
+class PermissionUser extends ModelHasPermission
+{
+}
+>>>>>>> a382d4f1 (.)

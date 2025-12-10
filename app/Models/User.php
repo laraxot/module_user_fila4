@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 =======
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -149,6 +152,7 @@ class User extends BaseUser
 <<<<<<< HEAD
     public $connection = 'user';
 
+<<<<<<< HEAD
     #[Override]
 =======
 <<<<<<< HEAD
@@ -159,6 +163,9 @@ class User extends BaseUser
 
     #[\Override]
 >>>>>>> laraxot/develop
+=======
+    #[\Override]
+>>>>>>> a382d4f1 (.)
     public function canAccessSocialite(): bool
     {
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;

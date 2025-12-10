@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Xot\Models\Traits\HasXotFactory;
 =======
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

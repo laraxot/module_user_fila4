@@ -10,9 +10,12 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Pages;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Exception;
 =======
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
 use Filament\Actions\Action;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\TextInput;
@@ -121,10 +124,14 @@ class MyProfilePage extends XotBasePage
 
         if (! ($user instanceof Model)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             throw new Exception('The authenticated user object must be an Eloquent model to allow the profile page to update it.');
 =======
             throw new \Exception('The authenticated user object must be an Eloquent model to allow the profile page to update it.');
 >>>>>>> laraxot/develop
+=======
+            throw new \Exception('The authenticated user object must be an Eloquent model to allow the profile page to update it.');
+>>>>>>> a382d4f1 (.)
         }
 
         return $user;

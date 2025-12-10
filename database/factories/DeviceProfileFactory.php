@@ -6,9 +6,12 @@ namespace Modules\User\Database\Factories;
 
 use Modules\User\Models\DeviceProfile;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
 
 /**
  * DeviceProfile Factory.

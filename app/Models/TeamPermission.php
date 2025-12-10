@@ -6,9 +6,13 @@ namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\User\Models\BaseModel;
 =======
 >>>>>>> laraxot/develop
+=======
+use Illuminate\Database\Eloquent\Model;
+>>>>>>> a382d4f1 (.)
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -29,6 +33,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static Builder<static>|TeamPermission newQuery()
  * @method static Builder<static>|TeamPermission query()
  *
+ * @mixin IdeHelperTeamPermission
  * @mixin \Eloquent
  */
 class TeamPermission extends BaseModel
@@ -65,9 +70,13 @@ class TeamPermission extends BaseModel
     public function user(): BelongsTo
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $this->belongsTo(\Modules\User\Models\User::class);
 =======
         return $this->belongsTo(User::class);
 >>>>>>> laraxot/develop
+=======
+        return $this->belongsTo(User::class);
+>>>>>>> a382d4f1 (.)
     }
 }

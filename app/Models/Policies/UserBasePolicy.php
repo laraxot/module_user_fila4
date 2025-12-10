@@ -29,11 +29,20 @@ abstract class UserBasePolicy
         return null;
     }
 
+<<<<<<< HEAD
     /**
+=======
+
+     /**
+>>>>>>> a382d4f1 (.)
      * Determine whether the user can view any models.
      */
     public function viewAny(UserContract $user): bool
     {
         return false;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a382d4f1 (.)
 }

@@ -40,10 +40,14 @@ Questa differenza è definita nel file `composer.json` di ogni modulo, che mappa
 ## Pattern di Implementazione
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <nome progetto> utilizza il package `spatie/laravel-queueable-action` per le Actions, NON il pattern Service:
 =======
 SaluteOra utilizza il package `spatie/laravel-queueable-action` per le Actions, NON il pattern Service:
 >>>>>>> laraxot/develop
+=======
+<nome progetto> utilizza il package `spatie/laravel-queueable-action` per le Actions, NON il pattern Service:
+>>>>>>> a382d4f1 (.)
 
 ```php
 <?php

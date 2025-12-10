@@ -172,6 +172,7 @@ return [
             'icon' => 'delete',
             'label' => 'delete',
         ],
+<<<<<<< HEAD
         'reorderRecords' => [
             'icon' => 'reorderRecords',
             'label' => 'reorderRecords',
@@ -313,6 +314,8 @@ return [
             'icon' => 'submit',
         ],
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
     ],
     'plural' => [
         'model' => [

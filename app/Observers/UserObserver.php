@@ -8,9 +8,12 @@ use Illuminate\Support\Facades\Log;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Throwable;
 =======
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
 
 /**
  * Observer per gestire eventi del modello User.

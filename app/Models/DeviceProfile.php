@@ -23,6 +23,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|DeviceProfile newQuery()
  * @method static Builder<static>|DeviceProfile query()
  *
+ * @mixin IdeHelperDeviceProfile
  * @mixin \Eloquent
  */
 class DeviceProfile extends DeviceUser

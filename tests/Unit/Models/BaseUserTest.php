@@ -15,11 +15,15 @@ uses(TestCase::class, RefreshDatabase::class);
 
 beforeEach(function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
     $this->baseUser = new class() extends BaseUser
     {
 =======
     $this->baseUser = new class extends BaseUser {
 >>>>>>> laraxot/develop
+=======
+    $this->baseUser = new class extends BaseUser {
+>>>>>>> a382d4f1 (.)
         protected $table = 'test_users';
     };
 });

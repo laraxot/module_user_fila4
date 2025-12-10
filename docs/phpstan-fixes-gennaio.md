@@ -114,10 +114,17 @@ PHPStan aveva difficoltà nel riconoscere la sintassi method chaining e object i
 
 ### **Benefici**
 <<<<<<< HEAD
+<<<<<<<< HEAD:docs/phpstan-fixes-gennaio.md
+<<<<<<< HEAD
 - ✅ **PHPStan Level 9**: Compatibilità completa
 =======
 - ✅ **PHPStan level 10**: Compatibilità completa
 >>>>>>> laraxot/develop
+========
+>>>>>>>> a382d4f1 (.):docs/phpstan-fixes-gennaio-2025.md
+=======
+- ✅ **PHPStan level 10**: Compatibilità completa
+>>>>>>> a382d4f1 (.)
 - ✅ **Leggibilità**: Codice più esplicito e chiaro
 - ✅ **Type Safety**: Mantenuta con type hints espliciti
 - ✅ **Debugging**: Più facile identificare problemi
@@ -236,6 +243,12 @@ $subject = Lang::get('user::email.password_reset_subject');
 
 
 <<<<<<< HEAD
+<<<<<<<< HEAD:docs/phpstan-fixes-gennaio.md
+<<<<<<< HEAD
 =======
 
 >>>>>>> laraxot/develop
+========
+>>>>>>>> a382d4f1 (.):docs/phpstan-fixes-gennaio-2025.md
+=======
+>>>>>>> a382d4f1 (.)

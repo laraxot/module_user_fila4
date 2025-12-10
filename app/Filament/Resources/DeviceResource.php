@@ -10,9 +10,12 @@ use Filament\Forms\Components\Toggle;
 use Modules\User\Models\Device;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
 
 class DeviceResource extends XotBaseResource
 {

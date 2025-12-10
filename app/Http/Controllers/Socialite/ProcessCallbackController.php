@@ -43,10 +43,14 @@ class ProcessCallbackController extends Controller
         // Try to retrieve existing user
         $oauthUser = app(RetrieveOauthUserAction::class)->execute($provider);
 <<<<<<< HEAD
+<<<<<<< HEAD
         if ($oauthUser === null) {
 =======
         if (null === $oauthUser) {
 >>>>>>> laraxot/develop
+=======
+        if (null === $oauthUser) {
+>>>>>>> a382d4f1 (.)
             return app(RedirectToLoginAction::class)->execute('auth.login-failed');
         }
 
@@ -87,10 +91,14 @@ class ProcessCallbackController extends Controller
 
         // Handle registration
 <<<<<<< HEAD
+<<<<<<< HEAD
         if ($user !== null) {
 =======
         if (null !== $user) {
 >>>>>>> laraxot/develop
+=======
+        if (null !== $user) {
+>>>>>>> a382d4f1 (.)
             $socialiteUser = app(RegisterSocialiteUserAction::class)->execute($provider, $oauthUser, $user);
         } else {
             $socialiteUser = app(RegisterOauthUserAction::class)->execute($provider, $oauthUser);
@@ -105,10 +113,14 @@ class ProcessCallbackController extends Controller
         /** @var UserContract|null $authUser */
         $authUser = Auth::user();
 <<<<<<< HEAD
+<<<<<<< HEAD
         if ($authUser !== null && method_exists($authUser, 'canAccessSocialite') && ! $authUser->canAccessSocialite()) {
 =======
         if (null !== $authUser && method_exists($authUser, 'canAccessSocialite') && ! $authUser->canAccessSocialite()) {
 >>>>>>> laraxot/develop
+=======
+        if (null !== $authUser && method_exists($authUser, 'canAccessSocialite') && ! $authUser->canAccessSocialite()) {
+>>>>>>> a382d4f1 (.)
             return redirect()->route(
                 optional(Auth::check()) ? 'filament.user.pages.dashboard' : 'filament.user.auth.login',
             );

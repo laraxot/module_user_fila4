@@ -35,11 +35,16 @@ class PasswordData extends Data
         public ?string $failMessage = null,
         private ?string $field_name = null,
 <<<<<<< HEAD
+<<<<<<< HEAD
     ) {}
 =======
     ) {
     }
 >>>>>>> laraxot/develop
+=======
+    ) {
+    }
+>>>>>>> a382d4f1 (.)
 
     /**
      * Crea un'istanza della classe PasswordData.

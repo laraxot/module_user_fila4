@@ -17,9 +17,12 @@ use Modules\User\Filament\Resources\PermissionResource\Pages\ListPermissions;
 use Modules\User\Models\Permission;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
 
 class PermissionResource extends XotBaseResource
 {

@@ -1,10 +1,15 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 declare(strict_types=1);
 
 >>>>>>> laraxot/develop
+=======
+declare(strict_types=1);
+
+>>>>>>> a382d4f1 (.)
 return [
     'fields' => [
         'email' => [

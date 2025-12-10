@@ -26,6 +26,7 @@ use Webmozart\Assert\Assert;
  * This trait handles team ownership, membership, permissions, and relationships.
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @property TeamContract $currentTeam
  * @property int|null $current_team_id
  * @property Collection<int, TeamContract> $teams
@@ -40,6 +41,14 @@ use Webmozart\Assert\Assert;
  * @property Collection<int, Membership>   $teamUsers
  * @property UserContract|null             $owner
 >>>>>>> laraxot/develop
+=======
+ * @property TeamContract                  $currentTeam
+ * @property int|null                      $current_team_id
+ * @property Collection<int, TeamContract> $teams
+ * @property Collection<int, TeamContract> $ownedTeams
+ * @property Collection<int, Membership>   $teamUsers
+ * @property UserContract|null             $owner
+>>>>>>> a382d4f1 (.)
  */
 trait HasTeams
 {
@@ -83,10 +92,14 @@ trait HasTeams
     {
         $found = $this->teams()->where('teams.id', $team->id)->first();
 <<<<<<< HEAD
+<<<<<<< HEAD
         if ($found === null) {
 =======
         if (null === $found) {
 >>>>>>> laraxot/develop
+=======
+        if (null === $found) {
+>>>>>>> a382d4f1 (.)
             return false;
         }
         Assert::isInstanceOf($found, TeamContract::class, 'Team must implement TeamContract.');
@@ -180,6 +193,7 @@ trait HasTeams
             $user = $membership->getAttribute('user');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             return $user !== null ? $user : null;
         })->filter();
 
@@ -192,6 +206,13 @@ trait HasTeams
         $owner = $this->owner;
         if (null !== $owner && $owner instanceof User) {
 >>>>>>> laraxot/develop
+=======
+            return null !== $user ? $user : null;
+        })->filter();
+
+        $owner = $this->owner;
+        if (null !== $owner && $owner instanceof User) {
+>>>>>>> a382d4f1 (.)
             return $users->merge([$owner]);
         }
 
@@ -211,20 +232,28 @@ trait HasTeams
                 $memberUserKey = $memberUser->getKey();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 return $memberUserKey !== null && $memberUserKey === $user->getKey();
 =======
                 return null !== $memberUserKey && $memberUserKey === $user->getKey();
 >>>>>>> laraxot/develop
+=======
+                return null !== $memberUserKey && $memberUserKey === $user->getKey();
+>>>>>>> a382d4f1 (.)
             }
 
             return false;
         });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         if ($userFound !== null) {
 =======
         if (null !== $userFound) {
 >>>>>>> laraxot/develop
+=======
+        if (null !== $userFound) {
+>>>>>>> a382d4f1 (.)
             return true;
         }
 
@@ -264,10 +293,14 @@ trait HasTeams
         $teamRole = $this->teamRole($team);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $teamRole !== null && isset($teamRole->name) && $teamRole->name === $role;
 =======
         return null !== $teamRole && isset($teamRole->name) && $teamRole->name === $role;
 >>>>>>> laraxot/develop
+=======
+        return null !== $teamRole && isset($teamRole->name) && $teamRole->name === $role;
+>>>>>>> a382d4f1 (.)
     }
 
     /**
@@ -278,6 +311,7 @@ trait HasTeams
     public function currentTeam(): BelongsTo
     {
         $xot = XotData::make();
+<<<<<<< HEAD
 <<<<<<< HEAD
         if ($this->current_team_id === null && $this->id) {
             $this->switchTeam($this->personalTeam());
@@ -291,6 +325,13 @@ trait HasTeams
 
         if ($this->allTeams()->isEmpty() && null !== $this->getKey()) {
 >>>>>>> laraxot/develop
+=======
+        if (null === $this->current_team_id && $this->id) {
+            $this->switchTeam($this->personalTeam());
+        }
+
+        if ($this->allTeams()->isEmpty() && null !== $this->getKey()) {
+>>>>>>> a382d4f1 (.)
             $this->current_team_id = null;
             $this->save();
         }
@@ -332,10 +373,14 @@ trait HasTeams
         $teamUser = $this->teamUsers()->where('team_id', $team->id)->first();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         if ($teamUser === null) {
 =======
         if (null === $teamUser) {
 >>>>>>> laraxot/develop
+=======
+        if (null === $teamUser) {
+>>>>>>> a382d4f1 (.)
             return null;
         }
 
@@ -355,10 +400,14 @@ trait HasTeams
         $role = $this->teamRole($team);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         if ($role === null || ! $role->permissions) {
 =======
         if (null === $role || ! $role->permissions) {
 >>>>>>> laraxot/develop
+=======
+        if (null === $role || ! $role->permissions) {
+>>>>>>> a382d4f1 (.)
             return [];
         }
 
@@ -393,10 +442,14 @@ trait HasTeams
     public function switchTeam(?TeamContract $team): bool
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if ($team === null) {
 =======
         if (null === $team) {
 >>>>>>> laraxot/develop
+=======
+        if (null === $team) {
+>>>>>>> a382d4f1 (.)
             return false;
         }
 
@@ -416,10 +469,14 @@ trait HasTeams
     public function isCurrentTeam(TeamContract $team): bool
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if ($this->currentTeam === null) {
 =======
         if (null === $this->currentTeam) {
 >>>>>>> laraxot/develop
+=======
+        if (null === $this->currentTeam) {
+>>>>>>> a382d4f1 (.)
             return false;
         }
 
@@ -435,10 +492,14 @@ trait HasTeams
         $found = $this->ownedTeams()->where('teams.id', $team->id)->first();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $found !== null;
 =======
         return null !== $found;
 >>>>>>> laraxot/develop
+=======
+        return null !== $found;
+>>>>>>> a382d4f1 (.)
     }
 
     /**

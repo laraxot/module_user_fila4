@@ -10,9 +10,12 @@ use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\DeviceResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
 
 class ListDevices extends XotBaseListRecords
 {

@@ -1,10 +1,13 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
 declare(strict_types=1);
 
 return [
@@ -684,6 +687,7 @@ return [
         ],
     ],
 ];
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -1417,3 +1421,5 @@ return array (
 =======
 >>>>>>> cebb28c (.)
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)

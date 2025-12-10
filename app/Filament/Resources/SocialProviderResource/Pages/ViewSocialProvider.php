@@ -10,9 +10,12 @@ use Filament\Schemas\Components\Section;
 use Modules\User\Filament\Resources\SocialProviderResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
 
 use function Safe\json_encode;
 

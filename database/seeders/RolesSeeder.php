@@ -34,12 +34,16 @@ class RolesSeeder extends Seeder
     /**
      * Display the seeding results in a table format.
      *
+<<<<<<< HEAD
      * <<<<<<< HEAD
      *
      * @param array<int, Role> $roles
      *                                =======
      * @param array<int, Role> $roles
      *                                >>>>>>> laraxot/develop
+=======
+     * @param array<int, Role> $roles
+>>>>>>> a382d4f1 (.)
      */
     private function displayResults(array $roles): void
     {

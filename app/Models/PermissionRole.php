@@ -33,6 +33,7 @@ use Webmozart\Assert\Assert;
  * @method static Builder|PermissionRole whereUpdatedAt($value)
  * @method static Builder|PermissionRole whereUpdatedBy($value)
  *
+ * @mixin IdeHelperPermissionRole
  * @mixin \Eloquent
  */
 class PermissionRole extends BasePivot

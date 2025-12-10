@@ -21,9 +21,14 @@ class Login
     public function __construct(
         public SocialiteUser $socialiteUser,
 <<<<<<< HEAD
+<<<<<<< HEAD
     ) {}
 =======
     ) {
     }
 >>>>>>> laraxot/develop
+=======
+    ) {
+    }
+>>>>>>> a382d4f1 (.)
 }

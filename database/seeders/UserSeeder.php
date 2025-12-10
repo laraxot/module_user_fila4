@@ -33,10 +33,14 @@ class UserSeeder extends Seeder
 
         // Disabilita i controlli di foreign key (solo per MySQL)
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (DB::getDriverName() !== 'sqlite') {
 =======
         if ('sqlite' !== DB::getDriverName()) {
 >>>>>>> laraxot/develop
+=======
+        if ('sqlite' !== DB::getDriverName()) {
+>>>>>>> a382d4f1 (.)
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         }
 
@@ -48,10 +52,14 @@ class UserSeeder extends Seeder
         } finally {
             // Riabilita i controlli di foreign key (solo per MySQL)
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (DB::getDriverName() !== 'sqlite') {
 =======
             if ('sqlite' !== DB::getDriverName()) {
 >>>>>>> laraxot/develop
+=======
+            if ('sqlite' !== DB::getDriverName()) {
+>>>>>>> a382d4f1 (.)
                 DB::statement('SET FOREIGN_KEY_CHECKS=1;');
             }
         }

@@ -7,9 +7,12 @@ use Illuminate\Support\Facades\Hash;
 use Modules\User\Filament\Widgets\LoginWidget;
 use Modules\User\Models\User;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Tests\TestCase;
 =======
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
 
 use function Pest\Laravel\assertAuthenticatedAs;
 

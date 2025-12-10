@@ -9,9 +9,12 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
 
 class TeamResource extends XotBaseResource
 {

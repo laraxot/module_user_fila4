@@ -43,6 +43,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  *
+ * @mixin IdeHelperModelHasRole
  * @mixin \Eloquent
  */
 class ModelHasRole extends BaseMorphPivot

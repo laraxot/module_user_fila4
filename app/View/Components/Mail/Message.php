@@ -18,11 +18,16 @@ class Message extends Component
     public function __construct(
         // public string $message
 <<<<<<< HEAD
+<<<<<<< HEAD
     ) {}
 =======
     ) {
     }
 >>>>>>> laraxot/develop
+=======
+    ) {
+    }
+>>>>>>> a382d4f1 (.)
 
     /**
      * Get the view / contents that represent the component.

@@ -9,9 +9,12 @@ use Filament\Support\Components\Component;
 use Modules\User\Filament\Resources\PermissionResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
 
 class ViewPermission extends XotBaseViewRecord
 {

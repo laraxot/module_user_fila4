@@ -7,11 +7,14 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 return new class() extends Migration
 {
 =======
 return new class extends Migration {
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
     /**
      * Run the migrations.
      */

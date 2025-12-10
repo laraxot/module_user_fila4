@@ -30,9 +30,14 @@ class InvitingTeamMember
          */
         public string $role,
 <<<<<<< HEAD
+<<<<<<< HEAD
     ) {}
 =======
     ) {
     }
 >>>>>>> laraxot/develop
+=======
+    ) {
+    }
+>>>>>>> a382d4f1 (.)
 }

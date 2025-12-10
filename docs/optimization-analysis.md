@@ -724,10 +724,14 @@ class SecurityAlertService
 ## 🔗 Collegamenti
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a382d4f1 (.)
 - [Spatie Permission Documentation](https://spatie.be/project_docs/laravel-permission)
 - [Laravel Authentication](https://laravel.com/project_docs/authentication)
 - [Multi-tenancy Best Practices](../../../project_docs/multi-tenancy-best-practices.md)
 - [Security Guidelines](../../../project_docs/security-guidelines.md)
+<<<<<<< HEAD
 =======
 - [Spatie Permission Documentation](https://spatie.be/docs/laravel-permission)
 - [Laravel Authentication](https://laravel.com/docs/authentication)
@@ -735,6 +739,8 @@ class SecurityAlertService
 - [Security Guidelines](../../../docs/security-guidelines.md)
 
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
 
 ---
 

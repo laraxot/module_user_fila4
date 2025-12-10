@@ -146,6 +146,7 @@ done
 ## Collegamenti
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [Factory Audit Root](../../../project_docs/factory-audit-2025.md)
 - [Missing Factories Audit](./missing-factories-audit.md)
 - [Geo Factory Audit](../../Geo/project_docs/missing-factories-audit.md)
@@ -157,6 +158,12 @@ done
 - [Laravel Factory Best Practices](../../../docs/laravel-factory-best-practices.md)
 
 >>>>>>> laraxot/develop
+=======
+- [Factory Audit Root](../../../project_docs/factory-audit-2025.md)
+- [Missing Factories Audit](./missing-factories-audit.md)
+- [Geo Factory Audit](../../Geo/project_docs/missing-factories-audit.md)
+- [Laravel Factory Best Practices](../../../project_docs/laravel-factory-best-practices.md)
+>>>>>>> a382d4f1 (.)
 
 ---
 

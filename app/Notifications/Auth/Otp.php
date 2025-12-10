@@ -49,9 +49,12 @@ class Otp extends Notification implements ShouldQueue
         $app_name = config('app.name');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
         $mailMessage = new MailMessage();
         $mailMessage = $mailMessage->template('user::notifications.email');
         $mailMessage = $mailMessage->subject(__('user::otp.mail.subject'));
@@ -62,6 +65,7 @@ class Otp extends Notification implements ShouldQueue
         $mailMessage = $mailMessage->action('vai', url('/'));
 
         return $mailMessage
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -75,6 +79,8 @@ class Otp extends Notification implements ShouldQueue
             ->action('vai', url('/'))
 >>>>>>> ceff73a (.)
 >>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
             ->salutation(__('user::otp.mail.salutation', ['app_name' => $app_name]));
     }
 

@@ -23,11 +23,16 @@ class NewPasswordSet
     public function __construct(
         public UserContract $authObject,
 <<<<<<< HEAD
+<<<<<<< HEAD
     ) {}
 =======
     ) {
     }
 >>>>>>> laraxot/develop
+=======
+    ) {
+    }
+>>>>>>> a382d4f1 (.)
 
     /**
      * Get the channels the event should broadcast on.

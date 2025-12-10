@@ -16,10 +16,14 @@ class UserTest extends TestCase
     public function testCanCreateUserWithMinimalData(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
 =======
         $user = User/* @phpstan-ignore-line */ ::factory()->create([
 >>>>>>> laraxot/develop
+=======
+        $user = User::factory()->create([
+>>>>>>> a382d4f1 (.)
             'email' => 'test@example.com',
             'password' => Hash::make('password'),
         ]);
@@ -53,10 +57,14 @@ class UserTest extends TestCase
         ];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $user = User/** @phpstan-ignore-line */ ::factory()->create($userData);
 =======
         $user = User/* @phpstan-ignore-line */ ::factory()->create($userData);
 >>>>>>> laraxot/develop
+=======
+        $user = User::factory()->create($userData);
+>>>>>>> a382d4f1 (.)
 
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
@@ -80,10 +88,14 @@ class UserTest extends TestCase
     public function testUserHasSoftDeletes(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
 =======
         $user = User/* @phpstan-ignore-line */ ::factory()->create();
 >>>>>>> laraxot/develop
+=======
+        $user = User::factory()->create();
+>>>>>>> a382d4f1 (.)
         $userId = $user->id;
 
         $user->delete();
@@ -101,10 +113,14 @@ class UserTest extends TestCase
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
 =======
         $user = User/* @phpstan-ignore-line */ ::factory()->create();
 >>>>>>> laraxot/develop
+=======
+        $user = User::factory()->create();
+>>>>>>> a382d4f1 (.)
         $userId = $user->id;
 
         $user->delete();
@@ -121,10 +137,14 @@ class UserTest extends TestCase
     public function testCanFindUserByEmail(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $user = User/** @phpstan-ignore-line */ ::factory()->create(['email' => 'unique@example.com']);
 =======
         $user = User/* @phpstan-ignore-line */ ::factory()->create(['email' => 'unique@example.com']);
 >>>>>>> laraxot/develop
+=======
+        $user = User::factory()->create(['email' => 'unique@example.com']);
+>>>>>>> a382d4f1 (.)
 
         $foundUser = User::where('email', 'unique@example.com')->first();
 
@@ -135,6 +155,7 @@ class UserTest extends TestCase
     public function testCanFindUserByNamePattern(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         User/** @phpstan-ignore-line */ ::factory()->create(['name' => 'John Doe']);
         User/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Jane Doe']);
         User/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Bob Smith']);
@@ -143,6 +164,11 @@ class UserTest extends TestCase
         User/* @phpstan-ignore-line */ ::factory()->create(['name' => 'Jane Doe']);
         User/* @phpstan-ignore-line */ ::factory()->create(['name' => 'Bob Smith']);
 >>>>>>> laraxot/develop
+=======
+        User::factory()->create(['name' => 'John Doe']);
+        User::factory()->create(['name' => 'Jane Doe']);
+        User::factory()->create(['name' => 'Bob Smith']);
+>>>>>>> a382d4f1 (.)
 
         $doeUsers = User::where('name', 'like', '%Doe%')->get();
 
@@ -153,6 +179,7 @@ class UserTest extends TestCase
     public function testCanFindUserByStatus(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         User/** @phpstan-ignore-line */ ::factory()->create(['status' => 'active']);
         User/** @phpstan-ignore-line */ ::factory()->create(['status' => 'inactive']);
         User/** @phpstan-ignore-line */ ::factory()->create(['status' => 'pending']);
@@ -161,6 +188,11 @@ class UserTest extends TestCase
         User/* @phpstan-ignore-line */ ::factory()->create(['status' => 'inactive']);
         User/* @phpstan-ignore-line */ ::factory()->create(['status' => 'pending']);
 >>>>>>> laraxot/develop
+=======
+        User::factory()->create(['status' => 'active']);
+        User::factory()->create(['status' => 'inactive']);
+        User::factory()->create(['status' => 'pending']);
+>>>>>>> a382d4f1 (.)
 
         $activeUsers = User::where('status', 'active')->get();
 
@@ -171,6 +203,7 @@ class UserTest extends TestCase
     public function testCanFindUserByType(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         User/** @phpstan-ignore-line */ ::factory()->create(['type' => 'individual']);
         User/** @phpstan-ignore-line */ ::factory()->create(['type' => 'company']);
         User/** @phpstan-ignore-line */ ::factory()->create(['type' => 'organization']);
@@ -179,6 +212,11 @@ class UserTest extends TestCase
         User/* @phpstan-ignore-line */ ::factory()->create(['type' => 'company']);
         User/* @phpstan-ignore-line */ ::factory()->create(['type' => 'organization']);
 >>>>>>> laraxot/develop
+=======
+        User::factory()->create(['type' => 'individual']);
+        User::factory()->create(['type' => 'company']);
+        User::factory()->create(['type' => 'organization']);
+>>>>>>> a382d4f1 (.)
 
         $individualUsers = User::where('type', 'individual')->get();
 
@@ -189,6 +227,7 @@ class UserTest extends TestCase
     public function testCanFindUserByCity(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         User/** @phpstan-ignore-line */ ::factory()->create(['city' => 'New York']);
         User/** @phpstan-ignore-line */ ::factory()->create(['city' => 'Los Angeles']);
         User/** @phpstan-ignore-line */ ::factory()->create(['city' => 'Chicago']);
@@ -197,6 +236,11 @@ class UserTest extends TestCase
         User/* @phpstan-ignore-line */ ::factory()->create(['city' => 'Los Angeles']);
         User/* @phpstan-ignore-line */ ::factory()->create(['city' => 'Chicago']);
 >>>>>>> laraxot/develop
+=======
+        User::factory()->create(['city' => 'New York']);
+        User::factory()->create(['city' => 'Los Angeles']);
+        User::factory()->create(['city' => 'Chicago']);
+>>>>>>> a382d4f1 (.)
 
         $nyUsers = User::where('city', 'New York')->get();
 
@@ -207,10 +251,14 @@ class UserTest extends TestCase
     public function testCanFindUserByRegistrationNumber(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $user = User/** @phpstan-ignore-line */ ::factory()->create(['registration_number' => 'REG123456']);
 =======
         $user = User/* @phpstan-ignore-line */ ::factory()->create(['registration_number' => 'REG123456']);
 >>>>>>> laraxot/develop
+=======
+        $user = User::factory()->create(['registration_number' => 'REG123456']);
+>>>>>>> a382d4f1 (.)
 
         $foundUser = User::where('registration_number', 'REG123456')->first();
 
@@ -221,10 +269,14 @@ class UserTest extends TestCase
     public function testCanFindUserByPhone(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $user = User/** @phpstan-ignore-line */ ::factory()->create(['phone' => '+1234567890']);
 =======
         $user = User/* @phpstan-ignore-line */ ::factory()->create(['phone' => '+1234567890']);
 >>>>>>> laraxot/develop
+=======
+        $user = User::factory()->create(['phone' => '+1234567890']);
+>>>>>>> a382d4f1 (.)
 
         $foundUser = User::where('phone', '+1234567890')->first();
 
@@ -235,6 +287,7 @@ class UserTest extends TestCase
     public function testCanFindUserByLanguage(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         User/** @phpstan-ignore-line */ ::factory()->create(['lang' => 'en']);
         User/** @phpstan-ignore-line */ ::factory()->create(['lang' => 'it']);
         User/** @phpstan-ignore-line */ ::factory()->create(['lang' => 'de']);
@@ -243,6 +296,11 @@ class UserTest extends TestCase
         User/* @phpstan-ignore-line */ ::factory()->create(['lang' => 'it']);
         User/* @phpstan-ignore-line */ ::factory()->create(['lang' => 'de']);
 >>>>>>> laraxot/develop
+=======
+        User::factory()->create(['lang' => 'en']);
+        User::factory()->create(['lang' => 'it']);
+        User::factory()->create(['lang' => 'de']);
+>>>>>>> a382d4f1 (.)
 
         $englishUsers = User::where('lang', 'en')->get();
 
@@ -253,6 +311,7 @@ class UserTest extends TestCase
     public function testCanFindActiveUsers(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         User/** @phpstan-ignore-line */ ::factory()->create(['is_active' => true]);
         User/** @phpstan-ignore-line */ ::factory()->create(['is_active' => false]);
         User/** @phpstan-ignore-line */ ::factory()->create(['is_active' => true]);
@@ -261,6 +320,11 @@ class UserTest extends TestCase
         User/* @phpstan-ignore-line */ ::factory()->create(['is_active' => false]);
         User/* @phpstan-ignore-line */ ::factory()->create(['is_active' => true]);
 >>>>>>> laraxot/develop
+=======
+        User::factory()->create(['is_active' => true]);
+        User::factory()->create(['is_active' => false]);
+        User::factory()->create(['is_active' => true]);
+>>>>>>> a382d4f1 (.)
 
         $activeUsers = User::where('is_active', true)->get();
 
@@ -271,6 +335,7 @@ class UserTest extends TestCase
     public function testCanFindOtpUsers(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         User/** @phpstan-ignore-line */ ::factory()->create(['is_otp' => true]);
         User/** @phpstan-ignore-line */ ::factory()->create(['is_otp' => false]);
         User/** @phpstan-ignore-line */ ::factory()->create(['is_otp' => true]);
@@ -279,6 +344,11 @@ class UserTest extends TestCase
         User/* @phpstan-ignore-line */ ::factory()->create(['is_otp' => false]);
         User/* @phpstan-ignore-line */ ::factory()->create(['is_otp' => true]);
 >>>>>>> laraxot/develop
+=======
+        User::factory()->create(['is_otp' => true]);
+        User::factory()->create(['is_otp' => false]);
+        User::factory()->create(['is_otp' => true]);
+>>>>>>> a382d4f1 (.)
 
         $otpUsers = User::where('is_otp', true)->get();
 
@@ -289,10 +359,14 @@ class UserTest extends TestCase
     public function testCanUpdateUser(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $user = User/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Old Name']);
 =======
         $user = User/* @phpstan-ignore-line */ ::factory()->create(['name' => 'Old Name']);
 >>>>>>> laraxot/develop
+=======
+        $user = User::factory()->create(['name' => 'Old Name']);
+>>>>>>> a382d4f1 (.)
 
         $user->update(['name' => 'New Name']);
 
@@ -305,10 +379,14 @@ class UserTest extends TestCase
     public function testCanAccessSocialite(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $user = User/** @phpstan-ignore-line */ ::factory()->create();
 =======
         $user = User/* @phpstan-ignore-line */ ::factory()->create();
 >>>>>>> laraxot/develop
+=======
+        $user = User::factory()->create();
+>>>>>>> a382d4f1 (.)
 
         static::assertTrue($user->canAccessSocialite());
     }
@@ -323,30 +401,42 @@ class UserTest extends TestCase
     public function testCanFindUsersByMultipleCriteria(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         User/** @phpstan-ignore-line */ ::factory()->create([
 =======
         User/* @phpstan-ignore-line */ ::factory()->create([
 >>>>>>> laraxot/develop
+=======
+        User::factory()->create([
+>>>>>>> a382d4f1 (.)
             'status' => 'active',
             'type' => 'individual',
             'city' => 'New York',
         ]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         User/** @phpstan-ignore-line */ ::factory()->create([
 =======
         User/* @phpstan-ignore-line */ ::factory()->create([
 >>>>>>> laraxot/develop
+=======
+        User::factory()->create([
+>>>>>>> a382d4f1 (.)
             'status' => 'active',
             'type' => 'company',
             'city' => 'New York',
         ]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         User/** @phpstan-ignore-line */ ::factory()->create([
 =======
         User/* @phpstan-ignore-line */ ::factory()->create([
 >>>>>>> laraxot/develop
+=======
+        User::factory()->create([
+>>>>>>> a382d4f1 (.)
             'status' => 'inactive',
             'type' => 'individual',
             'city' => 'Los Angeles',
@@ -361,10 +451,14 @@ class UserTest extends TestCase
     public function testCanHandleNullValues(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
 =======
         $user = User/* @phpstan-ignore-line */ ::factory()->create([
 >>>>>>> laraxot/develop
+=======
+        $user = User::factory()->create([
+>>>>>>> a382d4f1 (.)
             'phone' => null,
             'address' => null,
             'city' => null,

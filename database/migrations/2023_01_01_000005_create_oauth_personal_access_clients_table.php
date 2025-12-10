@@ -7,11 +7,15 @@ use Modules\User\Models\OauthClient;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 return new class() extends XotBaseMigration
 {
 =======
 return new class extends XotBaseMigration {
 >>>>>>> laraxot/develop
+=======
+return new class extends XotBaseMigration {
+>>>>>>> a382d4f1 (.)
     public function up(): void
     {
         $this->tableCreate(static function (Blueprint $table): void {

@@ -281,6 +281,8 @@ trait IsProfileTrait
     /**
      * Get the user's user_name.
      * Ottiene il nome utente dal modello utente collegato.
+     *
+     * @return Attribute<string|null, never>
      */
     protected function userName(): Attribute
     {
@@ -302,6 +304,8 @@ trait IsProfileTrait
     /**
      * Get the user's avatar URL.
      * Recupera l'URL dell'avatar dell'utente dalla MediaLibrary.
+     *
+     * @return Attribute<string, never>
      */
     protected function avatar(): Attribute
     {
