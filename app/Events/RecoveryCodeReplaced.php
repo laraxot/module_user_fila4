@@ -16,28 +16,8 @@ class RecoveryCodeReplaced
      *
      * @return void
      */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
     public function __construct(
         public Authenticatable $user,
         public string $code,
     ) {}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-    public function __construct(public Authenticatable $user, public string $code) {}
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-    public function __construct(public Authenticatable $user, public string $code) {}
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 }
