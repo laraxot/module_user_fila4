@@ -26,7 +26,11 @@ composer.lock
 build/
 dist/
 docs/cache/
+<<<<<<< HEAD
 cache/*
+=======
+cache/
+>>>>>>> 4b219c8 (.)
 
 # ==============================================
 # CACHE & TEMPORARY FILES
