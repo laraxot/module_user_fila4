@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::namespace('Socialite')
     ->name('socialite.')
+<<<<<<< HEAD
     ->group(static function (): void {
         Route::get(
             '/admin/login/{provider}',
@@ -18,3 +19,20 @@ Route::namespace('Socialite')
         )->name('oauth.redirect');
         Route::get('/sso/{provider}/callback', 'ProcessCallbackController')->name('oauth.callback');
     });
+=======
+    ->group(
+        static function (): void {
+            Route::get(
+                '/admin/login/{provider}',
+                // 'LoginController@redirectToProvider',
+                'RedirectToProviderController',
+            )
+                ->name('oauth.redirect');
+            Route::get(
+                '/sso/{provider}/callback',
+                'ProcessCallbackController',
+            )
+                ->name('oauth.callback');
+        }
+    );
+>>>>>>> fbc8f8e (.)
