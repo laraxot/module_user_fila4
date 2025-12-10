@@ -69,11 +69,15 @@ class OauthClient extends PassportClient
 
     /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
      * protected $fillable = [
      * 'id', 'user_id', 'name', 'secret', 'provider', 'redirect',
      * 'personal_access_client', 'password_client', 'revoked',
      * ];
      */
+<<<<<<< HEAD
 =======
     protected $fillable = [
         'id', 'user_id', 'name', 'secret', 'provider', 'redirect',
@@ -81,4 +85,6 @@ class OauthClient extends PassportClient
     ];
     */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 }
