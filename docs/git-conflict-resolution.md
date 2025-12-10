@@ -37,7 +37,6 @@ git rebase -i origin/main
 # Opzioni disponibili:
 
 # pick   - mantieni il commit
-<<<<<<< HEAD
 
 # edit   - modifica il commit
 
@@ -45,9 +44,6 @@ git rebase -i origin/main
 
 # edit   - modifica il commit
 
-=======
-# edit   - modifica il commit
->>>>>>> 81efa49 (.)
 # squash - unisci con il commit precedente
 ```
 
@@ -214,8 +210,4 @@ git config --global alias.theirs '!f() { git checkout --theirs "$@" && git add "
 2. Mantenere commit atomici e descrittivi
 3. Usare tag per le release
 4. Documentare le decisioni di merge
-<<<<<<< HEAD
 5. Testare dopo ogni risoluzione 
-=======
-5. Testare dopo ogni risoluzione
->>>>>>> 81efa49 (.)
