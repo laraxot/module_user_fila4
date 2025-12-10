@@ -1,11 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 <x-filament-widgets::widget>
     <div class="text-center mb-4">
         <div class="flex justify-center">
@@ -19,18 +25,26 @@ declare(strict_types=1);
     </div>
     
 <<<<<<< HEAD
+<<<<<<< HEAD
     <x-filament-schemas::form wire:submit="resetPassword">
 =======
     <x-filament-panels::form wire:submit="resetPassword">
 >>>>>>> fbc8f8e (.)
+=======
+    <x-filament-schemas::form wire:submit="resetPassword">
+>>>>>>> 6d20fbe (.)
         {{ $this->form }}
         
         <x-filament::button type="submit" class="mt-4">
             @lang('user::password_expired.actions.reset_password.label') <x-filament::loading-indicator class="h-5 w-5" wire:loading wire:target="submit"/>
         </x-filament::button>
 <<<<<<< HEAD
+<<<<<<< HEAD
     </x-filament-schemas::form>
 =======
     </x-filament-panels::form>
 >>>>>>> fbc8f8e (.)
+=======
+    </x-filament-schemas::form>
+>>>>>>> 6d20fbe (.)
 </x-filament-widgets::widget>

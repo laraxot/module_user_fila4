@@ -1,11 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 @props([
     'crumbs' => [], 
     'page' => 'About'
@@ -39,7 +45,11 @@ Example Usage:
         @endforeach
     </ol>
 <<<<<<< HEAD
+<<<<<<< HEAD
 </nav>
 =======
 </nav>
 >>>>>>> fbc8f8e (.)
+=======
+</nav>
+>>>>>>> 6d20fbe (.)

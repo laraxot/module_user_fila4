@@ -17,11 +17,17 @@ class RecoveryCodeReplaced
      * @return void
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     public function __construct(
         public Authenticatable $user,
         public string $code,
     ) {}
+<<<<<<< HEAD
 =======
     public function __construct(public Authenticatable $user, public string $code) {}
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 }
