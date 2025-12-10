@@ -7,11 +7,15 @@ namespace Modules\User\Filament\Pages\Tenancy;
 use Filament\Pages\Tenancy\EditTenantProfile as BaseEditTenantProfile;
 use Filament\Schemas\Schema;
 use Filament\Schemas\Schema;
+use Filament\Schemas\Schema;
 use Modules\Xot\Datas\XotData;
 use Webmozart\Assert\Assert;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Filament\Schemas\Schema;
+>>>>>>> laraxot/develop
+=======
 >>>>>>> laraxot/develop
 
 class EditTenantProfile extends BaseEditTenantProfile

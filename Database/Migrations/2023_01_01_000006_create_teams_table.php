@@ -38,7 +38,7 @@ return new class extends XotBaseMigration {
                 $table->boolean('personal_team')->default(false)->change();
             }
 
-            if (!$this->hasColumn('code')) {
+            if (! $this->hasColumn('code')) {
                 $table->string('code', 36)->nullable()->index();
             }
             $this->updateTimestamps($table, true);
