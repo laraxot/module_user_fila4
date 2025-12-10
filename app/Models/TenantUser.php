@@ -4,21 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Modules\Xot\Models\Traits\HasXotFactory;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
-use Modules\Xot\Models\Traits\HasXotFactory;
-<<<<<<< HEAD
-=======
-use Modules\Xot\Models\Traits\HasXotFactory;
->>>>>>> laraxot/develop
+use Override;
 
 /**
  * Modules\User\Models\TenantUser.
@@ -27,7 +18,7 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static Builder|TeamUser newQuery()
  * @method static Builder|TeamUser query()
  *
- * @property int         $id
+ * @property int $id
  * @property string|null $tenant_id
  * @property string|null $user_id
  * @property Carbon|null $created_at
@@ -78,7 +69,7 @@ class TenantUser extends BasePivot
     ];
 
     /** @return array<string, string> */
-    #[\Override]
+    #[Override]
     protected function casts(): array
     {
         return [

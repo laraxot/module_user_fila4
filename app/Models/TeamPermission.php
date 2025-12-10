@@ -4,30 +4,24 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use DateTime;
 use Illuminate\Database\Eloquent\Builder;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Modules\User\Models\BaseModel;
-=======
->>>>>>> laraxot/develop
-=======
 use Illuminate\Database\Eloquent\Model;
->>>>>>> a382d4f1 (.)
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Team Permission Model.
+ * Team Permission Model
  *
  * Represents a permission assigned to a user within a team context.
  *
- * @property string         $id
- * @property string         $team_id
- * @property string         $user_id
- * @property string         $permission
- * @property \DateTime|null $created_at
- * @property \DateTime|null $updated_at
- * @property Team           $team
- * @property User           $user
+ * @property string $id
+ * @property string $team_id
+ * @property string $user_id
+ * @property string $permission
+ * @property DateTime|null $created_at
+ * @property DateTime|null $updated_at
+ * @property Team $team
+ * @property User $user
  *
  * @method static Builder<static>|TeamPermission newModelQuery()
  * @method static Builder<static>|TeamPermission newQuery()
@@ -69,14 +63,6 @@ class TeamPermission extends BaseModel
      */
     public function user(): BelongsTo
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $this->belongsTo(\Modules\User\Models\User::class);
-=======
         return $this->belongsTo(User::class);
->>>>>>> laraxot/develop
-=======
-        return $this->belongsTo(User::class);
->>>>>>> a382d4f1 (.)
     }
 }

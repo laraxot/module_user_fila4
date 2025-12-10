@@ -14,10 +14,11 @@ use Filament\Widgets\WidgetConfiguration;
 use Modules\User\Filament\Widgets\RecentLoginsWidget;
 use Modules\User\Filament\Widgets\UsersChartWidget;
 use Modules\Xot\Filament\Pages\XotBaseDashboard;
+use Override;
 
 class Dashboard extends XotBaseDashboard
 {
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-home';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-home';
 
     // protected static string $routePath = 'finance';
     // protected static ?string $title = 'Finance dashboard';
@@ -37,7 +38,7 @@ class Dashboard extends XotBaseDashboard
         ];
     }
 
-    #[\Override]
+    #[Override]
     public function getFiltersFormSchema(): array
     {
         return [

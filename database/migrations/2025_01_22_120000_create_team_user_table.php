@@ -5,13 +5,14 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-/*
+/**
  * Migrazione per team_user con id autoincrement.
  *
  * Questa migrazione gestisce sia la creazione che l'aggiornamento della tabella team_user.
  * Se la tabella esiste già con id UUID, viene convertita a id autoincrement.
  */
-return new class extends XotBaseMigration {
+return new class() extends XotBaseMigration
+{
     /**
      * Nome della tabella gestita dalla migrazione.
      */
@@ -64,12 +65,12 @@ return new class extends XotBaseMigration {
             // Verifichiamo tramite query SQL se l'indice esiste
             $connection = $this->getConn()->getConnection();
             $database = $connection->getDatabaseName();
-            //@var array{count: int}|object{count: int}|null $indexExists
+            //@var array{count: int}|object{count: int}|null $indexExists 
             $indexExists = $connection->selectOne(
-                "SELECT COUNT(*) as count
-                 FROM information_schema.statistics
-                 WHERE table_schema = ?
-                 AND table_name = ?
+                "SELECT COUNT(*) as count 
+                 FROM information_schema.statistics 
+                 WHERE table_schema = ? 
+                 AND table_name = ? 
                  AND index_name = 'team_user_team_id_user_id_unique'",
                 [$database, $this->table_name]
             );
@@ -88,3 +89,4 @@ return new class extends XotBaseMigration {
         });
     }
 };
+

@@ -11,19 +11,7 @@ use Modules\Xot\Filament\Clusters\XotBaseCluster;
  *
  * ⚠️ IMPORTANTE: Estende XotBaseCluster, MAI Filament\Clusters\Cluster direttamente!
  *
- * @see XotBaseCluster
+ * @see \Modules\Xot\Filament\Clusters\XotBaseCluster
  * @see \Modules\User\docs\errori\class-page-not-found.md
  */
-<<<<<<< HEAD
-<<<<<<< HEAD
 class Appearance extends XotBaseCluster {}
-=======
-class Appearance extends XotBaseCluster
-{
-}
->>>>>>> laraxot/develop
-=======
-class Appearance extends XotBaseCluster
-{
-}
->>>>>>> a382d4f1 (.)

@@ -9,13 +9,7 @@ use Filament\Schemas\Components\Component;
 use Filament\Tables\Table;
 use Modules\User\Filament\Resources\UserResource;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
 
 class UsersRelationManager extends XotBaseRelationManager
 {
@@ -24,7 +18,7 @@ class UsersRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         return [
@@ -32,7 +26,7 @@ class UsersRelationManager extends XotBaseRelationManager
         ];
     }
 
-    #[\Override]
+    #[Override]
     public function table(Table $table): Table
     {
         return UserResource::table($table);

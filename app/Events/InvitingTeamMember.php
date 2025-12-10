@@ -29,15 +29,5 @@ class InvitingTeamMember
          * The role of the invitee.
          */
         public string $role,
-<<<<<<< HEAD
-<<<<<<< HEAD
     ) {}
-=======
-    ) {
-    }
->>>>>>> laraxot/develop
-=======
-    ) {
-    }
->>>>>>> a382d4f1 (.)
 }

@@ -14,13 +14,7 @@ use Modules\Media\Models\Media;
 use Modules\User\Models\Traits\IsProfileTrait;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
 use Parental\HasChildren;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
@@ -29,8 +23,6 @@ use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
 use Spatie\SchemalessAttributes\SchemalessAttributesTrait;
 
 /**
-<<<<<<< HEAD
-<<<<<<< HEAD
  * @property \Spatie\SchemalessAttributes\SchemalessAttributes $extra
  * @property string $avatar
  * @property Collection<int, DeviceUser> $deviceUsers
@@ -55,69 +47,13 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait;
  * @property int|null $roles_count
  * @property UserContract|null $user
  * @property string|null $user_name
-=======
- * @property \Spatie\SchemalessAttributes\SchemalessAttributes         $extra
- * @property string                                                    $avatar
- * @property Collection<int, DeviceUser>                               $deviceUsers
- * @property int|null                                                  $device_users_count
- * @property Collection<int, Device>                                   $devices
- * @property int|null                                                  $devices_count
- * @property string|null                                               $first_name
- * @property string|null                                               $full_name
- * @property string|null                                               $last_name
- * @property string|null                                               $lang
- * @property MediaCollection<int, Media>                               $media
- * @property int|null                                                  $media_count
- * @property Collection<int, DeviceUser>                               $mobileDeviceUsers
- * @property int|null                                                  $mobile_device_users_count
- * @property Collection<int, Device>                                   $mobileDevices
- * @property int|null                                                  $mobile_devices_count
- * @property DatabaseNotificationCollection<int, DatabaseNotification> $notifications
-=======
- * @property \Spatie\SchemalessAttributes\SchemalessAttributes         $extra
- * @property string                                                    $avatar
- * @property Collection<int, DeviceUser>                               $deviceUsers
- * @property int|null                                                  $device_users_count
- * @property Collection<int, Device>                                   $devices
- * @property int|null                                                  $devices_count
- * @property string|null                                               $first_name
- * @property string|null                                               $full_name
- * @property string|null                                               $last_name
- * @property string|null                                               $lang
- * @property MediaCollection<int, Media>                               $media
- * @property int|null                                                  $media_count
- * @property Collection<int, DeviceUser>                               $mobileDeviceUsers
- * @property int|null                                                  $mobile_device_users_count
- * @property Collection<int, Device>                                   $mobileDevices
- * @property int|null                                                  $mobile_devices_count
- * @property DatabaseNotificationCollection<int, DatabaseNotification> $notifications
->>>>>>> a382d4f1 (.)
- * @property int|null                                                  $notifications_count
- * @property Collection<int, Permission>                               $permissions
- * @property int|null                                                  $permissions_count
- * @property Collection<int, Role>                                     $roles
- * @property int|null                                                  $roles_count
- * @property UserContract|null                                         $user
- * @property string|null                                               $user_name
-<<<<<<< HEAD
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
  *
  * @method static Builder|ProfileContract newModelQuery()
  * @method static Builder|ProfileContract newQuery()
  * @method static Builder|ProfileContract permission($permissions, $without = false)
  * @method static Builder|ProfileContract query()
  * @method static Builder|ProfileContract role($roles, $guard = null, $without = false)
-<<<<<<< HEAD
-<<<<<<< HEAD
  * @method static Builder|BaseProfile withExtraAttributes()
-=======
- * @method static Builder|BaseProfile     withExtraAttributes()
->>>>>>> laraxot/develop
-=======
- * @method static Builder|BaseProfile     withExtraAttributes()
->>>>>>> a382d4f1 (.)
  * @method static Builder|ProfileContract withoutPermission($permissions)
  * @method static Builder|ProfileContract withoutRole($roles, $guard = null)
  *
@@ -180,15 +116,7 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
     public function getAvatarUrl(): string
     {
         $avatar = $this->getFirstMediaUrl('avatar');
-<<<<<<< HEAD
-<<<<<<< HEAD
         if ($avatar !== '') {
-=======
-        if ('' !== $avatar) {
->>>>>>> laraxot/develop
-=======
-        if ('' !== $avatar) {
->>>>>>> a382d4f1 (.)
             return $avatar;
         }
 
@@ -220,29 +148,13 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
         $locale = config('app.locale');
         $defaultLocale = 'it';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if ($locale === null || ! is_string($locale)) {
-=======
-        if (null === $locale || ! is_string($locale)) {
->>>>>>> laraxot/develop
-=======
-        if (null === $locale || ! is_string($locale)) {
->>>>>>> a382d4f1 (.)
             $locale = $defaultLocale;
         }
 
         $userLang = $this->lang;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if ($userLang === null || ! is_string($userLang)) {
-=======
-        if (null === $userLang || ! is_string($userLang)) {
->>>>>>> laraxot/develop
-=======
-        if (null === $userLang || ! is_string($userLang)) {
->>>>>>> a382d4f1 (.)
             return $locale;
         }
 
@@ -250,15 +162,7 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
     }
 
     /** @return array<string, string> */
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
-    #[\Override]
->>>>>>> laraxot/develop
-=======
-    #[\Override]
->>>>>>> a382d4f1 (.)
     protected function casts(): array
     {
         return [

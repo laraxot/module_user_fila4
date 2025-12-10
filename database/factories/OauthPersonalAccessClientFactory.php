@@ -11,6 +11,7 @@ use Webmozart\Assert\Assert;
 /**
  * OauthPersonalAccessClient Factory.
  *
+ *
  * @extends Factory<OauthPersonalAccessClient>
  */
 class OauthPersonalAccessClientFactory extends Factory

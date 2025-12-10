@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
+use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Xot\Datas\XotData;
+use Symfony\Component\Console\Input\InputOption;
 
 use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
-
-use Modules\Xot\Datas\XotData;
-use Symfony\Component\Console\Input\InputOption;
 
 /**
  * Comando per impostare il team corrente per un utente.
@@ -86,7 +86,7 @@ class SetCurrentTeamCommand extends Command
             $user->current_team_id = (string) $team_id;
             $user->save();
             $this->info('OK');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->error('Errore durante il salvataggio: '.$e->getMessage());
         }
     }

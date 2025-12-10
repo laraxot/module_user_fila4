@@ -12,13 +12,7 @@ use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Section;
 use Modules\User\Filament\Resources\TenantResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
 
 class ViewTenant extends XotBaseViewRecord
 {
@@ -27,7 +21,7 @@ class ViewTenant extends XotBaseViewRecord
     /**
      * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     public function getInfolistSchema(): array
     {
         return [

@@ -18,15 +18,5 @@ class RecoveryCodesGenerated
      */
     public function __construct(
         public UserContract $userContract,
-<<<<<<< HEAD
-<<<<<<< HEAD
     ) {}
-=======
-    ) {
-    }
->>>>>>> laraxot/develop
-=======
-    ) {
-    }
->>>>>>> a382d4f1 (.)
 }

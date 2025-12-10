@@ -21,15 +21,5 @@ class RegistrationNotEnabled
     public function __construct(
         public string $provider,
         public SocialiteUserContract $oauthUser,
-<<<<<<< HEAD
-<<<<<<< HEAD
     ) {}
-=======
-    ) {
-    }
->>>>>>> laraxot/develop
-=======
-    ) {
-    }
->>>>>>> a382d4f1 (.)
 }

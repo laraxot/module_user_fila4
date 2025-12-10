@@ -9,19 +9,13 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Modules\User\Models\Device;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
 
 class DeviceResource extends XotBaseResource
 {
     protected static ?string $model = Device::class;
 
-    #[\Override]
+    #[Override]
     public static function getFormSchema(): array
     {
         return [

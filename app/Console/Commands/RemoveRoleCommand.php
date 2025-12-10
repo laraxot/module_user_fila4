@@ -4,31 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Collection;
 use Modules\User\Models\Role;
-=======
->>>>>>> a382d4f1 (.)
 use Illuminate\Console\Command;
-use Illuminate\Database\Eloquent\Collection;
-=======
-use Illuminate\Console\Command;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Collection;
->>>>>>> laraxot/develop
-
-use function Laravel\Prompts\multiselect;
-use function Laravel\Prompts\text;
-
-use Modules\User\Models\Role;
-<<<<<<< HEAD
-=======
-use Modules\User\Models\Role;
->>>>>>> laraxot/develop
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Symfony\Component\Console\Input\InputOption;
+
+use function Laravel\Prompts\multiselect;
+use function Laravel\Prompts\text;
 
 class RemoveRoleCommand extends Command
 {

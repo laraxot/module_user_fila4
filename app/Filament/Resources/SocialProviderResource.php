@@ -15,13 +15,7 @@ use Modules\User\Filament\Resources\SocialProviderResource\Pages\ListSocialProvi
 use Modules\User\Filament\Resources\SocialProviderResource\Pages\ViewSocialProvider;
 use Modules\User\Models\SocialProvider;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
 
 /**
  * @property SocialProvider $record
@@ -34,7 +28,7 @@ class SocialProviderResource extends XotBaseResource
     /**
      * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     public static function getFormSchema(): array
     {
         return [
@@ -76,13 +70,13 @@ class SocialProviderResource extends XotBaseResource
         ];
     }
 
-    #[\Override]
+    #[Override]
     public static function getRelations(): array
     {
         return [];
     }
 
-    #[\Override]
+    #[Override]
     public static function getPages(): array
     {
         return [

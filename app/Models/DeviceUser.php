@@ -4,25 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Modules\Xot\Models\Traits\HasXotFactory;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
-use Modules\Xot\Models\Traits\HasXotFactory;
-<<<<<<< HEAD
-=======
-use Modules\Xot\Models\Traits\HasXotFactory;
->>>>>>> laraxot/develop
+use Override;
 
 /**
  * Modules\User\Models\DeviceUser.
@@ -33,13 +24,13 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static Builder|DeviceUser newQuery()
  * @method static Builder|DeviceUser query()
  *
- * @property string      $id
- * @property string      $device_id
- * @property string      $user_id
+ * @property string $id
+ * @property string $device_id
+ * @property string $user_id
  * @property Carbon|null $login_at
  * @property Carbon|null $logout_at
  * @property string|null $push_notifications_token
- * @property bool|null   $push_notifications_enabled
+ * @property bool|null $push_notifications_enabled
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
@@ -58,7 +49,7 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static Builder|DeviceUser whereUserId($value)
  *
  * @property ProfileContract|null $profile
- * @property UserContract|null    $user
+ * @property UserContract|null $user
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  *
@@ -111,7 +102,7 @@ class DeviceUser extends BasePivot
     }
 
     /** @return array<string, string> */
-    #[\Override]
+    #[Override]
     protected function casts(): array
     {
         return [

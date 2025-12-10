@@ -9,13 +9,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Modules\Xot\Models\Traits\HasXotFactory;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
 
 /**
  * Modules\User\Models\TeamUser.

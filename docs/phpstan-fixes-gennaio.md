@@ -113,18 +113,7 @@ PHPStan aveva difficoltà nel riconoscere la sintassi method chaining e object i
 - **Object instantiation**: Separazione creazione da utilizzo
 
 ### **Benefici**
-<<<<<<< HEAD
-<<<<<<<< HEAD:docs/phpstan-fixes-gennaio.md
-<<<<<<< HEAD
-- ✅ **PHPStan Level 9**: Compatibilità completa
-=======
 - ✅ **PHPStan level 10**: Compatibilità completa
->>>>>>> laraxot/develop
-========
->>>>>>>> a382d4f1 (.):docs/phpstan-fixes-gennaio-2025.md
-=======
-- ✅ **PHPStan level 10**: Compatibilità completa
->>>>>>> a382d4f1 (.)
 - ✅ **Leggibilità**: Codice più esplicito e chiaro
 - ✅ **Type Safety**: Mantenuta con type hints espliciti
 - ✅ **Debugging**: Più facile identificare problemi
@@ -228,27 +217,14 @@ $subject = Lang::get('user::email.password_reset_subject');
 
 ### **Risorse Esterne**
 - [Laravel Authentication](https://laravel.com/docs/authentication)
-- [PHPStan Method Chaining](https://phpstan.org/rules/phpstan/phpstan/rule/phpstan.rules.phpstan.method-chaining)
+- [PHPStan Method Chaining](https://phpstan.org/rules/phpstan/phpstan/rule/phpstan.method-chaining)
 - [Laravel Notifications](https://laravel.com/docs/notifications)
 
 ---
 
 **🔄 Ultimo aggiornamento**: 27 Gennaio 2025  
 **📦 Versione**: 1.0  
-**🐛 PHPStan Level**: 9 ✅  
+**🐛 PHPStan Level**: 10 ✅  
 **🌐 Translation Standards**: IT/EN complete ✅  
 **🚀 Performance**: 95/100 score  
 **✨ Test Coverage**: 85% ✅
-
-
-
-<<<<<<< HEAD
-<<<<<<<< HEAD:docs/phpstan-fixes-gennaio.md
-<<<<<<< HEAD
-=======
-
->>>>>>> laraxot/develop
-========
->>>>>>>> a382d4f1 (.):docs/phpstan-fixes-gennaio-2025.md
-=======
->>>>>>> a382d4f1 (.)

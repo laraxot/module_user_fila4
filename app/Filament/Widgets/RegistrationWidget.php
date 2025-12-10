@@ -4,13 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
 use Filament\Schemas\Components\Component;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
@@ -22,14 +16,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Xot\Actions\Cast\SafeArrayCastAction;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> laraxot/develop
-=======
 use Webmozart\Assert\Assert;
->>>>>>> a382d4f1 (.)
 
 class RegistrationWidget extends XotBaseWidget
 {
@@ -115,15 +102,7 @@ class RegistrationWidget extends XotBaseWidget
     /**
      * @return array<string, mixed>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
-    #[\Override]
->>>>>>> laraxot/develop
-=======
-    #[\Override]
->>>>>>> a382d4f1 (.)
     public function getFormFill(): array
     {
         /** @var array<string, mixed> $data */
@@ -136,15 +115,7 @@ class RegistrationWidget extends XotBaseWidget
     /**
      * @return array<int|string, Component>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
-    #[\Override]
->>>>>>> laraxot/develop
-=======
-    #[\Override]
->>>>>>> a382d4f1 (.)
     public function getFormSchema(): array
     {
         /** @var array<int|string, Component> $schema */

@@ -14,13 +14,7 @@ use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
 
 class TokensRelationManager extends XotBaseRelationManager
 {
@@ -29,7 +23,7 @@ class TokensRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         return [
@@ -37,7 +31,7 @@ class TokensRelationManager extends XotBaseRelationManager
         ];
     }
 
-    #[\Override]
+    #[Override]
     public function table(Table $table): Table
     {
         return $table

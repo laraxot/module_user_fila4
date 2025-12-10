@@ -3,11 +3,7 @@
 ## Goals
 - Detect and fix code smells without breaking runtime behavior.
 - Enforce LARAXOT and Filament v4 constraints.
-<<<<<<< HEAD
-- Keep PHPStan at Level 9 with 0 errors.
-=======
 - Keep PHPStan at level 10 with 0 errors.
->>>>>>> laraxot/develop
 
 ## Tools Covered
 - PHPMD (PHP Mess Detector)

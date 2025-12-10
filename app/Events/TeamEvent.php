@@ -25,15 +25,5 @@ abstract class TeamEvent
          * The team instance.
          */
         public TeamContract $teamContract,
-<<<<<<< HEAD
-<<<<<<< HEAD
     ) {}
-=======
-    ) {
-    }
->>>>>>> laraxot/develop
-=======
-    ) {
-    }
->>>>>>> a382d4f1 (.)
 }

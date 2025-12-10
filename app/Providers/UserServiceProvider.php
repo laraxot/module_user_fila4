@@ -22,6 +22,7 @@ use Modules\User\Models\TeamInvitation;
 use Modules\User\Models\TeamUser;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Providers\XotBaseServiceProvider;
+use Override;
 use SocialiteProviders\Manager\ServiceProvider as SocialiteServiceProvider;
 use Webmozart\Assert\Assert;
 
@@ -33,7 +34,7 @@ class UserServiceProvider extends XotBaseServiceProvider
 
     protected string $module_ns = __NAMESPACE__;
 
-    #[\Override]
+    #[Override]
     public function boot(): void
     {
         parent::boot();
@@ -44,7 +45,7 @@ class UserServiceProvider extends XotBaseServiceProvider
         $this->registerMailsNotification();
     }
 
-    #[\Override]
+    #[Override]
     public function register(): void
     {
         parent::register();
@@ -79,13 +80,6 @@ class UserServiceProvider extends XotBaseServiceProvider
             // ✅ FIX CRITICO: Imposta il destinatario dell'email con metodo Laravel standard
             if (method_exists($notifiable, 'getEmailForPasswordReset')) {
                 $emailAddress = $notifiable->getEmailForPasswordReset();
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
                 if (is_string($emailAddress) || is_array($emailAddress) || is_object($emailAddress)) {
                     $email->to($emailAddress);
                 }
@@ -94,20 +88,6 @@ class UserServiceProvider extends XotBaseServiceProvider
                 if (is_string($emailAddress) || is_array($emailAddress) || is_object($emailAddress)) {
                     $email->to($emailAddress);
                 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-                Assert::string($emailAddress);
-                $email->to($emailAddress);
-            } elseif (isset($notifiable->email)) {
-                $emailAddress = $notifiable->email;
-                Assert::string($emailAddress);
-                $email->to($emailAddress);
->>>>>>> e058848 (.)
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
             } else {
                 // Fallback per debug
                 Log::error('SpatieEmail: Destinatario email non trovato', [

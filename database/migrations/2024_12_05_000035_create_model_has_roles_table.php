@@ -10,16 +10,8 @@ use Modules\Xot\Datas\XotData;
 /*
  * Class CreateModelHasRolesTable.
  */
-<<<<<<< HEAD
-<<<<<<< HEAD
-return new class() extends XotBaseMigration
+return new class extends XotBaseMigration
 {
-=======
-return new class extends XotBaseMigration {
->>>>>>> laraxot/develop
-=======
-return new class extends XotBaseMigration {
->>>>>>> a382d4f1 (.)
     /**
      * Run the migrations.
      */
@@ -39,10 +31,10 @@ return new class extends XotBaseMigration {
             if (! $this->hasColumn('team_id')) {
                 $table->foreignIdFor($team_class, 'team_id')->nullable();
             }
-            if ('uuid' === $this->getColumnType('model_id')) {
+            if ($this->getColumnType('model_id') === 'uuid') {
                 $table->string('model_id', 36)->index()->change();
             }
-            if ('uuid' === $this->getColumnType('role_id')) {
+            if ($this->getColumnType('role_id') === 'uuid') {
                 $table->integer('role_id')->index()->change();
             }
             $this->updateTimestamps($table);

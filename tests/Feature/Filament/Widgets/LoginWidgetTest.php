@@ -6,30 +6,18 @@ use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Filament\Widgets\LoginWidget;
 use Modules\User\Models\User;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Tests\TestCase;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
 
 use function Pest\Laravel\assertAuthenticatedAs;
-
-use Tests\TestCase;
-<<<<<<< HEAD
-=======
-use Tests\TestCase;
->>>>>>> laraxot/develop
 
 uses(TestCase::class);
 
 beforeEach(function (): void {
-    $this->widget = new LoginWidget();
+    $this->widget = new LoginWidget;
 });
 
 test('it can render widget', function (): void {
-    $widget = new LoginWidget();
+    $widget = new LoginWidget;
 
     // Use reflection to access the protected view property
     $reflection = new ReflectionClass($widget);
