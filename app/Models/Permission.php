@@ -27,10 +27,3 @@ class Permission extends SpatiePermission
         'description',
     ];
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
