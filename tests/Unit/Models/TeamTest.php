@@ -15,9 +15,9 @@ class TeamTest extends TestCase
 
     public function testCanCreateTeamWithMinimalData(): void
     {
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
+        $user = User::factory()->create();
 
-        $team = Team/** @phpstan-ignore-line */ ::factory()->create([
+        $team = Team::factory()->create([
             'user_id' => $user->id,
             'name' => 'Test Team',
         ]);
@@ -31,7 +31,7 @@ class TeamTest extends TestCase
 
     public function testCanCreateTeamWithAllFields(): void
     {
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
+        $user = User::factory()->create();
 
         $teamData = [
             'user_id' => $user->id,
@@ -42,7 +42,7 @@ class TeamTest extends TestCase
             'owner_id' => $user->id,
         ];
 
-        $team = Team/** @phpstan-ignore-line */ ::factory()->create($teamData);
+        $team = Team::factory()->create($teamData);
 
         $this->assertDatabaseHas('teams', [
             'id' => $team->id,
@@ -57,8 +57,8 @@ class TeamTest extends TestCase
 
     public function testTeamHasSoftDeletes(): void
     {
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
-        $team = Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $user->id]);
+        $user = User::factory()->create();
+        $team = Team::factory()->create(['user_id' => $user->id]);
         $teamId = $team->id;
 
         $team->delete();
@@ -75,8 +75,8 @@ class TeamTest extends TestCase
             return;
         }
 
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
-        $team = Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $user->id]);
+        $user = User::factory()->create();
+        $team = Team::factory()->create(['user_id' => $user->id]);
         $teamId = $team->id;
 
         $team->delete();
@@ -92,8 +92,8 @@ class TeamTest extends TestCase
 
     public function testCanFindTeamByName(): void
     {
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
-        $team = Team/** @phpstan-ignore-line */ ::factory()->create([
+        $user = User::factory()->create();
+        $team = Team::factory()->create([
             'user_id' => $user->id,
             'name' => 'Unique Team Name',
         ]);
@@ -106,8 +106,8 @@ class TeamTest extends TestCase
 
     public function testCanFindTeamByCode(): void
     {
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
-        $team = Team/** @phpstan-ignore-line */ ::factory()->create([
+        $user = User::factory()->create();
+        $team = Team::factory()->create([
             'user_id' => $user->id,
             'code' => 'TEAM123',
         ]);
@@ -120,9 +120,9 @@ class TeamTest extends TestCase
 
     public function testCanFindTeamByUuid(): void
     {
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
+        $user = User::factory()->create();
         $uuid = '550e8400-e29b-41d4-a716-446655440000';
-        $team = Team/** @phpstan-ignore-line */ ::factory()->create([
+        $team = Team::factory()->create([
             'user_id' => $user->id,
             'uuid' => $uuid,
         ]);
@@ -135,8 +135,8 @@ class TeamTest extends TestCase
 
     public function testCanFindTeamByOwnerId(): void
     {
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
-        $team = Team/** @phpstan-ignore-line */ ::factory()->create([
+        $user = User::factory()->create();
+        $team = Team::factory()->create([
             'user_id' => $user->id,
             'owner_id' => $user->id,
         ]);
@@ -149,12 +149,12 @@ class TeamTest extends TestCase
 
     public function testCanFindPersonalTeams(): void
     {
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
-        Team/** @phpstan-ignore-line */ ::factory()->create([
+        $user = User::factory()->create();
+        Team::factory()->create([
             'user_id' => $user->id,
             'personal_team' => 1,
         ]);
-        Team/** @phpstan-ignore-line */ ::factory()->create([
+        Team::factory()->create([
             'user_id' => $user->id,
             'personal_team' => 0,
         ]);
@@ -167,12 +167,12 @@ class TeamTest extends TestCase
 
     public function testCanFindTeamsByUserId(): void
     {
-        $user1 = User/** @phpstan-ignore-line */ ::factory()->create();
-        $user2 = User/** @phpstan-ignore-line */ ::factory()->create();
+        $user1 = User::factory()->create();
+        $user2 = User::factory()->create();
 
-        Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $user1->id]);
-        Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $user1->id]);
-        Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $user2->id]);
+        Team::factory()->create(['user_id' => $user1->id]);
+        Team::factory()->create(['user_id' => $user1->id]);
+        Team::factory()->create(['user_id' => $user2->id]);
 
         $user1Teams = Team::where('user_id', $user1->id)->get();
 
@@ -182,10 +182,10 @@ class TeamTest extends TestCase
 
     public function testCanFindTeamsByNamePattern(): void
     {
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
-        Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $user->id, 'name' => 'Development Team']);
-        Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $user->id, 'name' => 'Marketing Team']);
-        Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $user->id, 'name' => 'Sales Team']);
+        $user = User::factory()->create();
+        Team::factory()->create(['user_id' => $user->id, 'name' => 'Development Team']);
+        Team::factory()->create(['user_id' => $user->id, 'name' => 'Marketing Team']);
+        Team::factory()->create(['user_id' => $user->id, 'name' => 'Sales Team']);
 
         $devTeams = Team::where('name', 'like', '%Team%')->get();
 
@@ -195,8 +195,8 @@ class TeamTest extends TestCase
 
     public function testCanUpdateTeam(): void
     {
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
-        $team = Team/** @phpstan-ignore-line */ ::factory()->create([
+        $user = User::factory()->create();
+        $team = Team::factory()->create([
             'user_id' => $user->id,
             'name' => 'Old Name',
         ]);
@@ -211,8 +211,8 @@ class TeamTest extends TestCase
 
     public function testCanHandleNullValues(): void
     {
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
-        $team = Team/** @phpstan-ignore-line */ ::factory()->create([
+        $user = User::factory()->create();
+        $team = Team::factory()->create([
             'user_id' => $user->id,
             'name' => 'Test Team',
             'code' => null,
@@ -230,14 +230,14 @@ class TeamTest extends TestCase
 
     public function testCanFindTeamsByMultipleCriteria(): void
     {
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
-        Team/** @phpstan-ignore-line */ ::factory()->create([
+        $user = User::factory()->create();
+        Team::factory()->create([
             'user_id' => $user->id,
             'name' => 'Development Team',
             'personal_team' => 0,
         ]);
 
-        Team/** @phpstan-ignore-line */ ::factory()->create([
+        Team::factory()->create([
             'user_id' => $user->id,
             'name' => 'Personal Team',
             'personal_team' => 1,

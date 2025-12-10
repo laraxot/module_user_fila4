@@ -22,7 +22,7 @@ abstract class BaseProfileResource extends XotBaseResource
     #[\Override]
     public static function getFormSchema(): array
     {
-        return array_values([
+        return [
             // Forms\Components\TextInput::make('user_id'),
             // Forms\Components\TextInput::make('user_id')->readonly(),
             'user_name' => TextInput::make('user.name'),
@@ -42,7 +42,8 @@ abstract class BaseProfileResource extends XotBaseResource
                 ->disk('uploads')
                 ->directory('photos')
                 ->collection('photo_profile'),
-        ]);}
+        ];
+    }
 
     #[\Override]
     public static function getRelations(): array
