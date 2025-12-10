@@ -1,26 +1,8 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 @props([
     'title' => 'Page Header Title', 
     'description' => 'Description goes here'
@@ -32,20 +14,4 @@ declare(strict_types=1);
         <h1 class="text-2xl font-medium tracking-tighter leading-tighter font-heading md:text-3xl">{{ $title }}</h1>
         <p class="mx-auto mt-1.5 text-base font-medium text-neutral-400 dark:text-slate-400 md:mt-2">{{ $description }}</p>
     </div>
-<<<<<<< HEAD
 </div>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-</div>
-=======
-</div>
->>>>>>> a12f125f4a (.)
-=======
-</div>
->>>>>>> b93ef594b4 (.)
-=======
-</div>
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
