@@ -10,6 +10,7 @@ namespace Modules\User\Providers;
 
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Contracts\Mail\Mailable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Gate;
@@ -20,9 +21,10 @@ use Modules\Notify\Emails\SpatieEmail;
 use Modules\User\Datas\PasswordData;
 use Modules\User\Models\TeamInvitation;
 use Modules\User\Models\TeamUser;
+use Modules\User\Models\User;
+use Modules\User\Observers\UserObserver;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Providers\XotBaseServiceProvider;
-use Override;
 use SocialiteProviders\Manager\ServiceProvider as SocialiteServiceProvider;
 use Webmozart\Assert\Assert;
 
@@ -34,22 +36,27 @@ class UserServiceProvider extends XotBaseServiceProvider
 
     protected string $module_ns = __NAMESPACE__;
 
-    #[Override]
+    #[\Override]
     public function boot(): void
     {
         parent::boot();
+        
         $this->registerAuthenticationProviders();
         $this->registerEventListener();
         $this->registerPasswordRules();
         $this->registerPulse();
         $this->registerMailsNotification();
+        //$this->registerObservers();
+        
     }
 
-    #[Override]
+    #[\Override]
     public function register(): void
     {
         parent::register();
+        /*
         $this->registerTeamModelBindings();
+        */
     }
 
     public function registerMailsNotification(): void
@@ -59,7 +66,7 @@ class UserServiceProvider extends XotBaseServiceProvider
             $app_name = '';
         }
 
-        ResetPassword::toMailUsing(function ($notifiable, string $token): SpatieEmail {
+        ResetPassword::toMailUsing(function ($notifiable, string $token): Mailable {
             /*
              * return (new MailMessage)
              * ->template('user::notifications.email')
@@ -188,5 +195,16 @@ class UserServiceProvider extends XotBaseServiceProvider
             'view-user' => 'View user information',
             'core-technicians' => 'the technicians can ',
         ]);
+    }
+
+    /**
+     * Register model observers.
+     */
+    protected function registerObservers(): void
+    {
+        // Register UserObserver only if personal team creation is enabled
+        if (config('user.create_personal_team', false)) {
+            User::observe(UserObserver::class);
+        }
     }
 }

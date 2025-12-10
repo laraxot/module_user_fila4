@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Parental\HasChildren;
-use Illuminate\Support\Carbon;
-use Modules\Xot\Datas\XotData;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Carbon;
+use Modules\User\Contracts\TeamContract;
 use Modules\Xot\Contracts\ProfileContract;
+use Modules\Xot\Contracts\UserContract;
+use Modules\Xot\Datas\XotData;
 use Modules\Xot\Models\Traits\HasXotFactory;
+use Parental\HasChildren;
 
 /**
  * Modules\User\Models\TeamUser.
@@ -18,8 +21,8 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static Builder|TeamUser newQuery()
  * @method static Builder|TeamUser query()
  *
- * @property int $id
- * @property string $uuid
+ * @property int         $id
+ * @property string      $uuid
  * @property string|null $team_id
  * @property string|null $user_id
  * @property string|null $role
@@ -53,21 +56,36 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  */
 abstract class BaseTeamUser extends BasePivot
 {
-    use HasChildren, HasXotFactory;
+    use HasChildren;
+    use HasXotFactory;
 
     protected $connection = 'user';
 
     protected $table = 'team_user';
 
-    public function user()
+    /**
+     * Relazione con User.
+     *
+     * @return BelongsTo<\Illuminate\Database\Eloquent\Model&UserContract, $this>
+     */
+    public function user(): BelongsTo
     {
         $userClass = XotData::make()->getUserClass();
+
+        /* @var BelongsTo<\Illuminate\Database\Eloquent\Model&UserContract, $this> */
         return $this->belongsTo($userClass);
     }
 
-    public function team()
+    /**
+     * Relazione con Team.
+     *
+     * @return BelongsTo<\Illuminate\Database\Eloquent\Model&TeamContract, $this>
+     */
+    public function team(): BelongsTo
     {
         $teamClass = XotData::make()->getTeamClass();
+
+        /* @var BelongsTo<\Illuminate\Database\Eloquent\Model&TeamContract, $this> */
         return $this->belongsTo($teamClass);
     }
 }

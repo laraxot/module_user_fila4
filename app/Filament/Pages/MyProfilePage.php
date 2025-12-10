@@ -34,7 +34,7 @@ class MyProfilePage extends XotBasePage
 
     public ?array $passwordData = [];
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
     protected string $view = 'user::filament.pages.my-profile';
 
@@ -254,7 +254,7 @@ class MyProfilePage extends XotBasePage
     // ...
 
     /**
-     * @param  array<string, mixed>  $data
+     * @param array<string, mixed> $data
      */
     protected function handleRecordUpdate(Model $record, array $data): Model
     {

@@ -104,10 +104,9 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
         'extra',
     ];
 
-    public function scopeWithExtraAttributes(): Builder
-    {
-        return $this->extra->modelScope();
-    }
+    // ✅ CORRETTO: NON implementare scopeWithExtraAttributes() manualmente
+    // Il trait SchemalessAttributesTrait lo fornisce automaticamente!
+    // NOTA: BaseProfile ha attributo 'extra' diretto, non relazione 'extra'
 
     /**
      * Ottiene l'URL dell'avatar dell'utente.

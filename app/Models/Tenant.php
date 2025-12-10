@@ -16,20 +16,20 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 /**
  * Modules\User\Models\Tenant.
  *
- * @method static TenantFactory factory($count = null, $state = [])
+ * @method static TenantFactory  factory($count = null, $state = [])
  * @method static Builder|Tenant newModelQuery()
  * @method static Builder|Tenant newQuery()
  * @method static Builder|Tenant query()
  *
  * @property EloquentCollection<int, Model&UserContract> $members
- * @property int|null $members_count
- * @property ProfileContract|null $creator
- * @property ProfileContract|null $updater
- * @property MediaCollection<int, Media> $media
- * @property int|null $media_count
- * @property TenantUser $pivot
- * @property EloquentCollection<int, User> $users
- * @property int|null $users_count
+ * @property int|null                                    $members_count
+ * @property ProfileContract|null                        $creator
+ * @property ProfileContract|null                        $updater
+ * @property MediaCollection<int, Media>                 $media
+ * @property int|null                                    $media_count
+ * @property TenantUser                                  $pivot
+ * @property EloquentCollection<int, User>               $users
+ * @property int|null                                    $users_count
  *
  * @mixin IdeHelperTenant
  * @mixin \Eloquent

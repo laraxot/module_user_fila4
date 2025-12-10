@@ -18,7 +18,7 @@ class ListFeatures extends XotBaseListRecords
     /**
      * @return array<string, Column>
      */
-    #[Override]
+    #[\Override]
     public function getTableColumns(): array
     {
         return [

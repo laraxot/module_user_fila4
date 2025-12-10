@@ -17,16 +17,16 @@ class TeamResource extends XotBaseResource
      *
      * @return class-string<Model>
      */
-    #[Override]
+    #[\Override]
     public static function getModel(): string
     {
         $xot = XotData::make();
 
-        /** @var class-string<Model> */
+        /* @var class-string<Model> */
         return $xot->getTeamClass();
     }
 
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [

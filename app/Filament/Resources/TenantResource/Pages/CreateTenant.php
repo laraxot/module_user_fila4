@@ -17,7 +17,7 @@ class CreateTenant extends XotBaseCreateRecord
     protected static string $resource = TenantResource::class;
 
     /**
-     * @throws Throwable
+     * @throws \Throwable
      */
     protected function handleRecordCreation(array $data): Model
     {

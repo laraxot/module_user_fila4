@@ -10,14 +10,16 @@ use Tests\TestCase;
 
 use function Pest\Laravel\assertAuthenticatedAs;
 
+use Tests\TestCase;
+
 uses(TestCase::class);
 
 beforeEach(function (): void {
-    $this->widget = new LoginWidget;
+    $this->widget = new LoginWidget();
 });
 
 test('it can render widget', function (): void {
-    $widget = new LoginWidget;
+    $widget = new LoginWidget();
 
     // Use reflection to access the protected view property
     $reflection = new ReflectionClass($widget);

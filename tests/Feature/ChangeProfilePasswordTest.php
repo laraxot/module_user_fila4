@@ -14,6 +14,8 @@ use Tests\TestCase;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\post;
 
+use Tests\TestCase;
+
 uses(TestCase::class);
 
 test('can change profile password', function (): void {

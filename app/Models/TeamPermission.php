@@ -4,30 +4,28 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use DateTime;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
+use Modules\User\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Team Permission Model
+ * Team Permission Model.
  *
  * Represents a permission assigned to a user within a team context.
  *
- * @property string $id
- * @property string $team_id
- * @property string $user_id
- * @property string $permission
- * @property DateTime|null $created_at
- * @property DateTime|null $updated_at
- * @property Team $team
- * @property User $user
+ * @property string         $id
+ * @property string         $team_id
+ * @property string         $user_id
+ * @property string         $permission
+ * @property \DateTime|null $created_at
+ * @property \DateTime|null $updated_at
+ * @property Team           $team
+ * @property User           $user
  *
  * @method static Builder<static>|TeamPermission newModelQuery()
  * @method static Builder<static>|TeamPermission newQuery()
  * @method static Builder<static>|TeamPermission query()
  *
- * @mixin IdeHelperTeamPermission
  * @mixin \Eloquent
  */
 class TeamPermission extends BaseModel
@@ -63,6 +61,6 @@ class TeamPermission extends BaseModel
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(\Modules\User\Models\User::class);
     }
 }
