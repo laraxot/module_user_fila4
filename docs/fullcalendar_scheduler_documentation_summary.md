@@ -43,7 +43,11 @@ Guida rapida esistente per:
 ### 🔍 Ricerca Effettuata
 
 La documentazione è basata su ricerca approfondita di:
+<<<<<<< HEAD
 - **Documentazione ufficiale FullCalendar**: https://fullcalendar.io/docs/schedulerLicenseKey
+=======
+- **Documentazione ufficiale FullCalendar**: https://fullcalendar.io/project_docs/schedulerLicenseKey
+>>>>>>> 81efa49 (.)
 - **GitHub Issues**: Analisi di 17+ issue relativi a problemi di licenza
 - **Community feedback**: Problemi ricorrenti nelle versioni 5.x e 6.x
 - **Best practices**: Configurazioni ottimali per ambienti di produzione
@@ -144,8 +148,13 @@ Per aggiornare la documentazione:
 ## Risorse Esterne
 
 ### 🌐 Link Ufficiali
+<<<<<<< HEAD
 - [FullCalendar Docs](https://fullcalendar.io/docs/)
 - [Scheduler License](https://fullcalendar.io/docs/schedulerLicenseKey)
+=======
+- [FullCalendar Docs](https://fullcalendar.io/project_docs/)
+- [Scheduler License](https://fullcalendar.io/project_docs/schedulerLicenseKey)
+>>>>>>> 81efa49 (.)
 - [Pricing](https://fullcalendar.io/pricing/)
 - [Support](https://fullcalendar.io/support/)
 
