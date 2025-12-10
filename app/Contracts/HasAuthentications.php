@@ -16,7 +16,11 @@ interface HasAuthentications
      */
     public function authentications(): MorphMany;
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 } 
 >>>>>>> fbc8f8e (.)
+=======
+}
+>>>>>>> 6d20fbe (.)
