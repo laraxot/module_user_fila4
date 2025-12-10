@@ -52,49 +52,40 @@ class RoleFactory extends Factory
 
     /**
      * Crea un ruolo admin.
-     *
-     * @return static
      */
     public function admin(): static
     {
-        return $this->state(fn(array $_attributes) => [
+        return $this->state(fn (array $_attributes) => [
             'name' => 'admin',
         ]);
     }
 
     /**
      * Crea un ruolo manager.
-     *
-     * @return static
      */
     public function manager(): static
     {
-        return $this->state(fn(array $_attributes) => [
+        return $this->state(fn (array $_attributes) => [
             'name' => 'manager',
         ]);
     }
 
     /**
      * Crea un ruolo user.
-     *
-     * @return static
      */
     public function user(): static
     {
-        return $this->state(fn(array $_attributes) => [
+        return $this->state(fn (array $_attributes) => [
             'name' => 'user',
         ]);
     }
 
     /**
      * Crea un ruolo con un guard specifico.
-     *
-     * @param string $guard
-     * @return static
      */
     public function withGuard(string $guard): static
     {
-        return $this->state(fn(array $_attributes) => [
+        return $this->state(fn (array $_attributes) => [
             'guard_name' => $guard,
         ]);
     }
