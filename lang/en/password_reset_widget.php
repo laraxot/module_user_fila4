@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> fbc8f8e (.)
 declare(strict_types=1);
 
 return [

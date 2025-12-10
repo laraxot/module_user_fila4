@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> fbc8f8e (.)
 declare(strict_types=1);
 
 namespace Modules\User\Database\Factories;
@@ -22,3 +25,7 @@ class ProfileFactory extends Factory
         return [];
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
