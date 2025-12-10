@@ -72,11 +72,7 @@ Tutte le funzioni `safeStringCast()` private sono state rimosse dai file, elimin
 ## Azioni Future
 
 1. **Audit Completo**: Cercare altre funzioni duplicate nel progetto
-<<<<<<< HEAD
 2. **Documentazione**: Aggiornare il catalogo delle Actions in `Modules/Xot/docs/actions.md`
-=======
-2. **Documentazione**: Aggiornare il catalogo delle Actions in `Modules/Xot/project_docs/actions.md`
->>>>>>> fbc8f8e (.)
 3. **Tooling**: Implementare controlli automatici per violazioni DRY
 4. **Training**: Formare il team sulle nuove regole DRY
 
@@ -84,11 +80,7 @@ Tutte le funzioni `safeStringCast()` private sono state rimosse dai file, elimin
 
 - [Regola DRY Aggiornata](../.cursor/rules/DRY-actions-rules.md)
 - [SafeStringCastAction](../../Xot/app/Actions/String/SafeStringCastAction.php)
-<<<<<<< HEAD
 - [Documentazione Actions](../../Xot/docs/actions.md)
-=======
-- [Documentazione Actions](../../Xot/project_docs/actions.md)
->>>>>>> fbc8f8e (.)
 
 *Data correzione: 2025-01-06*
 *Stato: ✅ Completato* 

@@ -1,11 +1,7 @@
 # Registrazione dei Componenti Blade nel Modulo User
 
 > **NOTA IMPORTANTE**: Questo documento è un riferimento specifico per il modulo User. 
-<<<<<<< HEAD
 > La documentazione principale e completa si trova nel [modulo UI](../../../UI/docs/architecture/component-registration.md).
-=======
-> La documentazione principale e completa si trova nel [modulo UI](../../../UI/project_docs/architecture/component-registration.md).
->>>>>>> fbc8f8e (.)
 
 ## Implementazione Corretta nel Modulo User
 
@@ -35,14 +31,9 @@ I componenti possono essere utilizzati nei template Blade con il prefisso del na
 
 ## Collegamenti
 
-<<<<<<< HEAD
 - [Documentazione principale sulla registrazione dei componenti](../UI/docs/architecture/component-registration.md)
 - [Implementazione di UserServiceProvider](../User/app/Providers/UserServiceProvider.php)
-- [Documentazione principale sulla registrazione dei componenti](/var/www/html/base_saluteora/laravel/Modules/UI/docs/architecture/component-registration.md)
-- [Implementazione di UserServiceProvider](/var/www/html/base_saluteora/laravel/Modules/User/app/Providers/UserServiceProvider.php)
+- [Documentazione principale sulla registrazione dei componenti](/var/www/html/base_<nome progetto>/laravel/Modules/UI/docs/architecture/component-registration.md)
+- [Implementazione di UserServiceProvider](/var/www/html/base_<nome progetto>/laravel/Modules/User/app/Providers/UserServiceProvider.php)
 - [Documentazione principale sulla registrazione dei componenti](../UI/docs/architecture/component-registration.md)
 - [Implementazione di UserServiceProvider](../User/app/Providers/UserServiceProvider.php)
-=======
-- [Documentazione principale sulla registrazione dei componenti](/var/www/html/base_saluteora/laravel/Modules/UI/project_docs/architecture/component-registration.md)
-- [Implementazione di UserServiceProvider](/var/www/html/base_saluteora/laravel/Modules/User/app/Providers/UserServiceProvider.php)
->>>>>>> fbc8f8e (.)
