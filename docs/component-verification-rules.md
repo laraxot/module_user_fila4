@@ -140,5 +140,9 @@ Prima di usare qualsiasi componente:
 ## Collegamenti
 
 - [Documentazione Filament Ufficiale](https://filamentphp.com/docs)
+<<<<<<< HEAD
 - [Laravel Blade Components](https://laravel.com/docs/blade#components)
+=======
+- [Laravel Blade Components](https://laravel.com/project_docs/blade#components)
+>>>>>>> 041533e (.)
 - [Componenti UI del Progetto](../../../Themes/Sixteen/resources/views/components/ui/)
