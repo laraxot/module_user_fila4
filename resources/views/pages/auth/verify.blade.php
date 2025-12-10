@@ -1,5 +1,11 @@
 <?php
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
 declare(strict_types=1);
 
 
@@ -14,6 +20,44 @@ middleware(['auth', 'throttle:6,1']);
 name('verification.notice');
 
 new class extends Component {
+<<<<<<< HEAD
+=======
+=======
+=======
+declare(strict_types=1);
+
+
+>>>>>>> b93ef594b4 (.)
+use Illuminate\Auth\Events\Verified;
+use Illuminate\Support\Facades\Auth;
+use Livewire\Volt\Component;
+
+use function Laravel\Folio\middleware;
+use function Laravel\Folio\name;
+
+middleware(['auth', 'throttle:6,1']);
+name('verification.notice');
+
+<<<<<<< HEAD
+new class extends Component
+{
+>>>>>>> a12f125f4a (.)
+=======
+new class extends Component {
+>>>>>>> b93ef594b4 (.)
+=======
+use Illuminate\Auth\Events\Verified;
+use Illuminate\Support\Facades\Auth;
+use function Laravel\Folio\{middleware, name};
+use Livewire\Volt\Component;
+
+middleware(['auth', 'throttle:6,1']);
+name('verification.notice');
+
+new class extends Component
+{
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     public function resend()
     {
         $user = auth()->user();
@@ -81,4 +125,20 @@ new class extends Component {
         </div>
     </div>
 
+<<<<<<< HEAD
 </x-layouts.main>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+</x-layouts.main>
+=======
+</x-layouts.main>
+>>>>>>> a12f125f4a (.)
+=======
+</x-layouts.main>
+>>>>>>> b93ef594b4 (.)
+=======
+</x-layouts.main>
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)

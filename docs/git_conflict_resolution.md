@@ -39,6 +39,7 @@ git rebase -i origin/main
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # pick   - mantieni il commit
 
 # edit   - modifica il commit
@@ -53,6 +54,10 @@ git rebase -i origin/main
 
 # edit   - modifica il commit
 
+=======
+# pick   - mantieni il commit
+# edit   - modifica il commit
+>>>>>>> 81efa49 (.)
 # squash - unisci con il commit precedente
 ```
 
@@ -222,6 +227,7 @@ git config --global alias.theirs '!f() { git checkout --theirs "$@" && git add "
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 5. Testare dopo ogni risoluzione 
 =======
 >>>>>>> 08f361e (.)
@@ -229,3 +235,6 @@ git config --global alias.theirs '!f() { git checkout --theirs "$@" && git add "
 >>>>>>> f3bab43 (.)
 =======
 >>>>>>> 3fc5300 (.)
+=======
+5. Testare dopo ogni risoluzione
+>>>>>>> 81efa49 (.)
