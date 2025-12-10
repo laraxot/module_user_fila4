@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Gestione Avanzata dei Conflitti Git
 
 ## Approccio Sicuro alla Risoluzione dei Conflitti
@@ -213,4 +211,3 @@ git config --global alias.theirs '!f() { git checkout --theirs "$@" && git add "
 3. Usare tag per le release
 4. Documentare le decisioni di merge
 5. Testare dopo ogni risoluzione 
->>>>>>> 6849bc76 (.)

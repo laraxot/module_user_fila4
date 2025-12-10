@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Legacy Code Cleanup
 
 ## Overview
@@ -76,4 +74,3 @@ Clean up and modernize the User module codebase by removing legacy code and upda
 - [Back to Roadmap](../../project_docs/roadmap.md)
 - Related: [Documentation Enhancement](./documentation-enhancement.md)
 - Related: [PHPStan Level 7 Compliance](./phpstan-level7-compliance.md)
->>>>>>> 6849bc76 (.)

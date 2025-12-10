@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Modulo User
 
 Data: 2025-04-23 19:09:56
@@ -632,4 +630,3 @@ tests_old
 * [structure.md](../../../Cms/project_docs/themes/structure.md)
 * [structure.md](../../../Cms/project_docs/components/structure.md)
 
->>>>>>> 6849bc76 (.)

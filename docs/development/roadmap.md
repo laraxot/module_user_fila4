@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 ### Versione HEAD
 
 # Roadmap Modulo User
@@ -438,4 +436,3 @@ Overall Module Completion: 82%
 
 ---
 
->>>>>>> 6849bc76 (.)
