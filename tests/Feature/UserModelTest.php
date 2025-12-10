@@ -13,16 +13,13 @@ use Modules\User\Models\Team;
 use Modules\User\Models\User;
 use Spatie\MediaLibrary\HasMedia;
 
-beforeEach(function (): void {
-    /** @var object{user: mixed} $this */ $this->user = User/** @phpstan-ignore-line */ ::factory()->create();
-    $this->admin = User/** @phpstan-ignore-line */ ::factory()->create();
+beforeEach(function () {
+    $this->user = User::factory()->create();
+    $this->admin = User::factory()->create();
 });
 
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Model Creation', function (): void {
-    it('can be created with valid data', function (): void {
+describe('User Model Creation', function () {
+    it('can be created with valid data', function () {
         $userData = [
             'name' => 'Test User',
             'first_name' => 'Test',
@@ -33,8 +30,7 @@ describe('User Model Creation', function (): void {
             'is_active' => true,
         ];
 
-        /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create($userData);
+        $user = User::factory()->create($userData);
 
         expect($user)
             ->toBeInstanceOf(User::class)
@@ -46,35 +42,27 @@ describe('User Model Creation', function (): void {
             ->is_active->toBe(true);
     });
 
-    it('generates uuid for id', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('generates uuid for id', function () {
         expect($this->user->id)->toBeString()->toHaveLength(36); // UUID format
     });
 
-    it('uses user database connection', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('uses user database connection', function () {
         expect($this->user->getConnectionName())->toBe('user');
     });
 
-    it('has factory', function (): void {
-        /** @var User */
+    it('has factory', function () {
         $users = User::factory()->count(3)->create();
 
         expect($users)->toHaveCount(3);
-        /** @phpstan-ignore-next-line method.nonObject */
-        $users->each(function ($user): void {
+        $users->each(function ($user) {
             expect($user)->toBeInstanceOf(User::class);
         });
     });
 });
 
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Model Attributes', function (): void {
-    it('has full name accessor', function (): void {
-        /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+describe('User Model Attributes', function () {
+    it('has full name accessor', function () {
+        $user = User::factory()->create([
             'first_name' => 'John',
             'last_name' => 'Doe',
         ]);
@@ -82,35 +70,30 @@ describe('User Model Attributes', function (): void {
         expect($user->full_name)->toBe('John Doe');
     });
 
-    it('can have password expiration', function (): void {
-        /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+    it('can have password expiration', function () {
+        $user = User::factory()->create([
             'password_expires_at' => now()->addDays(30),
         ]);
 
         expect($user->password_expires_at)->not->toBeNull();
     });
 
-    it('can be active or inactive', function (): void {
-        /** @var User */
-        $activeUser = User/** @phpstan-ignore-line */ ::factory()->create(['is_active' => true]);
-        /** @var User */
-        $inactiveUser = User/** @phpstan-ignore-line */ ::factory()->create(['is_active' => false]);
+    it('can be active or inactive', function () {
+        $activeUser = User::factory()->create(['is_active' => true]);
+        $inactiveUser = User::factory()->create(['is_active' => false]);
 
         expect($activeUser->is_active)->toBe(true);
         expect($inactiveUser->is_active)->toBe(false);
     });
 
-    it('can have otp enabled', function (): void {
-        /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create(['is_otp' => true]);
+    it('can have otp enabled', function () {
+        $user = User::factory()->create(['is_otp' => true]);
 
         expect($user->is_otp)->toBe(true);
     });
 
-    it('can have profile photo path', function (): void {
-        /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+    it('can have profile photo path', function () {
+        $user = User::factory()->create([
             'profile_photo_path' => 'photos/user.jpg',
         ]);
 
@@ -118,247 +101,175 @@ describe('User Model Attributes', function (): void {
     });
 });
 
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Authentication Features', function (): void {
-    it('can verify email', function (): void {
-        /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+describe('User Authentication Features', function () {
+    it('can verify email', function () {
+        $user = User::factory()->create([
             'email_verified_at' => null,
         ]);
 
         expect($user->email_verified_at)->toBeNull();
 
-        /** @phpstan-ignore-next-line method.nonObject */
         $user->update(['email_verified_at' => now()]);
 
         expect($user->fresh()->email_verified_at)->not->toBeNull();
     });
 
-    it('can store remember token', function (): void {
+    it('can store remember token', function () {
         $token = Str::random(60);
-        /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+        $user = User::factory()->create([
             'remember_token' => $token,
         ]);
 
         expect($user->remember_token)->toBe($token);
     });
 
-    it('can access socialite feature', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can access socialite feature', function () {
         expect($this->user->canAccessSocialite())->toBe(true);
     });
 });
 
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Relationships', function (): void {
-    it('can have teams', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+describe('User Relationships', function () {
+    it('can have teams', function () {
         expect($this->user->teams())->toBeInstanceOf(BelongsToMany::class);
     });
 
-    it('can own teams', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can own teams', function () {
         expect($this->user->ownedTeams())->toBeInstanceOf(HasMany::class);
     });
 
-    it('can have current team', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
-        /** @phpstan-ignore-next-line property.notFound */
-        $team = Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $this->user->id]);
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can have current team', function () {
+        $team = Team::factory()->create(['user_id' => $this->user->id]);
         $this->user->update(['current_team_id' => $team->id]);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->currentTeam())->toBeInstanceOf(BelongsTo::class);
     });
 
-    it('can have roles', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can have roles', function () {
         expect($this->user->roles())->toBeInstanceOf(BelongsToMany::class);
     });
 
-    it('can have permissions', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can have permissions', function () {
         expect($this->user->permissions())
             ->toBeInstanceOf(BelongsToMany::class);
     });
 
-    it('can have profile', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can have profile', function () {
         expect($this->user->profile())->toBeInstanceOf(HasOne::class);
     });
 
-    it('can have devices', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can have devices', function () {
         expect($this->user->devices())->toBeInstanceOf(BelongsToMany::class);
     });
 
-    it('can have authentication logs', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can have authentication logs', function () {
         expect($this->user->authentications())->toBeInstanceOf(HasMany::class);
     });
 
-    it('can have oauth clients', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can have oauth clients', function () {
         expect($this->user->clients())->toBeInstanceOf(HasMany::class);
     });
 
-    it('can have oauth tokens', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can have oauth tokens', function () {
         expect($this->user->tokens())->toBeInstanceOf(HasMany::class);
     });
 
-    it('can have notifications', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can have notifications', function () {
         expect($this->user->notifications())->toBeInstanceOf(MorphMany::class);
     });
 
-    it('can have socialite users', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can have socialite users', function () {
         expect($this->user->socialiteUsers())->toBeInstanceOf(HasMany::class);
     });
 });
 
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Team Management', function (): void {
-    it('can join a team', function (): void {
-        /** @var Team */
-        $team = Team/** @phpstan-ignore-line */ ::factory()->create();
+describe('User Team Management', function () {
+    it('can join a team', function () {
+        $team = Team::factory()->create();
 
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->teams()->attach($team);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->teams)->toContain($team);
     });
 
-    it('can leave a team', function (): void {
-        /** @var Team */
-        $team = Team/** @phpstan-ignore-line */ ::factory()->create();
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can leave a team', function () {
+        $team = Team::factory()->create();
         $this->user->teams()->attach($team);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->teams)->toContain($team);
 
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->teams()->detach($team);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->fresh()->teams)->not->toContain($team);
     });
 
-    it('can own multiple teams', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can own multiple teams', function () {
         $teams = Team::factory()->count(3)->create(['user_id' => $this->user->id]);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->ownedTeams)->toHaveCount(3);
     });
 
-    it('can switch current team', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
-        /** @phpstan-ignore-next-line property.notFound */
-        $team1 = Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $this->user->id]);
-        /** @var \Illuminate\Database\Eloquent\Collection */
-        /** @phpstan-ignore-next-line property.notFound */
-        $team2 = Team/** @phpstan-ignore-line */ ::factory()->create(['user_id' => $this->user->id]);
+    it('can switch current team', function () {
+        $team1 = Team::factory()->create(['user_id' => $this->user->id]);
+        $team2 = Team::factory()->create(['user_id' => $this->user->id]);
 
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->update(['current_team_id' => $team1->id]);
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->fresh()->current_team_id)->toBe($team1->id);
 
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->update(['current_team_id' => $team2->id]);
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->fresh()->current_team_id)->toBe($team2->id);
     });
 });
 
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Permission System', function (): void {
-    it('can have roles assigned', function (): void {
-        /** @var Role */
-        $role = Role/** @phpstan-ignore-line */ ::factory()->create();
+describe('User Permission System', function () {
+    it('can have roles assigned', function () {
+        $role = Role::factory()->create();
 
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->assignRole($role);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasRole($role))->toBe(true);
     });
 
-    it('can have direct permissions', function (): void {
-        /** @var Permission */
-        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create();
+    it('can have direct permissions', function () {
+        $permission = Permission::factory()->create();
 
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->givePermissionTo($permission);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasPermissionTo($permission))->toBe(true);
     });
 
-    it('can check multiple permissions', function (): void {
-        /** @var Permission */
-        $permission1 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
-        /** @var Permission */
-        $permission2 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'delete posts']);
+    it('can check multiple permissions', function () {
+        $permission1 = Permission::factory()->create(['name' => 'edit posts']);
+        $permission2 = Permission::factory()->create(['name' => 'delete posts']);
 
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->givePermissionTo([$permission1, $permission2]);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasAllPermissions([$permission1, $permission2]))->toBe(true);
     });
 
-    it('can check any permission', function (): void {
-        /** @var Permission */
-        $permission1 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
-        /** @var Permission */
-        $permission2 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'delete posts']);
+    it('can check any permission', function () {
+        $permission1 = Permission::factory()->create(['name' => 'edit posts']);
+        $permission2 = Permission::factory()->create(['name' => 'delete posts']);
 
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->givePermissionTo($permission1);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasAnyPermission([$permission1, $permission2]))->toBe(true);
     });
 });
 
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Media Management', function (): void {
-    it('implements HasMedia interface', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+describe('User Media Management', function () {
+    it('implements HasMedia interface', function () {
         expect($this->user)->toBeInstanceOf(HasMedia::class);
     });
 
-    it('can have media attached', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can have media attached', function () {
         expect($this->user->media())->toBeInstanceOf(MorphMany::class);
     });
 });
 
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Scopes and Queries', function (): void {
-    it('can filter by active users', function (): void {
-        User/** @phpstan-ignore-line */ ::factory()->create(['is_active' => true]);
-        User/** @phpstan-ignore-line */ ::factory()->create(['is_active' => false]);
+describe('User Scopes and Queries', function () {
+    it('can filter by active users', function () {
+        User::factory()->create(['is_active' => true]);
+        User::factory()->create(['is_active' => false]);
 
         $activeUsers = User::where('is_active', true)->get();
         $inactiveUsers = User::where('is_active', false)->get();
@@ -367,9 +278,9 @@ describe('User Scopes and Queries', function (): void {
         expect($inactiveUsers->every(fn ($user) => ! $user->is_active))->toBe(true);
     });
 
-    it('can filter by email verified', function (): void {
-        User/** @phpstan-ignore-line */ ::factory()->create(['email_verified_at' => now()]);
-        User/** @phpstan-ignore-line */ ::factory()->create(['email_verified_at' => null]);
+    it('can filter by email verified', function () {
+        User::factory()->create(['email_verified_at' => now()]);
+        User::factory()->create(['email_verified_at' => null]);
 
         $verifiedUsers = User::whereNotNull('email_verified_at')->get();
         $unverifiedUsers = User::whereNull('email_verified_at')->get();
@@ -378,9 +289,9 @@ describe('User Scopes and Queries', function (): void {
         expect($unverifiedUsers->every(fn ($user) => null === $user->email_verified_at))->toBe(true);
     });
 
-    it('can filter by language', function (): void {
-        User/** @phpstan-ignore-line */ ::factory()->create(['lang' => 'it']);
-        User/** @phpstan-ignore-line */ ::factory()->create(['lang' => 'en']);
+    it('can filter by language', function () {
+        User::factory()->create(['lang' => 'it']);
+        User::factory()->create(['lang' => 'en']);
 
         $italianUsers = User::where('lang', 'it')->get();
         $englishUsers = User::where('lang', 'en')->get();
@@ -390,53 +301,28 @@ describe('User Scopes and Queries', function (): void {
     });
 });
 
-<<<<<<< HEAD
 describe('User Soft Deletes', function () {
     it('can handle soft deletes if supported', function () {
         if (! method_exists(User::class, 'withTrashed')) {
-=======
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Soft Deletes', function (): void {
-    it('can handle soft deletes if supported', function (): void {
-        if (!method_exists(User::class, 'withTrashed')) {
-            /** @phpstan-ignore-next-line property.notFound */
->>>>>>> e058848 (.)
             $this->markTestSkipped('SoftDeletes trait not present on User model');
         }
         // This would test soft delete functionality if the trait were present
-        /** @phpstan-ignore-next-line property.notFound */
         $this->markTestSkipped('User model does not implement SoftDeletes trait');
     });
 
-<<<<<<< HEAD
     it('can handle restore after soft delete if supported', function () {
         if (! method_exists(User::class, 'withTrashed')) {
-=======
-    it('can handle restore after soft delete if supported', function (): void {
-        if (!method_exists(User::class, 'withTrashed')) {
-            /** @phpstan-ignore-next-line property.notFound */
->>>>>>> e058848 (.)
             $this->markTestSkipped('SoftDeletes trait not present on User model');
         }
         // This would test restore functionality if the trait were present
-        /** @phpstan-ignore-next-line property.notFound */
         $this->markTestSkipped('User model does not implement SoftDeletes trait');
     });
 
-<<<<<<< HEAD
     it('can handle force delete if supported', function () {
         if (! method_exists(User::class, 'forceDelete')) {
-=======
-    it('can handle force delete if supported', function (): void {
-        if (!method_exists(User::class, 'forceDelete')) {
-            /** @phpstan-ignore-next-line property.notFound */
->>>>>>> e058848 (.)
             $this->markTestSkipped('SoftDeletes trait not present on User model');
         }
         // This would test force delete functionality if the trait were present
-        /** @phpstan-ignore-next-line property.notFound */
         $this->markTestSkipped('User model does not implement SoftDeletes trait');
     });
 });

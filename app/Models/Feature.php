@@ -40,14 +40,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|Feature whereUpdatedBy($value)
  * @method static Builder|Feature whereValue($value)
  *
- * @mixin \Eloquent
- */
-/**
- * @method static \Modules\User\Database\Factories\FeatureFactory factory($count = null, $state = [])
- * @method static Builder<static>|Feature newModelQuery()
- * @method static Builder<static>|Feature newQuery()
- * @method static Builder<static>|Feature query()
- *
+ * @mixin IdeHelperFeature
  * @mixin \Eloquent
  */
 class Feature extends BaseModel

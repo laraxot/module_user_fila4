@@ -166,10 +166,6 @@ class MyProfilePage extends XotBasePage
     // {
     //     return filament('filament-breezy')->getRegisteredMyProfileComponents();
     // }
-    /**
-     * @return array<string, mixed>
-     */
-    /** @phpstan-ignore-next-line return.type */
     public function getFormSchema(): array
     {
         return [
@@ -276,9 +272,7 @@ class MyProfilePage extends XotBasePage
      */
     protected function handleRecordUpdate(Model $record, array $data): Model
     {
-        /** @var array<string, mixed> $typedData */
-        $typedData = $data;
-        $record->update($typedData);
+        $record->update($data);
 
         return $record;
     }
