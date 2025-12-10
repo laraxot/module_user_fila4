@@ -164,11 +164,7 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
     ];
 
     /** @var array */
-<<<<<<< HEAD
     protected $formlessAttributes = [
-=======
-    protected $schemalessAttributes = [
->>>>>>> 4b219c8 (.)
         'extra',
     ];
 
