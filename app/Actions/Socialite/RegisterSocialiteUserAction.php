@@ -28,40 +28,19 @@ class RegisterSocialiteUserAction
     public function execute(string $provider, SocialiteUserContract $oauthUser, UserContract $user): SocialiteUser
     {
         // Create a new SocialiteUser instance
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         $socialiteUser = app(CreateSocialiteUserAction::class)->execute(
             provider: $provider,
             oauthUser: $oauthUser,
             user: $user,
         );
-<<<<<<< HEAD
-=======
-        $socialiteUser = app(CreateSocialiteUserAction::class)
-            ->execute(provider: $provider, oauthUser: $oauthUser, user: $user);
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
         // Assign default roles to user, if needed
         app(SetDefaultRolesBySocialiteUserAction::class, [
             'provider' => $provider,
             'userModel' => $user,
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         ])->execute(
             userModel: $user,
             oauthUser: $oauthUser,
         );
-<<<<<<< HEAD
-=======
-        ])->execute(userModel: $user, oauthUser: $oauthUser);
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
         // Dispatch the socialite user connected event
         SocialiteUserConnected::dispatch($socialiteUser);
 
