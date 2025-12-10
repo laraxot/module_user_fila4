@@ -1,19 +1,30 @@
+<<<<<<< HEAD
 # Tema One per 
 
 ## Introduzione
 
 Il Tema One è il tema predefinito per , basato su Filament 4.3. Questo tema fornisce un'interfaccia moderna e responsive per il frontend del sito.
+=======
+>>>>>>> 81efa49 (.)
 # Tema One per SaluteOra
 
 ## Introduzione
 
+<<<<<<< HEAD
 Il Tema One è il tema predefinito per SaluteOra, basato su Filament 4.3. Questo tema fornisce un'interfaccia moderna e responsive per il frontend del sito.
+=======
+Il Tema One è il tema predefinito per SaluteOra, basato su Filament 3.3. Questo tema fornisce un'interfaccia moderna e responsive per il frontend del sito.
+>>>>>>> 81efa49 (.)
 
 ## Requisiti
 
 - PHP 8.1+
 - Laravel 10+
+<<<<<<< HEAD
 - Filament 4.3+
+=======
+- Filament 3.3+
+>>>>>>> 81efa49 (.)
 - Node.js 16+
 - NPM 8+
 
@@ -77,11 +88,14 @@ Esempio:
 
 ## Integrazione con il Modulo CMS
 
+<<<<<<< HEAD
 Il tema One si integra con il modulo CMS per la gestione dei contenuti. I contenuti sono definiti in file JSON nella directory `config/local/<nome progetto>/database/content/pages`.
 
 ## Supporto
 
 Per supporto tecnico, contattare il team . 
+=======
+>>>>>>> 81efa49 (.)
 Il tema One si integra con il modulo CMS per la gestione dei contenuti. I contenuti sono definiti in file JSON nella directory `config/local/saluteora/database/content/pages`.
 
 ## Supporto

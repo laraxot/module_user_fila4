@@ -91,7 +91,10 @@ render(function (View $view) {
 
 ### Prefissi di Lingua negli URL
 
+<<<<<<< HEAD
  utilizza prefissi di lingua negli URL. Tutti i link devono includere la locale corrente:
+=======
+>>>>>>> 81efa49 (.)
 SaluteOra utilizza prefissi di lingua negli URL. Tutti i link devono includere la locale corrente:
 
 ```

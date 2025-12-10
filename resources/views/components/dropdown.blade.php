@@ -1,8 +1,26 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 @props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white'])
 
 @php
@@ -45,4 +63,20 @@ switch ($width) {
             {{ $content }}
         </div>
     </div>
+<<<<<<< HEAD
 </div>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+</div>
+=======
+</div> 
+>>>>>>> a12f125f4a (.)
+=======
+</div>
+>>>>>>> b93ef594b4 (.)
+=======
+</div> 
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
