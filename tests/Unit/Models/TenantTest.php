@@ -14,12 +14,11 @@ class TenantTest extends TestCase
 
     public function testCanCreateTenantWithMinimalData(): void
     {
-        $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create([
+        $tenant = Tenant::factory()->create([
             'name' => 'Test Tenant',
         ]);
 
         $this->assertDatabaseHas('tenants', [
-            /** @phpstan-ignore-next-line property.notFound */
             'id' => $tenant->id,
             'name' => 'Test Tenant',
         ]);
@@ -37,10 +36,9 @@ class TenantTest extends TestCase
             'trial_ends_at' => now()->addDays(30),
         ];
 
-        $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create($tenantData);
+        $tenant = Tenant::factory()->create($tenantData);
 
         $this->assertDatabaseHas('tenants', [
-            /** @phpstan-ignore-next-line property.notFound */
             'id' => $tenant->id,
             'name' => 'Full Tenant',
             'slug' => 'full-tenant',
@@ -50,13 +48,12 @@ class TenantTest extends TestCase
         ]);
 
         // Verifica campi JSON
-        /** @phpstan-ignore-next-line property.notFound */
         static::assertSame(['theme' => 'dark', 'features' => ['chat', 'analytics']], $tenant->settings);
     }
 
     public function testTenantHasSoftDeletes(): void
     {
-        $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create();
+        $tenant = Tenant::factory()->create();
         $tenantId = $tenant->id;
 
         $tenant->delete();
@@ -73,7 +70,7 @@ class TenantTest extends TestCase
             return;
         }
 
-        $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create();
+        $tenant = Tenant::factory()->create();
         $tenantId = $tenant->id;
 
         $tenant->delete();
@@ -89,7 +86,7 @@ class TenantTest extends TestCase
 
     public function testCanFindTenantByName(): void
     {
-        $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Unique Tenant Name']);
+        $tenant = Tenant::factory()->create(['name' => 'Unique Tenant Name']);
 
         $foundTenant = Tenant::where('name', 'Unique Tenant Name')->first();
 
@@ -99,7 +96,7 @@ class TenantTest extends TestCase
 
     public function testCanFindTenantBySlug(): void
     {
-        $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create(['slug' => 'unique-tenant']);
+        $tenant = Tenant::factory()->create(['slug' => 'unique-tenant']);
 
         $foundTenant = Tenant::where('slug', 'unique-tenant')->first();
 
@@ -109,7 +106,7 @@ class TenantTest extends TestCase
 
     public function testCanFindTenantByDomain(): void
     {
-        $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create(['domain' => 'uniquetenant.com']);
+        $tenant = Tenant::factory()->create(['domain' => 'uniquetenant.com']);
 
         $foundTenant = Tenant::where('domain', 'uniquetenant.com')->first();
 
@@ -119,7 +116,7 @@ class TenantTest extends TestCase
 
     public function testCanFindTenantByDatabase(): void
     {
-        $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create(['database' => 'unique_db']);
+        $tenant = Tenant::factory()->create(['database' => 'unique_db']);
 
         $foundTenant = Tenant::where('database', 'unique_db')->first();
 
@@ -129,40 +126,43 @@ class TenantTest extends TestCase
 
     public function testCanFindActiveTenants(): void
     {
-        Tenant/** @phpstan-ignore-line */ ::factory()->create(['is_active' => true]);
-        Tenant/** @phpstan-ignore-line */ ::factory()->create(['is_active' => false]);
-        Tenant/** @phpstan-ignore-line */ ::factory()->create(['is_active' => true]);
+        Tenant::factory()->create(['is_active' => true]);
+        Tenant::factory()->create(['is_active' => false]);
+        Tenant::factory()->create(['is_active' => true]);
 
         $activeTenants = Tenant::where('is_active', true)->get();
 
         static::assertCount(2, $activeTenants);
+        static::assertTrue($activeTenants->every(fn ($tenant) => $tenant->is_active));
     }
 
     public function testCanFindTenantsByNamePattern(): void
     {
-        Tenant/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Development Company']);
-        Tenant/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Marketing Agency']);
-        Tenant/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Sales Corporation']);
+        Tenant::factory()->create(['name' => 'Development Company']);
+        Tenant::factory()->create(['name' => 'Marketing Agency']);
+        Tenant::factory()->create(['name' => 'Sales Corporation']);
 
         $companyTenants = Tenant::where('name', 'like', '%Company%')->get();
 
         static::assertCount(1, $companyTenants);
+        static::assertTrue($companyTenants->every(fn ($tenant) => str_contains($tenant->name, 'Company')));
     }
 
     public function testCanFindTenantsByDomainPattern(): void
     {
-        Tenant/** @phpstan-ignore-line */ ::factory()->create(['domain' => 'dev.example.com']);
-        Tenant/** @phpstan-ignore-line */ ::factory()->create(['domain' => 'staging.example.com']);
-        Tenant/** @phpstan-ignore-line */ ::factory()->create(['domain' => 'prod.example.com']);
+        Tenant::factory()->create(['domain' => 'dev.example.com']);
+        Tenant::factory()->create(['domain' => 'staging.example.com']);
+        Tenant::factory()->create(['domain' => 'prod.example.com']);
 
         $exampleTenants = Tenant::where('domain', 'like', '%.example.com')->get();
 
         static::assertCount(3, $exampleTenants);
+        static::assertTrue($exampleTenants->every(fn ($tenant) => str_ends_with($tenant->domain, '.example.com')));
     }
 
     public function testCanUpdateTenant(): void
     {
-        $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Old Name']);
+        $tenant = Tenant::factory()->create(['name' => 'Old Name']);
 
         $tenant->update(['name' => 'New Name']);
 
@@ -174,7 +174,7 @@ class TenantTest extends TestCase
 
     public function testCanHandleNullValues(): void
     {
-        $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create([
+        $tenant = Tenant::factory()->create([
             'name' => 'Test Tenant',
             'slug' => null,
             'domain' => null,
@@ -191,13 +191,13 @@ class TenantTest extends TestCase
 
     public function testCanFindTenantsByMultipleCriteria(): void
     {
-        Tenant/** @phpstan-ignore-line */ ::factory()->create([
+        Tenant::factory()->create([
             'name' => 'Active Company',
             'is_active' => true,
             'domain' => 'active.com',
         ]);
 
-        Tenant/** @phpstan-ignore-line */ ::factory()->create([
+        Tenant::factory()->create([
             'name' => 'Inactive Company',
             'is_active' => false,
             'domain' => 'inactive.com',
@@ -212,28 +212,28 @@ class TenantTest extends TestCase
 
     public function testTenantHasUsersRelationship(): void
     {
-        $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create();
+        $tenant = Tenant::factory()->create();
 
         static::assertTrue(method_exists($tenant, 'users'));
     }
 
     public function testTenantHasMembersRelationship(): void
     {
-        $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create();
+        $tenant = Tenant::factory()->create();
 
         static::assertTrue(method_exists($tenant, 'members'));
     }
 
     public function testTenantHasMediaRelationship(): void
     {
-        $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create();
+        $tenant = Tenant::factory()->create();
 
         static::assertTrue(method_exists($tenant, 'media'));
     }
 
     public function testTenantHasFactory(): void
     {
-        $tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create();
+        $tenant = Tenant::factory()->create();
 
         static::assertNotNull($tenant->id);
         static::assertInstanceOf(Tenant::class, $tenant);
@@ -241,11 +241,11 @@ class TenantTest extends TestCase
 
     public function testCanFindTenantsByTrialStatus(): void
     {
-        $activeTenant = Tenant/** @phpstan-ignore-line */ ::factory()->create([
+        $activeTenant = Tenant::factory()->create([
             'trial_ends_at' => now()->addDays(30),
         ]);
 
-        $expiredTenant = Tenant/** @phpstan-ignore-line */ ::factory()->create([
+        $expiredTenant = Tenant::factory()->create([
             'trial_ends_at' => now()->subDays(1),
         ]);
 
@@ -257,11 +257,11 @@ class TenantTest extends TestCase
 
     public function testCanFindTenantsBySettingsValue(): void
     {
-        Tenant/** @phpstan-ignore-line */ ::factory()->create([
+        Tenant::factory()->create([
             'settings' => ['theme' => 'dark', 'features' => ['chat']],
         ]);
 
-        Tenant/** @phpstan-ignore-line */ ::factory()->create([
+        Tenant::factory()->create([
             'settings' => ['theme' => 'light', 'features' => ['analytics']],
         ]);
 
