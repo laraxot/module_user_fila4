@@ -5,11 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Widgets\Auth;
 
 use Filament\Forms\Components\Checkbox;
-<<<<<<< HEAD
 use Filament\Forms\Components\TextInput;
-=======
-use Filament\Forms;
->>>>>>> 44a7ebe (.)
 use Illuminate\Support\Facades\Auth;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
 
