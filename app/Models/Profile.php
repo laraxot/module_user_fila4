@@ -75,6 +75,30 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * @method static Builder<static>|Profile withoutPermission($permissions)
  * @method static Builder<static>|Profile withoutRole($roles, $guard = null)
  *
+ * @property string $user_id
+ * @property string|null $slug
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property string|null $deleted_by
+ * @property-read string $display_name
+ *
+ * @method static Builder<static>|Profile whereCreatedAt($value)
+ * @method static Builder<static>|Profile whereCreatedBy($value)
+ * @method static Builder<static>|Profile whereDeletedAt($value)
+ * @method static Builder<static>|Profile whereDeletedBy($value)
+ * @method static Builder<static>|Profile whereEmail($value)
+ * @method static Builder<static>|Profile whereExtra($value)
+ * @method static Builder<static>|Profile whereFirstName($value)
+ * @method static Builder<static>|Profile whereId($value)
+ * @method static Builder<static>|Profile whereLastName($value)
+ * @method static Builder<static>|Profile whereSlug($value)
+ * @method static Builder<static>|Profile whereUpdatedAt($value)
+ * @method static Builder<static>|Profile whereUpdatedBy($value)
+ * @method static Builder<static>|Profile whereUserId($value)
+ *
  * @mixin \Eloquent
  */
 class Profile extends BaseProfile implements HasMedia

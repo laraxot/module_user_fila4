@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-use function Safe\json_encode;
-
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Collection;
 use Modules\User\Contracts\TeamContract;
@@ -28,11 +26,10 @@ test('it correctly checks if user belongs to teams', function (): void {
     // Test: User without teams
     /** @var User */
         $userWithoutTeams = User/** @phpstan-ignore-line */ ::factory()->create();
-    /* @phpstan-ignore-next-line method.nonObject, argument.templateType */
     expect($userWithoutTeams->belongsToTeams())->toBeFalse();
 
     // Test: User with owned team
-    /** @phpstan-ignore-next-line property.notFound, method.nonObject, argument.templateType */
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->user->belongsToTeams())->toBeTrue();
 
     // Test: User with team membership
@@ -40,7 +37,6 @@ test('it correctly checks if user belongs to teams', function (): void {
         $memberUser = User/** @phpstan-ignore-line */ ::factory()->create();
     /** @phpstan-ignore-next-line property.notFound */
     $memberUser->teams()->attach($this->team->id, ['role' => 'member']);
-    /* @phpstan-ignore-next-line method.nonObject, argument.templateType */
     expect($memberUser->belongsToTeams())->toBeTrue();
 });
 
@@ -95,10 +91,10 @@ test('it uses belongs to many x for teams relationship', function (): void {
     // Verify teams() relationship returns BelongsToMany
     /** @phpstan-ignore-next-line property.notFound */
     $relation = $this->user->teams();
-    /* @phpstan-ignore-next-line property.notFound, method.nonObject */
-    expect($relation)->toBeInstanceOf(BelongsToMany::class);
-    /* @phpstan-ignore-next-line method.notFound, method.nonObject, argument.templateType */
-    expect($relation->getTable())->toBe('team_user');
+    expect($relation)
+        ->toBeInstanceOf(BelongsToMany::class)
+        ->getTable()
+        ->toBe('team_user');
 });
 
 /**
@@ -181,12 +177,11 @@ test('it returns personal team', function (): void {
     /** @phpstan-ignore-next-line property.notFound */
     $personalTeam = $this->user->personalTeam();
 
-    /* @phpstan-ignore-next-line property.notFound, method.nonObject, argument.templateType */
-    expect($personalTeam)->toBeInstanceOf(TeamContract::class);
-    /* @phpstan-ignore-next-line property.notFound, argument.templateType */
-    expect($personalTeam->id)->toBe($this->personalTeam->id);
-    /* @phpstan-ignore-next-line property.notFound, argument.templateType */
-    expect($personalTeam->personal_team)->toBeTrue();
+    expect($personalTeam)
+        ->toBeInstanceOf(TeamContract::class)
+        /** @phpstan-ignore-next-line property.notFound */
+        ->id->toBe($this->personalTeam->id)
+        ->personal_team->toBeTrue();
 });
 
 /**
@@ -196,20 +191,14 @@ test('it correctly determines team role', function (): void {
     // Test: Owner role
     /** @phpstan-ignore-next-line property.notFound */
     $role = $this->user->teamRole($this->personalTeam);
-    /* @phpstan-ignore-next-line property.notFound, method.nonObject, argument.templateType */
-    expect($role)->toBeInstanceOf(Role::class);
-    /* @phpstan-ignore-next-line property.notFound, argument.templateType */
-    expect($role->name)->toBe('owner');
+    expect($role)->toBeInstanceOf(Role::class)->name->toBe('owner');
 
     // Test: Member role
     /** @phpstan-ignore-next-line property.notFound */
     $this->user->teams()->attach($this->team->id, ['role' => 'admin']);
     /** @phpstan-ignore-next-line property.notFound */
     $role = $this->user->teamRole($this->team);
-    /* @phpstan-ignore-next-line property.notFound, method.nonObject, argument.templateType */
-    expect($role)->toBeInstanceOf(Role::class);
-    /* @phpstan-ignore-next-line property.notFound, argument.templateType */
-    expect($role->name)->toBe('admin');
+    expect($role)->toBeInstanceOf(Role::class)->name->toBe('admin');
 
     // Test: No role
     /** @var User */
@@ -299,11 +288,9 @@ test('it correctly manages team permissions', function (): void {
 /**
  * @property \Modules\User\Models\User $user
  */
-    /* @phpstan-ignore-next-line method.nonObject, argument.templateType */
 test('it handles edge cases', function (): void {
     // Test: User without ID
     $newUser = new User;
-    /* @phpstan-ignore-next-line method.nonObject, argument.templateType */
     expect($newUser->belongsToTeams())->toBeFalse();
 
     // Test: Team without owner
