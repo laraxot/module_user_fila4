@@ -85,6 +85,9 @@ return [
             'icon' => 'create',
             'label' => 'create',
         ],
+        'reorderRecords' => [
+            'tooltip' => 'reorderRecords',
+        ],
     ],
     'messages' => [
         'update_success' => 'Profilo aggiornato con successo!',
