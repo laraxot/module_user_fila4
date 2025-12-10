@@ -14,13 +14,12 @@ use Modules\User\Filament\Actions\ChangePasswordAction;
 use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\Xot\Contracts\UserContract;
-use Override;
 
 class ListUsers extends BaseListUsers
 {
     protected static string $resource = UserResource::class;
 
-    #[Override]
+    #[\Override]
     public function getTableColumns(): array
     {
         return [
@@ -37,7 +36,7 @@ class ListUsers extends BaseListUsers
     /**
      * @return array<BaseFilter>
      */
-    #[Override]
+    #[\Override]
     public function getTableFilters(): array
     {
         return [
@@ -53,10 +52,10 @@ class ListUsers extends BaseListUsers
     /**
      * @phpstan-ignore-next-line
      */
-    #[Override]
+    #[\Override]
     public function getTableActions(): array
     {
-        /** @phpstan-ignore-next-line */
+        /* @phpstan-ignore-next-line */
         return [
             'change_password' => ChangePasswordAction::make()->tooltip('Cambio Password')->iconButton(),
             ...parent::getTableActions(),
@@ -71,7 +70,7 @@ class ListUsers extends BaseListUsers
     /**
      * @return array<string, BulkAction>
      */
-    #[Override]
+    #[\Override]
     public function getTableBulkActions(): array
     {
         return [
@@ -80,7 +79,7 @@ class ListUsers extends BaseListUsers
         ];
     }
 
-    #[Override]
+    #[\Override]
     protected function getHeaderWidgets(): array
     {
         return [

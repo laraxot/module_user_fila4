@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Unit\Models;
 
-use function Safe\class_uses;
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -13,11 +11,12 @@ use Illuminate\Notifications\Notifiable;
 use Modules\User\Models\BaseUser;
 use Modules\User\Tests\TestCase;
 
+use function Safe\class_uses;
+
 uses(TestCase::class, RefreshDatabase::class);
 
 beforeEach(function () {
-    $this->baseUser = new class extends BaseUser
-    {
+    $this->baseUser = new class extends BaseUser {
         protected $table = 'test_users';
     };
 });
