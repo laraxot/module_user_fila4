@@ -17,11 +17,12 @@ use Modules\Xot\Contracts\UserContract;
 /**
  * Modules\User\Contracts\TeamContract.
  *
-<<<<<<< HEAD
+ * <<<<<<< HEAD
  * <<<<<<< HEAD
  *
-=======
->>>>>>> a382d4f1 (.)
+ * =======
+ * >>>>>>> a382d4f1 (.)
+ *
  * @property int               $id
  * @property int               $user_id
  * @property string            $name
@@ -32,7 +33,7 @@ use Modules\Xot\Contracts\UserContract;
  * @property UserContract|null $owner
  * @property int|null          $team_invitations_count
  * @property int|null          $users_count
-<<<<<<< HEAD
+ *                                                     <<<<<<< HEAD
  *                                                     =======
  * @property int               $id
  * @property int               $user_id
@@ -45,8 +46,8 @@ use Modules\Xot\Contracts\UserContract;
  * @property int|null          $team_invitations_count
  * @property int|null          $users_count
  *                                                     >>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
+ *                                                     =======
+ *                                                     >>>>>>> a382d4f1 (.)
  *
  * @method static Builder|TeamContract newModelQuery()
  * @method static Builder|TeamContract newQuery()

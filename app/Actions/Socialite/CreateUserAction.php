@@ -25,7 +25,7 @@ class CreateUserAction
     /**
      * Execute the action to create a new user from socialite authentication.
      *
-<<<<<<< HEAD
+     * <<<<<<< HEAD
      * <<<<<<< HEAD
      *
      * @param string                $provider  The socialite provider name (e.g., 'github', 'google')
@@ -36,11 +36,12 @@ class CreateUserAction
      *
      * >>>>>>> laraxot/develop
      *
-=======
+     * =======
      * @param string                $provider  The socialite provider name (e.g., 'github', 'google')
      * @param SocialiteUserContract $oauthUser The socialite user instance
      *
->>>>>>> a382d4f1 (.)
+     * >>>>>>> a382d4f1 (.)
+     *
      * @return UserContract The created user instance
      */
     public function execute(string $provider, SocialiteUserContract $oauthUser): UserContract

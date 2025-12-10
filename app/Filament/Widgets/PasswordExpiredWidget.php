@@ -26,24 +26,25 @@ use Modules\Xot\Filament\Widgets\XotBaseWidget;
 /**
  * Widget for handling expired password reset.
  *
-<<<<<<< HEAD
+ * <<<<<<< HEAD
  * <<<<<<< HEAD
  *
-=======
->>>>>>> a382d4f1 (.)
+ * =======
+ * >>>>>>> a382d4f1 (.)
+ *
  * @property Schema                    $form
  * @property string|null               $current_password
  * @property string|null               $password
  * @property string|null               $passwordConfirmation
-<<<<<<< HEAD
+ *                                                           <<<<<<< HEAD
  *                                                           =======
  * @property Schema                    $form
  * @property string|null               $current_password
  * @property string|null               $password
  * @property string|null               $passwordConfirmation
  *                                                           >>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
+ *                                                           =======
+ *                                                           >>>>>>> a382d4f1 (.)
  * @property array<string, mixed>|null $data
  */
 class PasswordExpiredWidget extends XotBaseWidget

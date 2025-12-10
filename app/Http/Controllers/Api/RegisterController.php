@@ -12,7 +12,7 @@
  * If the validation passes, a new user is created and a success response is returned with the user's name and an access token.
  * If the validation fails, an error response is returned with the validation errors.
  *
-<<<<<<< HEAD
+ * <<<<<<< HEAD
  * <<<<<<< HEAD
  *
  * @param Request $request The incoming request
@@ -21,10 +21,11 @@
  *
  * >>>>>>> laraxot/develop
  *
-=======
+ * =======
  * @param Request $request The incoming request
  *
->>>>>>> a382d4f1 (.)
+ * >>>>>>> a382d4f1 (.)
+ *
  * @return JsonResponse The JSON response
  */
 declare(strict_types=1);

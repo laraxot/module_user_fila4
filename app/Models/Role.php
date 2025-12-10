@@ -25,11 +25,12 @@ use Webmozart\Assert\Assert;
 /**
  * Modules\User\Models\Role.
  *
-<<<<<<< HEAD
+ * <<<<<<< HEAD
  * <<<<<<< HEAD
  *
-=======
->>>>>>> a382d4f1 (.)
+ * =======
+ * >>>>>>> a382d4f1 (.)
+ *
  * @property string                                      $id
  * @property string                                      $uuid
  * @property string|null                                 $team_id
@@ -42,7 +43,7 @@ use Webmozart\Assert\Assert;
  * @property Team|null                                   $team
  * @property EloquentCollection<int, Model&UserContract> $users
  * @property int|null                                    $users_count
-<<<<<<< HEAD
+ *                                                                          <<<<<<< HEAD
  *                                                                          =======
  * @property string                                      $id
  * @property string                                      $uuid
@@ -57,8 +58,8 @@ use Webmozart\Assert\Assert;
  * @property EloquentCollection<int, Model&UserContract> $users
  * @property int|null                                    $users_count
  *                                                                          >>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
+ *                                                                          =======
+ *                                                                          >>>>>>> a382d4f1 (.)
  *
  * @method static Builder|Role newModelQuery()
  * @method static Builder|Role newQuery()
