@@ -4,6 +4,7 @@
 # Modulo User Laraxot - Template standardizzato
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Ultimo aggiornamento: 2025-01-31
 =======
 # Ultimo aggiornamento: 2025-01-06
@@ -11,11 +12,15 @@
 =======
 # Ultimo aggiornamento: 2025-01-06
 >>>>>>> 041533e (.)
+=======
+# Ultimo aggiornamento: 2025-01-06
+>>>>>>> 00a34d0 (.)
 # ==============================================
 
 # ==============================================
 # DEPENDENCIES & PACKAGES
 # ==============================================
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 /vendor/
@@ -31,6 +36,8 @@ npm-debug.log
 =======
 =======
 >>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
 vendor/
 /vendor/
 node_modules/
@@ -41,9 +48,12 @@ yarn.lock
 yarn-error.log
 composer.lock
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> a63f578 (.)
 =======
 >>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
 
 # ==============================================
 # BUILD & COMPILED FILES
@@ -68,12 +78,16 @@ cache/*
 *.stackdump
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 *.exe
 >>>>>>> a63f578 (.)
 =======
 *.exe
 >>>>>>> 041533e (.)
+=======
+*.exe
+>>>>>>> 00a34d0 (.)
 *:Zone.Identifier
 v8-compile-cache-*
 .php-cs-fixer.cache
@@ -87,12 +101,16 @@ error_log
 npm-debug.log*
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 npm-debug.log
 >>>>>>> a63f578 (.)
 =======
 npm-debug.log
 >>>>>>> 041533e (.)
+=======
+npm-debug.log
+>>>>>>> 00a34d0 (.)
 yarn-error.log*
 lerna-debug.log*
 
@@ -165,6 +183,7 @@ docs/cache/
 # ==============================================
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # LANGUAGE FILES
 # ==============================================
 lang/lang/
@@ -181,6 +200,8 @@ database_old/
 =======
 =======
 >>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
 # OLD DIRECTORIES (LEGACY CLEANUP)
 # ==============================================
 resources/views/Components_old/
@@ -195,9 +216,12 @@ database/Factories_
 database_old/
 database_old
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> a63f578 (.)
 =======
 >>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
 
 # ==============================================
 # MODULE SPECIFIC - USER
@@ -206,6 +230,7 @@ database_old
 config/local.php
 config/development.php
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 # Cache utenti
@@ -217,6 +242,8 @@ storage/avatars/
 =======
 =======
 >>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
 # Cache autenticazione
 storage/framework/cache/
 storage/framework/sessions/
@@ -224,9 +251,12 @@ storage/framework/views/
 
 # File di test temporanei
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> a63f578 (.)
 =======
 >>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
 test_users.json
 user_test_data.csv
 
@@ -236,6 +266,7 @@ user_test_data.csv
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # File specifici del progetto
 =======
 # 🚫 File specifici del progetto
@@ -243,6 +274,9 @@ user_test_data.csv
 =======
 # 🚫 File specifici del progetto
 >>>>>>> 041533e (.)
+=======
+# 🚫 File specifici del progetto
+>>>>>>> 00a34d0 (.)
 *.fila2
 laravel
 public_html
