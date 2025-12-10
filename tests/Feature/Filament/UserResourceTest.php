@@ -14,8 +14,8 @@ use Modules\User\Models\Role;
 use Modules\User\Models\User;
 
 beforeEach(function (): void {
-    $this->admin = User::factory()->create();
-    $this->user = User::factory()->create();
+    $this->admin = User/** @phpstan-ignore-line */ ::factory()->create();
+    /** @var object{user: mixed} $this */ $this->user = User/** @phpstan-ignore-line */ ::factory()->create();
 
     // Set admin panel for testing
     Filament::setCurrentPanel('user::admin');
@@ -59,12 +59,12 @@ describe('ListUsers Page', function (): void {
 
     it('can search users by name', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $searchableUser = User::factory()->create([
+        $searchableUser = User/** @phpstan-ignore-line */ ::factory()->create([
             'name' => 'Searchable User Name',
         ]);
 
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $otherUser = User::factory()->create([
+        $otherUser = User/** @phpstan-ignore-line */ ::factory()->create([
             'name' => 'Other User',
         ]);
 
@@ -76,12 +76,12 @@ describe('ListUsers Page', function (): void {
 
     it('can search users by email', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $searchableUser = User::factory()->create([
+        $searchableUser = User/** @phpstan-ignore-line */ ::factory()->create([
             'email' => 'searchable@example.com',
         ]);
 
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $otherUser = User::factory()->create([
+        $otherUser = User/** @phpstan-ignore-line */ ::factory()->create([
             'email' => 'other@example.com',
         ]);
 
@@ -93,12 +93,12 @@ describe('ListUsers Page', function (): void {
 
     it('can filter users by active status', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $activeUser = User::factory()->create([
+        $activeUser = User/** @phpstan-ignore-line */ ::factory()->create([
             'is_active' => true,
         ]);
 
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $inactiveUser = User::factory()->create([
+        $inactiveUser = User/** @phpstan-ignore-line */ ::factory()->create([
             'is_active' => false,
         ]);
 
@@ -110,12 +110,12 @@ describe('ListUsers Page', function (): void {
 
     it('can filter users by verified status', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $verifiedUser = User::factory()->create([
+        $verifiedUser = User/** @phpstan-ignore-line */ ::factory()->create([
             'email_verified_at' => now(),
         ]);
 
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $unverifiedUser = User::factory()->create([
+        $unverifiedUser = User/** @phpstan-ignore-line */ ::factory()->create([
             'email_verified_at' => null,
         ]);
 
@@ -127,12 +127,12 @@ describe('ListUsers Page', function (): void {
 
     it('can sort users by created date', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $oldUser = User::factory()->create([
+        $oldUser = User/** @phpstan-ignore-line */ ::factory()->create([
             'created_at' => now()->subDays(2),
         ]);
 
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $newUser = User::factory()->create([
+        $newUser = User/** @phpstan-ignore-line */ ::factory()->create([
             'created_at' => now(),
         ]);
 
@@ -189,7 +189,7 @@ describe('CreateUser Page', function (): void {
 
     it('validates email uniqueness', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $existingUser = User::factory()->create([
+        $existingUser = User/** @phpstan-ignore-line */ ::factory()->create([
             'email' => 'existing@example.com',
         ]);
 
@@ -217,7 +217,7 @@ describe('CreateUser Page', function (): void {
 
     it('can assign roles during creation', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create(['name' => 'Admin']);
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Admin']);
 
         $userData = [
             'name' => 'Admin User',
@@ -250,7 +250,7 @@ describe('EditUser Page', function (): void {
 
     it('can retrieve user data for editing', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create([
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
             'name' => 'Editable User',
             'email' => 'editable@example.com',
             'first_name' => 'Editable',
@@ -270,7 +270,7 @@ describe('EditUser Page', function (): void {
 
     it('can save edited user', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create([
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
             'name' => 'Original Name',
             'email' => 'original@example.com',
         ]);
@@ -291,7 +291,7 @@ describe('EditUser Page', function (): void {
 
     it('can activate and deactivate user', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create([
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
             'is_active' => true,
         ]);
 
@@ -310,7 +310,7 @@ describe('EditUser Page', function (): void {
 
     it('can change user language', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create([
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
             'lang' => 'en',
         ]);
 
@@ -329,11 +329,11 @@ describe('EditUser Page', function (): void {
 
     it('can update user roles', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role1 = Role::factory()->create(['name' => 'Admin']);
+        $role1 = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Admin']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role2 = Role::factory()->create(['name' => 'Editor']);
+        $role2 = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Editor']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $user->assignRole($role1);
@@ -354,7 +354,7 @@ describe('EditUser Page', function (): void {
 
     it('can update user password', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         $originalPassword = $user->password;
 
         Livewire::test(EditUser::class, [
@@ -385,7 +385,7 @@ describe('ViewUser Page', function (): void {
 
     it('displays user information', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create([
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
             'name' => 'Viewable User',
             'email' => 'viewable@example.com',
             'first_name' => 'Viewable',
@@ -402,9 +402,9 @@ describe('ViewUser Page', function (): void {
 
     it('can view user with roles', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create(['name' => 'Admin']);
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Admin']);
         /** @phpstan-ignore-next-line method.nonObject */
         $user->assignRole($role);
 
@@ -418,9 +418,9 @@ describe('ViewUser Page', function (): void {
 
     it('can view user with permissions', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission = Permission::factory()->create(['name' => 'edit posts']);
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
         /** @phpstan-ignore-next-line method.nonObject */
         $user->givePermissionTo($permission);
 
@@ -485,7 +485,7 @@ describe('UserResource Bulk Actions', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
         $users = User::factory()->count(2)->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create(['name' => 'Editor']);
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Editor']);
 
         Livewire::test(ListUsers::class)->selectTableRecords($users)->callTableBulkAction('assignRole', [
             'role_id' => $role->id,
@@ -504,9 +504,9 @@ describe('UserResource Bulk Actions', function (): void {
 describe('UserResource Security', function (): void {
     it('prevents editing super admin user', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $superAdmin = User::factory()->create();
+        $superAdmin = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $adminRole = Role::factory()->create(['name' => 'Super Admin']);
+        $adminRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Super Admin']);
         /** @phpstan-ignore-next-line method.nonObject */
         $superAdmin->assignRole($adminRole);
 
