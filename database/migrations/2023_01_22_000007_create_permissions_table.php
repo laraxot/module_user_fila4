@@ -10,11 +10,15 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
  * Class CreatePermissionsTable.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 return new class extends XotBaseMigration {
 =======
 return new class extends XotBaseMigration
 {
 >>>>>>> fbc8f8e (.)
+=======
+return new class extends XotBaseMigration {
+>>>>>>> 6d20fbe (.)
     /**
      * <<<<<<< HEAD
      * Run the migrations.
@@ -31,6 +35,9 @@ return new class extends XotBaseMigration
     {
         // -- CREATE --
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $this->tableCreate(static function (Blueprint $table): void {
             $table->bigIncrements('id');
             // permission id
@@ -45,6 +52,7 @@ return new class extends XotBaseMigration
             // $this->updateUser($table);
             $this->updateTimestamps($table);
         });
+<<<<<<< HEAD
 =======
         $this->tableCreate(
             static function (Blueprint $table): void {
@@ -65,5 +73,7 @@ return new class extends XotBaseMigration
             }
         );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 };
