@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 use Filament\Actions\Action;
-use Filament\Forms\Components\TextInput;
-use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Actions\Header\AttachRoleAction;
 use Modules\Xot\Datas\XotData;
