@@ -10,8 +10,8 @@ use Spatie\Permission\Models\Permission as SpatiePermission;
 
 class Permission extends SpatiePermission
 {
-    use RelationX;
     use HasXotFactory;
+    use RelationX;
 
     /** @var string */
     protected $connection = 'user';

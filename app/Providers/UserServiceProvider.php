@@ -10,6 +10,7 @@ namespace Modules\User\Providers;
 
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Contracts\Mail\Mailable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Gate;
@@ -65,7 +66,7 @@ class UserServiceProvider extends XotBaseServiceProvider
             $app_name = '';
         }
 
-        ResetPassword::toMailUsing(function ($notifiable, string $token): SpatieEmail {
+        ResetPassword::toMailUsing(function ($notifiable, string $token): Mailable {
             /*
              * return (new MailMessage)
              * ->template('user::notifications.email')

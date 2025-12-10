@@ -34,7 +34,7 @@ class Password extends XotBasePage
      *
      * @var string|null
      */
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
     /**
      * Vista per la pagina.

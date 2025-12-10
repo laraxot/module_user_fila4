@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Modules\Xot\Datas\XotData;
 use Modules\User\Filament\Clusters\Appearance;
 use Modules\User\Filament\Clusters\Appearance\Pages\Alignment;
 use Modules\User\Filament\Clusters\Appearance\Pages\Background;

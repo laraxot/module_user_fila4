@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 use Carbon\CarbonInterface;
+use DateTimeInterface;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
@@ -52,7 +53,7 @@ abstract class BaseUserResource extends XotBaseResource
                     ->password()
                     ->dehydrateStateUsing(function ($state) {
                         if (empty($state)) {
-                            return null;
+                            return;
                         }
 
                         return is_string($state) ? Hash::make($state) : null;
