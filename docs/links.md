@@ -29,10 +29,6 @@
 ## Collegamenti ai Moduli Correlati
 
 ### Moduli Core
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
 - [Modulo Lang](../../../Lang/docs/links.md)
   > Gestione delle traduzioni per l'interfaccia utente. Internazionalizzazione del sistema di autenticazione.
 
@@ -44,22 +40,6 @@
   > Sistema di notifiche per gli utenti. Gestione delle notifiche di autenticazione e sicurezza.
 
 - [Modulo Profile](../../../Profile/docs/links.md)
-<<<<<<< HEAD
-=======
-- [Modulo Lang](../../../Lang/project_docs/links.md)
-  > Gestione delle traduzioni per l'interfaccia utente. Internazionalizzazione del sistema di autenticazione.
-
-- [Modulo GDPR](../../../Gdpr/project_docs/links.md)
-  > Gestione della privacy e dei consensi utente. Conformità con le normative sulla protezione dei dati.
-
-### Moduli di Supporto
-- [Modulo Notify](../../../Notify/project_docs/links.md)
-  > Sistema di notifiche per gli utenti. Gestione delle notifiche di autenticazione e sicurezza.
-
-- [Modulo Profile](../../../Profile/project_docs/links.md)
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
   > Gestione dei profili utente. Personalizzazione e gestione delle informazioni utente.
 
 ## Implementazioni di Esempio
