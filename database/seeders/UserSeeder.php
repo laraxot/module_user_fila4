@@ -164,6 +164,7 @@ class UserSeeder extends Seeder
             'leave teams',
         ]);
 
+        $this->command->info('   ✓ Creati '.count($systemPermissions).' permessi di sistema');
         $this->command->info('   ✓ Creati 4 ruoli di sistema (super-admin, system-admin, moderator, user)');
     }
 

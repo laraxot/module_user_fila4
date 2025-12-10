@@ -10,6 +10,8 @@ use Modules\Xot\Datas\XotData;
 /*
  * Class CreateModelHasPermissionsTable.
  */
+return new class extends XotBaseMigration
+{
     /**
      * Run the migrations.
      */
