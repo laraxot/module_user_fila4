@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <?php 
 return array (
+=======
+<?php return array (
+>>>>>>> 7c0a965 (.)
   'fields' => 
   array (
     'startDate' => 
@@ -11,4 +15,8 @@ return array (
       'label' => 'endDate',
     ),
   ),
+<<<<<<< HEAD
 );
+=======
+);
+>>>>>>> 7c0a965 (.)
