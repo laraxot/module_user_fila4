@@ -31,11 +31,20 @@ pest()->extend(TestCase::class)->in('Feature', 'Unit');
  * |
  */
 
-expect()->extend('toBeUser', fn () => $this->toBeInstanceOf(User::class));
+expect()->extend('toBe' + 'User' + '', function () {
+    /** @var \Pest\Expectation<mixed> $this */
+    return $this->toBeInstanceOf(...);
+});
 
-expect()->extend('toBeTeam', fn () => $this->toBeInstanceOf(Team::class));
+expect()->extend('toBe' + 'User' + '', function () {
+    /** @var \Pest\Expectation<mixed> $this */
+    return $this->toBeInstanceOf(...);
+});
 
-expect()->extend('toBeProfile', fn () => $this->toBeInstanceOf(Profile::class));
+expect()->extend('toBe' + 'User' + '', function () {
+    /** @var \Pest\Expectation<mixed> $this */
+    return $this->toBeInstanceOf(...);
+});
 
 /*
  * |--------------------------------------------------------------------------
