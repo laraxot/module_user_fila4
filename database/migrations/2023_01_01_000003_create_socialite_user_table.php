@@ -6,25 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 use Modules\Xot\Datas\XotData;
 
-<<<<<<< HEAD
 return new class extends XotBaseMigration {
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-return new class extends XotBaseMigration {
-=======
-return new class extends XotBaseMigration
-{
->>>>>>> a12f125f4a (.)
-=======
-return new class extends XotBaseMigration {
->>>>>>> b93ef594b4 (.)
-=======
-return new class extends XotBaseMigration
-{
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     /**
      * Run the migrations.
      */
@@ -33,14 +15,6 @@ return new class extends XotBaseMigration
         $xot = XotData::make();
         $userClass = $xot->getUserClass();
         // -- CREATE --
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
         $this->tableCreate(static function (Blueprint $table) use ($userClass): void {
             // $table->uuid('id')->primary();
             $table->id();
@@ -59,10 +33,6 @@ return new class extends XotBaseMigration
              * ]);
              */
         });
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
 
         // -- UPDATE --
         $this->tableUpdate(function (Blueprint $table): void {
@@ -76,67 +46,5 @@ return new class extends XotBaseMigration
 
             // $this->updateUser($table);
         });
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> origin/develop
-        $this->tableCreate(
-            static function (Blueprint $table) use ($userClass): void {
-                // $table->uuid('id')->primary();
-                $table->id();
-                $table->foreignIdFor($userClass, 'user_id');
-                $table->string('provider');
-                $table->string('provider_id');
-                $table->text('token')->nullable();
-                $table->string('name')->nullable();
-                $table->string('email')->nullable();
-                $table->string('avatar')->nullable();
-                /*
-                $table->unique([
-                    'provider',
-                    'provider_id',
-                ]);
-                */
-            }
-        );
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
-
-        // -- UPDATE --
-        $this->tableUpdate(function (Blueprint $table): void {
-            // if (! $this->hasColumn('email')) {
-            //    $table->string('email')->nullable();
-            // }
-            if ($this->getColumnType('token') === 'varchar') {
-                $table->text('token')->nullable()->change();
-            }
-<<<<<<< HEAD
-        );
->>>>>>> a12f125f4a (.)
-=======
-            $this->updateTimestamps($table);
-
-            // $this->updateUser($table);
-        });
->>>>>>> b93ef594b4 (.)
-=======
-
-        // -- UPDATE --
-        $this->tableUpdate(
-            function (Blueprint $table): void {
-                // if (! $this->hasColumn('email')) {
-                //    $table->string('email')->nullable();
-                // }
-                if ($this->getColumnType('token') == 'varchar') {
-                    $table->text('token')->nullable()->change();
-                }
-                $this->updateTimestamps($table);
-                // $this->updateUser($table);
-            }
-        );
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
     }
 };
