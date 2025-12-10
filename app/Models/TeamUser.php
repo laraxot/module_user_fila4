@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Modules\Xot\Models\Traits\HasXotFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
 <<<<<<< HEAD
@@ -22,8 +24,8 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static Builder|TeamUser newQuery()
  * @method static Builder|TeamUser query()
  *
- * @property int         $id
- * @property string      $uuid
+ * @property int $id
+ * @property string $uuid
  * @property string|null $team_id
  * @property string|null $user_id
  * @property string|null $role

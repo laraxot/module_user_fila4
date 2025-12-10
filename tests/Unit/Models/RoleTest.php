@@ -13,7 +13,7 @@ class RoleTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testCanCreateRoleWithMinimalData(): void
+    public function test_can_create_role_with_minimal_data(): void
     {
         $role = Role::factory()->create([
             'name' => 'Test Role',
@@ -27,7 +27,7 @@ class RoleTest extends TestCase
         ]);
     }
 
-    public function testCanCreateRoleWithAllFields(): void
+    public function test_can_create_role_with_all_fields(): void
     {
         $team = Team::factory()->create();
 
@@ -49,28 +49,28 @@ class RoleTest extends TestCase
         ]);
     }
 
-    public function testRoleHasConnectionAttribute(): void
+    public function test_role_has_connection_attribute(): void
     {
-        $role = new Role();
+        $role = new Role;
 
         static::assertSame('user', $role->connection);
     }
 
-    public function testRoleHasKeyTypeAttribute(): void
+    public function test_role_has_key_type_attribute(): void
     {
-        $role = new Role();
+        $role = new Role;
 
         static::assertSame('string', $role->keyType);
     }
 
-    public function testRoleConstantsAreDefined(): void
+    public function test_role_constants_are_defined(): void
     {
         static::assertSame(1, Role::ROLE_ADMINISTRATOR);
         static::assertSame(2, Role::ROLE_OWNER);
         static::assertSame(3, Role::ROLE_USER);
     }
 
-    public function testCanFindRoleByName(): void
+    public function test_can_find_role_by_name(): void
     {
         $role = Role::factory()->create(['name' => 'Unique Role Name']);
 
@@ -80,7 +80,7 @@ class RoleTest extends TestCase
         static::assertSame($role->id, $foundRole->id);
     }
 
-    public function testCanFindRoleByGuardName(): void
+    public function test_can_find_role_by_guard_name(): void
     {
         Role::factory()->create(['guard_name' => 'web']);
         Role::factory()->create(['guard_name' => 'api']);
@@ -89,10 +89,10 @@ class RoleTest extends TestCase
         $webRoles = Role::where('guard_name', 'web')->get();
 
         static::assertCount(2, $webRoles);
-        static::assertTrue($webRoles->every(fn ($role) => 'web' === $role->guard_name));
+        static::assertTrue($webRoles->every(fn ($role) => $role->guard_name === 'web'));
     }
 
-    public function testCanFindRoleByTeamId(): void
+    public function test_can_find_role_by_team_id(): void
     {
         $team = Team::factory()->create();
         $role = Role::factory()->create(['team_id' => $team->id]);
@@ -103,7 +103,7 @@ class RoleTest extends TestCase
         static::assertSame($role->id, $foundRole->id);
     }
 
-    public function testCanFindRoleByUuid(): void
+    public function test_can_find_role_by_uuid(): void
     {
         $uuid = '550e8400-e29b-41d4-a716-446655440000';
         $role = Role::factory()->create(['uuid' => $uuid]);
@@ -114,7 +114,7 @@ class RoleTest extends TestCase
         static::assertSame($role->id, $foundRole->id);
     }
 
-    public function testCanFindRolesByNamePattern(): void
+    public function test_can_find_roles_by_name_pattern(): void
     {
         Role::factory()->create(['name' => 'Admin Role']);
         Role::factory()->create(['name' => 'User Role']);
@@ -126,7 +126,7 @@ class RoleTest extends TestCase
         static::assertTrue($adminRoles->every(fn ($role) => str_contains($role->name, 'Role')));
     }
 
-    public function testCanUpdateRole(): void
+    public function test_can_update_role(): void
     {
         $role = Role::factory()->create(['name' => 'Old Name']);
 
@@ -138,7 +138,7 @@ class RoleTest extends TestCase
         ]);
     }
 
-    public function testCanHandleNullValues(): void
+    public function test_can_handle_null_values(): void
     {
         $role = Role::factory()->create([
             'name' => 'Test Role',
@@ -154,7 +154,7 @@ class RoleTest extends TestCase
         ]);
     }
 
-    public function testCanFindRolesByMultipleCriteria(): void
+    public function test_can_find_roles_by_multiple_criteria(): void
     {
         $team = Team::factory()->create();
         Role::factory()->create([
@@ -176,28 +176,28 @@ class RoleTest extends TestCase
         static::assertSame('web', $roles->first()->guard_name);
     }
 
-    public function testRoleHasPermissionsRelationship(): void
+    public function test_role_has_permissions_relationship(): void
     {
         $role = Role::factory()->create();
 
         static::assertTrue(method_exists($role, 'permissions'));
     }
 
-    public function testRoleHasTeamRelationship(): void
+    public function test_role_has_team_relationship(): void
     {
         $role = Role::factory()->create();
 
         static::assertTrue(method_exists($role, 'team'));
     }
 
-    public function testRoleHasUsersRelationship(): void
+    public function test_role_has_users_relationship(): void
     {
         $role = Role::factory()->create();
 
         static::assertTrue(method_exists($role, 'users'));
     }
 
-    public function testRoleCanUsePermissionScopes(): void
+    public function test_role_can_use_permission_scopes(): void
     {
         $role = Role::factory()->create();
 
@@ -205,7 +205,7 @@ class RoleTest extends TestCase
         static::assertTrue(method_exists($role, 'withoutPermission'));
     }
 
-    public function testRoleCanUseRoleScopes(): void
+    public function test_role_can_use_role_scopes(): void
     {
         $role = Role::factory()->create();
 

@@ -21,7 +21,7 @@ use Modules\Xot\Filament\Pages\XotBasePage;
  *
  * @property Schema $form
  *
- * @see XotBasePage
+ * @see \Modules\Xot\Filament\Pages\XotBasePage
  * @see \Modules\User\docs\errori\class-page-not-found.md
  */
 class Alignment extends XotBasePage
@@ -103,7 +103,7 @@ class Alignment extends XotBasePage
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      */
     protected function handleRecordUpdate(Model $record, array $data): Model
     {

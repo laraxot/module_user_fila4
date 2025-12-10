@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
-use BackedEnum;
-use Filament\Support\Contracts\HasLabel;
-use Illuminate\Console\Command;
 use Illuminate\Contracts\Support\Htmlable;
+use Filament\Support\Contracts\HasLabel;
+use BackedEnum;
+use Illuminate\Console\Command;
 
 use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
@@ -108,7 +108,7 @@ class ChangeTypeCommand extends Command
         Assert::notNull($newTypeEnum);
         Assert::isInstanceOf($newTypeEnum, HasLabel::class);
 
-        /* @var BackedEnum&HasLabel $newTypeEnum */
+        /** @var BackedEnum&HasLabel $newTypeEnum */
         $user->type = (string) $newTypeEnum->value;
         $user->save();
 

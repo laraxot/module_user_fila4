@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Database\Seeders;
 
-use Carbon\Carbon;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Carbon\Carbon;
+use Exception;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Modules\User\Models\AuthenticationLog;
 use Modules\User\Models\Device;
@@ -57,7 +58,7 @@ class UserMassSeeder extends Seeder
 
             $this->command->info("🎉 Seeding modulo User completato in {$executionTime} secondi!");
             $this->displaySummary();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->command->error('❌ Errore durante il seeding: '.$e->getMessage());
             throw $e;
         }
@@ -328,7 +329,7 @@ class UserMassSeeder extends Seeder
             $this->command->info('│ 🔗 Provider social:         '.
             str_pad((string) $totalProviders, 6, ' ', STR_PAD_LEFT).
                 ' │');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->command->info('│ ❌ Errore nel conteggio: '.$e->getMessage());
         }
 

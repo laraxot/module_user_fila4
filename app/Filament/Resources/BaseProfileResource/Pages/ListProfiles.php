@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\BaseProfileResource\Pages;
 
+use Exception;
 use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
@@ -14,6 +15,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Modules\User\Filament\Resources\BaseProfileResource;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+use Override;
 
 /**
  * .
@@ -25,7 +27,7 @@ class ListProfiles extends XotBaseListRecords
     /**
      * @return array<string, Tables\Columns\Column>
      */
-    #[\Override]
+    #[Override]
     public function getTableColumns(): array
     {
         return [
@@ -41,10 +43,10 @@ class ListProfiles extends XotBaseListRecords
                     $userValue = $record->user ?? null;
                     $user_class = XotData::make()->getUserClass();
 
-                    if (null === $userValue) {
+                    if ($userValue === null) {
                         $emailValue = $record->email ?? null;
 
-                        if (null === $emailValue) {
+                        if ($emailValue === null) {
                             if (method_exists($record, 'update')) {
                                 $record->update(['email' => fake()->email()]);
                             }
@@ -57,7 +59,7 @@ class ListProfiles extends XotBaseListRecords
 
                         try {
                             $userValue = XotData::make()->getUserByEmail($emailValue);
-                        } catch (\Exception $e) {
+                        } catch (Exception $e) {
                             return '--';
                         }
                     }
@@ -69,7 +71,7 @@ class ListProfiles extends XotBaseListRecords
                     // PHPStan Level 10: isset() per magic properties di User model
                     $userId = $userValue->id ?? null;
 
-                    if (null !== $userId && method_exists($record, 'update')) {
+                    if ($userId !== null && method_exists($record, 'update')) {
                         $record->update(['user_id' => $userId]);
                     }
 
@@ -88,7 +90,7 @@ class ListProfiles extends XotBaseListRecords
     /**
      * @return array<string, BaseFilter>
      */
-    #[\Override]
+    #[Override]
     public function getTableFilters(): array
     {
         return [

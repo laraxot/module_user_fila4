@@ -8,13 +8,14 @@ use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Support\Facades\Auth;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
+use Override;
 
 /**
  * LoginWidget: Widget di login conforme alle regole Windsurf/Xot.
  * - Estende XotBaseWidget
  * - Usa solo componenti Filament importati
  * - Validazione e sicurezza integrate
- * - Facilmente estendibile (2FA, captcha, login social).
+ * - Facilmente estendibile (2FA, captcha, login social)
  */
 class LoginWidget extends XotBaseWidget
 {
@@ -33,7 +34,7 @@ class LoginWidget extends XotBaseWidget
      */
     protected string $view = 'pub_theme::filament.widgets.auth.login';
 
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         return [
