@@ -9,7 +9,7 @@ L'integrazione tra il **modulo User** e l'**ecosistema factory <nome progetto>**
 ### Cross-Module Strategy
 ```
 BaseUser (Modules\User\Models\BaseUser)
-├── Connection Strategy: 'user' (default) vs 'salute_ora' (specialized)
+├── Connection Strategy: 'user' (default) vs '<slogan progetto>' (specialized)
 ├── Trait Integration: HasTeams, HasRoles, HasAuthenticationLog
 └── Foundation for STI in specialized modules
 
@@ -26,7 +26,7 @@ BaseUser (Modules\User\Models\BaseUser)
 protected $connection = 'user'; // Default Laravel connection
 
 // <nome progetto> User Models - Specialized
-protected $connection = 'salute_ora'; // Healthcare domain connection
+protected $connection = '<slogan progetto>'; // Healthcare domain connection
 
 // Factory Resolution
 class UserFactory {
@@ -70,7 +70,7 @@ Admin::class (HasParent trait)
 public function definition(): array {
     return array_merge(parent::definition(), [
         'codice_fiscale' => $this->generateCodiceFiscale(),
-        'connection' => 'salute_ora',
+        'connection' => '<slogan progetto>',
         // ... healthcare specific fields
     ]);
 }
@@ -102,7 +102,7 @@ AdminFactory::definition()   // Administrative privileges
         'driver' => 'mysql',
         'database' => env('DB_USER_DATABASE', 'laravel_users'),
     ],
-    'salute_ora' => [ // Healthcare specialized
+    '<slogan progetto>' => [ // Healthcare specialized
         'driver' => 'mysql', 
         'database' => env('DB_<nome progetto>_DATABASE', '<nome progetto>_healthcare'),
     ]

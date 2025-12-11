@@ -90,7 +90,7 @@ use Modules\<nome progetto>\Enums\UserTypeEnum;
 class User extends BaseUser
 {
     /** @var string */
-    protected $connection = 'salute_ora';
+    protected $connection = '<slogan progetto>';
 
     /**
      * Mappatura dei tipi specifici del progetto <nome progetto>
@@ -278,7 +278,7 @@ class UserTypeCommandTest extends TestCase
 class <nome progetto>UserTypeCommandTest extends TestCase
 {
     /** @test */
-    public function it_works_with_salute_ora_types()
+    public function it_works_with_<slogan progetto>_types()
     {
         // Test con tipi specifici di <nome progetto>
     }

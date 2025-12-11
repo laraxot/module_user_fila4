@@ -23,7 +23,7 @@ BaseUser (Modules\User\Models\BaseUser)
 protected $connection = 'user'; // Default connection
 
 // User (Modulo <nome progetto>) 
-protected $connection = 'salute_ora'; // Override for healthcare domain
+protected $connection = '<slogan progetto>'; // Override for healthcare domain
 ```
 
 ## Trait Distribution
@@ -70,7 +70,7 @@ La `UserFactory` è implementata **nel modulo <nome progetto>** perché:
 1. **Domain Specificity**: I dati sono specifici del dominio sanitario
 2. **Enum Integration**: Usa `UserTypeEnum` e `UserState` del modulo <nome progetto>
 3. **Business Logic**: Gestisce logica sanitaria (ISEE, pregnancy, certifications)
-4. **Connection Override**: Usa database 'salute_ora'
+4. **Connection Override**: Usa database '<slogan progetto>'
 
 ### Integration Pattern
 

@@ -177,7 +177,7 @@ $gdprTests = [
 - **✅ Bulk Generation**: 1000+ users/second capability
 - **✅ Memory Efficient**: Optimized object recycling
 - **✅ Database Optimized**: Single query STI creation
-- **✅ Connection Aware**: Proper 'salute_ora' database routing
+- **✅ Connection Aware**: Proper '<slogan progetto>' database routing
 
 ### Testing Performance
 - **✅ Scenario Coverage**: 95% business case support

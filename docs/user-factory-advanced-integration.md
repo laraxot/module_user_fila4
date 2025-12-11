@@ -85,10 +85,10 @@ User::factory()->gdprCompliant()->create();
 protected $connection = 'user';
 
 // <nome progetto> User (Healthcare Domain)
-protected $connection = 'salute_ora';
+protected $connection = '<slogan progetto>';
 
 // Factory automatically handles connection switching
-User::factory()->create(); // Uses 'salute_ora' connection
+User::factory()->create(); // Uses '<slogan progetto>' connection
 ```
 
 ### Morph Relations Support
