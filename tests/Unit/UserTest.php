@@ -7,7 +7,7 @@ use Modules\User\Enums\UserType;
 use Modules\User\Models\User;
 use Tests\TestCase;
 
-/*
+/**
  * @property User $user
  */
 uses(TestCase::class);

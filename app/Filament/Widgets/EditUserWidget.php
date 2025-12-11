@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+use Exception;
+use BackedEnum;
 use Filament\Support\Components\Component;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
@@ -90,14 +92,14 @@ class EditUserWidget extends XotBaseWidget
                 $result = $model->toArray();
 
                 return $result;
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 // Se toArray() fallisce (problemi con enum), usa getAttributes()
                 Log::warning("Errore in toArray() per modello {$this->model}: ".$e->getMessage());
 
                 /** @var array<string, mixed> $result */
                 $result = $model->getAttributes();
                 // Gestisci specificamente gli enum se presenti
-                if (isset($result['type']) && ($model->type ?? null) instanceof \BackedEnum) {
+                if (isset($result['type']) && ($model->type ?? null) instanceof BackedEnum) {
                     $result['type'] = $model->type->value;
                 }
 

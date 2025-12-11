@@ -9,23 +9,25 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 use Carbon\CarbonInterface;
+use DateTimeInterface;
+use Carbon\Carbon;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\HtmlString;
 use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+use Override;
 
 class UserResource extends XotBaseResource
 {
     // protected static ?string $model = \Modules\Xot\Datas\XotData::make()->getUserClass();
 
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-users';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-users';
 
     // Static property Modules\User\Filament\Resources\UserResource::$enablePasswordUpdates is never read, only written.
     // private static bool|\Closure $enablePasswordUpdates = true;
@@ -42,7 +44,7 @@ class UserResource extends XotBaseResource
     //    static::$extendFormCallback = $callback;
     // }
 
-    #[\Override]
+    #[Override]
     public static function getFormSchema(): array
     {
         return [
@@ -76,13 +78,13 @@ class UserResource extends XotBaseResource
                     /** @var Carbon|null $createdAt */
                     $createdAt = $record->getAttribute('created_at');
 
-                    if (null === $createdAt) {
+                    if ($createdAt === null) {
                         return new HtmlString('&mdash;');
                     }
                     if ($createdAt instanceof CarbonInterface) {
                         return $createdAt->diffForHumans();
                     }
-                    if ($createdAt instanceof \DateTimeInterface) {
+                    if ($createdAt instanceof DateTimeInterface) {
                         return $createdAt->format('Y-m-d H:i:s');
                     }
 
@@ -104,7 +106,7 @@ class UserResource extends XotBaseResource
      * }
      */
 
-    #[\Override]
+    #[Override]
     public function hasCombinedRelationManagerTabsWithContent(): bool
     {
         return true;

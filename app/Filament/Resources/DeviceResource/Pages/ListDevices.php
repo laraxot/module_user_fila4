@@ -9,6 +9,7 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\DeviceResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+use Override;
 
 class ListDevices extends XotBaseListRecords
 {
@@ -17,7 +18,7 @@ class ListDevices extends XotBaseListRecords
     /**
      * @return array<string, Column>
      */
-    #[\Override]
+    #[Override]
     public function getTableColumns(): array
     {
         return [

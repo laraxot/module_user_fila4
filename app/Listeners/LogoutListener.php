@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Listeners;
 
+use Exception;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -52,7 +53,7 @@ class LogoutListener
                         'device_id' => $device->id,
                     ]);
                     $pivot->update(['logout_at' => now()]);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     Log::error('Errore durante l\'aggiornamento del pivot device-user', [
                         'error' => $e->getMessage(),
                         'user_id' => $event->user->getAuthIdentifier(),
@@ -72,7 +73,7 @@ class LogoutListener
                             'ip_address' => request()->ip(),
                             'user_agent' => request()->userAgent(),
                         ]);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     Log::error('Errore durante la creazione del log di autenticazione', [
                         'error' => $e->getMessage(),
                         'user_id' => $event->user->getAuthIdentifier(),
@@ -86,7 +87,7 @@ class LogoutListener
                 'device_id' => $device->id,
                 'timestamp' => now(),
             ]);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             Log::error('Errore durante il logout', [
                 'error' => $e->getMessage(),
                 'trace' => $e->getTraceAsString(),
@@ -109,7 +110,7 @@ class LogoutListener
                     ->update([
                         'remember_token' => null,
                     ]);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 Log::error('Errore durante la rimozione dei remember tokens', [
                     'error' => $e->getMessage(),
                     'user_id' => $event->user->getAuthIdentifier(),

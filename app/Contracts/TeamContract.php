@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Contracts;
 
+use Modules\Xot\Contracts\ModelContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -11,7 +12,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
-use Modules\Xot\Contracts\ModelContract;
 use Modules\Xot\Contracts\UserContract;
 
 /**
