@@ -10,7 +10,6 @@ use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Password;
 // use Filament\Forms\Components\TextInput as FormsTextInput;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
-use Override;
 
 /**
  * @property Schema $form
@@ -24,7 +23,7 @@ class ForgotPasswordWidget extends XotBaseWidget
      *
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public function getFormSchema(): array
     {
         return [
@@ -41,7 +40,7 @@ class ForgotPasswordWidget extends XotBaseWidget
 
         $status = Password::sendResetLink(['email' => $data['email']]);
 
-        if ($status === Password::RESET_LINK_SENT) {
+        if (Password::RESET_LINK_SENT === $status) {
             session()->flash('status', __($status));
         } else {
             $this->addError('email', __($status));

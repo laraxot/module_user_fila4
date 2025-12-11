@@ -12,7 +12,7 @@ class PermissionTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_can_create_permission_with_minimal_data(): void
+    public function testCanCreatePermissionWithMinimalData(): void
     {
         $permission = Permission::factory()->create([
             'name' => 'test.permission',
@@ -26,7 +26,7 @@ class PermissionTest extends TestCase
         ]);
     }
 
-    public function test_can_create_permission_with_all_fields(): void
+    public function testCanCreatePermissionWithAllFields(): void
     {
         $permissionData = [
             'name' => 'full.permission',
@@ -46,23 +46,23 @@ class PermissionTest extends TestCase
         ]);
     }
 
-    public function test_permission_has_connection_attribute(): void
+    public function testPermissionHasConnectionAttribute(): void
     {
-        $permission = new Permission;
+        $permission = new Permission();
 
         static::assertSame('user', $permission->connection);
     }
 
-    public function test_permission_has_key_type_attribute(): void
+    public function testPermissionHasKeyTypeAttribute(): void
     {
-        $permission = new Permission;
+        $permission = new Permission();
 
         static::assertSame('string', $permission->keyType);
     }
 
-    public function test_permission_has_fillable_attributes(): void
+    public function testPermissionHasFillableAttributes(): void
     {
-        $permission = new Permission;
+        $permission = new Permission();
 
         $expectedFillable = [
             'id',
@@ -77,9 +77,9 @@ class PermissionTest extends TestCase
         static::assertSame($expectedFillable, $permission->getFillable());
     }
 
-    public function test_permission_has_casts(): void
+    public function testPermissionHasCasts(): void
     {
-        $permission = new Permission;
+        $permission = new Permission();
 
         $expectedCasts = [
             'id' => 'string',
@@ -93,7 +93,7 @@ class PermissionTest extends TestCase
         static::assertSame($expectedCasts, $permission->getCasts());
     }
 
-    public function test_can_find_permission_by_name(): void
+    public function testCanFindPermissionByName(): void
     {
         $permission = Permission::factory()->create(['name' => 'unique.permission']);
 
@@ -103,7 +103,7 @@ class PermissionTest extends TestCase
         static::assertSame($permission->id, $foundPermission->id);
     }
 
-    public function test_can_find_permission_by_guard_name(): void
+    public function testCanFindPermissionByGuardName(): void
     {
         Permission::factory()->create(['guard_name' => 'web']);
         Permission::factory()->create(['guard_name' => 'api']);
@@ -112,10 +112,10 @@ class PermissionTest extends TestCase
         $webPermissions = Permission::where('guard_name', 'web')->get();
 
         static::assertCount(2, $webPermissions);
-        static::assertTrue($webPermissions->every(fn ($permission) => $permission->guard_name === 'web'));
+        static::assertTrue($webPermissions->every(fn ($permission) => 'web' === $permission->guard_name));
     }
 
-    public function test_can_find_permission_by_created_by(): void
+    public function testCanFindPermissionByCreatedBy(): void
     {
         $permission = Permission::factory()->create(['created_by' => 'user123']);
 
@@ -125,7 +125,7 @@ class PermissionTest extends TestCase
         static::assertSame($permission->id, $foundPermission->id);
     }
 
-    public function test_can_find_permission_by_updated_by(): void
+    public function testCanFindPermissionByUpdatedBy(): void
     {
         $permission = Permission::factory()->create(['updated_by' => 'user456']);
 
@@ -135,7 +135,7 @@ class PermissionTest extends TestCase
         static::assertSame($permission->id, $foundPermission->id);
     }
 
-    public function test_can_find_permissions_by_name_pattern(): void
+    public function testCanFindPermissionsByNamePattern(): void
     {
         Permission::factory()->create(['name' => 'user.create']);
         Permission::factory()->create(['name' => 'user.update']);
@@ -148,7 +148,7 @@ class PermissionTest extends TestCase
         static::assertTrue($userPermissions->every(fn ($permission) => str_starts_with($permission->name, 'user.')));
     }
 
-    public function test_can_update_permission(): void
+    public function testCanUpdatePermission(): void
     {
         $permission = Permission::factory()->create(['name' => 'old.permission']);
 
@@ -160,7 +160,7 @@ class PermissionTest extends TestCase
         ]);
     }
 
-    public function test_can_handle_null_values(): void
+    public function testCanHandleNullValues(): void
     {
         $permission = Permission::factory()->create([
             'name' => 'test.permission',
@@ -176,7 +176,7 @@ class PermissionTest extends TestCase
         ]);
     }
 
-    public function test_can_find_permissions_by_multiple_criteria(): void
+    public function testCanFindPermissionsByMultipleCriteria(): void
     {
         Permission::factory()->create([
             'name' => 'admin.user.create',
@@ -194,32 +194,32 @@ class PermissionTest extends TestCase
 
         static::assertCount(2, $permissions);
         static::assertTrue($permissions->every(
-            fn ($permission) => str_starts_with($permission->name, 'admin.user.') && $permission->created_by === 'admin',
+            fn ($permission) => str_starts_with($permission->name, 'admin.user.') && 'admin' === $permission->created_by,
         ));
     }
 
-    public function test_permission_has_roles_relationship(): void
+    public function testPermissionHasRolesRelationship(): void
     {
         $permission = Permission::factory()->create();
 
         static::assertTrue(method_exists($permission, 'roles'));
     }
 
-    public function test_permission_has_users_relationship(): void
+    public function testPermissionHasUsersRelationship(): void
     {
         $permission = Permission::factory()->create();
 
         static::assertTrue(method_exists($permission, 'users'));
     }
 
-    public function test_permission_can_use_role_scopes(): void
+    public function testPermissionCanUseRoleScopes(): void
     {
         $permission = Permission::factory()->create();
 
         static::assertTrue(method_exists($permission, 'role'));
     }
 
-    public function test_permission_can_use_permission_scopes(): void
+    public function testPermissionCanUsePermissionScopes(): void
     {
         $permission = Permission::factory()->create();
 
@@ -227,23 +227,23 @@ class PermissionTest extends TestCase
         static::assertTrue(method_exists($permission, 'withoutPermission'));
     }
 
-    public function test_permission_can_use_without_role_scopes(): void
+    public function testPermissionCanUseWithoutRoleScopes(): void
     {
         $permission = Permission::factory()->create();
 
         static::assertTrue(method_exists($permission, 'withoutRole'));
     }
 
-    public function test_permission_has_factory_method(): void
+    public function testPermissionHasFactoryMethod(): void
     {
-        $permission = new Permission;
+        $permission = new Permission();
 
         static::assertTrue(method_exists($permission, 'newFactory'));
     }
 
-    public function test_permission_has_get_table_method(): void
+    public function testPermissionHasGetTableMethod(): void
     {
-        $permission = new Permission;
+        $permission = new Permission();
 
         static::assertTrue(method_exists($permission, 'getTable'));
     }
