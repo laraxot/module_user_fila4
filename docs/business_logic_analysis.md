@@ -2,7 +2,6 @@
 
 ## Overview
 The User module provides comprehensive user management, authentication, authorization, and team-based access control for the <nome progetto> platform. It serves as the foundation for all user-related operations across the entire application.
->>>>>>> laraxot/develop
 
 ## Business Purpose
 - **Authentication**: Secure user authentication with multiple options
