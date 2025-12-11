@@ -7,13 +7,14 @@ namespace Modules\User\Filament\Resources\TeamResource\Pages;
 use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\TeamResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+use Override;
 
 class ListTeams extends XotBaseListRecords
 {
     // //
     protected static string $resource = TeamResource::class;
 
-    #[\Override]
+    #[Override]
     public function getTableColumns(): array
     {
         return [

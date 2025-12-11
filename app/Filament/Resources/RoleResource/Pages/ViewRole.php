@@ -9,6 +9,7 @@ use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Section;
 use Modules\User\Filament\Resources\RoleResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
+use Override;
 
 class ViewRole extends XotBaseViewRecord
 {
@@ -17,7 +18,7 @@ class ViewRole extends XotBaseViewRecord
     /**
      * @return array<Component>
      */
-    #[\Override]
+    #[Override]
     protected function getInfolistSchema(): array
     {
         return [

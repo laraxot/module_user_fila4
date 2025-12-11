@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Actions\User;
 
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Models\User;
@@ -16,9 +17,8 @@ class DeleteUserAction
     /**
      * Elimina l'utente dopo aver verificato la password.
      *
-     * @param User   $user            L'utente da eliminare
-     * @param string $confirmPassword La password di conferma
-     *
+     * @param  User  $user  L'utente da eliminare
+     * @param  string  $confirmPassword  La password di conferma
      * @return array{success: bool, message: string} Risultato dell'operazione
      */
     public function execute(User $user, string $confirmPassword): array
@@ -38,7 +38,7 @@ class DeleteUserAction
                 'success' => true,
                 'message' => 'Account eliminato con successo',
             ];
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return [
                 'success' => false,
                 'message' => 'Si è verificato un errore durante l\'eliminazione dell\'account',

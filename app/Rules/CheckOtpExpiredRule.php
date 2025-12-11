@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Rules;
 
+use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Modules\User\Datas\PasswordData;
 use Modules\User\Models\User;
@@ -17,15 +18,14 @@ class CheckOtpExpiredRule implements ValidationRule
 
     public function __construct(
         private User $user,
-    ) {
-    }
+    ) {}
 
     /**
      * Run the validation rule.
      */
-    public function validate(string $_attribute, mixed $_value, \Closure $fail): void
+    public function validate(string $_attribute, mixed $_value, Closure $fail): void
     {
-        if (null === $this->user->updated_at) {
+        if ($this->user->updated_at === null) {
             $fail($this->message);
 
             return;

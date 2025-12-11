@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Tests\Unit\Actions;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use InvalidArgumentException;
 use Jenssegers\Agent\Agent;
+use Mockery;
 use Modules\User\Actions\GetCurrentDeviceAction;
 use Modules\User\Models\Device;
 use Tests\TestCase;
@@ -21,14 +23,14 @@ class GetCurrentDeviceActionTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->action = new GetCurrentDeviceAction();
+        $this->action = new GetCurrentDeviceAction;
 
         // Mock the Agent class
-        $this->mockAgent = \Mockery::mock(Agent::class);
+        $this->mockAgent = Mockery::mock(Agent::class);
     }
 
     /** @test */
-    public function itCreatesDeviceWithValidAgentData(): void
+    public function it_creates_device_with_valid_agent_data(): void
     {
         // Arrange
         $deviceData = [
@@ -91,7 +93,7 @@ class GetCurrentDeviceActionTest extends TestCase
     }
 
     /** @test */
-    public function itCreatesDeviceWithMobileId(): void
+    public function it_creates_device_with_mobile_id(): void
     {
         // Arrange
         $mobileId = 'unique-mobile-identifier-123';
@@ -144,18 +146,18 @@ class GetCurrentDeviceActionTest extends TestCase
     }
 
     /** @test */
-    public function itHandlesEmptyMobileId(): void
+    public function it_handles_empty_mobile_id(): void
     {
         // Arrange
         $emptyMobileId = '';
 
         // Act & Assert
         expect(fn () => $this->action->execute($emptyMobileId))
-            ->toThrow(\InvalidArgumentException::class, 'L\'ID mobile non può essere vuoto');
+            ->toThrow(InvalidArgumentException::class, 'L\'ID mobile non può essere vuoto');
     }
 
     /** @test */
-    public function itHandlesNullMobileId(): void
+    public function it_handles_null_mobile_id(): void
     {
         // Arrange
         $nullMobileId = null;
@@ -192,7 +194,7 @@ class GetCurrentDeviceActionTest extends TestCase
     }
 
     /** @test */
-    public function itHandlesUnknownDeviceTypes(): void
+    public function it_handles_unknown_device_types(): void
     {
         // Arrange
         // Mock Agent methods returning null/unknown values
@@ -229,7 +231,7 @@ class GetCurrentDeviceActionTest extends TestCase
     }
 
     /** @test */
-    public function itHandlesRobotDetection(): void
+    public function it_handles_robot_detection(): void
     {
         // Arrange
         // Mock Agent methods for robot
@@ -260,7 +262,7 @@ class GetCurrentDeviceActionTest extends TestCase
     }
 
     /** @test */
-    public function itHandlesTabletDetection(): void
+    public function it_handles_tablet_detection(): void
     {
         // Arrange
         // Mock Agent methods for tablet
@@ -295,7 +297,7 @@ class GetCurrentDeviceActionTest extends TestCase
     }
 
     /** @test */
-    public function itHandlesDesktopDetection(): void
+    public function it_handles_desktop_detection(): void
     {
         // Arrange
         // Mock Agent methods for desktop
@@ -334,7 +336,7 @@ class GetCurrentDeviceActionTest extends TestCase
     }
 
     /** @test */
-    public function itHandlesMobilePhoneDetection(): void
+    public function it_handles_mobile_phone_detection(): void
     {
         // Arrange
         // Mock Agent methods for mobile phone
@@ -371,7 +373,7 @@ class GetCurrentDeviceActionTest extends TestCase
     }
 
     /** @test */
-    public function itHandlesEdgeCasePlatforms(): void
+    public function it_handles_edge_case_platforms(): void
     {
         // Arrange
         // Mock Agent methods for edge case platform
@@ -406,7 +408,7 @@ class GetCurrentDeviceActionTest extends TestCase
     }
 
     /** @test */
-    public function itHandlesLegacyBrowsers(): void
+    public function it_handles_legacy_browsers(): void
     {
         // Arrange
         // Mock Agent methods for legacy browser
@@ -437,7 +439,7 @@ class GetCurrentDeviceActionTest extends TestCase
     }
 
     /** @test */
-    public function itHandlesUnknownBrowserVersions(): void
+    public function it_handles_unknown_browser_versions(): void
     {
         // Arrange
         // Mock Agent methods with unknown browser version
@@ -469,7 +471,7 @@ class GetCurrentDeviceActionTest extends TestCase
 
     protected function tearDown(): void
     {
-        \Mockery::close();
+        Mockery::close();
         parent::tearDown();
     }
 }

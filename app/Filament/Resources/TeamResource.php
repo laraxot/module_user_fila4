@@ -8,6 +8,7 @@ use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+use Override;
 
 class TeamResource extends XotBaseResource
 {
@@ -16,16 +17,16 @@ class TeamResource extends XotBaseResource
      *
      * @return class-string<Model>
      */
-    #[\Override]
+    #[Override]
     public static function getModel(): string
     {
         $xot = XotData::make();
 
-        /* @var class-string<Model> */
+        /** @var class-string<Model> */
         return $xot->getTeamClass();
     }
 
-    #[\Override]
+    #[Override]
     public static function getFormSchema(): array
     {
         return [

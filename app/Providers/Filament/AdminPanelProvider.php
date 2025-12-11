@@ -12,12 +12,13 @@ use Filament\Panel;
 use Filament\Support\Facades\FilamentView;
 use Illuminate\Support\Facades\Blade;
 use Modules\Xot\Providers\Filament\XotBasePanelProvider;
+use Override;
 
 class AdminPanelProvider extends XotBasePanelProvider
 {
     protected string $module = 'User';
 
-    #[\Override]
+    #[Override]
     public function panel(Panel $panel): Panel
     {
         $panel = parent::panel($panel);

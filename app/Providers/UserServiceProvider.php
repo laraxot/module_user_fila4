@@ -22,6 +22,7 @@ use Modules\User\Models\TeamInvitation;
 use Modules\User\Models\TeamUser;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Providers\XotBaseServiceProvider;
+use Override;
 use SocialiteProviders\Manager\ServiceProvider as SocialiteServiceProvider;
 use Webmozart\Assert\Assert;
 
@@ -33,7 +34,7 @@ class UserServiceProvider extends XotBaseServiceProvider
 
     protected string $module_ns = __NAMESPACE__;
 
-    #[\Override]
+    #[Override]
     public function boot(): void
     {
         parent::boot();
@@ -44,7 +45,7 @@ class UserServiceProvider extends XotBaseServiceProvider
         $this->registerMailsNotification();
     }
 
-    #[\Override]
+    #[Override]
     public function register(): void
     {
         parent::register();

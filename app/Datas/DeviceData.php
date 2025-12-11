@@ -67,19 +67,19 @@ class DeviceData extends Data
 
     public function getSynchronizationId(string $apiName): string
     {
-        if (null !== $this->synchronizationId) {
+        if ($this->synchronizationId !== null) {
             return $this->synchronizationId;
         }
 
         $synchronizationClass = config('morph_map.synchronization');
-        if (null === $synchronizationClass) {
+        if ($synchronizationClass === null) {
             $synchronizationClass = '\Modules\Egea\Models\Synchronization';
         }
 
         // fare contract
         // Assert::isInstanceOf($synchronizationClass,Model::class,'['.__LINE__.']['.class_basename($this).']');
         // $synchronization = Synchronization::create([
-        /** @var class-string<Model> $synchronizationClass */
+        /** @var class-string<\Illuminate\Database\Eloquent\Model> $synchronizationClass */
         /** @var Model $synchronization */
         $synchronization = $synchronizationClass::create([
             // $synchronization = Synchronization::create([

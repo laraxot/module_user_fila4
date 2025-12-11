@@ -12,13 +12,6 @@ namespace Modules\User\Filament\Resources;
 use Illuminate\Database\Eloquent\Model;
 use DateTimeInterface;
 use Carbon\CarbonInterface;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use DateTimeInterface;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;

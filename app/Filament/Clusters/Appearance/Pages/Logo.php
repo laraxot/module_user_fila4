@@ -85,16 +85,7 @@ class Logo extends XotBasePage
     }
 
     /**
-     * <<<<<<< HEAD
-     * <<<<<<< HEAD.
-     *
-     * @param array<string, mixed> $data
-     *                                   =======
-     * @param array<string, mixed> $data
-     *                                   >>>>>>> laraxot/develop
-     *                                   =======
-     * @param array<string, mixed> $data
-     *                                   >>>>>>> a382d4f1 (.)
+     * @param  array<string, mixed>  $data
      */
     protected function handleRecordUpdate(Model $record, array $data): Model
     {

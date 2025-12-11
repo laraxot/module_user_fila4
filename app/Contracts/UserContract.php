@@ -132,16 +132,7 @@ interface UserContract extends Authenticatable
     /**
      * Create a new personal access token for the user.
      *
-     * <<<<<<< HEAD
-     * <<<<<<< HEAD
-     *
-     * @param array<int, string> $scopes
-     *                                   =======
-     * @param array<int, string> $scopes
-     *                                   >>>>>>> laraxot/develop
-     *                                   =======
-     * @param array<int, string> $scopes
-     *                                   >>>>>>> a382d4f1 (.)
+     * @param  array<int, string>  $scopes
      */
     public function createToken(string $name, array $scopes = []): PersonalAccessTokenResult;
 

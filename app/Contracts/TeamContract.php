@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Contracts;
 
+use Modules\Xot\Contracts\ModelContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -11,18 +12,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
-use Modules\Xot\Contracts\ModelContract;
 use Modules\Xot\Contracts\UserContract;
 
 /**
  * Modules\User\Contracts\TeamContract.
  *
- * <<<<<<< HEAD
- * <<<<<<< HEAD
- *
- * =======
- * >>>>>>> a382d4f1 (.)
- *
  * @property int               $id
  * @property int               $user_id
  * @property string            $name
@@ -33,21 +27,6 @@ use Modules\Xot\Contracts\UserContract;
  * @property UserContract|null $owner
  * @property int|null          $team_invitations_count
  * @property int|null          $users_count
- *                                                     <<<<<<< HEAD
- *                                                     =======
- * @property int               $id
- * @property int               $user_id
- * @property string            $name
- * @property int               $personal_team
- * @property Carbon|null       $created_at
- * @property Carbon|null       $updated_at
- * @property string            $role
- * @property UserContract|null $owner
- * @property int|null          $team_invitations_count
- * @property int|null          $users_count
- *                                                     >>>>>>> laraxot/develop
- *                                                     =======
- *                                                     >>>>>>> a382d4f1 (.)
  *
  * @method static Builder|TeamContract newModelQuery()
  * @method static Builder|TeamContract newQuery()

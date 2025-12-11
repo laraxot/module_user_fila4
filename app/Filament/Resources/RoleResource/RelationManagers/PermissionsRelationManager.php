@@ -13,6 +13,7 @@ use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+use Override;
 
 class PermissionsRelationManager extends XotBaseRelationManager
 {
@@ -23,7 +24,7 @@ class PermissionsRelationManager extends XotBaseRelationManager
      *
      * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         return [
@@ -37,7 +38,7 @@ class PermissionsRelationManager extends XotBaseRelationManager
     /**
      * Configura la tabella per la visualizzazione e la gestione dei permessi.
      */
-    #[\Override]
+    #[Override]
     public function table(Table $table): Table
     {
         return $table

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Middleware;
 
+use BackedEnum;
+use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -13,20 +15,20 @@ use Symfony\Component\HttpFoundation\Response;
  * })->middleware(EnsureUserHasRole::class.':editor');
  * Route::put('/post/{id}', function (string $id) {
  *     // ...
- *})->middleware(EnsureUserHasRole::class.':editor,publisher');.
+ *})->middleware(EnsureUserHasRole::class.':editor,publisher');
  */
 class EnsureUserHasType
 {
     /**
      * Handle an incoming request.
      *
-     * @param \Closure(Request):Response $next
+     * @param  Closure(Request):Response  $next
      */
-    public function handle(Request $request, \Closure $next, string $type): Response
+    public function handle(Request $request, Closure $next, string $type): Response
     {
         $userType = $request->user()?->type;
 
-        if ($userType instanceof \BackedEnum && $userType->value === $type) {
+        if ($userType instanceof BackedEnum && $userType->value === $type) {
             return $next($request);
         }
 

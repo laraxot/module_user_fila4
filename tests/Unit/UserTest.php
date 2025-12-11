@@ -7,25 +7,13 @@ use Modules\User\Enums\UserType;
 use Modules\User\Models\User;
 use Tests\TestCase;
 
-/*
+/**
  * @property User $user
  */
 uses(TestCase::class);
 
 beforeEach(function (): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    /** @var object{user: mixed} $this */ $this->user = User/** @phpstan-ignore-line */ ::factory()->create([
-=======
-    /* @var object{user: mixed} $this */ $this->user = User/* @phpstan-ignore-line */ ::factory()->create([
->>>>>>> laraxot/develop
-=======
     $this->user = User::factory()->create([
->>>>>>> a382d4f1 (.)
-=======
-    $this->user = User::factory()->create([
->>>>>>> ebb22862 (.)
         'type' => UserType::MasterAdmin,
         'email' => fake()->unique()->safeEmail(),
         'password' => Hash::make('password123'),
@@ -33,164 +21,43 @@ beforeEach(function (): void {
 });
 
 test('user can be created', function (): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    /** @phpstan-ignore-next-line property.notFound */
-=======
->>>>>>> a382d4f1 (.)
     expect($this->user)->toBeInstanceOf(User::class);
     expect($this->user->email)->toBeString()->not->toBeEmpty();
-<<<<<<< HEAD
-    /** @phpstan-ignore-next-line property.notFound */
-=======
-    /* @phpstan-ignore-next-line property.notFound */
-    expect($this->user)->toBeInstanceOf(User::class);
-    /* @phpstan-ignore-next-line property.notFound */
-    expect($this->user->email)->toBeString()->not->toBeEmpty();
-    /* @phpstan-ignore-next-line property.notFound */
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
-=======
-    expect($this->user)->toBeInstanceOf(User::class);
-    expect($this->user->email)->toBeString()->not->toBeEmpty();
->>>>>>> ebb22862 (.)
     expect($this->user->type)->toBe(UserType::MasterAdmin);
 });
 
 test('user has correct type casting', function (): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    /** @phpstan-ignore-next-line property.notFound */
     expect($this->user->type)->toBeInstanceOf(UserType::class);
-    /** @phpstan-ignore-next-line property.notFound */
-=======
-    /* @phpstan-ignore-next-line property.notFound */
-    expect($this->user->type)->toBeInstanceOf(UserType::class);
-    /* @phpstan-ignore-next-line property.notFound */
->>>>>>> laraxot/develop
-=======
-    expect($this->user->type)->toBeInstanceOf(UserType::class);
->>>>>>> a382d4f1 (.)
-=======
-    expect($this->user->type)->toBeInstanceOf(UserType::class);
->>>>>>> ebb22862 (.)
     expect($this->user->type->value)->toBe('master_admin');
 });
 
 test('user password is hashed', function (): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    /** @phpstan-ignore-next-line property.notFound */
     expect(Hash::check('password123', $this->user->password))->toBeTrue();
-    /** @phpstan-ignore-next-line property.notFound */
-=======
-    /* @phpstan-ignore-next-line property.notFound */
-    expect(Hash::check('password123', $this->user->password))->toBeTrue();
-    /* @phpstan-ignore-next-line property.notFound */
->>>>>>> laraxot/develop
-=======
-    expect(Hash::check('password123', $this->user->password))->toBeTrue();
->>>>>>> a382d4f1 (.)
-=======
-    expect(Hash::check('password123', $this->user->password))->toBeTrue();
->>>>>>> ebb22862 (.)
     expect(Hash::check('wrongpassword', $this->user->password))->toBeFalse();
 });
 
 test('user can change password', function (): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    /** @phpstan-ignore-next-line property.notFound */
-=======
->>>>>>> a382d4f1 (.)
     $this->user->update(['password' => Hash::make('newpassword123')]);
 
     expect(Hash::check('newpassword123', $this->user->fresh()->password))->toBeTrue();
-<<<<<<< HEAD
-    /** @phpstan-ignore-next-line property.notFound */
-=======
-    /* @phpstan-ignore-next-line property.notFound */
-    $this->user->update(['password' => Hash::make('newpassword123')]);
-
-    /* @phpstan-ignore-next-line property.notFound */
-    expect(Hash::check('newpassword123', $this->user->fresh()->password))->toBeTrue();
-    /* @phpstan-ignore-next-line property.notFound */
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
-=======
-    $this->user->update(['password' => Hash::make('newpassword123')]);
-
-    expect(Hash::check('newpassword123', $this->user->fresh()->password))->toBeTrue();
->>>>>>> ebb22862 (.)
     expect(Hash::check('password123', $this->user->fresh()->password))->toBeFalse();
 });
 
 test('user can be updated', function (): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    /** @phpstan-ignore-next-line property.notFound */
-=======
-    /* @phpstan-ignore-next-line property.notFound */
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
-=======
->>>>>>> ebb22862 (.)
     $this->user->update([
         'email' => 'updated@example.com',
         'type' => UserType::BoUser,
     ]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    /** @phpstan-ignore-next-line property.notFound */
-=======
->>>>>>> a382d4f1 (.)
     $this->user->refresh();
 
     expect($this->user->email)->toBe('updated@example.com');
-<<<<<<< HEAD
-    /** @phpstan-ignore-next-line property.notFound */
-=======
-    /* @phpstan-ignore-next-line property.notFound */
-    $this->user->refresh();
-
-    /* @phpstan-ignore-next-line property.notFound */
-    expect($this->user->email)->toBe('updated@example.com');
-    /* @phpstan-ignore-next-line property.notFound */
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
-=======
-    $this->user->refresh();
-
-    expect($this->user->email)->toBe('updated@example.com');
->>>>>>> ebb22862 (.)
     expect($this->user->type)->toBe(UserType::BoUser);
 });
 
 test('user can be deleted', function (): void {
     $userId = $this->user->id;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    /** @phpstan-ignore-next-line property.notFound */
-=======
-    /* @phpstan-ignore-next-line property.notFound */
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
-=======
->>>>>>> ebb22862 (.)
     $this->user->delete();
 
     expect(User::find($userId))->toBeNull();
@@ -215,17 +82,6 @@ test('user can be found by email', function (): void {
     $foundUser = User::where('email', 'admin@example.com')->first();
 
     expect($foundUser)->toBeInstanceOf(User::class);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    /** @phpstan-ignore-next-line property.notFound */
-=======
-    /* @phpstan-ignore-next-line property.notFound */
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
-=======
->>>>>>> ebb22862 (.)
     expect($foundUser->id)->toBe($this->user->id);
 });
 
@@ -233,79 +89,23 @@ test('user can be found by type', function (): void {
     $admins = User::where('type', UserType::MasterAdmin)->get();
 
     expect($admins)->toHaveCount(1);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    /** @phpstan-ignore-next-line property.notFound */
-=======
-    /* @phpstan-ignore-next-line property.notFound */
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
-=======
->>>>>>> ebb22862 (.)
     expect($admins->first()->id)->toBe($this->user->id);
 });
 
 test('user can be created with different types', function (): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    /** @var User */
-<<<<<<< HEAD
-        $boUser = User/** @phpstan-ignore-line */ ::factory()->create(['type' => UserType::BoUser]);
-    /** @var User */
-        $customerUser = User/** @phpstan-ignore-line */ ::factory()->create(['type' => UserType::CustomerUser]);
-=======
-    $boUser = User/* @phpstan-ignore-line */ ::factory()->create(['type' => UserType::BoUser]);
-    /** @var User */
-    $customerUser = User/* @phpstan-ignore-line */ ::factory()->create(['type' => UserType::CustomerUser]);
->>>>>>> laraxot/develop
-=======
     $boUser = User::factory()->create(['type' => UserType::BoUser]);
     $customerUser = User::factory()->create(['type' => UserType::CustomerUser]);
->>>>>>> a382d4f1 (.)
-=======
-    $boUser = User::factory()->create(['type' => UserType::BoUser]);
-    $customerUser = User::factory()->create(['type' => UserType::CustomerUser]);
->>>>>>> ebb22862 (.)
 
     expect($boUser->type)->toBe(UserType::BoUser);
     expect($customerUser->type)->toBe(UserType::CustomerUser);
 });
 
 test('user has timestamps', function (): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    /** @phpstan-ignore-next-line property.notFound */
     expect($this->user->created_at)->not->toBeNull();
-    /** @phpstan-ignore-next-line property.notFound */
-=======
-    /* @phpstan-ignore-next-line property.notFound */
-    expect($this->user->created_at)->not->toBeNull();
-    /* @phpstan-ignore-next-line property.notFound */
->>>>>>> laraxot/develop
-=======
-    expect($this->user->created_at)->not->toBeNull();
->>>>>>> a382d4f1 (.)
-=======
-    expect($this->user->created_at)->not->toBeNull();
->>>>>>> ebb22862 (.)
     expect($this->user->updated_at)->not->toBeNull();
 });
 
 test('user soft delete functionality', function (): void {
     // Skip this test as User model does not implement SoftDeletes trait
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    /** @phpstan-ignore-next-line property.notFound */
-=======
-    /* @phpstan-ignore-next-line property.notFound */
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
-=======
->>>>>>> ebb22862 (.)
     $this->markTestSkipped('User model does not implement SoftDeletes trait');
 });

@@ -11,12 +11,13 @@ use Modules\User\Filament\Resources\RoleResource\Pages\EditRole;
 use Modules\User\Filament\Resources\RoleResource\Pages\ListRoles;
 use Modules\User\Models\Role;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+use Override;
 
 class RoleResource extends XotBaseResource
 {
     protected static ?string $model = Role::class;
 
-    #[\Override]
+    #[Override]
     public static function getFormSchema(): array
     {
         return [
@@ -26,13 +27,13 @@ class RoleResource extends XotBaseResource
         ];
     }
 
-    #[\Override]
+    #[Override]
     public static function getRelations(): array
     {
         return [];
     }
 
-    #[\Override]
+    #[Override]
     public static function getPages(): array
     {
         return [

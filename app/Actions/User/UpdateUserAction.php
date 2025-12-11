@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Actions\User;
 
+use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -25,12 +26,11 @@ class UpdateUserAction
     /**
      * Esegue l'aggiornamento dell'utente.
      *
-     * @param Model                $user L'utente da aggiornare
-     * @param array<string, mixed> $data I dati da aggiornare
-     *
-     * @throws \Exception Se l'aggiornamento fallisce
-     *
+     * @param  Model  $user  L'utente da aggiornare
+     * @param  array<string, mixed>  $data  I dati da aggiornare
      * @return Model L'utente aggiornato
+     *
+     * @throws Exception Se l'aggiornamento fallisce
      */
     public function execute(Model $user, array $data): Model
     {
@@ -59,11 +59,11 @@ class UpdateUserAction
 
             $updatedUser = $user->fresh();
             if (! ($updatedUser instanceof Model)) {
-                throw new \Exception('Failed to refresh user model after update');
+                throw new Exception('Failed to refresh user model after update');
             }
 
             return $updatedUser;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollBack();
 
             Log::error("Errore nell'aggiornamento utente", [
@@ -79,8 +79,7 @@ class UpdateUserAction
     /**
      * Prepara i dati per l'aggiornamento rimuovendo campi non aggiornabili.
      *
-     * @param array<string, mixed> $data
-     *
+     * @param  array<string, mixed>  $data
      * @return array<string, mixed>
      */
     protected function prepareUpdateData(array $data): array
@@ -119,7 +118,7 @@ class UpdateUserAction
     /**
      * Valida i dati di aggiornamento.
      *
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      *
      * @throws ValidationException
      */
@@ -134,7 +133,9 @@ class UpdateUserAction
                 ->first();
 
             if ($existingUser) {
-                throw ValidationException::withMessages(['email' => __('user::validation.email_already_taken')]);
+                throw ValidationException::withMessages([
+                    'email' => __('user::validation.email_already_taken'),
+                ]);
             }
         }
 
@@ -146,7 +147,7 @@ class UpdateUserAction
      * Operazioni da eseguire dopo l'aggiornamento.
      * Può essere sovrascritto dalle classi che estendono questa action.
      *
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      */
     protected function afterUpdate(Model $user, array $data): void
     {

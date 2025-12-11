@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+use Filament\Schemas\Schema;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Facades\Filament;
@@ -11,8 +12,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Schemas\Components\Component;
-use Filament\Schemas\Schema;
-use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -23,29 +22,15 @@ use Modules\User\Rules\CheckOtpExpiredRule;
 use Modules\Xot\Actions\Cast\SafeStringCastAction;
 use Modules\Xot\Filament\Traits\TransTrait;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
+use Override;
 
 /**
  * Widget for handling expired password reset.
  *
- * <<<<<<< HEAD
- * <<<<<<< HEAD
- *
- * =======
- * >>>>>>> a382d4f1 (.)
- *
- * @property Schema                    $form
- * @property string|null               $current_password
- * @property string|null               $password
- * @property string|null               $passwordConfirmation
- *                                                           <<<<<<< HEAD
- *                                                           =======
- * @property Schema                    $form
- * @property string|null               $current_password
- * @property string|null               $password
- * @property string|null               $passwordConfirmation
- *                                                           >>>>>>> laraxot/develop
- *                                                           =======
- *                                                           >>>>>>> a382d4f1 (.)
+ * @property Schema $form
+ * @property string|null $current_password
+ * @property string|null $password
+ * @property string|null $passwordConfirmation
  * @property array<string, mixed>|null $data
  */
 class PasswordExpiredWidget extends XotBaseWidget
@@ -72,9 +57,9 @@ class PasswordExpiredWidget extends XotBaseWidget
     /**
      * Get the form schema for password reset.
      *
-     * @return array<int, Component>
+     * @return array<int, \Filament\Schemas\Components\Component>
      */
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         $schema = [
@@ -83,7 +68,7 @@ class PasswordExpiredWidget extends XotBaseWidget
         ];
 
         // Ensure list type for PHPStan Level 10
-        /** @var array<int, Component> $result */
+        /** @var array<int, \Filament\Schemas\Components\Component> $result */
         $result = array_values($schema);
 
         return $result;
@@ -143,7 +128,7 @@ class PasswordExpiredWidget extends XotBaseWidget
         $user->setAttribute('password', Hash::make($newPassword));
         $user->save();
 
-        return new PasswordResetResponse();
+        return new PasswordResetResponse;
     }
 
     /**
@@ -202,7 +187,7 @@ class PasswordExpiredWidget extends XotBaseWidget
      *
      * @return array<int, Action|ActionGroup>
      */
-    #[\Override]
+    #[Override]
     protected function getFormActions(): array
     {
         return [
