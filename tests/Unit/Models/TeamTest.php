@@ -13,7 +13,7 @@ class TeamTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_can_create_team_with_minimal_data(): void
+    public function testCanCreateTeamWithMinimalData(): void
     {
         $user = User::factory()->create();
 
@@ -29,7 +29,7 @@ class TeamTest extends TestCase
         ]);
     }
 
-    public function test_can_create_team_with_all_fields(): void
+    public function testCanCreateTeamWithAllFields(): void
     {
         $user = User::factory()->create();
 
@@ -55,7 +55,7 @@ class TeamTest extends TestCase
         ]);
     }
 
-    public function test_team_has_soft_deletes(): void
+    public function testTeamHasSoftDeletes(): void
     {
         $user = User::factory()->create();
         $team = Team::factory()->create(['user_id' => $user->id]);
@@ -67,7 +67,7 @@ class TeamTest extends TestCase
         $this->assertDatabaseMissing('teams', ['id' => $teamId]);
     }
 
-    public function test_can_restore_soft_deleted_team(): void
+    public function testCanRestoreSoftDeletedTeam(): void
     {
         if (! method_exists(Team::class, 'withTrashed')) {
             $this->markTestSkipped('SoftDeletes trait not present on Team model');
@@ -90,7 +90,7 @@ class TeamTest extends TestCase
         static::assertNull($restoredTeam->deleted_at);
     }
 
-    public function test_can_find_team_by_name(): void
+    public function testCanFindTeamByName(): void
     {
         $user = User::factory()->create();
         $team = Team::factory()->create([
@@ -104,7 +104,7 @@ class TeamTest extends TestCase
         static::assertSame($team->id, $foundTeam->id);
     }
 
-    public function test_can_find_team_by_code(): void
+    public function testCanFindTeamByCode(): void
     {
         $user = User::factory()->create();
         $team = Team::factory()->create([
@@ -118,7 +118,7 @@ class TeamTest extends TestCase
         static::assertSame($team->id, $foundTeam->id);
     }
 
-    public function test_can_find_team_by_uuid(): void
+    public function testCanFindTeamByUuid(): void
     {
         $user = User::factory()->create();
         $uuid = '550e8400-e29b-41d4-a716-446655440000';
@@ -133,7 +133,7 @@ class TeamTest extends TestCase
         static::assertSame($team->id, $foundTeam->id);
     }
 
-    public function test_can_find_team_by_owner_id(): void
+    public function testCanFindTeamByOwnerId(): void
     {
         $user = User::factory()->create();
         $team = Team::factory()->create([
@@ -147,7 +147,7 @@ class TeamTest extends TestCase
         static::assertSame($team->id, $foundTeam->id);
     }
 
-    public function test_can_find_personal_teams(): void
+    public function testCanFindPersonalTeams(): void
     {
         $user = User::factory()->create();
         Team::factory()->create([
@@ -165,7 +165,7 @@ class TeamTest extends TestCase
         static::assertSame(1, $personalTeams->first()->personal_team);
     }
 
-    public function test_can_find_teams_by_user_id(): void
+    public function testCanFindTeamsByUserId(): void
     {
         $user1 = User::factory()->create();
         $user2 = User::factory()->create();
@@ -180,7 +180,7 @@ class TeamTest extends TestCase
         static::assertTrue($user1Teams->every(fn ($team) => $team->user_id === $user1->id));
     }
 
-    public function test_can_find_teams_by_name_pattern(): void
+    public function testCanFindTeamsByNamePattern(): void
     {
         $user = User::factory()->create();
         Team::factory()->create(['user_id' => $user->id, 'name' => 'Development Team']);
@@ -193,7 +193,7 @@ class TeamTest extends TestCase
         static::assertTrue($devTeams->every(fn ($team) => str_contains($team->name, 'Team')));
     }
 
-    public function test_can_update_team(): void
+    public function testCanUpdateTeam(): void
     {
         $user = User::factory()->create();
         $team = Team::factory()->create([
@@ -209,7 +209,7 @@ class TeamTest extends TestCase
         ]);
     }
 
-    public function test_can_handle_null_values(): void
+    public function testCanHandleNullValues(): void
     {
         $user = User::factory()->create();
         $team = Team::factory()->create([
@@ -228,7 +228,7 @@ class TeamTest extends TestCase
         ]);
     }
 
-    public function test_can_find_teams_by_multiple_criteria(): void
+    public function testCanFindTeamsByMultipleCriteria(): void
     {
         $user = User::factory()->create();
         Team::factory()->create([

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use Illuminate\Foundation\Console\Kernel;
-use Illuminate\Database\Eloquent\Collection;
 use Filament\Facades\Filament;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Support\Facades\Artisan;
 use Modules\User\Models\Tenant;
 use Modules\User\Models\User;

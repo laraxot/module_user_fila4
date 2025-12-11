@@ -23,4 +23,3 @@ class MockUserWithTeams extends Model
         return 1;
     }
 }
-

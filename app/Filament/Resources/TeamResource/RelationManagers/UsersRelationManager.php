@@ -17,7 +17,6 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-use Override;
 
 class UsersRelationManager extends XotBaseRelationManager
 {
@@ -30,7 +29,7 @@ class UsersRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Column>
      */
-    #[Override]
+    #[\Override]
     public function getTableColumns(): array
     {
         return [
@@ -43,7 +42,7 @@ class UsersRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Action>
      */
-    #[Override]
+    #[\Override]
     public function getTableHeaderActions(): array
     {
         return [
@@ -54,7 +53,7 @@ class UsersRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Action|ActionGroup>
      */
-    #[Override]
+    #[\Override]
     public function getTableActions(): array
     {
         return [
@@ -68,7 +67,7 @@ class UsersRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, BulkAction>
      */
-    #[Override]
+    #[\Override]
     public function getTableBulkActions(): array
     {
         return [

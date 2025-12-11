@@ -13,7 +13,7 @@ class UserTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_can_create_user_with_minimal_data(): void
+    public function testCanCreateUserWithMinimalData(): void
     {
         $user = User::factory()->create([
             'email' => 'test@example.com',
@@ -28,7 +28,7 @@ class UserTest extends TestCase
         static::assertTrue(Hash::check('password', $user->password));
     }
 
-    public function test_can_create_user_with_all_fields(): void
+    public function testCanCreateUserWithAllFields(): void
     {
         $userData = [
             'name' => 'John Doe',
@@ -69,7 +69,7 @@ class UserTest extends TestCase
         ]);
     }
 
-    public function test_user_has_soft_deletes(): void
+    public function testUserHasSoftDeletes(): void
     {
         $user = User::factory()->create();
         $userId = $user->id;
@@ -80,7 +80,7 @@ class UserTest extends TestCase
         $this->assertDatabaseMissing('users', ['id' => $userId]);
     }
 
-    public function test_can_restore_soft_deleted_user(): void
+    public function testCanRestoreSoftDeletedUser(): void
     {
         if (! method_exists(User::class, 'withTrashed')) {
             $this->markTestSkipped('SoftDeletes trait not present on User model');
@@ -102,7 +102,7 @@ class UserTest extends TestCase
         static::assertNull($restoredUser->deleted_at);
     }
 
-    public function test_can_find_user_by_email(): void
+    public function testCanFindUserByEmail(): void
     {
         $user = User::factory()->create(['email' => 'unique@example.com']);
 
@@ -112,7 +112,7 @@ class UserTest extends TestCase
         static::assertSame($user->id, $foundUser->id);
     }
 
-    public function test_can_find_user_by_name_pattern(): void
+    public function testCanFindUserByNamePattern(): void
     {
         User::factory()->create(['name' => 'John Doe']);
         User::factory()->create(['name' => 'Jane Doe']);
@@ -124,7 +124,7 @@ class UserTest extends TestCase
         static::assertTrue($doeUsers->every(fn ($user) => str_contains($user->name, 'Doe')));
     }
 
-    public function test_can_find_user_by_status(): void
+    public function testCanFindUserByStatus(): void
     {
         User::factory()->create(['status' => 'active']);
         User::factory()->create(['status' => 'inactive']);
@@ -136,7 +136,7 @@ class UserTest extends TestCase
         static::assertSame('active', $activeUsers->first()->status);
     }
 
-    public function test_can_find_user_by_type(): void
+    public function testCanFindUserByType(): void
     {
         User::factory()->create(['type' => 'individual']);
         User::factory()->create(['type' => 'company']);
@@ -148,7 +148,7 @@ class UserTest extends TestCase
         static::assertSame('individual', $individualUsers->first()->type);
     }
 
-    public function test_can_find_user_by_city(): void
+    public function testCanFindUserByCity(): void
     {
         User::factory()->create(['city' => 'New York']);
         User::factory()->create(['city' => 'Los Angeles']);
@@ -160,7 +160,7 @@ class UserTest extends TestCase
         static::assertSame('New York', $nyUsers->first()->city);
     }
 
-    public function test_can_find_user_by_registration_number(): void
+    public function testCanFindUserByRegistrationNumber(): void
     {
         $user = User::factory()->create(['registration_number' => 'REG123456']);
 
@@ -170,7 +170,7 @@ class UserTest extends TestCase
         static::assertSame($user->id, $foundUser->id);
     }
 
-    public function test_can_find_user_by_phone(): void
+    public function testCanFindUserByPhone(): void
     {
         $user = User::factory()->create(['phone' => '+1234567890']);
 
@@ -180,7 +180,7 @@ class UserTest extends TestCase
         static::assertSame($user->id, $foundUser->id);
     }
 
-    public function test_can_find_user_by_language(): void
+    public function testCanFindUserByLanguage(): void
     {
         User::factory()->create(['lang' => 'en']);
         User::factory()->create(['lang' => 'it']);
@@ -192,7 +192,7 @@ class UserTest extends TestCase
         static::assertSame('en', $englishUsers->first()->lang);
     }
 
-    public function test_can_find_active_users(): void
+    public function testCanFindActiveUsers(): void
     {
         User::factory()->create(['is_active' => true]);
         User::factory()->create(['is_active' => false]);
@@ -204,7 +204,7 @@ class UserTest extends TestCase
         static::assertTrue($activeUsers->every(fn ($user) => $user->is_active));
     }
 
-    public function test_can_find_otp_users(): void
+    public function testCanFindOtpUsers(): void
     {
         User::factory()->create(['is_otp' => true]);
         User::factory()->create(['is_otp' => false]);
@@ -216,7 +216,7 @@ class UserTest extends TestCase
         static::assertTrue($otpUsers->every(fn ($user) => $user->is_otp));
     }
 
-    public function test_can_update_user(): void
+    public function testCanUpdateUser(): void
     {
         $user = User::factory()->create(['name' => 'Old Name']);
 
@@ -228,21 +228,21 @@ class UserTest extends TestCase
         ]);
     }
 
-    public function test_can_access_socialite(): void
+    public function testCanAccessSocialite(): void
     {
         $user = User::factory()->create();
 
         static::assertTrue($user->canAccessSocialite());
     }
 
-    public function test_user_has_connection_attribute(): void
+    public function testUserHasConnectionAttribute(): void
     {
-        $user = new User;
+        $user = new User();
 
         static::assertSame('user', $user->connection);
     }
 
-    public function test_can_find_users_by_multiple_criteria(): void
+    public function testCanFindUsersByMultipleCriteria(): void
     {
         User::factory()->create([
             'status' => 'active',
@@ -265,10 +265,10 @@ class UserTest extends TestCase
         $users = User::where('status', 'active')->where('city', 'New York')->get();
 
         static::assertCount(2, $users);
-        static::assertTrue($users->every(fn ($user) => $user->status === 'active' && $user->city === 'New York'));
+        static::assertTrue($users->every(fn ($user) => 'active' === $user->status && 'New York' === $user->city));
     }
 
-    public function test_can_handle_null_values(): void
+    public function testCanHandleNullValues(): void
     {
         $user = User::factory()->create([
             'phone' => null,
