@@ -134,21 +134,11 @@ use Spatie\Permission\Traits\HasRoles;
  */
 abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, PassportHasApiTokensContract, UserContract
 {
-    use HasApiTokens {
-        clients as protected passportClients;
-        tokens as protected passportTokens;
-        token as protected passportToken;
-        tokenCan as protected passportTokenCan;
-        createToken as passportCreateToken;
-        withAccessToken as protected passportWithAccessToken;
-    }
-
+    use HasApiTokens;
     use HasAuthenticationLogTrait;
     use HasChildren;
     use HasPermissions;
-    use HasRoles {
-        removeRole as spatieRemoveRole;
-    }
+    use HasRoles;
     use HasTeams;
     use HasUuids;
     use InteractsWithMedia;
@@ -156,37 +146,6 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     use Notifiable;
     use RelationX;
     use Traits\HasTenants;
-    use HasXotFactory;
-
-    #[\Override]
-    public function clients(): HasMany
-    {
-        /** @var HasMany $clients */
-        $clients = $this->passportClients();
-
-        return $clients;
-    }
-
-    #[\Override]
-    public function tokens(): HasMany
-    {
-        /** @var HasMany $tokens */
-        $tokens = $this->passportTokens();
-
-        return $tokens;
-    }
-
-    #[\Override]
-    public function token(): Token|TransientToken|null
-    {
-        return $this->passportToken();
-    }
-
-    #[\Override]
-    public function tokenCan(string $scope): bool
-    {
-        return $this->passportTokenCan($scope);
-    }
 
     public $incrementing = false;
 
@@ -337,32 +296,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         $role = Role::firstOrCreate(['name' => $role_name]);
         $this->assignRole($role);
     }
-
-    /**
-     * @param string $name
-     */
-    #[\Override]
-    public function createToken($name, array $scopes = []): PersonalAccessTokenResult
-    {
-        return $this->passportCreateToken((string) $name, $scopes);
-    }
-
-    #[\Override]
-    public function withAccessToken(Token|TransientToken $accessToken): static
-    {
-        $this->passportWithAccessToken($accessToken);
-
-        return $this;
-    }
-
-    #[\Override]
-    public function removeRole(SpatieRoleContract|string|int $role): static
-    {
-        $this->spatieRemoveRole($role);
-
-        return $this;
-    }
-
+    
     public function canAccessPanel(Panel $panel): bool
     {
         // $panel->default('admin');

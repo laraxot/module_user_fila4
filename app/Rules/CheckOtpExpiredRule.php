@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Rules;
 
 use Illuminate\Contracts\Validation\ValidationRule;
+use Modules\Xot\Actions\Cast\SafeStringCastAction;
 use Modules\User\Datas\PasswordData;
 use Modules\User\Models\User;
 
@@ -47,6 +48,6 @@ class CheckOtpExpiredRule implements ValidationRule
      */
     public function message(): string
     {
-        return __('user::otp.notifications.otp_expired.body');
+        return SafeStringCastAction::cast(__('user::otp.notifications.otp_expired.body'));
     }
 }

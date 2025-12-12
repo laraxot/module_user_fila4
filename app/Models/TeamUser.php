@@ -14,7 +14,6 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|TeamUser newModelQuery()
  * @method static Builder|TeamUser newQuery()
  * @method static Builder|TeamUser query()
- *
  * @property int         $id
  * @property string      $uuid
  * @property string|null $team_id
@@ -25,7 +24,6 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string|null $created_by
  * @property string|null $updated_by
  * @property string|null $customer_id
- *
  * @method static Builder|TeamUser whereCreatedAt($value)
  * @method static Builder|TeamUser whereCreatedBy($value)
  * @method static Builder|TeamUser whereCustomerId($value)
@@ -36,17 +34,17 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|TeamUser whereUpdatedBy($value)
  * @method static Builder|TeamUser whereUserId($value)
  * @method static Builder|TeamUser whereUuid($value)
- *
  * @property Carbon|null $deleted_at
  * @property string|null $deleted_by
- *
  * @method static Builder|TeamUser whereDeletedAt($value)
  * @method static Builder|TeamUser whereDeletedBy($value)
- *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
- *
  * @mixin IdeHelperTeamUser
+ * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property-read \Modules\User\Models\Team|null $team
+ * @property-read \Modules\User\Models\User|null $user
+ * @method static \Modules\User\Database\Factories\TeamUserFactory factory($count = null, $state = [])
  * @mixin \Eloquent
  */
 class TeamUser extends BaseTeamUser

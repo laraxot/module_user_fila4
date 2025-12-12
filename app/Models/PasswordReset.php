@@ -20,7 +20,6 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string|null $user_id
  * @property string|null $updated_by
  * @property string|null $created_by
- *
  * @method static PasswordResetFactory  factory($count = null, $state = [])
  * @method static Builder|PasswordReset newModelQuery()
  * @method static Builder|PasswordReset newQuery()
@@ -33,14 +32,12 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|PasswordReset whereUpdatedAt($value)
  * @method static Builder|PasswordReset whereUpdatedBy($value)
  * @method static Builder|PasswordReset whereUserId($value)
- *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  * @property string|null          $uuid
- *
  * @method static Builder<static>|PasswordReset whereUuid($value)
- *
  * @mixin IdeHelperPasswordReset
+ * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
  * @mixin \Eloquent
  */
 class PasswordReset extends BaseModel

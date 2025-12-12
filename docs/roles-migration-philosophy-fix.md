@@ -12,15 +12,41 @@ Il file `@Modules/User/database/migrations/2025_09_18_000000_create_roles_table.
 
 ## Soluzione Implementata
 
+
+
 La migration è stata modificata per:
 
-1. **Estendere invece di sostituire**: La migration ora estende la tabella `roles` esistente anziché crearne una nuova, utilizzando il metodo `tableUpdate` di `XotBaseMigration`.
 
-2. **Aggiungere colonne in modo sicuro**: Le colonne aggiuntive vengono aggiunte solo se non esistono già, prevenendo errori di duplicazione.
 
-3. **Mantenere la compatibilità con Spatie**: La struttura base rimane compatibile con quanto aspettato dal pacchetto Spatie Laravel Permission.
+1. **Estendere invece di sostituire**: La migration ora estende la tabella `roles` esistente anz
 
-4. **Seguire i pattern Laraxot**: Utilizzo di `XotBaseMigration`, metodi come `hasColumn()` e `hasIndex()` per controlli sicuri.
+iché crearne una nuova, utilizzando il metodo `tableUpdate` di `XotBaseMigration`.
+
+
+
+2. **Aggiungere colonne in modo sicuro**: Le colonne aggiuntive vengono aggiunte solo se non esi
+
+stono già, prevenendo errori di duplicazione.
+
+
+
+3. **Mantenere la compatibilità con Spatie**: La struttura base rimane compatibile con quanto as
+
+pettato dal pacchetto Spatie Laravel Permission.
+
+
+
+4. **Garantire un Rollback Sicuro**: È stato aggiunto il metodo `down()` per rimuovere in modo si
+
+curo le colonne aggiunte, rispettando il principio di "impermanenza" e la reversibilità delle mi
+
+grazioni.
+
+
+
+5. **Seguire i pattern Laraxot**: Utilizzo di `XotBaseMigration`, metodi come `hasColumn()` e `h
+
+asIndex()` per controlli sicuri.
 
 ## Cambiamenti Specifici
 

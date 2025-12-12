@@ -6,8 +6,6 @@ namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Support\Carbon;
 use Modules\Media\Models\Media;
@@ -63,7 +61,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @property int|null                                          $tenants_count
  * @property Collection<int, OauthAccessToken>                 $tokens
  * @property int|null                                          $tokens_count
- *
  * @method static UserFactory  factory($count = null, $state = [])
  * @method static Builder|User newModelQuery()
  * @method static Builder|User newQuery()
@@ -83,6 +80,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @method static Builder|User whereLang($value)
  * @method static Builder|User whereLastName($value)
  * @method static Builder|User whereName($value)
+ * @method static Builder<static>|User whereNotNull($column, $boolean = 'and')
  * @method static Builder|User wherePassword($value)
  * @method static Builder|User whereProfilePhotoPath($value)
  * @method static Builder|User whereRememberToken($value)
@@ -90,7 +88,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @method static Builder|User whereUpdatedBy($value)
  * @method static Builder|User withoutPermission($permissions)
  * @method static Builder|User withoutRole($roles, $guard = null)
- *
  * @property string                         $last_name
  * @property Team|null                      $currentTeam
  * @property MediaCollection<int, Media>    $media
@@ -109,7 +106,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @property string|null                    $moderation_data
  * @property string|null                    $certifications
  * @property string|null                    $type
- *
  * @method static Builder<static>|User whereAddress($value)
  * @method static Builder<static>|User whereCertifications($value)
  * @method static Builder<static>|User whereCity($value)
@@ -121,13 +117,12 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @method static Builder<static>|User whereState($value)
  * @method static Builder<static>|User whereStatus($value)
  * @method static Builder<static>|User whereType($value)
- *
  * @mixin IdeHelperUser
- *
  * @property string|null $facebook_id
- *
  * @method static Builder<static>|User whereFacebookId($value)
- *
+ * @property-read User|null $creator
+ * @property-read User|null $updater
+ * @property-read User|null $user
  * @mixin \Eloquent
  */
 class User extends BaseUser
@@ -146,27 +141,5 @@ class User extends BaseUser
         return true;
     }
 
-    /**
-     * Get the user relationship.
-     */
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(self::class);
-    }
-
-    /**
-     * Get the creator relationship.
-     */
-    public function creator(): HasOne
-    {
-        return $this->hasOne(self::class, 'created_by');
-    }
-
-    /**
-     * Get the updater relationship.
-     */
-    public function updater(): HasOne
-    {
-        return $this->hasOne(self::class, 'updated_by');
-    }
+   
 }

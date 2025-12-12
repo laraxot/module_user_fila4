@@ -270,19 +270,20 @@ trait IsProfileTrait
      */
     public function getMobileDeviceTokens(): Collection
     {
-        // PHPStan livello 9 richiede il controllo che il risultato sia del tipo corretto
-        return $this->mobileDeviceUsers()
+        $tokens = $this->mobileDeviceUsers()
             ->pluck('token')
-            ->filter(fn ($value) => null !== $value && is_string($value));
+            ->filter(static fn (mixed $value): bool => is_string($value) && $value !== '')
+            ->map(static fn (mixed $value): string => (string) $value);
 
-        /* @var Collection<int|string, string> */
+        /** @var Collection<int|string, string> $tokens */
+        return $tokens;
     }
 
     /**
      * Get the user's user_name.
      * Ottiene il nome utente dal modello utente collegato.
      *
-     * @return Attribute<string|null, never>
+     * @return Attribute
      */
     protected function userName(): Attribute
     {
@@ -305,7 +306,7 @@ trait IsProfileTrait
      * Get the user's avatar URL.
      * Recupera l'URL dell'avatar dell'utente dalla MediaLibrary.
      *
-     * @return Attribute<string, never>
+     * @return Attribute
      */
     protected function avatar(): Attribute
     {

@@ -21,15 +21,7 @@ class OauthRefreshTokenFactory extends Factory
     {
         return [
             'id' => $this->faker->sha256(),
-            'access_token_id' => fn () => OauthAccessToken::create([
-                'id' => $this->faker->sha256(),
-                'user_id' => null,
-                'client_id' => $this->faker->sha256(),
-                'name' => 'Test Token',
-                'scopes' => [],
-                'revoked' => false,
-                'expires_at' => $this->faker->dateTimeBetween('+1 month', '+6 months'),
-            ])->id,
+            'access_token_id' => fn (): string => $this->faker->sha256(),
             'revoked' => $this->faker->boolean(5),
             'expires_at' => $this->faker->dateTimeBetween('+1 month', '+6 months'),
         ];

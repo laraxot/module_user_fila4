@@ -21,7 +21,7 @@ return new class extends XotBaseMigration {
         $this->tableCreate(static function (Blueprint $table): void {
             $table->increments('id');
             $table->uuidMorphs('model');
-            $table->schemalessAttributes('extra_attributes');
+            $table->json('extra_attributes')->nullable();
         });
 
         // -- UPDATE --
