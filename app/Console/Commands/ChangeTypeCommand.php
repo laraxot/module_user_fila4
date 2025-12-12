@@ -107,8 +107,9 @@ class ChangeTypeCommand extends Command
         $newTypeEnum = $typeClass::tryFrom($newType);
         Assert::notNull($newTypeEnum);
         Assert::isInstanceOf($newTypeEnum, HasLabel::class);
+        Assert::isInstanceOf($newTypeEnum, \BackedEnum::class);
 
-        /* @var BackedEnum&HasLabel $newTypeEnum */
+        /* @var \BackedEnum&HasLabel $newTypeEnum */
         $user->type = (string) $newTypeEnum->value;
         $user->save();
 

@@ -84,6 +84,53 @@ Modules/User/database/migrations/
 4. Update any model or configuration references
 5. Test migration rollback and re-run
 
+### Roles schema extensions (display_name, description)
+
+Starting from **2025-09-18**, the `roles` table receives Laraxot-specific
+extensions (`display_name`, `description`) while preserving Spatie
+compatibility:
+
+- **Authoritative create migration**: `2024_01_01_000011_create_roles_table.php`
+  - Defines base schema: `id`, `team_id`, `name`, `guard_name`
+  - Uses `XotBaseMigration::tableCreate()` + `tableUpdate()` with
+    `updateTimestamps()`
+- **Schema change migration**: `2025_09_18_000000_create_roles_table.php`
+  - Despite the legacy filename, this file MUST behave as a **schema
+    extension**, **not** as a second "create" migration
+  - Extends `XotBaseMigration` and uses **only** `tableUpdate()` with
+    `hasColumn()` checks to add:
+    - `display_name` (nullable string)
+    - `description` (nullable text)
+- **NEVER** call `Schema::create('roles', ...)` directly in Laraxot modules:
+  creation is always delegated to `XotBaseMigration::tableCreate()` in the
+  authoritative migration.
+
+This keeps the **single source of truth** for the table while allowing
+evolution over time via idempotent schema-change migrations.
+
 ---
 
-**Remember**: In Laraxot philosophy, simplicity and clarity trump flexibility. One table, one migration, no exceptions.
+**Remember**: In Laraxot philosophy, simplicity and clarity trump
+flexibility. One table, one authoritative *create* migration, and only
+idempotent schema changes on top of it.
+
+## Da migliorare (DRY + KISS)
+
+- **Pulizia migrazioni roles storiche**  
+  Il documento evidenzia i duplicati `2023_01_01_000011/12_create_roles_table.php` ma nel
+  codice sono ancora presenti per ragioni di compatibilità storica.  
+  *Da fare*: pianificare una cleanup controllata (anche solo in nuovi progetti) eliminando
+  le migrazioni legacy, lasciando `2024_01_01_000011_create_roles_table.php` come unica
+  create + la migrazione di estensione `2025_09_18_000000_create_roles_table.php`.
+
+- **Estendere l'esempio anche a permissions e pivot Spatie**  
+  La filosofia è descritta bene per `roles`, ma non è esplicitata per:
+  `permissions`, `model_has_roles`, `model_has_permissions`, `role_has_permissions`.  
+  *Da fare*: aggiungere una sezione che mostri la stessa logica (un'unica create autorevole,
+  più migrazioni di estensione idempotenti) anche per queste tabelle.
+
+- **Linee guida esplicite per migrazioni di schema-change**  
+  Si consiglia di creare file come `add_column_to_table.php`, ma non sono riportati esempi
+  XotBaseMigration-ready.  
+  *Da fare*: aggiungere uno snippet standard che mostri l'uso di `tableUpdate()` + `hasColumn()`
+  per aggiungere/rinominare colonne in modo sicuro e DRY.
