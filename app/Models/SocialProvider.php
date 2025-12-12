@@ -76,6 +76,31 @@ class SocialProvider extends BaseModel
         // 'client_secret',// => env('FACEBOOK_CLIENT_SECRET'),
     ];
 
+    /**
+     * Sushi schema definition - prevents SQL error when getRows() returns empty array.
+     *
+     * @var array<string, string>
+     */
+    protected $schema = [
+        'id' => 'integer',
+        'name' => 'string',
+        'scopes' => 'json',
+        'parameters' => 'json',
+        'stateless' => 'boolean',
+        'active' => 'boolean',
+        'socialite' => 'boolean',
+        'svg' => 'text',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'created_by' => 'string',
+        'updated_by' => 'string',
+    ];
+
+    /**
+     * Logical form definition for this Sushi-backed model.
+     *
+     * @var array<string, string>
+     */
     protected array $form = [
         'id' => 'integer',
         'name' => 'string',
