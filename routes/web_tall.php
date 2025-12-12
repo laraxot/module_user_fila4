@@ -49,12 +49,12 @@ Route::prefix('{lang}')->group(function (): void {
         ->namespace('\Modules\User\Http\Livewire\Auth')
         ->group(static function (): void {
             $route = Route::get('email/verify', Verify::class);
-            Assert::isInstanceOf($route, \Illuminate\Routing\Route::class);
+            Assert::isInstanceOf($route, Illuminate\Routing\Route::class);
             $route->middleware('throttle:6,1');
             $route->name('verification.notice');
 
             $route = Route::get('password/confirm', Confirm::class);
-            Assert::isInstanceOf($route, \Illuminate\Routing\Route::class);
+            Assert::isInstanceOf($route, Illuminate\Routing\Route::class);
             $route->name('password.confirm');
         });
 
@@ -62,7 +62,7 @@ Route::prefix('{lang}')->group(function (): void {
         // ->namespace('\Modules\User\Http\Livewire\Auth')
         ->group(static function (): void {
             $route = Route::get('email/verify/{id}/{hash}', EmailVerificationController::class);
-            Assert::isInstanceOf($route, \Illuminate\Routing\Route::class);
+            Assert::isInstanceOf($route, Illuminate\Routing\Route::class);
             $route->middleware('signed');
             $route->name('verification.verify');
 

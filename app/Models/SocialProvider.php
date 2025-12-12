@@ -26,6 +26,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string|null          $client_secret
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+ *
  * @method static SocialProviderFactory  factory($count = null, $state = [])
  * @method static Builder|SocialProvider newModelQuery()
  * @method static Builder|SocialProvider newQuery()
@@ -40,16 +41,21 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|SocialProvider whereSocialite($value)
  * @method static Builder|SocialProvider whereStateless($value)
  * @method static Builder|SocialProvider whereSvg($value)
+ *
  * @property string|null $created_at
  * @property string|null $updated_at
  * @property string|null $created_by
  * @property string|null $updated_by
+ *
  * @method static Builder|SocialProvider whereCreatedAt($value)
  * @method static Builder|SocialProvider whereCreatedBy($value)
  * @method static Builder|SocialProvider whereUpdatedAt($value)
  * @method static Builder|SocialProvider whereUpdatedBy($value)
+ *
  * @mixin IdeHelperSocialProvider
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ *
+ * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ *
  * @mixin \Eloquent
  */
 class SocialProvider extends BaseModel
@@ -73,8 +79,6 @@ class SocialProvider extends BaseModel
         // 'client_secret',// => env('FACEBOOK_CLIENT_SECRET'),
     ];
 
-
-
     /**
      * Logical form definition for this Sushi-backed model.
      *
@@ -94,8 +98,6 @@ class SocialProvider extends BaseModel
         'created_by' => 'string',
         'updated_by' => 'string',
     ];
-
-
 
     /** @var array<string, string> */
     protected array $schema = [

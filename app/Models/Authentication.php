@@ -12,7 +12,7 @@ use Modules\Xot\Models\Traits\HasXotFactory;
 
 /**
  * Authentication Model.
- * 
+ *
  * Tracks user authentication attempts and sessions.
  *
  * @property int         $id
@@ -27,6 +27,7 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @property string      $authenticatable_id   The ID of the authenticatable model
  * @property Carbon|null $created_at           When the record was created
  * @property Carbon|null $updated_at           When the record was last updated
+ *
  * @method static Builder<static>|Authentication newModelQuery()
  * @method static Builder<static>|Authentication newQuery()
  * @method static Builder<static>|Authentication query()
@@ -42,12 +43,16 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static Builder<static>|Authentication whereLoginSuccessful($value)
  * @method static Builder<static>|Authentication whereAuthenticatableType($value)
  * @method static Builder<static>|Authentication whereAuthenticatableId($value)
+ *
  * @mixin IdeHelperAuthentication
+ *
  * @method static AuthenticationFactory factory($count = null, $state = [])
- * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $authenticatable
- * @property-read \Modules\TechPlanner\Models\Profile|null $creator
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
- * @property-read \Modules\TechPlanner\Models\Profile|null $updater
+ *
+ * @property \Illuminate\Database\Eloquent\Model|\Eloquent $authenticatable
+ * @property \Modules\TechPlanner\Models\Profile|null      $creator
+ * @property \Modules\TechPlanner\Models\Profile|null      $deleter
+ * @property \Modules\TechPlanner\Models\Profile|null      $updater
+ *
  * @mixin \Eloquent
  */
 class Authentication extends BaseModel

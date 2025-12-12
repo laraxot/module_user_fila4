@@ -61,33 +61,35 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @property int|null                                          $tenants_count
  * @property Collection<int, OauthAccessToken>                 $tokens
  * @property int|null                                          $tokens_count
- * @method static UserFactory  factory($count = null, $state = [])
- * @method static Builder|User newModelQuery()
- * @method static Builder|User newQuery()
- * @method static Builder|User permission($permissions, $without = false)
- * @method static Builder|User query()
- * @method static Builder|User role($roles, $guard = null, $without = false)
- * @method static Builder|User whereCreatedAt($value)
- * @method static Builder|User whereCreatedBy($value)
- * @method static Builder|User whereCurrentTeamId($value)
- * @method static Builder|User whereDeletedAt($value)
- * @method static Builder|User whereDeletedBy($value)
- * @method static Builder|User whereEmail($value)
- * @method static Builder|User whereEmailVerifiedAt($value)
- * @method static Builder|User whereFirstName($value)
- * @method static Builder|User whereId($value)
- * @method static Builder|User whereIsActive($value)
- * @method static Builder|User whereLang($value)
- * @method static Builder|User whereLastName($value)
- * @method static Builder|User whereName($value)
+ *
+ * @method static UserFactory          factory($count = null, $state = [])
+ * @method static Builder|User         newModelQuery()
+ * @method static Builder|User         newQuery()
+ * @method static Builder|User         permission($permissions, $without = false)
+ * @method static Builder|User         query()
+ * @method static Builder|User         role($roles, $guard = null, $without = false)
+ * @method static Builder|User         whereCreatedAt($value)
+ * @method static Builder|User         whereCreatedBy($value)
+ * @method static Builder|User         whereCurrentTeamId($value)
+ * @method static Builder|User         whereDeletedAt($value)
+ * @method static Builder|User         whereDeletedBy($value)
+ * @method static Builder|User         whereEmail($value)
+ * @method static Builder|User         whereEmailVerifiedAt($value)
+ * @method static Builder|User         whereFirstName($value)
+ * @method static Builder|User         whereId($value)
+ * @method static Builder|User         whereIsActive($value)
+ * @method static Builder|User         whereLang($value)
+ * @method static Builder|User         whereLastName($value)
+ * @method static Builder|User         whereName($value)
  * @method static Builder<static>|User whereNotNull($column, $boolean = 'and')
- * @method static Builder|User wherePassword($value)
- * @method static Builder|User whereProfilePhotoPath($value)
- * @method static Builder|User whereRememberToken($value)
- * @method static Builder|User whereUpdatedAt($value)
- * @method static Builder|User whereUpdatedBy($value)
- * @method static Builder|User withoutPermission($permissions)
- * @method static Builder|User withoutRole($roles, $guard = null)
+ * @method static Builder|User         wherePassword($value)
+ * @method static Builder|User         whereProfilePhotoPath($value)
+ * @method static Builder|User         whereRememberToken($value)
+ * @method static Builder|User         whereUpdatedAt($value)
+ * @method static Builder|User         whereUpdatedBy($value)
+ * @method static Builder|User         withoutPermission($permissions)
+ * @method static Builder|User         withoutRole($roles, $guard = null)
+ *
  * @property string                         $last_name
  * @property Team|null                      $currentTeam
  * @property MediaCollection<int, Media>    $media
@@ -106,6 +108,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @property string|null                    $moderation_data
  * @property string|null                    $certifications
  * @property string|null                    $type
+ *
  * @method static Builder<static>|User whereAddress($value)
  * @method static Builder<static>|User whereCertifications($value)
  * @method static Builder<static>|User whereCity($value)
@@ -117,12 +120,17 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @method static Builder<static>|User whereState($value)
  * @method static Builder<static>|User whereStatus($value)
  * @method static Builder<static>|User whereType($value)
+ *
  * @mixin IdeHelperUser
+ *
  * @property string|null $facebook_id
+ *
  * @method static Builder<static>|User whereFacebookId($value)
- * @property-read User|null $creator
- * @property-read User|null $updater
- * @property-read User|null $user
+ *
+ * @property User|null $creator
+ * @property User|null $updater
+ * @property User|null $user
+ *
  * @mixin \Eloquent
  */
 class User extends BaseUser
@@ -140,6 +148,4 @@ class User extends BaseUser
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;
         return true;
     }
-
-   
 }

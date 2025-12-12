@@ -26,9 +26,6 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Laravel\Passport\HasApiTokens;
-use Laravel\Passport\PersonalAccessTokenResult;
-use Laravel\Passport\Token;
-use Laravel\Passport\TransientToken;
 use Modules\User\Database\Factories\UserFactory;
 use Modules\User\Models\Traits\HasAuthenticationLogTrait;
 use Modules\User\Models\Traits\HasTeams;
@@ -296,7 +293,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         $role = Role::firstOrCreate(['name' => $role_name]);
         $this->assignRole($role);
     }
-    
+
     public function canAccessPanel(Panel $panel): bool
     {
         // $panel->default('admin');

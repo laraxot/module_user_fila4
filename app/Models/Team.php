@@ -33,6 +33,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property ProfileContract|null            $updater
  * @property Collection<int, User>           $users
  * @property int|null                        $users_count
+ *
  * @method static TeamFactory  factory($count = null, $state = [])
  * @method static Builder|Team newModelQuery()
  * @method static Builder|Team newQuery()
@@ -47,17 +48,26 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|Team whereUpdatedAt($value)
  * @method static Builder|Team whereUpdatedBy($value)
  * @method static Builder|Team whereUserId($value)
+ *
  * @property string|null $code
+ *
  * @method static Builder|Team whereCode($value)
+ *
  * @property string|null $uuid
+ *
  * @method static Builder<static>|Team whereUuid($value)
+ *
  * @property string|null $owner_id
+ *
  * @method static Builder<static>|Team whereOwnerId($value)
- * @method static static create(array $attributes = [])
- * @method static static firstOrCreate(array $attributes, array $values = [])
- * @method static static updateOrCreate(array $attributes, array $values = [])
+ * @method static static               create(array $attributes = [])
+ * @method static static               firstOrCreate(array $attributes, array $values = [])
+ * @method static static               updateOrCreate(array $attributes, array $values = [])
+ *
  * @mixin IdeHelperTeam
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ *
+ * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ *
  * @mixin \Eloquent
  */
 class Team extends BaseTeam

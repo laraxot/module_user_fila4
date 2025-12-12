@@ -272,18 +272,16 @@ trait IsProfileTrait
     {
         $tokens = $this->mobileDeviceUsers()
             ->pluck('token')
-            ->filter(static fn (mixed $value): bool => is_string($value) && $value !== '')
+            ->filter(static fn (mixed $value): bool => is_string($value) && '' !== $value)
             ->map(static fn (mixed $value): string => (string) $value);
 
-        /** @var Collection<int|string, string> $tokens */
+        /* @var Collection<int|string, string> $tokens */
         return $tokens;
     }
 
     /**
      * Get the user's user_name.
      * Ottiene il nome utente dal modello utente collegato.
-     *
-     * @return Attribute
      */
     protected function userName(): Attribute
     {
@@ -305,8 +303,6 @@ trait IsProfileTrait
     /**
      * Get the user's avatar URL.
      * Recupera l'URL dell'avatar dell'utente dalla MediaLibrary.
-     *
-     * @return Attribute
      */
     protected function avatar(): Attribute
     {

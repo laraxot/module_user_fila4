@@ -34,6 +34,7 @@ use Modules\Xot\Contracts\UserContract;
  * @property Collection<int, OauthAccessToken> $tokens
  * @property int|null                          $tokens_count
  * @property UserContract|null                 $user
+ *
  * @method static ClientFactory       factory($count = null, $state = [])
  * @method static Builder|OauthClient newModelQuery()
  * @method static Builder|OauthClient newQuery()
@@ -49,10 +50,13 @@ use Modules\Xot\Contracts\UserContract;
  * @method static Builder|OauthClient whereSecret($value)
  * @method static Builder|OauthClient whereUpdatedAt($value)
  * @method static Builder|OauthClient whereUserId($value)
+ *
  * @property string|null $updated_by
  * @property string|null $created_by
+ *
  * @method static Builder|OauthClient whereCreatedBy($value)
  * @method static Builder|OauthClient whereUpdatedBy($value)
+ *
  * @mixin IdeHelperOauthClient
  * @mixin \Eloquent
  */

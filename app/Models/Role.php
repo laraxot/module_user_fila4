@@ -37,6 +37,7 @@ use Webmozart\Assert\Assert;
  * @property Team|null                                   $team
  * @property EloquentCollection<int, Model&UserContract> $users
  * @property int|null                                    $users_count
+ *
  * @method static Builder|Role newModelQuery()
  * @method static Builder|Role newQuery()
  * @method static Builder|Role permission($permissions)
@@ -47,23 +48,34 @@ use Webmozart\Assert\Assert;
  * @method static Builder|Role whereTeamId($value)
  * @method static Builder|Role whereUpdatedAt($value)
  * @method static Builder|Role whereUuid($value)
+ *
  * @property int $id
+ *
  * @method static Builder|Role whereId($value)
+ *
  * @property string|null $updated_by
  * @property string|null $created_by
+ *
  * @method static Builder|Role whereCreatedBy($value)
  * @method static Builder|Role whereUpdatedBy($value)
+ *
  * @mixin Eloquent
+ *
  * @method static Builder|Role withoutPermission($permissions)
+ *
  * @property PermissionRole|null $pivot
+ *
  * @mixin IdeHelperRole
+ *
  * @property string|null $display_name
  * @property string|null $description
+ *
  * @method static \Modules\User\Database\Factories\RoleFactory factory($count = null, $state = [])
- * @method static Builder<static>|Role whereDescription($value)
- * @method static Builder<static>|Role whereDisplayName($value)
- * @method static static firstOrCreate(array $attributes, array $values = [])
- * @method static static updateOrCreate(array $attributes, array $values = [])
+ * @method static Builder<static>|Role                         whereDescription($value)
+ * @method static Builder<static>|Role                         whereDisplayName($value)
+ * @method static static                                       firstOrCreate(array $attributes, array $values = [])
+ * @method static static                                       updateOrCreate(array $attributes, array $values = [])
+ *
  * @mixin \Eloquent
  */
 class Role extends SpatieRole
