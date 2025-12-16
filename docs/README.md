@@ -953,6 +953,27 @@ test('user can switch teams', function () {
 
 ---
 
+## 🐛 Bug Fixes
+
+### Multiple Bugs Resolution (2025-12-16)
+**File**: Multiple files  
+**Problemi**: 
+- Conflitti Git nei PHPDoc (3 file)
+- Variabili non definite nei test (5 variabili)
+- Namespace errato per Team
+- Validazione file path mancante
+
+**Fix**: Tutti i bug risolti con fix forward  
+**Documentazione**: [bugfix/multiple-bugs-resolution-2025-12-16.md](./bugfix/multiple-bugs-resolution-2025-12-16.md)
+
+### Git Conflicts Resolution (2025-12-16)
+**File**: 12 file nel modulo User  
+**Problema**: Conflitti Git da merge  
+**Fix**: Risolti tutti i conflitti mantenendo versione corretta  
+**Documentazione**: [bugfix/git-conflicts-resolution-2025-12-16.md](./bugfix/git-conflicts-resolution-2025-12-16.md)
+
+---
+
 ## 🔄 Recent Updates
 
 ### v2.5.0 - 2025-12-05
