@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Unit\Models;
 
+use function Safe\class_uses;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Notifications\Notifiable;
