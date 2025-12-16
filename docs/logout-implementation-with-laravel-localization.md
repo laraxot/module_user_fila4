@@ -3,10 +3,17 @@
 ## Collegamenti correlati
 - [README modulo User](./README.md)
 - [Best Practices Componenti di Autenticazione](./AUTH_COMPONENTS_BEST_PRACTICES.md)
+<<<<<<< HEAD
 - [Utilizzo di Laravel Localization](/laravel/Modules/Lang/docs/LARAVEL_LOCALIZATION_USAGE.md)
 - [Collegamenti Documentazione](/docs/collegamenti-documentazione.md)
 - [Regole Traduzioni](/laravel/Modules/Lang/docs/TRANSLATION_KEYS_RULES.md)
 - [Componenti Filament](/docs/rules/filament-components.md)
+=======
+- [Utilizzo di Laravel Localization](/laravel/Modules/Lang/project_docs/LARAVEL_LOCALIZATION_USAGE.md)
+- [Collegamenti Documentazione](/project_docs/collegamenti-documentazione.md)
+- [Regole Traduzioni](/laravel/Modules/Lang/project_docs/TRANSLATION_KEYS_RULES.md)
+- [Componenti Filament](/project_docs/rules/filament-components.md)
+>>>>>>> 81efa49 (.)
 
 ## Panoramica
 

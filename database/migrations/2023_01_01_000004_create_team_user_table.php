@@ -5,7 +5,25 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
+<<<<<<< HEAD
 return new class extends XotBaseMigration {
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+return new class extends XotBaseMigration {
+=======
+return new class extends XotBaseMigration
+{
+>>>>>>> a12f125f4a (.)
+=======
+return new class extends XotBaseMigration {
+>>>>>>> b93ef594b4 (.)
+=======
+return new class extends XotBaseMigration
+{
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     /**
      * Nome della tabella gestita dalla migrazione.
      */
@@ -17,6 +35,14 @@ return new class extends XotBaseMigration {
     public function up(): void
     {
         // -- CREATE --
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
         $this->tableCreate(static function (Blueprint $table): void {
             // Rimuoviamo l'id auto-increment e usiamo chiave composita per tabella pivot
             $table->foreignId('team_id');
@@ -26,6 +52,10 @@ return new class extends XotBaseMigration {
             // Chiave primaria composita per tabella pivot
             $table->primary(['team_id', 'user_id']);
         });
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
 
         // -- UPDATE --
         $this->tableUpdate(function (Blueprint $table): void {
@@ -36,5 +66,46 @@ return new class extends XotBaseMigration {
 
             // $this->updateUser($table);
         });
+<<<<<<< HEAD
+=======
+=======
+=======
+>>>>>>> origin/develop
+        $this->tableCreate(
+            static function (Blueprint $table): void {
+                // $table->uuid('id')->primary();
+                $table->id();
+                $table->foreignId('team_id');
+                $table->uuid('user_id')->nullable()->index();
+                // $table->foreignIdFor(\Modules\Xot\Datas\XotData::make()->getUserClass());
+                $table->string('role')->nullable();
+                // $table->unique(['team_id', 'user_id']);
+            }
+        );
+
+        // -- UPDATE --
+        $this->tableUpdate(
+            function (Blueprint $table): void {
+                $this->updateTimestamps(table: $table, hasSoftDeletes: true);
+                // $this->updateUser($table);
+            }
+        );
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+
+        // -- UPDATE --
+        $this->tableUpdate(function (Blueprint $table): void {
+            $this->updateTimestamps(
+                table: $table,
+                hasSoftDeletes: true,
+            );
+
+            // $this->updateUser($table);
+        });
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     }
 };
