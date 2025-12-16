@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 @props([
     'type' => 'primary', 
     'size' => 'md', 
@@ -53,4 +56,8 @@ switch ($tag ?? 'button') {
 
 <{!! $tagAttr !!} {!! $attributes->except(['class']) !!} class="{{ $sizeClasses }} {{ $typeClasses }} cursor-pointer inline-flex items-center w-full justify-center disabled:opacity-50 font-semibold focus:outline-none">
     {{ $slot }}
+<<<<<<< HEAD
 </{{ $tagClose }}>
+=======
+</{{ $tagClose }}>
+>>>>>>> fbc8f8e (.)
