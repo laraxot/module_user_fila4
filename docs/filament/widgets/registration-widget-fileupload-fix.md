@@ -116,7 +116,11 @@ I componenti `FileUpload` si aspettano array:
 ### Comandi Test
 ```bash
 cd /var/www/html/_bases/base_techplanner_fila3_mono/laravel
+<<<<<<< HEAD
 cd /var/www/html/_bases/base_<nome progetto>/laravel
+=======
+cd /var/www/html/_bases/base_saluteora/laravel
+>>>>>>> d23d6b30 (.)
 cd /var/www/html/_bases/base_techplanner_fila3_mono/laravel
 php artisan test --filter=RegistrationWidget
 ./vendor/bin/phpstan analyze Modules/User/app/Filament/Widgets/RegistrationWidget.php --level=9
@@ -188,7 +192,11 @@ Questo pattern può essere riutilizzato in altri widget che:
 - [RegistrationWidget.php](../../app/Filament/Widgets/RegistrationWidget.php) - Widget corretto
 - [XotBaseResource.php](../../../Xot/app/Filament/Resources/XotBaseResource.php) - Schema attachments migliorato
 - [PatientResource.php](../../../<nome modulo>/app/Filament/Resources/PatientResource.php) - Risorsa paziente
+<<<<<<< HEAD
 - [PatientResource.php](../../../<nome progetto>/app/Filament/Resources/PatientResource.php) - Risorsa paziente
+=======
+- [PatientResource.php](../../../SaluteOra/app/Filament/Resources/PatientResource.php) - Risorsa paziente
+>>>>>>> d23d6b30 (.)
 - [Widget Error Troubleshooting](../../../Xot/docs/troubleshooting/widget-errors.md) - Guide generali
 
 ---

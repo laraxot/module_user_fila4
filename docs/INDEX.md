@@ -72,6 +72,7 @@ Ultimo aggiornamento: 14 Maggio 2025
 
 # Indice Documentazione User
 
+<<<<<<< HEAD
 ## Best Practices e Convenzioni
 
 - [filament-best-practices.mdc](./filament-best-practices.mdc) — **Regola fondamentale:** chi estende XotBaseResource NON deve dichiarare $navigationGroup, $navigationLabel, né il metodo statico table(Table $table): Table. Seguire sempre questa regola per evitare errori di override e garantire coerenza tra i moduli.
@@ -82,3 +83,6 @@ Ultimo aggiornamento: 14 Maggio 2025
 - [Model Inheritance Fixes](./MODEL_INHERITANCE_FIXES.md) — Riepilogo delle correzioni applicate ai modelli (15 Ottobre 2025)
 - [Spatie Permission Philosophy](./spatie-permission-philosophy.md) — Filosofia e pattern per Permission e Role
 - [Vendor Extension Pattern](./vendor-extension-pattern.md) — Pattern generale per estendere classi vendor (Spatie, etc.)
+=======
+- [filament-best-practices.mdc](./filament-best-practices.mdc) — **Regola fondamentale:** chi estende XotBaseResource NON deve dichiarare $navigationGroup, $navigationLabel, né il metodo statico table(Table $table): Table. Seguire sempre questa regola per evitare errori di override e garantire coerenza tra i moduli.
+>>>>>>> d23d6b30 (.)

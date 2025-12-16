@@ -183,7 +183,11 @@ if (app()->environment('local') && empty($licenseKey)) {
 - [ ] Funzionalità premium attive
 
 ## 🚀  Specifico
+<<<<<<< HEAD
 ## 🚀 <nome progetto> Specifico
+=======
+## 🚀 SaluteOra Specifico
+>>>>>>> d23d6b30 (.)
 
 ### Business Hours Sanitarie
 ```javascript

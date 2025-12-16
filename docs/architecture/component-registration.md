@@ -33,7 +33,12 @@ I componenti possono essere utilizzati nei template Blade con il prefisso del na
 
 - [Documentazione principale sulla registrazione dei componenti](../UI/docs/architecture/component-registration.md)
 - [Implementazione di UserServiceProvider](../User/app/Providers/UserServiceProvider.php)
+<<<<<<< HEAD
 - [Documentazione principale sulla registrazione dei componenti](/var/www/html/base_<nome progetto>/laravel/Modules/UI/docs/architecture/component-registration.md)
 - [Implementazione di UserServiceProvider](/var/www/html/base_<nome progetto>/laravel/Modules/User/app/Providers/UserServiceProvider.php)
+=======
+- [Documentazione principale sulla registrazione dei componenti](/var/www/html/base_saluteora/laravel/Modules/UI/docs/architecture/component-registration.md)
+- [Implementazione di UserServiceProvider](/var/www/html/base_saluteora/laravel/Modules/User/app/Providers/UserServiceProvider.php)
+>>>>>>> d23d6b30 (.)
 - [Documentazione principale sulla registrazione dei componenti](../UI/docs/architecture/component-registration.md)
 - [Implementazione di UserServiceProvider](../User/app/Providers/UserServiceProvider.php)
