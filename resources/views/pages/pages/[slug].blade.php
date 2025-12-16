@@ -1,11 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
 declare(strict_types=1);
 
 
@@ -17,33 +11,6 @@ use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
 use function Laravel\Folio\render;
 use function Laravel\Folio\withTrashed;
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> origin/develop
-use Modules\Cms\Models\Page;
-use Illuminate\Support\Arr;
-use Illuminate\View\View;
-use function Laravel\Folio\{withTrashed,middleware, name,render};
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-declare(strict_types=1);
-
-
-use Illuminate\Support\Arr;
-use Illuminate\View\View;
-use Modules\Cms\Models\Page;
-
-use function Laravel\Folio\middleware;
-use function Laravel\Folio\name;
-use function Laravel\Folio\render;
-use function Laravel\Folio\withTrashed;
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 
 withTrashed();
 name('page_slug.view');
@@ -54,52 +21,15 @@ render(function (View $view, string $slug) {
     $page = Page::firstWhere(['slug' => $slug]);
 
     /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
      * if (!$page) {
      * abort(404);
      * // Prova a cercare la pagina nella lingua predefinita
      * $page = Page::firstWhere(['slug' => $slug, 'locale' => config('app.fallback_locale', 'en')]);
      * }
      */
-<<<<<<< HEAD
     return $view->with('page', $page);
 });
 
-=======
-<<<<<<< HEAD
-    return $view->with('page', $page);
-});
-
-=======
-=======
->>>>>>> origin/develop
-    if (!$page) {
-        abort(404);
-        // Prova a cercare la pagina nella lingua predefinita
-        $page = Page::firstWhere(['slug' => $slug, 'locale' => config('app.fallback_locale', 'en')]);
-    }
-    */
-    return $view->with('page', $page);
-});
-
-
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-    return $view->with('page', $page);
-});
-
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 ?>
 <x-layouts.marketing>
 
