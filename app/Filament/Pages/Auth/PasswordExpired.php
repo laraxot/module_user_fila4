@@ -142,7 +142,7 @@ class PasswordExpired extends XotBasePage implements HasForms
             ->success()
             ->send();
 
-        return new PasswordResetResponse();
+        return new PasswordResetResponse;
     }
 
     protected function getCurrentPasswordFormComponent(): Component

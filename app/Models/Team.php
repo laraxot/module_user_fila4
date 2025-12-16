@@ -70,6 +70,4 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @mixin \Eloquent
  */
-class Team extends BaseTeam
-{
-}
+class Team extends BaseTeam {}
