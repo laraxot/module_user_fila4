@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Auth\Passwords;
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\PasswordBroker;
@@ -11,6 +14,27 @@ use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
+=======
+=======
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+>>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
+use Livewire\Features\SupportRedirects\Redirector;
+use Illuminate\Contracts\Auth\PasswordBroker;
+use Illuminate\Contracts\View\View;
+use Illuminate\Contracts\View\Factory;
+use Modules\Xot\Actions\File\ViewCopyAction;
+use Illuminate\Contracts\Auth\StatefulGuard;
+use Illuminate\Auth\Events\PasswordReset;
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> a63f578 (.)
+=======
+>>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -18,8 +42,17 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password as PasswordRule;
 use Livewire\Component;
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 use Livewire\Features\SupportRedirects\Redirector;
 use Modules\Xot\Actions\File\ViewCopyAction;
+=======
+>>>>>>> a63f578 (.)
+=======
+>>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
 use Webmozart\Assert\Assert;
 
 class Reset extends Component
@@ -58,8 +91,23 @@ class Reset extends Component
                 'email' => $this->email,
                 'password' => $this->password,
             ],
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+            function (Authenticatable $user, string $password): void {
+                /* @var Model&Authenticatable $user */
+=======
+            function (\Illuminate\Contracts\Auth\Authenticatable $user, string $password): void {
+                /** @var \Illuminate\Database\Eloquent\Model&\Illuminate\Contracts\Auth\Authenticatable $user */
+>>>>>>> a63f578 (.)
+=======
             function (Authenticatable $user, string $password): void {
                 /** @var Model&Authenticatable $user */
+>>>>>>> 041533e (.)
+=======
+            function (\Illuminate\Contracts\Auth\Authenticatable $user, string $password): void {
+                /** @var \Illuminate\Database\Eloquent\Model&\Illuminate\Contracts\Auth\Authenticatable $user */
+>>>>>>> 00a34d0 (.)
                 $user->setAttribute('password', Hash::make($password));
                 $user->setRememberToken(Str::random(60));
                 $user->save();
@@ -71,16 +119,44 @@ class Reset extends Component
         );
 
         /* @phpstan-ignore argument.type */
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
         Assert::string($response_lang = trans((string) $response));
+
+        if (Password::PASSWORD_RESET === $response) {
+            session()->flash($response_lang);
+
+=======
+=======
+>>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
+        Assert::string($response_lang = trans($response));
 
         if ($response === Password::PASSWORD_RESET) {
             session()->flash($response_lang);
-
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> a63f578 (.)
+=======
+>>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
             return redirect(route('home'));
         }
 
         $this->addError('email', $response_lang);
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> a63f578 (.)
+=======
+>>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
         return null;
     }
 

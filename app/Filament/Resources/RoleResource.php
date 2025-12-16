@@ -19,12 +19,11 @@ class RoleResource extends XotBaseResource
     #[\Override]
     public static function getFormSchema(): array
     {
-        return [
+        return array_values([
             'name' => TextInput::make('name')->required()->maxLength(255),
             'guard_name' => TextInput::make('guard_name')->required()->maxLength(255),
             'enabled' => Toggle::make('enabled')->required(),
-        ];
-    }
+        ]);}
 
     #[\Override]
     public static function getRelations(): array
