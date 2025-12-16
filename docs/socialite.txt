@@ -84,4 +84,8 @@ class UserServiceProvider extends XotBaseServiceProvider
 - [Provider Supportati](https://laravel.com/docs/socialite#supported-providers)
 - [Custom Provider](https://laravel.com/docs/socialite#custom-providers)
 
+<<<<<<< HEAD
 >>>>>>> d23d6b30 (.)
+=======
+>>>>>>> 81efa49 (.)
+>>>>>>> 0ad45d6a (.)

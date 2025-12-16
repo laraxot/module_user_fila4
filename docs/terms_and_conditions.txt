@@ -9,4 +9,8 @@ https://dev.to/filamentmastery/adding-terms-and-conditions-acceptance-to-filamen
 
 =======
 https://github.com/nowendwell/laravel-terms
+<<<<<<< HEAD
 >>>>>>> d23d6b30 (.)
+=======
+>>>>>>> 81efa49 (.)
+>>>>>>> 0ad45d6a (.)

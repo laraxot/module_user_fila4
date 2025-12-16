@@ -1,9 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 0ad45d6a (.)
 # User Module Testing
 
 ## Overview
 Testing standards and patterns for the User module, covering authentication, authorization, profiles, and team management.
 
+<<<<<<< HEAD
 ## Regole Critiche sui Test
 
 ### 1. Pest è Obbligatorio
@@ -30,6 +34,8 @@ I test devono essere controllati con **PHPStan, PHPMD e PHPInsights** per garant
 ### 5. Obiettivo Coverage
 Obiettivo: **100% coverage** e tutti i test devono passare, lavorando **SOLO** nelle cartelle `tests` dei moduli.
 
+=======
+>>>>>>> 0ad45d6a (.)
 ## Testing Strategy
 
 ### Test Pyramid Implementation
@@ -383,5 +389,8 @@ jobs:
 *User Module Testing - Ensuring reliable and secure user management functionality*
 *Testing del Modulo User: DRY + KISS + SOLID + ROBUST + LARAXOT*
 
+<<<<<<< HEAD
 =======
 >>>>>>> eb80748f (.)
+=======
+>>>>>>> 0ad45d6a (.)
