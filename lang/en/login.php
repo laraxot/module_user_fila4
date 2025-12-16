@@ -1,5 +1,8 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 
 declare(strict_types=1);
 
@@ -79,6 +82,7 @@ return [
         'unauthorized' => 'You do not have the necessary permissions for this operation.',
     ],
 ];
+<<<<<<< HEAD
 =======
 declare(strict_types=1);
 
@@ -161,3 +165,5 @@ return array (
   ),
 );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
