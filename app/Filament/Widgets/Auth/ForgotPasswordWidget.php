@@ -10,6 +10,16 @@ use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Password;
 // use Filament\Forms\Components\TextInput as FormsTextInput;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Override;
+=======
+>>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
 
 /**
  * @property Schema $form

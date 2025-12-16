@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Auth;
 
+use Exception;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Components\Checkbox;
@@ -77,7 +78,7 @@ class Login extends Component implements HasActions, HasForms
             }
 
             $this->addError('data.email', __('Le credenziali fornite non sono corrette..'));
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->addError('data.email', __('Si è verificato un errore durante il login. Riprova più tardi.'));
             report($e);
         }
@@ -141,10 +142,10 @@ class Login extends Component implements HasActions, HasForms
         // Se l'utente ha ruoli admin, redirect al pannello appropriato
         $adminRoles = $user->roles->filter(fn ($role) => str_ends_with($role->name, '::admin'));
 
-        if (1 === $adminRoles->count()) {
+        if ($adminRoles->count() === 1) {
             // Un solo ruolo admin - redirect al modulo specifico
             $role = $adminRoles->first();
-            if (null !== $role) {
+            if ($role !== null) {
                 $moduleName = str_replace('::admin', '', $role->name);
 
                 return redirect()->to("/{$moduleName}/admin");

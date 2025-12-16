@@ -21,6 +21,20 @@ abstract class TwoFactorAuthenticationEvent
          * The team member being added.
          */
         public UserContract $userContract,
+<<<<<<< HEAD
     ) {
     }
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    ) {}
+=======
+    ) {
+    }
+>>>>>>> laraxot/develop
+=======
+    ) {
+    }
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
 }

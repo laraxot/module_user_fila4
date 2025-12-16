@@ -5,7 +5,18 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Modules\User\Models\BaseModel;
+=======
+>>>>>>> laraxot/develop
+=======
+use Illuminate\Database\Eloquent\Model;
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -27,6 +38,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static Builder<static>|TeamPermission query()
  *
  * @mixin IdeHelperTeamPermission
+<<<<<<< HEAD
  *
  * @property \Modules\TechPlanner\Models\Profile|null $creator
  * @property \Modules\TechPlanner\Models\Profile|null $deleter
@@ -34,6 +46,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  *
  * @method static \Modules\User\Database\Factories\TeamPermissionFactory factory($count = null, $state = [])
  *
+=======
+>>>>>>> e4cd89fa (.)
  * @mixin \Eloquent
  */
 class TeamPermission extends BaseModel
@@ -69,6 +83,18 @@ class TeamPermission extends BaseModel
      */
     public function user(): BelongsTo
     {
+<<<<<<< HEAD
         return $this->belongsTo(User::class);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return $this->belongsTo(\Modules\User\Models\User::class);
+=======
+        return $this->belongsTo(User::class);
+>>>>>>> laraxot/develop
+=======
+        return $this->belongsTo(User::class);
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
     }
 }

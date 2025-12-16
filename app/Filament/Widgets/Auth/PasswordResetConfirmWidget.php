@@ -4,6 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Exception;
+=======
+>>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Schema;
@@ -17,6 +27,16 @@ use Illuminate\Support\Str;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Override;
+=======
+>>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
 use Webmozart\Assert\Assert;
 
 /**
@@ -63,7 +83,19 @@ class PasswordResetConfirmWidget extends XotBaseWidget
      *
      * @return array<string, mixed>
      */
+<<<<<<< HEAD
     #[\Override]
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    #[Override]
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
+=======
+    #[\Override]
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
     public function getFormSchema(): array
     {
         return [
@@ -72,7 +104,19 @@ class PasswordResetConfirmWidget extends XotBaseWidget
                 ->required()
                 ->autocomplete('email')
                 ->maxLength(255)
+<<<<<<< HEAD
                 ->disabled('form' !== $this->currentState)
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+                ->disabled($this->currentState !== 'form')
+=======
+                ->disabled('form' !== $this->currentState)
+>>>>>>> laraxot/develop
+=======
+                ->disabled('form' !== $this->currentState)
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
                 ->extraInputAttributes(['class' => 'text-center'])
                 ->suffixIcon('heroicon-o-envelope'),
             'password' => TextInput::make('password')
@@ -80,14 +124,38 @@ class PasswordResetConfirmWidget extends XotBaseWidget
                 ->required()
                 ->revealable()
                 ->minLength(8)
+<<<<<<< HEAD
                 ->disabled('form' !== $this->currentState)
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+                ->disabled($this->currentState !== 'form')
+=======
+                ->disabled('form' !== $this->currentState)
+>>>>>>> laraxot/develop
+=======
+                ->disabled('form' !== $this->currentState)
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
                 ->extraInputAttributes(['class' => 'text-center'])
                 ->suffixIcon('heroicon-o-key'),
             'password_confirmation' => TextInput::make('password_confirmation')
                 ->password()
                 ->required()
                 ->same('password')
+<<<<<<< HEAD
                 ->disabled('form' !== $this->currentState)
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+                ->disabled($this->currentState !== 'form')
+=======
+                ->disabled('form' !== $this->currentState)
+>>>>>>> laraxot/develop
+=======
+                ->disabled('form' !== $this->currentState)
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
                 ->extraInputAttributes(['class' => 'text-center'])
                 ->suffixIcon('heroicon-o-key'),
         ];
@@ -98,7 +166,19 @@ class PasswordResetConfirmWidget extends XotBaseWidget
      */
     public function confirmPasswordReset(): void
     {
+<<<<<<< HEAD
         if ('form' !== $this->currentState) {
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+        if ($this->currentState !== 'form') {
+=======
+        if ('form' !== $this->currentState) {
+>>>>>>> laraxot/develop
+=======
+        if ('form' !== $this->currentState) {
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
             return;
         }
 
@@ -125,7 +205,19 @@ class PasswordResetConfirmWidget extends XotBaseWidget
                 },
             );
 
+<<<<<<< HEAD
             if (Password::PASSWORD_RESET === $response) {
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+            if ($response === Password::PASSWORD_RESET) {
+=======
+            if (Password::PASSWORD_RESET === $response) {
+>>>>>>> laraxot/develop
+=======
+            if (Password::PASSWORD_RESET === $response) {
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
                 $this->currentState = 'success';
 
                 Notification::make()
@@ -149,7 +241,19 @@ class PasswordResetConfirmWidget extends XotBaseWidget
                 /* @phpstan-ignore argument.type */
                 $this->handleResetError($response);
             }
+<<<<<<< HEAD
         } catch (\Exception $e) {
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+        } catch (Exception $e) {
+=======
+        } catch (\Exception $e) {
+>>>>>>> laraxot/develop
+=======
+        } catch (\Exception $e) {
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
             $this->handleResetError('passwords.generic_error');
         }
     }
@@ -193,7 +297,19 @@ class PasswordResetConfirmWidget extends XotBaseWidget
      */
     public function isLoading(): bool
     {
+<<<<<<< HEAD
         return 'loading' === $this->currentState;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return $this->currentState === 'loading';
+=======
+        return 'loading' === $this->currentState;
+>>>>>>> laraxot/develop
+=======
+        return 'loading' === $this->currentState;
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
     }
 
     /**
@@ -201,7 +317,19 @@ class PasswordResetConfirmWidget extends XotBaseWidget
      */
     public function isSuccess(): bool
     {
+<<<<<<< HEAD
         return 'success' === $this->currentState;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return $this->currentState === 'success';
+=======
+        return 'success' === $this->currentState;
+>>>>>>> laraxot/develop
+=======
+        return 'success' === $this->currentState;
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
     }
 
     /**
@@ -209,7 +337,19 @@ class PasswordResetConfirmWidget extends XotBaseWidget
      */
     public function hasError(): bool
     {
+<<<<<<< HEAD
         return 'error' === $this->currentState;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return $this->currentState === 'error';
+=======
+        return 'error' === $this->currentState;
+>>>>>>> laraxot/develop
+=======
+        return 'error' === $this->currentState;
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
     }
 
     /**

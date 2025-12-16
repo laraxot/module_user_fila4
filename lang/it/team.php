@@ -172,6 +172,153 @@ return [
             'icon' => 'delete',
             'label' => 'delete',
         ],
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        'reorderRecords' => [
+            'icon' => 'reorderRecords',
+            'label' => 'reorderRecords',
+            'tooltip' => 'reorderRecords',
+        ],
+        'openColumnManager' => [
+            'icon' => 'openColumnManager',
+            'label' => 'openColumnManager',
+            'tooltip' => 'openColumnManager',
+        ],
+        'applyTableColumnManager' => [
+            'icon' => 'applyTableColumnManager',
+            'label' => 'applyTableColumnManager',
+        ],
+        'resetFilters' => [
+            'icon' => 'resetFilters',
+            'label' => 'resetFilters',
+        ],
+        'applyFilters' => [
+            'icon' => 'applyFilters',
+            'label' => 'applyFilters',
+        ],
+        'openFilters' => [
+            'icon' => 'openFilters',
+            'label' => 'openFilters',
+        ],
+        'detach' => [
+            'icon' => 'detach',
+            'label' => 'detach',
+        ],
+        'cancel' => [
+            'icon' => 'cancel',
+            'label' => 'cancel',
+        ],
+        'attachAnother' => [
+            'icon' => 'attachAnother',
+            'label' => 'attachAnother',
+        ],
+        'attach' => [
+            'label' => 'attach',
+            'icon' => 'attach',
+        ],
+        'submit' => [
+            'label' => 'submit',
+            'icon' => 'submit',
+        ],
+        'reorderRecords' => [
+            'icon' => 'reorderRecords',
+            'label' => 'reorderRecords',
+            'tooltip' => 'reorderRecords',
+        ],
+        'openColumnManager' => [
+            'icon' => 'openColumnManager',
+            'label' => 'openColumnManager',
+            'tooltip' => 'openColumnManager',
+        ],
+        'applyTableColumnManager' => [
+            'icon' => 'applyTableColumnManager',
+            'label' => 'applyTableColumnManager',
+        ],
+        'resetFilters' => [
+            'icon' => 'resetFilters',
+            'label' => 'resetFilters',
+        ],
+        'applyFilters' => [
+            'icon' => 'applyFilters',
+            'label' => 'applyFilters',
+        ],
+        'openFilters' => [
+            'icon' => 'openFilters',
+            'label' => 'openFilters',
+        ],
+        'detach' => [
+            'icon' => 'detach',
+            'label' => 'detach',
+        ],
+        'cancel' => [
+            'icon' => 'cancel',
+            'label' => 'cancel',
+        ],
+        'attachAnother' => [
+            'icon' => 'attachAnother',
+            'label' => 'attachAnother',
+        ],
+        'attach' => [
+            'label' => 'attach',
+            'icon' => 'attach',
+        ],
+        'submit' => [
+            'label' => 'submit',
+            'icon' => 'submit',
+        ],
+<<<<<<< HEAD
+=======
+        'reorderRecords' => [
+            'icon' => 'reorderRecords',
+            'label' => 'reorderRecords',
+            'tooltip' => 'reorderRecords',
+        ],
+        'openColumnManager' => [
+            'icon' => 'openColumnManager',
+            'label' => 'openColumnManager',
+            'tooltip' => 'openColumnManager',
+        ],
+        'applyTableColumnManager' => [
+            'icon' => 'applyTableColumnManager',
+            'label' => 'applyTableColumnManager',
+        ],
+        'resetFilters' => [
+            'icon' => 'resetFilters',
+            'label' => 'resetFilters',
+        ],
+        'applyFilters' => [
+            'icon' => 'applyFilters',
+            'label' => 'applyFilters',
+        ],
+        'openFilters' => [
+            'icon' => 'openFilters',
+            'label' => 'openFilters',
+        ],
+        'detach' => [
+            'icon' => 'detach',
+            'label' => 'detach',
+        ],
+        'cancel' => [
+            'icon' => 'cancel',
+            'label' => 'cancel',
+        ],
+        'attachAnother' => [
+            'icon' => 'attachAnother',
+            'label' => 'attachAnother',
+        ],
+        'attach' => [
+            'label' => 'attach',
+            'icon' => 'attach',
+        ],
+        'submit' => [
+            'label' => 'submit',
+            'icon' => 'submit',
+        ],
+>>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
     ],
     'plural' => [
         'model' => [

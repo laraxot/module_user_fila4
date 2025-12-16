@@ -9,6 +9,16 @@ use Filament\Schemas\Components\Component;
 use Filament\Tables\Table;
 use Modules\User\Filament\Resources\UserResource;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Override;
+=======
+>>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
 
 class UsersRelationManager extends XotBaseRelationManager
 {

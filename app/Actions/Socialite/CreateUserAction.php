@@ -25,8 +25,20 @@ class CreateUserAction
     /**
      * Execute the action to create a new user from socialite authentication.
      *
+<<<<<<< HEAD
+=======
+     * <<<<<<< HEAD
+     * <<<<<<< HEAD
+     *
+>>>>>>> e4cd89fa (.)
      * @param string                $provider  The socialite provider name (e.g., 'github', 'google')
      * @param SocialiteUserContract $oauthUser The socialite user instance
+     *
+     * =======
+     * @param string                $provider  The socialite provider name (e.g., 'github', 'google')
+     * @param SocialiteUserContract $oauthUser The socialite user instance
+     *
+     * >>>>>>> a382d4f1 (.)
      *
      * @return UserContract The created user instance
      */

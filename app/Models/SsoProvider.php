@@ -4,29 +4,30 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Carbon;
 use Modules\Xot\Models\Traits\HasXotFactory;
+use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Modules\User\Models\SsoProvider.
  *
- * @property int         $id
- * @property string      $name
- * @property string      $display_name
- * @property string      $type
+ * @property int $id
+ * @property string $name
+ * @property string $display_name
+ * @property string $type
  * @property string|null $entity_id
  * @property string|null $client_id
  * @property string|null $client_secret
  * @property string|null $redirect_url
  * @property string|null $metadata_url
  * @property string|null $scopes
- * @property array|null  $settings
- * @property array|null  $domain_whitelist
- * @property array|null  $role_mapping
- * @property bool        $is_active
+ * @property array|null $settings
+ * @property array|null $domain_whitelist
+ * @property array|null $role_mapping
+ * @property bool $is_active
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $created_by
@@ -34,8 +35,8 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  *
  * @mixin IdeHelperSsoProvider
  *
- * @property Collection<int, User> $users
- * @property int|null              $users_count
+ * @property-read Collection<int, User> $users
+ * @property-read int|null $users_count
  *
  * @method static Builder<static>|SsoProvider newModelQuery()
  * @method static Builder<static>|SsoProvider newQuery()
@@ -122,7 +123,7 @@ class SsoProvider extends BaseModel
         }
 
         $atPos = strrchr($email, '@');
-        if (false === $atPos) {
+        if ($atPos === false) {
             return false;
         }
 
@@ -134,8 +135,7 @@ class SsoProvider extends BaseModel
     /**
      * Map SAML/OIDC roles to application roles.
      *
-     * @param array<string> $samlRoles
-     *
+     * @param  array<string>  $samlRoles
      * @return list<string>
      */
     public function mapRoles(array $samlRoles): array

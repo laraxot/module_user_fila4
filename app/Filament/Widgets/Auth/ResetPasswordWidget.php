@@ -88,19 +88,19 @@ class ResetPasswordWidget extends XotBaseWidget
 
         $reset_data = Arr::only($data, ['email', 'password', 'password_confirmation', 'token']);
         $status = Password::reset($reset_data, function (Authenticatable $user, string $password): void {
-            /* @var Model&Authenticatable $user */
+            /** @var Model&Authenticatable $user */
             $user->forceFill([
                 'password' => Hash::make($password),
                 'remember_token' => Str::random(60),
             ])->save();
         });
 
-        if (Password::PASSWORD_RESET === $status) {
+        if ($status === Password::PASSWORD_RESET) {
             session()->flash('status', __($status));
 
             return redirect()->route('login');
         }
-        /* @phpstan-ignore-next-line */
+        /** @phpstan-ignore-next-line */
         $this->addError('email', __($status));
     }
 }

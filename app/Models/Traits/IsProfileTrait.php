@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Modulo User - Trait per il profilo utente.
+ * Modulo User - Trait per il profilo utente
  *
  * Questo trait implementa funzionalità comuni per i modelli di profilo utente nell'applicazione,
  * tra cui relazioni con utenti, dispositivi e team, gestione dei ruoli, e accessori per attributi
@@ -20,6 +20,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models\Traits;
 
+use Exception;
 use Filament\Notifications\Notification;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
@@ -65,54 +66,52 @@ trait IsProfileTrait
      * Ottiene il nome completo dell'utente.
      * Utilizza prima i dati del profilo, altrimenti ricade sul nome dell'utente.
      *
-     * @param string|null $value Il valore attuale dell'attributo
-     *
+     * @param  string|null  $value  Il valore attuale dell'attributo
      * @return string|null Il nome completo dell'utente
      */
     public function getFullNameAttribute(?string $value): ?string
     {
-        if (null !== $value) {
+        if ($value !== null) {
             return $value;
         }
 
         $user = $this->user;
-        if (null === $user) {
+        if ($user === null) {
             return null;
         }
         Assert::isInstanceOf($user, User::class);
 
         $res = trim(($this->first_name ?? '').' '.($this->last_name ?? ''));
-        if ('' !== $res) {
+        if ($res !== '') {
             return $res;
         }
 
         $userName = $user->getAttribute('name');
 
-        return \is_string($userName) && '' !== $userName ? $userName : null;
+        return \is_string($userName) && $userName !== '' ? $userName : null;
     }
 
     /**
      * Ottiene il nome dell'utente.
      * Se non presente nel profilo, lo recupera dall'utente collegato.
      *
-     * @param string|null $value Il valore attuale dell'attributo
-     *
+     * @param  string|null  $value  Il valore attuale dell'attributo
      * @return string|null Il nome dell'utente
      */
     public function getFirstNameAttribute(?string $value): ?string
     {
-        if (null !== $value) {
+        if ($value !== null) {
             return $value;
         }
 
         $user = $this->user;
-        if (null === $user) {
+        if ($user === null) {
             return null;
         }
         Assert::isInstanceOf($user, User::class);
 
         $firstName = $user->getAttribute('first_name');
-        if (! \is_string($firstName) || '' === $firstName) {
+        if (! \is_string($firstName) || $firstName === '') {
             return null;
         }
 
@@ -125,24 +124,23 @@ trait IsProfileTrait
      * Ottiene il cognome dell'utente.
      * Se non presente nel profilo, lo recupera dall'utente collegato.
      *
-     * @param string|null $value Il valore attuale dell'attributo
-     *
+     * @param  string|null  $value  Il valore attuale dell'attributo
      * @return string|null Il cognome dell'utente
      */
     public function getLastNameAttribute(?string $value): ?string
     {
-        if (null !== $value) {
+        if ($value !== null) {
             return $value;
         }
 
         $user = $this->user;
-        if (null === $user) {
+        if ($user === null) {
             return null;
         }
         Assert::isInstanceOf($user, User::class);
 
         $lastName = $user->getAttribute('last_name');
-        if (! \is_string($lastName) || '' === $lastName) {
+        if (! \is_string($lastName) || $lastName === '') {
             return null;
         }
 
@@ -158,7 +156,7 @@ trait IsProfileTrait
      */
     public function isSuperAdmin(): bool
     {
-        if (null === $this->user) {
+        if ($this->user === null) {
             return false;
         }
 
@@ -172,7 +170,7 @@ trait IsProfileTrait
      */
     public function isNegateSuperAdmin(): bool
     {
-        if (null === $this->user) {
+        if ($this->user === null) {
             return false;
         }
 
@@ -184,13 +182,13 @@ trait IsProfileTrait
      * Se l'utente è super-admin, rimuove questo ruolo e assegna negate-super-admin.
      * Se l'utente non è super-admin, assegna super-admin e rimuove negate-super-admin.
      *
-     * @throws \Exception Se l'utente non è disponibile
+     * @throws Exception Se l'utente non è disponibile
      */
     public function toggleSuperAdmin(): void
     {
         $user = $this->user;
-        if (null === $user) {
-            throw new \Exception('['.__LINE__.']['.class_basename($this).']');
+        if ($user === null) {
+            throw new Exception('['.__LINE__.']['.class_basename($this).']');
         }
         Assert::isInstanceOf($user, User::class);
         $to_assign = 'super-admin';
@@ -208,7 +206,7 @@ trait IsProfileTrait
             $role_remove = Role::updateOrCreate(['name' => $to_remove], ['team_id' => null]);
             $user->roles()->attach($role_assign);
             $user->roles()->detach($role_remove);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             Notification::make()
                 ->title('Exception !')
                 ->danger()
@@ -272,30 +270,38 @@ trait IsProfileTrait
     {
         $tokens = $this->mobileDeviceUsers()
             ->pluck('token')
+<<<<<<< HEAD
             ->filter(static fn (mixed $value): bool => is_string($value) && '' !== $value)
             ->map(static fn (mixed $value): string => (string) $value);
 
         /* @var Collection<int|string, string> $tokens */
         return $tokens;
+=======
+            ->filter(fn ($value) => $value !== null && is_string($value));
+
+        /** @var Collection<int|string, string> */
+>>>>>>> e4cd89fa (.)
     }
 
     /**
      * Get the user's user_name.
      * Ottiene il nome utente dal modello utente collegato.
+     *
+     * @return Attribute<string|null, never>
      */
     protected function userName(): Attribute
     {
         return Attribute::make(
             get: function (): ?string {
                 $user = $this->user;
-                if (null === $user) {
+                if ($user === null) {
                     return null;
                 }
                 Assert::isInstanceOf($user, User::class);
 
                 $name = $user->getAttribute('name');
 
-                return \is_string($name) && '' !== $name ? $name : null;
+                return \is_string($name) && $name !== '' ? $name : null;
             }
         );
     }
@@ -303,6 +309,8 @@ trait IsProfileTrait
     /**
      * Get the user's avatar URL.
      * Recupera l'URL dell'avatar dell'utente dalla MediaLibrary.
+     *
+     * @return Attribute<string, never>
      */
     protected function avatar(): Attribute
     {

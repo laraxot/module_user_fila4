@@ -7,6 +7,16 @@ namespace Modules\User\Filament\Resources\UserResource\Pages;
 use Filament\Infolists\Components\TextEntry;
 use Modules\User\Filament\Resources\UserResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Override;
+=======
+>>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
 
 /**
  * Base class for viewing user resources.

@@ -21,6 +21,20 @@ class AddingTeam
          * The team owner.
          */
         public UserContract $owner,
+<<<<<<< HEAD
     ) {
     }
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    ) {}
+=======
+    ) {
+    }
+>>>>>>> laraxot/develop
+=======
+    ) {
+    }
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
 }

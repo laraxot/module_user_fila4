@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Unit\Models;
 
+use function Safe\class_uses;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -14,7 +16,20 @@ use Modules\User\Tests\TestCase;
 uses(TestCase::class, RefreshDatabase::class);
 
 beforeEach(function () {
+<<<<<<< HEAD
     $this->baseUser = new class extends BaseUser {
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    $this->baseUser = new class() extends BaseUser
+    {
+=======
+    $this->baseUser = new class extends BaseUser {
+>>>>>>> laraxot/develop
+=======
+    $this->baseUser = new class extends BaseUser {
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
         protected $table = 'test_users';
     };
 });

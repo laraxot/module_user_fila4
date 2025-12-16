@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+use Filament\Schemas\Schema;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Facades\Filament;
@@ -26,10 +27,31 @@ use Modules\Xot\Filament\Widgets\XotBaseWidget;
 /**
  * Widget for handling expired password reset.
  *
+<<<<<<< HEAD
+=======
+ * <<<<<<< HEAD
+ * <<<<<<< HEAD
+ *
+ * =======
+ * >>>>>>> a382d4f1 (.)
+ *
+>>>>>>> e4cd89fa (.)
  * @property Schema                    $form
  * @property string|null               $current_password
  * @property string|null               $password
  * @property string|null               $passwordConfirmation
+<<<<<<< HEAD
+=======
+ *                                                           <<<<<<< HEAD
+ *                                                           =======
+ * @property Schema                    $form
+ * @property string|null               $current_password
+ * @property string|null               $password
+ * @property string|null               $passwordConfirmation
+ *                                                           >>>>>>> laraxot/develop
+ *                                                           =======
+ *                                                           >>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
  * @property array<string, mixed>|null $data
  */
 class PasswordExpiredWidget extends XotBaseWidget

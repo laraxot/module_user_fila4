@@ -34,7 +34,7 @@ class Password extends XotBasePage
      *
      * @var string|null
      */
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
     /**
      * Vista per la pagina.
@@ -57,7 +57,18 @@ class Password extends XotBasePage
     /**
      * Definisce la struttura del form.
      *
+<<<<<<< HEAD
+=======
+     * <<<<<<< HEAD
+     * <<<<<<< HEAD
+     *
+>>>>>>> e4cd89fa (.)
      * @param Schema $schema Il form da configurare
+     *
+     * =======
+     * @param Schema $schema Il form da configurare
+     *
+     * >>>>>>> a382d4f1 (.)
      *
      * @return Schema Il form configurato
      */
@@ -138,8 +149,20 @@ class Password extends XotBasePage
     /**
      * Gestisce l'aggiornamento del record.
      *
+<<<<<<< HEAD
+=======
+     * <<<<<<< HEAD
+     * <<<<<<< HEAD
+     *
+>>>>>>> e4cd89fa (.)
      * @param Model                $record Il record da aggiornare
      * @param array<string, mixed> $data   I dati per l'aggiornamento
+     *
+     * =======
+     * @param Model                $record Il record da aggiornare
+     * @param array<string, mixed> $data   I dati per l'aggiornamento
+     *
+     * >>>>>>> a382d4f1 (.)
      *
      * @return Model Il record aggiornato
      */

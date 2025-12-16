@@ -13,7 +13,7 @@ use Modules\User\Contracts\TeamContract;
 use Modules\Xot\Datas\XotData;
 
 /**
- * Trait HasTenants.
+ * Trait HasTenants
  *
  * Provides tenant functionality for User models implementing multi-tenancy.
  *

@@ -4,10 +4,21 @@ declare(strict_types=1);
 
 namespace Modules\User\Observers;
 
+use Throwable;
 use Illuminate\Support\Facades\Log;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 use Webmozart\Assert\Assert;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Throwable;
+=======
+>>>>>>> laraxot/develop
+=======
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
 
 /**
  * Observer per gestire eventi del modello User.
@@ -32,7 +43,7 @@ class UserObserver
         }
 
         // Evita di creare team duplicati
-        if (null !== $user->personalTeam()) {
+        if ($user->personalTeam() !== null) {
             return;
         }
 
@@ -50,7 +61,7 @@ class UserObserver
             $teamId = $personalTeam->id;
             $user->current_team_id = is_numeric($teamId) ? (int) $teamId : null;
             $user->saveQuietly(); // Evita di triggerare eventi ricorsivi
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             // Log dell'errore ma non bloccare la creazione dell'utente
             Log::error('Failed to create personal team for user', [
                 'user_id' => $user->id,
@@ -69,10 +80,14 @@ class UserObserver
         // Se l'utente ha un personal team, eliminalo
         $personalTeam = $user->personalTeam();
 
+<<<<<<< HEAD
         if ($personalTeam instanceof Team) {
+=======
+        if ($personalTeam !== null) {
+>>>>>>> e4cd89fa (.)
             try {
                 $personalTeam->delete();
-            } catch (\Throwable $e) {
+            } catch (Throwable $e) {
                 Log::error('Failed to delete personal team for user', [
                     'user_id' => $user->id,
                     'team_id' => $personalTeam->id,

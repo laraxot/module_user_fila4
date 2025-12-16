@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
 
-/*
+/**
  * Test per verificare la correzione del bug del loop infinito in currentTeam().
  *
  * Questo test verifica che il metodo currentTeam() non causi più loop infiniti
@@ -233,7 +233,7 @@ test('user creation does not trigger infinite loop', function (): void {
 test('multiple users can be created without issues', function (): void {
     // Arrange & Act: Crea più utenti in sequenza
     $users = [];
-    for ($i = 1; $i <= 5; ++$i) {
+    for ($i = 1; $i <= 5; $i++) {
         $users[] = User::create([
             'name' => "User {$i}",
             'email' => "user{$i}@example.com",

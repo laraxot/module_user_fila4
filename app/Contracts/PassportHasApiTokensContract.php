@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Contracts;
 
+use Laravel\Passport\PersonalAccessTokenResult;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Laravel\Passport\PersonalAccessTokenResult;
 use Laravel\Passport\Token;
 use Laravel\Passport\TransientToken;
 
@@ -52,10 +52,14 @@ interface PassportHasApiTokensContract
     /**
      * Create a new personal access token for the user.
      *
+<<<<<<< HEAD
      * @param string             $name
      * @param array<int, string> $scopes
      *
      * @return PersonalAccessTokenResult
+=======
+     * @param  array<int, string>  $scopes
+>>>>>>> e4cd89fa (.)
      */
     public function createToken($name, array $scopes = []);
 

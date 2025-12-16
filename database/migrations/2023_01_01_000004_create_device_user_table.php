@@ -7,7 +7,20 @@ use Modules\User\Models\Device;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 use Modules\Xot\Datas\XotData;
 
+<<<<<<< HEAD
 return new class extends XotBaseMigration {
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+return new class() extends XotBaseMigration
+{
+=======
+return new class extends XotBaseMigration {
+>>>>>>> laraxot/develop
+=======
+return new class extends XotBaseMigration {
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
     /**
      * Run the migrations.
      */
@@ -36,7 +49,19 @@ return new class extends XotBaseMigration {
                 $table->string('device_id', 36)->nullable()->change();
             }
             // dddx($this->getColumnType('device_id'));//varchar
+<<<<<<< HEAD
             if ('uuid' === $this->getColumnType('user_id')) {
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+            if ($this->getColumnType('user_id') === 'uuid') {
+=======
+            if ('uuid' === $this->getColumnType('user_id')) {
+>>>>>>> laraxot/develop
+=======
+            if ('uuid' === $this->getColumnType('user_id')) {
+>>>>>>> a382d4f1 (.)
+>>>>>>> e4cd89fa (.)
                 $table->string('user_id', 36)->nullable()->change();
             }
 

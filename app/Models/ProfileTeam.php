@@ -9,22 +9,22 @@ use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
 
 /**
- * ProfileTeam Model.
+ * ProfileTeam Model
  *
  * Represents the relationship between a profile and a team, including the user's role.
  *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
- * @property string               $id
- * @property int                  $team_id
- * @property string|null          $user_id
- * @property string|null          $role
- * @property Carbon|null          $created_at
- * @property Carbon|null          $updated_at
- * @property string|null          $updated_by
- * @property string|null          $created_by
- * @property Carbon|null          $deleted_at
- * @property string|null          $deleted_by
+ * @property string $id
+ * @property int $team_id
+ * @property string|null $user_id
+ * @property string|null $role
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property Carbon|null $deleted_at
+ * @property string|null $deleted_by
  *
  * @method static Builder<static>|ProfileTeam newModelQuery()
  * @method static Builder<static>|ProfileTeam newQuery()
@@ -41,6 +41,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|ProfileTeam whereUserId($value)
  *
  * @mixin IdeHelperProfileTeam
+<<<<<<< HEAD
  *
  * @property \Modules\TechPlanner\Models\Profile|null $deleter
  * @property Team|null                                $team
@@ -48,6 +49,8 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @method static \Modules\User\Database\Factories\ProfileTeamFactory factory($count = null, $state = [])
  *
+=======
+>>>>>>> e4cd89fa (.)
  * @mixin \Eloquent
  */
 class ProfileTeam extends TeamUser
