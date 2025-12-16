@@ -54,6 +54,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|PasswordReset newModelQuery()
  * @method static Builder<static>|PasswordReset newQuery()
  * @method static Builder<static>|PasswordReset query()
+ *
  * @mixin \Eloquent
  */
 class PasswordReset extends BaseModel

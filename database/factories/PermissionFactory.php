@@ -6,95 +6,31 @@ namespace Modules\User\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\User\Models\Permission;
-use Modules\Xot\Actions\Cast\SafeStringCastAction;
 
 /**
- * Factory per il modello Permission del modulo User.
- *
- * @extends Factory<Permission>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\User\Models\Permission>
  */
 class PermissionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
-     * @var class-string<Permission>
+     * @var class-string<\Modules\User\Models\Permission>
      */
     protected $model = Permission::class;
 
     /**
-     * Definisce lo stato di default del modello.
+     * Define the model's default state.
      *
      * @return array<string, mixed>
      */
     public function definition(): array
     {
-        $actions = ['create', 'read', 'update', 'delete', 'manage', 'view', 'edit'];
-        $resources = [
-            'users',
-            'posts',
-            'comments',
-            'pages',
-            'settings',
-            'reports',
-            'analytics',
-            'teams',
-            'roles',
-            'permissions',
-        ];
-
-        $action = SafeStringCastAction::cast($this->faker->randomElement($actions));
-        $resource = SafeStringCastAction::cast($this->faker->randomElement($resources));
-
         return [
-            'name' => $action.' '.$resource,
+            'name' => $this->faker->unique()->slug(),
             'guard_name' => 'web',
+            'display_name' => $this->faker->words(2, true),
+            'description' => $this->faker->sentence(),
         ];
-    }
-
-    /**
-     * Crea un set di permessi CRUD per una risorsa.
-     */
-    public function forResource(string $resource): static
-    {
-        ]);
-    }
-
-    /**
-     * Crea un permesso di lettura.
-     */
-    public function read(): static
-    {
-        ]);
-    }
-
-    /**
-     * Crea un permesso di scrittura.
-     */
-    public function write(): static
-    {
-        ]);
-    }
-
-    /**
-     * Crea un permesso admin.
-     */
-    public function admin(): static
-    {
-                    SafeStringCastAction::cast($this->faker->randomElement([
-                        'users',
-                        'system',
-                        'settings',
-                        'permissions',
-        ]);
-    }
-
-    /**
-     * Crea un permesso con un guard specifico.
-     */
-    public function withGuard(string $guard): static
-    {
-            'guard_name' => $guard,
-        ]);
     }
 }

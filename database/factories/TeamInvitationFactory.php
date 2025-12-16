@@ -13,7 +13,7 @@ class TeamInvitationFactory extends Factory
     /**
      * The name of the factory's corresponding model.
      *
-     * @var class-string<Model>
+     * @var class-string<\Modules\User\Models\TeamInvitation>
      */
     protected $model = TeamInvitation::class;
 
