@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # ChangePasswordCommand
 
 ## Panoramica
@@ -372,4 +370,3 @@ php artisan test --filter=ChangePasswordCommandIntegrationTest
 
 
 
->>>>>>> 6849bc76 (.)

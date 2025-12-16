@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Popolamento Database - Modulo User
 
 ## Panoramica
@@ -306,4 +304,3 @@ echo "User roles: " . $user->roles()->count() . "\n";
 
 
 
->>>>>>> 6849bc76 (.)

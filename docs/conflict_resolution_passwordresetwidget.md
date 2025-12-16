@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Risoluzione Conflitti PasswordResetWidget.php
 
 ## Contesto del Conflitto
@@ -97,4 +95,3 @@ Verificare che:
 - [Root Conflict Resolution Guidelines](../../../docs/conflict-resolution-guidelines.md)
 
 *Ultimo aggiornamento: giugno 2025*
->>>>>>> 6849bc76 (.)
