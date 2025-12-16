@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages\Auth;
 
-use Modules\Xot\Filament\Pages\XotBasePage;
-
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Forms\Components\TextInput;
@@ -23,6 +21,7 @@ use Modules\User\Datas\PasswordData;
 use Modules\User\Events\NewPasswordSet;
 use Modules\User\Http\Response\PasswordResetResponse;
 use Modules\Xot\Contracts\UserContract;
+use Modules\Xot\Filament\Pages\XotBasePage;
 use Modules\Xot\Filament\Traits\NavigationPageLabelTrait;
 use Webmozart\Assert\Assert;
 
