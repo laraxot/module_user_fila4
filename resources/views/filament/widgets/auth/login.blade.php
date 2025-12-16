@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 {{--
     View: user::filament.widgets.auth.login
     Scopo: Widget di login Filament conforme a Windsurf/Xot
