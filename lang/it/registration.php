@@ -10,9 +10,12 @@ return [
         'sort' => 50,
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     'pages' => [
         'registration' => [
             'title' => 'Registrazione Utente',
@@ -26,9 +29,12 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     'steps' => [
         'personal_info' => [
             'label' => 'Dati Personali',
@@ -92,9 +98,12 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     'fields' => [
         'name' => [
             'label' => 'Nome',
@@ -253,9 +262,12 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     'actions' => [
         'register' => [
             'label' => 'Registrati',
@@ -281,9 +293,12 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     'messages' => [
         'welcome' => 'Benvenuto nella procedura di registrazione',
         'step_completed' => 'Passaggio completato con successo',
