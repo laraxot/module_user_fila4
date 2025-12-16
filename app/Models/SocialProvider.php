@@ -122,7 +122,7 @@ class SocialProvider extends BaseModel
 
 =======
     /**
-     * @return array<string, mixed>
+     * @return list<array<string, mixed>>
      */
 >>>>>>> 4cf202bd (.)
     public function getRows(): array

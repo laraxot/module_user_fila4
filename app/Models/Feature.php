@@ -49,7 +49,15 @@ use Modules\Xot\Contracts\ProfileContract;
 >>>>>>> 4cf202bd (.)
  * @mixin \Eloquent
  */
-/** */
+/**
+ * @property-read \Modules\Fixcity\Models\Profile|null $creator
+ * @property-read \Modules\Fixcity\Models\Profile|null $updater
+ * @method static \Modules\User\Database\Factories\FeatureFactory factory($count = null, $state = [])
+ * @method static Builder<static>|Feature newModelQuery()
+ * @method static Builder<static>|Feature newQuery()
+ * @method static Builder<static>|Feature query()
+ * @mixin \Eloquent
+ */
 class Feature extends BaseModel
 {
     /** @var list<string> */
