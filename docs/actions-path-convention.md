@@ -63,4 +63,8 @@ fi
 ## Collegamenti
 - [Convenzioni Path nei Moduli Laravel](./PATH_CONVENTIONS.md)
 - [Checklist per la Struttura delle Directory](./DIRECTORY_STRUCTURE_CHECKLIST.md)
+<<<<<<< HEAD
 - [Analisi Errore: Gestione Percorsi](../../../docs/error_analysis/path_management.md)
+=======
+- [Analisi Errore: Gestione Percorsi](../../../project_docs/error_analysis/path_management.md)
+>>>>>>> 81efa49 (.)
