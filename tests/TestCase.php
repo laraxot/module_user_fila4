@@ -25,4 +25,8 @@ abstract class TestCase extends BaseTestCase
             // essere scritti in modo da non dipendere da migrazioni rotte.
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fbc8f8e (.)
