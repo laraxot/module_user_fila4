@@ -1,39 +1,11 @@
 <?php
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
 
 declare(strict_types=1);
 
 
-<<<<<<< HEAD
 use Illuminate\View\View;
 use Modules\Cms\Models\Page;
 
-=======
-<<<<<<< HEAD
-use Illuminate\View\View;
-use Modules\Cms\Models\Page;
-
-=======
-use Modules\Cms\Models\Page;
-use Illuminate\View\View;
->>>>>>> a12f125f4a (.)
-=======
-use Illuminate\View\View;
-use Modules\Cms\Models\Page;
-
->>>>>>> b93ef594b4 (.)
-=======
-use Modules\Cms\Models\Page;
-use Illuminate\View\View;
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 use function Laravel\Folio\render;
 
 render(function (View $view) {
@@ -44,23 +16,11 @@ render(function (View $view) {
     $hasCategory = \Schema::hasColumn('pages', 'category');
 
     // Recupero le pagine con paginazione (12 per pagina)
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 81efa49 (.)
     $pages = Page::when(request()->has('q'), fn($query) => $query->where(
         'title',
         'like',
         '%' . request()->get('q') . '%',
     ));
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 81efa49 (.)
 
     // Applichiamo il filtro per categoria solo se la colonna esiste
     if ($hasCategory) {
@@ -71,48 +31,6 @@ render(function (View $view) {
     }
 
     $pages = $pages->orderBy('created_at', 'desc')->paginate(12)->withQueryString();
-<<<<<<< HEAD
-=======
-=======
-    $pages = Page::when(request()->has('q'), function($query) {
-        return $query->where('title', 'like', '%' . request()->get('q') . '%');
-    });
-=======
->>>>>>> b93ef594b4 (.)
-
-    // Applichiamo il filtro per categoria solo se la colonna esiste
-    if ($hasCategory) {
-        $pages = $pages->when(request()->has('category'), fn($query) => $query->where(
-            'category',
-            request()->get('category'),
-        ));
-    }
-
-<<<<<<< HEAD
-    $pages = $pages->orderBy('created_at', 'desc')
-        ->paginate(12)
-        ->withQueryString();
->>>>>>> a12f125f4a (.)
-=======
-    $pages = $pages->orderBy('created_at', 'desc')->paginate(12)->withQueryString();
->>>>>>> b93ef594b4 (.)
-=======
-    $pages = Page::when(request()->has('q'), function($query) {
-        return $query->where('title', 'like', '%' . request()->get('q') . '%');
-    });
-
-    // Applichiamo il filtro per categoria solo se la colonna esiste
-    if ($hasCategory) {
-        $pages = $pages->when(request()->has('category'), function($query) {
-            return $query->where('category', request()->get('category'));
-        });
-    }
-
-    $pages = $pages->orderBy('created_at', 'desc')
-        ->paginate(12)
-        ->withQueryString();
->>>>>>> origin/develop
->>>>>>> 81efa49 (.)
 
     // Recuperiamo le categorie solo se la colonna esiste
     $categories = collect();
