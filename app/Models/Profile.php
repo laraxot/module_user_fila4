@@ -116,11 +116,7 @@ class Profile extends BaseProfile implements HasMedia
      *
      * @var list<string>
      */
-<<<<<<< HEAD
     protected $formlessAttributes = [
-=======
-    protected $schemalessAttributes = [
->>>>>>> 4b219c8 (.)
         'extra',
     ];
 
