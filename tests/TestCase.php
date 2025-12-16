@@ -26,7 +26,11 @@ abstract class TestCase extends BaseTestCase
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> fbc8f8e (.)
+=======
+}
+>>>>>>> 6d20fbe (.)
