@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 return [
@@ -9,3 +10,14 @@ return [
         ],
     ],
 ];
+=======
+return array (
+  'actions' => 
+  array (
+    'edit' => 
+    array (
+      'label' => 'edit',
+    ),
+  ),
+);
+>>>>>>> fbc8f8e (.)

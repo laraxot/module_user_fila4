@@ -15,4 +15,8 @@ interface HasAuthentications
      * Ottiene tutti i log di autenticazione associati all'utente.
      */
     public function authentications(): MorphMany;
+<<<<<<< HEAD
 }
+=======
+} 
+>>>>>>> fbc8f8e (.)
