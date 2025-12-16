@@ -33,7 +33,7 @@ describe('User Model Creation', function (): void {
             'is_active' => true,
         ];
 
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create($userData);
 
         expect($user)
@@ -57,7 +57,7 @@ describe('User Model Creation', function (): void {
     });
 
     it('has factory', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $users = User::factory()->count(3)->create();
 
         expect($users)->toHaveCount(3);
@@ -73,7 +73,7 @@ describe('User Model Creation', function (): void {
  */
 describe('User Model Attributes', function (): void {
     it('has full name accessor', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
             'first_name' => 'John',
             'last_name' => 'Doe',
@@ -83,7 +83,7 @@ describe('User Model Attributes', function (): void {
     });
 
     it('can have password expiration', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
             'password_expires_at' => now()->addDays(30),
         ]);
@@ -92,9 +92,9 @@ describe('User Model Attributes', function (): void {
     });
 
     it('can be active or inactive', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $activeUser = User/** @phpstan-ignore-line */ ::factory()->create(['is_active' => true]);
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $inactiveUser = User/** @phpstan-ignore-line */ ::factory()->create(['is_active' => false]);
 
         expect($activeUser->is_active)->toBe(true);
@@ -102,14 +102,14 @@ describe('User Model Attributes', function (): void {
     });
 
     it('can have otp enabled', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create(['is_otp' => true]);
 
         expect($user->is_otp)->toBe(true);
     });
 
     it('can have profile photo path', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
             'profile_photo_path' => 'photos/user.jpg',
         ]);
@@ -123,7 +123,7 @@ describe('User Model Attributes', function (): void {
  */
 describe('User Authentication Features', function (): void {
     it('can verify email', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
             'email_verified_at' => null,
         ]);
@@ -138,7 +138,7 @@ describe('User Authentication Features', function (): void {
 
     it('can store remember token', function (): void {
         $token = Str::random(60);
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var User */
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
             'remember_token' => $token,
         ]);
@@ -229,7 +229,7 @@ describe('User Relationships', function (): void {
  */
 describe('User Team Management', function (): void {
     it('can join a team', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line property.notFound */
@@ -240,7 +240,7 @@ describe('User Team Management', function (): void {
     });
 
     it('can leave a team', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Team */
         $team = Team/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line property.notFound */
         $this->user->teams()->attach($team);
@@ -289,7 +289,7 @@ describe('User Team Management', function (): void {
  */
 describe('User Permission System', function (): void {
     it('can have roles assigned', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Role */
         $role = Role/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line property.notFound */
@@ -300,7 +300,7 @@ describe('User Permission System', function (): void {
     });
 
     it('can have direct permissions', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line property.notFound */
@@ -311,9 +311,9 @@ describe('User Permission System', function (): void {
     });
 
     it('can check multiple permissions', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission1 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission2 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'delete posts']);
 
         /** @phpstan-ignore-next-line property.notFound */
@@ -324,9 +324,9 @@ describe('User Permission System', function (): void {
     });
 
     it('can check any permission', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission1 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
-        /** @var \Illuminate\Database\Eloquent\Collection */
+        /** @var Permission */
         $permission2 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'delete posts']);
 
         /** @phpstan-ignore-next-line property.notFound */
