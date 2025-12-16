@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> f3866fb1 (.)
@@ -66,3 +67,5 @@ Authorization callback URL: http://your-app-url.com/callback/github.
 ---
 
 >>>>>>> f3866fb1 (.)
+=======
+>>>>>>> 7c59e9f1 (.)

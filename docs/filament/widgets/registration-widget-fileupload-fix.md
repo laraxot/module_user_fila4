@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f3866fb1 (.)
 # RegistrationWidget FileUpload Error Fix
@@ -238,3 +239,5 @@ Questo pattern può essere riutilizzato in altri widget che:
 =======
 **Status**: ✅ **RISOLTO** 
 >>>>>>> f3866fb1 (.)
+=======
+>>>>>>> 7c59e9f1 (.)

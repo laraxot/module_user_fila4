@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Filament Relation Managers nel Modulo User
 
 ## Struttura dei Relation Managers
@@ -181,3 +182,5 @@ class TeamsRelationManager extends XotBaseRelationManager
 - [Sistema di Traduzione](../Xot/project_docs/translation-system.md)
 - [Best Practices Filament](../Xot/project_docs/filament-best-practices.md) 
 >>>>>>> f3866fb1 (.)
+=======
+>>>>>>> 7c59e9f1 (.)

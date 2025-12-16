@@ -61,7 +61,6 @@ use Modules\Xot\Contracts\ProfileContract;
 >>>>>>> 4cf202bd (.)
  * @mixin \Eloquent
  */
-/** */
 class SocialProvider extends BaseModel
 {
     use SushiToPhpArray;

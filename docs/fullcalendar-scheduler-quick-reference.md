@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f3866fb1 (.)
 # FullCalendar Scheduler - Riferimento Rapido
@@ -244,3 +245,5 @@ slotDuration: '00:30:00', // 30 min slots
 >>>>>>> eb80748f (.)
 =======
 >>>>>>> f3866fb1 (.)
+=======
+>>>>>>> 7c59e9f1 (.)

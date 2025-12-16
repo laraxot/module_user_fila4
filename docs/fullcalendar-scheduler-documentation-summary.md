@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f3866fb1 (.)
 # FullCalendar Scheduler - Documentazione Completa
@@ -353,3 +354,5 @@ La documentazione è progettata per essere autosufficiente e ridurre la necessit
 La documentazione è progettata per essere autosufficiente e ridurre la necessità di ricerche esterne, fornendo tutte le informazioni necessarie per una gestione efficace delle licenze FullCalendar Scheduler nel contesto sanitario di . 
 La documentazione è progettata per essere autosufficiente e ridurre la necessità di ricerche esterne, fornendo tutte le informazioni necessarie per una gestione efficace delle licenze FullCalendar Scheduler nel contesto sanitario di SaluteOra. 
 >>>>>>> f3866fb1 (.)
+=======
+>>>>>>> 7c59e9f1 (.)

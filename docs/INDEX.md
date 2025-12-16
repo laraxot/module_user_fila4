@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7c59e9f1 (.)
 # User Module Documentation
 
 ## Overview
@@ -74,6 +77,7 @@ Ultimo aggiornamento: 14 Maggio 2025
 # Indice Documentazione User
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Best Practices e Convenzioni
 
 - [filament-best-practices.mdc](./filament-best-practices.mdc) — **Regola fondamentale:** chi estende XotBaseResource NON deve dichiarare $navigationGroup, $navigationLabel, né il metodo statico table(Table $table): Table. Seguire sempre questa regola per evitare errori di override e garantire coerenza tra i moduli.
@@ -89,3 +93,6 @@ Ultimo aggiornamento: 14 Maggio 2025
 >>>>>>> d23d6b30 (.)
 =======
 >>>>>>> eb80748f (.)
+=======
+- [filament-best-practices.mdc](./filament-best-practices.mdc) — **Regola fondamentale:** chi estende XotBaseResource NON deve dichiarare $navigationGroup, $navigationLabel, né il metodo statico table(Table $table): Table. Seguire sempre questa regola per evitare errori di override e garantire coerenza tra i moduli.
+>>>>>>> 7c59e9f1 (.)

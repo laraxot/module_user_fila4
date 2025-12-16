@@ -13,6 +13,7 @@ use Modules\User\Models\Role;
 use Modules\User\Models\User;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 beforeEach(function () {
     $user = User::factory()->create([
 =======
@@ -23,6 +24,10 @@ beforeEach(function (): void {
 =======
     /** @var object{user: mixed} $this */ $this->user = User/** @phpstan-ignore-line */ ::factory()->create([
 >>>>>>> 7def95d7 (.)
+=======
+beforeEach(function () {
+    $this->user = User::factory()->create([
+>>>>>>> 7c59e9f1 (.)
         'password' => Hash::make('password123'),
         'is_active' => true,
         'email_verified_at' => now(),
@@ -32,25 +37,19 @@ beforeEach(function (): void {
     $this->user = $user;
 });
 
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Authentication', function (): void {
-    it('can authenticate with valid credentials', function (): void {
+describe('User Authentication', function () {
+    it('can authenticate with valid credentials', function () {
         $result = Auth::attempt([
-            /** @phpstan-ignore-next-line property.notFound */
             'email' => $this->user->email,
             'password' => 'password123',
         ]);
 
         expect($result)->toBe(true);
-        /** @phpstan-ignore-next-line property.notFound */
         expect(Auth::user()?->id)->toBe($this->user->id);
     });
 
-    it('cannot authenticate with invalid password', function (): void {
+    it('cannot authenticate with invalid password', function () {
         $result = Auth::attempt([
-            /** @phpstan-ignore-next-line property.notFound */
             'email' => $this->user->email,
             'password' => 'wrongpassword',
         ]);
@@ -59,7 +58,7 @@ describe('User Authentication', function (): void {
         expect(Auth::user())->toBeNull();
     });
 
-    it('cannot authenticate with non-existent email', function (): void {
+    it('cannot authenticate with non-existent email', function () {
         $result = Auth::attempt([
             'email' => 'nonexistent@example.com',
             'password' => 'password123',
@@ -69,6 +68,7 @@ describe('User Authentication', function (): void {
         expect(Auth::user())->toBeNull();
     });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     it('cannot authenticate inactive user', function () {
         /** @var User $inactiveUser */
@@ -82,6 +82,10 @@ describe('User Authentication', function (): void {
 =======
         $inactiveUser = User/** @phpstan-ignore-line */ ::factory()->create([
 >>>>>>> 7def95d7 (.)
+=======
+    it('cannot authenticate inactive user', function () {
+        $inactiveUser = User::factory()->create([
+>>>>>>> 7c59e9f1 (.)
             'password' => Hash::make('password123'),
             'is_active' => false,
         ]);
@@ -95,8 +99,7 @@ describe('User Authentication', function (): void {
         expect($result)->toBe(false);
     });
 
-    it('can logout user', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can logout user', function () {
         Auth::login($this->user);
         expect(Auth::check())->toBe(true);
 
@@ -105,6 +108,7 @@ describe('User Authentication', function (): void {
     });
 });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 describe('User Password Management', function () {
     it('can hash password on creation', function () {
@@ -123,6 +127,11 @@ describe('User Password Management', function (): void {
 =======
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
 >>>>>>> 7def95d7 (.)
+=======
+describe('User Password Management', function () {
+    it('can hash password on creation', function () {
+        $user = User::factory()->create([
+>>>>>>> 7c59e9f1 (.)
             'password' => Hash::make('testpassword'),
         ]);
         \assert($user instanceof User);
@@ -130,19 +139,17 @@ describe('User Password Management', function (): void {
         expect(Hash::check('testpassword', $user->password))->toBe(true);
     });
 
-    it('can change password', function (): void {
+    it('can change password', function () {
         $newPassword = 'newpassword123';
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->update([
             'password' => Hash::make($newPassword),
         ]);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect(Hash::check($newPassword, $this->user->fresh()->password))->toBe(true);
-        /** @phpstan-ignore-next-line property.notFound */
         expect(Hash::check('password123', $this->user->fresh()->password))->toBe(false);
     });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     it('can check password expiration', function () {
         /** @var User $user */
@@ -156,6 +163,10 @@ describe('User Password Management', function (): void {
 =======
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
 >>>>>>> 7def95d7 (.)
+=======
+    it('can check password expiration', function () {
+        $user = User::factory()->create([
+>>>>>>> 7c59e9f1 (.)
             'password_expires_at' => now()->subDays(1),
         ]);
         \assert($user instanceof User);
@@ -163,9 +174,8 @@ describe('User Password Management', function (): void {
         expect($user->password_expires_at->isPast())->toBe(true);
     });
 
-    it('can set password expiration', function (): void {
+    it('can set password expiration', function () {
         $expirationDate = now()->addDays(90);
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->update([
             'password_expires_at' => $expirationDate,
         ]);
@@ -175,38 +185,30 @@ describe('User Password Management', function (): void {
                 ->user->fresh()
                 ->password_expires_at->toDateString(),
         )
-            /** @phpstan-ignore-next-line method.nonObject */
             ->toBe($expirationDate->toDateString());
     });
 });
 
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Remember Token', function (): void {
-    it('can generate remember token', function (): void {
+describe('User Remember Token', function () {
+    it('can generate remember token', function () {
         $token = Str::random(60);
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->update(['remember_token' => $token]);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->fresh()->remember_token)->toBe($token);
     });
 
-    it('can authenticate using remember token', function (): void {
+    it('can authenticate using remember token', function () {
         $token = Str::random(60);
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->update(['remember_token' => $token]);
 
-        /** @phpstan-ignore-next-line property.notFound */
         $user = User::where('email', $this->user->email)->where('remember_token', $token)->first();
 
         expect($user)->not->toBeNull();
-        /** @phpstan-ignore-next-line property.notFound */
         expect($user->id)->toBe($this->user->id);
     });
 });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 describe('User Email Verification', function () {
     it('can mark email as verified', function () {
@@ -224,18 +226,23 @@ describe('User Email Verification', function (): void {
 =======
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
 >>>>>>> 7def95d7 (.)
+=======
+describe('User Email Verification', function () {
+    it('can mark email as verified', function () {
+        $user = User::factory()->create([
+>>>>>>> 7c59e9f1 (.)
             'email_verified_at' => null,
         ]);
         \assert($user instanceof User);
 
         expect($user->email_verified_at)->toBeNull();
 
-        /** @phpstan-ignore-next-line method.nonObject */
         $user->markEmailAsVerified();
 
         expect($user->fresh()->email_verified_at)->not->toBeNull();
     });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     it('can check if email is verified', function () {
         /** @var User $verifiedUser */
@@ -248,10 +255,15 @@ describe('User Email Verification', function (): void {
 =======
         $verifiedUser = User/** @phpstan-ignore-line */ ::factory()->create([
 >>>>>>> 7def95d7 (.)
+=======
+    it('can check if email is verified', function () {
+        $verifiedUser = User::factory()->create([
+>>>>>>> 7c59e9f1 (.)
             'email_verified_at' => now(),
         ]);
         \assert($verifiedUser instanceof User);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         /** @var User $unverifiedUser */
 =======
@@ -262,6 +274,9 @@ describe('User Email Verification', function (): void {
 =======
         $unverifiedUser = User/** @phpstan-ignore-line */ ::factory()->create([
 >>>>>>> 7def95d7 (.)
+=======
+        $unverifiedUser = User::factory()->create([
+>>>>>>> 7c59e9f1 (.)
             'email_verified_at' => null,
         ]);
         \assert($unverifiedUser instanceof User);
@@ -270,6 +285,7 @@ describe('User Email Verification', function (): void {
         expect($unverifiedUser->hasVerifiedEmail())->toBe(false);
     });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     it('can send email verification notification', function () {
         /** @var User $user */
@@ -282,19 +298,23 @@ describe('User Email Verification', function (): void {
 =======
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
 >>>>>>> 7def95d7 (.)
+=======
+    it('can send email verification notification', function () {
+        $user = User::factory()->create([
+>>>>>>> 7c59e9f1 (.)
             'email_verified_at' => null,
         ]);
         \assert($user instanceof User);
 
         Notification::fake();
 
-        /** @phpstan-ignore-next-line method.nonObject */
         $user->sendEmailVerificationNotification();
 
         Notification::assertSentTo($user, VerifyEmail::class);
     });
 });
 
+<<<<<<< HEAD
 /**
  * @property \Modules\User\Models\User $user
  */
@@ -304,169 +324,154 @@ describe('User Authorization', function (): void {
         $adminRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'admin']);
         /** @var \Illuminate\Database\Eloquent\Collection */
         $editorRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'editor']);
+=======
+describe('User Authorization', function () {
+    it('can assign and check roles', function () {
+        $adminRole = Role::factory()->create(['name' => 'admin']);
+        $editorRole = Role::factory()->create(['name' => 'editor']);
+>>>>>>> 7c59e9f1 (.)
 
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->assignRole($adminRole);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasRole('admin'))->toBe(true);
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasRole('editor'))->toBe(false);
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasRole($adminRole))->toBe(true);
     });
 
+<<<<<<< HEAD
     it('can assign and check permissions', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
         $editPermission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
         /** @var \Illuminate\Database\Eloquent\Collection */
         $deletePermission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'delete posts']);
+=======
+    it('can assign and check permissions', function () {
+        $editPermission = Permission::factory()->create(['name' => 'edit posts']);
+        $deletePermission = Permission::factory()->create(['name' => 'delete posts']);
+>>>>>>> 7c59e9f1 (.)
 
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->givePermissionTo($editPermission);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasPermissionTo('edit posts'))->toBe(true);
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasPermissionTo('delete posts'))->toBe(false);
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasPermissionTo($editPermission))->toBe(true);
     });
 
+<<<<<<< HEAD
     it('can inherit permissions from roles', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
         $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'editor']);
         /** @var \Illuminate\Database\Eloquent\Collection */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
+=======
+    it('can inherit permissions from roles', function () {
+        $role = Role::factory()->create(['name' => 'editor']);
+        $permission = Permission::factory()->create(['name' => 'edit posts']);
+>>>>>>> 7c59e9f1 (.)
 
-        /** @phpstan-ignore-next-line method.nonObject */
         $role->givePermissionTo($permission);
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->assignRole($role);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasPermissionTo('edit posts'))->toBe(true);
     });
 
+<<<<<<< HEAD
     it('can check multiple permissions', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
         $permission1 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
         /** @var \Illuminate\Database\Eloquent\Collection */
         $permission2 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'delete posts']);
+=======
+    it('can check multiple permissions', function () {
+        $permission1 = Permission::factory()->create(['name' => 'edit posts']);
+        $permission2 = Permission::factory()->create(['name' => 'delete posts']);
+>>>>>>> 7c59e9f1 (.)
 
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->givePermissionTo([$permission1, $permission2]);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasAllPermissions(['edit posts', 'delete posts']))->toBe(true);
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasAnyPermission(['edit posts', 'publish posts']))->toBe(true);
     });
 
+<<<<<<< HEAD
     it('can remove roles and permissions', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
         $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'editor']);
         /** @var \Illuminate\Database\Eloquent\Collection */
         $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
+=======
+    it('can remove roles and permissions', function () {
+        $role = Role::factory()->create(['name' => 'editor']);
+        $permission = Permission::factory()->create(['name' => 'edit posts']);
+>>>>>>> 7c59e9f1 (.)
 
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->assignRole($role);
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->givePermissionTo($permission);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasRole('editor'))->toBe(true);
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasPermissionTo('edit posts'))->toBe(true);
 
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->removeRole($role);
-        /** @phpstan-ignore-next-line property.notFound */
         $this->user->revokePermissionTo($permission);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasRole('editor'))->toBe(false);
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->hasPermissionTo('edit posts'))->toBe(false);
     });
 });
 
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User OAuth Authentication', function (): void {
-    it('can have oauth clients', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+describe('User OAuth Authentication', function () {
+    it('can have oauth clients', function () {
         Passport::actingAs($this->user);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->clients())->toBeInstanceOf(HasMany::class);
     });
 
-    it('can have oauth tokens', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can have oauth tokens', function () {
         Passport::actingAs($this->user);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->tokens())->toBeInstanceOf(HasMany::class);
     });
 
-    it('can find user for passport', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can find user for passport', function () {
         $user = User::findForPassport($this->user->email);
 
         expect($user)->not->toBeNull();
-        /** @phpstan-ignore-next-line property.notFound */
         expect($user->id)->toBe($this->user->id);
     });
 
-    it('can validate password for passport', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can validate password for passport', function () {
         $isValid = $this->user->validateForPassportPasswordGrant('password123');
 
         expect($isValid)->toBe(true);
     });
 });
 
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Authentication Logging', function (): void {
-    it('can log authentication attempts', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+describe('User Authentication Logging', function () {
+    it('can log authentication attempts', function () {
         expect($this->user->authentications())->toBeInstanceOf(HasMany::class);
     });
 
-    it('can get latest authentication log', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can get latest authentication log', function () {
         expect($this->user->latestAuthentication())
             ->toBeInstanceOf(HasOne::class);
     });
 });
 
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Session Management', function (): void {
-    it('can store user in session', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+describe('User Session Management', function () {
+    it('can store user in session', function () {
         Auth::login($this->user);
 
         expect(session()->has('login_user_id'))->toBe(true);
-        /** @phpstan-ignore-next-line property.notFound */
         expect(session('login_user_id'))->toBe($this->user->id);
     });
 
-    it('can remember user across sessions', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can remember user across sessions', function () {
         Auth::login($this->user, true);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->fresh()->remember_token)->not->toBeNull();
     });
 
-    it('can clear user session on logout', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can clear user session on logout', function () {
         Auth::login($this->user);
         expect(Auth::check())->toBe(true);
 
@@ -476,26 +481,20 @@ describe('User Session Management', function (): void {
     });
 });
 
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Two Factor Authentication', function (): void {
-    it('can enable two factor authentication', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+describe('User Two Factor Authentication', function () {
+    it('can enable two factor authentication', function () {
         $this->user->update(['is_otp' => true]);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->fresh()->is_otp)->toBe(true);
     });
 
-    it('can disable two factor authentication', function (): void {
-        /** @phpstan-ignore-next-line property.notFound */
+    it('can disable two factor authentication', function () {
         $this->user->update(['is_otp' => false]);
 
-        /** @phpstan-ignore-next-line property.notFound */
         expect($this->user->fresh()->is_otp)->toBe(false);
     });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     it('handles otp authentication workflow', function () {
         /** @var User $user */
@@ -508,6 +507,10 @@ describe('User Two Factor Authentication', function (): void {
 =======
         $user = User/** @phpstan-ignore-line */ ::factory()->create([
 >>>>>>> 7def95d7 (.)
+=======
+    it('handles otp authentication workflow', function () {
+        $user = User::factory()->create([
+>>>>>>> 7c59e9f1 (.)
             'is_otp' => true,
             'password' => Hash::make('password123'),
         ]);

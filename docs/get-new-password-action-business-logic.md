@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f3866fb1 (.)
 # GetNewPasswordAction - Business Logic Analysis
@@ -232,3 +233,5 @@ L'`GetNewPasswordAction` fornisce una soluzione robusta e sicura per la gestione
 =======
 L'`GetNewPasswordAction` fornisce una soluzione robusta e sicura per la gestione delle password utente, con particolare attenzione alla sicurezza, usabilità e prestazioni, mantenendo coerenza con l'architettura modulare Xot.
 >>>>>>> f3866fb1 (.)
+=======
+>>>>>>> 7c59e9f1 (.)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Regole per i Namespace Filament
 
 ## Regola 1: Namespace Modulare
@@ -71,3 +72,5 @@ class Dashboard extends Page
 - [Regole Generali Xot](../../Xot/project_docs/README.md)
 - [Best Practices Filament](../../Cms/project_docs/best-practices/filament.md) 
 >>>>>>> f3866fb1 (.)
+=======
+>>>>>>> 7c59e9f1 (.)

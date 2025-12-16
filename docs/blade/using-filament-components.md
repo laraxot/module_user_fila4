@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Utilizzo dei componenti Blade di Filament
 
 > **NOTA IMPORTANTE**: Questo documento è un riferimento specifico per il modulo User.
@@ -102,3 +103,5 @@ Il componente `<x-profile.dropdown>` è un esempio di componente personalizzato 
 >>>>>>> eb80748f (.)
 =======
 >>>>>>> f3866fb1 (.)
+=======
+>>>>>>> 7c59e9f1 (.)

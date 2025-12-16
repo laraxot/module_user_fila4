@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Registrazione dei Componenti Blade nel Modulo User
 
 > **NOTA IMPORTANTE**: Questo documento è un riferimento specifico per il modulo User. 
@@ -70,3 +71,5 @@ I componenti possono essere utilizzati nei template Blade con il prefisso del na
 - [Documentazione principale sulla registrazione dei componenti](../UI/docs/architecture/component-registration.md)
 - [Implementazione di UserServiceProvider](../User/app/Providers/UserServiceProvider.php)
 >>>>>>> f3866fb1 (.)
+=======
+>>>>>>> 7c59e9f1 (.)

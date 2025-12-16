@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f3866fb1 (.)
 # FullCalendar Scheduler License Configuration
@@ -104,3 +105,5 @@ Ensure your license key is compatible with the version of FullCalendar Scheduler
 >>>>>>> eb80748f (.)
 =======
 >>>>>>> f3866fb1 (.)
+=======
+>>>>>>> 7c59e9f1 (.)
