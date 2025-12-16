@@ -36,7 +36,6 @@ class ViewUser extends BaseViewUser
                 DatePicker::make('endDate'),
             ])->columns(2);
     }
-<<<<<<< HEAD
 
     public function getFooterWidgets(): array
     {
@@ -44,20 +43,4 @@ class ViewUser extends BaseViewUser
             UserWidget::class,
         ];
     }
-=======
-   
-   /**
-    * @return array<string, mixed>
-    */
-   public function getFooterWidgets(): array
-   {
-    /* @phpstan-ignore-next-line return.type */
-    return [
-        UserWidget::class,
-    ];
-   }
-    
->>>>>>> e058848 (.)
 }
-
-

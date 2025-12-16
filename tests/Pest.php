@@ -31,20 +31,11 @@ pest()->extend(TestCase::class)->in('Feature', 'Unit');
  * |
  */
 
-expect()->extend('toBe' + 'User' + '', function () {
-    /** @var \Pest\Expectation<mixed> $this */
-    return $this->toBeInstanceOf(...);
-});
+expect()->extend('toBeUser', fn () => $this->toBeInstanceOf(User::class));
 
-expect()->extend('toBe' + 'User' + '', function () {
-    /** @var \Pest\Expectation<mixed> $this */
-    return $this->toBeInstanceOf(...);
-});
+expect()->extend('toBeTeam', fn () => $this->toBeInstanceOf(Team::class));
 
-expect()->extend('toBe' + 'User' + '', function () {
-    /** @var \Pest\Expectation<mixed> $this */
-    return $this->toBeInstanceOf(...);
-});
+expect()->extend('toBeProfile', fn () => $this->toBeInstanceOf(Profile::class));
 
 /*
  * |--------------------------------------------------------------------------
@@ -57,42 +48,22 @@ expect()->extend('toBe' + 'User' + '', function () {
  * |
  */
 
-/**
- * @param array<string, mixed> $attributes
- */
 function createUser(array $attributes = []): User
 {
-    $User = User::factory()->create($attributes);
-    assert($User instanceof User);
-    return $User;
+    return User::factory()->create($attributes);
 }
 
-/**
- * @param array<string, mixed> $attributes
- */
 function makeUser(array $attributes = []): User
 {
-    $User = User::factory()->make($attributes);
-    assert($User instanceof User);
-    return $User;
+    return User::factory()->make($attributes);
 }
 
-/**
- * @param array<string, mixed> $attributes
- */
 function createTeam(array $attributes = []): Team
 {
-    $Team = Team::factory()->create($attributes);
-    assert($Team instanceof Team);
-    return $Team;
+    return Team::factory()->create($attributes);
 }
 
-/**
- * @param array<string, mixed> $attributes
- */
 function createProfile(array $attributes = []): Profile
 {
-    $Profile = Profile::factory()->create($attributes);
-    assert($Profile instanceof Profile);
-    return $Profile;
+    return Profile::factory()->create($attributes);
 }

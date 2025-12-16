@@ -27,7 +27,6 @@ class TeamsRelationManager extends RelationManager
                 TextColumn::make('name')->searchable()->sortable(),
                 IconColumn::make('personal_team')
                     ->boolean()
-<<<<<<< HEAD
                     ->default(function ($record, $livewire): bool {
                         /**
                          * @var Model           $record
@@ -43,20 +42,6 @@ class TeamsRelationManager extends RelationManager
                         $recordId = $record->getKey();
 
                         return $user->current_team_id === $recordId;
-=======
-                    ->default(function ($record, $livewire) {
-                        if (! is_object($livewire) || ! method_exists($livewire, 'getOwnerRecord')) {
-                            return false;
-                        }
-                        $owner = $livewire->getOwnerRecord();
-                        if (! $owner instanceof \Illuminate\Database\Eloquent\Model) {
-                            return false;
-                        }
-                        if (! $record instanceof \Illuminate\Database\Eloquent\Model) {
-                            return false;
-                        }
-                        return $owner->getAttribute('current_team_id') === $record->getKey();
->>>>>>> e058848 (.)
                     }),
             ])
             ->filters([
@@ -69,7 +54,6 @@ class TeamsRelationManager extends RelationManager
             ])
             ->recordActions([
                 DetachAction::make()->after(function ($record, $livewire): void {
-<<<<<<< HEAD
                     /**
                      * @var Model           $record
                      * @var RelationManager $livewire
@@ -80,19 +64,6 @@ class TeamsRelationManager extends RelationManager
                         return;
                     }
 
-=======
-                    if (! is_object($livewire) || ! method_exists($livewire, 'getOwnerRecord')) {
-                        return;
-                    }
-                    $user = $livewire->getOwnerRecord();
-                    if (! $user instanceof \Illuminate\Database\Eloquent\Model) {
-                        return;
-                    }
-                    if (! is_object($record) || ! method_exists($record, 'getKey')) {
-                        return;
-                    }
-                    $team_id = $record->getKey();
->>>>>>> e058848 (.)
                     $user->update([
                         'current_team_id' => null,
                     ]);
@@ -103,9 +74,6 @@ class TeamsRelationManager extends RelationManager
             ]);
     }
 
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableColumns(): array
     {
         return [
