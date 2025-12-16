@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\User\Models\OauthRefreshToken;
 
 /**
- * OauthRefreshToken Factory
+ * OauthRefreshToken Factory.
  *
  * @extends Factory<OauthRefreshToken>
  */

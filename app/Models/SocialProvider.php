@@ -12,23 +12,22 @@ use Illuminate\Database\Eloquent\Builder;
 use Modules\Tenant\Models\Traits\SushiToPhpArray;
 use Modules\User\Database\Factories\SocialProviderFactory;
 use Modules\Xot\Contracts\ProfileContract;
-use Override;
 
 /**
- * @property int|null $id
- * @property string|null $name
- * @property array|null $scopes
- * @property array|null $parameters
- * @property bool|null $stateless
- * @property bool|null $active
- * @property bool|null $socialite
- * @property string|null $svg
- * @property string|null $client_id
- * @property string|null $client_secret
+ * @property int|null             $id
+ * @property string|null          $name
+ * @property array|null           $scopes
+ * @property array|null           $parameters
+ * @property bool|null            $stateless
+ * @property bool|null            $active
+ * @property bool|null            $socialite
+ * @property string|null          $svg
+ * @property string|null          $client_id
+ * @property string|null          $client_secret
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  *
- * @method static SocialProviderFactory factory($count = null, $state = [])
+ * @method static SocialProviderFactory  factory($count = null, $state = [])
  * @method static Builder|SocialProvider newModelQuery()
  * @method static Builder|SocialProvider newQuery()
  * @method static Builder|SocialProvider query()
@@ -122,7 +121,7 @@ class SocialProvider extends BaseModel
     }
 
     /** @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [

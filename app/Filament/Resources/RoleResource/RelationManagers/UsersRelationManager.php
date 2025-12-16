@@ -13,7 +13,6 @@ use Filament\Tables\Filters\BaseFilter;
 use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-use Override;
 
 /**
  * UsersRelationManager.
@@ -32,7 +31,7 @@ final class UsersRelationManager extends XotBaseRelationManager
      *
      * @return array<\Filament\Schemas\Components\Component>
      */
-    #[Override]
+    #[\Override]
     public function getFormSchema(): array
     {
         return [
@@ -46,7 +45,7 @@ final class UsersRelationManager extends XotBaseRelationManager
      *
      * @return array<Tables\Columns\Column|Component>
      */
-    #[Override]
+    #[\Override]
     public function getTableColumns(): array
     {
         return [
@@ -74,7 +73,7 @@ final class UsersRelationManager extends XotBaseRelationManager
      *
      * @return array<BaseFilter>
      */
-    #[Override]
+    #[\Override]
     public function getTableFilters(): array
     {
         return [
@@ -85,11 +84,11 @@ final class UsersRelationManager extends XotBaseRelationManager
                     DatePicker::make('created_until'),
                 ])
                 ->query(function (Builder $query, array $data): Builder {
-                    if (isset($data['created_from']) && is_string($data['created_from']) && $data['created_from'] !== '') {
+                    if (isset($data['created_from']) && is_string($data['created_from']) && '' !== $data['created_from']) {
                         $query->whereDate('created_at', '>=', $data['created_from']);
                     }
 
-                    if (isset($data['created_until']) && is_string($data['created_until']) && $data['created_until'] !== '') {
+                    if (isset($data['created_until']) && is_string($data['created_until']) && '' !== $data['created_until']) {
                         $query->whereDate('created_at', '<=', $data['created_until']);
                     }
 

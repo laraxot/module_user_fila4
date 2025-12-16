@@ -34,12 +34,12 @@ class RolesSeeder extends Seeder
     /**
      * Display the seeding results in a table format.
      *
-<<<<<<< HEAD
-     * @param array<int, Role> $roles
-=======
-     * <<<<<<< HEAD
      * <<<<<<< HEAD
      *
+     * @param array<int, Role> $roles
+     *                                =======
+     *                                <<<<<<< HEAD
+     *                                <<<<<<< HEAD
      * @param array<int, Role> $roles
      *                                =======
      * @param array<int, Role> $roles
@@ -47,7 +47,7 @@ class RolesSeeder extends Seeder
      *                                =======
      * @param array<int, Role> $roles
      *                                >>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
+     *                                >>>>>>> e4cd89fa (.)
      */
     private function displayResults(array $roles): void
     {

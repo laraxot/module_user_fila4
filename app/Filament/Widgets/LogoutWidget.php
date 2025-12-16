@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-use Exception;
 use Filament\Actions\Action;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\View;
@@ -16,8 +15,6 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
 use Override;
-use RuntimeException;
-use Throwable;
 
 /**
  * Provides a widget for user logout functionality within Filament admin panels.
@@ -25,14 +22,14 @@ use Throwable;
  * This widget handles the user logout process including session invalidation,
  * event dispatching, and proper redirection with localization support.
  *
- * @method void mount() Initialize the widget and form state.
- * @method array<string, Component> getFormSchema() Define the form schema for the logout confirmation.
- * @method void logout() Handle the user logout process.
- * @method array<string, Action> getFormActions() Define the form actions (logout and cancel buttons).
- * @method array<string, string> getViewData() Get additional data to pass to the view.
+ * @method void                     mount()          Initialize the widget and form state.
+ * @method array<string, Component> getFormSchema()  Define the form schema for the logout confirmation.
+ * @method void                     logout()         Handle the user logout process.
+ * @method array<string, Action>    getFormActions() Define the form actions (logout and cancel buttons).
+ * @method array<string, string>    getViewData()    Get additional data to pass to the view.
  *
- * @property array<string, mixed>|null $data Widget data array managed by XotBaseWidget.
- * @property bool $isLoggingOut Flag indicating if logout is in progress.
+ * @property array<string, mixed>|null $data         Widget data array managed by XotBaseWidget.
+ * @property bool                      $isLoggingOut Flag indicating if logout is in progress.
  */
 class LogoutWidget extends XotBaseWidget
 {
@@ -76,13 +73,13 @@ class LogoutWidget extends XotBaseWidget
      *
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public function getFormSchema(): array
     {
         $view = 'filament.widgets.auth.logout-message';
         // @phpstan-ignore-next-line
         if (! view()->exists($view)) {
-            throw new Exception('View '.$view.' not found');
+            throw new \Exception('View '.$view.' not found');
         }
 
         return [
@@ -102,7 +99,7 @@ class LogoutWidget extends XotBaseWidget
      * 6. Logs the operation
      * 7. Handles redirection with proper localization
      *
-     * @throws RuntimeException If the logout process fails
+     * @throws \RuntimeException If the logout process fails
      */
     public function logout(): void
     {
@@ -111,7 +108,7 @@ class LogoutWidget extends XotBaseWidget
 
             // Get the authenticated user before logging out
             $user = $this->getAuthenticatedUser();
-            if ($user === null) {
+            if (null === $user) {
                 $this->handleNoUserScenario();
 
                 return;
@@ -122,7 +119,7 @@ class LogoutWidget extends XotBaseWidget
             $this->dispatchPostLogoutEvent();
             $this->logLogoutSuccess($user);
             $this->redirectAfterLogout();
-        } catch (Throwable $e) {
+        } catch (\Throwable $e) {
             $this->handleLogoutError($e);
         }
     }
@@ -132,7 +129,7 @@ class LogoutWidget extends XotBaseWidget
      *
      * @return array<string, Action>
      */
-    #[Override]
+    #[\Override]
     public function getFormActions(): array
     {
         return [
@@ -245,9 +242,9 @@ class LogoutWidget extends XotBaseWidget
     /**
      * Handle any errors that occur during logout.
      *
-     * @throws RuntimeException
+     * @throws \RuntimeException
      */
-    protected function handleLogoutError(Throwable $e): void
+    protected function handleLogoutError(\Throwable $e): void
     {
         Log::error('Logout error: '.$e->getMessage(), [
             'exception' => $e::class,

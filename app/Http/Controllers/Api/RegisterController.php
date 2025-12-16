@@ -12,12 +12,13 @@
  * If the validation passes, a new user is created and a success response is returned with the user's name and an access token.
  * If the validation fails, an error response is returned with the validation errors.
  *
-<<<<<<< HEAD
-=======
+ * <<<<<<< HEAD
+ * =======
  * <<<<<<< HEAD
  * <<<<<<< HEAD
  *
->>>>>>> e4cd89fa (.)
+ * >>>>>>> e4cd89fa (.)
+ *
  * @param Request $request The incoming request
  *
  * =======

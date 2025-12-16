@@ -9,25 +9,24 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-return new class extends XotBaseMigration
-{
+return new class extends XotBaseMigration {
     /**
-<<<<<<< HEAD
-=======
+     * <<<<<<< HEAD
+     * =======
      * <<<<<<< HEAD
      * Run the migrations.
      * =======
->>>>>>> e4cd89fa (.)
+     * >>>>>>> e4cd89fa (.)
      * Nome della tabella gestita dalla migrazione.
      */
     protected string $table_name = 'teams';
 
     /**
      * Esegue la migrazione.
-<<<<<<< HEAD
-=======
+     * <<<<<<< HEAD
+     * =======
      * >>>>>>> a382d4f1 (.).
->>>>>>> e4cd89fa (.)
+     * >>>>>>> e4cd89fa (.).
      */
     public function up(): void
     {

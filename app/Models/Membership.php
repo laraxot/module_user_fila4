@@ -18,7 +18,7 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static Builder|Membership newQuery()
  * @method static Builder|Membership query()
  *
- * @property int $id
+ * @property int         $id
  * @property string|null $team_id
  * @property string|null $user_id
  * @property Carbon|null $created_at
