@@ -66,7 +66,7 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @mixin IdeHelperTeam
  *
- * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */

@@ -135,7 +135,6 @@ class PasswordData extends Data
      */
     public function getPasswordFormComponent(string $field_name): FormsTextInput
     {
-
         return FormsTextInput::make($field_name)
             ->password()
             ->required()
@@ -151,7 +150,6 @@ class PasswordData extends Data
         if (null === $this->field_name) {
             throw new \RuntimeException('Il nome del campo password non è stato impostato. Utilizzare setFieldName() prima di chiamare questo metodo.');
         }
-
 
         return FormsTextInput::make('password_confirmation')
             ->password()

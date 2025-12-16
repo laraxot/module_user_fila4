@@ -77,14 +77,14 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  *
  * @mixin IdeHelperProfile
  *
- * @property string|null                              $user_id
- * @property \Illuminate\Support\Carbon|null          $created_at
- * @property \Illuminate\Support\Carbon|null          $updated_at
- * @property string|null                              $updated_by
- * @property string|null                              $created_by
- * @property \Illuminate\Support\Carbon|null          $deleted_at
- * @property string|null                              $deleted_by
- * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property string|null                     $user_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null                     $updated_by
+ * @property string|null                     $created_by
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property string|null                     $deleted_by
+ * @property ProfileContract|null            $deleter
  *
  * @method static Builder<static>|Profile whereBio($value)
  * @method static Builder<static>|Profile whereCreatedAt($value)

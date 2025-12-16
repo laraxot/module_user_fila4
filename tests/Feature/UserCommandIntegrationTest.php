@@ -11,7 +11,6 @@ use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Webmozart\Assert\Assert;
 
-
 describe('User Command Integration', function () {
     beforeEach(function () {
         $this->command = new ChangeTypeCommand();

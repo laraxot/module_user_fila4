@@ -61,7 +61,7 @@ use Modules\Xot\Datas\XotData;
  *
  * @mixin IdeHelperSocialiteUser
  *
- * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */

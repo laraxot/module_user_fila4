@@ -48,9 +48,9 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @mixin IdeHelperTeamUser
  *
- * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
- * @property Team|null                                $team
- * @property User|null                                $user
+ * @property ProfileContract|null $deleter
+ * @property Team|null            $team
+ * @property User|null            $user
  *
  * @method static \Modules\User\Database\Factories\TeamUserFactory factory($count = null, $state = [])
  *

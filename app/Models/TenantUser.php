@@ -42,9 +42,9 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static Builder|TenantUser whereDeletedBy($value)
  * @method static Builder|TenantUser whereTenantId($value)
  *
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property ProfileContract|null $creator
+ * @property ProfileContract|null $deleter
+ * @property ProfileContract|null $updater
  *
  * @method static \Modules\User\Database\Factories\TenantUserFactory factory($count = null, $state = [])
  *

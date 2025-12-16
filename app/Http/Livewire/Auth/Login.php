@@ -100,7 +100,6 @@ class Login extends Component implements HasActions, HasForms
     protected function getFormSchema(): array
     {
         return [
-
             TextInput::make('email')
                 ->email()
                 ->required()

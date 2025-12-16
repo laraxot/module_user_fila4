@@ -49,9 +49,9 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static AuthenticationFactory factory($count = null, $state = [])
  *
  * @property \Illuminate\Database\Eloquent\Model|\Eloquent $authenticatable
- * @property \Modules\Xot\Contracts\ProfileContract|null      $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null      $deleter
- * @property \Modules\Xot\Contracts\ProfileContract|null      $updater
+ * @property \Modules\Xot\Contracts\ProfileContract|null   $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null   $deleter
+ * @property \Modules\Xot\Contracts\ProfileContract|null   $updater
  *
  * @mixin \Eloquent
  */
