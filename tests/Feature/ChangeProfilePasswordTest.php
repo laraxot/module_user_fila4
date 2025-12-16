@@ -20,7 +20,7 @@ uses(TestCase::class);
 test('can change profile password', function (): void {
     // Crea un utente e un profilo
     /** @var UserContract&Authenticatable&Model $user */
-    $user = User/** @phpstan-ignore-line */ ::factory()->create([
+    $user = User::factory()->create([
         'password' => bcrypt('old_password'),
     ]);
 
@@ -47,7 +47,6 @@ test('can change profile password', function (): void {
     );
 
     // Verifica che la risposta sia di successo
-    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertSuccessful();
 
     // Verifica che la password sia stata aggiornata
@@ -57,7 +56,7 @@ test('can change profile password', function (): void {
 test('cannot change password with wrong current password', function (): void {
     // Crea un utente e un profilo
     /** @var UserContract&Authenticatable&Model $user */
-    $user = User/** @phpstan-ignore-line */ ::factory()->create([
+    $user = User::factory()->create([
         'password' => bcrypt('old_password'),
     ]);
 
@@ -84,7 +83,6 @@ test('cannot change password with wrong current password', function (): void {
     );
 
     // Verifica che la risposta contenga un errore
-    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertSessionHasErrors('current_password');
 
     // Verifica che la password non sia stata cambiata
