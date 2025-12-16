@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 # Documentazione (stub)
 
@@ -15,10 +16,13 @@ La documentazione canonica del modulo `User` è in:
 >>>>>>> 27d6fa5f (.)
 =======
 >>>>>>> 0ad45d6a (.)
+=======
+>>>>>>> f3866fb1 (.)
 # Tema One per 
 
 ## Introduzione
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 Il Tema One è il tema predefinito per , basato su Filament 3.3. Questo tema fornisce un'interfaccia moderna e responsive per il frontend del sito.
 =======
@@ -28,10 +32,14 @@ Il Tema One è il tema predefinito per , basato su Filament 4.3. Questo tema for
 =======
 >>>>>>> 81efa49 (.)
 >>>>>>> 0ad45d6a (.)
+=======
+Il Tema One è il tema predefinito per , basato su Filament 3.3. Questo tema fornisce un'interfaccia moderna e responsive per il frontend del sito.
+>>>>>>> f3866fb1 (.)
 # Tema One per SaluteOra
 
 ## Introduzione
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 Il Tema One è il tema predefinito per SaluteOra, basato su Filament 3.3. Questo tema fornisce un'interfaccia moderna e responsive per il frontend del sito.
 =======
@@ -41,11 +49,15 @@ Il Tema One è il tema predefinito per SaluteOra, basato su Filament 4.3. Questo
 Il Tema One è il tema predefinito per SaluteOra, basato su Filament 3.3. Questo tema fornisce un'interfaccia moderna e responsive per il frontend del sito.
 >>>>>>> 81efa49 (.)
 >>>>>>> 0ad45d6a (.)
+=======
+Il Tema One è il tema predefinito per SaluteOra, basato su Filament 3.3. Questo tema fornisce un'interfaccia moderna e responsive per il frontend del sito.
+>>>>>>> f3866fb1 (.)
 
 ## Requisiti
 
 - PHP 8.1+
 - Laravel 10+
+<<<<<<< HEAD
 <<<<<<< HEAD
 - Filament 3.3+
 =======
@@ -55,6 +67,9 @@ Il Tema One è il tema predefinito per SaluteOra, basato su Filament 3.3. Questo
 - Filament 3.3+
 >>>>>>> 81efa49 (.)
 >>>>>>> 0ad45d6a (.)
+=======
+- Filament 3.3+
+>>>>>>> f3866fb1 (.)
 - Node.js 16+
 - NPM 8+
 
@@ -119,22 +134,31 @@ Esempio:
 ## Integrazione con il Modulo CMS
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f3866fb1 (.)
 Il tema One si integra con il modulo CMS per la gestione dei contenuti. I contenuti sono definiti in file JSON nella directory `config/local/<nome progetto>/database/content/pages`.
 
 ## Supporto
 
 Per supporto tecnico, contattare il team . 
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> fbc8f8e (.)
 =======
 >>>>>>> 81efa49 (.)
 >>>>>>> 0ad45d6a (.)
+=======
+>>>>>>> f3866fb1 (.)
 Il tema One si integra con il modulo CMS per la gestione dei contenuti. I contenuti sono definiti in file JSON nella directory `config/local/saluteora/database/content/pages`.
 
 ## Supporto
 
 Per supporto tecnico, contattare il team SaluteOra. 
+<<<<<<< HEAD
 >>>>>>> d23d6b30 (.)
 =======
 >>>>>>> eb80748f (.)
+=======
+>>>>>>> f3866fb1 (.)

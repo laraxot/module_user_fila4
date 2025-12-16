@@ -1,12 +1,16 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 0ad45d6a (.)
+=======
+>>>>>>> f3866fb1 (.)
 # User Module Testing
 
 ## Overview
 Testing standards and patterns for the User module, covering authentication, authorization, profiles, and team management.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ## Regole Critiche sui Test
 
@@ -36,6 +40,8 @@ Obiettivo: **100% coverage** e tutti i test devono passare, lavorando **SOLO** n
 
 =======
 >>>>>>> 0ad45d6a (.)
+=======
+>>>>>>> f3866fb1 (.)
 ## Testing Strategy
 
 ### Test Pyramid Implementation
@@ -390,7 +396,10 @@ jobs:
 *Testing del Modulo User: DRY + KISS + SOLID + ROBUST + LARAXOT*
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> eb80748f (.)
 =======
 >>>>>>> 0ad45d6a (.)
+=======
+>>>>>>> f3866fb1 (.)

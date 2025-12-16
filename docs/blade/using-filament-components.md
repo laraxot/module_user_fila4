@@ -1,13 +1,20 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Utilizzo dei componenti Blade di Filament
 
 > **NOTA IMPORTANTE**: Questo documento è un riferimento specifico per il modulo User.
 <<<<<<< HEAD
+=======
+# Utilizzo dei componenti Blade di Filament
+
+> **NOTA IMPORTANTE**: Questo documento è un riferimento specifico per il modulo User.
+>>>>>>> f3866fb1 (.)
 > La documentazione completa sui componenti Blade si trova nel [modulo UI](../../../UI/docs/blade/component-registration.md).
 
 ## Regola fondamentale: utilizzare i componenti Filament
 
 Nel progetto , **abbiamo l'obbligo di utilizzare i componenti Blade forniti da Filament quando disponibili**, invece di creare componenti personalizzati che duplicano funzionalità già esistenti.
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 Nel progetto <nome progetto>, **abbiamo l'obbligo di utilizzare i componenti Blade forniti da Filament quando disponibili**, invece di creare componenti personalizzati che duplicano funzionalità già esistenti.
@@ -22,6 +29,9 @@ Nel progetto <nome progetto>, **abbiamo l'obbligo di utilizzare i componenti Bla
 >>>>>>> 27d6fa5f (.)
 Nel progetto SaluteOra, **abbiamo l'obbligo di utilizzare i componenti Blade forniti da Filament quando disponibili**, invece di creare componenti personalizzati che duplicano funzionalità già esistenti.
 >>>>>>> d23d6b30 (.)
+=======
+Nel progetto SaluteOra, **abbiamo l'obbligo di utilizzare i componenti Blade forniti da Filament quando disponibili**, invece di creare componenti personalizzati che duplicano funzionalità già esistenti.
+>>>>>>> f3866fb1 (.)
 
 ## Migrazione da componenti personalizzati a componenti Filament
 
@@ -69,12 +79,17 @@ Il componente `<x-profile.dropdown>` è un esempio di componente personalizzato 
 ## Documentazione di riferimento
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [Documentazione ufficiale Filament Dropdown](https://filamentphp.com/docs/3.x/support/blade-components/dropdown)
 - [Filament Blade Components](https://filamentphp.com/docs/3.x/support/blade-components)
 =======
 - [Documentazione ufficiale Filament Dropdown](https://filamentphp.com/project_docs/3.x/support/blade-components/dropdown)
 - [Filament Blade Components](https://filamentphp.com/project_docs/3.x/support/blade-components)
 >>>>>>> fbc8f8e (.)
+=======
+- [Documentazione ufficiale Filament Dropdown](https://filamentphp.com/docs/3.x/support/blade-components/dropdown)
+- [Filament Blade Components](https://filamentphp.com/docs/3.x/support/blade-components)
+>>>>>>> f3866fb1 (.)
 
 ## Errori comuni da evitare
 
@@ -82,5 +97,8 @@ Il componente `<x-profile.dropdown>` è un esempio di componente personalizzato 
 2. ❌ Modificare profondamente i componenti Filament invece di estenderli
 3. ❌ Mescolare stili personalizzati con componenti Filament
 4. ❌ Non tenere aggiornati i componenti alla versione corrente di Filament
+<<<<<<< HEAD
 =======
 >>>>>>> eb80748f (.)
+=======
+>>>>>>> f3866fb1 (.)

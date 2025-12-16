@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Autenticazione in Predict
 
 ## Panoramica
@@ -135,6 +136,8 @@ Per dettagli sull'implementazione del logout utilizzando Volt e Folio, consultar
 =======
 =======
 >>>>>>> 27d6fa5f (.)
+=======
+>>>>>>> f3866fb1 (.)
 # Architettura Autenticazione
 
 ## Overview
@@ -213,6 +216,7 @@ app/Filament/Widgets/
 ### 3. Sicurezza
 - [ ] Rate limiting
 - [ ] Session handling
+<<<<<<< HEAD
 - [ ] Error handling 
 <<<<<<< HEAD
 >>>>>>> d23d6b30 (.)
@@ -353,3 +357,6 @@ Per dettagli sull'implementazione del logout utilizzando Volt e Folio, consultar
 >>>>>>> 27d6fa5f (.)
 =======
 >>>>>>> eb80748f (.)
+=======
+- [ ] Error handling 
+>>>>>>> f3866fb1 (.)

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f3866fb1 (.)
 # FullCalendar Scheduler - Riferimento Rapido
 
 ## 🚨 Problemi Comuni e Soluzioni Immediate
@@ -170,9 +173,13 @@ if (app()->environment('local') && empty($licenseKey)) {
 - **Pricing:** https://fullcalendar.io/pricing/
 - **Docs:** https://fullcalendar.io/project_docs/schedulerLicenseKey
 <<<<<<< HEAD
+<<<<<<< HEAD
 - **Docs:** https://fullcalendar.io/docs/schedulerLicenseKey
 =======
 >>>>>>> fbc8f8e (.)
+=======
+- **Docs:** https://fullcalendar.io/docs/schedulerLicenseKey
+>>>>>>> f3866fb1 (.)
 - **GitHub:** https://github.com/fullcalendar/fullcalendar/issues
 
 ## 🎯 Checklist Rapida
@@ -187,6 +194,7 @@ if (app()->environment('local') && empty($licenseKey)) {
 - [ ] Funzionalità premium attive
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## 🚀  Specifico
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -198,6 +206,10 @@ if (app()->environment('local') && empty($licenseKey)) {
 >>>>>>> 27d6fa5f (.)
 ## 🚀 SaluteOra Specifico
 >>>>>>> d23d6b30 (.)
+=======
+## 🚀  Specifico
+## 🚀 SaluteOra Specifico
+>>>>>>> f3866fb1 (.)
 
 ### Business Hours Sanitarie
 ```javascript
@@ -227,5 +239,8 @@ selectConstraint: 'businessHours',
 eventConstraint: 'businessHours',
 slotDuration: '00:30:00', // 30 min slots
 ``` 
+<<<<<<< HEAD
 =======
 >>>>>>> eb80748f (.)
+=======
+>>>>>>> f3866fb1 (.)

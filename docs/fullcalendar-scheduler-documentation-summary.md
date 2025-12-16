@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f3866fb1 (.)
 # FullCalendar Scheduler - Documentazione Completa
 
 ## Panoramica
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 Questa documentazione fornisce una guida completa per la gestione delle licenze FullCalendar Scheduler nel progetto , basata sulla ricerca approfondita della documentazione ufficiale e dei problemi comuni riscontrati nella community.
 <<<<<<< HEAD
@@ -15,6 +19,10 @@ Questa documentazione fornisce una guida completa per la gestione delle licenze 
 >>>>>>> 27d6fa5f (.)
 Questa documentazione fornisce una guida completa per la gestione delle licenze FullCalendar Scheduler nel progetto SaluteOra, basata sulla ricerca approfondita della documentazione ufficiale e dei problemi comuni riscontrati nella community.
 >>>>>>> d23d6b30 (.)
+=======
+Questa documentazione fornisce una guida completa per la gestione delle licenze FullCalendar Scheduler nel progetto , basata sulla ricerca approfondita della documentazione ufficiale e dei problemi comuni riscontrati nella community.
+Questa documentazione fornisce una guida completa per la gestione delle licenze FullCalendar Scheduler nel progetto SaluteOra, basata sulla ricerca approfondita della documentazione ufficiale e dei problemi comuni riscontrati nella community.
+>>>>>>> f3866fb1 (.)
 
 ## Documenti Disponibili
 
@@ -25,6 +33,7 @@ Questa documentazione fornisce una guida completa per la gestione delle licenze 
 - Tipi di licenza disponibili (Commerciale, Non-Profit, GPLv3)
 - Problemi comuni e soluzioni dettagliate
 - Configurazione completa per Laravel/Filament
+<<<<<<< HEAD
 <<<<<<< HEAD
 - Best practices per 
 <<<<<<< HEAD
@@ -37,6 +46,10 @@ Questa documentazione fornisce una guida completa per la gestione delle licenze 
 >>>>>>> 27d6fa5f (.)
 - Best practices per SaluteOra
 >>>>>>> d23d6b30 (.)
+=======
+- Best practices per 
+- Best practices per SaluteOra
+>>>>>>> f3866fb1 (.)
 - Testing e debugging avanzato
 - Sicurezza e gestione ambienti
 
@@ -53,6 +66,7 @@ Questa documentazione fornisce una guida completa per la gestione delle licenze 
 Documentazione base esistente per:
 - Panoramica generale licenze
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Configurazione di base in 
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -64,6 +78,10 @@ Documentazione base esistente per:
 >>>>>>> 27d6fa5f (.)
 - Configurazione di base in SaluteOra
 >>>>>>> d23d6b30 (.)
+=======
+- Configurazione di base in 
+- Configurazione di base in SaluteOra
+>>>>>>> f3866fb1 (.)
 - Problemi comuni basilari
 
 #### 4. [Scheduler License Key](./scheduler_license_key.md)
@@ -79,9 +97,13 @@ Guida rapida esistente per:
 La documentazione è basata su ricerca approfondita di:
 - **Documentazione ufficiale FullCalendar**: https://fullcalendar.io/project_docs/schedulerLicenseKey
 <<<<<<< HEAD
+<<<<<<< HEAD
 - **Documentazione ufficiale FullCalendar**: https://fullcalendar.io/docs/schedulerLicenseKey
 =======
 >>>>>>> fbc8f8e (.)
+=======
+- **Documentazione ufficiale FullCalendar**: https://fullcalendar.io/docs/schedulerLicenseKey
+>>>>>>> f3866fb1 (.)
 - **GitHub Issues**: Analisi di 17+ issue relativi a problemi di licenza
 - **Community feedback**: Problemi ricorrenti nelle versioni 5.x e 6.x
 - **Best practices**: Configurazioni ottimali per ambienti di produzione
@@ -101,6 +123,7 @@ La documentazione è basata su ricerca approfondita di:
    - Soluzione: Workaround con ignore directives
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### 🎯 Soluzioni Specifiche 
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -112,6 +135,10 @@ La documentazione è basata su ricerca approfondita di:
 >>>>>>> 27d6fa5f (.)
 ### 🎯 Soluzioni Specifiche SaluteOra
 >>>>>>> d23d6b30 (.)
+=======
+### 🎯 Soluzioni Specifiche 
+### 🎯 Soluzioni Specifiche SaluteOra
+>>>>>>> f3866fb1 (.)
 
 La documentazione include configurazioni specifiche per:
 - **Multi-tenancy**: Isolamento dati per studio
@@ -126,6 +153,7 @@ La documentazione include configurazioni specifiche per:
 
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
  FullCalendar Implementation
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -137,6 +165,10 @@ La documentazione include configurazioni specifiche per:
 >>>>>>> 27d6fa5f (.)
 SaluteOra FullCalendar Implementation
 >>>>>>> d23d6b30 (.)
+=======
+ FullCalendar Implementation
+SaluteOra FullCalendar Implementation
+>>>>>>> f3866fb1 (.)
 ├── AdminPanelProvider.php (Configurazione centrale)
 ├── config/fullcalendar.php (Configurazioni avanzate)
 ├── .env (Variabili licenza)
@@ -184,6 +216,7 @@ La documentazione è aggiornata per:
 - **Filament v3.x**
 - **Laravel 11.x/12.x**
 <<<<<<< HEAD
+<<<<<<< HEAD
 - ** current architecture**
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -195,12 +228,17 @@ La documentazione è aggiornata per:
 >>>>>>> 27d6fa5f (.)
 - **SaluteOra current architecture**
 >>>>>>> d23d6b30 (.)
+=======
+- ** current architecture**
+- **SaluteOra current architecture**
+>>>>>>> f3866fb1 (.)
 
 ### 🔄 Aggiornamenti Futuri
 
 Quando aggiornare la documentazione:
 - Nuove versioni FullCalendar con breaking changes
 - Nuovi bug noti nella community
+<<<<<<< HEAD
 <<<<<<< HEAD
 - Modifiche architettura 
 <<<<<<< HEAD
@@ -213,12 +251,17 @@ Quando aggiornare la documentazione:
 >>>>>>> 27d6fa5f (.)
 - Modifiche architettura SaluteOra
 >>>>>>> d23d6b30 (.)
+=======
+- Modifiche architettura 
+- Modifiche architettura SaluteOra
+>>>>>>> f3866fb1 (.)
 - Nuovi requisiti sanitari/legali
 
 ### 📝 Contributi
 
 Per aggiornare la documentazione:
 1. Verificare issue GitHub FullCalendar
+<<<<<<< HEAD
 <<<<<<< HEAD
 2. Testare soluzioni in ambiente 
 <<<<<<< HEAD
@@ -231,6 +274,10 @@ Per aggiornare la documentazione:
 >>>>>>> 27d6fa5f (.)
 2. Testare soluzioni in ambiente SaluteOra
 >>>>>>> d23d6b30 (.)
+=======
+2. Testare soluzioni in ambiente 
+2. Testare soluzioni in ambiente SaluteOra
+>>>>>>> f3866fb1 (.)
 3. Aggiornare documenti pertinenti
 4. Aggiornare questo summary
 
@@ -240,10 +287,15 @@ Per aggiornare la documentazione:
 - [FullCalendar Docs](https://fullcalendar.io/project_docs/)
 - [Scheduler License](https://fullcalendar.io/project_docs/schedulerLicenseKey)
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [FullCalendar Docs](https://fullcalendar.io/docs/)
 - [Scheduler License](https://fullcalendar.io/docs/schedulerLicenseKey)
 =======
 >>>>>>> fbc8f8e (.)
+=======
+- [FullCalendar Docs](https://fullcalendar.io/docs/)
+- [Scheduler License](https://fullcalendar.io/docs/schedulerLicenseKey)
+>>>>>>> f3866fb1 (.)
 - [Pricing](https://fullcalendar.io/pricing/)
 - [Support](https://fullcalendar.io/support/)
 
@@ -259,6 +311,7 @@ Per aggiornare la documentazione:
 ## Conclusioni
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Questa documentazione fornisce una copertura completa per tutti gli aspetti delle licenze FullCalendar Scheduler in , dalla configurazione iniziale al troubleshooting avanzato. La combinazione di guida dettagliata e riferimento rapido garantisce supporto sia per sviluppatori esperti che per nuovi team members.
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -270,6 +323,10 @@ Questa documentazione fornisce una copertura completa per tutti gli aspetti dell
 >>>>>>> 27d6fa5f (.)
 Questa documentazione fornisce una copertura completa per tutti gli aspetti delle licenze FullCalendar Scheduler in SaluteOra, dalla configurazione iniziale al troubleshooting avanzato. La combinazione di guida dettagliata e riferimento rapido garantisce supporto sia per sviluppatori esperti che per nuovi team members.
 >>>>>>> d23d6b30 (.)
+=======
+Questa documentazione fornisce una copertura completa per tutti gli aspetti delle licenze FullCalendar Scheduler in , dalla configurazione iniziale al troubleshooting avanzato. La combinazione di guida dettagliata e riferimento rapido garantisce supporto sia per sviluppatori esperti che per nuovi team members.
+Questa documentazione fornisce una copertura completa per tutti gli aspetti delle licenze FullCalendar Scheduler in SaluteOra, dalla configurazione iniziale al troubleshooting avanzato. La combinazione di guida dettagliata e riferimento rapido garantisce supporto sia per sviluppatori esperti che per nuovi team members.
+>>>>>>> f3866fb1 (.)
 
 **Documenti chiave da consultare:**
 1. **Setup iniziale**: Quick Reference
@@ -277,6 +334,7 @@ Questa documentazione fornisce una copertura completa per tutti gli aspetti dell
 3. **Riferimento quotidiano**: Quick Reference checklist
 4. **Configurazione produzione**: Best practices nel troubleshooting
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 La documentazione è progettata per essere autosufficiente e ridurre la necessità di ricerche esterne, fornendo tutte le informazioni necessarie per una gestione efficace delle licenze FullCalendar Scheduler nel contesto sanitario di . 
 <<<<<<< HEAD
@@ -291,3 +349,7 @@ La documentazione è progettata per essere autosufficiente e ridurre la necessit
 >>>>>>> d23d6b30 (.)
 =======
 >>>>>>> eb80748f (.)
+=======
+La documentazione è progettata per essere autosufficiente e ridurre la necessità di ricerche esterne, fornendo tutte le informazioni necessarie per una gestione efficace delle licenze FullCalendar Scheduler nel contesto sanitario di . 
+La documentazione è progettata per essere autosufficiente e ridurre la necessità di ricerche esterne, fornendo tutte le informazioni necessarie per una gestione efficace delle licenze FullCalendar Scheduler nel contesto sanitario di SaluteOra. 
+>>>>>>> f3866fb1 (.)

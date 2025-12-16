@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f3866fb1 (.)
 # GetNewPasswordAction - Business Logic Analysis
 
 ## Overview
@@ -92,11 +95,16 @@ $password=Str::password(10);
 });
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 =======
 >>>>>>> 4efd3ae9 (.)
 >>>>>>> d23d6b30 (.)
+=======
+=======
+>>>>>>> 4efd3ae9 (.)
+>>>>>>> f3866fb1 (.)
 
 **Risoluzione:**
 - **Password Pronunciabili**: Scelta della versione con `GetPronounceablePasswordAction`
@@ -217,6 +225,10 @@ public function executeBatch(Collection $users): array
 
 ## Conclusioni
 
+<<<<<<< HEAD
 L'`GetNewPasswordAction` fornisce una soluzione robusta e sicura per la gestione delle password utente, con particolare attenzione alla sicurezza, usabilità e prestazioni, mantenendo coerenza con l'architettura modulare Xot.
 =======
 >>>>>>> eb80748f (.)
+=======
+L'`GetNewPasswordAction` fornisce una soluzione robusta e sicura per la gestione delle password utente, con particolare attenzione alla sicurezza, usabilità e prestazioni, mantenendo coerenza con l'architettura modulare Xot.
+>>>>>>> f3866fb1 (.)

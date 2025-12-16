@@ -1,6 +1,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> f3866fb1 (.)
 ### Versione HEAD
 
 # Configurazione OAuth con GitHub
@@ -39,13 +42,17 @@ GITHUB_REDIRECT_URI=https://<nome progetto>.it/{locale}/auth/callback/github
 
 ### Versione Incoming
 
+<<<<<<< HEAD
 >>>>>>> d23d6b30 (.)
+=======
+>>>>>>> f3866fb1 (.)
 Go to GitHub Developer Settings.(https://github.com/settings/developers)
 Click on "New OAuth App".
 Fill in the required details:
 Application Name: Your app's name.
 Homepage URL: Your app's URL.
 Authorization callback URL: http://your-app-url.com/callback/github.
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -54,3 +61,8 @@ Authorization callback URL: http://your-app-url.com/callback/github.
 >>>>>>> d23d6b30 (.)
 =======
 >>>>>>> eb80748f (.)
+=======
+
+---
+
+>>>>>>> f3866fb1 (.)
