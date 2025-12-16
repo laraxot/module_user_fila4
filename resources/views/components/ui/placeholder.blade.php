@@ -1,11 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 <div class="absolute inset-0 h-full">
     <div class="relative h-full overflow-hidden border border-gray-400 dark:border-gray-700 border-dashed opacity-75 sm:rounded-xl">
         <svg class="absolute inset-0 w-full h-full stroke-gray-900/10 dark:stroke-gray-200/10" fill="none">
@@ -18,7 +24,11 @@ declare(strict_types=1);
         </svg>
     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 </div>
 =======
 </div>
 >>>>>>> fbc8f8e (.)
+=======
+</div>
+>>>>>>> 6d20fbe (.)
