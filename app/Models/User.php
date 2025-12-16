@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Override;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Notifications\DatabaseNotificationCollection;
@@ -142,7 +144,7 @@ class User extends BaseUser
      */
     public $connection = 'user';
 
-    #[\Override]
+    #[Override]
     public function canAccessSocialite(): bool
     {
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;
