@@ -63,10 +63,20 @@ abstract class BaseUuidModel extends XotBaseUuidModel
         return [
             'id' => 'string',
             'published_at' => 'datetime',
+<<<<<<< HEAD
             'verified_at' => 'datetime',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
+=======
+
+            'verified_at' => 'datetime',
+
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+
+>>>>>>> fbc8f8e (.)
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
