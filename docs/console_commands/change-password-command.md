@@ -370,10 +370,3 @@ php artisan test --filter=ChangePasswordCommandIntegrationTest
 
 
 
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 041533e (.)
