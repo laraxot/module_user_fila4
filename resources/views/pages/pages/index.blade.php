@@ -1,5 +1,8 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 
 declare(strict_types=1);
 
@@ -7,10 +10,13 @@ declare(strict_types=1);
 use Illuminate\View\View;
 use Modules\Cms\Models\Page;
 
+<<<<<<< HEAD
 =======
 use Modules\Cms\Models\Page;
 use Illuminate\View\View;
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 use function Laravel\Folio\render;
 
 render(function (View $view) {
@@ -22,6 +28,9 @@ render(function (View $view) {
 
     // Recupero le pagine con paginazione (12 per pagina)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     $pages = Page::when(request()->has('q'), fn($query) => $query->where(
         'title',
         'like',
@@ -37,6 +46,7 @@ render(function (View $view) {
     }
 
     $pages = $pages->orderBy('created_at', 'desc')->paginate(12)->withQueryString();
+<<<<<<< HEAD
 =======
     $pages = Page::when(request()->has('q'), function($query) {
         return $query->where('title', 'like', '%' . request()->get('q') . '%');
@@ -53,6 +63,8 @@ render(function (View $view) {
         ->paginate(12)
         ->withQueryString();
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
     // Recuperiamo le categorie solo se la colonna esiste
     $categories = collect();
