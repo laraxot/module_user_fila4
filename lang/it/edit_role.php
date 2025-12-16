@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 return [
@@ -19,6 +22,7 @@ return [
         ],
     ],
 ];
+<<<<<<< HEAD
 =======
 return array (
   'actions' => 
@@ -34,3 +38,5 @@ return array (
   ),
 );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
