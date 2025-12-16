@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 <table class="panel" width="100%" cellpadding="0" cellspacing="0" role="presentation">
 <tr>
 <td class="panel-content">
@@ -16,3 +19,7 @@ declare(strict_types=1);
 </td>
 </tr>
 </table>
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
