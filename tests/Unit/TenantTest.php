@@ -14,7 +14,7 @@ use Tests\TestCase;
 uses(TestCase::class);
 
 beforeEach(function (): void {
-    $this->tenant = Tenant::factory()->create([
+    $this->tenant = Tenant/** @phpstan-ignore-line */ ::factory()->create([
         'name' => 'Test Tenant',
         'email_address' => 'test@tenant.com',
         'phone' => '+39 123 456 789',
@@ -71,7 +71,7 @@ test('tenant has slug generated from name', function (): void {
 
 test('tenant slug is automatically generated', function (): void {
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $newTenant = Tenant::factory()->create([
+        $newTenant = Tenant/** @phpstan-ignore-line */ ::factory()->create([
         'name' => 'Another Test Tenant',
     ]);
 

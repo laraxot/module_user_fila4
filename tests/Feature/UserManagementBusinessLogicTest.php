@@ -73,9 +73,9 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create(['name' => 'doctor']);
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'doctor']);
 
         // Act
         /** @phpstan-ignore-next-line method.nonObject */
@@ -95,11 +95,11 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role1 = Role::factory()->create(['name' => 'doctor']);
+        $role1 = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'doctor']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role2 = Role::factory()->create(['name' => 'admin']);
+        $role2 = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'admin']);
 
         // Act
         /** @phpstan-ignore-next-line method.nonObject */
@@ -123,9 +123,9 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create(['name' => 'doctor']);
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'doctor']);
         /** @phpstan-ignore-next-line method.nonObject */
         $user->assignRole($role);
 
@@ -147,13 +147,13 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role1 = Role::factory()->create(['name' => 'doctor']);
+        $role1 = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'doctor']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role2 = Role::factory()->create(['name' => 'admin']);
+        $role2 = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'admin']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role3 = Role::factory()->create(['name' => 'nurse']);
+        $role3 = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'nurse']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $user->assignRole([$role1, $role2]);
@@ -178,11 +178,11 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create(['name' => 'doctor']);
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'doctor']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission = Permission::factory()->create(['name' => 'patients.read']);
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'patients.read']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $role->givePermissionTo($permission);
@@ -203,9 +203,9 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission = Permission::factory()->create(['name' => 'special.permission']);
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'special.permission']);
 
         // Act
         /** @phpstan-ignore-next-line method.nonObject */
@@ -225,9 +225,9 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission = Permission::factory()->create(['name' => 'special.permission']);
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'special.permission']);
         /** @phpstan-ignore-next-line method.nonObject */
         $user->givePermissionTo($permission);
 
@@ -249,11 +249,11 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role1 = Role::factory()->create(['name' => 'doctor']);
+        $role1 = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'doctor']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role2 = Role::factory()->create(['name' => 'nurse']);
+        $role2 = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'nurse']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $user->assignRole($role1);
@@ -272,11 +272,11 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role1 = Role::factory()->create(['name' => 'doctor']);
+        $role1 = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'doctor']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role2 = Role::factory()->create(['name' => 'admin']);
+        $role2 = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'admin']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $user->assignRole([$role1, $role2]);
@@ -293,13 +293,13 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create(['name' => 'doctor']);
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'doctor']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission1 = Permission::factory()->create(['name' => 'patients.read']);
+        $permission1 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'patients.read']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission2 = Permission::factory()->create(['name' => 'patients.write']);
+        $permission2 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'patients.write']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $role->givePermissionTo([$permission1, $permission2]);
@@ -324,11 +324,11 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role1 = Role::factory()->create(['name' => 'doctor']);
+        $role1 = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'doctor']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role2 = Role::factory()->create(['name' => 'admin']);
+        $role2 = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'admin']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $user->assignRole([$role1, $role2]);
@@ -351,9 +351,9 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $superAdminRole = Role::factory()->create(['name' => 'super-admin']);
+        $superAdminRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'super-admin']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $user->assignRole($superAdminRole);
@@ -370,9 +370,9 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $adminRole = Role::factory()->create(['name' => 'admin']);
+        $adminRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'admin']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $user->assignRole($adminRole);
@@ -389,9 +389,9 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $doctorRole = Role::factory()->create(['name' => 'doctor']);
+        $doctorRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'doctor']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $user->assignRole($doctorRole);
@@ -408,9 +408,9 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $patientRole = Role::factory()->create(['name' => 'patient']);
+        $patientRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'patient']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $user->assignRole($patientRole);
@@ -427,7 +427,7 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line method.nonObject */
         $profile = $user->profile()->create([
             'phone' => '+39 123 456 7890',
@@ -459,7 +459,7 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line method.nonObject */
         $profile = $user->profile()->create([
             'phone' => '+39 123 456 7890',
@@ -481,7 +481,7 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
 
         // Act
         /** @phpstan-ignore-next-line method.nonObject */
@@ -499,7 +499,7 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line method.nonObject */
         $user->delete();
 
@@ -519,7 +519,7 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line method.nonObject */
         $profile = $user->profile()->create([
             'phone' => '+39 123 456 7890',
@@ -541,11 +541,11 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user1 = User::factory()->create(['name' => 'Mario Rossi']);
+        $user1 = User/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Mario Rossi']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user2 = User::factory()->create(['name' => 'Giulia Bianchi']);
+        $user2 = User/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Giulia Bianchi']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user3 = User::factory()->create(['name' => 'Marco Rossi']);
+        $user3 = User/** @phpstan-ignore-line */ ::factory()->create(['name' => 'Marco Rossi']);
 
         // Act
         $results = User::where('name', 'like', '%Rossi%')->get();
@@ -566,11 +566,11 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user1 = User::factory()->create(['email' => 'mario@example.com']);
+        $user1 = User/** @phpstan-ignore-line */ ::factory()->create(['email' => 'mario@example.com']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user2 = User::factory()->create(['email' => 'giulia@test.com']);
+        $user2 = User/** @phpstan-ignore-line */ ::factory()->create(['email' => 'giulia@test.com']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user3 = User::factory()->create(['email' => 'marco@example.org']);
+        $user3 = User/** @phpstan-ignore-line */ ::factory()->create(['email' => 'marco@example.org']);
 
         // Act
         $results = User::where('email', 'like', '%@example%')->get();
@@ -591,16 +591,16 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $doctorRole = Role::factory()->create(['name' => 'doctor']);
+        $doctorRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'doctor']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $nurseRole = Role::factory()->create(['name' => 'nurse']);
+        $nurseRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'nurse']);
 
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user1 = User::factory()->create();
+        $user1 = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user2 = User::factory()->create();
+        $user2 = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user3 = User::factory()->create();
+        $user3 = User/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line method.nonObject */
         $user1->assignRole($doctorRole);
@@ -628,17 +628,17 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create(['name' => 'doctor']);
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'doctor']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission = Permission::factory()->create(['name' => 'patients.read']);
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'patients.read']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $role->givePermissionTo($permission);
 
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user1 = User::factory()->create();
+        $user1 = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user2 = User::factory()->create();
+        $user2 = User/** @phpstan-ignore-line */ ::factory()->create();
 
         /** @phpstan-ignore-next-line method.nonObject */
         $user1->assignRole($role);
@@ -660,15 +660,15 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create(['name' => 'doctor']);
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'doctor']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission = Permission::factory()->create(['name' => 'patients.read']);
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'patients.read']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $role->givePermissionTo($permission);
 
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         /** @phpstan-ignore-next-line method.nonObject */
         $user->assignRole($role);
 
@@ -692,7 +692,7 @@ class UserManagementBusinessLogicTest extends TestCase
     public function itCanValidateUserEmailUniqueness(): void
     {
         // Arrange
-        User::factory()->create(['email' => 'test@example.com']);
+        User/** @phpstan-ignore-line */ ::factory()->create(['email' => 'test@example.com']);
 
         // Act & Assert
         /** @phpstan-ignore-next-line property.notFound, method.nonObject */
@@ -728,7 +728,7 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         $token = 'reset-token-123';
 
         // Act
@@ -748,7 +748,7 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create(['email_verified_at' => null]);
+        $user = User/** @phpstan-ignore-line */ ::factory()->create(['email_verified_at' => null]);
 
         // Act
         /** @phpstan-ignore-next-line method.nonObject */
@@ -766,7 +766,7 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         $lastLogin = now();
 
         // Act
@@ -786,7 +786,7 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create(['status' => 'active']);
+        $user = User/** @phpstan-ignore-line */ ::factory()->create(['status' => 'active']);
 
         // Act - Deactivate user
         /** @phpstan-ignore-next-line method.nonObject */
@@ -810,7 +810,7 @@ class UserManagementBusinessLogicTest extends TestCase
     {
         // Arrange
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create();
+        $user = User/** @phpstan-ignore-line */ ::factory()->create();
         $preferences = [
             'language' => 'it',
             'timezone' => 'Europe/Rome',

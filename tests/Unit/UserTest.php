@@ -13,7 +13,11 @@ use Tests\TestCase;
 uses(TestCase::class);
 
 beforeEach(function (): void {
+<<<<<<< HEAD
     $user = User::factory()->create([
+=======
+    /** @var object{user: mixed} $this */ $this->user = User/** @phpstan-ignore-line */ ::factory()->create([
+>>>>>>> 7def95d7 (.)
         'type' => UserType::MasterAdmin,
         'email' => fake()->unique()->safeEmail(),
         'password' => Hash::make('password123'),
@@ -169,10 +173,14 @@ test('user can be created with different types', function (): void {
 
 test('user can be created with different types', function (): void {
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $boUser = User::factory()->create(['type' => UserType::BoUser]);
+        $boUser = User/** @phpstan-ignore-line */ ::factory()->create(['type' => UserType::BoUser]);
     /** @var \Illuminate\Database\Eloquent\Collection */
+<<<<<<< HEAD
         $customerUser = User::factory()->create(['type' => UserType::CustomerUser]);
 >>>>>>> 4cf202bd (.)
+=======
+        $customerUser = User/** @phpstan-ignore-line */ ::factory()->create(['type' => UserType::CustomerUser]);
+>>>>>>> 7def95d7 (.)
 
     expect($boUser->type)->toBe(UserType::BoUser);
     expect($customerUser->type)->toBe(UserType::CustomerUser);

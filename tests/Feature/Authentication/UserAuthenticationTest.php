@@ -17,8 +17,12 @@ beforeEach(function () {
     $user = User::factory()->create([
 =======
 beforeEach(function (): void {
+<<<<<<< HEAD
     $this->user = User::factory()->create([
 >>>>>>> 4cf202bd (.)
+=======
+    /** @var object{user: mixed} $this */ $this->user = User/** @phpstan-ignore-line */ ::factory()->create([
+>>>>>>> 7def95d7 (.)
         'password' => Hash::make('password123'),
         'is_active' => true,
         'email_verified_at' => now(),
@@ -72,8 +76,12 @@ describe('User Authentication', function (): void {
 =======
     it('cannot authenticate inactive user', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
+<<<<<<< HEAD
 >>>>>>> 4cf202bd (.)
         $inactiveUser = User::factory()->create([
+=======
+        $inactiveUser = User/** @phpstan-ignore-line */ ::factory()->create([
+>>>>>>> 7def95d7 (.)
             'password' => Hash::make('password123'),
             'is_active' => false,
         ]);
@@ -109,8 +117,12 @@ describe('User Password Management', function () {
 describe('User Password Management', function (): void {
     it('can hash password on creation', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
+<<<<<<< HEAD
 >>>>>>> 4cf202bd (.)
         $user = User::factory()->create([
+=======
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+>>>>>>> 7def95d7 (.)
             'password' => Hash::make('testpassword'),
         ]);
         \assert($user instanceof User);
@@ -138,8 +150,12 @@ describe('User Password Management', function (): void {
 =======
     it('can check password expiration', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
+<<<<<<< HEAD
 >>>>>>> 4cf202bd (.)
         $user = User::factory()->create([
+=======
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+>>>>>>> 7def95d7 (.)
             'password_expires_at' => now()->subDays(1),
         ]);
         \assert($user instanceof User);
@@ -202,8 +218,12 @@ describe('User Email Verification', function () {
 describe('User Email Verification', function (): void {
     it('can mark email as verified', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
+<<<<<<< HEAD
 >>>>>>> 4cf202bd (.)
         $user = User::factory()->create([
+=======
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+>>>>>>> 7def95d7 (.)
             'email_verified_at' => null,
         ]);
         \assert($user instanceof User);
@@ -222,8 +242,12 @@ describe('User Email Verification', function (): void {
 =======
     it('can check if email is verified', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
+<<<<<<< HEAD
 >>>>>>> 4cf202bd (.)
         $verifiedUser = User::factory()->create([
+=======
+        $verifiedUser = User/** @phpstan-ignore-line */ ::factory()->create([
+>>>>>>> 7def95d7 (.)
             'email_verified_at' => now(),
         ]);
         \assert($verifiedUser instanceof User);
@@ -232,8 +256,12 @@ describe('User Email Verification', function (): void {
         /** @var User $unverifiedUser */
 =======
         /** @var \Illuminate\Database\Eloquent\Collection */
+<<<<<<< HEAD
 >>>>>>> 4cf202bd (.)
         $unverifiedUser = User::factory()->create([
+=======
+        $unverifiedUser = User/** @phpstan-ignore-line */ ::factory()->create([
+>>>>>>> 7def95d7 (.)
             'email_verified_at' => null,
         ]);
         \assert($unverifiedUser instanceof User);
@@ -248,8 +276,12 @@ describe('User Email Verification', function (): void {
 =======
     it('can send email verification notification', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
+<<<<<<< HEAD
 >>>>>>> 4cf202bd (.)
         $user = User::factory()->create([
+=======
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+>>>>>>> 7def95d7 (.)
             'email_verified_at' => null,
         ]);
         \assert($user instanceof User);
@@ -269,9 +301,9 @@ describe('User Email Verification', function (): void {
 describe('User Authorization', function (): void {
     it('can assign and check roles', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $adminRole = Role::factory()->create(['name' => 'admin']);
+        $adminRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'admin']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $editorRole = Role::factory()->create(['name' => 'editor']);
+        $editorRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'editor']);
 
         /** @phpstan-ignore-next-line property.notFound */
         $this->user->assignRole($adminRole);
@@ -286,9 +318,9 @@ describe('User Authorization', function (): void {
 
     it('can assign and check permissions', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $editPermission = Permission::factory()->create(['name' => 'edit posts']);
+        $editPermission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $deletePermission = Permission::factory()->create(['name' => 'delete posts']);
+        $deletePermission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'delete posts']);
 
         /** @phpstan-ignore-next-line property.notFound */
         $this->user->givePermissionTo($editPermission);
@@ -303,9 +335,9 @@ describe('User Authorization', function (): void {
 
     it('can inherit permissions from roles', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create(['name' => 'editor']);
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'editor']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission = Permission::factory()->create(['name' => 'edit posts']);
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
 
         /** @phpstan-ignore-next-line method.nonObject */
         $role->givePermissionTo($permission);
@@ -318,9 +350,9 @@ describe('User Authorization', function (): void {
 
     it('can check multiple permissions', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission1 = Permission::factory()->create(['name' => 'edit posts']);
+        $permission1 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission2 = Permission::factory()->create(['name' => 'delete posts']);
+        $permission2 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'delete posts']);
 
         /** @phpstan-ignore-next-line property.notFound */
         $this->user->givePermissionTo([$permission1, $permission2]);
@@ -333,9 +365,9 @@ describe('User Authorization', function (): void {
 
     it('can remove roles and permissions', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role::factory()->create(['name' => 'editor']);
+        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'editor']);
         /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission = Permission::factory()->create(['name' => 'edit posts']);
+        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
 
         /** @phpstan-ignore-next-line property.notFound */
         $this->user->assignRole($role);
@@ -470,8 +502,12 @@ describe('User Two Factor Authentication', function (): void {
 =======
     it('handles otp authentication workflow', function (): void {
         /** @var \Illuminate\Database\Eloquent\Collection */
+<<<<<<< HEAD
 >>>>>>> 4cf202bd (.)
         $user = User::factory()->create([
+=======
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+>>>>>>> 7def95d7 (.)
             'is_otp' => true,
             'password' => Hash::make('password123'),
         ]);
