@@ -15,15 +15,22 @@ use Modules\Xot\Datas\XotData;
 class UpgradeController extends Controller
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function __invoke(Request $_request): void
 =======
     public function __invoke(Request $request): void
 >>>>>>> fbc8f8e (.)
+=======
+    public function __invoke(Request $_request): void
+>>>>>>> 6d20fbe (.)
     {
         $user_class = XotData::make()->getUserClass();
         $users = $user_class::get();
         /* da id a uuid
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
          * foreach ($users as $user) {
          * if (strlen(is_string($user) ? $user : (string) $user->) >= 32) { // gia' convertito
          * continue;
@@ -39,6 +46,7 @@ class UpgradeController extends Controller
          * echo '<br> from :'.$old_id.' => '.$new_id;
          * }
          */
+<<<<<<< HEAD
 =======
                 foreach ($users as $user) {
                     if (strlen(is_string($user) ? $user : (string) $user->) >= 32) { // gia' convertito
@@ -56,12 +64,17 @@ class UpgradeController extends Controller
                 }
                 */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
         echo '<hr/>+Done';
     }
 }
 
 /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
  * from :10 => 95cda850-dd86-4de3-86bc-6caf0ee18293
  * from :11 => d60cbf20-5c99-45b7-8161-223a19a92061
  * from :2 => fa42b970-7e7b-4cce-a864-5a1f3410eaa0
@@ -74,6 +87,7 @@ class UpgradeController extends Controller
  * from :9 => 1e19e82a-e8d9-450c-a879-9933644573dc
  *
  */
+<<<<<<< HEAD
 =======
 from :10 => 95cda850-dd86-4de3-86bc-6caf0ee18293
 from :11 => d60cbf20-5c99-45b7-8161-223a19a92061
@@ -88,3 +102,5 @@ from :9 => 1e19e82a-e8d9-450c-a879-9933644573dc
 
 */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)

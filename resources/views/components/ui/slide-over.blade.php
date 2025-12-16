@@ -1,11 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 @props([
     'name',
     'title' => 'Slide-over Title',
@@ -81,6 +87,9 @@ $maxWidth = [
     </template>
 </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)

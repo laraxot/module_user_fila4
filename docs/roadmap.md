@@ -149,6 +149,7 @@
 
 ### Documentazione
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [Laravel Authentication](https://laravel.com/docs/12.x/authentication)
 - [Laravel Authorization](https://laravel.com/docs/12.x/authorization)
 - [Laravel Security](https://laravel.com/docs/12.x/security)
@@ -157,6 +158,11 @@
 - [Laravel Authorization](https://laravel.com/project_docs/12.x/authorization)
 - [Laravel Security](https://laravel.com/project_docs/12.x/security)
 >>>>>>> fbc8f8e (.)
+=======
+- [Laravel Authentication](https://laravel.com/docs/12.x/authentication)
+- [Laravel Authorization](https://laravel.com/docs/12.x/authorization)
+- [Laravel Security](https://laravel.com/docs/12.x/security)
+>>>>>>> 6d20fbe (.)
 
 ### Collegamenti Interni
 - [Bottlenecks](bottlenecks.md)
@@ -181,6 +187,9 @@
 
 ## Collegamenti tra versioni di roadmap.md
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 * [roadmap.md](bashscripts/docs/roadmap.md)
 * [roadmap.md](docs/roadmap.md)
 * [roadmap.md](../../../Gdpr/docs/roadmap.md)
@@ -197,6 +206,7 @@
 * [roadmap.md](../../../Patient/docs/roadmap.md)
 * [roadmap.md](../../../Cms/docs/roadmap.md)
 * [roadmap.md](../../../../Themes/One/docs/roadmap.md)
+<<<<<<< HEAD
 =======
 * [roadmap.md](bashscripts/project_docs/roadmap.md)
 * [roadmap.md](docs/roadmap.md)
@@ -215,6 +225,8 @@
 * [roadmap.md](../../../Cms/project_docs/roadmap.md)
 * [roadmap.md](../../../../Themes/One/project_docs/roadmap.md)
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 
 ---
