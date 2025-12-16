@@ -3,9 +3,15 @@
 ## Collegamenti correlati
 - [README modulo User](./README.md)
 - [Convenzioni Path](./PATH_CONVENTIONS.md)
+<<<<<<< HEAD
 - [Best Practices Chiavi di Traduzione](/laravel/Modules/Lang/docs/TRANSLATION_KEYS_BEST_PRACTICES.md)
 - [Implementazione Header](/laravel/Modules/User/docs/HEADER_LANGUAGE_AVATAR_IMPLEMENTATION.md)
 - [Collegamenti Documentazione](/docs/collegamenti-documentazione.md)
+=======
+- [Best Practices Chiavi di Traduzione](/laravel/Modules/Lang/project_docs/TRANSLATION_KEYS_BEST_PRACTICES.md)
+- [Implementazione Header](/laravel/Modules/User/project_docs/HEADER_LANGUAGE_AVATAR_IMPLEMENTATION.md)
+- [Collegamenti Documentazione](/project_docs/collegamenti-documentazione.md)
+>>>>>>> 81efa49 (.)
 
 ## Panoramica
 

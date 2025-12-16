@@ -1,8 +1,26 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 @props(['title', 'subtitle', 'image', 'cta-text', 'cta-link', 'background-color' => 'bg-gradient-to-br from-primary/5 via-base-100 to-primary/10', 'text-color' => 'text-base-content', 'cta-color' => 'btn-primary'])
 
 <div class="relative overflow-hidden {{ $background-color }}">
