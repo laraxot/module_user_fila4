@@ -17,7 +17,7 @@ use Modules\Xot\Filament\Pages\XotBasePage;
 /**
  * @property Schema $form
  */
-class CustomCss extends XotBasePage
+final class CustomCss extends XotBasePage
 {
     protected string $view = 'user::filament.clusters.appearance.pages.custom-css';
 
@@ -88,7 +88,7 @@ class CustomCss extends XotBasePage
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      */
     protected function handleRecordUpdate(Model $record, array $data): Model
     {

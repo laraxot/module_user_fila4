@@ -16,7 +16,7 @@ use Modules\Xot\Filament\Pages\XotBasePage;
 /**
  * @property Schema $form
  */
-class Logo extends XotBasePage
+final class Logo extends XotBasePage
 {
     public ?array $logoData = [];
 
@@ -85,7 +85,7 @@ class Logo extends XotBasePage
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      */
     protected function handleRecordUpdate(Model $record, array $data): Model
     {
