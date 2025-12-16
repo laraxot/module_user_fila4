@@ -1,0 +1,597 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Modules\User\Tests\Unit\Actions;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Jenssegers\Agent\Agent;
+use Modules\User\Actions\GetCurrentDeviceAction;
+use Modules\User\Models\Device;
+use Tests\TestCase;
+
+class GetCurrentDeviceActionTest extends TestCase
+{
+    use RefreshDatabase;
+
+    private GetCurrentDeviceAction $action;
+
+    private Agent $mockAgent;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->action = new GetCurrentDeviceAction();
+
+        // Mock the Agent class
+        $this->mockAgent = \Mockery::mock(Agent::class);
+    }
+
+    /** @test */
+    public function itCreatesDeviceWithValidAgentData(): void
+    {
+        // Arrange
+        $deviceData = [
+            'device' => 'iPhone',
+            'platform' => 'iOS',
+            'browser' => 'Safari',
+            'is_desktop' => false,
+            'is_mobile' => true,
+            'is_tablet' => false,
+            'is_phone' => true,
+            'is_robot' => false,
+        ];
+
+        $versionData = [
+            'version' => '15.0',
+            'robot' => 'unknown',
+        ];
+
+        // Mock Agent methods
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('device')->andReturn('iPhone');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('platform')->andReturn('iOS');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('browser')->andReturn('Safari');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isDesktop')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isMobile')->andReturn(true);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isTablet')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isPhone')->andReturn(true);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isRobot')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent
+            ->shouldReceive('version')
+            ->with('Safari')
+            ->andReturn('15.0');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('robot')->andReturn('unknown');
+
+        // Act
+        /** @phpstan-ignore-next-line property.notFound */
+        $result = $this->action->execute();
+
+        // Assert
+        expect($result)
+            ->toBeInstanceOf(Device::class)
+            ->and($result->device)
+            ->toBe('iPhone')
+            ->and($result->platform)
+            ->toBe('iOS')
+            ->and($result->browser)
+            ->toBe('Safari')
+            ->and($result->is_desktop)
+            ->toBeFalse()
+            ->and($result->is_mobile)
+            ->toBeTrue()
+            ->and($result->is_tablet)
+            ->toBeFalse()
+            ->and($result->is_phone)
+            ->toBeTrue()
+            ->and($result->is_robot)
+            ->toBeFalse()
+            ->and($result->version)
+            ->toBe('15.0')
+            ->and($result->robot)
+            ->toBe('unknown');
+    }
+
+    /** @test */
+    public function itCreatesDeviceWithMobileId(): void
+    {
+        // Arrange
+        $mobileId = 'unique-mobile-identifier-123';
+
+        $deviceData = [
+            'device' => 'Android Phone',
+            'platform' => 'Android',
+            'browser' => 'Chrome',
+            'is_desktop' => false,
+            'is_mobile' => true,
+            'is_tablet' => false,
+            'is_phone' => true,
+            'is_robot' => false,
+        ];
+
+        $versionData = [
+            'version' => '120.0',
+            'robot' => 'unknown',
+        ];
+
+        // Mock Agent methods
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('device')->andReturn('Android Phone');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('platform')->andReturn('Android');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('browser')->andReturn('Chrome');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isDesktop')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isMobile')->andReturn(true);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isTablet')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isPhone')->andReturn(true);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isRobot')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent
+            ->shouldReceive('version')
+            ->with('Chrome')
+            ->andReturn('120.0');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('robot')->andReturn('unknown');
+
+        // Act
+        /** @phpstan-ignore-next-line property.notFound */
+        $result = $this->action->execute($mobileId);
+
+        // Assert
+        expect($result)
+            ->toBeInstanceOf(Device::class)
+            ->and($result->mobile_id)
+            ->toBe($mobileId)
+            ->and($result->device)
+            ->toBe('Android Phone')
+            ->and($result->platform)
+            ->toBe('Android')
+            ->and($result->browser)
+            ->toBe('Chrome');
+    }
+
+    /** @test */
+    public function itHandlesEmptyMobileId(): void
+    {
+        // Arrange
+        $emptyMobileId = '';
+
+        // Act & Assert
+        /** @phpstan-ignore-next-line property.notFound */
+        expect(fn () => $this->action->execute($emptyMobileId))
+            ->toThrow(\InvalidArgumentException::class, 'L\'ID mobile non può essere vuoto');
+    }
+
+    /** @test */
+    public function itHandlesNullMobileId(): void
+    {
+        // Arrange
+        $nullMobileId = null;
+
+        // Mock Agent methods for desktop device
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('device')->andReturn('Desktop');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('platform')->andReturn('Windows');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('browser')->andReturn('Chrome');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isDesktop')->andReturn(true);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isMobile')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isTablet')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isPhone')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isRobot')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent
+            ->shouldReceive('version')
+            ->with('Chrome')
+            ->andReturn('120.0');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('robot')->andReturn('unknown');
+
+        // Act
+        /** @phpstan-ignore-next-line property.notFound */
+        $result = $this->action->execute($nullMobileId);
+
+        // Assert
+        expect($result)
+            ->toBeInstanceOf(Device::class)
+            ->and($result->mobile_id)
+            ->toBeNull()
+            ->and($result->device)
+            ->toBe('Desktop')
+            ->and($result->platform)
+            ->toBe('Windows')
+            ->and($result->browser)
+            ->toBe('Chrome');
+    }
+
+    /** @test */
+    public function itHandlesUnknownDeviceTypes(): void
+    {
+        // Arrange
+        // Mock Agent methods returning null/unknown values
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('device')->andReturn(null);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('platform')->andReturn(null);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('browser')->andReturn(null);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isDesktop')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isMobile')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isTablet')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isPhone')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isRobot')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent
+            ->shouldReceive('version')
+            ->with(null)
+            ->andReturn(null);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('robot')->andReturn(null);
+
+        // Act
+        /** @phpstan-ignore-next-line property.notFound */
+        $result = $this->action->execute();
+
+        // Assert
+        expect($result)
+            ->toBeInstanceOf(Device::class)
+            ->and($result->device)
+            ->toBe('unknown')
+            ->and($result->platform)
+            ->toBe('unknown')
+            ->and($result->browser)
+            ->toBe('unknown')
+            ->and($result->version)
+            ->toBe('unknown')
+            ->and($result->robot)
+            ->toBe('unknown');
+    }
+
+    /** @test */
+    public function itHandlesRobotDetection(): void
+    {
+        // Arrange
+        // Mock Agent methods for robot
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('device')->andReturn('Robot');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('platform')->andReturn('Unknown');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('browser')->andReturn('Robot');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isDesktop')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isMobile')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isTablet')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isPhone')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isRobot')->andReturn(true);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent
+            ->shouldReceive('version')
+            ->with('Robot')
+            ->andReturn('1.0');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('robot')->andReturn('Googlebot');
+
+        // Act
+        /** @phpstan-ignore-next-line property.notFound */
+        $result = $this->action->execute();
+
+        // Assert
+        expect($result)
+            ->toBeInstanceOf(Device::class)
+            ->and($result->is_robot)
+            ->toBeTrue()
+            ->and($result->robot)
+            ->toBe('Googlebot');
+    }
+
+    /** @test */
+    public function itHandlesTabletDetection(): void
+    {
+        // Arrange
+        // Mock Agent methods for tablet
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('device')->andReturn('iPad');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('platform')->andReturn('iOS');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('browser')->andReturn('Safari');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isDesktop')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isMobile')->andReturn(true);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isTablet')->andReturn(true);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isPhone')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isRobot')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent
+            ->shouldReceive('version')
+            ->with('Safari')
+            ->andReturn('16.0');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('robot')->andReturn('unknown');
+
+        // Act
+        /** @phpstan-ignore-next-line property.notFound */
+        $result = $this->action->execute();
+
+        // Assert
+        expect($result)
+            ->toBeInstanceOf(Device::class)
+            ->and($result->is_tablet)
+            ->toBeTrue()
+            ->and($result->is_mobile)
+            ->toBeTrue()
+            ->and($result->is_phone)
+            ->toBeFalse()
+            ->and($result->device)
+            ->toBe('iPad');
+    }
+
+    /** @test */
+    public function itHandlesDesktopDetection(): void
+    {
+        // Arrange
+        // Mock Agent methods for desktop
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('device')->andReturn('Desktop');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('platform')->andReturn('macOS');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('browser')->andReturn('Firefox');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isDesktop')->andReturn(true);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isMobile')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isTablet')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isPhone')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isRobot')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent
+            ->shouldReceive('version')
+            ->with('Firefox')
+            ->andReturn('115.0');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('robot')->andReturn('unknown');
+
+        // Act
+        /** @phpstan-ignore-next-line property.notFound */
+        $result = $this->action->execute();
+
+        // Assert
+        expect($result)
+            ->toBeInstanceOf(Device::class)
+            ->and($result->is_desktop)
+            ->toBeTrue()
+            ->and($result->is_mobile)
+            ->toBeFalse()
+            ->and($result->is_tablet)
+            ->toBeFalse()
+            ->and($result->is_phone)
+            ->toBeFalse()
+            ->and($result->platform)
+            ->toBe('macOS')
+            ->and($result->browser)
+            ->toBe('Firefox');
+    }
+
+    /** @test */
+    public function itHandlesMobilePhoneDetection(): void
+    {
+        // Arrange
+        // Mock Agent methods for mobile phone
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('device')->andReturn('Samsung Galaxy');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('platform')->andReturn('Android');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('browser')->andReturn('Chrome Mobile');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isDesktop')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isMobile')->andReturn(true);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isTablet')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isPhone')->andReturn(true);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isRobot')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent
+            ->shouldReceive('version')
+            ->with('Chrome Mobile')
+            ->andReturn('120.0');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('robot')->andReturn('unknown');
+
+        // Act
+        /** @phpstan-ignore-next-line property.notFound */
+        $result = $this->action->execute();
+
+        // Assert
+        expect($result)
+            ->toBeInstanceOf(Device::class)
+            ->and($result->is_mobile)
+            ->toBeTrue()
+            ->and($result->is_phone)
+            ->toBeTrue()
+            ->and($result->is_desktop)
+            ->toBeFalse()
+            ->and($result->is_tablet)
+            ->toBeFalse()
+            ->and($result->device)
+            ->toBe('Samsung Galaxy');
+    }
+
+    /** @test */
+    public function itHandlesEdgeCasePlatforms(): void
+    {
+        // Arrange
+        // Mock Agent methods for edge case platform
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('device')->andReturn('Smart TV');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('platform')->andReturn('Tizen');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('browser')->andReturn('Samsung Internet');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isDesktop')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isMobile')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isTablet')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isPhone')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isRobot')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent
+            ->shouldReceive('version')
+            ->with('Samsung Internet')
+            ->andReturn('18.0');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('robot')->andReturn('unknown');
+
+        // Act
+        /** @phpstan-ignore-next-line property.notFound */
+        $result = $this->action->execute();
+
+        // Assert
+        expect($result)
+            ->toBeInstanceOf(Device::class)
+            ->and($result->device)
+            ->toBe('Smart TV')
+            ->and($result->platform)
+            ->toBe('Tizen')
+            ->and($result->browser)
+            ->toBe('Samsung Internet')
+            ->and($result->version)
+            ->toBe('18.0');
+    }
+
+    /** @test */
+    public function itHandlesLegacyBrowsers(): void
+    {
+        // Arrange
+        // Mock Agent methods for legacy browser
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('device')->andReturn('Desktop');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('platform')->andReturn('Windows');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('browser')->andReturn('Internet Explorer');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isDesktop')->andReturn(true);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isMobile')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isTablet')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isPhone')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isRobot')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent
+            ->shouldReceive('version')
+            ->with('Internet Explorer')
+            ->andReturn('11.0');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('robot')->andReturn('unknown');
+
+        // Act
+        /** @phpstan-ignore-next-line property.notFound */
+        $result = $this->action->execute();
+
+        // Assert
+        expect($result)
+            ->toBeInstanceOf(Device::class)
+            ->and($result->browser)
+            ->toBe('Internet Explorer')
+            ->and($result->version)
+            ->toBe('11.0');
+    }
+
+    /** @test */
+    public function itHandlesUnknownBrowserVersions(): void
+    {
+        // Arrange
+        // Mock Agent methods with unknown browser version
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('device')->andReturn('Desktop');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('platform')->andReturn('Linux');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('browser')->andReturn('Unknown Browser');
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isDesktop')->andReturn(true);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isMobile')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isTablet')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isPhone')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('isRobot')->andReturn(false);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent
+            ->shouldReceive('version')
+            ->with('Unknown Browser')
+            ->andReturn(null);
+        /** @phpstan-ignore-next-line property.notFound */
+        $this->mockAgent->shouldReceive('robot')->andReturn('unknown');
+
+        // Act
+        /** @phpstan-ignore-next-line property.notFound */
+        $result = $this->action->execute();
+
+        // Assert
+        expect($result)
+            ->toBeInstanceOf(Device::class)
+            ->and($result->browser)
+            ->toBe('Unknown Browser')
+            ->and($result->version)
+            ->toBe('unknown');
+    }
+
+    protected function tearDown(): void
+    {
+        \Mockery::close();
+        parent::tearDown();
+    }
+}

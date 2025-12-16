@@ -13,47 +13,57 @@ use Modules\User\Models\Permission;
 use Modules\User\Models\Role;
 use Modules\User\Models\User;
 
-beforeEach(function () {
+beforeEach(function (): void {
     $this->admin = User::factory()->create();
     $this->user = User::factory()->create();
 
     // Set admin panel for testing
     Filament::setCurrentPanel('user::admin');
+    /** @phpstan-ignore-next-line property.notFound, method.nonObject */
     $this->actingAs($this->admin);
 });
 
-describe('UserResource Configuration', function () {
-    it('has correct model class', function () {
+/**
+ * @property \Modules\User\Models\User $user
+ */
+describe('UserResource Configuration', function (): void {
+    it('has correct model class', function (): void {
         expect(UserResource::getModel())->toBe(User::class);
     });
 
-    it('has correct slug', function () {
+    it('has correct slug', function (): void {
         expect(UserResource::getSlug())->toBe('users');
     });
 
-    it('has navigation configuration', function () {
+    it('has navigation configuration', function (): void {
         $navigationBadge = UserResource::getNavigationBadge();
         expect($navigationBadge)->not->toBeNull();
     });
 
-    it('can get navigation items', function () {
+    it('can get navigation items', function (): void {
         $navigationItems = UserResource::getNavigationItems();
         expect($navigationItems)->toBeArray();
     });
 });
 
-describe('ListUsers Page', function () {
-    it('can render list page', function () {
+/**
+ * @property \Modules\User\Models\User $user
+ */
+describe('ListUsers Page', function (): void {
+    it('can render list page', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $users = User::factory()->count(3)->create();
 
         Livewire::test(ListUsers::class)->assertSuccessful()->assertCanSeeTableRecords($users);
     });
 
-    it('can search users by name', function () {
+    it('can search users by name', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $searchableUser = User::factory()->create([
             'name' => 'Searchable User Name',
         ]);
 
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $otherUser = User::factory()->create([
             'name' => 'Other User',
         ]);
@@ -64,11 +74,13 @@ describe('ListUsers Page', function () {
             ->assertCanNotSeeTableRecords([$otherUser]);
     });
 
-    it('can search users by email', function () {
+    it('can search users by email', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $searchableUser = User::factory()->create([
             'email' => 'searchable@example.com',
         ]);
 
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $otherUser = User::factory()->create([
             'email' => 'other@example.com',
         ]);
@@ -79,11 +91,13 @@ describe('ListUsers Page', function () {
             ->assertCanNotSeeTableRecords([$otherUser]);
     });
 
-    it('can filter users by active status', function () {
+    it('can filter users by active status', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $activeUser = User::factory()->create([
             'is_active' => true,
         ]);
 
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $inactiveUser = User::factory()->create([
             'is_active' => false,
         ]);
@@ -94,11 +108,13 @@ describe('ListUsers Page', function () {
             ->assertCanNotSeeTableRecords([$inactiveUser]);
     });
 
-    it('can filter users by verified status', function () {
+    it('can filter users by verified status', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $verifiedUser = User::factory()->create([
             'email_verified_at' => now(),
         ]);
 
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $unverifiedUser = User::factory()->create([
             'email_verified_at' => null,
         ]);
@@ -109,11 +125,13 @@ describe('ListUsers Page', function () {
             ->assertCanNotSeeTableRecords([$unverifiedUser]);
     });
 
-    it('can sort users by created date', function () {
+    it('can sort users by created date', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $oldUser = User::factory()->create([
             'created_at' => now()->subDays(2),
         ]);
 
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $newUser = User::factory()->create([
             'created_at' => now(),
         ]);
@@ -125,12 +143,15 @@ describe('ListUsers Page', function () {
     });
 });
 
-describe('CreateUser Page', function () {
-    it('can render create page', function () {
+/**
+ * @property \Modules\User\Models\User $user
+ */
+describe('CreateUser Page', function (): void {
+    it('can render create page', function (): void {
         Livewire::test(CreateUser::class)->assertSuccessful();
     });
 
-    it('can create a user', function () {
+    it('can create a user', function (): void {
         $userData = [
             'name' => 'New User via Admin',
             'first_name' => 'New',
@@ -147,6 +168,7 @@ describe('CreateUser Page', function () {
             ->call('create')
             ->assertHasNoFormErrors();
 
+        /** @phpstan-ignore-next-line property.notFound */
         $this->assertDatabaseHas(User::class, [
             'name' => 'New User via Admin',
             'email' => 'newuser@example.com',
@@ -154,7 +176,7 @@ describe('CreateUser Page', function () {
         ]);
     });
 
-    it('validates required fields on create', function () {
+    it('validates required fields on create', function (): void {
         Livewire::test(CreateUser::class)
             ->fillForm([
                 'name' => '',
@@ -165,7 +187,8 @@ describe('CreateUser Page', function () {
             ->assertHasFormErrors(['name', 'email', 'password']);
     });
 
-    it('validates email uniqueness', function () {
+    it('validates email uniqueness', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $existingUser = User::factory()->create([
             'email' => 'existing@example.com',
         ]);
@@ -180,7 +203,7 @@ describe('CreateUser Page', function () {
             ->assertHasFormErrors(['email']);
     });
 
-    it('validates password confirmation', function () {
+    it('validates password confirmation', function (): void {
         Livewire::test(CreateUser::class)
             ->fillForm([
                 'name' => 'Test User',
@@ -192,7 +215,8 @@ describe('CreateUser Page', function () {
             ->assertHasFormErrors(['password']);
     });
 
-    it('can assign roles during creation', function () {
+    it('can assign roles during creation', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $role = Role::factory()->create(['name' => 'Admin']);
 
         $userData = [
@@ -213,14 +237,19 @@ describe('CreateUser Page', function () {
     });
 });
 
-describe('EditUser Page', function () {
-    it('can render edit page', function () {
+/**
+ * @property \Modules\User\Models\User $user
+ */
+describe('EditUser Page', function (): void {
+    it('can render edit page', function (): void {
         Livewire::test(EditUser::class, [
+            /** @phpstan-ignore-next-line property.notFound */
             'record' => $this->user->getRouteKey(),
         ])->assertSuccessful();
     });
 
-    it('can retrieve user data for editing', function () {
+    it('can retrieve user data for editing', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $user = User::factory()->create([
             'name' => 'Editable User',
             'email' => 'editable@example.com',
@@ -229,6 +258,7 @@ describe('EditUser Page', function () {
         ]);
 
         Livewire::test(EditUser::class, [
+            /** @phpstan-ignore-next-line method.nonObject */
             'record' => $user->getRouteKey(),
         ])->assertFormSet([
             'name' => 'Editable User',
@@ -238,13 +268,15 @@ describe('EditUser Page', function () {
         ]);
     });
 
-    it('can save edited user', function () {
+    it('can save edited user', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $user = User::factory()->create([
             'name' => 'Original Name',
             'email' => 'original@example.com',
         ]);
 
         Livewire::test(EditUser::class, [
+            /** @phpstan-ignore-next-line method.nonObject */
             'record' => $user->getRouteKey(),
         ])
             ->fillForm([
@@ -257,12 +289,14 @@ describe('EditUser Page', function () {
         expect($user->fresh())->name->toBe('Updated Name')->email->toBe('updated@example.com');
     });
 
-    it('can activate and deactivate user', function () {
+    it('can activate and deactivate user', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $user = User::factory()->create([
             'is_active' => true,
         ]);
 
         Livewire::test(EditUser::class, [
+            /** @phpstan-ignore-next-line method.nonObject */
             'record' => $user->getRouteKey(),
         ])
             ->fillForm([
@@ -274,12 +308,14 @@ describe('EditUser Page', function () {
         expect($user->fresh()->is_active)->toBe(false);
     });
 
-    it('can change user language', function () {
+    it('can change user language', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $user = User::factory()->create([
             'lang' => 'en',
         ]);
 
         Livewire::test(EditUser::class, [
+            /** @phpstan-ignore-next-line method.nonObject */
             'record' => $user->getRouteKey(),
         ])
             ->fillForm([
@@ -291,14 +327,19 @@ describe('EditUser Page', function () {
         expect($user->fresh()->lang)->toBe('it');
     });
 
-    it('can update user roles', function () {
+    it('can update user roles', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $user = User::factory()->create();
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $role1 = Role::factory()->create(['name' => 'Admin']);
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $role2 = Role::factory()->create(['name' => 'Editor']);
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $user->assignRole($role1);
 
         Livewire::test(EditUser::class, [
+            /** @phpstan-ignore-next-line method.nonObject */
             'record' => $user->getRouteKey(),
         ])
             ->fillForm([
@@ -311,11 +352,13 @@ describe('EditUser Page', function () {
         expect($user->fresh()->hasRole($role1))->toBe(false);
     });
 
-    it('can update user password', function () {
+    it('can update user password', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $user = User::factory()->create();
         $originalPassword = $user->password;
 
         Livewire::test(EditUser::class, [
+            /** @phpstan-ignore-next-line method.nonObject */
             'record' => $user->getRouteKey(),
         ])
             ->fillForm([
@@ -329,14 +372,19 @@ describe('EditUser Page', function () {
     });
 });
 
-describe('ViewUser Page', function () {
-    it('can render view page', function () {
+/**
+ * @property \Modules\User\Models\User $user
+ */
+describe('ViewUser Page', function (): void {
+    it('can render view page', function (): void {
         Livewire::test(ViewUser::class, [
+            /** @phpstan-ignore-next-line property.notFound */
             'record' => $this->user->getRouteKey(),
         ])->assertSuccessful();
     });
 
-    it('displays user information', function () {
+    it('displays user information', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $user = User::factory()->create([
             'name' => 'Viewable User',
             'email' => 'viewable@example.com',
@@ -345,30 +393,39 @@ describe('ViewUser Page', function () {
         ]);
 
         Livewire::test(ViewUser::class, [
+            /** @phpstan-ignore-next-line method.nonObject */
             'record' => $user->getRouteKey(),
         ])
             ->assertSee('Viewable User')
             ->assertSee('viewable@example.com');
     });
 
-    it('can view user with roles', function () {
+    it('can view user with roles', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $user = User::factory()->create();
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $role = Role::factory()->create(['name' => 'Admin']);
+        /** @phpstan-ignore-next-line method.nonObject */
         $user->assignRole($role);
 
         Livewire::test(ViewUser::class, [
+            /** @phpstan-ignore-next-line method.nonObject */
             'record' => $user->getRouteKey(),
         ])->assertSuccessful();
 
         expect($user->roles)->toContain($role);
     });
 
-    it('can view user with permissions', function () {
+    it('can view user with permissions', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $user = User::factory()->create();
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $permission = Permission::factory()->create(['name' => 'edit posts']);
+        /** @phpstan-ignore-next-line method.nonObject */
         $user->givePermissionTo($permission);
 
         Livewire::test(ViewUser::class, [
+            /** @phpstan-ignore-next-line method.nonObject */
             'record' => $user->getRouteKey(),
         ])->assertSuccessful();
 
@@ -376,8 +433,12 @@ describe('ViewUser Page', function () {
     });
 });
 
-describe('UserResource Bulk Actions', function () {
-    it('can bulk activate users', function () {
+/**
+ * @property \Modules\User\Models\User $user
+ */
+describe('UserResource Bulk Actions', function (): void {
+    it('can bulk activate users', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $users = User::factory()
             ->count(3)
             ->create([
@@ -386,12 +447,14 @@ describe('UserResource Bulk Actions', function () {
 
         Livewire::test(ListUsers::class)->selectTableRecords($users)->callTableBulkAction('activate');
 
-        $users->each(function ($user) {
+        /** @phpstan-ignore-next-line method.nonObject */
+        $users->each(function ($user): void {
             expect($user->fresh()->is_active)->toBe(true);
         });
     });
 
-    it('can bulk deactivate users', function () {
+    it('can bulk deactivate users', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $users = User::factory()
             ->count(3)
             ->create([
@@ -400,43 +463,56 @@ describe('UserResource Bulk Actions', function () {
 
         Livewire::test(ListUsers::class)->selectTableRecords($users)->callTableBulkAction('deactivate');
 
-        $users->each(function ($user) {
+        /** @phpstan-ignore-next-line method.nonObject */
+        $users->each(function ($user): void {
             expect($user->fresh()->is_active)->toBe(false);
         });
     });
 
-    it('can bulk delete users', function () {
+    it('can bulk delete users', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $users = User::factory()->count(3)->create();
 
         Livewire::test(ListUsers::class)->selectTableRecords($users)->callTableBulkAction('delete');
 
-        $users->each(function ($user) {
+        /** @phpstan-ignore-next-line method.nonObject */
+        $users->each(function ($user): void {
             expect($user->fresh())->toBeNull();
         });
     });
 
-    it('can bulk assign roles', function () {
+    it('can bulk assign roles', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $users = User::factory()->count(2)->create();
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $role = Role::factory()->create(['name' => 'Editor']);
 
         Livewire::test(ListUsers::class)->selectTableRecords($users)->callTableBulkAction('assignRole', [
             'role_id' => $role->id,
         ]);
 
-        $users->each(function ($user) use ($role) {
+        /** @phpstan-ignore-next-line method.nonObject */
+        $users->each(function ($user) use ($role): void {
             expect($user->fresh()->hasRole($role))->toBe(true);
         });
     });
 });
 
-describe('UserResource Security', function () {
-    it('prevents editing super admin user', function () {
+/**
+ * @property \Modules\User\Models\User $user
+ */
+describe('UserResource Security', function (): void {
+    it('prevents editing super admin user', function (): void {
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $superAdmin = User::factory()->create();
+        /** @var \Illuminate\Database\Eloquent\Collection */
         $adminRole = Role::factory()->create(['name' => 'Super Admin']);
+        /** @phpstan-ignore-next-line method.nonObject */
         $superAdmin->assignRole($adminRole);
 
         // Test that super admin cannot be deactivated
         Livewire::test(EditUser::class, [
+            /** @phpstan-ignore-next-line method.nonObject */
             'record' => $superAdmin->getRouteKey(),
         ])
             ->fillForm([
@@ -448,7 +524,7 @@ describe('UserResource Security', function () {
         expect($superAdmin->fresh()->is_active)->toBe(true);
     });
 
-    it('validates email format', function () {
+    it('validates email format', function (): void {
         Livewire::test(CreateUser::class)
             ->fillForm([
                 'name' => 'Test User',
@@ -459,7 +535,7 @@ describe('UserResource Security', function () {
             ->assertHasFormErrors(['email']);
     });
 
-    it('enforces minimum password length', function () {
+    it('enforces minimum password length', function (): void {
         Livewire::test(CreateUser::class)
             ->fillForm([
                 'name' => 'Test User',

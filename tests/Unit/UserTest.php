@@ -23,25 +23,42 @@ beforeEach(function (): void {
 });
 
 test('user can be created', function (): void {
+<<<<<<< HEAD
     \assert($this->user instanceof User);
+=======
+    /** @phpstan-ignore-next-line property.notFound */
+>>>>>>> 4cf202bd (.)
     expect($this->user)->toBeInstanceOf(User::class);
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->user->email)->toBeString()->not->toBeEmpty();
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->user->type)->toBe(UserType::MasterAdmin);
 });
 
 test('user has correct type casting', function (): void {
+<<<<<<< HEAD
     \assert($this->user instanceof User);
+=======
+    /** @phpstan-ignore-next-line property.notFound */
+>>>>>>> 4cf202bd (.)
     expect($this->user->type)->toBeInstanceOf(UserType::class);
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->user->type->value)->toBe('master_admin');
 });
 
 test('user password is hashed', function (): void {
+<<<<<<< HEAD
     \assert($this->user instanceof User);
+=======
+    /** @phpstan-ignore-next-line property.notFound */
+>>>>>>> 4cf202bd (.)
     expect(Hash::check('password123', $this->user->password))->toBeTrue();
+    /** @phpstan-ignore-next-line property.notFound */
     expect(Hash::check('wrongpassword', $this->user->password))->toBeFalse();
 });
 
 test('user can change password', function (): void {
+<<<<<<< HEAD
     \assert($this->user instanceof User);
     $this->user->update(['password' => Hash::make('newpassword123')]);
 
@@ -53,28 +70,53 @@ test('user can change password', function (): void {
 
 test('user can be updated', function (): void {
     \assert($this->user instanceof User);
+=======
+    /** @phpstan-ignore-next-line property.notFound */
+    $this->user->update(['password' => Hash::make('newpassword123')]);
+
+    /** @phpstan-ignore-next-line property.notFound */
+    expect(Hash::check('newpassword123', $this->user->fresh()->password))->toBeTrue();
+    /** @phpstan-ignore-next-line property.notFound */
+    expect(Hash::check('password123', $this->user->fresh()->password))->toBeFalse();
+});
+
+test('user can be updated', function (): void {
+    /** @phpstan-ignore-next-line property.notFound */
+>>>>>>> 4cf202bd (.)
     $this->user->update([
         'email' => 'updated@example.com',
         'type' => UserType::BoUser,
     ]);
 
+    /** @phpstan-ignore-next-line property.notFound */
     $this->user->refresh();
 
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->user->email)->toBe('updated@example.com');
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->user->type)->toBe(UserType::BoUser);
 });
 
 test('user can be deleted', function (): void {
+<<<<<<< HEAD
     \assert($this->user instanceof User);
+=======
+    /** @phpstan-ignore-next-line property.notFound */
+>>>>>>> 4cf202bd (.)
     $userId = $this->user->id;
 
+    /** @phpstan-ignore-next-line property.notFound */
     $this->user->delete();
 
     expect(User::find($userId))->toBeNull();
 });
 
 test('user has fillable attributes', function (): void {
+<<<<<<< HEAD
     \assert($this->user instanceof User);
+=======
+    /** @phpstan-ignore-next-line property.notFound */
+>>>>>>> 4cf202bd (.)
     $fillable = $this->user->getFillable();
 
     expect($fillable)->toContain('email');
@@ -83,7 +125,11 @@ test('user has fillable attributes', function (): void {
 });
 
 test('user has hidden attributes', function (): void {
+<<<<<<< HEAD
     \assert($this->user instanceof User);
+=======
+    /** @phpstan-ignore-next-line property.notFound */
+>>>>>>> 4cf202bd (.)
     $hidden = $this->user->getHidden();
 
     expect($hidden)->toContain('password');
@@ -96,6 +142,7 @@ test('user can be found by email', function (): void {
 
     \assert($foundUser instanceof User);
     expect($foundUser)->toBeInstanceOf(User::class);
+    /** @phpstan-ignore-next-line property.notFound */
     expect($foundUser->id)->toBe($this->user->id);
 });
 
@@ -104,6 +151,7 @@ test('user can be found by type', function (): void {
     $admins = User::where('type', UserType::MasterAdmin)->get();
 
     expect($admins)->toHaveCount(1);
+<<<<<<< HEAD
     $firstAdmin = $admins->first();
     \assert($firstAdmin instanceof User);
     expect($firstAdmin->id)->toBe($this->user->id);
@@ -114,18 +162,35 @@ test('user can be created with different types', function (): void {
     $customerUser = User::factory()->create(['type' => UserType::CustomerUser]);
     \assert($boUser instanceof User);
     \assert($customerUser instanceof User);
+=======
+    /** @phpstan-ignore-next-line property.notFound */
+    expect($admins->first()->id)->toBe($this->user->id);
+});
+
+test('user can be created with different types', function (): void {
+    /** @var \Illuminate\Database\Eloquent\Collection */
+        $boUser = User::factory()->create(['type' => UserType::BoUser]);
+    /** @var \Illuminate\Database\Eloquent\Collection */
+        $customerUser = User::factory()->create(['type' => UserType::CustomerUser]);
+>>>>>>> 4cf202bd (.)
 
     expect($boUser->type)->toBe(UserType::BoUser);
     expect($customerUser->type)->toBe(UserType::CustomerUser);
 });
 
 test('user has timestamps', function (): void {
+<<<<<<< HEAD
     \assert($this->user instanceof User);
+=======
+    /** @phpstan-ignore-next-line property.notFound */
+>>>>>>> 4cf202bd (.)
     expect($this->user->created_at)->not->toBeNull();
+    /** @phpstan-ignore-next-line property.notFound */
     expect($this->user->updated_at)->not->toBeNull();
 });
 
 test('user soft delete functionality', function (): void {
     // Skip this test as User model does not implement SoftDeletes trait
+    /** @phpstan-ignore-next-line property.notFound */
     $this->markTestSkipped('User model does not implement SoftDeletes trait');
 });

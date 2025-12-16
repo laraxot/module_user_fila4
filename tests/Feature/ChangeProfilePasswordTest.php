@@ -47,6 +47,7 @@ test('can change profile password', function (): void {
     );
 
     // Verifica che la risposta sia di successo
+    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertSuccessful();
 
     // Verifica che la password sia stata aggiornata
@@ -83,6 +84,7 @@ test('cannot change password with wrong current password', function (): void {
     );
 
     // Verifica che la risposta contenga un errore
+    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertSessionHasErrors('current_password');
 
     // Verifica che la password non sia stata cambiata

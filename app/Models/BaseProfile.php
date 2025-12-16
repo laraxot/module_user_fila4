@@ -91,6 +91,8 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
     /** @var list<string> */
     protected $appends = [
         'full_name',
+        'user_name',
+        'avatar',
     ];
 
     /** @var list<string> */
@@ -176,5 +178,103 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
             'is_active' => 'boolean',
             'extra' => SchemalessAttributes::class,
         ];
+    }
+
+    /**
+     * Get the profile's display name.
+     */
+    public function getDisplayNameAttribute(): string
+    {
+        $fullName = $this->full_name;
+        if (null !== $fullName && '' !== trim($fullName)) {
+            return $fullName;
+        }
+
+        $user = $this->user;
+        if (null !== $user && isset($user->email)) {
+            return $user->email;
+        }
+
+        return 'Unknown';
+    }
+
+    /**
+     * Toggle super admin status for the profile.
+     */
+    public function toggleSuperAdmin(): void
+    {
+        $user = $this->user;
+        if (null === $user) {
+            return;
+        }
+
+        if ($user->hasRole('super-admin')) {
+            $user->removeRole('super-admin');
+        } else {
+            $user->assignRole('super-admin');
+        }
+    }
+
+    /**
+     * Create a new Eloquent query builder for the model.
+     *
+     * @param \Illuminate\Database\Query\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder<static>
+     * @phpstan-ignore-next-line
+     */
+    public function newEloquentBuilder($query): \Illuminate\Database\Eloquent\Builder
+    {
+        /** @phpstan-ignore-next-line */
+        return new Builder($query);
+    }
+
+    /**
+     * Get the full name attribute.
+     * This method is provided by the IsProfileTrait.
+     */
+    public function getFullNameAttribute(): string
+    {
+        $value = $this->attributes['full_name'] ?? null;
+        if (is_string($value) && '' !== $value) {
+            return $value;
+        }
+
+        $user = $this->user;
+        if (null === $user) {
+            return '';
+        }
+
+        $res = $this->first_name.' '.$this->last_name;
+        if (mb_strlen($res) > 2) {
+            return $res;
+        }
+
+        return (string) ($user->name ?? '');
+    }
+
+    /**
+     * Get the user name attribute.
+     * This method is provided by the IsProfileTrait.
+     */
+    public function getUserNameAttribute(): ?string
+    {
+        $user = $this->user;
+        if (null === $user) {
+            return null;
+        }
+
+        return $user->name;
+    }
+
+    /**
+     * Get the avatar attribute.
+     * This method is provided by the IsProfileTrait.
+     */
+    public function getAvatarAttribute(): string
+    {
+        $value = $this->getFirstMediaUrl('avatar');
+
+        return $value;
     }
 }

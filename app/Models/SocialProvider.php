@@ -52,12 +52,16 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|SocialProvider whereUpdatedAt($value)
  * @method static Builder|SocialProvider whereUpdatedBy($value)
  *
+<<<<<<< HEAD
  * @mixin IdeHelperSocialProvider
  *
  * @property ProfileContract|null $deleter
  *
+=======
+>>>>>>> 4cf202bd (.)
  * @mixin \Eloquent
  */
+/** */
 class SocialProvider extends BaseModel
 {
     use SushiToPhpArray;
@@ -99,6 +103,7 @@ class SocialProvider extends BaseModel
         'updated_by' => 'string',
     ];
 
+<<<<<<< HEAD
     /** @var array<string, string> */
     protected array $schema = [
         'id' => 'integer',
@@ -115,6 +120,11 @@ class SocialProvider extends BaseModel
         'updated_by' => 'string',
     ];
 
+=======
+    /**
+     * @return array<string, mixed>
+     */
+>>>>>>> 4cf202bd (.)
     public function getRows(): array
     {
         return $this->getSushiRows();
