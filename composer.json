@@ -50,12 +50,18 @@
         "spatie/laravel-personal-data-export": "*"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "require-dev": {
         
     },
 =======
     "require-dev": {},
 >>>>>>> fbc8f8e (.)
+=======
+    "require-dev": {
+        "phpstan/phpstan": "^2.1"
+    },
+>>>>>>> 6d20fbe (.)
     "repositories": [
         {
             "type": "path",
@@ -93,7 +99,11 @@
     "minimum-stability": "dev",
     "prefer-stable": true
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> fbc8f8e (.)
+=======
+}
+>>>>>>> 6d20fbe (.)
