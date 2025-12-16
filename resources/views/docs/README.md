@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 # Documentazione (stub)
 
@@ -106,3 +107,5 @@ Il tema One si integra con il modulo CMS per la gestione dei contenuti. I conten
 
 Per supporto tecnico, contattare il team SaluteOra. 
 >>>>>>> d23d6b30 (.)
+=======
+>>>>>>> eb80748f (.)

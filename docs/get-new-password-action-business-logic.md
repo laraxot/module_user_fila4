@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # GetNewPasswordAction - Business Logic Analysis
 
 ## Overview
@@ -217,3 +218,5 @@ public function executeBatch(Collection $users): array
 ## Conclusioni
 
 L'`GetNewPasswordAction` fornisce una soluzione robusta e sicura per la gestione delle password utente, con particolare attenzione alla sicurezza, usabilità e prestazioni, mantenendo coerenza con l'architettura modulare Xot.
+=======
+>>>>>>> eb80748f (.)

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Widget Translation Rules -  Project
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -226,3 +227,5 @@ All widget development should follow these rules to maintain consistency and qua
 >>>>>>> 27d6fa5f (.)
 All widget development should follow these rules to maintain consistency and quality across the SaluteOra project.
 >>>>>>> d23d6b30 (.)
+=======
+>>>>>>> eb80748f (.)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Utilizzo dei componenti Blade di Filament
 
 > **NOTA IMPORTANTE**: Questo documento è un riferimento specifico per il modulo User.
@@ -81,3 +82,5 @@ Il componente `<x-profile.dropdown>` è un esempio di componente personalizzato 
 2. ❌ Modificare profondamente i componenti Filament invece di estenderli
 3. ❌ Mescolare stili personalizzati con componenti Filament
 4. ❌ Non tenere aggiornati i componenti alla versione corrente di Filament
+=======
+>>>>>>> eb80748f (.)

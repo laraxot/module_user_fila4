@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # FullCalendar Scheduler - Riferimento Rapido
 
 ## 🚨 Problemi Comuni e Soluzioni Immediate
@@ -226,3 +227,5 @@ selectConstraint: 'businessHours',
 eventConstraint: 'businessHours',
 slotDuration: '00:30:00', // 30 min slots
 ``` 
+=======
+>>>>>>> eb80748f (.)

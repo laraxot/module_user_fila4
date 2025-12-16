@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # EditUserWidget Implementation Summary
 
 ## Project Status: COMPLETED ✅
@@ -203,3 +204,5 @@ The implementation serves as a reference pattern for future widget development i
 - `Modules/Xot/project_docs/filament-widgets.md`
 - `Modules/Xot/project_docs/translations.md`
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> eb80748f (.)

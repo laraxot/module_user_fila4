@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ### Versione HEAD
 
@@ -51,3 +52,5 @@ Authorization callback URL: http://your-app-url.com/callback/github.
 ---
 
 >>>>>>> d23d6b30 (.)
+=======
+>>>>>>> eb80748f (.)

@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Autenticazione in Predict
 
 ## Panoramica
@@ -350,3 +351,5 @@ Route::middleware('guest')->group(function () {
 Per dettagli sull'implementazione del logout utilizzando Volt e Folio, consultare la [documentazione del modulo User](../laravel/Modules/User/project_docs/VOLT_FOLIO_LOGOUT_ERROR.md). 
 >>>>>>> fbc8f8e (.)
 >>>>>>> 27d6fa5f (.)
+=======
+>>>>>>> eb80748f (.)

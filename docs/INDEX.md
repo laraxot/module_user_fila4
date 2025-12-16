@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # User Module Documentation
 
 ## Overview
@@ -86,3 +87,5 @@ Ultimo aggiornamento: 14 Maggio 2025
 =======
 - [filament-best-practices.mdc](./filament-best-practices.mdc) — **Regola fondamentale:** chi estende XotBaseResource NON deve dichiarare $navigationGroup, $navigationLabel, né il metodo statico table(Table $table): Table. Seguire sempre questa regola per evitare errori di override e garantire coerenza tra i moduli.
 >>>>>>> d23d6b30 (.)
+=======
+>>>>>>> eb80748f (.)

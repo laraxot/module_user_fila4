@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # RegistrationWidget FileUpload Error Fix
 
 ## Problema Identificato
@@ -216,3 +217,5 @@ Questo pattern può essere riutilizzato in altri widget che:
 **Tipo**: Bug Fix Documentation  
 **Priorità**: Critica (blocca registrazione paziente)  
 **Status**: ✅ **RISOLTO** 
+=======
+>>>>>>> eb80748f (.)

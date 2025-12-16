@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # User Module Testing
 
 ## Overview
@@ -382,3 +383,5 @@ jobs:
 *User Module Testing - Ensuring reliable and secure user management functionality*
 *Testing del Modulo User: DRY + KISS + SOLID + ROBUST + LARAXOT*
 
+=======
+>>>>>>> eb80748f (.)
