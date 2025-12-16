@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
 # ==============================================
 # LARAXOT MODULE USER - .GITIGNORE
 # ==============================================
@@ -8,6 +16,10 @@
 # ==============================================
 # DEPENDENCIES & PACKAGES
 # ==============================================
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
 vendor/
 /vendor/
 node_modules/
@@ -160,3 +172,201 @@ user_test_data.csv
 *.fila2
 laravel
 public_html
+<<<<<<< HEAD
+=======
+=======
+# Dependencies
+=======
+>>>>>>> b93ef594b4 (.)
+vendor/
+/vendor/
+node_modules/
+/node_modules/
+/docs/vendor/
+package-lock.json
+yarn.lock
+yarn-error.log
+composer.lock
+
+# ==============================================
+# BUILD & COMPILED FILES
+# ==============================================
+/build
+/build/
+build/
+dist/
+docs/cache/
+cache/
+
+# ==============================================
+# CACHE & TEMPORARY FILES
+# ==============================================
+*.cache
+*.lock
+*.phar
+*.jar
+*.tmp
+*.swp
+*.swo
+*.stackdump
+*.exe
+*:Zone.Identifier
+v8-compile-cache-*
+.php-cs-fixer.cache
+.phpunit.result.cache
+
+# ==============================================
+# LOG FILES
+# ==============================================
+*.log
+error_log
+npm-debug.log*
+npm-debug.log
+yarn-error.log*
+lerna-debug.log*
+
+# ==============================================
+# LARAVEL SPECIFIC
+# ==============================================
+bootstrap/compiled.php
+app/storage/
+public/storage
+public/hot
+public_html/storage
+public_html/hot
+storage/*.key
+.env
+.env.*
+!.env.example
+
+# ==============================================
+# ENVIRONMENT & CONFIGURATION
+# ==============================================
+Homestead.yaml
+Homestead.json
+/.vagrant
+/.idea
+.phpintel
+
+# ==============================================
+# GIT SPECIFIC
+# ==============================================
+.git-rewrite/
+.git-rewrite
+.git-blame-ignore-revs
+
+# ==============================================
+# SYSTEM FILES
+# ==============================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ==============================================
+# BACKUP FILES
+# ==============================================
+*.old
+*.old1
+*.old2
+*.backup
+*.backup.*
+*.bak
+*.bakcup
+*.new
+
+# ==============================================
+# DEVELOPMENT TOOLS
+# ==============================================
+.windsurf/
+.cursor/
+.phpstorm.meta.php
+
+# ==============================================
+# DOCUMENTATION CACHE
+# ==============================================
+docs/phpstan/
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+docs/cache/
+
+# ==============================================
+# OLD DIRECTORIES (LEGACY CLEANUP)
+# ==============================================
+resources/views/Components_old/
+resources/views/Components_old
+database/Migrations_old/
+database/Migrations_old
+database/Seeders_old/
+database/Seeders_old
+database/Factories_old/
+database/Factories_old
+database/Factories_
+database_old/
+database_old
+
+# ==============================================
+# MODULE SPECIFIC - USER
+# ==============================================
+# File di configurazione locale
+config/local.php
+config/development.php
+
+# Cache autenticazione
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/views/
+
+# File di test temporanei
+test_users.json
+user_test_data.csv
+
+# ==============================================
+# END OF USER .GITIGNORE
+# ==============================================
+
+# 🚫 File specifici del progetto
+*.fila2
+laravel
+public_html
+>>>>>>> b93ef594b4 (.)
+=======
+# Dependencies
+vendor/
+node_modules/
+package-lock.json
+
+# Build and compiled files
+/build
+cache/
+docs/cache/
+
+# Cache and temporary files
+*.cache
+*.lock
+*.phar
+*.exe
+*:Zone.Identifier
+.php-cs-fixer.cache
+
+# Git related
+.git-rewrite/
+.git-blame-ignore-revs
+
+# Backup files
+*.old
+*.old1
+*.backup
+*.bak
+
+# File di log
+*.log
+
+# PHPStan documentation
+docs/phpstan/
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)

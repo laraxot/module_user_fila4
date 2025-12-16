@@ -2,15 +2,54 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+=======
+namespace Modules\User\Tests\Feature\Authentication\UserAuthenticationTest;
+
+namespace Modules\User\Tests\Unit\Widgets;
+
+>>>>>>> a12f125f4a (.)
+=======
+use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\Passport;
 use Modules\User\Models\Permission;
 use Modules\User\Models\Role;
 use Modules\User\Models\User;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+use Modules\User\Models\AuthenticationLog;
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+use Modules\User\Models\User;
+use Modules\User\Models\Role;
+use Modules\User\Models\Permission;
+use Modules\User\Models\AuthenticationLog;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Passport\Passport;
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -45,7 +84,23 @@ describe('User Authentication', function () {
         ]);
 
         expect($result)->toBe(true);
+<<<<<<< HEAD
         expect(Auth::user()?->id)->toBe($this->user->id);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        expect(Auth::user()?->id)->toBe($this->user->id);
+=======
+        expect(Auth::user()->id)->toBe($this->user->id);
+>>>>>>> a12f125f4a (.)
+=======
+        expect(Auth::user()?->id)->toBe($this->user->id);
+>>>>>>> b93ef594b4 (.)
+=======
+        expect(Auth::user()->id)->toBe($this->user->id);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     });
 
     it('cannot authenticate with invalid password', function () {
@@ -180,11 +235,31 @@ describe('User Password Management', function () {
             'password_expires_at' => $expirationDate,
         ]);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
         expect(
             $this
                 ->user->fresh()
                 ->password_expires_at->toDateString(),
         )
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        expect($this->user->fresh()->password_expires_at->toDateString())
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+        expect($this->user->fresh()->password_expires_at->toDateString())
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
             ->toBe($expirationDate->toDateString());
     });
 });
@@ -201,7 +276,27 @@ describe('User Remember Token', function () {
         $token = Str::random(60);
         $this->user->update(['remember_token' => $token]);
 
+<<<<<<< HEAD
         $user = User::where('email', $this->user->email)->where('remember_token', $token)->first();
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        $user = User::where('email', $this->user->email)->where('remember_token', $token)->first();
+=======
+        $user = User::where('email', $this->user->email)
+            ->where('remember_token', $token)
+            ->first();
+>>>>>>> a12f125f4a (.)
+=======
+        $user = User::where('email', $this->user->email)->where('remember_token', $token)->first();
+>>>>>>> b93ef594b4 (.)
+=======
+        $user = User::where('email', $this->user->email)
+            ->where('remember_token', $token)
+            ->first();
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 
         expect($user)->not->toBeNull();
         expect($user->id)->toBe($this->user->id);
@@ -310,7 +405,23 @@ describe('User Email Verification', function () {
 
         $user->sendEmailVerificationNotification();
 
+<<<<<<< HEAD
         Notification::assertSentTo($user, VerifyEmail::class);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        Notification::assertSentTo($user, VerifyEmail::class);
+=======
+        Notification::assertSentTo($user, \Illuminate\Auth\Notifications\VerifyEmail::class);
+>>>>>>> a12f125f4a (.)
+=======
+        Notification::assertSentTo($user, VerifyEmail::class);
+>>>>>>> b93ef594b4 (.)
+=======
+        Notification::assertSentTo($user, \Illuminate\Auth\Notifications\VerifyEmail::class);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     });
 });
 
@@ -423,13 +534,45 @@ describe('User OAuth Authentication', function () {
     it('can have oauth clients', function () {
         Passport::actingAs($this->user);
 
+<<<<<<< HEAD
         expect($this->user->clients())->toBeInstanceOf(HasMany::class);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        expect($this->user->clients())->toBeInstanceOf(HasMany::class);
+=======
+        expect($this->user->clients())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
+>>>>>>> a12f125f4a (.)
+=======
+        expect($this->user->clients())->toBeInstanceOf(HasMany::class);
+>>>>>>> b93ef594b4 (.)
+=======
+        expect($this->user->clients())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     });
 
     it('can have oauth tokens', function () {
         Passport::actingAs($this->user);
 
+<<<<<<< HEAD
         expect($this->user->tokens())->toBeInstanceOf(HasMany::class);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        expect($this->user->tokens())->toBeInstanceOf(HasMany::class);
+=======
+        expect($this->user->tokens())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
+>>>>>>> a12f125f4a (.)
+=======
+        expect($this->user->tokens())->toBeInstanceOf(HasMany::class);
+>>>>>>> b93ef594b4 (.)
+=======
+        expect($this->user->tokens())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     });
 
     it('can find user for passport', function () {
@@ -448,12 +591,41 @@ describe('User OAuth Authentication', function () {
 
 describe('User Authentication Logging', function () {
     it('can log authentication attempts', function () {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 81efa49 (.)
         expect($this->user->authentications())->toBeInstanceOf(HasMany::class);
     });
 
     it('can get latest authentication log', function () {
         expect($this->user->latestAuthentication())
             ->toBeInstanceOf(HasOne::class);
+<<<<<<< HEAD
+=======
+=======
+=======
+>>>>>>> origin/develop
+        expect($this->user->authentications())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
+    });
+
+    it('can get latest authentication log', function () {
+        expect($this->user->latestAuthentication())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasOne::class);
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+        expect($this->user->authentications())->toBeInstanceOf(HasMany::class);
+    });
+
+    it('can get latest authentication log', function () {
+        expect($this->user->latestAuthentication())
+            ->toBeInstanceOf(HasOne::class);
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
     });
 });
 
@@ -525,4 +697,20 @@ describe('User Two Factor Authentication', function () {
         // Should handle OTP requirement
         expect($user->is_otp)->toBe(true);
     });
+<<<<<<< HEAD
 });
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+});
+=======
+
+>>>>>>> a12f125f4a (.)
+=======
+});
+>>>>>>> b93ef594b4 (.)
+=======
+});
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
