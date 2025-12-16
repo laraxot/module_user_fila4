@@ -19,29 +19,10 @@ class EditTeamProfile extends EditTenantProfile
      */
     /** @phpstan-ignore-next-line return.type */
     public function getFormSchema(): array
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
     {
         return [
             TextInput::make('name'),
             // ...
         ];
     }
-<<<<<<< HEAD
-=======
-{
-    
-        
-    return [
-              
-                    TextInput::make('name'),
-                    // ...
-                
-      ];
-}
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 }
