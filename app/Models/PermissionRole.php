@@ -34,12 +34,8 @@ use Webmozart\Assert\Assert;
  * @method static Builder|PermissionRole whereUpdatedBy($value)
  *
  * @mixin IdeHelperPermissionRole
- * <<<<<<< HEAD
  *
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
- *
- * =======
- * >>>>>>> e4cd89fa (.)
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */

@@ -25,16 +25,6 @@ use Webmozart\Assert\Assert;
 /**
  * Modules\User\Models\Role.
  *
- * <<<<<<< HEAD
- * =======
- * <<<<<<< HEAD
- * <<<<<<< HEAD
- *
- * =======
- * >>>>>>> a382d4f1 (.)
- *
- * >>>>>>> e4cd89fa (.)
- *
  * @property string                                      $id
  * @property string                                      $uuid
  * @property string|null                                 $team_id
@@ -47,26 +37,6 @@ use Webmozart\Assert\Assert;
  * @property Team|null                                   $team
  * @property EloquentCollection<int, Model&UserContract> $users
  * @property int|null                                    $users_count
- *                                                                          <<<<<<< HEAD
- *                                                                          =======
- *                                                                          <<<<<<< HEAD
- *                                                                          =======
- * @property string                                      $id
- * @property string                                      $uuid
- * @property string|null                                 $team_id
- * @property string                                      $name
- * @property string                                      $guard_name
- * @property Carbon|null                                 $created_at
- * @property Carbon|null                                 $updated_at
- * @property Collection<int, Permission>                 $permissions
- * @property int|null                                    $permissions_count
- * @property Team|null                                   $team
- * @property EloquentCollection<int, Model&UserContract> $users
- * @property int|null                                    $users_count
- *                                                                          >>>>>>> laraxot/develop
- *                                                                          =======
- *                                                                          >>>>>>> a382d4f1 (.)
- *                                                                          >>>>>>> e4cd89fa (.)
  *
  * @method static Builder|Role newModelQuery()
  * @method static Builder|Role newQuery()

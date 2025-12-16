@@ -11,22 +11,12 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 return new class extends XotBaseMigration {
     /**
-     * <<<<<<< HEAD
-     * =======
-     * <<<<<<< HEAD
-     * Run the migrations.
-     * =======
-     * >>>>>>> e4cd89fa (.)
      * Nome della tabella gestita dalla migrazione.
      */
     protected string $table_name = 'teams';
 
     /**
      * Esegue la migrazione.
-     * <<<<<<< HEAD
-     * =======
-     * >>>>>>> a382d4f1 (.).
-     * >>>>>>> e4cd89fa (.).
      */
     public function up(): void
     {

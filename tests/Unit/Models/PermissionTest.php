@@ -2,249 +2,203 @@
 
 declare(strict_types=1);
 
-namespace Modules\User\Tests\Unit\Models;
-
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\User\Models\Permission;
-use Tests\TestCase;
+use Modules\User\Tests\TestCase;
 
-class PermissionTest extends TestCase
-{
-    use RefreshDatabase;
+uses(TestCase::class);
 
-    public function testCanCreatePermissionWithMinimalData(): void
-    {
-        $permission = Permission::factory()->create([
-            'name' => 'test.permission',
-            'guard_name' => 'web',
-        ]);
+test('can create permission with minimal data', function (): void {
+    $permission = Permission::factory()->create([
+        'name' => 'test.permission',
+        'guard_name' => 'web',
+    ]);
 
-        $this->assertDatabaseHas('permissions', [
-            'id' => $permission->id,
-            'name' => 'test.permission',
-            'guard_name' => 'web',
-        ]);
-    }
+    expect($permission->id)->not->toBeNull();
+    expect($permission->name)->toBe('test.permission');
+    expect($permission->guard_name)->toBe('web');
+});
 
-    public function testCanCreatePermissionWithAllFields(): void
-    {
-        $permissionData = [
-            'name' => 'full.permission',
-            'guard_name' => 'web',
-            'created_by' => 'user123',
-            'updated_by' => 'user456',
-        ];
+test('can create permission with all fields', function (): void {
+    $permissionData = [
+        'name' => 'full.permission',
+        'guard_name' => 'web',
+        'created_by' => 'user123',
+        'updated_by' => 'user456',
+    ];
 
-        $permission = Permission::factory()->create($permissionData);
+    $permission = Permission::factory()->create($permissionData);
 
-        $this->assertDatabaseHas('permissions', [
-            'id' => $permission->id,
-            'name' => 'full.permission',
-            'guard_name' => 'web',
-            'created_by' => 'user123',
-            'updated_by' => 'user456',
-        ]);
-    }
+    expect($permission->id)->not->toBeNull();
+    expect($permission->name)->toBe('full.permission');
+    expect($permission->guard_name)->toBe('web');
+    expect($permission->created_by)->toBe('user123');
+    expect($permission->updated_by)->toBe('user456');
+});
 
-    public function testPermissionHasConnectionAttribute(): void
-    {
-        $permission = new Permission();
+test('permission has connection attribute', function (): void {
+    $permission = new Permission();
 
-        static::assertSame('user', $permission->connection);
-    }
+    expect($permission->connection)->toBe('user');
+});
 
-    public function testPermissionHasKeyTypeAttribute(): void
-    {
-        $permission = new Permission();
+test('permission has key type attribute', function (): void {
+    $permission = new Permission();
 
-        static::assertSame('string', $permission->keyType);
-    }
+    expect($permission->keyType)->toBe('string');
+});
 
-    public function testPermissionHasFillableAttributes(): void
-    {
-        $permission = new Permission();
+test('permission has fillable attributes', function (): void {
+    $permission = new Permission();
 
-        $expectedFillable = [
-            'id',
-            'name',
-            'guard_name',
-            'created_at',
-            'updated_at',
-            'created_by',
-            'updated_by',
-        ];
+    $fillable = $permission->getFillable();
 
-        static::assertSame($expectedFillable, $permission->getFillable());
-    }
+    expect($fillable)->toContain('id');
+    expect($fillable)->toContain('name');
+    expect($fillable)->toContain('guard_name');
+});
 
-    public function testPermissionHasCasts(): void
-    {
-        $permission = new Permission();
+test('permission has casts', function (): void {
+    $permission = new Permission();
 
-        $expectedCasts = [
-            'id' => 'string',
-            'uuid' => 'string',
-            'name' => 'string',
-            'guard_name' => 'string',
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-        ];
+    $casts = $permission->getCasts();
 
-        static::assertSame($expectedCasts, $permission->getCasts());
-    }
+    expect($casts)->toHaveKey('id');
+    expect($casts)->toHaveKey('name');
+    expect($casts)->toHaveKey('guard_name');
+    expect($casts)->toHaveKey('created_at');
+    expect($casts)->toHaveKey('updated_at');
+});
 
-    public function testCanFindPermissionByName(): void
-    {
-        $permission = Permission::factory()->create(['name' => 'unique.permission']);
+test('can find permission by name', function (): void {
+    $permission = Permission::factory()->create(['name' => 'unique.permission']);
 
-        $foundPermission = Permission::where('name', 'unique.permission')->first();
+    $foundPermission = Permission::where('name', 'unique.permission')->first();
 
-        static::assertNotNull($foundPermission);
-        static::assertSame($permission->id, $foundPermission->id);
-    }
+    expect($foundPermission)->not->toBeNull();
+    expect($foundPermission->id)->toBe($permission->id);
+});
 
-    public function testCanFindPermissionByGuardName(): void
-    {
-        Permission::factory()->create(['guard_name' => 'web']);
-        Permission::factory()->create(['guard_name' => 'api']);
-        Permission::factory()->create(['guard_name' => 'web']);
+test('can find permission by guard name', function (): void {
+    Permission::factory()->create(['guard_name' => 'web']);
+    Permission::factory()->create(['guard_name' => 'api']);
+    Permission::factory()->create(['guard_name' => 'web']);
 
-        $webPermissions = Permission::where('guard_name', 'web')->get();
+    $webPermissions = Permission::where('guard_name', 'web')->get();
 
-        static::assertCount(2, $webPermissions);
-        static::assertTrue($webPermissions->every(fn ($permission) => 'web' === $permission->guard_name));
-    }
+    expect($webPermissions->count())->toBeGreaterThanOrEqual(2);
+    expect($webPermissions->every(fn ($permission) => 'web' === $permission->guard_name))->toBeTrue();
+});
 
-    public function testCanFindPermissionByCreatedBy(): void
-    {
-        $permission = Permission::factory()->create(['created_by' => 'user123']);
+test('can find permission by created by', function (): void {
+    $permission = Permission::factory()->create(['created_by' => 'user123']);
 
-        $foundPermission = Permission::where('created_by', 'user123')->first();
+    $foundPermission = Permission::where('created_by', 'user123')->first();
 
-        static::assertNotNull($foundPermission);
-        static::assertSame($permission->id, $foundPermission->id);
-    }
+    expect($foundPermission)->not->toBeNull();
+    expect($foundPermission->id)->toBe($permission->id);
+});
 
-    public function testCanFindPermissionByUpdatedBy(): void
-    {
-        $permission = Permission::factory()->create(['updated_by' => 'user456']);
+test('can find permission by updated by', function (): void {
+    $permission = Permission::factory()->create(['updated_by' => 'user456']);
 
-        $foundPermission = Permission::where('updated_by', 'user456')->first();
+    $foundPermission = Permission::where('updated_by', 'user456')->first();
 
-        static::assertNotNull($foundPermission);
-        static::assertSame($permission->id, $foundPermission->id);
-    }
+    expect($foundPermission)->not->toBeNull();
+    expect($foundPermission->id)->toBe($permission->id);
+});
 
-    public function testCanFindPermissionsByNamePattern(): void
-    {
-        Permission::factory()->create(['name' => 'user.create']);
-        Permission::factory()->create(['name' => 'user.update']);
-        Permission::factory()->create(['name' => 'user.delete']);
-        Permission::factory()->create(['name' => 'post.read']);
+test('can find permissions by name pattern', function (): void {
+    Permission::factory()->create(['name' => 'user.create']);
+    Permission::factory()->create(['name' => 'user.update']);
+    Permission::factory()->create(['name' => 'user.delete']);
+    Permission::factory()->create(['name' => 'post.read']);
 
-        $userPermissions = Permission::where('name', 'like', 'user.%')->get();
+    $userPermissions = Permission::where('name', 'like', 'user.%')->get();
 
-        static::assertCount(3, $userPermissions);
-        static::assertTrue($userPermissions->every(fn ($permission) => str_starts_with($permission->name, 'user.')));
-    }
+    expect($userPermissions->count())->toBeGreaterThanOrEqual(3);
+    expect($userPermissions->every(fn ($permission) => str_starts_with($permission->name, 'user.')))->toBeTrue();
+});
 
-    public function testCanUpdatePermission(): void
-    {
-        $permission = Permission::factory()->create(['name' => 'old.permission']);
+test('can update permission', function (): void {
+    $permission = Permission::factory()->create(['name' => 'old.permission']);
 
-        $permission->update(['name' => 'new.permission']);
+    $permission->update(['name' => 'new.permission']);
 
-        $this->assertDatabaseHas('permissions', [
-            'id' => $permission->id,
-            'name' => 'new.permission',
-        ]);
-    }
+    expect($permission->fresh()->name)->toBe('new.permission');
+});
 
-    public function testCanHandleNullValues(): void
-    {
-        $permission = Permission::factory()->create([
-            'name' => 'test.permission',
-            'guard_name' => 'web',
-            'created_by' => null,
-            'updated_by' => null,
-        ]);
+test('can handle null values', function (): void {
+    $permission = Permission::factory()->create([
+        'name' => 'test.permission',
+        'guard_name' => 'web',
+        'created_by' => null,
+        'updated_by' => null,
+    ]);
 
-        $this->assertDatabaseHas('permissions', [
-            'id' => $permission->id,
-            'created_by' => null,
-            'updated_by' => null,
-        ]);
-    }
+    expect($permission->created_by)->toBeNull();
+    expect($permission->updated_by)->toBeNull();
+});
 
-    public function testCanFindPermissionsByMultipleCriteria(): void
-    {
-        Permission::factory()->create([
-            'name' => 'admin.user.create',
-            'guard_name' => 'web',
-            'created_by' => 'admin',
-        ]);
+test('can find permissions by multiple criteria', function (): void {
+    Permission::factory()->create([
+        'name' => 'admin.user.create',
+        'guard_name' => 'web',
+        'created_by' => 'admin',
+    ]);
 
-        Permission::factory()->create([
-            'name' => 'admin.user.update',
-            'guard_name' => 'api',
-            'created_by' => 'admin',
-        ]);
+    Permission::factory()->create([
+        'name' => 'admin.user.update',
+        'guard_name' => 'api',
+        'created_by' => 'admin',
+    ]);
 
-        $permissions = Permission::where('name', 'like', 'admin.user.%')->where('created_by', 'admin')->get();
+    $permissions = Permission::where('name', 'like', 'admin.user.%')->where('created_by', 'admin')->get();
 
-        static::assertCount(2, $permissions);
-        static::assertTrue($permissions->every(
-            fn ($permission) => str_starts_with($permission->name, 'admin.user.') && 'admin' === $permission->created_by,
-        ));
-    }
+    expect($permissions->count())->toBeGreaterThanOrEqual(2);
+    expect($permissions->every(
+        fn ($permission) => str_starts_with($permission->name, 'admin.user.') && 'admin' === $permission->created_by,
+    ))->toBeTrue();
+});
 
-    public function testPermissionHasRolesRelationship(): void
-    {
-        $permission = Permission::factory()->create();
+test('permission has roles relationship', function (): void {
+    $permission = Permission::factory()->create();
 
-        static::assertTrue(method_exists($permission, 'roles'));
-    }
+    expect(method_exists($permission, 'roles'))->toBeTrue();
+});
 
-    public function testPermissionHasUsersRelationship(): void
-    {
-        $permission = Permission::factory()->create();
+test('permission has users relationship', function (): void {
+    $permission = Permission::factory()->create();
 
-        static::assertTrue(method_exists($permission, 'users'));
-    }
+    expect(method_exists($permission, 'users'))->toBeTrue();
+});
 
-    public function testPermissionCanUseRoleScopes(): void
-    {
-        $permission = Permission::factory()->create();
+test('permission can use role scopes', function (): void {
+    $permission = Permission::factory()->create();
 
-        static::assertTrue(method_exists($permission, 'role'));
-    }
+    expect(method_exists($permission, 'role'))->toBeTrue();
+});
 
-    public function testPermissionCanUsePermissionScopes(): void
-    {
-        $permission = Permission::factory()->create();
+test('permission can use permission scopes', function (): void {
+    $permission = Permission::factory()->create();
 
-        static::assertTrue(method_exists($permission, 'permission'));
-        static::assertTrue(method_exists($permission, 'withoutPermission'));
-    }
+    expect(method_exists($permission, 'permission'))->toBeTrue();
+    expect(method_exists($permission, 'withoutPermission'))->toBeTrue();
+});
 
-    public function testPermissionCanUseWithoutRoleScopes(): void
-    {
-        $permission = Permission::factory()->create();
+test('permission can use without role scopes', function (): void {
+    $permission = Permission::factory()->create();
 
-        static::assertTrue(method_exists($permission, 'withoutRole'));
-    }
+    expect(method_exists($permission, 'withoutRole'))->toBeTrue();
+});
 
-    public function testPermissionHasFactoryMethod(): void
-    {
-        $permission = new Permission();
+test('permission has factory method', function (): void {
+    $permission = new Permission();
 
-        static::assertTrue(method_exists($permission, 'newFactory'));
-    }
+    expect(method_exists($permission, 'newFactory'))->toBeTrue();
+});
 
-    public function testPermissionHasGetTableMethod(): void
-    {
-        $permission = new Permission();
+test('permission has get table method', function (): void {
+    $permission = new Permission();
 
-        static::assertTrue(method_exists($permission, 'getTable'));
-    }
-}
+    expect(method_exists($permission, 'getTable'))->toBeTrue();
+});

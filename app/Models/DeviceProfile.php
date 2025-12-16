@@ -24,14 +24,10 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|DeviceProfile query()
  *
  * @mixin IdeHelperDeviceProfile
- * <<<<<<< HEAD
  *
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @method static \Modules\User\Database\Factories\DeviceProfileFactory factory($count = null, $state = [])
- *
- * =======
- * >>>>>>> e4cd89fa (.)
  *
  * @mixin \Eloquent
  */

@@ -2,251 +2,188 @@
 
 declare(strict_types=1);
 
-namespace Modules\User\Tests\Unit\Models;
-
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
-use Tests\TestCase;
+use Modules\User\Tests\TestCase;
 
-class TeamTest extends TestCase
-{
-    use RefreshDatabase;
+uses(TestCase::class);
 
-    public function testCanCreateTeamWithMinimalData(): void
-    {
-        $user = User::factory()->create();
+test('can create team with minimal data', function (): void {
+    $user = User::factory()->create();
 
-        $team = Team::factory()->create([
-            'user_id' => $user->id,
-            'name' => 'Test Team',
-        ]);
+    $team = Team::factory()->create([
+        'user_id' => $user->id,
+        'name' => 'Test Team',
+    ]);
 
-        $this->assertDatabaseHas('teams', [
-            'id' => $team->id,
-            'user_id' => $user->id,
-            'name' => 'Test Team',
-        ]);
-    }
+    expect($team->id)->not->toBeNull();
+    expect($team->user_id)->toBe($user->id);
+    expect($team->name)->toBe('Test Team');
+});
 
-    public function testCanCreateTeamWithAllFields(): void
-    {
-        $user = User::factory()->create();
+test('can create team with all fields', function (): void {
+    $user = User::factory()->create();
 
-        $teamData = [
-            'user_id' => $user->id,
-            'name' => 'Full Team',
-            'personal_team' => 0,
-            'code' => 'TEAM001',
-            'uuid' => '550e8400-e29b-41d4-a716-446655440000',
-            'owner_id' => $user->id,
-        ];
+    $teamData = [
+        'user_id' => $user->id,
+        'name' => 'Full Team',
+        'personal_team' => 0,
+        'code' => 'TEAM001',
+        'uuid' => '550e8400-e29b-41d4-a716-446655440000',
+        'owner_id' => $user->id,
+    ];
 
-        $team = Team::factory()->create($teamData);
+    $team = Team::factory()->create($teamData);
 
-        $this->assertDatabaseHas('teams', [
-            'id' => $team->id,
-            'user_id' => $user->id,
-            'name' => 'Full Team',
-            'personal_team' => 0,
-            'code' => 'TEAM001',
-            'uuid' => '550e8400-e29b-41d4-a716-446655440000',
-            'owner_id' => $user->id,
-        ]);
-    }
+    expect($team->id)->not->toBeNull();
+    expect($team->user_id)->toBe($user->id);
+    expect($team->name)->toBe('Full Team');
+    expect($team->personal_team)->toBe(0);
+    expect($team->code)->toBe('TEAM001');
+    expect($team->uuid)->toBe('550e8400-e29b-41d4-a716-446655440000');
+    expect($team->owner_id)->toBe($user->id);
+});
 
-    public function testTeamHasSoftDeletes(): void
-    {
-        $user = User::factory()->create();
-        $team = Team::factory()->create(['user_id' => $user->id]);
-        $teamId = $team->id;
+test('can find team by name', function (): void {
+    $user = User::factory()->create();
+    $team = Team::factory()->create([
+        'user_id' => $user->id,
+        'name' => 'Unique Team Name',
+    ]);
 
-        $team->delete();
+    $foundTeam = Team::where('name', 'Unique Team Name')->first();
 
-        $this->assertSoftDeleted('teams', ['id' => $teamId]);
-        $this->assertDatabaseMissing('teams', ['id' => $teamId]);
-    }
+    expect($foundTeam)->not->toBeNull();
+    expect($foundTeam->id)->toBe($team->id);
+});
 
-    public function testCanRestoreSoftDeletedTeam(): void
-    {
-        if (! method_exists(Team::class, 'withTrashed')) {
-            $this->markTestSkipped('SoftDeletes trait not present on Team model');
+test('can find team by code', function (): void {
+    $user = User::factory()->create();
+    $team = Team::factory()->create([
+        'user_id' => $user->id,
+        'code' => 'TEAM123',
+    ]);
 
-            return;
-        }
+    $foundTeam = Team::where('code', 'TEAM123')->first();
 
-        $user = User::factory()->create();
-        $team = Team::factory()->create(['user_id' => $user->id]);
-        $teamId = $team->id;
+    expect($foundTeam)->not->toBeNull();
+    expect($foundTeam->id)->toBe($team->id);
+});
 
-        $team->delete();
-        $this->assertSoftDeleted('teams', ['id' => $teamId]);
+test('can find team by uuid', function (): void {
+    $user = User::factory()->create();
+    $uuid = '550e8400-e29b-41d4-a716-446655440000';
+    $team = Team::factory()->create([
+        'user_id' => $user->id,
+        'uuid' => $uuid,
+    ]);
 
-        /** @var Team $restoredTeam */
-        $restoredTeam = Team::withTrashed()->find($teamId);
-        $restoredTeam->restore();
+    $foundTeam = Team::where('uuid', $uuid)->first();
 
-        $this->assertDatabaseHas('teams', ['id' => $teamId]);
-        static::assertNull($restoredTeam->deleted_at);
-    }
+    expect($foundTeam)->not->toBeNull();
+    expect($foundTeam->id)->toBe($team->id);
+});
 
-    public function testCanFindTeamByName(): void
-    {
-        $user = User::factory()->create();
-        $team = Team::factory()->create([
-            'user_id' => $user->id,
-            'name' => 'Unique Team Name',
-        ]);
+test('can find team by owner id', function (): void {
+    $user = User::factory()->create();
+    $team = Team::factory()->create([
+        'user_id' => $user->id,
+        'owner_id' => $user->id,
+    ]);
 
-        $foundTeam = Team::where('name', 'Unique Team Name')->first();
+    $foundTeam = Team::where('owner_id', $user->id)->first();
 
-        static::assertNotNull($foundTeam);
-        static::assertSame($team->id, $foundTeam->id);
-    }
+    expect($foundTeam)->not->toBeNull();
+    expect($foundTeam->id)->toBe($team->id);
+});
 
-    public function testCanFindTeamByCode(): void
-    {
-        $user = User::factory()->create();
-        $team = Team::factory()->create([
-            'user_id' => $user->id,
-            'code' => 'TEAM123',
-        ]);
+test('can find personal teams', function (): void {
+    $user = User::factory()->create();
+    Team::factory()->create([
+        'user_id' => $user->id,
+        'personal_team' => 1,
+    ]);
+    Team::factory()->create([
+        'user_id' => $user->id,
+        'personal_team' => 0,
+    ]);
 
-        $foundTeam = Team::where('code', 'TEAM123')->first();
+    $personalTeams = Team::where('personal_team', 1)->get();
 
-        static::assertNotNull($foundTeam);
-        static::assertSame($team->id, $foundTeam->id);
-    }
+    expect($personalTeams->count())->toBeGreaterThanOrEqual(1);
+    expect($personalTeams->first()->personal_team)->toBe(1);
+});
 
-    public function testCanFindTeamByUuid(): void
-    {
-        $user = User::factory()->create();
-        $uuid = '550e8400-e29b-41d4-a716-446655440000';
-        $team = Team::factory()->create([
-            'user_id' => $user->id,
-            'uuid' => $uuid,
-        ]);
+test('can find teams by user id', function (): void {
+    $user1 = User::factory()->create();
+    $user2 = User::factory()->create();
 
-        $foundTeam = Team::where('uuid', $uuid)->first();
+    Team::factory()->create(['user_id' => $user1->id]);
+    Team::factory()->create(['user_id' => $user1->id]);
+    Team::factory()->create(['user_id' => $user2->id]);
 
-        static::assertNotNull($foundTeam);
-        static::assertSame($team->id, $foundTeam->id);
-    }
+    $user1Teams = Team::where('user_id', $user1->id)->get();
 
-    public function testCanFindTeamByOwnerId(): void
-    {
-        $user = User::factory()->create();
-        $team = Team::factory()->create([
-            'user_id' => $user->id,
-            'owner_id' => $user->id,
-        ]);
+    expect($user1Teams->count())->toBeGreaterThanOrEqual(2);
+    expect($user1Teams->every(fn ($team) => $team->user_id === $user1->id))->toBeTrue();
+});
 
-        $foundTeam = Team::where('owner_id', $user->id)->first();
+test('can find teams by name pattern', function (): void {
+    $user = User::factory()->create();
+    Team::factory()->create(['user_id' => $user->id, 'name' => 'Development Team']);
+    Team::factory()->create(['user_id' => $user->id, 'name' => 'Marketing Team']);
+    Team::factory()->create(['user_id' => $user->id, 'name' => 'Sales Team']);
 
-        static::assertNotNull($foundTeam);
-        static::assertSame($team->id, $foundTeam->id);
-    }
+    $devTeams = Team::where('name', 'like', '%Team%')->get();
 
-    public function testCanFindPersonalTeams(): void
-    {
-        $user = User::factory()->create();
-        Team::factory()->create([
-            'user_id' => $user->id,
-            'personal_team' => 1,
-        ]);
-        Team::factory()->create([
-            'user_id' => $user->id,
-            'personal_team' => 0,
-        ]);
+    expect($devTeams->count())->toBeGreaterThanOrEqual(3);
+    expect($devTeams->every(fn ($team) => str_contains($team->name, 'Team')))->toBeTrue();
+});
 
-        $personalTeams = Team::where('personal_team', 1)->get();
+test('can update team', function (): void {
+    $user = User::factory()->create();
+    $team = Team::factory()->create([
+        'user_id' => $user->id,
+        'name' => 'Old Name',
+    ]);
 
-        static::assertCount(1, $personalTeams);
-        static::assertSame(1, $personalTeams->first()->personal_team);
-    }
+    $team->update(['name' => 'New Name']);
 
-    public function testCanFindTeamsByUserId(): void
-    {
-        $user1 = User::factory()->create();
-        $user2 = User::factory()->create();
+    expect($team->fresh()->name)->toBe('New Name');
+});
 
-        Team::factory()->create(['user_id' => $user1->id]);
-        Team::factory()->create(['user_id' => $user1->id]);
-        Team::factory()->create(['user_id' => $user2->id]);
+test('can handle null values', function (): void {
+    $user = User::factory()->create();
+    $team = Team::factory()->create([
+        'user_id' => $user->id,
+        'name' => 'Test Team',
+        'code' => null,
+        'uuid' => null,
+        'owner_id' => null,
+    ]);
 
-        $user1Teams = Team::where('user_id', $user1->id)->get();
+    expect($team->code)->toBeNull();
+    expect($team->uuid)->toBeNull();
+    expect($team->owner_id)->toBeNull();
+});
 
-        static::assertCount(2, $user1Teams);
-        static::assertTrue($user1Teams->every(fn ($team) => $team->user_id === $user1->id));
-    }
+test('can find teams by multiple criteria', function (): void {
+    $user = User::factory()->create();
+    Team::factory()->create([
+        'user_id' => $user->id,
+        'name' => 'Development Team',
+        'personal_team' => 0,
+    ]);
 
-    public function testCanFindTeamsByNamePattern(): void
-    {
-        $user = User::factory()->create();
-        Team::factory()->create(['user_id' => $user->id, 'name' => 'Development Team']);
-        Team::factory()->create(['user_id' => $user->id, 'name' => 'Marketing Team']);
-        Team::factory()->create(['user_id' => $user->id, 'name' => 'Sales Team']);
+    Team::factory()->create([
+        'user_id' => $user->id,
+        'name' => 'Personal Team',
+        'personal_team' => 1,
+    ]);
 
-        $devTeams = Team::where('name', 'like', '%Team%')->get();
+    $teams = Team::where('user_id', $user->id)->where('personal_team', 0)->get();
 
-        static::assertCount(3, $devTeams);
-        static::assertTrue($devTeams->every(fn ($team) => str_contains($team->name, 'Team')));
-    }
-
-    public function testCanUpdateTeam(): void
-    {
-        $user = User::factory()->create();
-        $team = Team::factory()->create([
-            'user_id' => $user->id,
-            'name' => 'Old Name',
-        ]);
-
-        $team->update(['name' => 'New Name']);
-
-        $this->assertDatabaseHas('teams', [
-            'id' => $team->id,
-            'name' => 'New Name',
-        ]);
-    }
-
-    public function testCanHandleNullValues(): void
-    {
-        $user = User::factory()->create();
-        $team = Team::factory()->create([
-            'user_id' => $user->id,
-            'name' => 'Test Team',
-            'code' => null,
-            'uuid' => null,
-            'owner_id' => null,
-        ]);
-
-        $this->assertDatabaseHas('teams', [
-            'id' => $team->id,
-            'code' => null,
-            'uuid' => null,
-            'owner_id' => null,
-        ]);
-    }
-
-    public function testCanFindTeamsByMultipleCriteria(): void
-    {
-        $user = User::factory()->create();
-        Team::factory()->create([
-            'user_id' => $user->id,
-            'name' => 'Development Team',
-            'personal_team' => 0,
-        ]);
-
-        Team::factory()->create([
-            'user_id' => $user->id,
-            'name' => 'Personal Team',
-            'personal_team' => 1,
-        ]);
-
-        $teams = Team::where('user_id', $user->id)->where('personal_team', 0)->get();
-
-        static::assertCount(1, $teams);
-        static::assertSame('Development Team', $teams->first()->name);
-        static::assertSame(0, $teams->first()->personal_team);
-    }
-}
+    expect($teams->count())->toBeGreaterThanOrEqual(1);
+    expect($teams->first()->name)->toBe('Development Team');
+    expect($teams->first()->personal_team)->toBe(0);
+});

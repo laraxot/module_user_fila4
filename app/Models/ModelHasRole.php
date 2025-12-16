@@ -44,12 +44,8 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property ProfileContract|null $updater
  *
  * @mixin IdeHelperModelHasRole
- * <<<<<<< HEAD
  *
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
- *
- * =======
- * >>>>>>> e4cd89fa (.)
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */

@@ -46,12 +46,8 @@ use Spatie\SchemalessAttributes\SchemalessAttributes;
  * @method static ExtraFactory factory($count = null, $state = [])
  *
  * @mixin IdeHelperExtra
- * <<<<<<< HEAD
  *
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
- *
- * =======
- * >>>>>>> e4cd89fa (.)
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */

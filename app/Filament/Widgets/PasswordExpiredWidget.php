@@ -12,7 +12,6 @@ use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Schema;
-use Filament\Schemas\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -27,32 +26,10 @@ use Modules\Xot\Filament\Widgets\XotBaseWidget;
 /**
  * Widget for handling expired password reset.
  *
- * <<<<<<< HEAD
- * =======
- * <<<<<<< HEAD
- * <<<<<<< HEAD
- *
- * =======
- * >>>>>>> a382d4f1 (.)
- *
- * >>>>>>> e4cd89fa (.)
- *
  * @property Schema                    $form
  * @property string|null               $current_password
  * @property string|null               $password
  * @property string|null               $passwordConfirmation
- *                                                           <<<<<<< HEAD
- *                                                           =======
- *                                                           <<<<<<< HEAD
- *                                                           =======
- * @property Schema                    $form
- * @property string|null               $current_password
- * @property string|null               $password
- * @property string|null               $passwordConfirmation
- *                                                           >>>>>>> laraxot/develop
- *                                                           =======
- *                                                           >>>>>>> a382d4f1 (.)
- *                                                           >>>>>>> e4cd89fa (.)
  * @property array<string, mixed>|null $data
  */
 class PasswordExpiredWidget extends XotBaseWidget

@@ -43,12 +43,8 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|ModelHasPermission whereTeamId($value)
  *
  * @mixin IdeHelperModelHasPermission
- * <<<<<<< HEAD
  *
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
- *
- * =======
- * >>>>>>> e4cd89fa (.)
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */

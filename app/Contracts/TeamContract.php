@@ -17,16 +17,6 @@ use Modules\Xot\Contracts\UserContract;
 /**
  * Modules\User\Contracts\TeamContract.
  *
- * <<<<<<< HEAD
- * =======
- * <<<<<<< HEAD
- * <<<<<<< HEAD
- *
- * =======
- * >>>>>>> a382d4f1 (.)
- *
- * >>>>>>> e4cd89fa (.)
- *
  * @property int               $id
  * @property int               $user_id
  * @property string            $name
@@ -37,24 +27,6 @@ use Modules\Xot\Contracts\UserContract;
  * @property UserContract|null $owner
  * @property int|null          $team_invitations_count
  * @property int|null          $users_count
- *                                                     <<<<<<< HEAD
- *                                                     =======
- *                                                     <<<<<<< HEAD
- *                                                     =======
- * @property int               $id
- * @property int               $user_id
- * @property string            $name
- * @property int               $personal_team
- * @property Carbon|null       $created_at
- * @property Carbon|null       $updated_at
- * @property string            $role
- * @property UserContract|null $owner
- * @property int|null          $team_invitations_count
- * @property int|null          $users_count
- *                                                     >>>>>>> laraxot/develop
- *                                                     =======
- *                                                     >>>>>>> a382d4f1 (.)
- *                                                     >>>>>>> e4cd89fa (.)
  *
  * @method static Builder|TeamContract newModelQuery()
  * @method static Builder|TeamContract newQuery()

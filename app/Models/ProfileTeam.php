@@ -41,16 +41,12 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|ProfileTeam whereUserId($value)
  *
  * @mixin IdeHelperProfileTeam
- * <<<<<<< HEAD
  *
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  * @property Team|null                                $team
  * @property User|null                                $user
  *
  * @method static \Modules\User\Database\Factories\ProfileTeamFactory factory($count = null, $state = [])
- *
- * =======
- * >>>>>>> e4cd89fa (.)
  *
  * @mixin \Eloquent
  */
