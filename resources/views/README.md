@@ -3,22 +3,30 @@
 ## Introduzione
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Tema One è il tema predefinito per il progetto, basato su Filament 4.3. Offre un'interfaccia moderna e responsive per la gestione dei contenuti del sito web.
 
 =======
 Tema One è il tema predefinito per il progetto, basato su Filament 3.3. Offre un'interfaccia moderna e responsive per la gestione dei contenuti del sito web.
 >>>>>>> a63f578 (.)
+=======
+Tema One è il tema predefinito per il progetto, basato su Filament 3.3. Offre un'interfaccia moderna e responsive per la gestione dei contenuti del sito web.
+>>>>>>> 041533e (.)
 
 ## Requisiti
 
 - PHP 8.1+
 - Laravel 10+
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Filament 4.3+
 
 =======
 - Filament 3.3+
 >>>>>>> a63f578 (.)
+=======
+- Filament 3.3+
+>>>>>>> 041533e (.)
 - Node.js 16+
 - NPM 8+
 
