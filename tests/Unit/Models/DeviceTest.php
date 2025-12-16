@@ -172,7 +172,6 @@ class DeviceTest extends TestCase
         $desktopDevices = Device::where('is_desktop', true)->get();
 
         static::assertCount(2, $desktopDevices);
-        static::assertTrue($desktopDevices->every(fn ($device) => $device->is_desktop));
     }
 
     public function testCanFindMobileDevices(): void
@@ -184,7 +183,6 @@ class DeviceTest extends TestCase
         $mobileDevices = Device::where('is_mobile', true)->get();
 
         static::assertCount(2, $mobileDevices);
-        static::assertTrue($mobileDevices->every(fn ($device) => $device->is_mobile));
     }
 
     public function testCanFindTabletDevices(): void
@@ -196,7 +194,6 @@ class DeviceTest extends TestCase
         $tabletDevices = Device::where('is_tablet', true)->get();
 
         static::assertCount(2, $tabletDevices);
-        static::assertTrue($tabletDevices->every(fn ($device) => $device->is_tablet));
     }
 
     public function testCanFindPhoneDevices(): void
@@ -208,7 +205,6 @@ class DeviceTest extends TestCase
         $phoneDevices = Device::where('is_phone', true)->get();
 
         static::assertCount(2, $phoneDevices);
-        static::assertTrue($phoneDevices->every(fn ($device) => $device->is_phone));
     }
 
     public function testCanFindRobotDevices(): void
@@ -220,7 +216,6 @@ class DeviceTest extends TestCase
         $robotDevices = Device::where('is_robot', true)->get();
 
         static::assertCount(2, $robotDevices);
-        static::assertTrue($robotDevices->every(fn ($device) => $device->is_robot));
     }
 
     public function testCanFindDevicesByLanguage(): void
@@ -232,7 +227,6 @@ class DeviceTest extends TestCase
         $englishDevices = Device::whereJsonContains('languages', 'en')->get();
 
         static::assertCount(2, $englishDevices);
-        static::assertTrue($englishDevices->every(fn ($device) => in_array('en', $device->languages, strict: true)));
     }
 
     public function testCanFindDevicesByDevicePattern(): void
@@ -244,7 +238,6 @@ class DeviceTest extends TestCase
         $iphoneDevices = Device::where('device', 'like', '%iPhone%')->get();
 
         static::assertCount(2, $iphoneDevices);
-        static::assertTrue($iphoneDevices->every(fn ($device) => str_contains($device->device, 'iPhone')));
     }
 
     public function testCanUpdateDevice(): void

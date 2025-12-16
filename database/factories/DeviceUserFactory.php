@@ -49,7 +49,6 @@ class DeviceUserFactory extends Factory
      */
     public function forUser(User $user): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'user_id' => $user->id,
         ]);
     }
@@ -59,7 +58,6 @@ class DeviceUserFactory extends Factory
      */
     public function forDevice(Device $device): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'device_id' => $device->id,
         ]);
     }
@@ -69,7 +67,6 @@ class DeviceUserFactory extends Factory
      */
     public function loggedIn(): static
     {
-        return $this->state(fn (array $_attributes): array => [
             'login_at' => $this->faker->dateTimeBetween('-1 day', 'now'),
             'logout_at' => null,
         ]);
@@ -82,7 +79,6 @@ class DeviceUserFactory extends Factory
     {
         $loginAt = $this->faker->dateTimeBetween('-1 month', '-1 day');
 
-        return $this->state(fn (array $_attributes): array => [
             'login_at' => $loginAt,
             'logout_at' => $this->faker->dateTimeBetween($loginAt, 'now'),
         ]);

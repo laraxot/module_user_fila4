@@ -55,7 +55,6 @@ class RoleFactory extends Factory
      */
     public function admin(): static
     {
-        return $this->state(fn (array $_attributes) => [
             'name' => 'admin',
         ]);
     }
@@ -65,7 +64,6 @@ class RoleFactory extends Factory
      */
     public function manager(): static
     {
-        return $this->state(fn (array $_attributes) => [
             'name' => 'manager',
         ]);
     }
@@ -75,7 +73,6 @@ class RoleFactory extends Factory
      */
     public function user(): static
     {
-        return $this->state(fn (array $_attributes) => [
             'name' => 'user',
         ]);
     }
@@ -85,7 +82,6 @@ class RoleFactory extends Factory
      */
     public function withGuard(string $guard): static
     {
-        return $this->state(fn (array $_attributes) => [
             'guard_name' => $guard,
         ]);
     }
