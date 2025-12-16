@@ -66,26 +66,10 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @mixin IdeHelperTeam
  *
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */
-<<<<<<< HEAD
 class Team extends BaseTeam
 {
 }
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-class Team extends BaseTeam {}
-=======
-class Team extends BaseTeam
-{
-}
->>>>>>> laraxot/develop
-=======
-class Team extends BaseTeam
-{
-}
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)

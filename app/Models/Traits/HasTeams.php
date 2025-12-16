@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models\Traits;
 
-use Modules\User\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -15,46 +14,23 @@ use Modules\User\Contracts\TeamContract;
 use Modules\User\Models\BaseUser;
 use Modules\User\Models\Membership;
 use Modules\User\Models\Role;
+use Modules\User\Models\User;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Webmozart\Assert\Assert;
 
 /**
- * Trait HasTeams
+ * Trait HasTeams.
  *
  * Provides team functionality for User models implementing team-based organization.
  * This trait handles team ownership, membership, permissions, and relationships.
  *
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
- * @property TeamContract $currentTeam
- * @property int|null $current_team_id
- * @property Collection<int, TeamContract> $teams
- * @property Collection<int, TeamContract> $ownedTeams
- * @property Collection<int, Membership> $teamUsers
- * @property UserContract|null $owner
-=======
->>>>>>> e4cd89fa (.)
  * @property TeamContract                  $currentTeam
  * @property int|null                      $current_team_id
  * @property Collection<int, TeamContract> $teams
  * @property Collection<int, TeamContract> $ownedTeams
  * @property Collection<int, Membership>   $teamUsers
  * @property UserContract|null             $owner
-<<<<<<< HEAD
-=======
->>>>>>> laraxot/develop
-=======
- * @property TeamContract                  $currentTeam
- * @property int|null                      $current_team_id
- * @property Collection<int, TeamContract> $teams
- * @property Collection<int, TeamContract> $ownedTeams
- * @property Collection<int, Membership>   $teamUsers
- * @property UserContract|null             $owner
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
  */
 trait HasTeams
 {
@@ -97,19 +73,7 @@ trait HasTeams
     public function belongsToTeam(TeamContract $team): bool
     {
         $found = $this->teams()->where('teams.id', $team->id)->first();
-<<<<<<< HEAD
         if (null === $found) {
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if ($found === null) {
-=======
-        if (null === $found) {
->>>>>>> laraxot/develop
-=======
-        if (null === $found) {
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
             return false;
         }
         Assert::isInstanceOf($found, TeamContract::class, 'Team must implement TeamContract.');
@@ -202,33 +166,11 @@ trait HasTeams
             // Membership always extends Model, check only if user attribute exists
             $user = $membership->getAttribute('user');
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-            return $user !== null ? $user : null;
-        })->filter();
-
-        $owner = $this->owner;
-        if ($owner !== null && $owner instanceof User) {
-=======
->>>>>>> e4cd89fa (.)
             return null !== $user ? $user : null;
         })->filter();
 
         $owner = $this->owner;
         if (null !== $owner && $owner instanceof User) {
-<<<<<<< HEAD
-=======
->>>>>>> laraxot/develop
-=======
-            return null !== $user ? $user : null;
-        })->filter();
-
-        $owner = $this->owner;
-        if (null !== $owner && $owner instanceof User) {
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
             return $users->merge([$owner]);
         }
 
@@ -247,37 +189,13 @@ trait HasTeams
             if (\is_object($memberUser) && method_exists($memberUser, 'getKey')) {
                 $memberUserKey = $memberUser->getKey();
 
-<<<<<<< HEAD
                 return null !== $memberUserKey && $memberUserKey === $user->getKey();
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-                return $memberUserKey !== null && $memberUserKey === $user->getKey();
-=======
-                return null !== $memberUserKey && $memberUserKey === $user->getKey();
->>>>>>> laraxot/develop
-=======
-                return null !== $memberUserKey && $memberUserKey === $user->getKey();
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
             }
 
             return false;
         });
 
-<<<<<<< HEAD
         if (null !== $userFound) {
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if ($userFound !== null) {
-=======
-        if (null !== $userFound) {
->>>>>>> laraxot/develop
-=======
-        if (null !== $userFound) {
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
             return true;
         }
 
@@ -316,19 +234,7 @@ trait HasTeams
 
         $teamRole = $this->teamRole($team);
 
-<<<<<<< HEAD
         return null !== $teamRole && isset($teamRole->name) && $teamRole->name === $role;
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $teamRole !== null && isset($teamRole->name) && $teamRole->name === $role;
-=======
-        return null !== $teamRole && isset($teamRole->name) && $teamRole->name === $role;
->>>>>>> laraxot/develop
-=======
-        return null !== $teamRole && isset($teamRole->name) && $teamRole->name === $role;
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
     }
 
     /**
@@ -339,33 +245,11 @@ trait HasTeams
     public function currentTeam(): BelongsTo
     {
         $xot = XotData::make();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if ($this->current_team_id === null && $this->id) {
-            $this->switchTeam($this->personalTeam());
-        }
-
-        if ($this->allTeams()->isEmpty() && $this->getKey() !== null) {
-=======
->>>>>>> e4cd89fa (.)
         if (null === $this->current_team_id && $this->id) {
             $this->switchTeam($this->personalTeam());
         }
 
         if ($this->allTeams()->isEmpty() && null !== $this->getKey()) {
-<<<<<<< HEAD
-=======
->>>>>>> laraxot/develop
-=======
-        if (null === $this->current_team_id && $this->id) {
-            $this->switchTeam($this->personalTeam());
-        }
-
-        if ($this->allTeams()->isEmpty() && null !== $this->getKey()) {
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
             $this->current_team_id = null;
             $this->save();
         }
@@ -406,19 +290,7 @@ trait HasTeams
         /** @var Model|Pivot|null $teamUser */
         $teamUser = $this->teamUsers()->where('team_id', $team->id)->first();
 
-<<<<<<< HEAD
         if (null === $teamUser) {
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if ($teamUser === null) {
-=======
-        if (null === $teamUser) {
->>>>>>> laraxot/develop
-=======
-        if (null === $teamUser) {
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
             return null;
         }
 
@@ -437,19 +309,7 @@ trait HasTeams
     {
         $role = $this->teamRole($team);
 
-<<<<<<< HEAD
         if (null === $role || ! $role->permissions) {
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if ($role === null || ! $role->permissions) {
-=======
-        if (null === $role || ! $role->permissions) {
->>>>>>> laraxot/develop
-=======
-        if (null === $role || ! $role->permissions) {
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
             return [];
         }
 
@@ -483,19 +343,7 @@ trait HasTeams
      */
     public function switchTeam(?TeamContract $team): bool
     {
-<<<<<<< HEAD
         if (null === $team) {
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if ($team === null) {
-=======
-        if (null === $team) {
->>>>>>> laraxot/develop
-=======
-        if (null === $team) {
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
             return false;
         }
 
@@ -514,19 +362,7 @@ trait HasTeams
      */
     public function isCurrentTeam(TeamContract $team): bool
     {
-<<<<<<< HEAD
         if (null === $this->currentTeam) {
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if ($this->currentTeam === null) {
-=======
-        if (null === $this->currentTeam) {
->>>>>>> laraxot/develop
-=======
-        if (null === $this->currentTeam) {
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
             return false;
         }
 
@@ -541,19 +377,7 @@ trait HasTeams
         /** @var ?Model $found */
         $found = $this->ownedTeams()->where('teams.id', $team->id)->first();
 
-<<<<<<< HEAD
         return null !== $found;
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $found !== null;
-=======
-        return null !== $found;
->>>>>>> laraxot/develop
-=======
-        return null !== $found;
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
     }
 
     /**

@@ -4,16 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Modules\Xot\Models\Traits\HasXotFactory;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
@@ -52,12 +42,9 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static Builder|TenantUser whereDeletedBy($value)
  * @method static Builder|TenantUser whereTenantId($value)
  *
- * @property ProfileContract|null $creator
- * @property ProfileContract|null $updater
- *
- * @mixin IdeHelperTenantUser
- *
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  *
  * @method static \Modules\User\Database\Factories\TenantUserFactory factory($count = null, $state = [])
  *

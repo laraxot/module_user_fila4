@@ -15,16 +15,6 @@ use Modules\User\Filament\Resources\SocialProviderResource\Pages\ListSocialProvi
 use Modules\User\Filament\Resources\SocialProviderResource\Pages\ViewSocialProvider;
 use Modules\User\Models\SocialProvider;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
 
 /**
  * @property SocialProvider $record

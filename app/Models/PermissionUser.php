@@ -18,29 +18,11 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|PermissionUser query()
  *
  * @mixin IdeHelperPermissionUser
-<<<<<<< HEAD
  *
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */
 class PermissionUser extends ModelHasPermission
 {
 }
-=======
- * @mixin \Eloquent
- */
-<<<<<<< HEAD
-<<<<<<< HEAD
-class PermissionUser extends ModelHasPermission {}
-=======
-class PermissionUser extends ModelHasPermission
-{
-}
->>>>>>> laraxot/develop
-=======
-class PermissionUser extends ModelHasPermission
-{
-}
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)

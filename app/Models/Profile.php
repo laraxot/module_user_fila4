@@ -84,7 +84,7 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * @property string|null                              $created_by
  * @property \Illuminate\Support\Carbon|null          $deleted_at
  * @property string|null                              $deleted_by
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @method static Builder<static>|Profile whereBio($value)
  * @method static Builder<static>|Profile whereCreatedAt($value)

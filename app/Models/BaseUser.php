@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Override;
-use Throwable;
-use Exception;
-use DateTime;
 use Filament\Models\Contracts\HasName;
 use Filament\Models\Contracts\HasTenants;
 use Filament\Panel;
@@ -88,12 +84,12 @@ use Spatie\Permission\Traits\HasRoles;
  * @property bool|null                                                 $is_active
  * @property bool|null                                                 $is_otp
  * @property string|null                                               $type
- * @property DateTime|null $password_expires_at
- * @property DateTime|null $email_verified_at
+ * @property \DateTime|null                                            $password_expires_at
+ * @property \DateTime|null                                            $email_verified_at
  * @property string|null                                               $remember_token
- * @property DateTime|null $created_at
- * @property DateTime|null $updated_at
- * @property DateTime|null $deleted_at
+ * @property \DateTime|null                                            $created_at
+ * @property \DateTime|null                                            $updated_at
+ * @property \DateTime|null                                            $deleted_at
  * @property string|null                                               $created_by
  * @property string|null                                               $updated_by
  * @property string|null                                               $deleted_by
@@ -147,40 +143,6 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     use Notifiable;
     use RelationX;
     use Traits\HasTenants;
-<<<<<<< HEAD
-=======
-    use HasXotFactory;
-
-    #[Override]
-    public function clients(): HasMany
-    {
-        /** @var HasMany $clients */
-        $clients = $this->passportClients();
-
-        return $clients;
-    }
-
-    #[Override]
-    public function tokens(): HasMany
-    {
-        /** @var HasMany $tokens */
-        $tokens = $this->passportTokens();
-
-        return $tokens;
-    }
-
-    #[Override]
-    public function token(): Token|TransientToken|null
-    {
-        return $this->passportToken();
-    }
-
-    #[Override]
-    public function tokenCan(string $scope): bool
-    {
-        return $this->passportTokenCan($scope);
-    }
->>>>>>> e4cd89fa (.)
 
     public $incrementing = false;
 
@@ -258,7 +220,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         try {
             $this->fillable = array_values(array_merge(parent::getFillable(), $this->getFillable()));
             parent::__construct($attributes);
-        } catch (Throwable $e) {
+        } catch (\Throwable $e) {
             // Fallback in case database connection is not available (e.g., during testing)
             $this->fillable = array_values($this->getFillable());
             // Avoid calling parent constructor if database is not available
@@ -293,7 +255,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         return $fullName;
     }
 
-    #[Override]
+    #[\Override]
     public function profile(): HasOne
     {
         try {
@@ -307,7 +269,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             // Questo evita l'errore "Target [Illuminate\Database\Eloquent\Model] is not instantiable"
             // Utilizziamo una classe che sicuramente esiste nel sistema
             return $this->hasOne(Model::class);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             // Fallback: se non riesce a ottenere la classe Profile, usa una relazione generica
             // Questo evita l'errore "Target [Illuminate\Database\Eloquent\Model] is not instantiable"
             // Utilizziamo una classe che sicuramente esiste nel sistema
@@ -332,34 +294,6 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         $this->assignRole($role);
     }
 
-<<<<<<< HEAD
-=======
-    /**
-     * @param string $name
-     */
-    #[Override]
-    public function createToken($name, array $scopes = []): PersonalAccessTokenResult
-    {
-        return $this->passportCreateToken((string) $name, $scopes);
-    }
-
-    #[Override]
-    public function withAccessToken(Token|TransientToken $accessToken): static
-    {
-        $this->passportWithAccessToken($accessToken);
-
-        return $this;
-    }
-
-    #[Override]
-    public function removeRole(SpatieRoleContract|string|int $role): static
-    {
-        $this->spatieRemoveRole($role);
-
-        return $this;
-    }
-
->>>>>>> e4cd89fa (.)
     public function canAccessPanel(Panel $panel): bool
     {
         // $panel->default('admin');
@@ -436,7 +370,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     {
         $socialiteUser = $this->socialiteUsers()->firstWhere(['provider' => $provider]);
         if (null === $socialiteUser) {
-            throw new Exception('SocialiteUser not found');
+            throw new \Exception('SocialiteUser not found');
         }
 
         $res = $socialiteUser->{$field};
@@ -516,7 +450,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             $this->update(['name' => $value]);
 
             return $value;
-        } catch (Throwable $e) {
+        } catch (\Throwable $e) {
             // If any issue occurs (e.g., missing connection/table), fall back without DB.
             $this->attributes['name'] = $candidate;
 
@@ -534,7 +468,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
      *
      * @param array|\Illuminate\Support\Collection|int|SpatieRoleContract|string $roles
      */
-    #[Override]
+    #[\Override]
     public function hasRole($roles, ?string $guard = null): bool
     {
         // Se è una stringa semplice, utilizziamo il metodo interno tramite relazione roles

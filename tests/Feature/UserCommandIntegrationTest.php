@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use Illuminate\Console\Application;
 use Illuminate\Console\Command;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Artisan;
 use Modules\User\Console\Commands\ChangeTypeCommand;
@@ -12,7 +11,6 @@ use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Webmozart\Assert\Assert;
 
-uses(RefreshDatabase::class);
 
 describe('User Command Integration', function () {
     beforeEach(function () {

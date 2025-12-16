@@ -48,16 +48,6 @@ class Otp extends Notification implements ShouldQueue
         $pwd = PasswordData::make();
         $app_name = SafeStringCastAction::cast(config('app.name'));
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
         $mailMessage = new MailMessage();
         $mailMessage = $mailMessage->template('user::notifications.email');
         $mailMessage = $mailMessage->subject(SafeStringCastAction::cast(__('user::otp.mail.subject')));
@@ -68,27 +58,7 @@ class Otp extends Notification implements ShouldQueue
         $mailMessage = $mailMessage->action('vai', url('/'));
 
         return $mailMessage
-<<<<<<< HEAD
             ->salutation(SafeStringCastAction::cast(__('user::otp.mail.salutation', ['app_name' => $app_name])));
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-        return new MailMessage()
-            ->template('user::notifications.email')
-            ->subject(__('user::otp.mail.subject'))
-            ->greeting(__('user::otp.mail.greeting'))
-            ->line(__('user::otp.mail.line1', ['code' => $this->code]))
-            ->line(__('user::otp.mail.line2', ['minutes' => $pwd->otp_expiration_minutes]))
-            ->line(__('user::otp.mail.line3'))
-            ->action('vai', url('/'))
->>>>>>> ceff73a (.)
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
-            ->salutation(__('user::otp.mail.salutation', ['app_name' => $app_name]));
->>>>>>> e4cd89fa (.)
     }
 
     /**

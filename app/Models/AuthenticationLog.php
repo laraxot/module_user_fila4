@@ -55,7 +55,7 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @mixin IdeHelperAuthenticationLog
  *
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */

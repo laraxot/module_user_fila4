@@ -57,6 +57,16 @@ return [
             'success' => 'Password reset successfully',
             'error' => 'Unable to reset password',
         ],
+        'showPassword' => [
+            'label' => 'showPassword',
+            'icon' => 'showPassword',
+            'tooltip' => 'showPassword',
+        ],
+        'hidePassword' => [
+            'label' => 'hidePassword',
+            'icon' => 'hidePassword',
+            'tooltip' => 'hidePassword',
+        ],
     ],
     'messages' => [
         'logout_success' => 'Successfully logged out',

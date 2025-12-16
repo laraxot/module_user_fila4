@@ -34,22 +34,8 @@ class PasswordData extends Data
         public int $compromisedThreshold = 0,
         public ?string $failMessage = null,
         private ?string $field_name = null,
-<<<<<<< HEAD
     ) {
     }
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-    ) {}
-=======
-    ) {
-    }
->>>>>>> laraxot/develop
-=======
-    ) {
-    }
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
 
     /**
      * Crea un'istanza della classe PasswordData.
@@ -149,11 +135,10 @@ class PasswordData extends Data
      */
     public function getPasswordFormComponent(string $field_name): FormsTextInput
     {
+
         return FormsTextInput::make($field_name)
             ->password()
             ->required()
-            ->label(__('Password'))
-            ->placeholder(__('Inserisci la tua password'))
             ->validationMessages($this->getValidationMessages())
             ->helperText($this->getHelperText());
     }
@@ -167,11 +152,10 @@ class PasswordData extends Data
             throw new \RuntimeException('Il nome del campo password non è stato impostato. Utilizzare setFieldName() prima di chiamare questo metodo.');
         }
 
+
         return FormsTextInput::make('password_confirmation')
             ->password()
             ->required()
-            ->label(__('Conferma Password'))
-            ->placeholder(__('Conferma la tua password'))
             ->same($this->field_name)
             ->validationMessages($this->getValidationMessages());
     }

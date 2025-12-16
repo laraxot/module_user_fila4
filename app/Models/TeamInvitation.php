@@ -53,7 +53,7 @@ use Modules\Xot\Datas\XotData;
  *
  * @mixin IdeHelperTeamInvitation
  *
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */

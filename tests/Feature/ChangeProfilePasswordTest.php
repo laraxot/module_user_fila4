@@ -9,16 +9,6 @@ use Modules\User\Models\User;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Tests\TestCase;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\post;

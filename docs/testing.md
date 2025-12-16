@@ -3,6 +3,32 @@
 ## Overview
 Testing standards and patterns for the User module, covering authentication, authorization, profiles, and team management.
 
+## Regole Critiche sui Test
+
+### 1. Pest è Obbligatorio
+**TUTTI i test DEVONO essere scritti in Pest**. Se trovi test PHPUnit classici (classi che estendono TestCase con metodi `test*`), convertili immediatamente in Pest usando funzioni `test()`, `it()`, `describe()`.
+
+### 2. MAI RefreshDatabase
+**MAI utilizzare `RefreshDatabase` nei test**. Il database è già gestito tramite SQLite in-memory (`:memory:`) configurato in `phpunit.xml`, quindi ogni test ha già un database pulito. RefreshDatabase è ridondante e può causare problemi con connessioni multiple dei moduli.
+
+```php
+// ❌ VIETATO
+use Illuminate\Foundation\Testing\RefreshDatabase;
+uses(TestCase::class, RefreshDatabase::class);
+
+// ✅ CORRETTO
+uses(TestCase::class);
+```
+
+### 3. Business Logic Reale
+I test devono riflettere la **business logic REALE** dell'applicazione che funziona. Se un test cerca elementi/funzioni che non esistono, devi correggere il test, NON creare l'elemento nel codice applicativo.
+
+### 4. Qualità del Codice nei Test
+I test devono essere controllati con **PHPStan, PHPMD e PHPInsights** per garantire qualità del codice anche nei test.
+
+### 5. Obiettivo Coverage
+Obiettivo: **100% coverage** e tutti i test devono passare, lavorando **SOLO** nelle cartelle `tests` dei moduli.
+
 ## Testing Strategy
 
 ### Test Pyramid Implementation

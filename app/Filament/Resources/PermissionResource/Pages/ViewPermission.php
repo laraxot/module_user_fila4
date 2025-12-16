@@ -8,16 +8,6 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Support\Components\Component;
 use Modules\User\Filament\Resources\PermissionResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
 
 class ViewPermission extends XotBaseViewRecord
 {

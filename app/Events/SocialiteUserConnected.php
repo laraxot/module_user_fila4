@@ -20,20 +20,6 @@ class SocialiteUserConnected
      */
     public function __construct(
         public SocialiteUser $socialiteUser,
-<<<<<<< HEAD
     ) {
     }
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-    ) {}
-=======
-    ) {
-    }
->>>>>>> laraxot/develop
-=======
-    ) {
-    }
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
 }

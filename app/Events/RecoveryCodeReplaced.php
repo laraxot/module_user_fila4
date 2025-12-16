@@ -19,20 +19,6 @@ class RecoveryCodeReplaced
     public function __construct(
         public Authenticatable $user,
         public string $code,
-<<<<<<< HEAD
     ) {
     }
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-    ) {}
-=======
-    ) {
-    }
->>>>>>> laraxot/develop
-=======
-    ) {
-    }
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
 }

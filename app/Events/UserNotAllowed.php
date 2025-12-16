@@ -20,20 +20,6 @@ class UserNotAllowed
      */
     public function __construct(
         public SocialiteUserContract $oauthUser,
-<<<<<<< HEAD
     ) {
     }
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-    ) {}
-=======
-    ) {
-    }
->>>>>>> laraxot/develop
-=======
-    ) {
-    }
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
 }

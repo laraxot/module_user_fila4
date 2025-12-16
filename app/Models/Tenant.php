@@ -42,7 +42,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @property \Illuminate\Support\Carbon|null          $created_at
  * @property \Illuminate\Support\Carbon|null          $updated_at
  * @property \Illuminate\Support\Carbon|null          $deleted_at
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @method static Builder<static>|Tenant whereCreatedAt($value)
  * @method static Builder<static>|Tenant whereDatabase($value)
@@ -56,22 +56,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  *
  * @mixin \Eloquent
  */
-<<<<<<< HEAD
 class Tenant extends BaseTenant
 {
 }
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-class Tenant extends BaseTenant {}
-=======
-class Tenant extends BaseTenant
-{
-}
->>>>>>> laraxot/develop
-=======
-class Tenant extends BaseTenant
-{
-}
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)

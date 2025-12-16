@@ -4,15 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Collection;
-use Modules\User\Models\Role;
-=======
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Collection;
 

@@ -100,28 +100,25 @@ class Login extends Component implements HasActions, HasForms
     protected function getFormSchema(): array
     {
         return [
+
             TextInput::make('email')
                 ->email()
                 ->required()
-                ->label(__('Email'))
-                ->placeholder(__('Inserisci la tua email'))
                 ->suffixIcon('heroicon-m-envelope')
                 ->autofocus()
                 ->live()
                 ->afterStateUpdated(fn ($_state) => $this->validateOnly('email'))
                 ->dehydrated(),
+
             TextInput::make('password')
                 ->password()
                 ->required()
-                ->label(__('Password'))
-                ->placeholder(__('Inserisci la tua password'))
                 ->suffixIcon('heroicon-m-key')
                 ->revealable()
                 ->minLength(8)
                 ->maxLength(255)
                 ->dehydrated(),
             Checkbox::make('remember')
-                ->label(__('Ricordami'))
                 ->default(false)
                 ->dehydrated(),
         ];

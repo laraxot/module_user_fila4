@@ -11,16 +11,6 @@ use Modules\User\Filament\Resources\RoleResource\Pages\EditRole;
 use Modules\User\Filament\Resources\RoleResource\Pages\ListRoles;
 use Modules\User\Models\Role;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
 
 class RoleResource extends XotBaseResource
 {

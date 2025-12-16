@@ -68,7 +68,7 @@ use Modules\Xot\Datas\XotData;
  *
  * @mixin IdeHelperDevice
  *
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */

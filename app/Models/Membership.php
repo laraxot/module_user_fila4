@@ -47,7 +47,7 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  *
  * @mixin IdeHelperMembership
  *
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property ProfileContract|null $deleter
  *
  * @method static \Modules\User\Database\Factories\MembershipFactory factory($count = null, $state = [])
  * @method static Builder<static>|Membership                         whereId($value)

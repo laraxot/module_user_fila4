@@ -7,16 +7,6 @@ namespace Modules\User\Filament\Resources\TeamResource\Pages;
 use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\TeamResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
 
 class ListTeams extends XotBaseListRecords
 {

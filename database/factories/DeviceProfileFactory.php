@@ -5,16 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Database\Factories;
 
 use Modules\User\Models\DeviceProfile;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> laraxot/develop
-=======
->>>>>>> a382d4f1 (.)
->>>>>>> e4cd89fa (.)
 
 /**
  * DeviceProfile Factory.
