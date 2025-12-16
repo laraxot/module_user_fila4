@@ -16,26 +16,13 @@ Tracker gathers a lot of information from your requests to identify and store:
 - Sql queries and all its bindings
 - Url queries and all its arguments
 - Database connections
-
 https://github.com/antonioribeiro/tracker
-
 ---
 ### Versione HEAD
-
-
 ## Collegamenti tra versioni di repositories.md
 * [repositories.md](docs/repositories.md)
-<<<<<<< HEAD
 * [repositories.md](../../../Notify/docs/repositories.md)
 * [repositories.md](../../../User/docs/repositories.md)
-=======
 * [repositories.md](../../../Notify/project_docs/repositories.md)
 * [repositories.md](../../../User/project_docs/repositories.md)
->>>>>>> fbc8f8e (.)
-
-
 ### Versione Incoming
-
-
----
-
