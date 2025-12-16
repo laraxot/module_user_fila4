@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages\Auth;
 
+use Modules\Xot\Filament\Pages\XotBasePage;
+
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Forms\Components\TextInput;
@@ -11,7 +13,6 @@ use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
-use Filament\Pages\Page;
 use Filament\Schemas\Components\Component;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
@@ -30,7 +31,7 @@ use Webmozart\Assert\Assert;
  * @property \Filament\Schemas\Schema $editProfileForm
  * @property \Filament\Schemas\Schema $editPasswordForm
  */
-class PasswordExpired extends Page implements HasForms
+class PasswordExpired extends XotBasePage implements HasForms
 {
     use InteractsWithFormActions;
     use InteractsWithForms;
