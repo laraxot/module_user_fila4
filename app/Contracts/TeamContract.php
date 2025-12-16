@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Contracts;
 
-use Modules\Xot\Contracts\ModelContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -92,21 +91,9 @@ interface TeamContract extends ModelContract
 
     /* --non qui
      * Get the disk that profile photos should be stored on.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
      * public function profilePhotoDisk(): string;
      */
-=======
-
-    public function profilePhotoDisk(): string;
-    */
->>>>>>> fbc8f8e (.)
-=======
-     *
-     * public function profilePhotoDisk(): string;
-     */
->>>>>>> 6d20fbe (.)
 
     public function members(): BelongsToMany;
 }

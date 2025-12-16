@@ -2,52 +2,18 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-=======
-namespace Modules\User\Tests\Feature\Authentication\UserAuthenticationTest;
-
-namespace Modules\User\Tests\Unit\Widgets;
-
->>>>>>> fbc8f8e (.)
-=======
-use Illuminate\Auth\Notifications\VerifyEmail;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
->>>>>>> 6d20fbe (.)
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\Passport;
 use Modules\User\Models\Permission;
 use Modules\User\Models\Role;
 use Modules\User\Models\User;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-use Modules\User\Models\AuthenticationLog;
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 beforeEach(function () {
     $user = User::factory()->create([
-=======
-beforeEach(function (): void {
-<<<<<<< HEAD
-    $this->user = User::factory()->create([
->>>>>>> 4cf202bd (.)
-=======
-    /** @var object{user: mixed} $this */ $this->user = User/** @phpstan-ignore-line */ ::factory()->create([
->>>>>>> 7def95d7 (.)
-=======
-beforeEach(function () {
-    $this->user = User::factory()->create([
->>>>>>> 7c59e9f1 (.)
         'password' => Hash::make('password123'),
         'is_active' => true,
         'email_verified_at' => now(),
@@ -65,15 +31,7 @@ describe('User Authentication', function () {
         ]);
 
         expect($result)->toBe(true);
-<<<<<<< HEAD
-<<<<<<< HEAD
         expect(Auth::user()?->id)->toBe($this->user->id);
-=======
-        expect(Auth::user()->id)->toBe($this->user->id);
->>>>>>> fbc8f8e (.)
-=======
-        expect(Auth::user()?->id)->toBe($this->user->id);
->>>>>>> 6d20fbe (.)
     });
 
     it('cannot authenticate with invalid password', function () {
@@ -96,24 +54,10 @@ describe('User Authentication', function () {
         expect(Auth::user())->toBeNull();
     });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     it('cannot authenticate inactive user', function () {
         /** @var User $inactiveUser */
         /** @var User $inactiveUser */
-=======
-    it('cannot authenticate inactive user', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
-<<<<<<< HEAD
->>>>>>> 4cf202bd (.)
         $inactiveUser = User::factory()->create([
-=======
-        $inactiveUser = User/** @phpstan-ignore-line */ ::factory()->create([
->>>>>>> 7def95d7 (.)
-=======
-    it('cannot authenticate inactive user', function () {
-        $inactiveUser = User::factory()->create([
->>>>>>> 7c59e9f1 (.)
             'password' => Hash::make('password123'),
             'is_active' => false,
         ]);
@@ -136,30 +80,11 @@ describe('User Authentication', function () {
     });
 });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 describe('User Password Management', function () {
     it('can hash password on creation', function () {
         /** @var User $user */
         /** @var User $user */
-=======
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Password Management', function (): void {
-    it('can hash password on creation', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
-<<<<<<< HEAD
->>>>>>> 4cf202bd (.)
         $user = User::factory()->create([
-=======
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
->>>>>>> 7def95d7 (.)
-=======
-describe('User Password Management', function () {
-    it('can hash password on creation', function () {
-        $user = User::factory()->create([
->>>>>>> 7c59e9f1 (.)
             'password' => Hash::make('testpassword'),
         ]);
         \assert($user instanceof User);
@@ -177,24 +102,10 @@ describe('User Password Management', function () {
         expect(Hash::check('password123', $this->user->fresh()->password))->toBe(false);
     });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     it('can check password expiration', function () {
         /** @var User $user */
         /** @var User $user */
-=======
-    it('can check password expiration', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
-<<<<<<< HEAD
->>>>>>> 4cf202bd (.)
         $user = User::factory()->create([
-=======
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
->>>>>>> 7def95d7 (.)
-=======
-    it('can check password expiration', function () {
-        $user = User::factory()->create([
->>>>>>> 7c59e9f1 (.)
             'password_expires_at' => now()->subDays(1),
         ]);
         \assert($user instanceof User);
@@ -208,21 +119,11 @@ describe('User Password Management', function () {
             'password_expires_at' => $expirationDate,
         ]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         expect(
             $this
                 ->user->fresh()
                 ->password_expires_at->toDateString(),
         )
-<<<<<<< HEAD
-=======
-        expect($this->user->fresh()->password_expires_at->toDateString())
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
             ->toBe($expirationDate->toDateString());
     });
 });
@@ -239,46 +140,17 @@ describe('User Remember Token', function () {
         $token = Str::random(60);
         $this->user->update(['remember_token' => $token]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $user = User::where('email', $this->user->email)->where('remember_token', $token)->first();
-=======
-        $user = User::where('email', $this->user->email)
-            ->where('remember_token', $token)
-            ->first();
->>>>>>> fbc8f8e (.)
-=======
-        $user = User::where('email', $this->user->email)->where('remember_token', $token)->first();
->>>>>>> 6d20fbe (.)
 
         expect($user)->not->toBeNull();
         expect($user->id)->toBe($this->user->id);
     });
 });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 describe('User Email Verification', function () {
     it('can mark email as verified', function () {
         /** @var User $user */
-=======
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Email Verification', function (): void {
-    it('can mark email as verified', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
-<<<<<<< HEAD
->>>>>>> 4cf202bd (.)
         $user = User::factory()->create([
-=======
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
->>>>>>> 7def95d7 (.)
-=======
-describe('User Email Verification', function () {
-    it('can mark email as verified', function () {
-        $user = User::factory()->create([
->>>>>>> 7c59e9f1 (.)
             'email_verified_at' => null,
         ]);
         \assert($user instanceof User);
@@ -290,41 +162,15 @@ describe('User Email Verification', function () {
         expect($user->fresh()->email_verified_at)->not->toBeNull();
     });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     it('can check if email is verified', function () {
         /** @var User $verifiedUser */
-=======
-    it('can check if email is verified', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
-<<<<<<< HEAD
->>>>>>> 4cf202bd (.)
         $verifiedUser = User::factory()->create([
-=======
-        $verifiedUser = User/** @phpstan-ignore-line */ ::factory()->create([
->>>>>>> 7def95d7 (.)
-=======
-    it('can check if email is verified', function () {
-        $verifiedUser = User::factory()->create([
->>>>>>> 7c59e9f1 (.)
             'email_verified_at' => now(),
         ]);
         \assert($verifiedUser instanceof User);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         /** @var User $unverifiedUser */
-=======
-        /** @var \Illuminate\Database\Eloquent\Collection */
-<<<<<<< HEAD
->>>>>>> 4cf202bd (.)
         $unverifiedUser = User::factory()->create([
-=======
-        $unverifiedUser = User/** @phpstan-ignore-line */ ::factory()->create([
->>>>>>> 7def95d7 (.)
-=======
-        $unverifiedUser = User::factory()->create([
->>>>>>> 7c59e9f1 (.)
             'email_verified_at' => null,
         ]);
         \assert($unverifiedUser instanceof User);
@@ -333,23 +179,9 @@ describe('User Email Verification', function () {
         expect($unverifiedUser->hasVerifiedEmail())->toBe(false);
     });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     it('can send email verification notification', function () {
         /** @var User $user */
-=======
-    it('can send email verification notification', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
-<<<<<<< HEAD
->>>>>>> 4cf202bd (.)
         $user = User::factory()->create([
-=======
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
->>>>>>> 7def95d7 (.)
-=======
-    it('can send email verification notification', function () {
-        $user = User::factory()->create([
->>>>>>> 7c59e9f1 (.)
             'email_verified_at' => null,
         ]);
         \assert($user instanceof User);
@@ -358,34 +190,14 @@ describe('User Email Verification', function () {
 
         $user->sendEmailVerificationNotification();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         Notification::assertSentTo($user, VerifyEmail::class);
-=======
-        Notification::assertSentTo($user, \Illuminate\Auth\Notifications\VerifyEmail::class);
->>>>>>> fbc8f8e (.)
-=======
-        Notification::assertSentTo($user, VerifyEmail::class);
->>>>>>> 6d20fbe (.)
     });
 });
 
-<<<<<<< HEAD
-/**
- * @property \Modules\User\Models\User $user
- */
-describe('User Authorization', function (): void {
-    it('can assign and check roles', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
-        $adminRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'admin']);
-        /** @var \Illuminate\Database\Eloquent\Collection */
-        $editorRole = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'editor']);
-=======
 describe('User Authorization', function () {
     it('can assign and check roles', function () {
         $adminRole = Role::factory()->create(['name' => 'admin']);
         $editorRole = Role::factory()->create(['name' => 'editor']);
->>>>>>> 7c59e9f1 (.)
 
         $this->user->assignRole($adminRole);
 
@@ -394,17 +206,9 @@ describe('User Authorization', function () {
         expect($this->user->hasRole($adminRole))->toBe(true);
     });
 
-<<<<<<< HEAD
-    it('can assign and check permissions', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
-        $editPermission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
-        /** @var \Illuminate\Database\Eloquent\Collection */
-        $deletePermission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'delete posts']);
-=======
     it('can assign and check permissions', function () {
         $editPermission = Permission::factory()->create(['name' => 'edit posts']);
         $deletePermission = Permission::factory()->create(['name' => 'delete posts']);
->>>>>>> 7c59e9f1 (.)
 
         $this->user->givePermissionTo($editPermission);
 
@@ -413,17 +217,9 @@ describe('User Authorization', function () {
         expect($this->user->hasPermissionTo($editPermission))->toBe(true);
     });
 
-<<<<<<< HEAD
-    it('can inherit permissions from roles', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'editor']);
-        /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
-=======
     it('can inherit permissions from roles', function () {
         $role = Role::factory()->create(['name' => 'editor']);
         $permission = Permission::factory()->create(['name' => 'edit posts']);
->>>>>>> 7c59e9f1 (.)
 
         $role->givePermissionTo($permission);
         $this->user->assignRole($role);
@@ -431,17 +227,9 @@ describe('User Authorization', function () {
         expect($this->user->hasPermissionTo('edit posts'))->toBe(true);
     });
 
-<<<<<<< HEAD
-    it('can check multiple permissions', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission1 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
-        /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission2 = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'delete posts']);
-=======
     it('can check multiple permissions', function () {
         $permission1 = Permission::factory()->create(['name' => 'edit posts']);
         $permission2 = Permission::factory()->create(['name' => 'delete posts']);
->>>>>>> 7c59e9f1 (.)
 
         $this->user->givePermissionTo([$permission1, $permission2]);
 
@@ -449,17 +237,9 @@ describe('User Authorization', function () {
         expect($this->user->hasAnyPermission(['edit posts', 'publish posts']))->toBe(true);
     });
 
-<<<<<<< HEAD
-    it('can remove roles and permissions', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
-        $role = Role/** @phpstan-ignore-line */ ::factory()->create(['name' => 'editor']);
-        /** @var \Illuminate\Database\Eloquent\Collection */
-        $permission = Permission/** @phpstan-ignore-line */ ::factory()->create(['name' => 'edit posts']);
-=======
     it('can remove roles and permissions', function () {
         $role = Role::factory()->create(['name' => 'editor']);
         $permission = Permission::factory()->create(['name' => 'edit posts']);
->>>>>>> 7c59e9f1 (.)
 
         $this->user->assignRole($role);
         $this->user->givePermissionTo($permission);
@@ -479,29 +259,13 @@ describe('User OAuth Authentication', function () {
     it('can have oauth clients', function () {
         Passport::actingAs($this->user);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         expect($this->user->clients())->toBeInstanceOf(HasMany::class);
-=======
-        expect($this->user->clients())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
->>>>>>> fbc8f8e (.)
-=======
-        expect($this->user->clients())->toBeInstanceOf(HasMany::class);
->>>>>>> 6d20fbe (.)
     });
 
     it('can have oauth tokens', function () {
         Passport::actingAs($this->user);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         expect($this->user->tokens())->toBeInstanceOf(HasMany::class);
-=======
-        expect($this->user->tokens())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
->>>>>>> fbc8f8e (.)
-=======
-        expect($this->user->tokens())->toBeInstanceOf(HasMany::class);
->>>>>>> 6d20fbe (.)
     });
 
     it('can find user for passport', function () {
@@ -520,26 +284,12 @@ describe('User OAuth Authentication', function () {
 
 describe('User Authentication Logging', function () {
     it('can log authentication attempts', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         expect($this->user->authentications())->toBeInstanceOf(HasMany::class);
     });
 
     it('can get latest authentication log', function () {
         expect($this->user->latestAuthentication())
             ->toBeInstanceOf(HasOne::class);
-<<<<<<< HEAD
-=======
-        expect($this->user->authentications())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
-    });
-
-    it('can get latest authentication log', function () {
-        expect($this->user->latestAuthentication())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasOne::class);
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     });
 });
 
@@ -580,23 +330,9 @@ describe('User Two Factor Authentication', function () {
         expect($this->user->fresh()->is_otp)->toBe(false);
     });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     it('handles otp authentication workflow', function () {
         /** @var User $user */
-=======
-    it('handles otp authentication workflow', function (): void {
-        /** @var \Illuminate\Database\Eloquent\Collection */
-<<<<<<< HEAD
->>>>>>> 4cf202bd (.)
         $user = User::factory()->create([
-=======
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
->>>>>>> 7def95d7 (.)
-=======
-    it('handles otp authentication workflow', function () {
-        $user = User::factory()->create([
->>>>>>> 7c59e9f1 (.)
             'is_otp' => true,
             'password' => Hash::make('password123'),
         ]);
@@ -611,12 +347,4 @@ describe('User Two Factor Authentication', function () {
         // Should handle OTP requirement
         expect($user->is_otp)->toBe(true);
     });
-<<<<<<< HEAD
-<<<<<<< HEAD
 });
-=======
-
->>>>>>> fbc8f8e (.)
-=======
-});
->>>>>>> 6d20fbe (.)

@@ -75,7 +75,6 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * @method static Builder<static>|Profile withoutPermission($permissions)
  * @method static Builder<static>|Profile withoutRole($roles, $guard = null)
  *
-<<<<<<< HEAD
  * @mixin IdeHelperProfile
  *
  * @property string|null                     $user_id
@@ -101,8 +100,6 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * @method static Builder<static>|Profile whereUpdatedBy($value)
  * @method static Builder<static>|Profile whereUserId($value)
  *
-=======
->>>>>>> 4cf202bd (.)
  * @mixin \Eloquent
  */
 class Profile extends BaseProfile implements HasMedia

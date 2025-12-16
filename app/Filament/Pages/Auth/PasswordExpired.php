@@ -11,6 +11,7 @@ use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
+use Filament\Pages\Page;
 use Filament\Schemas\Components\Component;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
@@ -21,7 +22,6 @@ use Modules\User\Datas\PasswordData;
 use Modules\User\Events\NewPasswordSet;
 use Modules\User\Http\Response\PasswordResetResponse;
 use Modules\Xot\Contracts\UserContract;
-use Modules\Xot\Filament\Pages\XotBasePage;
 use Modules\Xot\Filament\Traits\NavigationPageLabelTrait;
 use Webmozart\Assert\Assert;
 
@@ -30,7 +30,7 @@ use Webmozart\Assert\Assert;
  * @property \Filament\Schemas\Schema $editProfileForm
  * @property \Filament\Schemas\Schema $editPasswordForm
  */
-class PasswordExpired extends XotBasePage implements HasForms
+class PasswordExpired extends Page implements HasForms
 {
     use InteractsWithFormActions;
     use InteractsWithForms;
@@ -142,7 +142,7 @@ class PasswordExpired extends XotBasePage implements HasForms
             ->success()
             ->send();
 
-        return new PasswordResetResponse;
+        return new PasswordResetResponse();
     }
 
     protected function getCurrentPasswordFormComponent(): Component

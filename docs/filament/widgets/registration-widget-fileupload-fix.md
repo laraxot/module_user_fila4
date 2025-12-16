@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> f3866fb1 (.)
 # RegistrationWidget FileUpload Error Fix
 
 ## Problema Identificato
@@ -120,23 +115,9 @@ I componenti `FileUpload` si aspettano array:
 
 ### Comandi Test
 ```bash
-<<<<<<< HEAD
-<<<<<<< HEAD
 cd /var/www/html/_bases/base_techplanner_fila3_mono/laravel
-<<<<<<< HEAD
 cd /var/www/html/_bases/base_<nome progetto>/laravel
-=======
-cd /var/www/html/_bases/base_saluteora/laravel
->>>>>>> d23d6b30 (.)
 cd /var/www/html/_bases/base_techplanner_fila3_mono/laravel
-=======
-cd /var/www/html/_bases/base_saluteora/laravel
->>>>>>> fbc8f8e (.)
-=======
-cd /var/www/html/_bases/base_techplanner_fila3_mono/laravel
-cd /var/www/html/_bases/base_saluteora/laravel
-cd /var/www/html/_bases/base_techplanner_fila3_mono/laravel
->>>>>>> f3866fb1 (.)
 php artisan test --filter=RegistrationWidget
 ./vendor/bin/phpstan analyze Modules/User/app/Filament/Widgets/RegistrationWidget.php --level=9
 ```
@@ -206,24 +187,9 @@ Questo pattern può essere riutilizzato in altri widget che:
 
 - [RegistrationWidget.php](../../app/Filament/Widgets/RegistrationWidget.php) - Widget corretto
 - [XotBaseResource.php](../../../Xot/app/Filament/Resources/XotBaseResource.php) - Schema attachments migliorato
-<<<<<<< HEAD
-<<<<<<< HEAD
 - [PatientResource.php](../../../<nome modulo>/app/Filament/Resources/PatientResource.php) - Risorsa paziente
-<<<<<<< HEAD
 - [PatientResource.php](../../../<nome progetto>/app/Filament/Resources/PatientResource.php) - Risorsa paziente
-=======
-- [PatientResource.php](../../../SaluteOra/app/Filament/Resources/PatientResource.php) - Risorsa paziente
->>>>>>> d23d6b30 (.)
 - [Widget Error Troubleshooting](../../../Xot/docs/troubleshooting/widget-errors.md) - Guide generali
-=======
-- [PatientResource.php](../../../SaluteOra/app/Filament/Resources/PatientResource.php) - Risorsa paziente
-- [Widget Error Troubleshooting](../../../Xot/project_docs/troubleshooting/widget-errors.md) - Guide generali
->>>>>>> fbc8f8e (.)
-=======
-- [PatientResource.php](../../../<nome modulo>/app/Filament/Resources/PatientResource.php) - Risorsa paziente
-- [PatientResource.php](../../../SaluteOra/app/Filament/Resources/PatientResource.php) - Risorsa paziente
-- [Widget Error Troubleshooting](../../../Xot/docs/troubleshooting/widget-errors.md) - Guide generali
->>>>>>> f3866fb1 (.)
 
 ---
 
@@ -232,12 +198,4 @@ Questo pattern può essere riutilizzato in altri widget che:
 **Autore**: AI Assistant  
 **Tipo**: Bug Fix Documentation  
 **Priorità**: Critica (blocca registrazione paziente)  
-<<<<<<< HEAD
 **Status**: ✅ **RISOLTO** 
-=======
->>>>>>> eb80748f (.)
-=======
-**Status**: ✅ **RISOLTO** 
->>>>>>> f3866fb1 (.)
-=======
->>>>>>> 7c59e9f1 (.)

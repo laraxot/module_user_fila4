@@ -1019,7 +1019,6 @@ Implementando queste soluzioni, il modulo User potrà superare i principali coll
 - [Roadmap Principale](./roadmap.md)
 - [Best Practices Filament](./FILAMENT_BEST_PRACTICES.md)
 - [Best Practices Widget](./best-practices/filament-widgets.md)
-<<<<<<< HEAD
 - [Struttura Moduli](../Xot/docs/MODULE_STRUCTURE.md)
 
 ## Collegamenti tra versioni di BOTTLENECKS.md
@@ -1050,36 +1049,4 @@ Implementando queste soluzioni, il modulo User potrà superare i principali coll
 * [bottlenecks.md](../../Activity/docs/bottlenecks.md)
 * [bottlenecks.md](../../Patient/docs/roadmap/bottlenecks.md)
 * [bottlenecks.md](../../Cms/docs/bottlenecks.md)
-=======
-- [Struttura Moduli](../Xot/project_docs/MODULE_STRUCTURE.md)
-
-## Collegamenti tra versioni di BOTTLENECKS.md
-* [BOTTLENECKS.md](../../../Xot/project_docs/BOTTLENECKS.md)
-* [BOTTLENECKS.md](../../../User/project_docs/BOTTLENECKS.md)
-* [BOTTLENECKS.md](../../../Media/project_docs/BOTTLENECKS.md)
-* [BOTTLENECKS.md](../../../Cms/project_docs/BOTTLENECKS.md)
-
-
-## Collegamenti tra versioni di bottlenecks.md
-* [bottlenecks.md](../../../../bashscripts/project_docs/bottlenecks.md)
-* [bottlenecks.md](../../Chart/project_docs/bottlenecks.md)
-* [bottlenecks.md](../../Chart/project_docs/performance/bottlenecks.md)
-* [bottlenecks.md](../../Gdpr/project_docs/bottlenecks.md)
-* [bottlenecks.md](../../Gdpr/project_docs/performance/bottlenecks.md)
-* [bottlenecks.md](../../Xot/project_docs/bottlenecks.md)
-* [bottlenecks.md](../../Xot/project_docs/performance/bottlenecks.md)
-* [bottlenecks.md](../../Xot/project_docs/roadmap/bottlenecks.md)
-* [bottlenecks.md](../../Dental/project_docs/bottlenecks.md)
-* [bottlenecks.md](roadmap/bottlenecks.md)
-* [bottlenecks.md](../../UI/project_docs/bottlenecks.md)
-* [bottlenecks.md](../../UI/project_docs/roadmap/bottlenecks.md)
-* [bottlenecks.md](../../Lang/project_docs/bottlenecks.md)
-* [bottlenecks.md](../../Lang/project_docs/performance/bottlenecks.md)
-* [bottlenecks.md](../../Job/project_docs/performance/bottlenecks.md)
-* [bottlenecks.md](../../Media/project_docs/bottlenecks.md)
-* [bottlenecks.md](../../Media/project_docs/performance/bottlenecks.md)
-* [bottlenecks.md](../../Activity/project_docs/bottlenecks.md)
-* [bottlenecks.md](../../Patient/project_docs/roadmap/bottlenecks.md)
-* [bottlenecks.md](../../Cms/project_docs/bottlenecks.md)
->>>>>>> fbc8f8e (.)
 

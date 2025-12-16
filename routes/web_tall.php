@@ -17,7 +17,6 @@ use Modules\User\Http\Livewire\Auth\Verify;
 use Webmozart\Assert\Assert;
 
 /*
-<<<<<<< HEAD
  * |--------------------------------------------------------------------------
  * | Web Routes
  * |--------------------------------------------------------------------------
@@ -27,24 +26,12 @@ use Webmozart\Assert\Assert;
  * | contains the "web" middleware group. Now create something great!
  * |
  */
-=======
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
->>>>>>> fbc8f8e (.)
 
 // Route::view('/', 'welcome')->name('home');
 Route::prefix('{lang}')->group(function (): void {
     Route::middleware('guest')
         ->namespace('\Modules\User\Http\Livewire\Auth')
         ->group(static function (): void {
-<<<<<<< HEAD
             Route::get('login', 'Login')->name('login');
 
             Route::get('register', Register::class)->name('register');
@@ -57,24 +44,6 @@ Route::prefix('{lang}')->group(function (): void {
             'password.reset',
         );
     });
-=======
-            Route::get('login', 'Login')
-                ->name('login');
-
-            Route::get('register', Register::class)
-                ->name('register');
-        });
-
-    Route::middleware([])
-        ->namespace('\Modules\User\Http\Livewire\Auth')
-        ->group(static function (): void {
-            Route::get('password/reset', Email::class)
-                ->name('password.request');
-
-            Route::get('password/reset/{token}', Reset::class)
-                ->name('password.reset');
-        });
->>>>>>> fbc8f8e (.)
 
     Route::middleware('auth')
         ->namespace('\Modules\User\Http\Livewire\Auth')
@@ -84,46 +53,25 @@ Route::prefix('{lang}')->group(function (): void {
             $route->middleware('throttle:6,1');
             $route->name('verification.notice');
 
-<<<<<<< HEAD
             $route = Route::get('password/confirm', Confirm::class);
             Assert::isInstanceOf($route, Illuminate\Routing\Route::class);
             $route->name('password.confirm');
-=======
-<<<<<<< HEAD
-            Route::get('password/confirm', Confirm::class)->name(
-                'password.confirm',
-            );
->>>>>>> 27d6fa5f (.)
         });
 
     Route::middleware('auth')
         // ->namespace('\Modules\User\Http\Livewire\Auth')
-=======
-            Route::get('password/confirm', Confirm::class)
-                ->name('password.confirm');
-        });
-
-    Route::middleware('auth')
-    // ->namespace('\Modules\User\Http\Livewire\Auth')
->>>>>>> fbc8f8e (.)
         ->group(static function (): void {
             $route = Route::get('email/verify/{id}/{hash}', EmailVerificationController::class);
             Assert::isInstanceOf($route, Illuminate\Routing\Route::class);
             $route->middleware('signed');
             $route->name('verification.verify');
 
-<<<<<<< HEAD
             Route::match(['get', 'post'], 'logout', LogoutController::class)->name('logout');
-=======
-            Route::match(['get', 'post'], 'logout', LogoutController::class)
-                ->name('logout');
->>>>>>> fbc8f8e (.)
         });
 })->whereIn('lang', ['it', 'en']);
 
 Route::namespace('Socialite')
     ->name('socialite.')
-<<<<<<< HEAD
     ->group(static function (): void {
         Route::get(
             '/login/{provider}',
@@ -136,21 +84,3 @@ Route::namespace('Socialite')
 
         // ->name('oauth.callback');
     });
-=======
-    ->group(
-        static function (): void {
-            Route::get(
-                '/login/{provider}',
-                'RedirectToProviderController',
-                // 'LoginController@redirectToProvider',
-            );
-            // ->name('oauth.redirect')
-
-            Route::get(
-                '/sso/{provider}/callback',
-                'ProcessCallbackController',
-            );
-            // ->name('oauth.callback');
-        }
-    );
->>>>>>> fbc8f8e (.)

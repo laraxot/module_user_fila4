@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
-use Illuminate\Database\Eloquent\Collection;
-use Modules\User\Models\Role;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Collection;
 
