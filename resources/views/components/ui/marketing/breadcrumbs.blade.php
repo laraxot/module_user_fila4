@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 @props([
     'crumbs' => [], 
     'page' => 'About'
@@ -35,4 +38,8 @@ Example Usage:
             @endif
         @endforeach
     </ol>
+<<<<<<< HEAD
 </nav>
+=======
+</nav>
+>>>>>>> fbc8f8e (.)
