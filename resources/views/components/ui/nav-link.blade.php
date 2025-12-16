@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 @props([
     'href' => '/'
 ])
@@ -12,4 +15,8 @@ declare(strict_types=1);
     href="{{ $href }}"
 >
     {{ $slot }}
+<<<<<<< HEAD
 </a>
+=======
+</a>
+>>>>>>> fbc8f8e (.)

@@ -75,4 +75,8 @@ return [
             'description' => 'Utente che ha creato questo team',
         ],
     ],
+<<<<<<< HEAD
 ];
+=======
+]; 
+>>>>>>> fbc8f8e (.)
