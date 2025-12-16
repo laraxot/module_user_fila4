@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 278d8520 (.)
 # Regole per la Verifica dei Componenti Blade
 
 ## ERRORE CRITICO DA NON RIPETERE MAI
@@ -143,6 +147,7 @@ Prima di usare qualsiasi componente:
 - [Documentazione Filament Ufficiale](https://filamentphp.com/docs)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [Laravel Blade Components](https://laravel.com/project_docs/blade#components)
 =======
 <<<<<<< HEAD
@@ -157,3 +162,8 @@ Prima di usare qualsiasi componente:
 - [Componenti UI del Progetto](../../../Themes/Sixteen/resources/views/components/ui/)
 =======
 >>>>>>> 7c59e9f1 (.)
+=======
+- [Laravel Blade Components](https://laravel.com/docs/blade#components)
+- [Componenti UI del Progetto](../../../Themes/Sixteen/resources/views/components/ui/)
+>>>>>>> 6849bc76 (.)
+>>>>>>> 278d8520 (.)

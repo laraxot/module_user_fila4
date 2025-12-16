@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 278d8520 (.)
 # Regole per i Namespace Filament
 
 ## Regola 1: Namespace Modulare
@@ -64,6 +68,7 @@ class Dashboard extends Page
 
 ## Collegamenti
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [Convenzioni Namespace Filament](../../Cms/docs/convenzioni-namespace-filament.md)
 - [Regole Generali Xot](../../Xot/docs/README.md)
 - [Best Practices Filament](../../Cms/docs/best-practices/filament.md) 
@@ -74,3 +79,9 @@ class Dashboard extends Page
 >>>>>>> f3866fb1 (.)
 =======
 >>>>>>> 7c59e9f1 (.)
+=======
+- [Convenzioni Namespace Filament](../../Cms/docs/convenzioni-namespace-filament.md)
+- [Regole Generali Xot](../../Xot/docs/README.md)
+- [Best Practices Filament](../../Cms/docs/best-practices/filament.md) 
+>>>>>>> 6849bc76 (.)
+>>>>>>> 278d8520 (.)

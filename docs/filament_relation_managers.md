@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 278d8520 (.)
 # Filament Relation Managers nel Modulo User
 
 ## Struttura dei Relation Managers
@@ -172,10 +176,14 @@ class TeamsRelationManager extends XotBaseRelationManager
 ## Riferimenti
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 278d8520 (.)
 - [Documentazione Filament RelationManager](https://filamentphp.com/docs/tables#relation-managers)
 - [XotBaseRelationManager](../Xot/docs/filament-relation-managers.md)
 - [Sistema di Traduzione](../Xot/docs/translation-system.md)
 - [Best Practices Filament](../Xot/docs/filament-best-practices.md) 
+<<<<<<< HEAD
 =======
 - [Documentazione Filament RelationManager](https://filamentphp.com/project_docs/tables#relation-managers)
 - [XotBaseRelationManager](../Xot/project_docs/filament-relation-managers.md)
@@ -184,3 +192,6 @@ class TeamsRelationManager extends XotBaseRelationManager
 >>>>>>> f3866fb1 (.)
 =======
 >>>>>>> 7c59e9f1 (.)
+=======
+>>>>>>> 6849bc76 (.)
+>>>>>>> 278d8520 (.)
