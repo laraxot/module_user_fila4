@@ -157,8 +157,8 @@ class MyProfilePage extends XotBasePage
     public function getFormSchema(): array
     {
         return [
-            TextInput::make('name')->autofocus()->required(),
-            TextInput::make('email')->required(),
+            'name' => TextInput::make('name')->autofocus()->required(),
+            'email' => TextInput::make('email')->required(),
         ];
 
         // Nota: i seguenti commenti sono stati rimossi perché non sono applicabili al metodo getFormSchema()
