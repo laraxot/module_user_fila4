@@ -25,7 +25,7 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @mixin IdeHelperDeviceProfile
  *
- * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property ProfileContract|null $deleter
  *
  * @method static \Modules\User\Database\Factories\DeviceProfileFactory factory($count = null, $state = [])
  *

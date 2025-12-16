@@ -45,7 +45,7 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @mixin IdeHelperModelHasRole
  *
- * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */

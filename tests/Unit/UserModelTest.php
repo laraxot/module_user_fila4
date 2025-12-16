@@ -117,24 +117,24 @@ describe('User Model', function () {
 
         it('can attach authentication logs in-memory', function () {
             $user = stubUser();
-            /** @var \Modules\User\Models\AuthenticationLog $log */
-            $log = new \Modules\User\Models\AuthenticationLog();
+            /** @var Modules\User\Models\AuthenticationLog $log */
+            $log = new Modules\User\Models\AuthenticationLog();
             $user->setRelation('authentications', collect([$log]));
             expect($user->authentications)->toHaveCount(1);
         });
 
         it('can expose ownedTeams relation when preset', function () {
             $user = stubUser();
-            /** @var \Modules\User\Models\Team $team */
-            $team = new \Modules\User\Models\Team();
+            /** @var Modules\User\Models\Team $team */
+            $team = new Modules\User\Models\Team();
             $user->setRelation('ownedTeams', collect([$team]));
             expect($user->ownedTeams)->toHaveCount(1);
         });
 
         it('can expose teams relation when preset', function () {
             $user = stubUser();
-            /** @var \Modules\User\Models\Team $team */
-            $team = new \Modules\User\Models\Team();
+            /** @var Modules\User\Models\Team $team */
+            $team = new Modules\User\Models\Team();
             $user->setRelation('teams', collect([$team]));
             expect($user->teams)->toHaveCount(1);
         });
@@ -250,8 +250,8 @@ describe('User Model', function () {
 
         it('can own teams (in-memory)', function () {
             $user = stubUser();
-            /** @var \Modules\User\Models\Team $team */
-            $team = new \Modules\User\Models\Team();
+            /** @var Modules\User\Models\Team $team */
+            $team = new Modules\User\Models\Team();
             $team->forceFill(['user_id' => $user->id]);
             $user->setRelation('ownedTeams', collect([$team]));
 

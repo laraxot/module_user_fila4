@@ -47,7 +47,7 @@ use Spatie\SchemalessAttributes\SchemalessAttributes;
  *
  * @mixin IdeHelperExtra
  *
- * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */
