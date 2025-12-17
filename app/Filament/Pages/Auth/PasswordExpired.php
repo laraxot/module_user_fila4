@@ -9,8 +9,6 @@ use Filament\Actions\ActionGroup;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
-use Filament\Schemas\Components\Component;
-use InvalidArgumentException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
@@ -42,7 +40,7 @@ class PasswordExpired extends XotBasePage
     protected static bool $shouldRegisterNavigation = false;
 
     /**
-     * @return array<int, \Filament\Forms\Components\TextInput>
+     * @return array<int, TextInput>
      */
     public function getFormSchema(): array
     {
@@ -85,7 +83,7 @@ class PasswordExpired extends XotBasePage
         }
 
         // check if new password is different from the current password
-        if ($user->password !== null && Hash::check($password, $user->password)) {
+        if (null !== $user->password && Hash::check($password, $user->password)) {
             Notification::make()
                 ->title(__('user::otp.notifications.same_password.title'))
                 ->body(__('user::otp.notifications.same_password.body'))
@@ -115,7 +113,7 @@ class PasswordExpired extends XotBasePage
 
         // Verificare che l'utente esistante e che sia un modello Eloquent
         if (! ($user instanceof Model)) {
-            throw new InvalidArgumentException('L\'utente deve essere un modello Eloquent con il metodo update');
+            throw new \InvalidArgumentException('L\'utente deve essere un modello Eloquent con il metodo update');
         }
 
         // set password expiry date and time
@@ -127,7 +125,7 @@ class PasswordExpired extends XotBasePage
 
         // Verificare che l'utente implementi l'interfaccia UserContract prima di passarlo all'evento
         if (! ($user instanceof UserContract)) {
-            throw new InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
+            throw new \InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
         }
 
         event(new NewPasswordSet($user));
@@ -141,7 +139,7 @@ class PasswordExpired extends XotBasePage
     }
 
     /**
-     * @return array<int, \Filament\Forms\Components\TextInput>
+     * @return array<int, TextInput>
      */
     protected function getCurrentPasswordFormComponent(): array
     {
