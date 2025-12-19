@@ -39,7 +39,7 @@ class Change extends Component
         }
 
         $this->user = $authUser;
-        /** @var \Illuminate\Support\Collection<int, \Modules\User\Contracts\TeamContract> $allTeams */
+        /** @var \Illuminate\Support\Collection<int, TeamContract> $allTeams */
         $allTeams = $this->user->allTeams();
         $this->teams = $allTeams->toArray();
     }
