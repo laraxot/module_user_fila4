@@ -45,11 +45,7 @@ abstract class BaseProfileResource extends XotBaseResource
         ];
     }
 
-    #[\Override]
-    public static function getRelations(): array
-    {
-        return [];
-    }
+
 
     #[\Override]
     public static function getPages(): array

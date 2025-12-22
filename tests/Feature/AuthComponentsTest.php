@@ -2,8 +2,13 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use Modules\User\Models\User;
 use Illuminate\Support\Facades\View;
+=======
+use Illuminate\Support\Facades\View;
+use Modules\User\Models\User;
+>>>>>>> 951e25735aa2d72f855c353e1c7670580c9e32ca
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;

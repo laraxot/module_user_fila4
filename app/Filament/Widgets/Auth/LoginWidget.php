@@ -20,28 +20,6 @@ use Modules\Xot\Filament\Widgets\XotBaseWidget;
 class LoginWidget extends XotBaseWidget
 {
     /**
-     * Blade view del widget nel modulo User.
-     * IMPORTANTE: quando il widget viene usato con @livewire() direttamente nelle Blade,
-     * il path deve essere senza il namespace del modulo (senza "user::").
-     *
-     * @see \Modules\User\docs\WIDGETS_STRUCTURE.md - Sezione B
-     *
-     * @var view-string
-     *
-     * @phpstan-ignore property.defaultValue
-     */
-    protected string $view = 'pub_theme::filament.widgets.auth.login';
-
-    /**
-     * Inizializza il widget quando viene montato.
-     * Chiama initXotBaseWidget() per inizializzare correttamente il form con statePath('data').
-     */
-    public function mount(): void
-    {
-        $this->initXotBaseWidget();
-    }
-
-    /**
      * @return array<string, TextInput|Checkbox>
      */
     #[\Override]
@@ -81,6 +59,7 @@ class LoginWidget extends XotBaseWidget
         } catch (ValidationException $e) {
             // La validazione Filament gestisce automaticamente gli errori
             throw $e;
+            dddx($e);
         }
     }
 }
