@@ -45,8 +45,6 @@ abstract class BaseProfileResource extends XotBaseResource
         ];
     }
 
-
-
     #[\Override]
     public static function getPages(): array
     {
