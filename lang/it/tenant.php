@@ -110,10 +110,12 @@ return [
         'reorderRecords' => [
             'icon' => 'reorderRecords',
             'label' => 'reorderRecords',
+            'tooltip' => 'reorderRecords',
         ],
         'cancel' => [
             'icon' => 'ui-cancel',
             'label' => 'cancel',
+            'tooltip' => 'cancel',
         ],
         'attachAnother' => [
             'icon' => 'attachAnother',
@@ -126,6 +128,7 @@ return [
         'detach' => [
             'icon' => 'detach',
             'label' => 'detach',
+            'tooltip' => 'detach',
         ],
         'edit' => [
             'label' => 'edit',
@@ -170,6 +173,7 @@ return [
         'logout' => [
             'icon' => 'logout',
             'label' => 'logout',
+            'tooltip' => 'logout',
         ],
         'profile' => [
             'icon' => 'profile',
