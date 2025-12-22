@@ -59,7 +59,6 @@ class LoginWidget extends XotBaseWidget
         } catch (ValidationException $e) {
             // La validazione Filament gestisce automaticamente gli errori
             throw $e;
-            dddx($e);
         }
     }
 }
