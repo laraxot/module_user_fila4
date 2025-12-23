@@ -58,6 +58,9 @@ return [
         'matr' => [
             'label' => 'Matricola',
         ],
+        'photo' => [
+            'label' => 'photo',
+        ],
     ],
     'actions' => [
         'edit' => [
@@ -69,11 +72,18 @@ return [
             'label' => 'Elimina',
             'success' => 'Profilo eliminato con successo!',
             'error' => 'Errore durante l\'eliminazione del profilo',
+            'tooltip' => 'delete',
+            'icon' => 'delete',
         ],
         'layout' => [
             'tooltip' => 'layout',
             'icon' => 'layout',
             'label' => 'layout',
+        ],
+        'create' => [
+            'tooltip' => 'create',
+            'icon' => 'create',
+            'label' => 'create',
         ],
     ],
     'messages' => [

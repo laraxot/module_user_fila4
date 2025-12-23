@@ -55,12 +55,13 @@ class Password extends XotBasePage
     }
 
     /**
-     * Definisce la struttura del form.
+     * Definisce la struttura dello schema.
      *
-     * @param  Schema  $schema  Il form da configurare
-     * @return Schema Il form configurato
+     * @param Schema $schema Lo schema da configurare
+     *
+     * @return Schema Lo schema configurato
      */
-    public function form(Schema $schema): Schema
+    public function schema(Schema $schema): Schema
     {
         return $schema
             ->components([
@@ -137,8 +138,9 @@ class Password extends XotBasePage
     /**
      * Gestisce l'aggiornamento del record.
      *
-     * @param  Model  $record  Il record da aggiornare
-     * @param  array<string, mixed>  $data  I dati per l'aggiornamento
+     * @param Model                $record Il record da aggiornare
+     * @param array<string, mixed> $data   I dati per l'aggiornamento
+     *
      * @return Model Il record aggiornato
      */
     protected function handleRecordUpdate(Model $record, array $data): Model

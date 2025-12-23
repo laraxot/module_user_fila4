@@ -11,9 +11,7 @@ namespace Modules\User\Datas;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TextInput as FormsTextInput;
 use Illuminate\Validation\Rules\Password;
-use InvalidArgumentException;
 use Modules\Tenant\Services\TenantService;
-use RuntimeException;
 use Spatie\LaravelData\Data;
 
 /**
@@ -36,7 +34,8 @@ class PasswordData extends Data
         public int $compromisedThreshold = 0,
         public ?string $failMessage = null,
         private ?string $field_name = null,
-    ) {}
+    ) {
+    }
 
     /**
      * Crea un'istanza della classe PasswordData.
@@ -134,13 +133,11 @@ class PasswordData extends Data
     /**
      * Get the password form component.
      */
-    public function getPasswordFormComponent(string $field_name): TextInput
+    public function getPasswordFormComponent(string $field_name): FormsTextInput
     {
-        return TextInput::make($field_name)
+        return FormsTextInput::make($field_name)
             ->password()
             ->required()
-            ->label(__('Password'))
-            ->placeholder(__('Inserisci la tua password'))
             ->validationMessages($this->getValidationMessages())
             ->helperText($this->getHelperText());
     }
@@ -148,19 +145,15 @@ class PasswordData extends Data
     /**
      * Get the password confirmation form component.
      */
-    public function getPasswordConfirmationFormComponent(): TextInput
+    public function getPasswordConfirmationFormComponent(): FormsTextInput
     {
-        if ($this->field_name === null) {
-            throw new RuntimeException(
-                'Il nome del campo password non è stato impostato. Utilizzare setFieldName() prima di chiamare questo metodo.',
-            );
+        if (null === $this->field_name) {
+            throw new \RuntimeException('Il nome del campo password non è stato impostato. Utilizzare setFieldName() prima di chiamare questo metodo.');
         }
 
-        return TextInput::make('password_confirmation')
+        return FormsTextInput::make('password_confirmation')
             ->password()
             ->required()
-            ->label(__('Conferma Password'))
-            ->placeholder(__('Conferma la tua password'))
             ->same($this->field_name)
             ->validationMessages($this->getValidationMessages());
     }
@@ -173,7 +166,7 @@ class PasswordData extends Data
     public function getPasswordFormComponents(string $field_name): array
     {
         if (empty($field_name)) {
-            throw new InvalidArgumentException('Il nome del campo password non può essere vuoto');
+            throw new \InvalidArgumentException('Il nome del campo password non può essere vuoto');
         }
 
         $this->setFieldName($field_name);

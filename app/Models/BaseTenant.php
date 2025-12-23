@@ -22,15 +22,15 @@ use Spatie\Sluggable\SlugOptions;
 /**
  * Modules\User\Models\Tenant.
  *
- * @method static TenantFactory factory($count = null, $state = [])
+ * @method static TenantFactory  factory($count = null, $state = [])
  * @method static Builder|Tenant newModelQuery()
  * @method static Builder|Tenant newQuery()
  * @method static Builder|Tenant query()
  *
  * @property EloquentCollection<int, Model&UserContract> $members
- * @property int|null $members_count
- * @property ProfileContract|null $creator
- * @property ProfileContract|null $updater
+ * @property int|null                                    $members_count
+ * @property ProfileContract|null                        $creator
+ * @property ProfileContract|null                        $updater
  *
  * @mixin \Eloquent
  */
@@ -63,7 +63,7 @@ abstract class BaseTenant extends BaseModel implements HasAvatar, HasMedia, Tena
     /**
      * Ottiene tutti i membri associati al tenant.
      *
-     * @return BelongsToMany<Model, \Modules\User\Models\BaseTenant>
+     * @return BelongsToMany<Model, BaseTenant>
      */
     public function members(): BelongsToMany
     {
@@ -76,7 +76,7 @@ abstract class BaseTenant extends BaseModel implements HasAvatar, HasMedia, Tena
     /**
      * Ottiene tutti gli utenti associati al tenant.
      *
-     * @return BelongsToMany<Model, \Modules\User\Models\BaseTenant>
+     * @return BelongsToMany<Model, BaseTenant>
      */
     public function users(): BelongsToMany
     {

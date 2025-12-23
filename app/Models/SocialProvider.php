@@ -12,23 +12,22 @@ use Illuminate\Database\Eloquent\Builder;
 use Modules\Tenant\Models\Traits\SushiToPhpArray;
 use Modules\User\Database\Factories\SocialProviderFactory;
 use Modules\Xot\Contracts\ProfileContract;
-use Override;
 
 /**
- * @property int|null $id
- * @property string|null $name
- * @property array|null $scopes
- * @property array|null $parameters
- * @property bool|null $stateless
- * @property bool|null $active
- * @property bool|null $socialite
- * @property string|null $svg
- * @property string|null $client_id
- * @property string|null $client_secret
+ * @property int|null             $id
+ * @property string|null          $name
+ * @property array|null           $scopes
+ * @property array|null           $parameters
+ * @property bool|null            $stateless
+ * @property bool|null            $active
+ * @property bool|null            $socialite
+ * @property string|null          $svg
+ * @property string|null          $client_id
+ * @property string|null          $client_secret
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  *
- * @method static SocialProviderFactory factory($count = null, $state = [])
+ * @method static SocialProviderFactory  factory($count = null, $state = [])
  * @method static Builder|SocialProvider newModelQuery()
  * @method static Builder|SocialProvider newQuery()
  * @method static Builder|SocialProvider query()
@@ -54,6 +53,9 @@ use Override;
  * @method static Builder|SocialProvider whereUpdatedBy($value)
  *
  * @mixin IdeHelperSocialProvider
+ *
+ * @property ProfileContract|null $deleter
+ *
  * @mixin \Eloquent
  */
 class SocialProvider extends BaseModel
@@ -77,6 +79,11 @@ class SocialProvider extends BaseModel
         // 'client_secret',// => env('FACEBOOK_CLIENT_SECRET'),
     ];
 
+    /**
+     * Logical form definition for this Sushi-backed model.
+     *
+     * @var array<string, string>
+     */
     protected array $form = [
         'id' => 'integer',
         'name' => 'string',
@@ -92,13 +99,29 @@ class SocialProvider extends BaseModel
         'updated_by' => 'string',
     ];
 
+    /** @var array<string, string> */
+    protected array $schema = [
+        'id' => 'integer',
+        'name' => 'string',
+        'scopes' => 'text',
+        'parameters' => 'text',
+        'stateless' => 'boolean',
+        'active' => 'boolean',
+        'socialite' => 'boolean',
+        'svg' => 'text',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'created_by' => 'string',
+        'updated_by' => 'string',
+    ];
+
     public function getRows(): array
     {
         return $this->getSushiRows();
     }
 
     /** @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [

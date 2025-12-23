@@ -9,14 +9,14 @@ use Illuminate\Support\Str;
 use Modules\User\Models\Tenant;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\User\Models\Tenant>
+ * @extends Factory<Tenant>
  */
 class TenantFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
-     * @var class-string<\Modules\User\Models\Tenant>
+     * @var class-string<Tenant>
      */
     protected $model = Tenant::class;
 

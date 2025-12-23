@@ -1,32 +1,38 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'fields' => [
         'email' => [
-            'label' => 'email',
-            'description' => 'email',
+            'label' => 'Email',
+            'description' => 'Email',
             'helper_text' => '',
-            'placeholder' => 'email',
+            'placeholder' => 'Inserisci la tua email',
         ],
         'password' => [
-            'label' => 'password',
-            'description' => 'password',
+            'label' => 'Password',
+            'description' => 'Password',
             'helper_text' => '',
-            'placeholder' => 'password',
+            'placeholder' => 'Inserisci la tua password',
         ],
         'remember' => [
-            'label' => 'remember',
-            'description' => 'remember',
+            'label' => 'Ricordami',
+            'description' => 'Ricordami',
             'helper_text' => '',
-            'placeholder' => 'remember',
+            'placeholder' => 'Ricordami',
         ],
     ],
     'actions' => [
         'hidePassword' => [
             'label' => 'hidePassword',
+            'icon' => 'hidePassword',
+            'tooltip' => 'hidePassword',
         ],
         'showPassword' => [
             'label' => 'showPassword',
+            'icon' => 'showPassword',
+            'tooltip' => 'showPassword',
         ],
     ],
 ];

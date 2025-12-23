@@ -18,7 +18,6 @@ return [
 ];
 
 /*
- *
  * $inputs = [
  * 'email'    => 'foo',
  * 'password' => 'bar',
@@ -42,5 +41,4 @@ return [
  * if ( $validation->fails() ) {
  * print_r( $validation->errors()->all() );
  * }
- *
  */

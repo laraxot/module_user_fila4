@@ -6,11 +6,12 @@ namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
+use Filament\Tables\Columns\Column;
+use Filament\Tables\Columns\ColumnGroup;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\User\Filament\Resources\DeviceResource;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-use Override;
 
 class DevicesRelationManager extends XotBaseRelationManager
 {
@@ -27,7 +28,7 @@ class DevicesRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public function getFormSchema(): array
     {
         return [
@@ -35,13 +36,13 @@ class DevicesRelationManager extends XotBaseRelationManager
         ];
     }
 
-    #[Override]
+    #[\Override]
     public function table(Table $table): Table
     {
         $table = DeviceResource::table($table);
 
         /**
-         * @var array<\Filament\Tables\Columns\Column|\Filament\Tables\Columns\ColumnGroup|\Filament\Tables\Columns\Layout\Component> $columns
+         * @var array<Column|ColumnGroup|\Filament\Tables\Columns\Layout\Component> $columns
          */
         $columns = array_merge($table->getColumns(), static::extendTableCallback());
 

@@ -21,7 +21,7 @@ use Modules\Xot\Filament\Pages\XotBasePage;
  *
  * @property Schema $form
  *
- * @see \Modules\Xot\Filament\Pages\XotBasePage
+ * @see XotBasePage
  * @see \Modules\User\docs\errori\class-page-not-found.md
  */
 class Background extends XotBasePage
@@ -46,7 +46,7 @@ class Background extends XotBasePage
     //    ];
     // }
 
-    public function form(Schema $schema): Schema
+    public function schema(Schema $schema): Schema
     {
         return $schema
             ->components([
@@ -97,7 +97,7 @@ class Background extends XotBasePage
     }
 
     /**
-     * @param  array<string, mixed>  $data
+     * @param array<string, mixed> $data
      */
     protected function handleRecordUpdate(Model $record, array $data): Model
     {

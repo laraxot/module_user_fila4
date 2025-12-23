@@ -82,22 +82,27 @@ return [
         'delete' => [
             'icon' => 'delete',
             'label' => 'delete',
+            'tooltip' => 'delete',
         ],
         'edit' => [
             'icon' => 'edit',
             'label' => 'edit',
+            'tooltip' => 'edit',
         ],
         'create' => [
             'icon' => 'create',
             'label' => 'create',
+            'tooltip' => 'create',
         ],
         'attach' => [
             'icon' => 'attach',
             'label' => 'attach',
+            'tooltip' => 'attach',
         ],
         'detach' => [
             'icon' => 'detach',
             'label' => 'detach',
+            'tooltip' => 'detach',
         ],
     ],
 ];

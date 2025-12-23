@@ -9,10 +9,11 @@ use Modules\User\Filament\Clusters\Appearance\Pages\Colors;
 use Modules\User\Filament\Clusters\Appearance\Pages\CustomCss;
 use Modules\User\Filament\Clusters\Appearance\Pages\Favicon;
 use Modules\User\Filament\Clusters\Appearance\Pages\Logo;
+use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Clusters\XotBaseCluster;
 use Modules\Xot\Filament\Pages\XotBasePage;
 
-/**
+/*
  * Test per il Cluster Appearance e le sue Pages.
  *
  * Verifica che:
@@ -85,7 +86,7 @@ test('cluster does not extend Filament directly', function () {
 });
 
 test('cluster pages are accessible', function () {
-    $userClass = \Modules\Xot\Datas\XotData::make()->getUserClass();
+    $userClass = XotData::make()->getUserClass();
     $user = $userClass::factory()->create();
 
     $this->actingAs($user);

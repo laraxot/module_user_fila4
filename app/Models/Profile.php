@@ -20,52 +20,52 @@ use Spatie\SchemalessAttributes\SchemalessAttributes;
 use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttributes;
 
 /**
- * User Profile Model
+ * User Profile Model.
  *
  * Represents a user profile with relationships to devices, teams, and roles.
  *
- * @property int $id
- * @property string $first_name
- * @property string $last_name
- * @property string $user_name
- * @property string $email
- * @property string|null $phone
- * @property string|null $bio
- * @property string|null $avatar
- * @property string|null $timezone
- * @property string|null $locale
- * @property array $preferences
- * @property string $status
- * @property SchemalessAttributes $extra
- * @property-read string $avatar
- * @property-read ProfileContract|null $creator
- * @property-read Collection<int, DeviceUser> $deviceUsers
- * @property-read int|null $device_users_count
- * @property-read \Modules\User\Models\ProfileTeam|\Modules\User\Models\DeviceProfile|null $pivot
- * @property-read Collection<int, Device> $devices
- * @property-read int|null $devices_count
- * @property-read string|null $first_name
- * @property-read string|null $full_name
- * @property-read string|null $last_name
- * @property-read MediaCollection<int, Media> $media
- * @property-read int|null $media_count
- * @property-read Collection<int, DeviceUser> $mobileDeviceUsers
- * @property-read int|null $mobile_device_users_count
- * @property-read Collection<int, Device> $mobileDevices
- * @property-read int|null $mobile_devices_count
- * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
- * @property-read int|null $notifications_count
- * @property-read Collection<int, Permission> $permissions
- * @property-read int|null $permissions_count
- * @property-read Collection<int, Role> $roles
- * @property-read int|null $roles_count
- * @property-read Collection<int, Team> $teams
- * @property-read int|null $teams_count
- * @property-read ProfileContract|null $updater
- * @property-read UserContract|null $user
- * @property-read string|null $user_name
+ * @property int                                                       $id
+ * @property string                                                    $first_name
+ * @property string                                                    $last_name
+ * @property string                                                    $user_name
+ * @property string                                                    $email
+ * @property string|null                                               $phone
+ * @property string|null                                               $bio
+ * @property string|null                                               $avatar
+ * @property string|null                                               $timezone
+ * @property string|null                                               $locale
+ * @property array                                                     $preferences
+ * @property string                                                    $status
+ * @property SchemalessAttributes                                      $extra
+ * @property string                                                    $avatar
+ * @property ProfileContract|null                                      $creator
+ * @property Collection<int, DeviceUser>                               $deviceUsers
+ * @property int|null                                                  $device_users_count
+ * @property ProfileTeam|DeviceProfile|null                            $pivot
+ * @property Collection<int, Device>                                   $devices
+ * @property int|null                                                  $devices_count
+ * @property string|null                                               $first_name
+ * @property string|null                                               $full_name
+ * @property string|null                                               $last_name
+ * @property MediaCollection<int, Media>                               $media
+ * @property int|null                                                  $media_count
+ * @property Collection<int, DeviceUser>                               $mobileDeviceUsers
+ * @property int|null                                                  $mobile_device_users_count
+ * @property Collection<int, Device>                                   $mobileDevices
+ * @property int|null                                                  $mobile_devices_count
+ * @property DatabaseNotificationCollection<int, DatabaseNotification> $notifications
+ * @property int|null                                                  $notifications_count
+ * @property Collection<int, Permission>                               $permissions
+ * @property int|null                                                  $permissions_count
+ * @property Collection<int, Role>                                     $roles
+ * @property int|null                                                  $roles_count
+ * @property Collection<int, Team>                                     $teams
+ * @property int|null                                                  $teams_count
+ * @property ProfileContract|null                                      $updater
+ * @property UserContract|null                                         $user
+ * @property string|null                                               $user_name
  *
- * @method static ProfileFactory factory($count = null, $state = [])
+ * @method static ProfileFactory          factory($count = null, $state = [])
  * @method static Builder<static>|Profile newModelQuery()
  * @method static Builder<static>|Profile newQuery()
  * @method static Builder<static>|Profile permission($permissions, $without = false)
@@ -76,6 +76,30 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * @method static Builder<static>|Profile withoutRole($roles, $guard = null)
  *
  * @mixin IdeHelperProfile
+ *
+ * @property string|null                     $user_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null                     $updated_by
+ * @property string|null                     $created_by
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property string|null                     $deleted_by
+ * @property ProfileContract|null            $deleter
+ *
+ * @method static Builder<static>|Profile whereBio($value)
+ * @method static Builder<static>|Profile whereCreatedAt($value)
+ * @method static Builder<static>|Profile whereCreatedBy($value)
+ * @method static Builder<static>|Profile whereDeletedAt($value)
+ * @method static Builder<static>|Profile whereDeletedBy($value)
+ * @method static Builder<static>|Profile whereEmail($value)
+ * @method static Builder<static>|Profile whereFirstName($value)
+ * @method static Builder<static>|Profile whereId($value)
+ * @method static Builder<static>|Profile whereLastName($value)
+ * @method static Builder<static>|Profile wherePhone($value)
+ * @method static Builder<static>|Profile whereUpdatedAt($value)
+ * @method static Builder<static>|Profile whereUpdatedBy($value)
+ * @method static Builder<static>|Profile whereUserId($value)
+ *
  * @mixin \Eloquent
  */
 class Profile extends BaseProfile implements HasMedia

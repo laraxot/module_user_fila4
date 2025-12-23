@@ -37,14 +37,16 @@ class OtherDeviceLogoutListener
                 ]);
             }
 
-            foreach ($user->authentications()->whereLoginSuccessful(true)->whereNull('logout_at')->get() as $log) {
-                if ($log->getKey() !== $authenticationLog->getKey()) {
-                    $log->update([
-                        'cleared_by_user' => true,
-                        'logout_at' => now(),
-                    ]);
-                }
-            }
+            // Performance optimization: Bulk update instead of N+1 individual updates
+            // This reduces 50+ queries to a single UPDATE query
+            $user->authentications()
+                ->whereLoginSuccessful(true)
+                ->whereNull('logout_at')
+                ->where('id', '!=', $authenticationLog->getKey())
+                ->update([
+                    'cleared_by_user' => true,
+                    'logout_at' => now(),
+                ]);
         }
     }
 

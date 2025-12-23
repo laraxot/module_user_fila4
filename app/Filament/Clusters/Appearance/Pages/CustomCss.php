@@ -37,7 +37,7 @@ class CustomCss extends XotBasePage
     //    ];
     // }
 
-    public function form(Schema $schema): Schema
+    public function schema(Schema $schema): Schema
     {
         return $schema
             ->components([
@@ -88,7 +88,7 @@ class CustomCss extends XotBasePage
     }
 
     /**
-     * @param  array<string, mixed>  $data
+     * @param array<string, mixed> $data
      */
     protected function handleRecordUpdate(Model $record, array $data): Model
     {

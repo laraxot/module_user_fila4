@@ -61,6 +61,18 @@ return [
             'helper_text' => 'new_password',
             'placeholder' => 'new_password',
         ],
+        'password' => [
+            'label' => 'Password',
+            'placeholder' => 'Inserisci la password',
+            'helper_text' => 'La password deve essere di almeno 8 caratteri',
+            'description' => 'Password',
+        ],
+        'password_confirmation' => [
+            'label' => 'Conferma Password',
+            'placeholder' => 'Conferma la password',
+            'helper_text' => 'Reinserisci la password per confermare',
+            'description' => 'Conferma Password',
+        ],
     ],
     'actions' => [
         'import' => [

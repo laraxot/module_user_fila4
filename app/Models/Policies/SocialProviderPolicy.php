@@ -14,7 +14,8 @@ class SocialProviderPolicy extends UserBasePolicy
      */
     public function viewAny(UserContract $user): bool
     {
-        return $user->hasPermissionTo('social-provider.view.any');
+        // return $user->hasPermissionTo('social-provider.view.any');
+        return false;
     }
 
     /**

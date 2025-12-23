@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Datas;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use Spatie\LaravelData\Data;
@@ -66,20 +67,20 @@ class DeviceData extends Data
 
     public function getSynchronizationId(string $apiName): string
     {
-        if ($this->synchronizationId !== null) {
+        if (null !== $this->synchronizationId) {
             return $this->synchronizationId;
         }
 
         $synchronizationClass = config('morph_map.synchronization');
-        if ($synchronizationClass === null) {
+        if (null === $synchronizationClass) {
             $synchronizationClass = '\Modules\Egea\Models\Synchronization';
         }
 
         // fare contract
         // Assert::isInstanceOf($synchronizationClass,Model::class,'['.__LINE__.']['.class_basename($this).']');
         // $synchronization = Synchronization::create([
-        /** @var class-string<\Illuminate\Database\Eloquent\Model> $synchronizationClass */
-        /** @var \Illuminate\Database\Eloquent\Model $synchronization */
+        /** @var class-string<Model> $synchronizationClass */
+        /** @var Model $synchronization */
         $synchronization = $synchronizationClass::create([
             // $synchronization = Synchronization::create([
             'user_id' => auth()->id(),

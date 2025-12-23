@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Pages\Auth;
 
 use Filament\Pages\Concerns\HasRoutes;
+use Modules\Xot\Filament\Pages\Auth\XotBaseLogin;
 
-class Login extends \Filament\Auth\Pages\Login
+class Login extends XotBaseLogin
 {
     use HasRoutes;
 

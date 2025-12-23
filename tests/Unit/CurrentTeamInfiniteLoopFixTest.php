@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
 
-/**
+/*
  * Test per verificare la correzione del bug del loop infinito in currentTeam().
  *
  * Questo test verifica che il metodo currentTeam() non causi più loop infiniti
@@ -26,7 +27,7 @@ test('currentTeam getter does not crash when user has no teams', function (): vo
     $currentTeamRelation = $user->currentTeam;
 
     // Assert: La relazione dovrebbe esistere ma il team dovrebbe essere null
-    expect($currentTeamRelation)->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsTo::class);
+    expect($currentTeamRelation)->toBeInstanceOf(BelongsTo::class);
     expect($user->currentTeam()->first())->toBeNull();
 });
 
@@ -181,9 +182,9 @@ test('currentTeam getter does not cause N+1 queries', function (): void {
     $relation3 = $user->currentTeam;
 
     // Assert: Tutti gli accessi dovrebbero funzionare
-    expect($relation1)->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsTo::class);
-    expect($relation2)->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsTo::class);
-    expect($relation3)->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsTo::class);
+    expect($relation1)->toBeInstanceOf(BelongsTo::class);
+    expect($relation2)->toBeInstanceOf(BelongsTo::class);
+    expect($relation3)->toBeInstanceOf(BelongsTo::class);
 });
 
 test('currentTeam getter works correctly with existing team', function (): void {
@@ -226,13 +227,13 @@ test('user creation does not trigger infinite loop', function (): void {
 
     // Accedi a currentTeam (non dovrebbe crashare)
     $relation = $user->currentTeam;
-    expect($relation)->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsTo::class);
+    expect($relation)->toBeInstanceOf(BelongsTo::class);
 });
 
 test('multiple users can be created without issues', function (): void {
     // Arrange & Act: Crea più utenti in sequenza
     $users = [];
-    for ($i = 1; $i <= 5; $i++) {
+    for ($i = 1; $i <= 5; ++$i) {
         $users[] = User::create([
             'name' => "User {$i}",
             'email' => "user{$i}@example.com",
@@ -249,6 +250,6 @@ test('multiple users can be created without issues', function (): void {
 
         // Verifica che currentTeam non crashi
         $relation = $user->currentTeam;
-        expect($relation)->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsTo::class);
+        expect($relation)->toBeInstanceOf(BelongsTo::class);
     }
 });

@@ -11,13 +11,13 @@ namespace Modules\User\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
+use Modules\Xot\Models\Traits\HasXotFactory;
 use Modules\Xot\Models\Traits\RelationX;
 use Spatie\Permission\Models\Role as SpatieRole;
 use Webmozart\Assert\Assert;
@@ -25,18 +25,18 @@ use Webmozart\Assert\Assert;
 /**
  * Modules\User\Models\Role.
  *
- * @property string $id
- * @property string $uuid
- * @property string|null $team_id
- * @property string $name
- * @property string $guard_name
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property Collection<int, Permission> $permissions
- * @property int|null $permissions_count
- * @property Team|null $team
+ * @property string                                      $id
+ * @property string                                      $uuid
+ * @property string|null                                 $team_id
+ * @property string                                      $name
+ * @property string                                      $guard_name
+ * @property Carbon|null                                 $created_at
+ * @property Carbon|null                                 $updated_at
+ * @property Collection<int, Permission>                 $permissions
+ * @property int|null                                    $permissions_count
+ * @property Team|null                                   $team
  * @property EloquentCollection<int, Model&UserContract> $users
- * @property int|null $users_count
+ * @property int|null                                    $users_count
  *
  * @method static Builder|Role newModelQuery()
  * @method static Builder|Role newQuery()
@@ -66,11 +66,21 @@ use Webmozart\Assert\Assert;
  * @property PermissionRole|null $pivot
  *
  * @mixin IdeHelperRole
+ *
+ * @property string|null $display_name
+ * @property string|null $description
+ *
+ * @method static \Modules\User\Database\Factories\RoleFactory factory($count = null, $state = [])
+ * @method static Builder<static>|Role                         whereDescription($value)
+ * @method static Builder<static>|Role                         whereDisplayName($value)
+ * @method static static                                       firstOrCreate(array $attributes, array $values = [])
+ * @method static static                                       updateOrCreate(array $attributes, array $values = [])
+ *
  * @mixin \Eloquent
  */
 class Role extends SpatieRole
 {
-    use HasFactory;
+    use HasXotFactory;
     use RelationX;
 
     // use HasUuids;

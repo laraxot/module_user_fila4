@@ -34,7 +34,7 @@ final class ChangePasswordAction extends Action
                     ->body(__('user::notifications.password_changed_successfully.message'))
                     ->send();
             })
-            ->form(function (): array {
+            ->schema(function (): array {
                 return [
                     PasswordData::make()->getPasswordFormComponent('new_password'),
                     TextInput::make('new_password_confirmation')
@@ -43,7 +43,7 @@ final class ChangePasswordAction extends Action
                         ->rule(
                             'required',
                             /**
-                             * @param  callable(string): mixed  $get
+                             * @param callable(string): mixed $get
                              */
                             static fn (callable $get): bool => (bool) $get('new_password')
                         )

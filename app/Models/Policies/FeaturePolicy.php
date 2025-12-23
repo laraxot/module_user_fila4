@@ -14,7 +14,8 @@ class FeaturePolicy extends UserBasePolicy
      */
     public function viewAny(UserContract $user): bool
     {
-        return $user->hasPermissionTo('feature.view.any');
+        // return $user->hasPermissionTo('feature.view.any');
+        return false;
     }
 
     /**

@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Contracts;
 
-/**
+/*
  * Interfaccia ModelContract deprecata.
  *
  * Questa interfaccia causava conflitti con Illuminate\Database\Eloquent\Model

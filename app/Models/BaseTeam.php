@@ -17,26 +17,25 @@ use Modules\User\Database\Factories\TeamFactory;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
-use Override;
 
 /**
  * Modules\User\Models\Team.
  *
- * @property int $id
- * @property int $user_id
- * @property string $name
- * @property int $personal_team
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
+ * @property int                                         $id
+ * @property int                                         $user_id
+ * @property string                                      $name
+ * @property int                                         $personal_team
+ * @property Carbon|null                                 $created_at
+ * @property Carbon|null                                 $updated_at
  * @property EloquentCollection<int, Model&UserContract> $members
- * @property int|null $members_count
- * @property UserContract|null $owner
- * @property EloquentCollection<int, TeamInvitation> $teamInvitations
- * @property int|null $team_invitations_count
+ * @property int|null                                    $members_count
+ * @property UserContract|null                           $owner
+ * @property EloquentCollection<int, TeamInvitation>     $teamInvitations
+ * @property int|null                                    $team_invitations_count
  * @property EloquentCollection<int, Model&UserContract> $users
- * @property int|null $users_count
+ * @property int|null                                    $users_count
  *
- * @method static TeamFactory factory($count = null, $state = [])
+ * @method static TeamFactory  factory($count = null, $state = [])
  * @method static Builder|Team newModelQuery()
  * @method static Builder|Team newQuery()
  * @method static Builder|Team query()
@@ -57,10 +56,10 @@ use Override;
  * @method static Builder|Team whereDeletedBy($value)
  * @method static Builder|Team whereUpdatedBy($value)
  *
- * @property Membership $membership
+ * @property Membership           $membership
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
- * @property string $uuid
+ * @property string               $uuid
  *
  * @method static Builder|Team whereUuid($value)
  *
@@ -87,7 +86,7 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Get the owner of the team.
      */
-    #[Override]
+    #[\Override]
     public function owner(): BelongsTo
     {
         $xotData = XotData::make();
@@ -100,7 +99,7 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Get all of the team's users including its owner.
      */
-    #[Override]
+    #[\Override]
     public function allUsers(): Collection
     {
         if (! ($this->owner instanceof User)) {
@@ -113,7 +112,7 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Get all of the users that belong to the team.
      */
-    #[Override]
+    #[\Override]
     public function users(): BelongsToMany
     {
         $xotData = XotData::make();
@@ -126,9 +125,9 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Ottiene tutti i membri del team (alias di users).
      *
-     * @return BelongsToMany<Model, \Modules\User\Models\BaseTeam>
+     * @return BelongsToMany<Model, BaseTeam>
      */
-    #[Override]
+    #[\Override]
     public function members(): BelongsToMany
     {
         return $this->users();
@@ -137,10 +136,11 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Determina se l'utente specificato appartiene al team.
      *
-     * @param  UserContract  $user  L'utente da verificare
+     * @param UserContract $user L'utente da verificare
+     *
      * @return bool True se l'utente appartiene al team, false altrimenti
      */
-    #[Override]
+    #[\Override]
     public function hasUser(UserContract $user): bool
     {
         // Corretto l'errore di tipo per il metodo contains
@@ -155,10 +155,11 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Determina se l'indirizzo email specificato appartiene a un utente del team.
      *
-     * @param  string  $email  Indirizzo email da verificare
+     * @param string $email Indirizzo email da verificare
+     *
      * @return bool True se un utente con quell'email appartiene al team, false altrimenti
      */
-    #[Override]
+    #[\Override]
     public function hasUserWithEmail(string $email): bool
     {
         return $this->allUsers()->contains(static function ($user) use ($email): bool {
@@ -175,11 +176,12 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Determina se l'utente specificato ha il permesso indicato sul team.
      *
-     * @param  UserContract  $userContract  L'utente da verificare
-     * @param  string  $permission  Il permesso da controllare
+     * @param UserContract $userContract L'utente da verificare
+     * @param string       $permission   Il permesso da controllare
+     *
      * @return bool True se l'utente ha il permesso, false altrimenti
      */
-    #[Override]
+    #[\Override]
     public function userHasPermission(UserContract $userContract, string $permission): bool
     {
         return $userContract->hasTeamPermission($this, $permission);
@@ -188,11 +190,11 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Ottiene tutti gli inviti utente pendenti per il team.
      *
-     * @return HasMany<TeamInvitation, \Modules\User\Models\BaseTeam>
+     * @return HasMany<TeamInvitation, BaseTeam>
      *
      * @phpstan-return HasMany<TeamInvitation, $this>
      */
-    #[Override]
+    #[\Override]
     public function teamInvitations(): HasMany
     {
         return $this->hasMany(TeamInvitation::class);
@@ -201,9 +203,9 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Rimuove l'utente specificato dal team.
      *
-     * @param  UserContract  $userContract  L'utente da rimuovere dal team
+     * @param UserContract $userContract L'utente da rimuovere dal team
      */
-    #[Override]
+    #[\Override]
     public function removeUser(UserContract $userContract): void
     {
         if ($userContract->current_team_id === $this->id) {
@@ -218,7 +220,7 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Rimuove tutte le risorse del team.
      */
-    #[Override]
+    #[\Override]
     public function purge(): void
     {
         $this->owner()->where('current_team_id', $this->id)->update(['current_team_id' => null]);

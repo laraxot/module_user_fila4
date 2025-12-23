@@ -40,7 +40,7 @@ class RegisterTenant extends BaseRegisterTenant
         return static::transClass($tenantClass, $key);
     }
 
-    public function form(Schema $schema): Schema
+    public function schema(Schema $schema): Schema
     {
         /** @var array<Component> $components */
         $components = $this->getFormSchema();
@@ -49,7 +49,7 @@ class RegisterTenant extends BaseRegisterTenant
     }
 
     /**
-     * @return array<\Filament\Schemas\Components\Component>
+     * @return array<Component>
      */
     public function getFormSchema(): array
     {
@@ -62,7 +62,7 @@ class RegisterTenant extends BaseRegisterTenant
     }
 
     /**
-     * @param  array<string, string|int|bool|null>  $data
+     * @param array<string, string|int|bool|null> $data
      */
     protected function handleRegistration(array $data): Model
     {
@@ -80,7 +80,7 @@ class RegisterTenant extends BaseRegisterTenant
      */
     private function resolveResourceClass(): string
     {
-        if ($this->resourceClass !== null) {
+        if (null !== $this->resourceClass) {
             return $this->resourceClass;
         }
 

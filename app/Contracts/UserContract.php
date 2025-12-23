@@ -132,7 +132,7 @@ interface UserContract extends Authenticatable
     /**
      * Create a new personal access token for the user.
      *
-     * @param  array<int, string>  $scopes
+     * @param array<int, string> $scopes
      */
     public function createToken(string $name, array $scopes = []): PersonalAccessTokenResult;
 
@@ -144,5 +144,5 @@ interface UserContract extends Authenticatable
     /**
      * Remove a role from the user.
      */
-    public function removeRole(string|int|\Spatie\Permission\Contracts\Role $role): static;
+    public function removeRole(string|int|Role $role): static;
 }

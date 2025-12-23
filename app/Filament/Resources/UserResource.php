@@ -9,15 +9,17 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Carbon\Carbon;
+use Carbon\CarbonInterface;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\HtmlString;
 use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-use Override;
 
 class UserResource extends XotBaseResource
 {
@@ -40,7 +42,7 @@ class UserResource extends XotBaseResource
     //    static::$extendFormCallback = $callback;
     // }
 
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
@@ -62,7 +64,7 @@ class UserResource extends XotBaseResource
             'section02' => Section::make([
                 'created_at' => Placeholder::make('created_at')->content(static function ($record) {
                     // Type narrowing for PHPStan Level 10
-                    if (! $record instanceof \Illuminate\Database\Eloquent\Model) {
+                    if (! $record instanceof Model) {
                         return new HtmlString('&mdash;');
                     }
 
@@ -71,13 +73,13 @@ class UserResource extends XotBaseResource
                         return new HtmlString('&mdash;');
                     }
 
-                    /** @var \Carbon\Carbon|null $createdAt */
+                    /** @var Carbon|null $createdAt */
                     $createdAt = $record->getAttribute('created_at');
 
-                    if ($createdAt === null) {
+                    if (null === $createdAt) {
                         return new HtmlString('&mdash;');
                     }
-                    if ($createdAt instanceof \Carbon\CarbonInterface) {
+                    if ($createdAt instanceof CarbonInterface) {
                         return $createdAt->diffForHumans();
                     }
                     if ($createdAt instanceof \DateTimeInterface) {
@@ -102,7 +104,7 @@ class UserResource extends XotBaseResource
      * }
      */
 
-    #[Override]
+    #[\Override]
     public function hasCombinedRelationManagerTabsWithContent(): bool
     {
         return true;

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
 
@@ -16,8 +15,8 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|TeamUser newQuery()
  * @method static Builder|TeamUser query()
  *
- * @property int $id
- * @property string $uuid
+ * @property int         $id
+ * @property string      $uuid
  * @property string|null $team_id
  * @property string|null $user_id
  * @property string|null $role
@@ -48,11 +47,16 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property ProfileContract|null $updater
  *
  * @mixin IdeHelperTeamUser
+ *
+ * @property ProfileContract|null $deleter
+ * @property Team|null            $team
+ * @property User|null            $user
+ *
+ * @method static \Modules\User\Database\Factories\TeamUserFactory factory($count = null, $state = [])
+ *
  * @mixin \Eloquent
  */
 class TeamUser extends BaseTeamUser
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
-
     protected $connection = 'user';
 }

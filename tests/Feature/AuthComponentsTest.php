@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Models\User;
 use Illuminate\Support\Facades\View;
+use Modules\User\Models\User;
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
@@ -31,14 +31,14 @@ describe('Auth Components Reorganization Tests', function (): void {
     test('login page with reorganized components loads correctly', function (): void {
         // Test that login pages using reorganized components still work
         $response = get('/auth/login');
-        /** @phpstan-ignore-next-line method.nonObject */
+        /* @phpstan-ignore-next-line method.nonObject */
         $response->assertStatus(200);
     });
 
     test('register page with reorganized components loads correctly', function (): void {
         // Test that register page using reorganized components still work
         $response = get('/auth/register');
-        /** @phpstan-ignore-next-line method.nonObject */
+        /* @phpstan-ignore-next-line method.nonObject */
         $response->assertStatus(200);
     });
 
@@ -68,15 +68,15 @@ describe('Authentication Flow with Reorganized Components', function (): void {
         // Visit login page and ensure all reorganized components render
         $response = get('/auth/login');
 
-        /** @phpstan-ignore-next-line method.nonObject */
+        /* @phpstan-ignore-next-line method.nonObject */
         $response->assertStatus(200);
-        /** @phpstan-ignore-next-line method.nonObject */
+        /* @phpstan-ignore-next-line method.nonObject */
         $response->assertSee('Login');
     });
 
     test('password confirmation uses reorganized components', function (): void {
         /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
+        $user = User/* @phpstan-ignore-line */ ::factory()->create();
 
         actingAs($user)
             ->get('/user/confirm-password')
@@ -88,7 +88,7 @@ describe('Authentication Flow with Reorganized Components', function (): void {
         $response = get('/two-factor-challenge');
 
         // Should redirect to login if not in 2FA flow, which means components loaded
-        /** @phpstan-ignore-next-line method.nonObject */
+        /* @phpstan-ignore-next-line method.nonObject */
         $response->assertRedirect('/auth/login');
     });
 });
@@ -96,11 +96,11 @@ describe('Authentication Flow with Reorganized Components', function (): void {
 describe('User Profile Components Tests', function (): void {
     test('profile pages use reorganized components correctly', function (): void {
         /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
+        $user = User/* @phpstan-ignore-line */ ::factory()->create();
 
         $response = actingAs($user)->get('/user/profile');
 
-        /** @phpstan-ignore-next-line method.nonObject */
+        /* @phpstan-ignore-next-line method.nonObject */
         $response->assertStatus(200);
     });
 
@@ -109,7 +109,7 @@ describe('User Profile Components Tests', function (): void {
         expect(View::exists('pub_theme::components.layout.sections.action-section'))->toBeTrue();
 
         /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create();
+        $user = User/* @phpstan-ignore-line */ ::factory()->create();
 
         // Access a profile page that likely uses action-section
         actingAs($user)

@@ -97,12 +97,15 @@ test('user type enum can be used in match statements', function (): void {
 
 test('user type enum can be serialized', function (): void {
     $type = UserType::MasterAdmin;
+    $serialized = serialize($type);
 
-    expect(serialize($type))->toBe('O:32:"Modules\User\Enums\UserType":1:{s:4:"name";s:11:"MasterAdmin";}');
+    // PHP 8.1+ enum serialization format: E:length:"Namespace\Enum:CaseName";
+    expect($serialized)->toMatch('/^E:\d+:"Modules\\\User\\\Enums\\\UserType:MasterAdmin";$/');
 });
 
 test('user type enum can be unserialized', function (): void {
-    $serialized = 'O:32:"Modules\User\Enums\UserType":1:{s:4:"name";s:11:"MasterAdmin";}';
+    $type = UserType::MasterAdmin;
+    $serialized = serialize($type);
     $unserialized = unserialize($serialized);
 
     expect($unserialized)->toBe(UserType::MasterAdmin);

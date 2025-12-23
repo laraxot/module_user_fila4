@@ -269,6 +269,19 @@ return [
             'icon' => 'profile',
             'label' => 'profile',
         ],
+        'layout' => [
+            'tooltip' => 'layout',
+            'icon' => 'layout',
+            'label' => 'layout',
+        ],
+        'createAnother' => [
+            'tooltip' => 'createAnother',
+        ],
+        'submit' => [
+            'tooltip' => 'submit',
+            'icon' => 'submit',
+            'label' => 'submit',
+        ],
     ],
     'sections' => [
         'basic_info' => [

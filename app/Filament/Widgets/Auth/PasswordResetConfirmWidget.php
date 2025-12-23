@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
+use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
 use Webmozart\Assert\Assert;
@@ -137,7 +138,7 @@ class PasswordResetConfirmWidget extends XotBaseWidget
                 // Auto-login the user after successful password reset
                 // $user = \Modules\Xot\Datas\XotData::make()->getUserClass()::where('email', $data['email'])->first();
                 Assert::string($email = $data['email'], __FILE__.':'.__LINE__.' - '.class_basename(self::class));
-                /** @var \Modules\Xot\Contracts\UserContract $user */
+                /** @var UserContract $user */
                 $user = XotData::make()->getUserByEmail($email);
                 Assert::isInstanceOf($user, Authenticatable::class);
                 Auth::guard()->login($user);

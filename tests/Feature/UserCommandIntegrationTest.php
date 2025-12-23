@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use Illuminate\Console\Application;
 use Illuminate\Console\Command;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Artisan;
 use Modules\User\Console\Commands\ChangeTypeCommand;
@@ -12,16 +11,14 @@ use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Webmozart\Assert\Assert;
 
-uses(RefreshDatabase::class);
-
 describe('User Command Integration', function () {
     beforeEach(function () {
-        $this->command = new ChangeTypeCommand;
+        $this->command = new ChangeTypeCommand();
     });
 
     it('can be registered with Laravel artisan', function () {
         // Test that the command can be registered
-        $application = new Application;
+        $application = new Application();
         $application->add($this->command);
 
         expect($application->has('user:change-type'))->toBeTrue();
@@ -141,7 +138,7 @@ describe('User Command Integration', function () {
 
     it('can work with type checking utilities', function () {
         // Test type checking functions used in the command
-        $testObject = new stdClass;
+        $testObject = new stdClass();
         $testObject->value = 'test';
         $testObject->getLabel = fn () => 'Test Label';
 
@@ -211,7 +208,7 @@ describe('User Command Integration', function () {
         expect($this->command)
             ->toBeInstanceOf(Command::class)
             ->and($this->command)
-            ->toBeInstanceOf(\Symfony\Component\Console\Command\Command::class);
+            ->toBeInstanceOf(Symfony\Component\Console\Command\Command::class);
     });
 
     it('validates command help and description', function () {
@@ -246,7 +243,7 @@ describe('User Command Integration', function () {
 
     it('can handle object property access safely', function () {
         // Test safe property access patterns
-        $testObject = new stdClass;
+        $testObject = new stdClass();
         $testObject->testProperty = 'test_value';
 
         $objectData = (array) $testObject;

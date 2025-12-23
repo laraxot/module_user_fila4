@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
-use Override;
+use Modules\Xot\Models\Traits\HasXotFactory;
 
 /**
  * Modules\User\Models\TenantUser.
@@ -17,7 +16,7 @@ use Override;
  * @method static Builder|TeamUser newQuery()
  * @method static Builder|TeamUser query()
  *
- * @property int $id
+ * @property int         $id
  * @property string|null $tenant_id
  * @property string|null $user_id
  * @property Carbon|null $created_at
@@ -44,14 +43,16 @@ use Override;
  * @method static Builder|TenantUser whereTenantId($value)
  *
  * @property ProfileContract|null $creator
+ * @property ProfileContract|null $deleter
  * @property ProfileContract|null $updater
  *
- * @mixin IdeHelperTenantUser
+ * @method static \Modules\User\Database\Factories\TenantUserFactory factory($count = null, $state = [])
+ *
  * @mixin \Eloquent
  */
 class TenantUser extends BasePivot
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
+    use HasXotFactory;
 
     protected $connection = 'user';
 
@@ -68,7 +69,7 @@ class TenantUser extends BasePivot
     ];
 
     /** @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [
