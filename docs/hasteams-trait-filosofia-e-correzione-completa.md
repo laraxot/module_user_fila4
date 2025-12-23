@@ -301,7 +301,3 @@ Il trait `HasTeams` ora è:
 
 **Data correzione**: Gennaio 2025  
 **Status**: ✅ **COMPLETATO**  
-<<<<<<< HEAD
-=======
-**Conformità**: Laraxot PTVX Philosophy, PHPStan Level 9+, Windsurf Rules
->>>>>>> 041533e (.)

@@ -21,12 +21,8 @@ Il `LoginWidget` utilizzava 4 chiavi di traduzione che non esistevano:
 - `Modules/User/lang/it/messages.php` - 61 chiavi
 - `Modules/User/lang/en/messages.php` - 61 chiavi  
 - `Modules/User/lang/de/messages.php` - 61 chiavi
-- `Modules/User/docs/login-widget-translation-audit-2025.md` - Documentazione
+- `Modules/User/project_docs/login-widget-translation-audit-2025.md` - Documentazione
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 041533e (.)
 ### Verifica Risultati
 ✅ **Tutte le traduzioni funzionanti** in 3 lingue
 ✅ **LoginWidget completamente localizzato**
