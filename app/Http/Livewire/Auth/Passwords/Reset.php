@@ -59,15 +59,7 @@ class Reset extends Component
                 'password' => $this->password,
             ],
             function (Authenticatable $user, string $password): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 /* @var Model&Authenticatable $user */
-=======
-                /** @var Model&Authenticatable $user */
->>>>>>> laraxot/develop
-=======
-                /* @var Model&Authenticatable $user */
->>>>>>> laraxot/develop
                 $user->setAttribute('password', Hash::make($password));
                 $user->setRememberToken(Str::random(60));
                 $user->save();
@@ -81,15 +73,7 @@ class Reset extends Component
         /* @phpstan-ignore argument.type */
         Assert::string($response_lang = trans((string) $response));
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (Password::PASSWORD_RESET === $response) {
-=======
-        if ($response === Password::PASSWORD_RESET) {
->>>>>>> laraxot/develop
-=======
-        if (Password::PASSWORD_RESET === $response) {
->>>>>>> laraxot/develop
             session()->flash($response_lang);
 
             return redirect(route('home'));

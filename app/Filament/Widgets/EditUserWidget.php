@@ -15,6 +15,7 @@ use Illuminate\Support\Str;
 use Livewire\Features\SupportRedirects\Redirector;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
+use Webmozart\Assert\Assert;
 
 /**
  * EditUserWidget: Widget generico per la modifica dati utente.
@@ -59,7 +60,11 @@ class EditUserWidget extends XotBaseWidget
     {
         $this->type = $type;
         $this->resource = XotData::make()->getUserResourceClassByType($type);
-        $this->model = $this->resource::getModel();
+        Assert::classExists($this->resource);
+        $modelClass = $this->resource::getModel();
+        Assert::string($modelClass);
+        $this->model = $modelClass;
+        Assert::string($this->model);
         $this->action = Str::of($this->model)
             ->replace('\Models\\', '\Actions\\')
             ->append('\UpdateUserAction')
@@ -81,28 +86,39 @@ class EditUserWidget extends XotBaseWidget
     #[\Override]
     protected function getFormModel(?int $userId = null): Model
     {
+        Assert::string($this->model);
+        Assert::classExists($this->model);
+        /** @var class-string<Model> $modelClass */
+        $modelClass = $this->model;
+
         if ($userId) {
-            $user = $this->model::findOrFail($userId);
+            $user = $modelClass::findOrFail($userId);
+            Assert::isInstanceOf($user, Model::class);
 
             return $user;
         }
 
         // Se non è specificato un userId, usa l'utente correntemente autenticato
         $currentUser = Auth::user();
-        if ($currentUser && $currentUser instanceof $this->model) {
+        if ($currentUser && $currentUser instanceof $modelClass) {
             return $currentUser;
         }
 
         // Fallback: cerca un utente del tipo corretto associato all'utente autenticato
         if ($currentUser) {
-            $user = $this->model::where('user_id', $currentUser->id)->first();
-            if ($user) {
+            $user = $modelClass::where('user_id', $currentUser->id)->first();
+            if ($user !== null) {
+                Assert::isInstanceOf($user, Model::class);
+
                 return $user;
             }
         }
 
         // Ultimo fallback: nuovo modello
-        return app($this->model);
+        $newModel = app($modelClass);
+        Assert::isInstanceOf($newModel, Model::class);
+
+        return $newModel;
     }
 
     /**
@@ -118,11 +134,16 @@ class EditUserWidget extends XotBaseWidget
         // Se il modello ha un ID, significa che è stato trovato nel database
         if ($model->exists) {
             try {
-                return $model->toArray();
+                $array = $model->toArray();
+                Assert::isArray($array);
+                /** @var array<string, mixed> $array */
+                return $array;
             } catch (\Exception $e) {
                 // Se toArray() fallisce (problemi con enum), usa getAttributes()
                 Log::warning("Errore in toArray() per modello {$this->model}: ".$e->getMessage());
                 $attributes = $model->getAttributes();
+                Assert::isArray($attributes);
+                /** @var array<string, mixed> $attributes */
 
                 // Gestisci specificamente gli enum se presenti
                 if (isset($attributes['type']) && ($model->type ?? null) instanceof \BackedEnum) {
@@ -136,9 +157,15 @@ class EditUserWidget extends XotBaseWidget
         // Se è un nuovo modello, restituisci solo i campi fillable con valori null
         $fillable = $model->getFillable();
         $appends = $model->getAppends();
+        Assert::isArray($fillable);
+        Assert::isArray($appends);
+        /** @var array<int, string> $fields */
         $fields = array_merge($fillable, $appends);
 
-        return array_fill_keys($fields, null);
+        /** @var array<string, mixed> $result */
+        $result = array_fill_keys($fields, null);
+
+        return $result;
     }
 
     /**
@@ -149,7 +176,12 @@ class EditUserWidget extends XotBaseWidget
     #[\Override]
     public function getFormSchema(): array
     {
-        return $this->resource::getFormSchemaWidget();
+        Assert::classExists($this->resource);
+        $schema = $this->resource::getFormSchemaWidget();
+        Assert::isArray($schema);
+        /** @var array<int|string, Component> $schema */
+
+        return $schema;
     }
 
     /**
@@ -163,7 +195,19 @@ class EditUserWidget extends XotBaseWidget
         $record = $this->record;
 
         // Delega l'aggiornamento all'action specifica
-        $user = app($this->action)->execute($record, $data);
+        Assert::string($this->action);
+        Assert::classExists($this->action);
+        $actionInstance = app($this->action);
+        if (! \is_object($actionInstance)) {
+            throw new \RuntimeException('Action instance must be an object');
+        }
+        if (! method_exists($actionInstance, 'execute')) {
+            throw new \RuntimeException('Action instance must have execute method');
+        }
+        /** @var callable $execute */
+        $execute = [$actionInstance, 'execute'];
+        $user = $execute($record, $data);
+        Assert::isInstanceOf($user, Model::class);
 
         // Notifica successo
         session()->flash('message', __('user::profile.update_success'));

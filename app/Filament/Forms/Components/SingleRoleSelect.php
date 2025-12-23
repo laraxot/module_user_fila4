@@ -2,15 +2,7 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
 namespace Modules\User\Filament\Forms\Components;
-=======
-<<<<<<< HEAD
-namespace Modules\User\Filament\Forms\Components;
-=======
-namespace Modules\Notify\Filament\Forms\Components;
->>>>>>> 1315781 (.)
->>>>>>> laraxot/develop
 
 use Filament\Forms\Components\Select;
 use Modules\User\Models\Role;

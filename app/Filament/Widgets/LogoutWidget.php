@@ -39,7 +39,8 @@ class LogoutWidget extends XotBaseWidget
      * IMPORTANT: When using @livewire() directly in Blade templates,
      * the path should be without the module namespace.
      *
-     * @phpstan-ignore property.phpDocType
+     * @var view-string
+     * @phpstan-ignore property.defaultValue
      */
     protected string $view = 'user::widgets.logout';
 

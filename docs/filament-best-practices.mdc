@@ -52,8 +52,6 @@ class UserResource extends XotBaseResource {
     // Personalizzazioni solo tramite metodi/trait previsti
 }
 ```
-<<<<<<< HEAD
-=======
 
 # Regola: Filament Pages che estendono XotBasePage
 
@@ -84,4 +82,3 @@ class PasswordExpired extends XotBasePage
 {
 }
 ```
->>>>>>> laraxot/develop

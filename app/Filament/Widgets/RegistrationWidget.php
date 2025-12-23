@@ -13,6 +13,7 @@ use Livewire\Features\SupportRedirects\Redirector;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
+use Webmozart\Assert\Assert;
 
 class RegistrationWidget extends XotBaseWidget
 {
@@ -35,13 +36,18 @@ class RegistrationWidget extends XotBaseWidget
     {
         $this->type = $type;
         $this->resource = XotData::make()->getUserResourceClassByType($type);
-        $this->model = $this->resource::getModel();
+        Assert::classExists($this->resource);
+        $modelClass = $this->resource::getModel();
+        Assert::string($modelClass);
+        $this->model = $modelClass;
+        Assert::string($this->model);
         $this->action = Str::of($this->model)
             ->replace('\\Models\\', '\\Actions\\')
             ->append('\\RegisterAction')
             ->toString();
         $record = $this->getFormModel();
         $data = $this->getFormFill();
+        /** @var array<string, mixed> $data */
         $this->data = $data;
         $this->form->fill($data);
         $this->form->model($record);
@@ -51,18 +57,26 @@ class RegistrationWidget extends XotBaseWidget
     #[\Override]
     public function getFormModel(): Model
     {
+        Assert::classExists($this->model);
+        /** @var class-string<Model> $modelClass */
+        $modelClass = $this->model;
+
         $data = request()->all();
         $email = Arr::get($data, 'email');
         $token = Arr::get($data, 'token');
 
-        $user = $this->model::firstWhere('email', $email);
+        $user = $modelClass::firstWhere('email', $email);
         if (null === $user) {
-            return app($this->model);
-        }
+            $newModel = app($modelClass);
+            Assert::isInstanceOf($newModel, Model::class);
 
-        $remember_token = $user->remember_token;
+            return $newModel;
+        }
+        Assert::isInstanceOf($user, Model::class);
+
+        $remember_token = $user->getAttribute('remember_token');
         if (null === $remember_token) {
-            $user->remember_token = Str::uuid()->toString();
+            $user->setAttribute('remember_token', Str::uuid()->toString());
             $user->save();
         }
 
@@ -72,12 +86,19 @@ class RegistrationWidget extends XotBaseWidget
             return $user;
         }
 
-        return app($this->model);
+        Assert::classExists($this->model);
+        /** @var class-string<Model> $modelClass */
+        $modelClass = $this->model;
+        $newModel = app($modelClass);
+        Assert::isInstanceOf($newModel, Model::class);
+
+        return $newModel;
     }
 
     #[\Override]
     public function getFormFill(): array
     {
+        /** @var array<string, mixed> $data */
         $data = parent::getFormFill();
         $data['type'] = $this->type;
 
@@ -87,7 +108,12 @@ class RegistrationWidget extends XotBaseWidget
     #[\Override]
     public function getFormSchema(): array
     {
-        return $this->resource::getFormSchemaWidget();
+        Assert::classExists($this->resource);
+        $schema = $this->resource::getFormSchemaWidget();
+        Assert::isArray($schema);
+        /** @var array<int|string, \Filament\Schemas\Components\Component> $schema */
+
+        return $schema;
     }
 
     /**
@@ -102,7 +128,17 @@ class RegistrationWidget extends XotBaseWidget
         $data = array_merge($this->data ?? [], $data);
         $record = $this->record;
 
-        $user = app($this->action)->execute($record, $data);
+        Assert::classExists($this->action);
+        $actionInstance = app($this->action);
+        if (! \is_object($actionInstance)) {
+            throw new \RuntimeException('Action instance must be an object');
+        }
+        if (! method_exists($actionInstance, 'execute')) {
+            throw new \RuntimeException('Action instance must have execute method');
+        }
+        /** @var callable $execute */
+        $execute = [$actionInstance, 'execute'];
+        $user = $execute($record, $data);
 
         $lang = app()->getLocale();
         $route = route('pages.view', ['slug' => $this->type.'_register_complete']);
