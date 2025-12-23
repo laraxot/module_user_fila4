@@ -1,9 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
 declare(strict_types=1);
 
 
@@ -12,15 +8,6 @@ use Livewire\Volt\Component;
 
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
-<<<<<<< HEAD
-=======
-use Illuminate\Support\Facades\Http;
-
-use function Laravel\Folio\{middleware, name};
-use Livewire\Volt\Component;
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
 name('learn');
 middleware(['auth', 'verified']);
