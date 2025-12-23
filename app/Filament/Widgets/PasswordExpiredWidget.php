@@ -66,7 +66,7 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
             $this->getCurrentPasswordFormComponent(),
             ...PasswordData::make()->getPasswordFormComponents('password'),
         ];
-        /** @var array<int, Component> $components */
+        /* @var array<int, Component> $components */
 
         return $components;
     }

@@ -47,7 +47,7 @@ class RegistrationWidget extends XotBaseWidget
             ->toString();
         $record = $this->getFormModel();
         $data = $this->getFormFill();
-        /** @var array<string, mixed> $data */
+        /* @var array<string, mixed> $data */
         $this->data = $data;
         $this->form->fill($data);
         $this->form->model($record);
@@ -111,7 +111,7 @@ class RegistrationWidget extends XotBaseWidget
         Assert::classExists($this->resource);
         $schema = $this->resource::getFormSchemaWidget();
         Assert::isArray($schema);
-        /** @var array<int|string, \Filament\Schemas\Components\Component> $schema */
+        /* @var array<int|string, \Filament\Schemas\Components\Component> $schema */
 
         return $schema;
     }

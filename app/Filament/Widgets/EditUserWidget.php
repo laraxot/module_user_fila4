@@ -107,7 +107,7 @@ class EditUserWidget extends XotBaseWidget
         // Fallback: cerca un utente del tipo corretto associato all'utente autenticato
         if ($currentUser) {
             $user = $modelClass::where('user_id', $currentUser->id)->first();
-            if ($user !== null) {
+            if (null !== $user) {
                 Assert::isInstanceOf($user, Model::class);
 
                 return $user;
@@ -136,7 +136,8 @@ class EditUserWidget extends XotBaseWidget
             try {
                 $array = $model->toArray();
                 Assert::isArray($array);
-                /** @var array<string, mixed> $array */
+
+                /* @var array<string, mixed> $array */
                 return $array;
             } catch (\Exception $e) {
                 // Se toArray() fallisce (problemi con enum), usa getAttributes()
@@ -179,7 +180,7 @@ class EditUserWidget extends XotBaseWidget
         Assert::classExists($this->resource);
         $schema = $this->resource::getFormSchemaWidget();
         Assert::isArray($schema);
-        /** @var array<int|string, Component> $schema */
+        /* @var array<int|string, Component> $schema */
 
         return $schema;
     }

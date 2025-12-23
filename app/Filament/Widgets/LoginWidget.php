@@ -14,7 +14,6 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
-use Webmozart\Assert\Assert;
 
 /**
  * LoginWidget: Widget di login conforme alle regole Windsurf/Xot.
@@ -133,7 +132,7 @@ class LoginWidget extends XotBaseWidget
                     /** @var array<int, string> $messages */
                     $messages = [$messages];
                 } else {
-                    /** @var array<int, string> $messages */
+                    /* @var array<int, string> $messages */
                 }
                 $this->addError($field, implode(' ', $messages));
             }

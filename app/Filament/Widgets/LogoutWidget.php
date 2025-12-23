@@ -40,6 +40,7 @@ class LogoutWidget extends XotBaseWidget
      * the path should be without the module namespace.
      *
      * @var view-string
+     *
      * @phpstan-ignore property.defaultValue
      */
     protected string $view = 'user::widgets.logout';
