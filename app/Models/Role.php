@@ -24,53 +24,6 @@ use Webmozart\Assert\Assert;
 
 /**
  * Modules\User\Models\Role.
- * <<<<<<< HEAD
- * <<<<<<< HEAD.
- *
- * @property string                                      $id
- * @property string                                      $uuid
- * @property string|null                                 $team_id
- * @property string                                      $name
- * @property string                                      $guard_name
- * @property Carbon|null                                 $created_at
- * @property Carbon|null                                 $updated_at
- * @property Collection<int, Permission>                 $permissions
- * @property int|null                                    $permissions_count
- * @property Team|null                                   $team
- * @property EloquentCollection<int, Model&UserContract> $users
- * @property int|null                                    $users_count
- *
- * @method static Builder|Role newModelQuery()
- * @method static Builder|Role newQuery()
- * @method static Builder|Role permission($permissions)
- * @method static Builder|Role query()
- * @method static Builder|Role whereCreatedAt($value)
- * @method static Builder|Role whereGuardName($value)
- * @method static Builder|Role whereName($value)
- * @method static Builder|Role whereTeamId($value)
- * @method static Builder|Role whereUpdatedAt($value)
- * @method static Builder|Role whereUuid($value)
- *
- * @property int $id
- *
- * @method static Builder|Role whereId($value)
- *
- * @property string|null $updated_by
- * @property string|null $created_by
- *
- * @method static Builder|Role whereCreatedBy($value)
- * @method static Builder|Role whereUpdatedBy($value)
- *
- * @mixin Eloquent
- *
- * @method static Builder|Role withoutPermission($permissions)
- *
- * @property PermissionRole|null $pivot
- *
- * @mixin IdeHelperRole
- * =======
- * =======
- * >>>>>>> laraxot/develop
  *
  * @property string                                      $id
  * @property string                                      $uuid
@@ -122,11 +75,6 @@ use Webmozart\Assert\Assert;
  * @method static Builder<static>|Role                         whereDisplayName($value)
  * @method static static                                       firstOrCreate(array $attributes, array $values = [])
  * @method static static                                       updateOrCreate(array $attributes, array $values = [])
- *
- * <<<<<<< HEAD
- * >>>>>>> 220cf97b (.)
- * =======
- * >>>>>>> laraxot/develop
  *
  * @mixin \Eloquent
  */
