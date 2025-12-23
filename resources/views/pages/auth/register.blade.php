@@ -10,10 +10,14 @@ use Filament\Forms\Components\Wizard;
 use Filament\Schemas\Components\Wizard\Step;
 use Filament\Forms\Concerns\InteractsWithForms;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 =======
 use Filament\Schemas\Schema;
 >>>>>>> 1724879 (.)
+=======
+use Filament\Schemas\Schema;
+>>>>>>> cebb28c (.)
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
