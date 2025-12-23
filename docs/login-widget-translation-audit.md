@@ -200,4 +200,8 @@ Il pattern può essere applicato a tutti i widget del sistema per garantire cons
 **Audit completato**: Gennaio 2025  
 **File modificati**: 3 (it/messages.php, en/messages.php, de/messages.php)  
 **Translation keys aggiunte**: 60+ per lingua  
+<<<<<<< HEAD
 **LoginWidget status**: ✅ Fully functional in all languages
+=======
+**LoginWidget status**: ✅ Fully functional in all languages
+>>>>>>> laraxot/develop

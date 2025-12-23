@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## 2025-11-17 – Filament Tenancy e Console Commands
 
 - **RegisterTenant**: introdotta `resolveResourceClass()` con assert esplicito su `class-string` per eliminare gli errori di tipizzazione (`class-string|null`). Usare sempre `Assert::classExists()` quando si costruisce il nome risorsa partendo dal modello tenant.
@@ -275,6 +276,26 @@ public function canAccessTenant(\Illuminate\Database\Eloquent\Model $tenant): bo
 
 
 /**
+=======
+# PHPStan Fixes and Type System Improvements
+
+## Overview
+
+This document outlines the systematic fixes applied to resolve PHPStan errors in the codebase, with particular focus on type system improvements and architectural consistency.
+
+## 1. View-String Type Issue
+
+### Problem
+PHPStan was reporting errors for static properties `$view` in Widget classes:
+```
+Static property Modules\User\Filament\Widgets\EditUserWidget::$view (view-string) does not accept default value of type string.
+```
+
+### Root Cause
+The Filament Widget base class uses `view-string` in PHPDoc annotations but declares the property as `string`:
+```php
+/**
+>>>>>>> laraxot/develop
  * @var view-string
  */
 protected static string $view;
@@ -440,4 +461,8 @@ After applying fixes:
 - The `view-string` type is a PHPStan-specific type for view template paths
 - Safe functions provide exception-throwing alternatives to standard PHP functions
 - All Filament components should extend XotBase classes for consistency
+<<<<<<< HEAD
 - Type system improvements enhance code reliability and maintainability 
+=======
+- Type system improvements enhance code reliability and maintainability 
+>>>>>>> laraxot/develop

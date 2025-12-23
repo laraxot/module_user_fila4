@@ -7,7 +7,10 @@ namespace Modules\User\Filament\Widgets\Auth;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< HEAD
 use Illuminate\Validation\ValidationException;
+=======
+>>>>>>> laraxot/develop
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
 
 /**

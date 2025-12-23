@@ -2,6 +2,7 @@
 
 Questo documento traccia gli errori PHPStan di livello 10 identificati nel modulo User e le relative soluzioni implementate.
 
+<<<<<<< HEAD
 ## Stato Aggiornato (18 novembre 2025)
 
 | Aspetto | Dettagli |
@@ -16,6 +17,8 @@ Questo documento traccia gli errori PHPStan di livello 10 identificati nel modul
 2. Riutilizzare i pattern documentati sotto in caso di regressioni.
 3. Collegare da altri moduli eventuali dipendenze verso i servizi User per tracciare gli impatti.
 
+=======
+>>>>>>> laraxot/develop
 ## Errori Identificati e Correzioni Effettuate
 
 ### 1. Uso del tipo mixed in CheckOtpExpiredRule.php
@@ -263,6 +266,7 @@ public function handle(Failed $event): void
 4. **Documentazione migliorata**: Aggiunta documentazione PHPDoc completa per classi, proprietà e metodi.
 5. **Annotazioni per variabili locali**: Utilizzate le annotazioni `@var` per specificare i tipi delle variabili locali quando PHPStan non può inferirli correttamente.
 
+<<<<<<< HEAD
 ### 7. Correzioni in Filament Widgets e Relation Managers
 
 **Problema**: Utilizzo di metodi su oggetti di tipo mixed senza type guards appropriati in:
@@ -340,11 +344,14 @@ if (method_exists($profileFactory, 'create')) {
 - **Obiettivo**: ripristinare struttura file, rieseguire PHPStan livello 10 entro sprint attuale.
 - **Principi da applicare**: type hints rigorosi, DTO documentati, rispetto `Eloquent magic` (`isset()`).
 
+=======
+>>>>>>> laraxot/develop
 ## Considerazioni Future
 
 1. Continua l'utilizzo di queste pratiche in tutto il modulo User e in altri moduli.
 2. Considera l'uso di generics (come `@template`) per migliorare ulteriormente la tipizzazione delle classi che gestiscono diverse tipologie di dati.
 3. Mantieni aggiornata la documentazione quando vengono modificati metodi o proprietà.
+<<<<<<< HEAD
 4. Utilizza strumenti di analisi automatica come PHPStan regolarmente per verificare che il codice rimanga conforme.
 
 ---
@@ -352,3 +359,6 @@ if (method_exists($profileFactory, 'create')) {
 **Ultimo aggiornamento**: 2025-11-15
 **Stato**: ⚠️ PHPStan Level 10 con bloccanti aperti
 **Ultima esecuzione**: `./vendor/bin/phpstan analyse Modules --level=10` (output incluso nel report principale)
+=======
+4. Utilizza strumenti di analisi automatica come PHPStan regolarmente per verificare che il codice rimanga conforme. 
+>>>>>>> laraxot/develop
