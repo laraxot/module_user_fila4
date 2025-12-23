@@ -25,4 +25,20 @@ abstract class TestCase extends BaseTestCase
             // essere scritti in modo da non dipendere da migrazioni rotte.
         }
     }
+<<<<<<< HEAD
 }
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> a12f125f4a (.)
+=======
+}
+>>>>>>> b93ef594b4 (.)
+=======
+}
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)

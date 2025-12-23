@@ -2,8 +2,13 @@
 
 ## Collegamenti correlati
 - [README modulo User](./README.md)
+<<<<<<< HEAD
 - [Implementazione Header con Selettore Lingua](/laravel/Modules/User/docs/HEADER_LANGUAGE_SELECTOR_WITH_FLAGS.md)
 - [Collegamenti Documentazione](/docs/collegamenti-documentazione.md)
+=======
+- [Implementazione Header con Selettore Lingua](/laravel/Modules/User/project_docs/HEADER_LANGUAGE_SELECTOR_WITH_FLAGS.md)
+- [Collegamenti Documentazione](/project_docs/collegamenti-documentazione.md)
+>>>>>>> 81efa49 (.)
 
 ## Panoramica
 
@@ -115,6 +120,12 @@ Il sistema di avatar può essere esteso in futuro per includere:
 
 ## Riferimenti
 
+<<<<<<< HEAD
 - [Documentazione SVG](https://developer.mozilla.org/en-US/docs/Web/SVG)
 - [Blade Components Documentation](https://laravel.com/docs/10.x/blade#components)
 - [Architettura Modulare SaluteOra](/docs/architettura-modulare.md)
+=======
+- [Documentazione SVG](https://developer.mozilla.org/en-US/project_docs/Web/SVG)
+- [Blade Components Documentation](https://laravel.com/project_docs/10.x/blade#components)
+- [Architettura Modulare SaluteOra](/project_docs/architettura-modulare.md)
+>>>>>>> 81efa49 (.)
