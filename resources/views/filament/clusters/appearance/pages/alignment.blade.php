@@ -1,11 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
 =======
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 <x-filament-panels::page>
 
 <div
@@ -67,6 +73,9 @@ declare(strict_types=1);
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     <x-filament-schemas::form wire:submit="updateData">
         {{ $this->form }}
 
@@ -75,6 +84,7 @@ declare(strict_types=1);
         />
 
     </x-filament-schemas::form>
+<<<<<<< HEAD
 =======
     <x-filament-panels::form wire:submit="updateData">
         {{ $this->form }}
@@ -85,5 +95,7 @@ declare(strict_types=1);
 
     </x-filament-panels::form>
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 
 </x-filament-panels::page>

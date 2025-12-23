@@ -10,11 +10,15 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
  * Class CreateLiveuserUsersTable.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 return new class extends XotBaseMigration {
 =======
 return new class extends XotBaseMigration
 {
 >>>>>>> fbc8f8e (.)
+=======
+return new class extends XotBaseMigration {
+>>>>>>> 6d20fbe (.)
     /**
      * Run the migrations.
      */
@@ -22,6 +26,9 @@ return new class extends XotBaseMigration
     {
         // -- CREATE --
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         $this->tableCreate(static function (Blueprint $table): void {
             // $table->uuid('id')->primary();
             $table->string('id', 36)->primary();
@@ -93,6 +100,7 @@ return new class extends XotBaseMigration
             // $this->updateUser($table);
             $this->updateTimestamps($table, true);
         });
+<<<<<<< HEAD
 =======
         $this->tableCreate(
             static function (Blueprint $table): void {
@@ -178,5 +186,7 @@ return new class extends XotBaseMigration
             }
         );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 };
