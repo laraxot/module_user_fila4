@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 @props([
     'label' => null,
     'name' => null,
@@ -19,4 +22,8 @@ declare(strict_types=1);
         </span>
         <span>{{ $label ?? '' }}</span>
     </label>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> fbc8f8e (.)

@@ -36,8 +36,11 @@ Se l'utente non ha i permessi, viene mostrato un messaggio di errore invece del 
 ## Esempio di estensione nei moduli
 
 Ogni modulo che implementa un tipo di utente deve fornire la propria Action di aggiornamento, ad esempio:
+<<<<<<< HEAD
 - `Modules\<nome modulo>\Actions\Doctor\UpdateUserAction`
 - `Modules\<nome modulo>\Actions\Patient\UpdateUserAction`
+=======
+>>>>>>> fbc8f8e (.)
 - `Modules\SaluteOra\Actions\Doctor\UpdateUserAction`
 - `Modules\SaluteOra\Actions\Patient\UpdateUserAction`
 
@@ -133,13 +136,20 @@ __('user::profile.no_permission')
 - [UpdateUserAction.php](../../app/Actions/User/UpdateUserAction.php)
 - [View Template](../../../../Themes/One/resources/views/filament/widgets/edit-user.blade.php)
 - [Documentazione RegistrationWidget](./registration-widget.md)
+<<<<<<< HEAD
 - [Documentazione Xot sulla proprietà $data](../../../Xot/docs/filament/widgets/data-property.md)
+=======
+- [Documentazione Xot sulla proprietà $data](../../../Xot/project_docs/filament/widgets/data-property.md)
+>>>>>>> fbc8f8e (.)
 
 ## Esempi di implementazione specifica
 
 ### Action per Doctor
 ```php
+<<<<<<< HEAD
 namespace Modules\<nome modulo>\Actions\Doctor;
+=======
+>>>>>>> fbc8f8e (.)
 namespace Modules\SaluteOra\Actions\Doctor;
 
 class UpdateUserAction extends \Modules\User\Actions\User\UpdateUserAction
@@ -154,7 +164,10 @@ class UpdateUserAction extends \Modules\User\Actions\User\UpdateUserAction
 
 ### Action per Patient
 ```php
+<<<<<<< HEAD
 namespace Modules\<nome modulo>\Actions\Patient;
+=======
+>>>>>>> fbc8f8e (.)
 namespace Modules\SaluteOra\Actions\Patient;
 
 class UpdateUserAction extends \Modules\User\Actions\User\UpdateUserAction

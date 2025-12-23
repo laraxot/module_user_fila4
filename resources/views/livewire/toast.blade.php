@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> fbc8f8e (.)
 <div class="relative w-auto h-auto">
     <div 
         x-data="{ 
@@ -438,3 +441,7 @@ declare(strict_types=1);
         </ul>
     </template>
 </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc8f8e (.)
