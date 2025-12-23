@@ -35,15 +35,7 @@ class PasswordResetWidget extends XotBaseWidget
     /**
      * Get the form schema for password reset.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getFormSchema(): array
     {
         return [

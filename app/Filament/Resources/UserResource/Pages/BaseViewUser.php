@@ -24,15 +24,7 @@ abstract class BaseViewUser extends XotBaseViewRecord
      *
      * @return array<string, mixed>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getInfolistSchema(): array
     {
         return [

@@ -1,8 +1,4 @@
-<<<<<<< HEAD:docs/widget-translation-rules.md
-# Widget Translation Rules - <nome progetto> Project
-=======
 # Widget Translation Rules - SaluteOra Project
->>>>>>> 220cf97b (.):docs/widget-translation-rules_1.md
 
 ## Core Principles
 
@@ -200,8 +196,4 @@ This document serves as a reference for:
 - Code quality requirements
 - Documentation standards
 
-<<<<<<< HEAD:docs/widget-translation-rules.md
-All widget development should follow these rules to maintain consistency and quality across the <nome progetto> project.
-=======
 All widget development should follow these rules to maintain consistency and quality across the SaluteOra project.
->>>>>>> 220cf97b (.):docs/widget-translation-rules_1.md

@@ -10,24 +10,10 @@ use Illuminate\Notifications\Notifiable;
 use Modules\User\Models\BaseUser;
 use Modules\User\Tests\TestCase;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-uses(TestCase::class, RefreshDatabase::class);
-
-beforeEach(function () {
-    $this->baseUser = new class extends BaseUser
-    {
-=======
-=======
->>>>>>> laraxot/develop
 uses(TestCase::class);
 
 beforeEach(function () {
     $this->baseUser = new class extends BaseUser {
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
         protected $table = 'test_users';
     };
 });

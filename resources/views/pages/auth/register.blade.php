@@ -3,11 +3,7 @@
 declare(strict_types=1);
 
 
-<<<<<<< HEAD
 use App\Models\User;
-=======
-use Modules\User\Models\User;
->>>>>>> laraxot/develop
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Wizard;

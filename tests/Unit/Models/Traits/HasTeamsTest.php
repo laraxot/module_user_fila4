@@ -6,24 +6,12 @@ namespace Modules\User\Tests\Unit\Models\Traits;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Collection;
-<<<<<<< HEAD
-use Mockery;
-=======
->>>>>>> laraxot/develop
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
 use Modules\User\Tests\Unit\Models\Traits\Fixtures\MockUserWithTeams;
 
 beforeEach(function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    $this->user = Mockery::mock(MockUserWithTeams::class)->makePartial();
-=======
     $this->user = \Mockery::mock(MockUserWithTeams::class)->makePartial();
->>>>>>> 220cf97b (.)
-=======
-    $this->user = \Mockery::mock(MockUserWithTeams::class)->makePartial();
->>>>>>> laraxot/develop
     $this->user->id = 1;
 
     // Mock del database per i test

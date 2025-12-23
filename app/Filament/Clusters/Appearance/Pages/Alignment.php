@@ -21,15 +21,7 @@ use Modules\Xot\Filament\Pages\XotBasePage;
  *
  * @property Schema $form
  *
-<<<<<<< HEAD
-<<<<<<< HEAD
- * @see \Modules\Xot\Filament\Pages\XotBasePage
-=======
  * @see XotBasePage
->>>>>>> 220cf97b (.)
-=======
- * @see XotBasePage
->>>>>>> laraxot/develop
  * @see \Modules\User\docs\errori\class-page-not-found.md
  */
 class Alignment extends XotBasePage
@@ -60,11 +52,7 @@ class Alignment extends XotBasePage
         ];
     }
 
-<<<<<<< HEAD
     public function form(Schema $schema): Schema
-=======
-    public function schema(Schema $schema): Schema
->>>>>>> laraxot/develop
     {
         return $schema
             ->components([

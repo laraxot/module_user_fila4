@@ -113,21 +113,7 @@ PHPStan aveva difficoltà nel riconoscere la sintassi method chaining e object i
 - **Object instantiation**: Separazione creazione da utilizzo
 
 ### **Benefici**
-<<<<<<< HEAD
 - ✅ **PHPStan level 10**: Compatibilità completa
-=======
-<<<<<<< HEAD
-<<<<<<<< HEAD:docs/phpstan-fixes-gennaio.md
-<<<<<<< HEAD
-- ✅ **PHPStan Level 9**: Compatibilità completa
-=======
-- ✅ **PHPStan level 10**: Compatibilità completa
->>>>>>> laraxot/develop
-========
->>>>>>>> a382d4f1 (.):docs/phpstan-fixes-gennaio-2025.md
-=======
-- ✅ **PHPStan level 10**: Compatibilità completa
->>>>>>> a382d4f1 (.)
 >>>>>>> e4cd89fa (.)
 - ✅ **Leggibilità**: Codice più esplicito e chiaro
 - ✅ **Type Safety**: Mantenuta con type hints espliciti
@@ -242,21 +228,5 @@ $subject = Lang::get('user::email.password_reset_subject');
 **🐛 PHPStan Level**: 10 ✅  
 **🌐 Translation Standards**: IT/EN complete ✅  
 **🚀 Performance**: 95/100 score  
-<<<<<<< HEAD
 **✨ Test Coverage**: 85% ✅
-=======
-**✨ Test Coverage**: 85% ✅
-
-
-
-<<<<<<< HEAD
-<<<<<<<< HEAD:docs/phpstan-fixes-gennaio.md
-<<<<<<< HEAD
-=======
-
->>>>>>> laraxot/develop
-========
->>>>>>>> a382d4f1 (.):docs/phpstan-fixes-gennaio-2025.md
-=======
->>>>>>> a382d4f1 (.)
 >>>>>>> e4cd89fa (.)

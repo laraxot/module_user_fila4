@@ -8,15 +8,7 @@ use Modules\Xot\Datas\XotData;
 
 describe('ChangeTypeCommand', function () {
     beforeEach(function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $this->command = new ChangeTypeCommand;
-=======
         $this->command = new ChangeTypeCommand();
->>>>>>> 220cf97b (.)
-=======
-        $this->command = new ChangeTypeCommand();
->>>>>>> laraxot/develop
     });
 
     it('can be instantiated', function () {

@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Model;
-=======
->>>>>>> laraxot/develop
 use Filament\Actions\AttachAction;
 use Filament\Actions\DetachAction;
 use Filament\Actions\DetachBulkAction;
@@ -16,14 +12,7 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 use Illuminate\Database\Eloquent\Model;
->>>>>>> 220cf97b (.)
-=======
-use Illuminate\Database\Eloquent\Model;
->>>>>>> laraxot/develop
 use Modules\User\Models\User;
 
 class TeamsRelationManager extends RelationManager
@@ -40,15 +29,7 @@ class TeamsRelationManager extends RelationManager
                     ->boolean()
                     ->default(function ($record, $livewire): bool {
                         /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-                         * @var Model $record
-=======
                          * @var Model           $record
->>>>>>> 220cf97b (.)
-=======
-                         * @var Model           $record
->>>>>>> laraxot/develop
                          * @var RelationManager $livewire
                          */
                         $user = $livewire->getOwnerRecord();
@@ -74,15 +55,7 @@ class TeamsRelationManager extends RelationManager
             ->recordActions([
                 DetachAction::make()->after(function ($record, $livewire): void {
                     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-                     * @var Model $record
-=======
                      * @var Model           $record
->>>>>>> 220cf97b (.)
-=======
-                     * @var Model           $record
->>>>>>> laraxot/develop
                      * @var RelationManager $livewire
                      */
                     $user = $livewire->getOwnerRecord();

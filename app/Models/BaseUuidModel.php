@@ -20,13 +20,6 @@ abstract class BaseUuidModel extends XotBaseUuidModel
     // use Searchable;
     // //use Cachable;
     use HasXotFactory;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    use HasUuids;
-=======
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
     use Updater;
 
     /**

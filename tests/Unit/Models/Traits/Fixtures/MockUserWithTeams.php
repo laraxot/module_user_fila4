@@ -20,10 +20,3 @@ class MockUserWithTeams extends Model
         return 1;
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop

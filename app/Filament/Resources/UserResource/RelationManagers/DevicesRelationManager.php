@@ -4,11 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
-<<<<<<< HEAD
-use Filament\Tables\Columns\Column;
-use Filament\Tables\Columns\ColumnGroup;
-=======
->>>>>>> laraxot/develop
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\Column;
@@ -33,15 +28,7 @@ class DevicesRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Component>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getFormSchema(): array
     {
         return [

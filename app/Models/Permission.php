@@ -4,15 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Modules\Xot\Models\Traits\RelationX;
-use Modules\Xot\Models\Traits\HasXotFactory;
-use Spatie\Permission\Models\Permission as SpatiePermission;
-
-=======
-=======
->>>>>>> laraxot/develop
 use Modules\Xot\Models\Traits\HasXotFactory;
 use Modules\Xot\Models\Traits\RelationX;
 use Spatie\Permission\Models\Permission as SpatiePermission;
@@ -52,22 +43,10 @@ use Spatie\Permission\Models\Permission as SpatiePermission;
  *
  * @mixin \Eloquent
  */
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-class Permission extends SpatiePermission
-{
-    use RelationX;
-    use HasXotFactory;
-<<<<<<< HEAD
-=======
-    use RelationX;
->>>>>>> 220cf97b (.)
-=======
 class Permission extends SpatiePermission
 {
     use HasXotFactory;
     use RelationX;
->>>>>>> laraxot/develop
 
     /** @var string */
     protected $connection = 'user';

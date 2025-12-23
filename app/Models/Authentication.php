@@ -4,11 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-<<<<<<< HEAD
-use Modules\Xot\Models\Traits\HasXotFactory;
-use Modules\User\Database\Factories\AuthenticationFactory;
-=======
->>>>>>> laraxot/develop
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Carbon;
@@ -16,27 +11,6 @@ use Modules\User\Database\Factories\AuthenticationFactory;
 use Modules\Xot\Models\Traits\HasXotFactory;
 
 /**
-<<<<<<< HEAD
-<<<<<<< HEAD
- * Authentication Model
- *
- * Tracks user authentication attempts and sessions.
- *
- * @property int $id
- * @property string $type Type of authentication (e.g., 'login', 'logout')
- * @property string|null $ip_address IP address used for authentication
- * @property string|null $user_agent User agent string from the request
- * @property string|null $location Geographic location derived from IP
- * @property bool $login_successful Whether the login attempt was successful
- * @property Carbon|null $login_at When the login attempt occurred
- * @property Carbon|null $logout_at When the logout occurred
- * @property string $authenticatable_type The class name of the authenticatable model
- * @property string $authenticatable_id The ID of the authenticatable model
- * @property Carbon|null $created_at When the record was created
- * @property Carbon|null $updated_at When the record was last updated
-=======
-=======
->>>>>>> laraxot/develop
  * Authentication Model.
  *
  * Tracks user authentication attempts and sessions.
@@ -53,10 +27,6 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @property string      $authenticatable_id   The ID of the authenticatable model
  * @property Carbon|null $created_at           When the record was created
  * @property Carbon|null $updated_at           When the record was last updated
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
  *
  * @method static Builder<static>|Authentication newModelQuery()
  * @method static Builder<static>|Authentication newQuery()
@@ -78,20 +48,11 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  *
  * @method static AuthenticationFactory factory($count = null, $state = [])
  *
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> laraxot/develop
  * @property \Illuminate\Database\Eloquent\Model|\Eloquent $authenticatable
  * @property \Modules\Xot\Contracts\ProfileContract|null   $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null   $deleter
  * @property \Modules\Xot\Contracts\ProfileContract|null   $updater
  *
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class Authentication extends BaseModel

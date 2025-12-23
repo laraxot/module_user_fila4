@@ -24,11 +24,7 @@ class ManageRolePermissions extends ManageRelatedRecords
 
     protected static string $relationship = 'permissions';
 
-<<<<<<< HEAD
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-rectangle-stack';
-=======
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-rectangle-stack';
->>>>>>> laraxot/develop
 
     public static function getNavigationLabel(): string
     {

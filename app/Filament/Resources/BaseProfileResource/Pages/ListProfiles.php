@@ -14,13 +14,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Modules\User\Filament\Resources\BaseProfileResource;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 
 /**
  * .
@@ -32,15 +25,7 @@ class ListProfiles extends XotBaseListRecords
     /**
      * @return array<string, Tables\Columns\Column>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getTableColumns(): array
     {
         return [
@@ -56,23 +41,10 @@ class ListProfiles extends XotBaseListRecords
                     $userValue = $record->user ?? null;
                     $user_class = XotData::make()->getUserClass();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    if ($userValue === null) {
-                        $emailValue = $record->email ?? null;
-
-                        if ($emailValue === null) {
-=======
-=======
->>>>>>> laraxot/develop
                     if (null === $userValue) {
                         $emailValue = $record->email ?? null;
 
                         if (null === $emailValue) {
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
                             if (method_exists($record, 'update')) {
                                 $record->update(['email' => fake()->email()]);
                             }
@@ -85,15 +57,7 @@ class ListProfiles extends XotBaseListRecords
 
                         try {
                             $userValue = XotData::make()->getUserByEmail($emailValue);
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        } catch (Exception $e) {
-=======
                         } catch (\Exception $e) {
->>>>>>> 220cf97b (.)
-=======
-                        } catch (\Exception $e) {
->>>>>>> laraxot/develop
                             return '--';
                         }
                     }
@@ -105,15 +69,7 @@ class ListProfiles extends XotBaseListRecords
                     // PHPStan Level 10: isset() per magic properties di User model
                     $userId = $userValue->id ?? null;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    if ($userId !== null && method_exists($record, 'update')) {
-=======
                     if (null !== $userId && method_exists($record, 'update')) {
->>>>>>> 220cf97b (.)
-=======
-                    if (null !== $userId && method_exists($record, 'update')) {
->>>>>>> laraxot/develop
                         $record->update(['user_id' => $userId]);
                     }
 
@@ -132,15 +88,7 @@ class ListProfiles extends XotBaseListRecords
     /**
      * @return array<string, BaseFilter>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getTableFilters(): array
     {
         return [

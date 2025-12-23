@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Database\Seeders;
 
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Factories\Factory;
-=======
->>>>>>> laraxot/develop
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Seeder;
@@ -36,11 +32,7 @@ class UserSeeder extends Seeder
         $this->command->info('👤 Inizializzazione seeding User...');
 
         // Disabilita i controlli di foreign key (solo per MySQL)
-<<<<<<< HEAD
-        if (DB::getDriverName() !== 'sqlite') {
-=======
         if ('sqlite' !== DB::getDriverName()) {
->>>>>>> laraxot/develop
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         }
 
@@ -51,11 +43,7 @@ class UserSeeder extends Seeder
             $this->command->info('✅ Seeding User completato con successo!');
         } finally {
             // Riabilita i controlli di foreign key (solo per MySQL)
-<<<<<<< HEAD
-            if (DB::getDriverName() !== 'sqlite') {
-=======
             if ('sqlite' !== DB::getDriverName()) {
->>>>>>> laraxot/develop
                 DB::statement('SET FOREIGN_KEY_CHECKS=1;');
             }
         }

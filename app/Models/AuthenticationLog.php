@@ -14,33 +14,6 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Carbon;
 use Modules\User\Database\Factories\AuthenticationLogFactory;
 use Modules\Xot\Contracts\ProfileContract;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Override;
-
-/**
- * @property int $id
- * @property string $authenticatable_type
- * @property int $authenticatable_id
- * @property string|null $ip_address
- * @property string|null $user_agent
- * @property Carbon|null $login_at
- * @property bool $login_successful
- * @property Carbon|null $logout_at
- * @property bool $cleared_by_user
- * @property array|null $location
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $updated_by
- * @property string|null $created_by
- * @property Model|\Eloquent $authenticatable
- * @property ProfileContract|null $creator
- * @property ProfileContract|null $updater
- *
- * @method static AuthenticationLogFactory factory($count = null, $state = [])
-=======
-=======
->>>>>>> laraxot/develop
 
 /**
  * @property int                  $id
@@ -62,10 +35,6 @@ use Override;
  * @property ProfileContract|null $updater
  *
  * @method static AuthenticationLogFactory  factory($count = null, $state = [])
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
  * @method static Builder|AuthenticationLog newModelQuery()
  * @method static Builder|AuthenticationLog newQuery()
  * @method static Builder|AuthenticationLog query()
@@ -85,18 +54,9 @@ use Override;
  * @method static Builder|AuthenticationLog whereUserAgent($value)
  *
  * @mixin IdeHelperAuthenticationLog
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
  *
  * @property ProfileContract|null $deleter
  *
->>>>>>> 220cf97b (.)
-=======
- *
- * @property ProfileContract|null $deleter
- *
->>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class AuthenticationLog extends BaseModel
@@ -135,15 +95,7 @@ class AuthenticationLog extends BaseModel
     }
 
     /** @return array<string, string> */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     protected function casts(): array
     {
         return [

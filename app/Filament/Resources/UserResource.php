@@ -9,37 +9,17 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Model;
-use Carbon\CarbonInterface;
-use DateTimeInterface;
-use Carbon\Carbon;
-use Filament\Forms\Components\Placeholder;
-use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Components\Section;
-=======
-=======
->>>>>>> laraxot/develop
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\HtmlString;
 use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> laraxot/develop
 
 class UserResource extends XotBaseResource
 {
@@ -62,15 +42,7 @@ class UserResource extends XotBaseResource
     //    static::$extendFormCallback = $callback;
     // }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public static function getFormSchema(): array
     {
         return [
@@ -104,29 +76,13 @@ class UserResource extends XotBaseResource
                     /** @var Carbon|null $createdAt */
                     $createdAt = $record->getAttribute('created_at');
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    if ($createdAt === null) {
-=======
                     if (null === $createdAt) {
->>>>>>> 220cf97b (.)
-=======
-                    if (null === $createdAt) {
->>>>>>> laraxot/develop
                         return new HtmlString('&mdash;');
                     }
                     if ($createdAt instanceof CarbonInterface) {
                         return $createdAt->diffForHumans();
                     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    if ($createdAt instanceof DateTimeInterface) {
-=======
                     if ($createdAt instanceof \DateTimeInterface) {
->>>>>>> 220cf97b (.)
-=======
-                    if ($createdAt instanceof \DateTimeInterface) {
->>>>>>> laraxot/develop
                         return $createdAt->format('Y-m-d H:i:s');
                     }
 

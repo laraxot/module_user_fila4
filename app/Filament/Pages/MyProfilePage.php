@@ -33,11 +33,7 @@ class MyProfilePage extends XotBasePage
 
     public ?array $passwordData = [];
 
-<<<<<<< HEAD
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
-=======
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
->>>>>>> laraxot/develop
 
     protected string $view = 'user::filament.pages.my-profile';
 
@@ -120,15 +116,7 @@ class MyProfilePage extends XotBasePage
         $user = Filament::auth()->user();
 
         if (! ($user instanceof Model)) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            throw new Exception('The authenticated user object must be an Eloquent model to allow the profile page to update it.');
-=======
             throw new \Exception('The authenticated user object must be an Eloquent model to allow the profile page to update it.');
->>>>>>> 220cf97b (.)
-=======
-            throw new \Exception('The authenticated user object must be an Eloquent model to allow the profile page to update it.');
->>>>>>> laraxot/develop
         }
 
         return $user;
@@ -265,15 +253,7 @@ class MyProfilePage extends XotBasePage
     // ...
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-     * @param  array<string, mixed>  $data
-=======
      * @param array<string, mixed> $data
->>>>>>> 220cf97b (.)
-=======
-     * @param array<string, mixed> $data
->>>>>>> laraxot/develop
      */
     protected function handleRecordUpdate(Model $record, array $data): Model
     {

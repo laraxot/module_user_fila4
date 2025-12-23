@@ -13,15 +13,7 @@ use Modules\User\Models\Role;
 use Modules\User\Models\User;
 
 beforeEach(function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    $this->user = User::factory()->create([
-=======
     $user = User::factory()->create([
->>>>>>> 220cf97b (.)
-=======
-    $user = User::factory()->create([
->>>>>>> laraxot/develop
         'password' => Hash::make('password123'),
         'is_active' => true,
         'email_verified_at' => now(),
@@ -63,16 +55,8 @@ describe('User Authentication', function () {
     });
 
     it('cannot authenticate inactive user', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         /** @var User $inactiveUser */
         /** @var User $inactiveUser */
->>>>>>> 220cf97b (.)
-=======
-        /** @var User $inactiveUser */
-        /** @var User $inactiveUser */
->>>>>>> laraxot/develop
         $inactiveUser = User::factory()->create([
             'password' => Hash::make('password123'),
             'is_active' => false,
@@ -98,16 +82,8 @@ describe('User Authentication', function () {
 
 describe('User Password Management', function () {
     it('can hash password on creation', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         /** @var User $user */
         /** @var User $user */
->>>>>>> 220cf97b (.)
-=======
-        /** @var User $user */
-        /** @var User $user */
->>>>>>> laraxot/develop
         $user = User::factory()->create([
             'password' => Hash::make('testpassword'),
         ]);
@@ -127,16 +103,8 @@ describe('User Password Management', function () {
     });
 
     it('can check password expiration', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         /** @var User $user */
         /** @var User $user */
->>>>>>> 220cf97b (.)
-=======
-        /** @var User $user */
-        /** @var User $user */
->>>>>>> laraxot/develop
         $user = User::factory()->create([
             'password_expires_at' => now()->subDays(1),
         ]);
@@ -181,14 +149,7 @@ describe('User Remember Token', function () {
 
 describe('User Email Verification', function () {
     it('can mark email as verified', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         /** @var User $user */
->>>>>>> 220cf97b (.)
-=======
-        /** @var User $user */
->>>>>>> laraxot/develop
         $user = User::factory()->create([
             'email_verified_at' => null,
         ]);
@@ -202,27 +163,13 @@ describe('User Email Verification', function () {
     });
 
     it('can check if email is verified', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         /** @var User $verifiedUser */
->>>>>>> 220cf97b (.)
-=======
-        /** @var User $verifiedUser */
->>>>>>> laraxot/develop
         $verifiedUser = User::factory()->create([
             'email_verified_at' => now(),
         ]);
         \assert($verifiedUser instanceof User);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         /** @var User $unverifiedUser */
->>>>>>> 220cf97b (.)
-=======
-        /** @var User $unverifiedUser */
->>>>>>> laraxot/develop
         $unverifiedUser = User::factory()->create([
             'email_verified_at' => null,
         ]);
@@ -233,14 +180,7 @@ describe('User Email Verification', function () {
     });
 
     it('can send email verification notification', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         /** @var User $user */
->>>>>>> 220cf97b (.)
-=======
-        /** @var User $user */
->>>>>>> laraxot/develop
         $user = User::factory()->create([
             'email_verified_at' => null,
         ]);
@@ -391,14 +331,7 @@ describe('User Two Factor Authentication', function () {
     });
 
     it('handles otp authentication workflow', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         /** @var User $user */
->>>>>>> 220cf97b (.)
-=======
-        /** @var User $user */
->>>>>>> laraxot/develop
         $user = User::factory()->create([
             'is_otp' => true,
             'password' => Hash::make('password123'),

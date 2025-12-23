@@ -4,25 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Modules\Xot\Models\Traits\HasXotFactory;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Support\Carbon;
-use Modules\Xot\Contracts\ProfileContract;
-use Override;
-=======
-=======
->>>>>>> laraxot/develop
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Models\Traits\HasXotFactory;
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 
 /**
  * Modules\User\Models\TenantUser.
@@ -31,15 +16,7 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static Builder|TeamUser newQuery()
  * @method static Builder|TeamUser query()
  *
-<<<<<<< HEAD
-<<<<<<< HEAD
- * @property int $id
-=======
  * @property int         $id
->>>>>>> 220cf97b (.)
-=======
- * @property int         $id
->>>>>>> laraxot/develop
  * @property string|null $tenant_id
  * @property string|null $user_id
  * @property Carbon|null $created_at
@@ -66,23 +43,11 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static Builder|TenantUser whereTenantId($value)
  *
  * @property ProfileContract|null $creator
-<<<<<<< HEAD
-<<<<<<< HEAD
- * @property ProfileContract|null $updater
- *
- * @mixin IdeHelperTenantUser
-=======
-=======
->>>>>>> laraxot/develop
  * @property ProfileContract|null $deleter
  * @property ProfileContract|null $updater
  *
  * @method static \Modules\User\Database\Factories\TenantUserFactory factory($count = null, $state = [])
  *
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class TenantUser extends BasePivot
@@ -104,15 +69,7 @@ class TenantUser extends BasePivot
     ];
 
     /** @return array<string, string> */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     protected function casts(): array
     {
         return [

@@ -181,11 +181,7 @@ if (app()->environment('local') && empty($licenseKey)) {
 - [ ] Banner rosso rimosso
 - [ ] Funzionalità premium attive
 
-<<<<<<< HEAD:docs/fullcalendar-scheduler-quick-reference.md
-## 🚀 <nome progetto> Specifico
-=======
 ## 🚀 SaluteOra Specifico
->>>>>>> 220cf97b (.):docs/fullcalendar-scheduler-quick-reference_1.md
 
 ### Business Hours Sanitarie
 ```javascript

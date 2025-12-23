@@ -3,17 +3,6 @@
 declare(strict_types=1);
 
 return [
-<<<<<<< HEAD
-    'account' => 'Account',
-    'profile' => 'Profilo',
-    'my_profile' => 'Il mio profilo',
-    'subheading' => 'Gestisci il tuo profilo.',
-    'fields' => [
-        'type' => [
-            'label' => 'Tipo',
-            'fields' => [
-                'label' => 'Tipo',
-=======
     'account' => [
         'label' => 'Account',
         'description' => 'Gestione delle impostazioni dell\'account utente',
@@ -49,17 +38,11 @@ return [
                 'user' => 'Utente',
                 'moderator' => 'Moderatore',
                 'guest' => 'Ospite',
->>>>>>> laraxot/develop
             ],
         ],
         'user' => [
             'name' => [
                 'label' => 'Nome Utente',
-<<<<<<< HEAD
-                'fields' => [
-                    'label' => 'Nome Utente',
-                ],
-=======
                 'placeholder' => 'Inserisci il nome utente',
                 'help' => 'Nome utilizzato per identificarsi nel sistema',
             ],
@@ -72,50 +55,10 @@ return [
                 'label' => 'Telefono',
                 'placeholder' => '+39 123 456 7890',
                 'help' => 'Numero di telefono per contatti',
->>>>>>> laraxot/develop
             ],
         ],
         'photo' => [
             'label' => 'Foto',
-<<<<<<< HEAD
-            'fields' => [
-                'label' => 'Foto',
-            ],
-        ],
-        'id' => [
-            'label' => 'id',
-        ],
-        'ente' => [
-            'label' => 'ente',
-        ],
-        'matr' => [
-            'label' => 'matr',
-        ],
-        'first_name' => [
-            'label' => 'first_name',
-            'fields' => [
-                'label' => 'first_name',
-            ],
-        ],
-        'last_name' => [
-            'label' => 'last_name',
-            'fields' => [
-                'label' => 'last_name',
-            ],
-        ],
-        'email' => [
-            'fields' => 'email',
-            'label' => [
-                'fields' => 'email',
-            ],
-        ],
-        'is_active' => [
-            'fields' => 'is_active',
-            'label' => [
-                'fields' => 'is_active',
-            ],
-        ],
-=======
             'placeholder' => 'Carica una foto profilo',
             'help' => 'Immagine del profilo utente (formato JPG, PNG)',
         ],
@@ -227,18 +170,10 @@ return [
             'placeholder' => 'Data ultima modifica',
             'help' => 'Data dell\'ultimo aggiornamento del profilo',
         ],
->>>>>>> laraxot/develop
     ],
     'personal_info' => [
         'heading' => 'Informazioni personali',
         'subheading' => 'Gestisci le tue informazioni personali.',
-<<<<<<< HEAD
-        'submit' => [
-            'label' => 'Aggiorna',
-        ],
-        'notify' => 'Profilo aggiornato correttamente!',
-    ],
-=======
         'description' => 'Aggiorna i tuoi dati anagrafici e di contatto',
         'submit' => [
             'label' => 'Aggiorna',
@@ -398,5 +333,4 @@ return [
         'changes_saved' => 'Modifiche salvate',
         'no_changes' => 'Nessuna modifica da salvare',
     ],
->>>>>>> laraxot/develop
 ];

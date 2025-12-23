@@ -4,13 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Exception;
-=======
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 use Filament\Actions\Action;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\View;
@@ -22,14 +15,6 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
 use Override;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use RuntimeException;
-use Throwable;
-=======
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 
 /**
  * Provides a widget for user logout functionality within Filament admin panels.
@@ -49,21 +34,6 @@ use Throwable;
 class LogoutWidget extends XotBaseWidget
 {
     /**
-<<<<<<< HEAD
-=======
-     * The view that should be used to render the widget.
-     *
-     * IMPORTANT: When using @livewire() directly in Blade templates,
-     * the path should be without the module namespace.
-     *
-     * @var view-string
-     *
-     * @phpstan-ignore property.defaultValue
-     */
-    protected string $view = 'user::widgets.logout';
-
-    /**
->>>>>>> laraxot/develop
      * Widget data array.
      *
      * CRITICAL: This property is managed by XotBaseWidget.
@@ -79,7 +49,6 @@ class LogoutWidget extends XotBaseWidget
     public bool $isLoggingOut = false;
 
     /**
-<<<<<<< HEAD
      * The view to render the widget.
      *
      * IMPORTANT: When using @livewire() directly in Blade templates,
@@ -89,8 +58,6 @@ class LogoutWidget extends XotBaseWidget
     protected string $view = 'user::widgets.logout';
 
     /**
-=======
->>>>>>> laraxot/develop
      * Mount the widget and initialize the form.
      */
     public function mount(): void
@@ -106,29 +73,13 @@ class LogoutWidget extends XotBaseWidget
      *
      * @return array<string, Component>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getFormSchema(): array
     {
         $view = 'filament.widgets.auth.logout-message';
         // @phpstan-ignore-next-line
         if (! view()->exists($view)) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            throw new Exception('View '.$view.' not found');
-=======
             throw new \Exception('View '.$view.' not found');
->>>>>>> 220cf97b (.)
-=======
-            throw new \Exception('View '.$view.' not found');
->>>>>>> laraxot/develop
         }
 
         return [
@@ -148,15 +99,7 @@ class LogoutWidget extends XotBaseWidget
      * 6. Logs the operation
      * 7. Handles redirection with proper localization
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
-     * @throws RuntimeException If the logout process fails
-=======
      * @throws \RuntimeException If the logout process fails
->>>>>>> 220cf97b (.)
-=======
-     * @throws \RuntimeException If the logout process fails
->>>>>>> laraxot/develop
      */
     public function logout(): void
     {
@@ -186,15 +129,7 @@ class LogoutWidget extends XotBaseWidget
      *
      * @return array<string, Action>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getFormActions(): array
     {
         return [
@@ -307,24 +242,12 @@ class LogoutWidget extends XotBaseWidget
     /**
      * Handle any errors that occur during logout.
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
-     * @throws RuntimeException
-=======
      * @throws \RuntimeException
->>>>>>> 220cf97b (.)
-=======
-     * @throws \RuntimeException
->>>>>>> laraxot/develop
      */
     protected function handleLogoutError(\Throwable $e): void
     {
         Log::error('Logout error: '.$e->getMessage(), [
-<<<<<<< HEAD
             'exception' => $e::class,
-=======
-            'exception' => get_class($e),
->>>>>>> laraxot/develop
             'trace' => $e->getTraceAsString(),
         ]);
 

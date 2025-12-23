@@ -12,15 +12,7 @@ use Tests\TestCase;
 uses(TestCase::class);
 
 beforeEach(function (): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    $this->widget = new UserOverview;
-=======
     $this->widget = new UserOverview();
->>>>>>> 220cf97b (.)
-=======
-    $this->widget = new UserOverview();
->>>>>>> laraxot/develop
     $this->user = User::factory()->create([
         'type' => UserType::MasterAdmin,
         'email' => 'admin@example.com',

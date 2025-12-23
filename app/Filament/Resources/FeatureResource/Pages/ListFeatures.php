@@ -17,15 +17,7 @@ class ListFeatures extends XotBaseListRecords
     /**
      * @return array<string, Column>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getTableColumns(): array
     {
         return [

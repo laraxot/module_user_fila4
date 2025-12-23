@@ -5,10 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Modules\Xot\Models\Traits\HasXotFactory;
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-=======
->>>>>>> 220cf97b (.)
 use Spatie\Permission\Models\Role as SpatieRole;
 
 class Role extends SpatieRole

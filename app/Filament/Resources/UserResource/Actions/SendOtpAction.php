@@ -7,13 +7,6 @@ namespace Modules\User\Filament\Resources\UserResource\Actions;
 use Filament\Actions\Action;
 use Modules\User\Actions\Otp\SendOtpByUserAction;
 use Modules\User\Models\User;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use RuntimeException;
-=======
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 
 /**
  * Azione Filament per l'invio di un OTP all'utente.

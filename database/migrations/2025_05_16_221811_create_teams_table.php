@@ -10,16 +10,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\User\Models\Team;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-<<<<<<< HEAD:database/migrations/2025_05_16_221811_create_teams_table.php
-return new class extends XotBaseMigration
-{
-    protected string $table = 'teams';
-    protected ?string $connection = 'user';
-    protected ?string $model_class = Team::class;
-
-=======
 return new class extends XotBaseMigration {
->>>>>>> 220cf97b (.):database/migrations/2023_01_01_000007_create_teams_table.php
     /**
      * Esegue la migrazione.
      */

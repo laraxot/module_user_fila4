@@ -79,15 +79,7 @@ class DeviceData extends Data
         // fare contract
         // Assert::isInstanceOf($synchronizationClass,Model::class,'['.__LINE__.']['.class_basename($this).']');
         // $synchronization = Synchronization::create([
-<<<<<<< HEAD
-<<<<<<< HEAD
-        /** @var class-string<\Illuminate\Database\Eloquent\Model> $synchronizationClass */
-=======
         /** @var class-string<Model> $synchronizationClass */
->>>>>>> 220cf97b (.)
-=======
-        /** @var class-string<Model> $synchronizationClass */
->>>>>>> laraxot/develop
         /** @var Model $synchronization */
         $synchronization = $synchronizationClass::create([
             // $synchronization = Synchronization::create([

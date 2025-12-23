@@ -7,10 +7,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\Pages;
 
-<<<<<<< HEAD
-use Modules\User\Models\Tenant;
-=======
->>>>>>> laraxot/develop
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\TenantResource;
@@ -24,15 +20,7 @@ class ListTenants extends XotBaseListRecords
     /**
      * Definisce le colonne della tabella per la lista tenant.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getTableColumns(): array
     {
         return [
@@ -40,15 +28,7 @@ class ListTenants extends XotBaseListRecords
             'name' => TextColumn::make('name')->searchable(),
             'slug' => TextColumn::make('slug')
                 ->default(function ($record) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    if ($record === null || ! $record instanceof Tenant) {
-=======
                     if (null === $record || ! $record instanceof Tenant) {
->>>>>>> 220cf97b (.)
-=======
-                    if (null === $record || ! $record instanceof Tenant) {
->>>>>>> laraxot/develop
                         return '';
                     }
                     $record->generateSlug();

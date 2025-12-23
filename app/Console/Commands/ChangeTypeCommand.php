@@ -4,23 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Illuminate\Contracts\Support\Htmlable;
-use Filament\Support\Contracts\HasLabel;
-use BackedEnum;
-use Illuminate\Console\Command;
-=======
-=======
->>>>>>> laraxot/develop
 use BackedEnum;
 use Filament\Support\Contracts\HasLabel;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Support\Htmlable;
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 
 use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
@@ -120,20 +107,9 @@ class ChangeTypeCommand extends Command
         $newTypeEnum = $typeClass::tryFrom($newType);
         Assert::notNull($newTypeEnum);
         Assert::isInstanceOf($newTypeEnum, HasLabel::class);
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-        /** @var BackedEnum&HasLabel $newTypeEnum */
-=======
         Assert::isInstanceOf($newTypeEnum, \BackedEnum::class);
 
         /* @var \BackedEnum&HasLabel $newTypeEnum */
->>>>>>> 220cf97b (.)
-=======
-        Assert::isInstanceOf($newTypeEnum, \BackedEnum::class);
-
-        /* @var \BackedEnum&HasLabel $newTypeEnum */
->>>>>>> laraxot/develop
         $user->type = (string) $newTypeEnum->value;
         $user->save();
 

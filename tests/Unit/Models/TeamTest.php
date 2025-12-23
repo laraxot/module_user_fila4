@@ -8,30 +8,6 @@ use Modules\User\Tests\TestCase;
 
 uses(TestCase::class);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function test_can_create_team_with_minimal_data(): void
-    {
-        $user = User::factory()->create();
-
-        $team = Team::factory()->create([
-            'user_id' => $user->id,
-            'name' => 'Test Team',
-        ]);
-
-        $this->assertDatabaseHas('teams', [
-            'id' => $team->id,
-            'user_id' => $user->id,
-            'name' => 'Test Team',
-        ]);
-    }
-
-    public function test_can_create_team_with_all_fields(): void
-    {
-        $user = User::factory()->create();
-=======
-=======
->>>>>>> laraxot/develop
 test('can create team with minimal data', function (): void {
     $user = User::factory()->create();
 
@@ -47,10 +23,6 @@ test('can create team with minimal data', function (): void {
 
 test('can create team with all fields', function (): void {
     $user = User::factory()->create();
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 
     $teamData = [
         'user_id' => $user->id,
@@ -61,66 +33,6 @@ test('can create team with all fields', function (): void {
         'owner_id' => $user->id,
     ];
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $team = Team::factory()->create($teamData);
-
-        $this->assertDatabaseHas('teams', [
-            'id' => $team->id,
-            'user_id' => $user->id,
-            'name' => 'Full Team',
-            'personal_team' => 0,
-            'code' => 'TEAM001',
-            'uuid' => '550e8400-e29b-41d4-a716-446655440000',
-            'owner_id' => $user->id,
-        ]);
-    }
-
-    public function test_team_has_soft_deletes(): void
-    {
-        $user = User::factory()->create();
-        $team = Team::factory()->create(['user_id' => $user->id]);
-        $teamId = $team->id;
-
-        $team->delete();
-
-        $this->assertSoftDeleted('teams', ['id' => $teamId]);
-        $this->assertDatabaseMissing('teams', ['id' => $teamId]);
-    }
-
-    public function test_can_restore_soft_deleted_team(): void
-    {
-        if (! method_exists(Team::class, 'withTrashed')) {
-            $this->markTestSkipped('SoftDeletes trait not present on Team model');
-
-            return;
-        }
-
-        $user = User::factory()->create();
-        $team = Team::factory()->create(['user_id' => $user->id]);
-        $teamId = $team->id;
-
-        $team->delete();
-        $this->assertSoftDeleted('teams', ['id' => $teamId]);
-
-        /** @var Team $restoredTeam */
-        $restoredTeam = Team::withTrashed()->find($teamId);
-        $restoredTeam->restore();
-
-        $this->assertDatabaseHas('teams', ['id' => $teamId]);
-        static::assertNull($restoredTeam->deleted_at);
-    }
-
-    public function test_can_find_team_by_name(): void
-    {
-        $user = User::factory()->create();
-        $team = Team::factory()->create([
-            'user_id' => $user->id,
-            'name' => 'Unique Team Name',
-        ]);
-=======
-=======
->>>>>>> laraxot/develop
     $team = Team::factory()->create($teamData);
 
     expect($team->id)->not->toBeNull();
@@ -171,10 +83,6 @@ test('can find team by uuid', function (): void {
     expect($foundTeam)->not->toBeNull();
     expect($foundTeam->id)->toBe($team->id);
 });
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 
 test('can find team by owner id', function (): void {
     $user = User::factory()->create();
@@ -185,25 +93,9 @@ test('can find team by owner id', function (): void {
 
     $foundTeam = Team::where('owner_id', $user->id)->first();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function test_can_find_team_by_code(): void
-    {
-        $user = User::factory()->create();
-        $team = Team::factory()->create([
-            'user_id' => $user->id,
-            'code' => 'TEAM123',
-        ]);
-=======
     expect($foundTeam)->not->toBeNull();
     expect($foundTeam->id)->toBe($team->id);
 });
->>>>>>> 220cf97b (.)
-=======
-    expect($foundTeam)->not->toBeNull();
-    expect($foundTeam->id)->toBe($team->id);
-});
->>>>>>> laraxot/develop
 
 test('can find personal teams', function (): void {
     $user = User::factory()->create();
@@ -218,26 +110,9 @@ test('can find personal teams', function (): void {
 
     $personalTeams = Team::where('personal_team', 1)->get();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function test_can_find_team_by_uuid(): void
-    {
-        $user = User::factory()->create();
-        $uuid = '550e8400-e29b-41d4-a716-446655440000';
-        $team = Team::factory()->create([
-            'user_id' => $user->id,
-            'uuid' => $uuid,
-        ]);
-=======
     expect($personalTeams->count())->toBeGreaterThanOrEqual(1);
     expect($personalTeams->first()->personal_team)->toBe(1);
 });
->>>>>>> 220cf97b (.)
-=======
-    expect($personalTeams->count())->toBeGreaterThanOrEqual(1);
-    expect($personalTeams->first()->personal_team)->toBe(1);
-});
->>>>>>> laraxot/develop
 
 test('can find teams by user id', function (): void {
     $user1 = User::factory()->create();
@@ -247,21 +122,7 @@ test('can find teams by user id', function (): void {
     Team::factory()->create(['user_id' => $user1->id]);
     Team::factory()->create(['user_id' => $user2->id]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function test_can_find_team_by_owner_id(): void
-    {
-        $user = User::factory()->create();
-        $team = Team::factory()->create([
-            'user_id' => $user->id,
-            'owner_id' => $user->id,
-        ]);
-=======
     $user1Teams = Team::where('user_id', $user1->id)->get();
->>>>>>> 220cf97b (.)
-=======
-    $user1Teams = Team::where('user_id', $user1->id)->get();
->>>>>>> laraxot/develop
 
     expect($user1Teams->count())->toBeGreaterThanOrEqual(2);
     expect($user1Teams->every(fn ($team) => $team->user_id === $user1->id))->toBeTrue();
@@ -273,47 +134,12 @@ test('can find teams by name pattern', function (): void {
     Team::factory()->create(['user_id' => $user->id, 'name' => 'Marketing Team']);
     Team::factory()->create(['user_id' => $user->id, 'name' => 'Sales Team']);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function test_can_find_personal_teams(): void
-    {
-        $user = User::factory()->create();
-        Team::factory()->create([
-            'user_id' => $user->id,
-            'personal_team' => 1,
-        ]);
-        Team::factory()->create([
-            'user_id' => $user->id,
-            'personal_team' => 0,
-        ]);
-=======
     $devTeams = Team::where('name', 'like', '%Team%')->get();
->>>>>>> 220cf97b (.)
-=======
-    $devTeams = Team::where('name', 'like', '%Team%')->get();
->>>>>>> laraxot/develop
 
     expect($devTeams->count())->toBeGreaterThanOrEqual(3);
     expect($devTeams->every(fn ($team) => str_contains($team->name, 'Team')))->toBeTrue();
 });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertCount(1, $personalTeams);
-        static::assertSame(1, $personalTeams->first()->personal_team);
-    }
-
-    public function test_can_find_teams_by_user_id(): void
-    {
-        $user1 = User::factory()->create();
-        $user2 = User::factory()->create();
-
-        Team::factory()->create(['user_id' => $user1->id]);
-        Team::factory()->create(['user_id' => $user1->id]);
-        Team::factory()->create(['user_id' => $user2->id]);
-=======
-=======
->>>>>>> laraxot/develop
 test('can update team', function (): void {
     $user = User::factory()->create();
     $team = Team::factory()->create([
@@ -325,10 +151,6 @@ test('can update team', function (): void {
 
     expect($team->fresh()->name)->toBe('New Name');
 });
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 
 test('can handle null values', function (): void {
     $user = User::factory()->create();
@@ -340,21 +162,6 @@ test('can handle null values', function (): void {
         'owner_id' => null,
     ]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertCount(2, $user1Teams);
-        static::assertTrue($user1Teams->every(fn ($team) => $team->user_id === $user1->id));
-    }
-
-    public function test_can_find_teams_by_name_pattern(): void
-    {
-        $user = User::factory()->create();
-        Team::factory()->create(['user_id' => $user->id, 'name' => 'Development Team']);
-        Team::factory()->create(['user_id' => $user->id, 'name' => 'Marketing Team']);
-        Team::factory()->create(['user_id' => $user->id, 'name' => 'Sales Team']);
-=======
-=======
->>>>>>> laraxot/develop
     expect($team->code)->toBeNull();
     expect($team->uuid)->toBeNull();
     expect($team->owner_id)->toBeNull();
@@ -367,10 +174,6 @@ test('can find teams by multiple criteria', function (): void {
         'name' => 'Development Team',
         'personal_team' => 0,
     ]);
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 
     Team::factory()->create([
         'user_id' => $user->id,
@@ -378,79 +181,9 @@ test('can find teams by multiple criteria', function (): void {
         'personal_team' => 1,
     ]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        static::assertCount(3, $devTeams);
-        static::assertTrue($devTeams->every(fn ($team) => str_contains($team->name, 'Team')));
-    }
-
-    public function test_can_update_team(): void
-    {
-        $user = User::factory()->create();
-        $team = Team::factory()->create([
-            'user_id' => $user->id,
-            'name' => 'Old Name',
-        ]);
-
-        $team->update(['name' => 'New Name']);
-
-        $this->assertDatabaseHas('teams', [
-            'id' => $team->id,
-            'name' => 'New Name',
-        ]);
-    }
-
-    public function test_can_handle_null_values(): void
-    {
-        $user = User::factory()->create();
-        $team = Team::factory()->create([
-            'user_id' => $user->id,
-            'name' => 'Test Team',
-            'code' => null,
-            'uuid' => null,
-            'owner_id' => null,
-        ]);
-
-        $this->assertDatabaseHas('teams', [
-            'id' => $team->id,
-            'code' => null,
-            'uuid' => null,
-            'owner_id' => null,
-        ]);
-    }
-
-    public function test_can_find_teams_by_multiple_criteria(): void
-    {
-        $user = User::factory()->create();
-        Team::factory()->create([
-            'user_id' => $user->id,
-            'name' => 'Development Team',
-            'personal_team' => 0,
-        ]);
-
-        Team::factory()->create([
-            'user_id' => $user->id,
-            'name' => 'Personal Team',
-            'personal_team' => 1,
-        ]);
-
-        $teams = Team::where('user_id', $user->id)->where('personal_team', 0)->get();
-
-        static::assertCount(1, $teams);
-        static::assertSame('Development Team', $teams->first()->name);
-        static::assertSame(0, $teams->first()->personal_team);
-    }
-}
-=======
-=======
->>>>>>> laraxot/develop
     $teams = Team::where('user_id', $user->id)->where('personal_team', 0)->get();
 
     expect($teams->count())->toBeGreaterThanOrEqual(1);
     expect($teams->first()->name)->toBe('Development Team');
     expect($teams->first()->personal_team)->toBe(0);
 });
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop

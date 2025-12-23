@@ -9,12 +9,4 @@ return [
         'icon' => 'appearance',
         'sort' => 5,
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
 ];
-=======
-];
->>>>>>> 220cf97b (.)
-=======
-];
->>>>>>> laraxot/develop

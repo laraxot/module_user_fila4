@@ -165,14 +165,11 @@ $this->assertTrue($user->belongsToTeam($team));
 - [TeamUser Model](../app/Models/TeamUser.php)
 - [TeamInvitation Model](../app/Models/TeamInvitation.php)
 - [UserServiceProvider](../app/Providers/UserServiceProvider.php)
-<<<<<<< HEAD:docs/team-bindings-fix.md
-- [Critical Errors Documentation](../../<nome progetto>/project_docs/critical-errors-resolved.md)
-=======
 - [Critical Errors Documentation](../../SaluteOra/docs/critical-errors-resolved.md)
->>>>>>> 220cf97b (.):docs/team-bindings-fix_1.md
 
 ---
 
 **Autore**: AI Assistant  
 **Data**: Gennaio 2025  
 **Versione**: 1.0  
+**Status**: ✅ Risolto e Testato 

@@ -11,15 +11,7 @@ describe('User Business Logic', function () {
     });
 
     test('user has authentication capabilities', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $user = new User;
-=======
         $user = new User();
->>>>>>> 220cf97b (.)
-=======
-        $user = new User();
->>>>>>> laraxot/develop
         $user->email = 'test@example.com';
         $user->password = 'hashed-password';
 
@@ -28,15 +20,7 @@ describe('User Business Logic', function () {
     });
 
     test('user can have name components', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $user = new User;
-=======
         $user = new User();
->>>>>>> 220cf97b (.)
-=======
-        $user = new User();
->>>>>>> laraxot/develop
         $user->first_name = 'Mario';
         $user->last_name = 'Rossi';
         $user->name = 'Mario Rossi';
@@ -47,120 +31,56 @@ describe('User Business Logic', function () {
     });
 
     test('user has activation status', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $user = new User;
-=======
         $user = new User();
->>>>>>> 220cf97b (.)
-=======
-        $user = new User();
->>>>>>> laraxot/develop
         $user->is_active = true;
 
         expect($user->is_active)->toBe(true);
     });
 
     test('user has otp capability', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $user = new User;
-=======
         $user = new User();
->>>>>>> 220cf97b (.)
-=======
-        $user = new User();
->>>>>>> laraxot/develop
         $user->is_otp = true;
 
         expect($user->is_otp)->toBe(true);
     });
 
     test('user can have language preference', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $user = new User;
-=======
         $user = new User();
->>>>>>> 220cf97b (.)
-=======
-        $user = new User();
->>>>>>> laraxot/develop
         $user->lang = 'it';
 
         expect($user->lang)->toBe('it');
     });
 
     test('user has email verification tracking', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $user = new User;
-=======
         $user = new User();
->>>>>>> 220cf97b (.)
-=======
-        $user = new User();
->>>>>>> laraxot/develop
         $user->email_verified_at = '2023-01-01 12:00:00';
 
         expect($user->email_verified_at)->toBe('2023-01-01 12:00:00');
     });
 
     test('user has password expiry tracking', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $user = new User;
-=======
         $user = new User();
->>>>>>> 220cf97b (.)
-=======
-        $user = new User();
->>>>>>> laraxot/develop
         $user->password_expires_at = '2023-12-31 23:59:59';
 
         expect($user->password_expires_at)->toBe('2023-12-31 23:59:59');
     });
 
     test('user can have current team', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $user = new User;
-=======
         $user = new User();
->>>>>>> 220cf97b (.)
-=======
-        $user = new User();
->>>>>>> laraxot/develop
         $user->current_team_id = 1;
 
         expect($user->current_team_id)->toBe(1);
     });
 
     test('user can have profile photo', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $user = new User;
-=======
         $user = new User();
->>>>>>> 220cf97b (.)
-=======
-        $user = new User();
->>>>>>> laraxot/develop
         $user->profile_photo_path = '/storage/profile-photos/user.jpg';
 
         expect($user->profile_photo_path)->toBe('/storage/profile-photos/user.jpg');
     });
 
     test('user can have remember token', function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $user = new User;
-=======
         $user = new User();
->>>>>>> 220cf97b (.)
-=======
-        $user = new User();
->>>>>>> laraxot/develop
         $user->remember_token = 'abc123def456';
 
         expect($user->remember_token)->toBe('abc123def456');

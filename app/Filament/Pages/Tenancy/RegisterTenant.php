@@ -40,11 +40,7 @@ class RegisterTenant extends BaseRegisterTenant
         return static::transClass($tenantClass, $key);
     }
 
-<<<<<<< HEAD
     public function form(Schema $schema): Schema
-=======
-    public function schema(Schema $schema): Schema
->>>>>>> laraxot/develop
     {
         /** @var array<Component> $components */
         $components = $this->getFormSchema();
@@ -66,15 +62,7 @@ class RegisterTenant extends BaseRegisterTenant
     }
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-     * @param  array<string, string|int|bool|null>  $data
-=======
      * @param array<string, string|int|bool|null> $data
->>>>>>> 220cf97b (.)
-=======
-     * @param array<string, string|int|bool|null> $data
->>>>>>> laraxot/develop
      */
     protected function handleRegistration(array $data): Model
     {
@@ -92,15 +80,7 @@ class RegisterTenant extends BaseRegisterTenant
      */
     private function resolveResourceClass(): string
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if ($this->resourceClass !== null) {
-=======
         if (null !== $this->resourceClass) {
->>>>>>> 220cf97b (.)
-=======
-        if (null !== $this->resourceClass) {
->>>>>>> laraxot/develop
             return $this->resourceClass;
         }
 

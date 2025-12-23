@@ -9,10 +9,6 @@ use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Section;
 use Modules\User\Filament\Resources\TeamResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> laraxot/develop
 
 class ViewTeam extends XotBaseViewRecord
 {
@@ -22,15 +18,7 @@ class ViewTeam extends XotBaseViewRecord
     /**
      * @return array<Component>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getInfolistSchema(): array
     {
         return [

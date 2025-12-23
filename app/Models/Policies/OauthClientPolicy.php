@@ -22,21 +22,9 @@ class OauthClientPolicy extends UserBasePolicy
      */
     public function view(UserContract $user, OauthClient $oauthClient): bool
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $user->hasPermissionTo('oauth-client.view') ||
-            $user->id === $oauthClient->user_id ||
-            $user->hasRole('super-admin');
-=======
         return $user->hasPermissionTo('oauth-client.view')
             || $user->id === $oauthClient->user_id
             || $user->hasRole('super-admin');
->>>>>>> 220cf97b (.)
-=======
-        return $user->hasPermissionTo('oauth-client.view')
-            || $user->id === $oauthClient->user_id
-            || $user->hasRole('super-admin');
->>>>>>> laraxot/develop
     }
 
     /**

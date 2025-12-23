@@ -22,21 +22,9 @@ class PasswordResetPolicy extends UserBasePolicy
      */
     public function view(UserContract $user, PasswordReset $passwordReset): bool
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return $user->hasPermissionTo('password-reset.view') ||
-            $user->email === $passwordReset->email ||
-            $user->hasRole('super-admin');
-=======
         return $user->hasPermissionTo('password-reset.view')
             || $user->email === $passwordReset->email
             || $user->hasRole('super-admin');
->>>>>>> 220cf97b (.)
-=======
-        return $user->hasPermissionTo('password-reset.view')
-            || $user->email === $passwordReset->email
-            || $user->hasRole('super-admin');
->>>>>>> laraxot/develop
     }
 
     /**

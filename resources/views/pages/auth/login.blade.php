@@ -3,11 +3,7 @@
 declare(strict_types=1);
 
 
-<<<<<<< HEAD
 use App\Models\User;
-=======
-use Modules\User\Models\User;
->>>>>>> laraxot/develop
 use Illuminate\Auth\Events\Login;
 use Livewire\Attributes\Validate;
 use Livewire\Volt\Component;
@@ -45,15 +41,7 @@ new class extends Component {
 
 ?>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<x-layouts.guest>
-=======
 <x-layouts.main>
->>>>>>> 220cf97b (.)
-=======
-<x-layouts.main>
->>>>>>> laraxot/develop
 
     <div class="flex flex-col items-stretch justify-center w-screen min-h-screen py-10 sm:items-center">
 
@@ -91,12 +79,4 @@ new class extends Component {
 
     </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-</x-layouts.guest>
-=======
 </x-layouts.main>
->>>>>>> 220cf97b (.)
-=======
-</x-layouts.main>
->>>>>>> laraxot/develop

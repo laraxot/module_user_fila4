@@ -9,30 +9,18 @@ return [
             'placeholder' => 'Enter your email',
             'help' => 'Enter the email address you used to register',
             'description' => 'Email address for login',
-<<<<<<< HEAD
-=======
-            'helper_text' => 'email',
->>>>>>> laraxot/develop
         ],
         'password' => [
             'label' => 'Password',
             'placeholder' => 'Enter your password',
             'help' => 'Enter your account password',
             'description' => 'Password for login',
-<<<<<<< HEAD
-=======
-            'helper_text' => 'password',
->>>>>>> laraxot/develop
         ],
         'remember' => [
             'label' => 'Remember me',
             'placeholder' => 'Keep session active',
             'help' => 'Select to keep your session active for 30 days',
             'description' => 'Option to remember login',
-<<<<<<< HEAD
-=======
-            'helper_text' => 'remember',
->>>>>>> laraxot/develop
         ],
     ],
     'actions' => [

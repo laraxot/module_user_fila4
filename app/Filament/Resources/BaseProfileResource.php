@@ -17,11 +17,7 @@ abstract class BaseProfileResource extends XotBaseResource
 
     protected static ?string $model = BaseProfile::class;
 
-<<<<<<< HEAD
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-users';
-=======
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-users';
->>>>>>> laraxot/develop
 
     #[\Override]
     public static function getFormSchema(): array
@@ -50,15 +46,12 @@ abstract class BaseProfileResource extends XotBaseResource
     }
 
     #[\Override]
-<<<<<<< HEAD
     public static function getRelations(): array
     {
         return [];
     }
 
     #[\Override]
-=======
->>>>>>> laraxot/develop
     public static function getPages(): array
     {
         return [

@@ -4,21 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Modules\Xot\Models\Traits\HasXotFactory;
-use Illuminate\Support\Carbon;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-=======
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
->>>>>>> 220cf97b (.)
-=======
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
->>>>>>> laraxot/develop
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Models\Traits\HasXotFactory;
@@ -36,23 +23,10 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @property string|null $redirect_url
  * @property string|null $metadata_url
  * @property string|null $scopes
-<<<<<<< HEAD
-<<<<<<< HEAD
- * @property array|null $settings
- * @property array|null $domain_whitelist
- * @property array|null $role_mapping
- * @property bool $is_active
-=======
-=======
->>>>>>> laraxot/develop
  * @property array|null  $settings
  * @property array|null  $domain_whitelist
  * @property array|null  $role_mapping
  * @property bool        $is_active
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $created_by
@@ -60,18 +34,8 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  *
  * @mixin IdeHelperSsoProvider
  *
-<<<<<<< HEAD
-<<<<<<< HEAD
- * @property-read Collection<int, User> $users
- * @property-read int|null $users_count
-=======
  * @property Collection<int, User> $users
  * @property int|null              $users_count
->>>>>>> 220cf97b (.)
-=======
- * @property Collection<int, User> $users
- * @property int|null              $users_count
->>>>>>> laraxot/develop
  *
  * @method static Builder<static>|SsoProvider newModelQuery()
  * @method static Builder<static>|SsoProvider newQuery()
@@ -95,21 +59,12 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static Builder<static>|SsoProvider whereUpdatedAt($value)
  * @method static Builder<static>|SsoProvider whereUpdatedBy($value)
  *
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> laraxot/develop
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  *
  * @method static \Modules\User\Database\Factories\SsoProviderFactory factory($count = null, $state = [])
  *
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class SsoProvider extends BaseModel

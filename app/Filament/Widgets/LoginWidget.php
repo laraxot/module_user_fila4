@@ -4,38 +4,22 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-<<<<<<< HEAD
-use Exception;
-=======
->>>>>>> laraxot/develop
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Component;
-<<<<<<< HEAD
-=======
-use Filament\Schemas\Schema;
->>>>>>> laraxot/develop
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> laraxot/develop
 
 /**
  * LoginWidget: Widget di login conforme alle regole Windsurf/Xot.
  * - Estende XotBaseWidget
  * - Usa solo componenti Filament importati
  * - Validazione e sicurezza integrate
-<<<<<<< HEAD
- * - Facilmente estendibile (2FA, captcha, login social)
-=======
  * - Facilmente estendibile (2FA, captcha, login social).
->>>>>>> laraxot/develop
  *
  * @property array<string, mixed>|null $data
  */
@@ -66,15 +50,7 @@ class LoginWidget extends XotBaseWidget
      *
      * @return array<int, Component>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getFormSchema(): array
     {
         return [
@@ -91,31 +67,11 @@ class LoginWidget extends XotBaseWidget
     }
 
     /**
-<<<<<<< HEAD
-=======
-     * Get the form model.
-     */
-    #[\Override]
-    protected function getFormModel(): ?Model
-    {
-        return null;
-    }
-
-    /**
->>>>>>> laraxot/develop
      * Get the form fill data.
      *
      * @return array<string, mixed>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getFormFill(): array
     {
         return [
@@ -127,11 +83,7 @@ class LoginWidget extends XotBaseWidget
     /**
      * Handle login form submission.
      */
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> laraxot/develop
     public function save(): void
     {
         try {
@@ -142,13 +94,7 @@ class LoginWidget extends XotBaseWidget
             $attempt_data = Arr::only($data, ['email', 'password']);
 
             if (! Auth::attempt($attempt_data, $remember)) {
-<<<<<<< HEAD
-                throw ValidationException::withMessages([
-                    'email' => [__('user::messages.credentials_incorrect')],
-                ]);
-=======
                 throw ValidationException::withMessages(['email' => [__('user::messages.credentials_incorrect')]]);
->>>>>>> laraxot/develop
             }
 
             session()->regenerate();
@@ -171,32 +117,15 @@ class LoginWidget extends XotBaseWidget
             // $this->form->callAfter();
 
             foreach ($e->errors() as $field => $messages) {
-<<<<<<< HEAD
                 // PHPStan Level 10: Ensure messages is array
                 if (! is_array($messages)) {
                     $messages = [$messages];
                 }
 
-<<<<<<< HEAD
-                /** @var array<int|string, mixed> $messages */
-=======
                 /* @var array<int|string, mixed> $messages */
->>>>>>> 220cf97b (.)
-                $this->addError($field, implode(' ', $messages));
-            }
-        } catch (Exception $e) {
-=======
-                // Semplificato: aggiungi sempre l'errore al campo specifico
-                if (! \is_array($messages)) {
-                    /** @var array<int, string> $messages */
-                    $messages = [$messages];
-                } else {
-                    /* @var array<int, string> $messages */
-                }
                 $this->addError($field, implode(' ', $messages));
             }
         } catch (\Exception $e) {
->>>>>>> laraxot/develop
             report($e);
 
             Notification::make()
@@ -212,20 +141,13 @@ class LoginWidget extends XotBaseWidget
             $this->addError('email', __('user::messages.login_error'));
         }
     }
-<<<<<<< HEAD
 
     /**
      * Get the form model.
      */
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
     protected function getFormModel(): ?Model
     {
         return null;
     }
-=======
->>>>>>> laraxot/develop
 }

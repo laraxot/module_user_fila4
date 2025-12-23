@@ -15,18 +15,7 @@
 - `app/Contracts/TeamContract.php`
 - `app/Contracts/UserContract.php`
 
-**Problema**: Marker Git `<<<<<<< HEAD`, `=======`, `>>>>>>>` nei commenti PHPDoc
-
-**Fix**: Rimossi tutti i marker, mantenuta versione corretta con PHPDoc completo
-
-**Esempio Fix**:
-```php
-// PRIMA
-/**
- * <<<<<<< HEAD
- * =======
- * @param string $provider
- * >>>>>>> e4cd89fa (.)
+**Problema**: Marker Git `
  */
 
 // DOPO

@@ -10,10 +10,6 @@ use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Password;
 // use Filament\Forms\Components\TextInput as FormsTextInput;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> laraxot/develop
 
 /**
  * @property Schema $form
@@ -27,15 +23,7 @@ class ForgotPasswordWidget extends XotBaseWidget
      *
      * @return array<string, Component>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getFormSchema(): array
     {
         return [

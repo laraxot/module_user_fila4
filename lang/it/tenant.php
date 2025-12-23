@@ -110,18 +110,10 @@ return [
         'reorderRecords' => [
             'icon' => 'reorderRecords',
             'label' => 'reorderRecords',
-<<<<<<< HEAD
-=======
-            'tooltip' => 'reorderRecords',
->>>>>>> laraxot/develop
         ],
         'cancel' => [
             'icon' => 'ui-cancel',
             'label' => 'cancel',
-<<<<<<< HEAD
-=======
-            'tooltip' => 'cancel',
->>>>>>> laraxot/develop
         ],
         'attachAnother' => [
             'icon' => 'attachAnother',
@@ -134,10 +126,6 @@ return [
         'detach' => [
             'icon' => 'detach',
             'label' => 'detach',
-<<<<<<< HEAD
-=======
-            'tooltip' => 'detach',
->>>>>>> laraxot/develop
         ],
         'edit' => [
             'label' => 'edit',
@@ -182,10 +170,6 @@ return [
         'logout' => [
             'icon' => 'logout',
             'label' => 'logout',
-<<<<<<< HEAD
-=======
-            'tooltip' => 'logout',
->>>>>>> laraxot/develop
         ],
         'profile' => [
             'icon' => 'profile',

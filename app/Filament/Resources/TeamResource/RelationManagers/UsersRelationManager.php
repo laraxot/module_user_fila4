@@ -29,15 +29,7 @@ class UsersRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Column>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getTableColumns(): array
     {
         return [
@@ -50,15 +42,7 @@ class UsersRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Action>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getTableHeaderActions(): array
     {
         return [
@@ -69,15 +53,7 @@ class UsersRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Action|ActionGroup>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getTableActions(): array
     {
         return [
@@ -91,15 +67,7 @@ class UsersRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, BulkAction>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
     #[\Override]
->>>>>>> 220cf97b (.)
-=======
-    #[\Override]
->>>>>>> laraxot/develop
     public function getTableBulkActions(): array
     {
         return [

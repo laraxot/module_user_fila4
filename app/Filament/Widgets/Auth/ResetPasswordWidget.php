@@ -88,35 +88,19 @@ class ResetPasswordWidget extends XotBaseWidget
 
         $reset_data = Arr::only($data, ['email', 'password', 'password_confirmation', 'token']);
         $status = Password::reset($reset_data, function (Authenticatable $user, string $password): void {
-<<<<<<< HEAD
-            /** @var Model&Authenticatable $user */
-=======
             /* @var Model&Authenticatable $user */
->>>>>>> laraxot/develop
             $user->forceFill([
                 'password' => Hash::make($password),
                 'remember_token' => Str::random(60),
             ])->save();
         });
 
-<<<<<<< HEAD
-        if ($status === Password::PASSWORD_RESET) {
-=======
         if (Password::PASSWORD_RESET === $status) {
->>>>>>> laraxot/develop
             session()->flash('status', __($status));
 
             return redirect()->route('login');
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-        /** @phpstan-ignore-next-line */
-=======
         /* @phpstan-ignore-next-line */
->>>>>>> 220cf97b (.)
-=======
-        /* @phpstan-ignore-next-line */
->>>>>>> laraxot/develop
         $this->addError('email', __($status));
     }
 }

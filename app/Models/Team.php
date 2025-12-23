@@ -12,64 +12,6 @@ use Modules\Xot\Contracts\ProfileContract;
 
 /**
  * Class Modules\User\Models\Team.
-<<<<<<< HEAD
-<<<<<<< HEAD
- *
- * @property string $id
- * @property string $user_id (DC2Type:guid)
- * @property string $name
- * @property int $personal_team
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $updated_by
- * @property string|null $created_by
- * @property Carbon|null $deleted_at
- * @property string|null $deleted_by
- * @property ProfileContract|null $creator
- * @property TeamUser $pivot
- * @property Collection<int, User> $members
- * @property int|null $members_count
- * @property User|null $owner
- * @property Collection<int, TeamInvitation> $teamInvitations
- * @property int|null $team_invitations_count
- * @property ProfileContract|null $updater
- * @property Collection<int, User> $users
- * @property int|null $users_count
- *
- * @method static TeamFactory factory($count = null, $state = [])
- * @method static Builder|Team newModelQuery()
- * @method static Builder|Team newQuery()
- * @method static Builder|Team query()
- * @method static Builder|Team whereCreatedAt($value)
- * @method static Builder|Team whereCreatedBy($value)
- * @method static Builder|Team whereDeletedAt($value)
- * @method static Builder|Team whereDeletedBy($value)
- * @method static Builder|Team whereId($value)
- * @method static Builder|Team whereName($value)
- * @method static Builder|Team wherePersonalTeam($value)
- * @method static Builder|Team whereUpdatedAt($value)
- * @method static Builder|Team whereUpdatedBy($value)
- * @method static Builder|Team whereUserId($value)
- *
- * @property string|null $code
- *
- * @method static Builder|Team whereCode($value)
- *
- * @property string|null $uuid
- *
- * @method static Builder<static>|Team whereUuid($value)
- *
- * @property string|null $owner_id
- *
- * @method static Builder<static>|Team whereOwnerId($value)
- *
- * @mixin IdeHelperTeam
- * @mixin \Eloquent
- */
-class Team extends BaseTeam {}
-=======
-=======
->>>>>>> laraxot/develop
  *
  * @property string                          $id
  * @property string                          $user_id                (DC2Type:guid)
@@ -131,7 +73,3 @@ class Team extends BaseTeam {}
 class Team extends BaseTeam
 {
 }
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop

@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-<<<<<<< HEAD
-use Modules\Xot\Models\Traits\HasXotFactory;
-=======
->>>>>>> laraxot/develop
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -26,21 +22,9 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static Builder|DeviceUser newQuery()
  * @method static Builder|DeviceUser query()
  *
-<<<<<<< HEAD
-<<<<<<< HEAD
- * @property string $id
- * @property string $device_id
- * @property string $user_id
-=======
  * @property string      $id
  * @property string      $device_id
  * @property string      $user_id
->>>>>>> 220cf97b (.)
-=======
- * @property string      $id
- * @property string      $device_id
- * @property string      $user_id
->>>>>>> laraxot/develop
  * @property Carbon|null $login_at
  * @property Carbon|null $logout_at
  * @property string|null $push_notifications_token
@@ -68,20 +52,11 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @property ProfileContract|null $updater
  *
  * @mixin IdeHelperDeviceUser
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> laraxot/develop
  *
  * @property ProfileContract|null $deleter
  *
  * @method static \Modules\User\Database\Factories\DeviceUserFactory factory($count = null, $state = [])
  *
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class DeviceUser extends BasePivot

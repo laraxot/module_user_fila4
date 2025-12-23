@@ -2,13 +2,6 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Modules\Xot\Datas\XotData;
-=======
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 use Modules\User\Filament\Clusters\Appearance;
 use Modules\User\Filament\Clusters\Appearance\Pages\Alignment;
 use Modules\User\Filament\Clusters\Appearance\Pages\Background;
@@ -16,24 +9,11 @@ use Modules\User\Filament\Clusters\Appearance\Pages\Colors;
 use Modules\User\Filament\Clusters\Appearance\Pages\CustomCss;
 use Modules\User\Filament\Clusters\Appearance\Pages\Favicon;
 use Modules\User\Filament\Clusters\Appearance\Pages\Logo;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Modules\Xot\Filament\Clusters\XotBaseCluster;
-use Modules\Xot\Filament\Pages\XotBasePage;
-
-/**
-=======
-=======
->>>>>>> laraxot/develop
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Clusters\XotBaseCluster;
 use Modules\Xot\Filament\Pages\XotBasePage;
 
 /*
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
  * Test per il Cluster Appearance e le sue Pages.
  *
  * Verifica che:

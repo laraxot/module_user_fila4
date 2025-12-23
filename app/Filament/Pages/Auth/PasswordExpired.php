@@ -7,46 +7,18 @@ namespace Modules\User\Filament\Pages\Auth;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Forms\Components\TextInput;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
-use Filament\Pages\Page;
-use Filament\Schemas\Components\Component;
-=======
-use Filament\Notifications\Notification;
-use Filament\Pages\Concerns\InteractsWithFormActions;
->>>>>>> 220cf97b (.)
-=======
-use Filament\Notifications\Notification;
-use Filament\Pages\Concerns\InteractsWithFormActions;
->>>>>>> laraxot/develop
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema as DatabaseSchema;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use InvalidArgumentException;
-=======
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 use Modules\User\Datas\PasswordData;
 use Modules\User\Events\NewPasswordSet;
 use Modules\User\Http\Response\PasswordResetResponse;
 use Modules\Xot\Contracts\UserContract;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 use Modules\Xot\Filament\Pages\XotBasePage;
->>>>>>> 220cf97b (.)
-=======
-use Modules\Xot\Filament\Pages\XotBasePage;
->>>>>>> laraxot/develop
 use Modules\Xot\Filament\Traits\NavigationPageLabelTrait;
 use Webmozart\Assert\Assert;
 
@@ -58,24 +30,8 @@ use Webmozart\Assert\Assert;
 class PasswordExpired extends XotBasePage
 {
     use InteractsWithFormActions;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    use InteractsWithForms;
     use NavigationPageLabelTrait;
 
-    public ?string $current_password = '';
-
-    public ?string $password = '';
-
-    public ?string $passwordConfirmation = '';
-=======
-    use NavigationPageLabelTrait;
->>>>>>> 220cf97b (.)
-
-=======
-    use NavigationPageLabelTrait;
-
->>>>>>> laraxot/develop
     /**
      * @var view-string
      */
@@ -83,18 +39,9 @@ class PasswordExpired extends XotBasePage
 
     protected static bool $shouldRegisterNavigation = false;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     /**
      * @return array<int, TextInput>
      */
->>>>>>> 220cf97b (.)
-=======
-    /**
-     * @return array<int, TextInput>
-     */
->>>>>>> laraxot/develop
     public function getFormSchema(): array
     {
         return array_values(array_merge(
@@ -125,15 +72,7 @@ class PasswordExpired extends XotBasePage
         }
 
         // check if current password is correct
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if ($user->password === null || ! Hash::check($current_password, $user->password)) {
-=======
         if (null === $user->password || ! Hash::check($currentPassword, $user->password)) {
->>>>>>> 220cf97b (.)
-=======
-        if (null === $user->password || ! Hash::check($currentPassword, $user->password)) {
->>>>>>> laraxot/develop
             Notification::make()
                 ->title(__('user::otp.notifications.wrong_password.title'))
                 ->body(__('user::otp.notifications.wrong_password.body'))
@@ -174,15 +113,7 @@ class PasswordExpired extends XotBasePage
 
         // Verificare che l'utente esistante e che sia un modello Eloquent
         if (! ($user instanceof Model)) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            throw new InvalidArgumentException('L\'utente deve essere un modello Eloquent con il metodo update');
-=======
             throw new \InvalidArgumentException('L\'utente deve essere un modello Eloquent con il metodo update');
->>>>>>> 220cf97b (.)
-=======
-            throw new \InvalidArgumentException('L\'utente deve essere un modello Eloquent con il metodo update');
->>>>>>> laraxot/develop
         }
 
         // set password expiry date and time
@@ -194,15 +125,7 @@ class PasswordExpired extends XotBasePage
 
         // Verificare che l'utente implementi l'interfaccia UserContract prima di passarlo all'evento
         if (! ($user instanceof UserContract)) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            throw new InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
-=======
             throw new \InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
->>>>>>> 220cf97b (.)
-=======
-            throw new \InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
->>>>>>> laraxot/develop
         }
 
         event(new NewPasswordSet($user));
@@ -212,11 +135,7 @@ class PasswordExpired extends XotBasePage
             ->success()
             ->send();
 
-<<<<<<< HEAD
-        return new PasswordResetResponse;
-=======
         return new PasswordResetResponse();
->>>>>>> laraxot/develop
     }
 
     /**
@@ -224,16 +143,6 @@ class PasswordExpired extends XotBasePage
      */
     protected function getCurrentPasswordFormComponent(): array
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return TextInput::make('current_password')
-            ->password()
-            ->revealable()
-            ->required()
-            ->validationAttribute(static::trans('fields.current_password.validation_attribute'));
-=======
-=======
->>>>>>> laraxot/develop
         return [
             TextInput::make('current_password')
                 ->password()
@@ -241,10 +150,6 @@ class PasswordExpired extends XotBasePage
                 ->required()
                 ->validationAttribute(static::trans('fields.current_password.validation_attribute')),
         ];
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
     }
 
     /**

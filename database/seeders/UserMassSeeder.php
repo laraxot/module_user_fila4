@@ -4,13 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Database\Seeders;
 
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Carbon\Carbon;
-use Exception;
-=======
-use Carbon\Carbon;
->>>>>>> laraxot/develop
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -23,14 +17,7 @@ use Modules\User\Models\Role;
 use Modules\User\Models\SocialProvider;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 use Webmozart\Assert\Assert;
->>>>>>> 220cf97b (.)
-=======
-use Webmozart\Assert\Assert;
->>>>>>> laraxot/develop
 
 /**
  * Seeder per creare grandi quantità di dati per il modulo User.
@@ -72,11 +59,7 @@ class UserMassSeeder extends Seeder
 
             $this->command->info("🎉 Seeding modulo User completato in {$executionTime} secondi!");
             $this->displaySummary();
-<<<<<<< HEAD
-        } catch (Exception $e) {
-=======
         } catch (\Exception $e) {
->>>>>>> laraxot/develop
             $this->command->error('❌ Errore durante il seeding: '.$e->getMessage());
             throw $e;
         }
@@ -293,14 +276,6 @@ class UserMassSeeder extends Seeder
 
         try {
             // Conta utenti
-<<<<<<< HEAD
-<<<<<<< HEAD
-            /** @phpstan-ignore-next-line */
-            $totalUsers = User::count();
-            $verifiedUsers = User::whereNotNull('email_verified_at')->count();
-=======
-=======
->>>>>>> laraxot/develop
             $usersQuery = User::query();
             Assert::isInstanceOf($usersQuery, Builder::class);
             $totalUsers = $usersQuery->count();
@@ -308,10 +283,6 @@ class UserMassSeeder extends Seeder
             $verifiedUsersQuery = User::query()->whereNotNull('email_verified_at');
             Assert::isInstanceOf($verifiedUsersQuery, Builder::class);
             $verifiedUsers = $verifiedUsersQuery->count();
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 
             $this->command->info('│ 👥 Utenti totali:           '.
             str_pad((string) $totalUsers, 6, ' ', STR_PAD_LEFT).
@@ -321,37 +292,15 @@ class UserMassSeeder extends Seeder
                 ' │');
 
             // Conta profili
-<<<<<<< HEAD
-<<<<<<< HEAD
-            /** @phpstan-ignore-next-line - Static method returns proper count */
-            $totalProfiles = Profile::count();
-=======
             $profilesQuery = Profile::query();
             Assert::isInstanceOf($profilesQuery, Builder::class);
             $totalProfiles = $profilesQuery->count();
->>>>>>> 220cf97b (.)
-=======
-            $profilesQuery = Profile::query();
-            Assert::isInstanceOf($profilesQuery, Builder::class);
-            $totalProfiles = $profilesQuery->count();
->>>>>>> laraxot/develop
 
             $this->command->info('│ 👤 Profili totali:          '.
             str_pad((string) $totalProfiles, 6, ' ', STR_PAD_LEFT).
                 ' │');
 
             // Conta ruoli e permessi
-<<<<<<< HEAD
-<<<<<<< HEAD
-            /** @phpstan-ignore-next-line - Static method returns proper count */
-            $totalRoles = Role::count();
-            /** @phpstan-ignore-next-line - Static method returns proper count */
-            $totalPermissions = Permission::count();
-            /** @phpstan-ignore-next-line - Static method returns proper count */
-            $totalTeams = Team::count();
-=======
-=======
->>>>>>> laraxot/develop
             $rolesQuery = Role::query();
             Assert::isInstanceOf($rolesQuery, Builder::class);
             $totalRoles = $rolesQuery->count();
@@ -363,10 +312,6 @@ class UserMassSeeder extends Seeder
             $teamsQuery = Team::query();
             Assert::isInstanceOf($teamsQuery, Builder::class);
             $totalTeams = $teamsQuery->count();
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 
             $this->command->info('│ 🔐 Ruoli:                  '.
             str_pad((string) $totalRoles, 6, ' ', STR_PAD_LEFT).
@@ -379,17 +324,6 @@ class UserMassSeeder extends Seeder
                 ' │');
 
             // Conta log e dispositivi
-<<<<<<< HEAD
-<<<<<<< HEAD
-            /** @phpstan-ignore-next-line - Static method returns proper count */
-            $totalLogs = AuthenticationLog::count();
-            /** @phpstan-ignore-next-line - Static method returns proper count */
-            $totalDevices = Device::count();
-            /** @phpstan-ignore-next-line - Static method returns proper count */
-            $totalProviders = SocialProvider::count();
-=======
-=======
->>>>>>> laraxot/develop
             $logsQuery = AuthenticationLog::query();
             Assert::isInstanceOf($logsQuery, Builder::class);
             $totalLogs = $logsQuery->count();
@@ -401,10 +335,6 @@ class UserMassSeeder extends Seeder
             $providersQuery = SocialProvider::query();
             Assert::isInstanceOf($providersQuery, Builder::class);
             $totalProviders = $providersQuery->count();
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 
             $this->command->info('│ 📝 Log autenticazione:      '.
             str_pad((string) $totalLogs, 6, ' ', STR_PAD_LEFT).
@@ -415,11 +345,7 @@ class UserMassSeeder extends Seeder
             $this->command->info('│ 🔗 Provider social:         '.
             str_pad((string) $totalProviders, 6, ' ', STR_PAD_LEFT).
                 ' │');
-<<<<<<< HEAD
-        } catch (Exception $e) {
-=======
         } catch (\Exception $e) {
->>>>>>> laraxot/develop
             $this->command->info('│ ❌ Errore nel conteggio: '.$e->getMessage());
         }
 

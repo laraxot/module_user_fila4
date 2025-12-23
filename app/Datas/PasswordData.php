@@ -11,13 +11,7 @@ namespace Modules\User\Datas;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TextInput as FormsTextInput;
 use Illuminate\Validation\Rules\Password;
-<<<<<<< HEAD
-use InvalidArgumentException;
 use Modules\Tenant\Services\TenantService;
-use RuntimeException;
-=======
-use Modules\Tenant\Services\TenantService;
->>>>>>> laraxot/develop
 use Spatie\LaravelData\Data;
 
 /**
@@ -40,17 +34,8 @@ class PasswordData extends Data
         public int $compromisedThreshold = 0,
         public ?string $failMessage = null,
         private ?string $field_name = null,
-<<<<<<< HEAD
-<<<<<<< HEAD
-    ) {}
-=======
     ) {
     }
->>>>>>> 220cf97b (.)
-=======
-    ) {
-    }
->>>>>>> laraxot/develop
 
     /**
      * Crea un'istanza della classe PasswordData.

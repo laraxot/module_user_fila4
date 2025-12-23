@@ -4,13 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Observers;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Throwable;
-=======
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
 use Illuminate\Support\Facades\Log;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
@@ -54,21 +47,10 @@ class UserObserver
             Assert::isInstanceOf($personalTeam, Team::class);
 
             // Imposta come current team
-<<<<<<< HEAD
-<<<<<<< HEAD
-            $user->current_team_id = is_int($personalTeam->id) ? $personalTeam->id : (int) $personalTeam->id;
-=======
-            $teamId = $personalTeam->id;
-            $user->current_team_id = is_numeric($teamId) ? (int) $teamId : null;
->>>>>>> 220cf97b (.)
-            $user->saveQuietly(); // Evita di triggerare eventi ricorsivi
-        } catch (Throwable $e) {
-=======
             $teamId = $personalTeam->id;
             $user->current_team_id = is_numeric($teamId) ? (int) $teamId : null;
             $user->saveQuietly(); // Evita di triggerare eventi ricorsivi
         } catch (\Throwable $e) {
->>>>>>> laraxot/develop
             // Log dell'errore ma non bloccare la creazione dell'utente
             Log::error('Failed to create personal team for user', [
                 'user_id' => $user->id,
@@ -90,15 +72,7 @@ class UserObserver
         if ($personalTeam instanceof Team) {
             try {
                 $personalTeam->delete();
-<<<<<<< HEAD
-<<<<<<< HEAD
-            } catch (Throwable $e) {
-=======
             } catch (\Throwable $e) {
->>>>>>> 220cf97b (.)
-=======
-            } catch (\Throwable $e) {
->>>>>>> laraxot/develop
                 Log::error('Failed to delete personal team for user', [
                     'user_id' => $user->id,
                     'team_id' => $personalTeam->id,

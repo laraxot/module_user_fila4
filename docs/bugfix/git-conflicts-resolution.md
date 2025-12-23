@@ -24,42 +24,7 @@
 - `app/Http/Controllers/Api/RegisterController.php`
 - `app/Filament/Widgets/PasswordExpiredWidget.php`
 
-**Pattern Conflitto**: Marker Git `<<<<<<< HEAD`, `=======`, `>>>>>>> e4cd89fa`
-
----
-
-## 🎯 Business Logic
-
-### Scopo della Risoluzione
-
-**Contesto**: Conflitti Git causati da merge di branch diversi.
-
-**Problema**: Due versioni diverse dello stesso codice:
-- **HEAD**: Versione con `ProfileContract` da `Modules\Xot\Contracts`
-- **e4cd89fa**: Versione con `\Modules\TechPlanner\Models\Profile`
-
-**Decisione**: Mantenere versione corretta con `ProfileContract` da `Modules\Xot\Contracts`
-
-**Perché**:
-- `ProfileContract` è il contratto standardizzato del sistema
-- `TechPlanner\Models\Profile` è un'implementazione specifica
-- Il contratto garantisce decoupling e flessibilità
-
----
-
-## 🔧 Soluzione Implementata
-
-### Pattern di Risoluzione
-
-**PRIMA (Conflitto)**:
-```php
- * @mixin IdeHelperModelHasRole
- * <<<<<<< HEAD
- *
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
- *
- * =======
- * >>>>>>> e4cd89fa (.)
+**Pattern Conflitto**: Marker Git `
  *
  * @mixin \Eloquent
 ```

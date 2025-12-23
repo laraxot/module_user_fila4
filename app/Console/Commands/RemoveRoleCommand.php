@@ -4,11 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Console\Commands;
 
-<<<<<<< HEAD
-use Illuminate\Database\Eloquent\Collection;
-use Modules\User\Models\Role;
-=======
->>>>>>> laraxot/develop
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Collection;
 
