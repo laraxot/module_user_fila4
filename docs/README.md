@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # User Module Documentation
 
 **Ultima modifica**: 2025-01-15  
@@ -15,6 +16,8 @@ Il modulo User gestisce l'autenticazione, l'autorizzazione e la gestione degli u
 - **[Module Namespace Rules](../Xot/docs/module-namespace-rules.md)** - Regole namespace e migrazioni
 - **[Best Practices](../Xot/docs/best-practices.md)** - Best practices generali
 - **[Useful Links](../Xot/docs/useful-links.md)** - Link utili per lo sviluppo
+=======
+>>>>>>> 81efa49 (.)
 # Modulo User
 
 ## Introduzione
@@ -132,12 +135,15 @@ User/
 - [Linee guida Actions](./actions.mdc)
 - [Linee guida Activitylog](./activitylog.mdc)
 
+<<<<<<< HEAD
 ## 🏗️ Architettura Framework
 
 ### Regole Base XotBase
 - **Policies**: Estendono sempre `UserBasePolicy` (MAI direttamente Filament)
 - **Resources**: Estendono sempre `XotBaseResource`
 - **Models**: Estendono sempre `BaseModel` con tipizzazione rigorosa
+=======
+>>>>>>> 81efa49 (.)
 ## Vedi Anche
 - [Documentazione Principale](../../docs/INDEX.md)
 - [Architettura Moduli](../../docs/architecture/modules-structure.md)
@@ -962,7 +968,10 @@ Schema::table('teams', function (Blueprint $table) {
 - [ ] La documentazione tecnica è aggiornata
 - [ ] I comandi artisan sono lanciati dal path corretto o con namespace modulo
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 81efa49 (.)
 ## Aggiornamenti Recenti
 
 ### 27 Gennaio 2025
@@ -976,6 +985,7 @@ Schema::table('teams', function (Blueprint $table) {
 
 ## Collegamenti
 
+<<<<<<< HEAD
 ## Aggiornamenti Recenti
 
 ### 27 Gennaio 2025
@@ -997,3 +1007,5 @@ Schema::table('teams', function (Blueprint $table) {
 ## Collegamenti
 ## Collegamenti
 
+=======
+>>>>>>> 81efa49 (.)

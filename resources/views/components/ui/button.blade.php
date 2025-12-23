@@ -1,8 +1,26 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 81efa49 (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
 @props([
     'type' => 'primary', 
     'size' => 'md', 
@@ -53,4 +71,20 @@ switch ($tag ?? 'button') {
 
 <{!! $tagAttr !!} {!! $attributes->except(['class']) !!} class="{{ $sizeClasses }} {{ $typeClasses }} cursor-pointer inline-flex items-center w-full justify-center disabled:opacity-50 font-semibold focus:outline-none">
     {{ $slot }}
+<<<<<<< HEAD
 </{{ $tagClose }}>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+</{{ $tagClose }}>
+=======
+</{{ $tagClose }}>
+>>>>>>> a12f125f4a (.)
+=======
+</{{ $tagClose }}>
+>>>>>>> b93ef594b4 (.)
+=======
+</{{ $tagClose }}>
+>>>>>>> origin/develop
+>>>>>>> 81efa49 (.)
