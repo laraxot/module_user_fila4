@@ -22,24 +22,9 @@ class TermsOfService extends Component
             $text = config('terms-of-service.text');
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         return view('user::livewire.terms-of-service', [
             'text' => $text,
         ]);
-=======
-        return view(
-            'user::livewire.terms-of-service',
-            [
-                'text' => $text,
-            ]
-        );
->>>>>>> fbc8f8e (.)
-=======
-        return view('user::livewire.terms-of-service', [
-            'text' => $text,
-        ]);
->>>>>>> 6d20fbe (.)
     }
 
     public function testfunction(): void

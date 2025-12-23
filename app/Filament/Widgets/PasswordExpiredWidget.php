@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
 use Override;
 use Illuminate\Database\Eloquent\Model;
 use Filament\Schemas\Components\Component;
@@ -38,41 +34,6 @@ use Modules\Xot\Actions\Cast\SafeStringCastAction;
 use Modules\Xot\Filament\Traits\TransTrait;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
 use Webmozart\Assert\Assert;
-<<<<<<< HEAD
-=======
-use Illuminate\Database\Eloquent\Model;
-use Filament\Schemas\Components\Component;
-use Modules\User\Models\User;
-use Filament\Forms;
-use Filament\Forms\Form;
-use Illuminate\Support\Arr;
-use Filament\Actions\Action;
-use Filament\Widgets\Widget;
-use Webmozart\Assert\Assert;
-use Filament\Facades\Filament;
-use Filament\Actions\ActionGroup;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Modules\User\Datas\PasswordData;
-use Filament\Forms\Contracts\HasForms;
-use Illuminate\Support\Facades\Schema;
-use Modules\User\Events\NewPasswordSet;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form as FilamentForm;
-use Filament\Notifications\Notification;
-use Modules\User\Rules\CheckOtpExpiredRule;
-use Modules\Xot\Filament\Traits\TransTrait;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Modules\Xot\Filament\Widgets\XotBaseWidget;
-use Modules\Xot\Actions\Cast\SafeStringCastAction;
-use Filament\Pages\Concerns\InteractsWithFormActions;
-use Modules\User\Http\Response\PasswordResetResponse;
-use Illuminate\Validation\Rules\Password as PasswordRule;
-use Illuminate\Auth\Events\PasswordReset as PasswordResetResponseEvent; 
-
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
 /**
  * Widget for handling expired password reset.
@@ -88,27 +49,12 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
     use InteractsWithForms;
     use TransTrait;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
     public null|string $current_password = '';
     public null|string $password = '';
     public null|string $passwordConfirmation = '';
 
     /** @var array<string, mixed>|null */
     public null|array $data = [];
-<<<<<<< HEAD
-=======
-    public ?string $current_password = '';
-    public ?string $password = '';
-    public ?string $passwordConfirmation = '';
-
-    /** @var array<string, mixed>|null */
-    public ?array $data = [];
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
     /**
      * @var view-string
@@ -122,14 +68,7 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
      *
      * @return array<int, \Filament\Schemas\Components\Component>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> fbc8f8e (.)
-=======
-    #[Override]
->>>>>>> 6d20fbe (.)
     public function getFormSchema(): array
     {
         return [
@@ -145,16 +84,7 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
      */
     public function getResetPasswordFormAction(): Action
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return Action::make('resetPassword')->submit('resetPassword');
-=======
-        return Action::make('resetPassword')
-            ->submit('resetPassword');
->>>>>>> fbc8f8e (.)
-=======
-        return Action::make('resetPassword')->submit('resetPassword');
->>>>>>> 6d20fbe (.)
     }
 
     /**
@@ -172,15 +102,7 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
      *
      * @return PasswordResetResponse|null
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function resetPassword(): null|PasswordResetResponse
-=======
-    public function resetPassword(): ?PasswordResetResponse
->>>>>>> fbc8f8e (.)
-=======
-    public function resetPassword(): null|PasswordResetResponse
->>>>>>> 6d20fbe (.)
     {
         $this->validate();
 
@@ -194,15 +116,7 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
         $data = $this->data ?? [];
         $currentPassword = SafeStringCastAction::cast($data['current_password'] ?? '');
         $newPassword = SafeStringCastAction::cast($data['password'] ?? '');
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> fbc8f8e (.)
-=======
-
->>>>>>> 6d20fbe (.)
         if (empty($currentPassword) || empty($newPassword)) {
             $this->addError('current_password', __('user::auth.password_fields_required'));
             return null;
@@ -211,15 +125,7 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
         $userPassword = SafeStringCastAction::cast($user->getAttribute('password'));
         // Cast esplicito di mixed a string per PHPStan
         $userPasswordString = $userPassword;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> fbc8f8e (.)
-=======
-
->>>>>>> 6d20fbe (.)
         if (!Hash::check($currentPassword, $userPasswordString)) {
             $this->addError('current_password', __('user::auth.password_current_incorrect'));
             return null;
@@ -258,10 +164,6 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
     }
 
     /*
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
      * protected function getPasswordFormComponent(): Component
      * {
      * $validation_messages = __('user::validation');
@@ -287,50 +189,13 @@ class PasswordExpiredWidget extends XotBaseWidget implements HasForms
      * ->dehydrated(false);
      * }
      */
-<<<<<<< HEAD
-=======
-    protected function getPasswordFormComponent(): Component
-    {
-        $validation_messages = __('user::validation');
-
-        return TextInput::make('password')
-            ->password()
-            // ->revealable(filament()->arePasswordsRevealable())
-            ->revealable()
-            ->required()
-            ->rule(PasswordRule::default())
-            ->same('passwordConfirmation')
-            ->validationMessages($validation_messages)
-            ->validationAttribute(static::trans('fields.password.validation_attribute'));
-    }
-
-    protected function getPasswordConfirmationFormComponent(): Component
-    {
-        return TextInput::make('passwordConfirmation')
-            ->password()
-            // ->revealable(filament()->arePasswordsRevealable())
-            ->revealable()
-            ->required()
-            ->dehydrated(false);
-    }
-    */
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
 
     /**
      * Get the form actions.
      *
      * @return array<int, Action|ActionGroup>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> fbc8f8e (.)
-=======
-    #[Override]
->>>>>>> 6d20fbe (.)
     protected function getFormActions(): array
     {
         return [

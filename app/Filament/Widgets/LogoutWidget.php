@@ -4,16 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Override;
-=======
->>>>>>> fbc8f8e (.)
-=======
-use Filament\Schemas\Components\Component;
-use Override;
->>>>>>> 6d20fbe (.)
 use Filament\Schemas\Components\View;
 use RuntimeException;
 use Exception;
@@ -35,15 +27,7 @@ use Throwable;
  * event dispatching, and proper redirection with localization support.
  *
  * @method void mount() Initialize the widget and form state.
-<<<<<<< HEAD
-<<<<<<< HEAD
  * @method array<string, Component> getFormSchema() Define the form schema for the logout confirmation.
-=======
- * @method array<string, \Filament\Schemas\Components\Component> getFormSchema() Define the form schema for the logout confirmation.
->>>>>>> fbc8f8e (.)
-=======
- * @method array<string, Component> getFormSchema() Define the form schema for the logout confirmation.
->>>>>>> 6d20fbe (.)
  * @method void logout() Handle the user logout process.
  * @method array<string, Action> getFormActions() Define the form actions (logout and cancel buttons).
  * @method array<string, string> getViewData() Get additional data to pass to the view.
@@ -55,10 +39,6 @@ class LogoutWidget extends XotBaseWidget
 {
     /**
      * The view that should be used to render the widget.
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
      *
      * IMPORTANT: When using @livewire() directly in Blade templates,
      * the path should be without the module namespace.
@@ -66,46 +46,18 @@ class LogoutWidget extends XotBaseWidget
      * @var string
      *
      * @phpstan-ignore property.phpDocType
-<<<<<<< HEAD
-=======
-     * 
-     * IMPORTANT: When using @livewire() directly in Blade templates,
-     * the path should be without the module namespace.
-     * 
-     * @var string
-     * 
-     * @phpstan-ignore property.phpDocType 
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
      */
     protected string $view = 'user::widgets.logout';
 
     /**
      * Widget data array.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
-=======
-     * 
->>>>>>> fbc8f8e (.)
-=======
-     *
->>>>>>> 6d20fbe (.)
      * CRITICAL: This property is managed by XotBaseWidget.
      * Do not remove or redeclare it.
      *
      * @var array<string, mixed>|null
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public null|array $data = [];
-=======
-    public ?array $data = [];
->>>>>>> fbc8f8e (.)
-=======
-    public null|array $data = [];
->>>>>>> 6d20fbe (.)
 
     /**
      * Indicates if the logout process is in progress.
@@ -116,15 +68,7 @@ class LogoutWidget extends XotBaseWidget
 
     /**
      * Mount the widget and initialize the form.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
-=======
-     * 
->>>>>>> fbc8f8e (.)
-=======
-     *
->>>>>>> 6d20fbe (.)
      * @return void
      */
     public function mount(): void
@@ -138,10 +82,6 @@ class LogoutWidget extends XotBaseWidget
      * This method implements the abstract method from XotBaseWidget.
      * Do not override the form() method as it's declared as final.
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
      * @return array<string, Component>
      */
     #[Override]
@@ -154,23 +94,6 @@ class LogoutWidget extends XotBaseWidget
         }
         return [
             'message' => View::make($view)->columnSpanFull(),
-<<<<<<< HEAD
-=======
-     * @return array<string, \Filament\Schemas\Components\Component>
-     */
-    public function getFormSchema(): array
-    {
-        $view='filament.widgets.auth.logout-message';
-        //@phpstan-ignore-next-line
-        if(!view()->exists($view)){
-            throw new Exception('View '.$view.' not found');
-        }
-        return [
-            'message' => View::make($view)
-                ->columnSpanFull(),
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
         ];
     }
 
@@ -217,14 +140,7 @@ class LogoutWidget extends XotBaseWidget
      *
      * @return array<string, Action>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> fbc8f8e (.)
-=======
-    #[Override]
->>>>>>> 6d20fbe (.)
     public function getFormActions(): array
     {
         return [
@@ -245,15 +161,7 @@ class LogoutWidget extends XotBaseWidget
             ->color('danger')
             ->size('lg')
             ->extraAttributes(['class' => 'w-full justify-center'])
-<<<<<<< HEAD
-<<<<<<< HEAD
             ->action($this->logout(...));
-=======
-            ->action(fn () => $this->logout());
->>>>>>> fbc8f8e (.)
-=======
-            ->action($this->logout(...));
->>>>>>> 6d20fbe (.)
     }
 
     /**
@@ -287,15 +195,7 @@ class LogoutWidget extends XotBaseWidget
      *
      * @return Authenticatable|null
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     protected function getAuthenticatedUser(): null|Authenticatable
-=======
-    protected function getAuthenticatedUser(): ?Authenticatable
->>>>>>> fbc8f8e (.)
-=======
-    protected function getAuthenticatedUser(): null|Authenticatable
->>>>>>> 6d20fbe (.)
     {
         return Auth::user();
     }
@@ -365,24 +265,10 @@ class LogoutWidget extends XotBaseWidget
      */
     protected function redirectAfterLogout(): void
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d20fbe (.)
         $redirect = redirect($this->getLocalizedHomeUrl())->with('success', __('user::auth.logout_success'));
 
         $redirect->send();
         exit();
-<<<<<<< HEAD
-=======
-        $redirect = redirect($this->getLocalizedHomeUrl())
-            ->with('success', __('user::auth.logout_success'));
-            
-        $redirect->send();
-        exit;
->>>>>>> fbc8f8e (.)
-=======
->>>>>>> 6d20fbe (.)
     }
 
     /**
