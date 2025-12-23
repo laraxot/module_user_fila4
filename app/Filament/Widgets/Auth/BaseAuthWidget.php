@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 abstract class BaseAuthWidget extends Widget
 {
-    public null|array $data = [];
+    public ?array $data = [];
 
     public function mount(): void
     {
@@ -21,6 +21,7 @@ abstract class BaseAuthWidget extends Widget
     /**
      * Restituisce i dati per la view.
      * In Filament v3/Xot, il form va gestito tramite getFormSchema().
+     *
      * @return array<string, mixed>
      */
     protected function getViewData(): array
