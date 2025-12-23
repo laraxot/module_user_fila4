@@ -1083,6 +1083,41 @@ return array (
       'icon' => 'heroicon-o-x-circle',
       'tooltip' => 'Disattiva l\'utente',
     ),
+    'logout' => 
+    array (
+      'label' => 'logout',
+      'icon' => 'logout',
+    ),
+    'profile' => 
+    array (
+      'label' => 'profile',
+      'icon' => 'profile',
+    ),
+    'reorderRecords' => 
+    array (
+      'label' => 'reorderRecords',
+      'icon' => 'reorderRecords',
+    ),
+    'openColumnManager' => 
+    array (
+      'label' => 'openColumnManager',
+    ),
+    'applyTableColumnManager' => 
+    array (
+      'label' => 'applyTableColumnManager',
+    ),
+    'resetFilters' => 
+    array (
+      'label' => 'resetFilters',
+    ),
+    'applyFilters' => 
+    array (
+      'label' => 'applyFilters',
+    ),
+    'openFilters' => 
+    array (
+      'label' => 'openFilters',
+    ),
   ),
   'messages' => 
   array (
