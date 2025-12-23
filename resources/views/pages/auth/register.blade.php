@@ -12,11 +12,14 @@ use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Form;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Form;
 =======
 >>>>>>> a63f578 (.)
 =======
 >>>>>>> 041533e (.)
+=======
+>>>>>>> 00a34d0 (.)
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
