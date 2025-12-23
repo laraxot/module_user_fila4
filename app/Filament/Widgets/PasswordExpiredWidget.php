@@ -4,15 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-<<<<<<< HEAD
 use Filament\Schemas\Components\Component;
 use Override;
 use Illuminate\Database\Eloquent\Model;
-=======
-use Override;
-use Illuminate\Database\Eloquent\Model;
-use Filament\Schemas\Components\Component;
->>>>>>> 4b219c8 (.)
 use Modules\User\Models\User;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
@@ -22,11 +16,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Schemas\Schema;
-<<<<<<< HEAD
 use Filament\Schemas\Schema as FilamentForm;
-=======
-use Filament\Forms\Form as FilamentForm;
->>>>>>> 4b219c8 (.)
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
 use Filament\Widgets\Widget;
