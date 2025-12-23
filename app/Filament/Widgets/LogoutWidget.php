@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+use Filament\Schemas\Components\View;
 use Filament\Schemas\Components\Component;
 use Override;
-use Filament\Schemas\Components\View;
 use RuntimeException;
 use Exception;
 use Filament\Actions\Action;

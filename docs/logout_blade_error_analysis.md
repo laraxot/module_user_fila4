@@ -51,7 +51,7 @@ return redirect()->route('home');
 Nell'implementazione proposta per il widget Filament, è stato commesso un errore critico:
 
 ```php
-public function form(Form $form): Form
+public function form(\Filament\Schemas\Schema $form): \Filament\Schemas\Schema
 {
     return $form
         ->schema([
@@ -67,7 +67,7 @@ public function form(Form $form): Form
 Questo metodo tenta di sovrascrivere il metodo `form()` che è dichiarato come `final` nella classe base `XotBaseWidget`:
 
 ```php
-final public function form(Form $form): Form
+final public function form(\Filament\Schemas\Schema $form): \Filament\Schemas\Schema
 {
     return $form
         ->schema($this->getFormSchema())
