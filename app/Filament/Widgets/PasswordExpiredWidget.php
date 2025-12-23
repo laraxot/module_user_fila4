@@ -15,15 +15,7 @@ use Filament\Forms;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Filament\Forms\Form;
-=======
 use Filament\Schemas\Schema;
->>>>>>> 1724879 (.)
-=======
-use Filament\Schemas\Schema;
->>>>>>> cebb28c (.)
 use Filament\Schemas\Schema as FilamentForm;
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
@@ -46,7 +38,7 @@ use Webmozart\Assert\Assert;
 /**
  * Widget for handling expired password reset.
  *
- * @property \Filament\Forms\Form $form
+ * @property \Filament\Schemas\Schema $form
  * @property string|null $current_password
  * @property string|null $password
  * @property string|null $passwordConfirmation
