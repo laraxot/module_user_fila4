@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Providers;
 
-use Override;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Database\Eloquent\Model;
@@ -34,7 +33,7 @@ class UserServiceProvider extends XotBaseServiceProvider
 
     protected string $module_ns = __NAMESPACE__;
 
-    #[Override]
+    #[\Override]
     public function boot(): void
     {
         parent::boot();
@@ -45,7 +44,7 @@ class UserServiceProvider extends XotBaseServiceProvider
         $this->registerMailsNotification();
     }
 
-    #[Override]
+    #[\Override]
     public function register(): void
     {
         parent::register();

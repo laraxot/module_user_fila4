@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\BaseProfileResource\Pages;
 
-use Override;
-use Exception;
 use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
@@ -27,7 +25,7 @@ class ListProfiles extends XotBaseListRecords
     /**
      * @return array<string, Tables\Columns\Column>
      */
-    #[Override]
+    #[\Override]
     public function getTableColumns(): array
     {
         return [
@@ -59,7 +57,7 @@ class ListProfiles extends XotBaseListRecords
 
                         try {
                             $userValue = XotData::make()->getUserByEmail($emailValue);
-                        } catch (Exception $e) {
+                        } catch (\Exception $e) {
                             return '--';
                         }
                     }
@@ -90,7 +88,7 @@ class ListProfiles extends XotBaseListRecords
     /**
      * @return array<string, BaseFilter>
      */
-    #[Override]
+    #[\Override]
     public function getTableFilters(): array
     {
         return [

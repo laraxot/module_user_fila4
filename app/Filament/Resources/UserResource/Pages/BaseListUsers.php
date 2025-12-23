@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\Pages;
 
-use Override;
 use Filament\Actions\Action;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
@@ -23,7 +22,7 @@ abstract class BaseListUsers extends XotBaseListRecords
      *
      * @return array<string, Column>
      */
-    #[Override]
+    #[\Override]
     public function getTableColumns(): array
     {
         return [
@@ -37,7 +36,7 @@ abstract class BaseListUsers extends XotBaseListRecords
      *
      * @return array<BaseFilter>
      */
-    #[Override]
+    #[\Override]
     public function getTableFilters(): array
     {
         return [
@@ -59,7 +58,7 @@ abstract class BaseListUsers extends XotBaseListRecords
      * @phpstan-ignore-next-line
      */
     /** @phpstan-ignore-next-line */
-    #[Override]
+    #[\Override]
     public function getTableActions(): array
     {
         $actions = [
@@ -87,7 +86,7 @@ abstract class BaseListUsers extends XotBaseListRecords
      *
      * @return array<string, Action>
      */
-    #[Override]
+    #[\Override]
     protected function getHeaderActions(): array
     {
         return [

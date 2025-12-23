@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Feature;
 
-use Modules\User\Http\Livewire\Auth\Login;
 use Livewire\Livewire;
 use Modules\User\Datas\PasswordData;
 use Modules\User\Datas\PasswordData as PasswordDataClass;
+use Modules\User\Http\Livewire\Auth\Login;
 use Tests\TestCase;
 
 class PasswordDataLabelsTest extends TestCase

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Modules\User\Database\Factories\TeamUserFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use Modules\User\Database\Factories\TeamUserFactory;
 use Modules\Xot\Contracts\ProfileContract;
 
 /**

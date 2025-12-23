@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Modules\User\Database\Factories\NotificationFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\DatabaseNotification as BaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
+use Modules\User\Database\Factories\NotificationFactory;
 use Modules\Xot\Models\Traits\HasXotFactory;
 
 /**

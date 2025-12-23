@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 // use Illuminate\Database\Eloquent\Relations\HasOne;
-use Override;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Notifications\DatabaseNotification;
@@ -162,7 +161,7 @@ abstract class BaseProfile extends BaseModel implements ProfileContract
     }
 
     /** @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [

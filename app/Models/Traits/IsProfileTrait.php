@@ -20,7 +20,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models\Traits;
 
-use Exception;
 use Filament\Notifications\Notification;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
@@ -185,13 +184,13 @@ trait IsProfileTrait
      * Se l'utente è super-admin, rimuove questo ruolo e assegna negate-super-admin.
      * Se l'utente non è super-admin, assegna super-admin e rimuove negate-super-admin.
      *
-     * @throws Exception Se l'utente non è disponibile
+     * @throws \Exception Se l'utente non è disponibile
      */
     public function toggleSuperAdmin(): void
     {
         $user = $this->user;
         if (null === $user) {
-            throw new Exception('['.__LINE__.']['.class_basename($this).']');
+            throw new \Exception('['.__LINE__.']['.class_basename($this).']');
         }
         Assert::isInstanceOf($user, User::class);
         $to_assign = 'super-admin';
@@ -209,7 +208,7 @@ trait IsProfileTrait
             $role_remove = Role::updateOrCreate(['name' => $to_remove], ['team_id' => null]);
             $user->roles()->attach($role_assign);
             $user->roles()->detach($role_remove);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             Notification::make()
                 ->title('Exception !')
                 ->danger()

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
-use Override;
 use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -25,7 +24,7 @@ class ProfileRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public function getFormSchema(): array
     {
         return [
@@ -36,7 +35,7 @@ class ProfileRelationManager extends XotBaseRelationManager
         ];
     }
 
-    #[Override]
+    #[\Override]
     public function table(Table $table): Table
     {
         return $table

@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Actions\Socialite\Utils;
 
-use InvalidArgumentException;
-use ReflectionClass;
-use ReflectionException;
 use Illuminate\Support\Str;
 use Illuminate\Support\Stringable;
 use Laravel\Socialite\Contracts\User;
@@ -54,7 +51,7 @@ final readonly class UserNameFieldsResolver
     private function resolveNameFields(User $idpUser, string $searchMethod): string
     {
         if (! in_array($searchMethod, [self::NAME_SEARCH, self::SURNAME_SEARCH], strict: true)) {
-            throw new InvalidArgumentException('Metodo di ricerca non valido');
+            throw new \InvalidArgumentException('Metodo di ricerca non valido');
         }
 
         $name = $idpUser->getName();
@@ -71,7 +68,7 @@ final readonly class UserNameFieldsResolver
         // Ottenere i dati raw in modo sicuro attraverso reflection
         $raw = [];
         try {
-            $reflection = new ReflectionClass($idpUser);
+            $reflection = new \ReflectionClass($idpUser);
             if ($reflection->hasMethod('getRaw')) {
                 $method = $reflection->getMethod('getRaw');
                 $method->setAccessible(true);
@@ -87,7 +84,7 @@ final readonly class UserNameFieldsResolver
                     $raw = $userData;
                 }
             }
-        } catch (ReflectionException $e) {
+        } catch (\ReflectionException $e) {
             // Fallback silenzioso
         }
 
@@ -146,7 +143,7 @@ final readonly class UserNameFieldsResolver
         }
 
         if (! in_array($searchMethod, [self::NAME_SEARCH, self::SURNAME_SEARCH], strict: true)) {
-            throw new InvalidArgumentException('Metodo di ricerca non valido');
+            throw new \InvalidArgumentException('Metodo di ricerca non valido');
         }
 
         return Str::of($nameField)

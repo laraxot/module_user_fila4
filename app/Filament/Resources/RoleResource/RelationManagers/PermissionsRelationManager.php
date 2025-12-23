@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\RelationManagers;
 
-use Override;
 use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -24,7 +23,7 @@ class PermissionsRelationManager extends XotBaseRelationManager
      *
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public function getFormSchema(): array
     {
         return [
@@ -38,7 +37,7 @@ class PermissionsRelationManager extends XotBaseRelationManager
     /**
      * Configura la tabella per la visualizzazione e la gestione dei permessi.
      */
-    #[Override]
+    #[\Override]
     public function table(Table $table): Table
     {
         return $table

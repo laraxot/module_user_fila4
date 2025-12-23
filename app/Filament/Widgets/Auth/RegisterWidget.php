@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
-use Override;
-use Exception;
-use RuntimeException;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Grid;
@@ -42,7 +39,7 @@ class RegisterWidget extends XotBaseWidget
         ]);
     }
 
-    #[Override]
+    #[\Override]
     public function getFormSchema(): array
     {
         return [
@@ -128,7 +125,7 @@ class RegisterWidget extends XotBaseWidget
             $this->handleSuccessfulRegistration($user);
         } catch (ValidationException $e) {
             throw $e;
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->handleRegistrationError($e);
         }
     }
@@ -203,7 +200,7 @@ class RegisterWidget extends XotBaseWidget
         $this->redirect(route('dashboard'));
     }
 
-    protected function handleRegistrationError(Exception $e): void
+    protected function handleRegistrationError(\Exception $e): void
     {
         Log::error('Registration failed: '.$e->getMessage(), [
             'exception' => $e,
@@ -212,6 +209,6 @@ class RegisterWidget extends XotBaseWidget
             'user_agent' => request()->userAgent(),
         ]);
 
-        throw new RuntimeException(__('user::auth.registration.error_occurred'));
+        throw new \RuntimeException(__('user::auth.registration.error_occurred'));
     }
 }

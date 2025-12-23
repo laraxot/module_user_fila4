@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
-use Override;
 use Filament\Actions\Action;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\Column;
@@ -23,7 +22,7 @@ class RolesRelationManager extends XotBaseRelationManager
     // protected function mutateFormDataBeforeCreate(array $data): array
     // {
     // }
-    #[Override]
+    #[\Override]
     public function getFormSchema(): array
     {
         return [
@@ -36,7 +35,7 @@ class RolesRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Column>
      */
-    #[Override]
+    #[\Override]
     public function getTableColumns(): array
     {
         return [
@@ -49,7 +48,7 @@ class RolesRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Action>
      */
-    #[Override]
+    #[\Override]
     public function getTableHeaderActions(): array
     {
         $xotData = XotData::make();

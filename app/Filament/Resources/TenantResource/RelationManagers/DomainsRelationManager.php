@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\RelationManagers;
 
-use Override;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
@@ -27,7 +26,7 @@ class DomainsRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public function getFormSchema(): array
     {
         return [
@@ -39,7 +38,7 @@ class DomainsRelationManager extends XotBaseRelationManager
         ];
     }
 
-    #[Override]
+    #[\Override]
     public function table(Table $table): Table
     {
         return $table

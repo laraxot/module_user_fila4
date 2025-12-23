@@ -4,18 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-use Illuminate\Support\Facades\Log;
-use Exception;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Widgets\ChartWidget;
-// use Filament\Widgets\Concerns\InteractsWithPageFilters; // Temporaneamente commentato per evitare conflitti trait in Filament 4.x
 use Flowframe\Trend\Trend;
+// use Filament\Widgets\Concerns\InteractsWithPageFilters; // Temporaneamente commentato per evitare conflitti trait in Filament 4.x
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Log;
 use Modules\User\Models\AuthenticationLog;
 use Webmozart\Assert\Assert;
 
@@ -89,7 +88,7 @@ class UsersChartWidget extends ChartWidget implements HasActions, HasForms
             if ($startDate->diffInDays($endDate, true) > 90) {
                 $startDate = $endDate->copy()->subDays(90);
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return [];
         }
 

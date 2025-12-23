@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\User\Database\Factories\SsoProviderFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
+use Modules\User\Database\Factories\SsoProviderFactory;
+use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Models\Traits\HasXotFactory;
 
 /**

@@ -9,8 +9,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Override;
-use DateTimeInterface;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
 use Filament\Forms\Components\Placeholder;
@@ -27,7 +25,7 @@ class UserResource extends XotBaseResource
 {
     // protected static ?string $model = \Modules\Xot\Datas\XotData::make()->getUserClass();
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-users';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-users';
 
     // Static property Modules\User\Filament\Resources\UserResource::$enablePasswordUpdates is never read, only written.
     // private static bool|\Closure $enablePasswordUpdates = true;
@@ -44,7 +42,7 @@ class UserResource extends XotBaseResource
     //    static::$extendFormCallback = $callback;
     // }
 
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
@@ -84,7 +82,7 @@ class UserResource extends XotBaseResource
                     if ($createdAt instanceof CarbonInterface) {
                         return $createdAt->diffForHumans();
                     }
-                    if ($createdAt instanceof DateTimeInterface) {
+                    if ($createdAt instanceof \DateTimeInterface) {
                         return $createdAt->format('Y-m-d H:i:s');
                     }
 
@@ -106,7 +104,7 @@ class UserResource extends XotBaseResource
      * }
      */
 
-    #[Override]
+    #[\Override]
     public function hasCombinedRelationManagerTabsWithContent(): bool
     {
         return true;
