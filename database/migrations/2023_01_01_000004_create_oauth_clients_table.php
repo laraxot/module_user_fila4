@@ -7,6 +7,9 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 use Modules\Xot\Datas\XotData;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 return new class extends XotBaseMigration {
     public function up(): void
     {
@@ -32,6 +35,7 @@ return new class extends XotBaseMigration {
             $this->updateTimestamps($table, false);
             $this->updateUser($table);
         });
+<<<<<<< HEAD
 =======
 return new class extends XotBaseMigration
 {
@@ -64,5 +68,7 @@ return new class extends XotBaseMigration
             }
         );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 };

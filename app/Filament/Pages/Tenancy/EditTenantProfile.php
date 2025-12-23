@@ -24,6 +24,9 @@ class EditTenantProfile extends BaseEditTenantProfile
 
         return $res;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 
         /*
          * return $form
@@ -42,6 +45,7 @@ class EditTenantProfile extends BaseEditTenantProfile
          * ->translateLabel(),
          * ]);
          */
+<<<<<<< HEAD
 =======
         /*
         return $form
@@ -61,5 +65,7 @@ class EditTenantProfile extends BaseEditTenantProfile
             ]);
         */
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 }

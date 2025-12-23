@@ -7,6 +7,9 @@ use Modules\User\Models\OauthClient;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
 return new class extends XotBaseMigration {
     public function up(): void
     {
@@ -26,6 +29,7 @@ return new class extends XotBaseMigration {
             $this->updateUser($table);
             $this->updateTimestamps($table, false);
         });
+<<<<<<< HEAD
 =======
 return new class extends XotBaseMigration
 {
@@ -52,5 +56,7 @@ return new class extends XotBaseMigration
             }
         );
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     }
 };

@@ -8,15 +8,19 @@ return [
         'pluralLabel' => 'Agendamentos',
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     'modal' => [
         'submit' => 'Criar',
         'cancel' => 'Cancelar',
         'delete' => 'Deletar',
         'edit' => 'Editar',
     ],
+<<<<<<< HEAD
 <<<<<<< HEAD
     'events' => [
         'empty' => 'Nenhum evento futuro',
@@ -28,6 +32,11 @@ return [
     ],
 
 >>>>>>> fbc8f8e (.)
+=======
+    'events' => [
+        'empty' => 'Nenhum evento futuro',
+    ],
+>>>>>>> 6d20fbe (.)
     'event' => [
         'subject' => 'Título',
         'body' => 'Mensagem',
@@ -39,18 +48,24 @@ return [
         'attachments' => 'Anexos',
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     'event-list' => [
         'author' => 'Author: :name',
         'start' => 'Start: :start',
         'end' => 'End: :end',
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     'labels' => [
         'navigation' => 'TiMEX',
         'breadcrumbs' => 'TiMEX',

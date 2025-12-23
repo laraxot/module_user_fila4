@@ -17,9 +17,13 @@ trait PasswordValidationRules
     protected function passwordRules(): array
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return ['required', 'string', new Password(), 'confirmed'];
 =======
         return ['required', 'string', new Password, 'confirmed'];
 >>>>>>> fbc8f8e (.)
+=======
+        return ['required', 'string', new Password(), 'confirmed'];
+>>>>>>> 6d20fbe (.)
     }
 }

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 return [
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
     'account' => [
         'label' => 'Account',
         'description' => 'Gestione delle impostazioni dell\'account utente',
@@ -39,6 +42,7 @@ return [
                 'user' => 'Utente',
                 'moderator' => 'Moderatore',
                 'guest' => 'Ospite',
+<<<<<<< HEAD
 =======
     'account' => 'Account',
     'profile' => 'Profilo',
@@ -50,12 +54,17 @@ return [
             'fields' => [
                 'label' => 'Tipo',
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             ],
         ],
         'user' => [
             'name' => [
                 'label' => 'Nome Utente',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
                 'placeholder' => 'Inserisci il nome utente',
                 'help' => 'Nome utilizzato per identificarsi nel sistema',
             ],
@@ -68,16 +77,22 @@ return [
                 'label' => 'Telefono',
                 'placeholder' => '+39 123 456 7890',
                 'help' => 'Numero di telefono per contatti',
+<<<<<<< HEAD
 =======
                 'fields' => [
                     'label' => 'Nome Utente',
                 ],
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
             ],
         ],
         'photo' => [
             'label' => 'Foto',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
             'placeholder' => 'Carica una foto profilo',
             'help' => 'Immagine del profilo utente (formato JPG, PNG)',
         ],
@@ -189,6 +204,7 @@ return [
             'placeholder' => 'Data ultima modifica',
             'help' => 'Data dell\'ultimo aggiornamento del profilo',
         ],
+<<<<<<< HEAD
 =======
             'fields' => [
                 'label' => 'Foto',
@@ -228,11 +244,16 @@ return [
             ],
         ],
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
     ],
     'personal_info' => [
         'heading' => 'Informazioni personali',
         'subheading' => 'Gestisci le tue informazioni personali.',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d20fbe (.)
         'description' => 'Aggiorna i tuoi dati anagrafici e di contatto',
         'submit' => [
             'label' => 'Aggiorna',
@@ -392,6 +413,7 @@ return [
         'changes_saved' => 'Modifiche salvate',
         'no_changes' => 'Nessuna modifica da salvare',
     ],
+<<<<<<< HEAD
 =======
         'submit' => [
             'label' => 'Aggiorna',
@@ -399,4 +421,6 @@ return [
         'notify' => 'Profilo aggiornato correttamente!',
     ],
 >>>>>>> fbc8f8e (.)
+=======
+>>>>>>> 6d20fbe (.)
 ];
