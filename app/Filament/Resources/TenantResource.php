@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Override;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
@@ -24,14 +25,14 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class TenantResource extends XotBaseResource
 {
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-rectangle-stack';
 
     /**
      * Get the model class name for this resource.
      *
      * @return class-string<Model>
      */
-    #[\Override]
+    #[Override]
     public static function getModel(): string
     {
         $xot = XotData::make();
@@ -42,7 +43,7 @@ class TenantResource extends XotBaseResource
     /**
      * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     public static function getFormSchema(): array
     {
         return [
@@ -103,7 +104,7 @@ class TenantResource extends XotBaseResource
         ];
     }
 
-    #[\Override]
+    #[Override]
     public static function getRelations(): array
     {
         return [
@@ -112,7 +113,7 @@ class TenantResource extends XotBaseResource
         ];
     }
 
-    #[\Override]
+    #[Override]
     public static function getPages(): array
     {
         return [

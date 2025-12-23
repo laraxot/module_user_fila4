@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\PermissionResource\Pages;
 
+use Override;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Support\Components\Component;
 use Modules\User\Filament\Resources\PermissionResource;
@@ -16,7 +17,7 @@ class ViewPermission extends XotBaseViewRecord
     /**
      * @return array<int, Component>
      */
-    #[\Override]
+    #[Override]
     public function getInfolistSchema(): array
     {
         return [

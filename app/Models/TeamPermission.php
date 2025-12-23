@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use DateTime;
+use Modules\Xot\Contracts\ProfileContract;
+use Modules\User\Database\Factories\TeamPermissionFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -17,8 +20,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string         $team_id
  * @property string         $user_id
  * @property string         $permission
- * @property \DateTime|null $created_at
- * @property \DateTime|null $updated_at
+ * @property DateTime|null $created_at
+ * @property DateTime|null $updated_at
  * @property Team           $team
  * @property User           $user
  *
@@ -28,11 +31,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  *
  * @mixin IdeHelperTeamPermission
  *
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property ProfileContract|null $creator
+ * @property ProfileContract|null $deleter
+ * @property ProfileContract|null $updater
  *
- * @method static \Modules\User\Database\Factories\TeamPermissionFactory factory($count = null, $state = [])
+ * @method static TeamPermissionFactory factory($count = null, $state = [])
  *
  * @mixin \Eloquent
  */

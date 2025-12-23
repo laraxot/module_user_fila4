@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
+use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\ImageColumn;
@@ -28,7 +29,7 @@ class SocialiteUsersRelationManager extends XotBaseRelationManager
      *
      * @return array<Component>
      */
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         return [
@@ -59,7 +60,7 @@ class SocialiteUsersRelationManager extends XotBaseRelationManager
      *
      * @return array<TextColumn|ImageColumn>
      */
-    #[\Override]
+    #[Override]
     public function getTableColumns(): array
     {
         return [

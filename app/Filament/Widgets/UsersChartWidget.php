@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+use Illuminate\Support\Facades\Log;
+use Exception;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
@@ -47,7 +49,7 @@ class UsersChartWidget extends ChartWidget implements HasActions, HasForms
         return Action::make('test')
             ->requiresConfirmation()
             ->action(function (array $arguments): void {
-                \Illuminate\Support\Facades\Log::debug('Test action called', $arguments);
+                Log::debug('Test action called', $arguments);
             });
     }
 
@@ -87,7 +89,7 @@ class UsersChartWidget extends ChartWidget implements HasActions, HasForms
             if ($startDate->diffInDays($endDate, true) > 90) {
                 $startDate = $endDate->copy()->subDays(90);
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return [];
         }
 

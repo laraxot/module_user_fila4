@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+use Override;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +23,7 @@ class LoginWidget extends XotBaseWidget
     /**
      * @return array<string, TextInput|Checkbox>
      */
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         return [

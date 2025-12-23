@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Modules\User\Database\Factories\MembershipFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
@@ -49,7 +50,7 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  *
  * @property ProfileContract|null $deleter
  *
- * @method static \Modules\User\Database\Factories\MembershipFactory factory($count = null, $state = [])
+ * @method static MembershipFactory factory($count = null, $state = [])
  * @method static Builder<static>|Membership                         whereId($value)
  *
  * @mixin \Eloquent

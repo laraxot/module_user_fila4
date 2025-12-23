@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Override;
+use Modules\User\Database\Factories\DeviceUserFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -55,7 +57,7 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  *
  * @property ProfileContract|null $deleter
  *
- * @method static \Modules\User\Database\Factories\DeviceUserFactory factory($count = null, $state = [])
+ * @method static DeviceUserFactory factory($count = null, $state = [])
  *
  * @mixin \Eloquent
  */
@@ -105,7 +107,7 @@ class DeviceUser extends BasePivot
     }
 
     /** @return array<string, string> */
-    #[\Override]
+    #[Override]
     protected function casts(): array
     {
         return [

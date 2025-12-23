@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Illuminate\Database\Eloquent\Model;
+use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Carbon;
@@ -48,10 +50,10 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  *
  * @method static AuthenticationFactory factory($count = null, $state = [])
  *
- * @property \Illuminate\Database\Eloquent\Model|\Eloquent $authenticatable
- * @property \Modules\Xot\Contracts\ProfileContract|null   $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null   $deleter
- * @property \Modules\Xot\Contracts\ProfileContract|null   $updater
+ * @property Model|\Eloquent $authenticatable
+ * @property ProfileContract|null $creator
+ * @property ProfileContract|null $deleter
+ * @property ProfileContract|null $updater
  *
  * @mixin \Eloquent
  */

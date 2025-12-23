@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\PermissionResource\RelationManager;
 
+use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\TextColumn;
@@ -23,7 +24,7 @@ class RoleRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         return [
@@ -32,7 +33,7 @@ class RoleRelationManager extends XotBaseRelationManager
         ];
     }
 
-    #[\Override]
+    #[Override]
     public function table(Table $table): Table
     {
         return $table->columns([

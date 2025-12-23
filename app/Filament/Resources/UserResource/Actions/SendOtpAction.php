@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\Actions;
 
+use RuntimeException;
 use Filament\Actions\Action;
 use Modules\User\Actions\Otp\SendOtpByUserAction;
 use Modules\User\Models\User;
@@ -23,7 +24,7 @@ class SendOtpAction extends Action
                 // User already implements UserContract, no need for assertion
                 $action = app(SendOtpByUserAction::class);
                 if (null === $action) {
-                    throw new \RuntimeException('Impossibile istanziare SendOtpByUserAction');
+                    throw new RuntimeException('Impossibile istanziare SendOtpByUserAction');
                 }
                 // PHPStan Level 10: User extends BaseUser which implements UserContract
                 $action->execute($record);

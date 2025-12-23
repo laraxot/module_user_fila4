@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Modules\User\Database\Factories\NotificationFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\DatabaseNotification as BaseNotification;
@@ -27,7 +28,7 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  *
  * @mixin IdeHelperNotification
  *
- * @method static \Modules\User\Database\Factories\NotificationFactory factory($count = null, $state = [])
+ * @method static NotificationFactory factory($count = null, $state = [])
  *
  * @mixin \Eloquent
  */

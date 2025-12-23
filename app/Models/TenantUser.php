@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Override;
+use Modules\User\Database\Factories\TenantUserFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
@@ -46,7 +48,7 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @property ProfileContract|null $deleter
  * @property ProfileContract|null $updater
  *
- * @method static \Modules\User\Database\Factories\TenantUserFactory factory($count = null, $state = [])
+ * @method static TenantUserFactory factory($count = null, $state = [])
  *
  * @mixin \Eloquent
  */
@@ -69,7 +71,7 @@ class TenantUser extends BasePivot
     ];
 
     /** @return array<string, string> */
-    #[\Override]
+    #[Override]
     protected function casts(): array
     {
         return [

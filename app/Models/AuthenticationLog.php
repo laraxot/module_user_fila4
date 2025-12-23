@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Override;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
@@ -95,7 +96,7 @@ class AuthenticationLog extends BaseModel
     }
 
     /** @return array<string, string> */
-    #[\Override]
+    #[Override]
     protected function casts(): array
     {
         return [

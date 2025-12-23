@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\DeviceResource\RelationManagers;
 
+use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
 use Filament\Tables\Table;
@@ -17,7 +18,7 @@ class UsersRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         return [
@@ -25,7 +26,7 @@ class UsersRelationManager extends XotBaseRelationManager
         ];
     }
 
-    #[\Override]
+    #[Override]
     public function table(Table $table): Table
     {
         return UserResource::table($table);

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Modules\User\Database\Factories\RoleFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
@@ -70,7 +71,7 @@ use Webmozart\Assert\Assert;
  * @property string|null $display_name
  * @property string|null $description
  *
- * @method static \Modules\User\Database\Factories\RoleFactory factory($count = null, $state = [])
+ * @method static RoleFactory factory($count = null, $state = [])
  * @method static Builder<static>|Role                         whereDescription($value)
  * @method static Builder<static>|Role                         whereDisplayName($value)
  * @method static static                                       firstOrCreate(array $attributes, array $values = [])

@@ -9,6 +9,8 @@ declare(strict_types=1);
 namespace Modules\User\Actions;
 
 // use DutchCodingCompany\FilamentSocialite\FilamentSocialite;
+use InvalidArgumentException;
+use RuntimeException;
 use Jenssegers\Agent\Agent;
 use Modules\User\Models\Device;
 use Spatie\QueueableAction\QueueableAction;
@@ -46,12 +48,12 @@ class GetCurrentDeviceAction
 
         if (null !== $mobile_id) {
             if (empty($mobile_id)) {
-                throw new \InvalidArgumentException('L\'ID mobile non può essere vuoto');
+                throw new InvalidArgumentException('L\'ID mobile non può essere vuoto');
             }
 
             $device = Device::firstOrCreate(['mobile_id' => $mobile_id]);
             if (null === $device) {
-                throw new \RuntimeException('Impossibile creare o trovare il dispositivo');
+                throw new RuntimeException('Impossibile creare o trovare il dispositivo');
             }
             $device->update([...$data, ...$up]);
 
@@ -60,7 +62,7 @@ class GetCurrentDeviceAction
 
         $device = Device::firstOrCreate($data);
         if (null === $device) {
-            throw new \RuntimeException('Impossibile creare o trovare il dispositivo');
+            throw new RuntimeException('Impossibile creare o trovare il dispositivo');
         }
         $device->update($up);
 

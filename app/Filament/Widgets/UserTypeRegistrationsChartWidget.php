@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+use Override;
+use Exception;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
 use Illuminate\Support\Carbon;
@@ -19,13 +21,13 @@ class UserTypeRegistrationsChartWidget extends XotBaseChartWidget
 
     protected static bool $isLazy = true;
 
-    #[\Override]
+    #[Override]
     public function getHeading(): ?string
     {
         return static::transClass($this->model, 'widgets.user_type_registrations_chart.heading');
     }
 
-    #[\Override]
+    #[Override]
     protected function getData(): array
     {
         // Debug: Verifica se i filtri sono disponibili
@@ -77,7 +79,7 @@ class UserTypeRegistrationsChartWidget extends XotBaseChartWidget
                     ? \Carbon\Carbon::parse($value->date)->format('d/m')
                     : ''),
             ];
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             // Fallback appropriato senza logging inutile
             return [
                 'datasets' => [
@@ -95,7 +97,7 @@ class UserTypeRegistrationsChartWidget extends XotBaseChartWidget
         }
     }
 
-    #[\Override]
+    #[Override]
     protected function getType(): string
     {
         return 'line';
