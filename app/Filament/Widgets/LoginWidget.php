@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-<<<<<<< HEAD
 use Filament\Schemas\Schema;
 
-=======
->>>>>>> e52a4c8 (.)
 use Filament\Schemas\Components\Component;
 use Override;
 use Illuminate\Database\Eloquent\Model;
