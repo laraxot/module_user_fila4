@@ -113,7 +113,11 @@ PHPStan aveva difficoltà nel riconoscere la sintassi method chaining e object i
 - **Object instantiation**: Separazione creazione da utilizzo
 
 ### **Benefici**
+<<<<<<< HEAD
 - ✅ **PHPStan level 10**: Compatibilità completa
+=======
+- ✅ **PHPStan Level 9**: Compatibilità completa
+>>>>>>> laraxot/develop
 - ✅ **Leggibilità**: Codice più esplicito e chiaro
 - ✅ **Type Safety**: Mantenuta con type hints espliciti
 - ✅ **Debugging**: Più facile identificare problemi

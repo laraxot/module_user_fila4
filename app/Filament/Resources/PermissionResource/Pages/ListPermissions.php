@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\PermissionResource\Pages;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\User\Models\Role;
+=======
+>>>>>>> laraxot/develop
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\BulkAction;
@@ -24,9 +27,13 @@ use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 >>>>>>> 220cf97b (.)
+=======
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+>>>>>>> laraxot/develop
 use Modules\User\Filament\Resources\PermissionResource;
 use Modules\User\Models\Role;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
@@ -40,10 +47,14 @@ class ListPermissions extends XotBaseListRecords
      * @return array<string, Tables\Columns\Column>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getTableColumns(): array
     {
         return [
@@ -58,10 +69,14 @@ class ListPermissions extends XotBaseListRecords
      * @return array<string, BaseFilter>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getTableFilters(): array
     {
         return [
@@ -79,10 +94,14 @@ class ListPermissions extends XotBaseListRecords
      * @return array<string, Action|ActionGroup>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getTableActions(): array
     {
         return [
@@ -96,10 +115,14 @@ class ListPermissions extends XotBaseListRecords
      * @return array<string, BulkAction>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getTableBulkActions(): array
     {
         Assert::classExists($roleModel = config('permission.models.role'));
@@ -118,9 +141,12 @@ class ListPermissions extends XotBaseListRecords
                             /** @var BelongsToMany $rolesRelation */
                             $rolesRelation = $record->roles();
 <<<<<<< HEAD
+<<<<<<< HEAD
                             /** @var mixed $roleData */
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
                             $roleData = $data['role'];
                             if (is_array($roleData) || is_int($roleData) || is_string($roleData)) {
                                 $rolesRelation->sync($roleData);
@@ -149,10 +175,14 @@ class ListPermissions extends XotBaseListRecords
      * @return array<string, Action>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     protected function getHeaderActions(): array
     {
         return [

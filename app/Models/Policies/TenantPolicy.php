@@ -24,6 +24,7 @@ class TenantPolicy extends UserBasePolicy
     public function view(UserContract $user, Tenant $tenant): bool
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $user->hasPermissionTo('tenant.view') ||
             $user->tenants->contains($tenant->id) ||
             $user->hasRole('super-admin');
@@ -32,6 +33,11 @@ class TenantPolicy extends UserBasePolicy
             || $user->tenants->contains($tenant->id)
             || $user->hasRole('super-admin');
 >>>>>>> 220cf97b (.)
+=======
+        return $user->hasPermissionTo('tenant.view')
+            || $user->tenants->contains($tenant->id)
+            || $user->hasRole('super-admin');
+>>>>>>> laraxot/develop
     }
 
     /**

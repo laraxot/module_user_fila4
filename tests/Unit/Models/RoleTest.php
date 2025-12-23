@@ -9,6 +9,7 @@ use Modules\User\Tests\TestCase;
 uses(TestCase::class);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function test_can_create_role_with_minimal_data(): void
     {
         $role = Role::factory()->create([
@@ -27,6 +28,8 @@ uses(TestCase::class);
     {
         $team = Team::factory()->create();
 =======
+=======
+>>>>>>> laraxot/develop
 test('can create role with minimal data', function (): void {
     $role = Role::factory()->create([
         'name' => 'Test Role',
@@ -40,7 +43,10 @@ test('can create role with minimal data', function (): void {
 
 test('can create role with all fields', function (): void {
     $team = Team::factory()->create();
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 
     $roleData = [
         'name' => 'Full Role',
@@ -49,6 +55,7 @@ test('can create role with all fields', function (): void {
         'uuid' => '550e8400-e29b-41d4-a716-446655440000',
     ];
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         $role = Role::factory()->create($roleData);
 
@@ -61,6 +68,8 @@ test('can create role with all fields', function (): void {
         ]);
     }
 =======
+=======
+>>>>>>> laraxot/develop
     $role = Role::factory()->create($roleData);
 
     expect($role->id)->not->toBeNull();
@@ -69,7 +78,10 @@ test('can create role with all fields', function (): void {
     expect($role->team_id)->toBe($team->id);
     expect($role->uuid)->toBe('550e8400-e29b-41d4-a716-446655440000');
 });
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 
 test('role has connection attribute', function (): void {
     $role = new Role();
@@ -90,6 +102,7 @@ test('role constants are defined', function (): void {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function test_can_find_role_by_name(): void
     {
         $role = Role::factory()->create(['name' => 'Unique Role Name']);
@@ -97,6 +110,10 @@ test('role constants are defined', function (): void {
 test('can find role by name', function (): void {
     $role = Role::factory()->create(['name' => 'Unique Role Name']);
 >>>>>>> 220cf97b (.)
+=======
+test('can find role by name', function (): void {
+    $role = Role::factory()->create(['name' => 'Unique Role Name']);
+>>>>>>> laraxot/develop
 
     $foundRole = Role::where('name', 'Unique Role Name')->first();
 
@@ -105,16 +122,20 @@ test('can find role by name', function (): void {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function test_can_find_role_by_guard_name(): void
     {
         Role::factory()->create(['guard_name' => 'web']);
         Role::factory()->create(['guard_name' => 'api']);
         Role::factory()->create(['guard_name' => 'web']);
 =======
+=======
+>>>>>>> laraxot/develop
 test('can find role by guard name', function (): void {
     Role::factory()->create(['guard_name' => 'web']);
     Role::factory()->create(['guard_name' => 'api']);
     Role::factory()->create(['guard_name' => 'web']);
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
 
     $webRoles = Role::where('guard_name', 'web')->get();
@@ -129,6 +150,11 @@ test('can find role by guard name', function (): void {
         $team = Team::factory()->create();
         $role = Role::factory()->create(['team_id' => $team->id]);
 =======
+=======
+
+    $webRoles = Role::where('guard_name', 'web')->get();
+
+>>>>>>> laraxot/develop
     expect($webRoles->count())->toBeGreaterThanOrEqual(2);
     expect($webRoles->every(fn ($role) => 'web' === $role->guard_name))->toBeTrue();
 });
@@ -136,7 +162,10 @@ test('can find role by guard name', function (): void {
 test('can find role by team id', function (): void {
     $team = Team::factory()->create();
     $role = Role::factory()->create(['team_id' => $team->id]);
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 
     $foundRole = Role::where('team_id', $team->id)->first();
 
@@ -144,6 +173,7 @@ test('can find role by team id', function (): void {
     expect($foundRole->id)->toBe($role->id);
 });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function test_can_find_role_by_uuid(): void
     {
@@ -154,6 +184,11 @@ test('can find role by uuid', function (): void {
     $uuid = '550e8400-e29b-41d4-a716-446655440000';
     $role = Role::factory()->create(['uuid' => $uuid]);
 >>>>>>> 220cf97b (.)
+=======
+test('can find role by uuid', function (): void {
+    $uuid = '550e8400-e29b-41d4-a716-446655440000';
+    $role = Role::factory()->create(['uuid' => $uuid]);
+>>>>>>> laraxot/develop
 
     $foundRole = Role::where('uuid', $uuid)->first();
 
@@ -162,16 +197,20 @@ test('can find role by uuid', function (): void {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function test_can_find_roles_by_name_pattern(): void
     {
         Role::factory()->create(['name' => 'Admin Role']);
         Role::factory()->create(['name' => 'User Role']);
         Role::factory()->create(['name' => 'Manager Role']);
 =======
+=======
+>>>>>>> laraxot/develop
 test('can find roles by name pattern', function (): void {
     Role::factory()->create(['name' => 'Admin Role']);
     Role::factory()->create(['name' => 'User Role']);
     Role::factory()->create(['name' => 'Manager Role']);
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
 
     $adminRoles = Role::where('name', 'like', '%Role%')->get();
@@ -224,6 +263,11 @@ test('can find roles by name pattern', function (): void {
             'team_id' => $team->id,
         ]);
 =======
+=======
+
+    $adminRoles = Role::where('name', 'like', '%Role%')->get();
+
+>>>>>>> laraxot/develop
     expect($adminRoles->count())->toBeGreaterThanOrEqual(3);
     expect($adminRoles->every(fn ($role) => str_contains($role->name, 'Role')))->toBeTrue();
 });
@@ -261,6 +305,7 @@ test('can find roles by multiple criteria', function (): void {
         'guard_name' => 'api',
         'team_id' => $team->id,
     ]);
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
 
     $roles = Role::where('team_id', $team->id)->where('guard_name', 'web')->get();
@@ -275,6 +320,11 @@ test('can find roles by multiple criteria', function (): void {
     {
         $role = Role::factory()->create();
 =======
+=======
+
+    $roles = Role::where('team_id', $team->id)->where('guard_name', 'web')->get();
+
+>>>>>>> laraxot/develop
     expect($roles->count())->toBeGreaterThanOrEqual(1);
     expect($roles->first()->name)->toBe('Admin Role');
     expect($roles->first()->guard_name)->toBe('web');
@@ -282,11 +332,15 @@ test('can find roles by multiple criteria', function (): void {
 
 test('role has permissions relationship', function (): void {
     $role = Role::factory()->create();
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 
     expect(method_exists($role, 'permissions'))->toBeTrue();
 });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function test_role_has_team_relationship(): void
     {
@@ -295,10 +349,15 @@ test('role has permissions relationship', function (): void {
 test('role has team relationship', function (): void {
     $role = Role::factory()->create();
 >>>>>>> 220cf97b (.)
+=======
+test('role has team relationship', function (): void {
+    $role = Role::factory()->create();
+>>>>>>> laraxot/develop
 
     expect(method_exists($role, 'team'))->toBeTrue();
 });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function test_role_has_users_relationship(): void
     {
@@ -307,10 +366,15 @@ test('role has team relationship', function (): void {
 test('role has users relationship', function (): void {
     $role = Role::factory()->create();
 >>>>>>> 220cf97b (.)
+=======
+test('role has users relationship', function (): void {
+    $role = Role::factory()->create();
+>>>>>>> laraxot/develop
 
     expect(method_exists($role, 'users'))->toBeTrue();
 });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function test_role_can_use_permission_scopes(): void
     {
@@ -319,11 +383,16 @@ test('role has users relationship', function (): void {
 test('role can use permission scopes', function (): void {
     $role = Role::factory()->create();
 >>>>>>> 220cf97b (.)
+=======
+test('role can use permission scopes', function (): void {
+    $role = Role::factory()->create();
+>>>>>>> laraxot/develop
 
     expect(method_exists($role, 'permission'))->toBeTrue();
     expect(method_exists($role, 'withoutPermission'))->toBeTrue();
 });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function test_role_can_use_role_scopes(): void
     {
@@ -332,6 +401,10 @@ test('role can use permission scopes', function (): void {
 test('role can use role scopes', function (): void {
     $role = Role::factory()->create();
 >>>>>>> 220cf97b (.)
+=======
+test('role can use role scopes', function (): void {
+    $role = Role::factory()->create();
+>>>>>>> laraxot/develop
 
     expect(method_exists($role, 'role'))->toBeTrue();
     expect(method_exists($role, 'withoutRole'))->toBeTrue();

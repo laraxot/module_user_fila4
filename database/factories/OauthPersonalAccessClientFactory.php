@@ -11,7 +11,10 @@ use Webmozart\Assert\Assert;
 /**
  * OauthPersonalAccessClient Factory.
  *
+<<<<<<< HEAD
  *
+=======
+>>>>>>> laraxot/develop
  * @extends Factory<OauthPersonalAccessClient>
  */
 class OauthPersonalAccessClientFactory extends Factory

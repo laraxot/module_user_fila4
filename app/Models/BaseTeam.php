@@ -18,9 +18,12 @@ use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 
 /**
  * Modules\User\Models\Team.
@@ -90,7 +93,11 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Get the owner of the team.
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function owner(): BelongsTo
     {
         $xotData = XotData::make();
@@ -103,7 +110,11 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Get all of the team's users including its owner.
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function allUsers(): Collection
     {
         if (! ($this->owner instanceof User)) {
@@ -116,7 +127,11 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Get all of the users that belong to the team.
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function users(): BelongsToMany
     {
         $xotData = XotData::make();
@@ -131,7 +146,11 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      *
      * @return BelongsToMany<Model, BaseTeam>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function members(): BelongsToMany
     {
         return $this->users();
@@ -141,17 +160,23 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      * Determina se l'utente specificato appartiene al team.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param  UserContract  $user  L'utente da verificare
      * @return bool True se l'utente appartiene al team, false altrimenti
      */
     #[Override]
 =======
+=======
+>>>>>>> laraxot/develop
      * @param UserContract $user L'utente da verificare
      *
      * @return bool True se l'utente appartiene al team, false altrimenti
      */
     #[\Override]
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
     public function hasUser(UserContract $user): bool
     {
         // Corretto l'errore di tipo per il metodo contains
@@ -170,7 +195,11 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      *
      * @return bool True se un utente con quell'email appartiene al team, false altrimenti
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function hasUserWithEmail(string $email): bool
     {
         return $this->allUsers()->contains(static function ($user) use ($email): bool {
@@ -192,7 +221,11 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      *
      * @return bool True se l'utente ha il permesso, false altrimenti
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function userHasPermission(UserContract $userContract, string $permission): bool
     {
         return $userContract->hasTeamPermission($this, $permission);
@@ -205,7 +238,11 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      *
      * @phpstan-return HasMany<TeamInvitation, $this>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function teamInvitations(): HasMany
     {
         return $this->hasMany(TeamInvitation::class);
@@ -215,12 +252,18 @@ abstract class BaseTeam extends BaseModel implements TeamContract
      * Rimuove l'utente specificato dal team.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param  UserContract  $userContract  L'utente da rimuovere dal team
 =======
      * @param UserContract $userContract L'utente da rimuovere dal team
 >>>>>>> 220cf97b (.)
      */
     #[Override]
+=======
+     * @param UserContract $userContract L'utente da rimuovere dal team
+     */
+    #[\Override]
+>>>>>>> laraxot/develop
     public function removeUser(UserContract $userContract): void
     {
         if ($userContract->current_team_id === $this->id) {
@@ -235,7 +278,11 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Rimuove tutte le risorse del team.
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function purge(): void
     {
         $this->owner()->where('current_team_id', $this->id)->update(['current_team_id' => null]);

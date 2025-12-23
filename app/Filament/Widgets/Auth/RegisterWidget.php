@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Widgets\Auth;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Exception;
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Grid;
@@ -21,10 +24,13 @@ use Modules\User\Models\User;
 use Modules\Xot\Actions\Cast\SafeStringCastAction;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 use RuntimeException;
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 
 class RegisterWidget extends XotBaseWidget
 {
@@ -49,10 +55,14 @@ class RegisterWidget extends XotBaseWidget
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getFormSchema(): array
     {
         return [
@@ -164,7 +174,11 @@ class RegisterWidget extends XotBaseWidget
     }
 
     /**
+<<<<<<< HEAD
      * @param  array<string, mixed>  $data
+=======
+     * @param array<string, mixed> $data
+>>>>>>> laraxot/develop
      */
     protected function logRegistrationAttempt(array $data): void
     {
@@ -177,7 +191,11 @@ class RegisterWidget extends XotBaseWidget
     }
 
     /**
+<<<<<<< HEAD
      * @param  array<string, mixed>  $data
+=======
+     * @param array<string, mixed> $data
+>>>>>>> laraxot/develop
      */
     protected function createUser(array $data): User
     {

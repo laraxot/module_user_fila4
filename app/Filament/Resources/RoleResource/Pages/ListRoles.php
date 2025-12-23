@@ -14,10 +14,14 @@ class ListRoles extends XotBaseListRecords
     protected static string $resource = RoleResource::class;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getTableColumns(): array
     {
         return [
@@ -30,10 +34,14 @@ class ListRoles extends XotBaseListRecords
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getTableFilters(): array
     {
         return [

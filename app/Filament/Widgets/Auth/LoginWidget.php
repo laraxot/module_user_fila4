@@ -34,10 +34,14 @@ class LoginWidget extends XotBaseWidget
     protected string $view = 'pub_theme::filament.widgets.auth.login';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getFormSchema(): array
     {
         return [

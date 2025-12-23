@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Widgets\Auth;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Exception;
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 use Filament\Actions\Action;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\View;
@@ -18,7 +21,10 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> laraxot/develop
 
 /**
  * Logout widget for user session termination.
@@ -50,20 +56,28 @@ class LogoutWidget extends XotBaseWidget
      * @return array<string, Component>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getFormSchema(): array
     {
         $view = 'filament.widgets.auth.logout-message';
         // @phpstan-ignore-next-line
         if (! view()->exists($view)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             throw new Exception('View '.$view.' not found');
 =======
             throw new \Exception('View '.$view.' not found');
 >>>>>>> 220cf97b (.)
+=======
+            throw new \Exception('View '.$view.' not found');
+>>>>>>> laraxot/develop
         }
 
         return [
@@ -77,10 +91,14 @@ class LogoutWidget extends XotBaseWidget
      * @return array<Action>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getFormActions(): array
     {
         return [

@@ -23,10 +23,14 @@ class TokensRelationManager extends XotBaseRelationManager
      * @return array<string, Component>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getFormSchema(): array
     {
         return [

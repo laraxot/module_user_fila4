@@ -10,24 +10,34 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
 use DateTimeInterface;
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 use Carbon\CarbonInterface;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Illuminate\Database\Eloquent\Model;
 >>>>>>> 220cf97b (.)
+=======
+use Illuminate\Database\Eloquent\Model;
+>>>>>>> laraxot/develop
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\HtmlString;
 use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> laraxot/develop
 
 abstract class BaseUserResource extends XotBaseResource
 {
@@ -71,18 +81,24 @@ abstract class BaseUserResource extends XotBaseResource
             'section02' => Section::make([
                 'created_at' => Placeholder::make('created_at')->content(static function ($record) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     if ($record === null || ! $record instanceof Model) {
                         return new HtmlString('&mdash;');
                     }
 
                     if (! isset($record->created_at) || ! ($record->created_at instanceof DateTimeInterface)) {
 =======
+=======
+>>>>>>> laraxot/develop
                     if (null === $record || ! $record instanceof Model) {
                         return new HtmlString('&mdash;');
                     }
 
                     if (! isset($record->created_at) || ! ($record->created_at instanceof \DateTimeInterface)) {
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
                         return new HtmlString('&mdash;');
                     }
 

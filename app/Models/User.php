@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
 use Override;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Builder;
@@ -12,6 +13,10 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 =======
 >>>>>>> 220cf97b (.)
+=======
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+>>>>>>> laraxot/develop
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Support\Carbon;
 use Modules\Media\Models\Media;
@@ -22,6 +27,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 /**
  * Class Modules\User\Models\User.
  *
+<<<<<<< HEAD
 <<<<<<< HEAD
  * @property string $id
  * @property string|null $name
@@ -115,6 +121,8 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @property string|null $certifications
  * @property string|null $type
 =======
+=======
+>>>>>>> laraxot/develop
  * @property string                                            $id
  * @property string|null                                       $name
  * @property string|null                                       $first_name
@@ -207,7 +215,10 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @property string|null                    $moderation_data
  * @property string|null                    $certifications
  * @property string|null                    $type
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
  *
  * @method static Builder<static>|User whereAddress($value)
  * @method static Builder<static>|User whereCertifications($value)
@@ -228,12 +239,18 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @method static Builder<static>|User whereFacebookId($value)
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> laraxot/develop
  * @property User|null $creator
  * @property User|null $updater
  * @property User|null $user
  *
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class User extends BaseUser
@@ -246,15 +263,20 @@ class User extends BaseUser
     public $connection = 'user';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function canAccessSocialite(): bool
     {
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;
         return true;
     }
+<<<<<<< HEAD
 
     /**
      * Get the user relationship.
@@ -279,4 +301,6 @@ class User extends BaseUser
     {
         return $this->hasOne(self::class, 'updated_by');
     }
+=======
+>>>>>>> laraxot/develop
 }

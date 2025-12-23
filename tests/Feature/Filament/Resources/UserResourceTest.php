@@ -79,13 +79,21 @@ test('user resource has correct form schema', function (): void {
 });
 
 test('user resource has combined relation manager tabs', function (): void {
+<<<<<<< HEAD
     $resource = new UserResource;
+=======
+    $resource = new UserResource();
+>>>>>>> laraxot/develop
 
     expect($resource->hasCombinedRelationManagerTabsWithContent())->toBeTrue();
 });
 
 test('user resource extends correct base class', function (): void {
+<<<<<<< HEAD
     $resource = new UserResource;
+=======
+    $resource = new UserResource();
+>>>>>>> laraxot/develop
 
     expect($resource)->toBeInstanceOf(XotBaseResource::class);
 });
@@ -128,11 +136,19 @@ test('user resource password field is required only on create', function (): voi
     $passwordField = collect($section01Schema)->firstWhere('name', 'password');
 
     // Test with CreateUser page
+<<<<<<< HEAD
     $createUserPage = new CreateUser;
     expect($passwordField->isRequired($createUserPage))->toBeTrue();
 
     // Test with EditUser page
     $editUserPage = new EditUser;
+=======
+    $createUserPage = new CreateUser();
+    expect($passwordField->isRequired($createUserPage))->toBeTrue();
+
+    // Test with EditUser page
+    $editUserPage = new EditUser();
+>>>>>>> laraxot/develop
     expect($passwordField->isRequired($editUserPage))->toBeFalse();
 });
 
@@ -176,14 +192,22 @@ test('user resource created_at field shows diff for humans', function (): void {
 });
 
 test('user resource can be instantiated', function (): void {
+<<<<<<< HEAD
     $resource = new UserResource;
+=======
+    $resource = new UserResource();
+>>>>>>> laraxot/develop
 
     expect($resource)->toBeInstanceOf(UserResource::class);
 });
 
 test('user resource has correct model', function (): void {
     // Since the model is commented out, we'll test the default behavior
+<<<<<<< HEAD
     $resource = new UserResource;
+=======
+    $resource = new UserResource();
+>>>>>>> laraxot/develop
 
     // The resource should work with the default model resolution
     expect($resource)->toBeInstanceOf(UserResource::class);

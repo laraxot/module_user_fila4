@@ -29,10 +29,14 @@ class SocialiteUsersRelationManager extends XotBaseRelationManager
      * @return array<Component>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getFormSchema(): array
     {
         return [
@@ -64,10 +68,14 @@ class SocialiteUsersRelationManager extends XotBaseRelationManager
      * @return array<TextColumn|ImageColumn>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getTableColumns(): array
     {
         return [

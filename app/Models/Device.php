@@ -14,6 +14,7 @@ use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 
 /**
@@ -70,6 +71,8 @@ use Override;
  *
  * @mixin IdeHelperDevice
 =======
+=======
+>>>>>>> laraxot/develop
 
 /**
  * Device model representing a user's device in the system.
@@ -127,7 +130,10 @@ use Override;
  *
  * @property ProfileContract|null $deleter
  *
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class Device extends BaseModel
@@ -168,10 +174,14 @@ class Device extends BaseModel
      * @return array<string, string>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     protected function casts(): array
     {
         return [

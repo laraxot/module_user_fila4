@@ -13,6 +13,7 @@ use Modules\Xot\Contracts\ProfileContract;
 /**
  * Class Modules\User\Models\Team.
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
  * @property string $id
  * @property string $user_id (DC2Type:guid)
@@ -67,6 +68,8 @@ use Modules\Xot\Contracts\ProfileContract;
  */
 class Team extends BaseTeam {}
 =======
+=======
+>>>>>>> laraxot/develop
  *
  * @property string                          $id
  * @property string                          $user_id                (DC2Type:guid)
@@ -128,4 +131,7 @@ class Team extends BaseTeam {}
 class Team extends BaseTeam
 {
 }
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop

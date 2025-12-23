@@ -19,7 +19,11 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class PermissionResource extends XotBaseResource
 {
+<<<<<<< HEAD
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-lock-closed';
+=======
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-lock-closed';
+>>>>>>> laraxot/develop
 
     protected static ?string $model = Permission::class;
 

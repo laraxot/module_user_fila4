@@ -1,5 +1,11 @@
 <?php
 
+<<<<<<< HEAD
+=======
+declare(strict_types=1);
+
+
+>>>>>>> laraxot/develop
 $finder = PhpCsFixer\Finder::create()
     ->notPath('bootstrap/cache')
     ->notPath('storage')
@@ -8,7 +14,11 @@ $finder = PhpCsFixer\Finder::create()
     ->name('*.php')
     ->notName('*.blade.php')
     ->ignoreDotFiles(true)
+<<<<<<< HEAD
     ->ignoreVCS(true);
+=======
+    ->ignoreVCS(true)
+>>>>>>> laraxot/develop
 
 $config = new PhpCsFixer\Config();
 
@@ -35,6 +45,10 @@ $config
         'class_definition' => true,
         'elseif' => true,
     ])
+<<<<<<< HEAD
     ->setFinder($finder);
+=======
+    ->setFinder($finder)
+>>>>>>> laraxot/develop
 
 return $config;

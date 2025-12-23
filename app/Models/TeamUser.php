@@ -5,17 +5,22 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Xot\Models\Traits\HasXotFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 =======
 use Illuminate\Database\Eloquent\Builder;
 >>>>>>> 220cf97b (.)
+=======
+use Illuminate\Database\Eloquent\Builder;
+>>>>>>> laraxot/develop
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
 
 /**
  * Modules\User\Models\TeamUser.
+<<<<<<< HEAD
 <<<<<<< HEAD
  *
  * @method static Builder|TeamUser newModelQuery()
@@ -55,6 +60,8 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @mixin IdeHelperTeamUser
 =======
+=======
+>>>>>>> laraxot/develop
  *
  * @method static Builder|TeamUser newModelQuery()
  * @method static Builder|TeamUser newQuery()
@@ -99,7 +106,10 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @method static \Modules\User\Database\Factories\TeamUserFactory factory($count = null, $state = [])
  *
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class TeamUser extends BaseTeamUser

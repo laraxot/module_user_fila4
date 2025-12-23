@@ -33,20 +33,28 @@ final class ChangeProfilePasswordAction extends Action
                 $user = $record->user;
                 $profile_data = Arr::except($record->toArray(), ['id']);
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if ($user === null) {
 =======
                 if (null === $user) {
 >>>>>>> 220cf97b (.)
+=======
+                if (null === $user) {
+>>>>>>> laraxot/develop
                     $user_class = XotData::make()->getUserClass();
                     /** @var UserContract */
                     $user = XotData::make()->getUserByEmail($record->email);
                 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if ($user === null) {
 =======
                 if (null === $user) {
 >>>>>>> 220cf97b (.)
+=======
+                if (null === $user) {
+>>>>>>> laraxot/develop
                     /** @var array<string, mixed> $profile_data */
                     $user = $record->user()->create($profile_data);
                 }
@@ -54,10 +62,14 @@ final class ChangeProfilePasswordAction extends Action
                 $user->profile()->save($record);
                 $newPassword = is_string($data['new_password'] ?? null) ? $data['new_password'] : '';
 <<<<<<< HEAD
+<<<<<<< HEAD
                 /**
 =======
                 /*
 >>>>>>> 220cf97b (.)
+=======
+                /*
+>>>>>>> laraxot/develop
                  * @var ProfileContract $record
                  */
                 $record->update([
@@ -80,10 +92,14 @@ final class ChangeProfilePasswordAction extends Action
                             'required',
                             /**
 <<<<<<< HEAD
+<<<<<<< HEAD
                              * @param  callable(string): mixed  $get
 =======
                              * @param callable(string): mixed $get
 >>>>>>> 220cf97b (.)
+=======
+                             * @param callable(string): mixed $get
+>>>>>>> laraxot/develop
                              */
                             static fn (callable $get): bool => (bool) $get('new_password')
                         )

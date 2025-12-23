@@ -23,6 +23,7 @@ class DeviceUserPolicy extends UserBasePolicy
     public function view(UserContract $user, DeviceUser $deviceUser): bool
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $user->hasPermissionTo('device-user.view') ||
             $user->id === $deviceUser->user_id ||
             $user->hasRole('super-admin');
@@ -31,6 +32,11 @@ class DeviceUserPolicy extends UserBasePolicy
             || $user->id === $deviceUser->user_id
             || $user->hasRole('super-admin');
 >>>>>>> 220cf97b (.)
+=======
+        return $user->hasPermissionTo('device-user.view')
+            || $user->id === $deviceUser->user_id
+            || $user->hasRole('super-admin');
+>>>>>>> laraxot/develop
     }
 
     /**

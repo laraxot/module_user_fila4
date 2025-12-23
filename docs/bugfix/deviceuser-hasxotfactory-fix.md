@@ -94,3 +94,7 @@ php artisan tinker
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> laraxot/develop

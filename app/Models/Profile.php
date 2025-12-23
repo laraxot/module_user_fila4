@@ -25,6 +25,7 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * Represents a user profile with relationships to devices, teams, and roles.
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @property int $id
  * @property string $first_name
  * @property string $last_name
@@ -66,6 +67,8 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * @property-read UserContract|null $user
  * @property-read string|null $user_name
 =======
+=======
+>>>>>>> laraxot/develop
  * @property int                                                       $id
  * @property string                                                    $first_name
  * @property string                                                    $last_name
@@ -106,7 +109,10 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * @property ProfileContract|null                                      $updater
  * @property UserContract|null                                         $user
  * @property string|null                                               $user_name
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
  *
  * @method static ProfileFactory          factory($count = null, $state = [])
  * @method static Builder<static>|Profile newModelQuery()
@@ -120,7 +126,10 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  *
  * @mixin IdeHelperProfile
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> laraxot/develop
  *
  * @property string|null                     $user_id
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -145,7 +154,10 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * @method static Builder<static>|Profile whereUpdatedBy($value)
  * @method static Builder<static>|Profile whereUserId($value)
  *
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class Profile extends BaseProfile implements HasMedia

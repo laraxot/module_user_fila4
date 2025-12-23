@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Modules\User\Http\Middleware;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Closure;
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -17,6 +20,7 @@ class PasswordExpiryMiddleware
 {
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param Closure(Request):((Response|RedirectResponse)) $next
      */
     public function handle(Request $request, Closure $next): Response|RedirectResponse
@@ -25,6 +29,11 @@ class PasswordExpiryMiddleware
      */
     public function handle(Request $request, \Closure $next): Response|RedirectResponse
 >>>>>>> 220cf97b (.)
+=======
+     * @param \Closure(Request):((Response|RedirectResponse)) $next
+     */
+    public function handle(Request $request, \Closure $next): Response|RedirectResponse
+>>>>>>> laraxot/develop
     {
         if ($request->routeIs('password.change') || $request->routeIs('password.update')) {
             return $next($request);

@@ -2,11 +2,17 @@
 
 > **NOTA IMPORTANTE**: Questo documento è un riferimento specifico per il modulo User. 
 > La documentazione principale e completa si trova nel [modulo UI](../../../UI/docs/architecture/component-registration.md).
+<<<<<<< HEAD
 
 ## Implementazione Corretta nel Modulo User
 
 Nel modulo User, tutti i componenti Blade devono seguire la struttura standard:
 
+=======
+> La documentazione principale e completa si trova nel [modulo UI](../../../UI/project_docs/architecture/component-registration.md).
+## Implementazione Corretta nel Modulo User
+Nel modulo User, tutti i componenti Blade devono seguire la struttura standard:
+>>>>>>> laraxot/develop
 ```
 Modules/
 └── User/
@@ -15,6 +21,7 @@ Modules/
             └── Profile/
                 ├── Dropdown.php
                 └── DropdownLink.php
+<<<<<<< HEAD
 ```
 
 Il `UserServiceProvider` **non deve** registrare manualmente i componenti Blade, poiché questo avviene automaticamente tramite il metodo `registerBladeComponents()` ereditato da `XotBaseServiceProvider`.
@@ -23,10 +30,16 @@ Il `UserServiceProvider` **non deve** registrare manualmente i componenti Blade,
 
 I componenti possono essere utilizzati nei template Blade con il prefisso del namespace:
 
+=======
+Il `UserServiceProvider` **non deve** registrare manualmente i componenti Blade, poiché questo avviene automaticamente tramite il metodo `registerBladeComponents()` ereditato da `XotBaseServiceProvider`.
+## Utilizzo Corretto nel Modulo User
+I componenti possono essere utilizzati nei template Blade con il prefisso del namespace:
+>>>>>>> laraxot/develop
 ```blade
 <x-user::profile.dropdown>
     <!-- Contenuto del dropdown -->
 </x-user::profile.dropdown>
+<<<<<<< HEAD
 ```
 
 ## Collegamenti
@@ -37,3 +50,11 @@ I componenti possono essere utilizzati nei template Blade con il prefisso del na
 - [Implementazione di UserServiceProvider](/var/www/html/base_<nome progetto>/laravel/Modules/User/app/Providers/UserServiceProvider.php)
 - [Documentazione principale sulla registrazione dei componenti](../UI/docs/architecture/component-registration.md)
 - [Implementazione di UserServiceProvider](../User/app/Providers/UserServiceProvider.php)
+=======
+## Collegamenti
+- [Documentazione principale sulla registrazione dei componenti](../UI/docs/architecture/component-registration.md)
+- [Implementazione di UserServiceProvider](../User/app/Providers/UserServiceProvider.php)
+- [Documentazione principale sulla registrazione dei componenti](/var/www/html/base_saluteora/laravel/Modules/UI/docs/architecture/component-registration.md)
+- [Implementazione di UserServiceProvider](/var/www/html/base_saluteora/laravel/Modules/User/app/Providers/UserServiceProvider.php)
+- [Documentazione principale sulla registrazione dei componenti](/var/www/html/base_saluteora/laravel/Modules/UI/project_docs/architecture/component-registration.md)
+>>>>>>> laraxot/develop

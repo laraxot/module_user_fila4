@@ -9,7 +9,10 @@ declare(strict_types=1);
 namespace Modules\User\Actions\Socialite;
 
 // use DutchCodingCompany\FilamentSocialite\FilamentSocialite;
+<<<<<<< HEAD
 use LogicException;
+=======
+>>>>>>> laraxot/develop
 use Filament\Facades\Filament;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\RedirectResponse;
@@ -31,10 +34,14 @@ class LoginUserAction
 
         if (! $user instanceof Authenticatable) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             throw new LogicException('User instance must implement Authenticatable.');
 =======
             throw new \LogicException('User instance must implement Authenticatable.');
 >>>>>>> 220cf97b (.)
+=======
+            throw new \LogicException('User instance must implement Authenticatable.');
+>>>>>>> laraxot/develop
         }
 
         // PHPStan: assicuriamoci che l'utente sia Authenticatable per il login

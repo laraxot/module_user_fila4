@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <?php 
 return array (
+=======
+<?php return array (
+>>>>>>> laraxot/develop
   'fields' => 
   array (
     'startDate' => 
@@ -11,4 +15,8 @@ return array (
       'label' => 'endDate',
     ),
   ),
+<<<<<<< HEAD
 );
+=======
+);
+>>>>>>> laraxot/develop

@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> laraxot/develop
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
@@ -14,6 +17,7 @@ use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Models\Traits\HasXotFactory;
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
 use Parental\HasChildren;
 use Illuminate\Support\Carbon;
@@ -24,6 +28,9 @@ use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\User\Contracts\TeamContract;
 use Modules\Xot\Models\Traits\HasXotFactory;
+=======
+use Parental\HasChildren;
+>>>>>>> laraxot/develop
 
 /**
  * Modules\User\Models\TeamUser.
@@ -68,11 +75,16 @@ use Modules\Xot\Models\Traits\HasXotFactory;
 abstract class BaseTeamUser extends BasePivot
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     use HasChildren, HasXotFactory;
 =======
     use HasChildren;
     use HasXotFactory;
 >>>>>>> 220cf97b (.)
+=======
+    use HasChildren;
+    use HasXotFactory;
+>>>>>>> laraxot/develop
 
     protected $connection = 'user';
 
@@ -87,11 +99,16 @@ abstract class BaseTeamUser extends BasePivot
     {
         $userClass = XotData::make()->getUserClass();
 <<<<<<< HEAD
+<<<<<<< HEAD
         /** @var BelongsTo<\Illuminate\Database\Eloquent\Model&UserContract, $this> */
 =======
 
         /* @var BelongsTo<\Illuminate\Database\Eloquent\Model&UserContract, $this> */
 >>>>>>> 220cf97b (.)
+=======
+
+        /* @var BelongsTo<\Illuminate\Database\Eloquent\Model&UserContract, $this> */
+>>>>>>> laraxot/develop
         return $this->belongsTo($userClass);
     }
 
@@ -104,11 +121,16 @@ abstract class BaseTeamUser extends BasePivot
     {
         $teamClass = XotData::make()->getTeamClass();
 <<<<<<< HEAD
+<<<<<<< HEAD
         /** @var BelongsTo<\Illuminate\Database\Eloquent\Model&TeamContract, $this> */
 =======
 
         /* @var BelongsTo<\Illuminate\Database\Eloquent\Model&TeamContract, $this> */
 >>>>>>> 220cf97b (.)
+=======
+
+        /* @var BelongsTo<\Illuminate\Database\Eloquent\Model&TeamContract, $this> */
+>>>>>>> laraxot/develop
         return $this->belongsTo($teamClass);
     }
 }

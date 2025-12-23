@@ -18,10 +18,14 @@ use Laravel\Passport\AuthCode as PassportAuthCode;
  * @method static Builder|OauthAuthCode query()
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @property string $id
 =======
  * @property string      $id
 >>>>>>> 220cf97b (.)
+=======
+ * @property string      $id
+>>>>>>> laraxot/develop
  * @property string|null $user_id
  * @property string|null $client_id
  * @property string|null $scopes

@@ -24,10 +24,14 @@ class PermissionsRelationManager extends XotBaseRelationManager
      * @return array<string, Component>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getFormSchema(): array
     {
         return [
@@ -42,10 +46,14 @@ class PermissionsRelationManager extends XotBaseRelationManager
      * Configura la tabella per la visualizzazione e la gestione dei permessi.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function table(Table $table): Table
     {
         return $table

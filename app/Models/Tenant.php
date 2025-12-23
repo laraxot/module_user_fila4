@@ -16,6 +16,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 /**
  * Modules\User\Models\Tenant.
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
  * @method static TenantFactory factory($count = null, $state = [])
  * @method static Builder|Tenant newModelQuery()
@@ -37,6 +38,8 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  */
 class Tenant extends BaseTenant {}
 =======
+=======
+>>>>>>> laraxot/develop
  *
  * @method static TenantFactory  factory($count = null, $state = [])
  * @method static Builder|Tenant newModelQuery()
@@ -81,4 +84,7 @@ class Tenant extends BaseTenant {}
 class Tenant extends BaseTenant
 {
 }
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop

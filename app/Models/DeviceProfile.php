@@ -9,10 +9,14 @@ use Modules\Xot\Contracts\ProfileContract;
 
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
  * DeviceProfile Model
 =======
  * DeviceProfile Model.
 >>>>>>> 220cf97b (.)
+=======
+ * DeviceProfile Model.
+>>>>>>> laraxot/develop
  *
  * Represents the relationship between a device and a user profile.
  * Extends the base DeviceUser model to add specific functionality.
@@ -22,10 +26,14 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property ProfileContract|null $profile
  * @property ProfileContract|null $updater
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @property User|null $user
 =======
  * @property User|null            $user
 >>>>>>> 220cf97b (.)
+=======
+ * @property User|null            $user
+>>>>>>> laraxot/develop
  *
  * @method static Builder<static>|DeviceProfile newModelQuery()
  * @method static Builder<static>|DeviceProfile newQuery()
@@ -33,13 +41,19 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @mixin IdeHelperDeviceProfile
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> laraxot/develop
  *
  * @property ProfileContract|null $deleter
  *
  * @method static \Modules\User\Database\Factories\DeviceProfileFactory factory($count = null, $state = [])
  *
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class DeviceProfile extends DeviceUser

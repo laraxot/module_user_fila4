@@ -12,6 +12,7 @@ use Modules\Xot\Datas\XotData;
 use Webmozart\Assert\Assert;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 uses(RefreshDatabase::class);
 
 describe('User Command Integration', function () {
@@ -22,15 +23,24 @@ describe('User Command Integration', function () {
     beforeEach(function () {
         $this->command = new ChangeTypeCommand();
 >>>>>>> 220cf97b (.)
+=======
+describe('User Command Integration', function () {
+    beforeEach(function () {
+        $this->command = new ChangeTypeCommand();
+>>>>>>> laraxot/develop
     });
 
     it('can be registered with Laravel artisan', function () {
         // Test that the command can be registered
 <<<<<<< HEAD
+<<<<<<< HEAD
         $application = new Application;
 =======
         $application = new Application();
 >>>>>>> 220cf97b (.)
+=======
+        $application = new Application();
+>>>>>>> laraxot/develop
         $application->add($this->command);
 
         expect($application->has('user:change-type'))->toBeTrue();

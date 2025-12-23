@@ -8,7 +8,10 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Support\Components\Component;
 use Modules\User\Filament\Resources\PermissionResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> laraxot/develop
 
 class ViewPermission extends XotBaseViewRecord
 {
@@ -18,10 +21,14 @@ class ViewPermission extends XotBaseViewRecord
      * @return array<int, Component>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getInfolistSchema(): array
     {
         return [

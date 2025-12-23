@@ -21,6 +21,9 @@ class MockUserWithTeams extends Model
     }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop

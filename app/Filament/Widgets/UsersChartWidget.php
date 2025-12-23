@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+<<<<<<< HEAD
 use Exception;
+=======
+>>>>>>> laraxot/develop
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
@@ -76,6 +79,7 @@ class UsersChartWidget extends ChartWidget implements HasActions, HasForms
             Assert::nullOrString($startDate = $startDateValue);
             Assert::nullOrString($endDate = $endDateValue);
 <<<<<<< HEAD
+<<<<<<< HEAD
             if ($endDate === null) {
 =======
             if (null === $endDate) {
@@ -83,6 +87,12 @@ class UsersChartWidget extends ChartWidget implements HasActions, HasForms
                 $endDate = Carbon::now()->format('Y-m-d H:i:s');
             }
             if ($startDate === null) {
+=======
+            if (null === $endDate) {
+                $endDate = Carbon::now()->format('Y-m-d H:i:s');
+            }
+            if (null === $startDate) {
+>>>>>>> laraxot/develop
                 $startDate = Carbon::now()->subMonth()->format('Y-m-d H:i:s');
             }
             Assert::notNull($startDate = Carbon::createFromFormat('Y-m-d H:i:s', $startDate));
@@ -92,7 +102,11 @@ class UsersChartWidget extends ChartWidget implements HasActions, HasForms
             if ($startDate->diffInDays($endDate, true) > 90) {
                 $startDate = $endDate->copy()->subDays(90);
             }
+<<<<<<< HEAD
         } catch (Exception $e) {
+=======
+        } catch (\Exception $e) {
+>>>>>>> laraxot/develop
             return [];
         }
 

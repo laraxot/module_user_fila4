@@ -17,4 +17,8 @@ return [
             'label' => 'Add Studio',
         ],
     ],
+<<<<<<< HEAD
 ];
+=======
+];
+>>>>>>> laraxot/develop

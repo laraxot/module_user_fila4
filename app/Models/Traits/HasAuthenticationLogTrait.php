@@ -35,10 +35,14 @@ trait HasAuthenticationLogTrait
     public function authentications(): MorphMany
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $this->morphMany(AuthenticationLog::class, 'authenticatable')->latest('login_at');
 =======
         return $this->morphMany(AuthenticationLog::class, 'authenticatable');
 >>>>>>> 220cf97b (.)
+=======
+        return $this->morphMany(AuthenticationLog::class, 'authenticatable');
+>>>>>>> laraxot/develop
     }
 
     /**

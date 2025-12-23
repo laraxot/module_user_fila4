@@ -1,5 +1,10 @@
 <?php
 
+<<<<<<< HEAD
+=======
+declare(strict_types=1);
+
+>>>>>>> laraxot/develop
 return [
     'fields' => [
         'email' => [
@@ -25,10 +30,13 @@ return [
         'hidePassword' => [
             'label' => 'hidePassword',
 <<<<<<< HEAD
+<<<<<<< HEAD
         ],
         'showPassword' => [
             'label' => 'showPassword',
 =======
+=======
+>>>>>>> laraxot/develop
             'icon' => 'hidePassword',
             'tooltip' => 'hidePassword',
         ],
@@ -36,7 +44,10 @@ return [
             'label' => 'showPassword',
             'icon' => 'showPassword',
             'tooltip' => 'showPassword',
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
         ],
     ],
 ];

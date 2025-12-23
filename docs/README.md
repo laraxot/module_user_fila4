@@ -38,9 +38,33 @@ Il modulo supporta diversi tipi di utenti con logiche specifiche:
 - **EditProfile**: Pagina modifica profilo utente
 - **PasswordResetConfirmWidget**: Widget conferma reset password
 
+<<<<<<< HEAD
 ## 🔧 Correzioni Recenti (2025-11-04)
 
 ### Merge Conflicts Risolti
+=======
+## 🔧 Correzioni Recenti (2025-01-15)
+
+### PHPStan Level 10 Compliance
+- ✅ **LogoutWidget.php**: Corretto tipo `view-string` per proprietà `$view`
+- ✅ **EditUserWidget.php**: 
+  - Aggiunto type narrowing per `$model` e `$action` properties
+  - Corretto return type di `getFormModel()` con asserzioni `Assert::isInstanceOf()`
+  - Corretto return type di `getFormFill()` con type hints espliciti
+  - Corretto return type di `getFormSchema()` con type narrowing
+  - Gestito correttamente chiamata dinamica a `execute()` method
+- ✅ **LoginWidget.php**: Corretto type narrowing per `implode()` con array di messaggi
+- ✅ **PasswordExpiredWidget.php**: Corretto return type di `getFormSchema()` con type hint esplicito
+- ✅ **RegistrationWidget.php**: 
+  - Aggiunto type narrowing per `$model` e `$action` properties
+  - Corretto accesso a `remember_token` usando `getAttribute()` e `setAttribute()`
+  - Corretto return type di `getFormModel()` con asserzioni
+  - Corretto return type di `getFormFill()` e `getFormSchema()`
+  - Gestito correttamente chiamata dinamica a `execute()` method
+
+### Merge Conflicts Risolti
+- ✅ **19 file docs**: Risolti tutti i conflitti Git nella cartella `docs/`
+>>>>>>> laraxot/develop
 - ✅ **EditProfile.php**: Rimossi marker Git (`=======`, `>>>>>>>`)
 - ✅ **PasswordResetConfirmWidget.php**: 
   - Rimossi 10 import duplicati

@@ -24,10 +24,14 @@ class UsersRelationManager extends XotBaseRelationManager
      * @return array<Component>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getFormSchema(): array
     {
         return [
@@ -41,10 +45,14 @@ class UsersRelationManager extends XotBaseRelationManager
             TextInput::make('password')
                 ->password()
 <<<<<<< HEAD
+<<<<<<< HEAD
                 ->required(fn ($context) => $context === 'create')
 =======
                 ->required(fn ($context) => 'create' === $context)
 >>>>>>> 220cf97b (.)
+=======
+                ->required(fn ($context) => 'create' === $context)
+>>>>>>> laraxot/develop
                 ->minLength(8)
                 ->same('password_confirmation')
                 ->dehydrated(filled(...))
@@ -52,10 +60,14 @@ class UsersRelationManager extends XotBaseRelationManager
             TextInput::make('password_confirmation')
                 ->password()
 <<<<<<< HEAD
+<<<<<<< HEAD
                 ->required(fn ($context) => $context === 'create')
 =======
                 ->required(fn ($context) => 'create' === $context)
 >>>>>>> 220cf97b (.)
+=======
+                ->required(fn ($context) => 'create' === $context)
+>>>>>>> laraxot/develop
                 ->minLength(8),
         ];
     }
@@ -64,10 +76,14 @@ class UsersRelationManager extends XotBaseRelationManager
      * @return array<string, Column>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getTableColumns(): array
     {
         return [

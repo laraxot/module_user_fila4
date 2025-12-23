@@ -34,7 +34,11 @@ class Password extends XotBasePage
      *
      * @var string|null
      */
+<<<<<<< HEAD
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
+=======
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
+>>>>>>> laraxot/develop
 
     /**
      * Vista per la pagina.
@@ -55,6 +59,7 @@ class Password extends XotBasePage
     }
 
     /**
+<<<<<<< HEAD
      * Definisce la struttura del form.
      *
      * @param Schema $schema Il form da configurare
@@ -62,6 +67,15 @@ class Password extends XotBasePage
      * @return Schema Il form configurato
      */
     public function form(Schema $schema): Schema
+=======
+     * Definisce la struttura dello schema.
+     *
+     * @param Schema $schema Lo schema da configurare
+     *
+     * @return Schema Lo schema configurato
+     */
+    public function schema(Schema $schema): Schema
+>>>>>>> laraxot/develop
     {
         return $schema
             ->components([

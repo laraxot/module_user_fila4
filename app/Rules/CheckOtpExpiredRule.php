@@ -27,10 +27,14 @@ class CheckOtpExpiredRule implements ValidationRule
     public function validate(string $_attribute, mixed $_value, \Closure $fail): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if ($this->user->updated_at === null) {
 =======
         if (null === $this->user->updated_at) {
 >>>>>>> 220cf97b (.)
+=======
+        if (null === $this->user->updated_at) {
+>>>>>>> laraxot/develop
             $fail($this->message);
 
             return;

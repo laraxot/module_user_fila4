@@ -148,16 +148,25 @@ $tenant->users()->attach($user, [
 $activeTenants = Tenant::active()->get();
 ```
 
+<<<<<<< HEAD
 ### 2. TeamUser (Pivot) / Membership
 
 **File**: `Modules/User/app/Models/Membership.php` (alias `TeamUser`)
+=======
+### 2. TeamUser (Pivot)
+
+**File**: `Modules/User/app/Models/TeamUser.php`
+>>>>>>> laraxot/develop
 **Tabella**: `team_user`
 **Estende**: `BasePivot`
 
 **Scopo**: Gestisce la relazione many-to-many tra Team e User con metadati aggiuntivi.
 
+<<<<<<< HEAD
 **✅ Fix Autoincrement (2025-01-22)**: Il modello `Membership` usa correttamente autoincrement (`bigint`) come PRIMARY KEY. La tabella è stata convertita da UUID a autoincrement tramite migrazione. Vedi [membership-autoincrement-fix.md](../membership-autoincrement-fix.md) per dettagli.
 
+=======
+>>>>>>> laraxot/develop
 **Campi**:
 - `team_id` (foreign key)
 - `user_id` (foreign key)

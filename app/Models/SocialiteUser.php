@@ -20,6 +20,7 @@ use Modules\Xot\Datas\XotData;
 /**
  * Modules\User\Models\SocialiteUser.
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
  * @property int $id
  * @property string $user_id
@@ -62,6 +63,8 @@ use Modules\Xot\Datas\XotData;
  *
  * @mixin IdeHelperSocialiteUser
 =======
+=======
+>>>>>>> laraxot/develop
  *
  * @property int               $id
  * @property string            $user_id
@@ -106,7 +109,10 @@ use Modules\Xot\Datas\XotData;
  *
  * @property ProfileContract|null $deleter
  *
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class SocialiteUser extends BaseModel

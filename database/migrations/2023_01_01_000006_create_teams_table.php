@@ -7,6 +7,7 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
+<<<<<<< HEAD
 use Modules\User\Models\Team;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
@@ -19,12 +20,21 @@ return new class extends XotBaseMigration
     /**
 <<<<<<< HEAD
 =======
+=======
+use Modules\Xot\Database\Migrations\XotBaseMigration;
+
+return new class extends XotBaseMigration {
+    /**
+>>>>>>> laraxot/develop
      * Nome della tabella gestita dalla migrazione.
      */
     protected string $table_name = 'teams';
 
     /**
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
      * Esegue la migrazione.
      */
     public function up(): void
@@ -55,12 +65,18 @@ return new class extends XotBaseMigration
             if (! $this->hasColumn('code')) {
                 $table->string('code', 36)->nullable()->index();
             }
+<<<<<<< HEAD
 
             if (! $this->hasColumn('owner_id')) {
                 $table->uuid('owner_id')->nullable()->after('id');
             }
 
             $this->updateTimestamps($table, true);
+=======
+            $this->updateTimestamps($table, true);
+
+            // $this->updateUser($table);
+>>>>>>> laraxot/develop
         });
     }
 };

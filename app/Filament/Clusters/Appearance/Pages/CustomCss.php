@@ -37,7 +37,11 @@ class CustomCss extends XotBasePage
     //    ];
     // }
 
+<<<<<<< HEAD
     public function form(Schema $schema): Schema
+=======
+    public function schema(Schema $schema): Schema
+>>>>>>> laraxot/develop
     {
         return $schema
             ->components([

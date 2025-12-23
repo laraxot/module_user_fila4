@@ -54,11 +54,17 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @mixin IdeHelperSocialProvider
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
  *
  * @property ProfileContract|null $deleter
  *
 >>>>>>> 220cf97b (.)
+=======
+ *
+ * @property ProfileContract|null $deleter
+ *
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class SocialProvider extends BaseModel
@@ -103,7 +109,10 @@ class SocialProvider extends BaseModel
     ];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> laraxot/develop
     /** @var array<string, string> */
     protected array $schema = [
         'id' => 'integer',
@@ -120,7 +129,10 @@ class SocialProvider extends BaseModel
         'updated_by' => 'string',
     ];
 
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
     public function getRows(): array
     {
         return $this->getSushiRows();

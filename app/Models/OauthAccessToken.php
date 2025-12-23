@@ -14,6 +14,7 @@ use Modules\Xot\Contracts\UserContract;
  * Modules\User\Models\OauthAccessToken.
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @property string $id
  * @property string|null $user_id
  * @property string $client_id
@@ -25,6 +26,8 @@ use Modules\Xot\Contracts\UserContract;
  * @property Carbon|null $expires_at
  * @property OauthClient|null $client
 =======
+=======
+>>>>>>> laraxot/develop
  * @property string            $id
  * @property string|null       $user_id
  * @property string            $client_id
@@ -35,7 +38,10 @@ use Modules\Xot\Contracts\UserContract;
  * @property Carbon|null       $updated_at
  * @property Carbon|null       $expires_at
  * @property OauthClient|null  $client
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
  * @property UserContract|null $user
  *
  * @method static Builder|OauthAccessToken newModelQuery()
@@ -53,27 +59,39 @@ use Modules\Xot\Contracts\UserContract;
  *
  * @property OauthRefreshToken|null $refreshToken
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @property string|null $updated_by
  * @property string|null $created_by
  * @property string|null $deleted_at
  * @property string|null $deleted_by
 =======
+=======
+>>>>>>> laraxot/develop
  * @property string|null            $updated_by
  * @property string|null            $created_by
  * @property string|null            $deleted_at
  * @property string|null            $deleted_by
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
  *
  * @method static Builder<static>|OauthAccessToken whereCreatedBy($value)
  * @method static Builder<static>|OauthAccessToken whereDeletedAt($value)
  * @method static Builder<static>|OauthAccessToken whereDeletedBy($value)
  * @method static Builder<static>|OauthAccessToken whereUpdatedBy($value)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
  * @method static static                           create(array $attributes = [])
  * @method static static                           firstOrCreate(array $attributes, array $values = [])
  * @method static static                           updateOrCreate(array $attributes, array $values = [])
 >>>>>>> 220cf97b (.)
+=======
+ * @method static static                           create(array $attributes = [])
+ * @method static static                           firstOrCreate(array $attributes, array $values = [])
+ * @method static static                           updateOrCreate(array $attributes, array $values = [])
+>>>>>>> laraxot/develop
  *
  * @mixin IdeHelperOauthAccessToken
  * @mixin \Eloquent

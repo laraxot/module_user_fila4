@@ -9,6 +9,7 @@
 
 Tutti i modelli devono estendere una delle seguenti classi base:
 
+<<<<<<< HEAD
 ### Eccezione Obbligatoria: Spatie Permission/Role
 
 Per mantenere allineata la logica interna di `spatie/laravel-permission` (registrazione delle policy, caching dei permessi, guard name dinamico, sincronizzazione delle pivot), **i modelli `Permission` e `Role` del modulo User DEVONO estendere direttamente le classi Spatie** usando alias espliciti:
@@ -32,6 +33,8 @@ class Role extends SpatieRole
 
 Quando servono personalizzazioni (connessione dedicata, factory Laraxot, relazioni aggiuntive), si usano **trait** e **override puntuali** mantenendo l'ereditarietà da Spatie.
 
+=======
+>>>>>>> laraxot/develop
 ### 1. BaseModel (per modelli standard)
 
 I modelli Eloquent standard devono estendere `Modules\User\Models\BaseModel`:

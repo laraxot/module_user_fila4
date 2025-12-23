@@ -15,6 +15,7 @@ use Illuminate\Support\Carbon;
 use Modules\User\Database\Factories\AuthenticationLogFactory;
 use Modules\Xot\Contracts\ProfileContract;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 
 /**
@@ -38,6 +39,8 @@ use Override;
  *
  * @method static AuthenticationLogFactory factory($count = null, $state = [])
 =======
+=======
+>>>>>>> laraxot/develop
 
 /**
  * @property int                  $id
@@ -59,7 +62,10 @@ use Override;
  * @property ProfileContract|null $updater
  *
  * @method static AuthenticationLogFactory  factory($count = null, $state = [])
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
  * @method static Builder|AuthenticationLog newModelQuery()
  * @method static Builder|AuthenticationLog newQuery()
  * @method static Builder|AuthenticationLog query()
@@ -80,11 +86,17 @@ use Override;
  *
  * @mixin IdeHelperAuthenticationLog
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
  *
  * @property ProfileContract|null $deleter
  *
 >>>>>>> 220cf97b (.)
+=======
+ *
+ * @property ProfileContract|null $deleter
+ *
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class AuthenticationLog extends BaseModel
@@ -124,10 +136,14 @@ class AuthenticationLog extends BaseModel
 
     /** @return array<string, string> */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     protected function casts(): array
     {
         return [

@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Modules\User\Http\Livewire\Auth;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Exception;
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Components\Checkbox;
@@ -18,8 +21,17 @@ use Filament\Schemas\Schema;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+=======
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
+use Modules\Xot\Contracts\UserContract;
+use Spatie\Permission\Models\Role;
+use Webmozart\Assert\Assert;
+>>>>>>> laraxot/develop
 
 /**
  * Componente Livewire per la gestione del login.
@@ -108,15 +120,19 @@ class Login extends Component implements HasActions, HasForms
                 ->email()
                 ->required()
 <<<<<<< HEAD
+<<<<<<< HEAD
                 ->label(__('Email'))
                 ->placeholder(__('Inserisci la tua email'))
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
                 ->suffixIcon('heroicon-m-envelope')
                 ->autofocus()
                 ->live()
                 ->afterStateUpdated(fn ($_state) => $this->validateOnly('email'))
                 ->dehydrated(),
+<<<<<<< HEAD
 <<<<<<< HEAD
             TextInput::make('password')
                 ->password()
@@ -124,11 +140,16 @@ class Login extends Component implements HasActions, HasForms
                 ->label(__('Password'))
                 ->placeholder(__('Inserisci la tua password'))
 =======
+=======
+>>>>>>> laraxot/develop
 
             TextInput::make('password')
                 ->password()
                 ->required()
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
                 ->suffixIcon('heroicon-m-key')
                 ->revealable()
                 ->minLength(8)
@@ -136,9 +157,12 @@ class Login extends Component implements HasActions, HasForms
                 ->dehydrated(),
             Checkbox::make('remember')
 <<<<<<< HEAD
+<<<<<<< HEAD
                 ->label(__('Ricordami'))
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
                 ->default(false)
                 ->dehydrated(),
         ];
@@ -149,6 +173,7 @@ class Login extends Component implements HasActions, HasForms
      */
     protected function getRedirectUrl(): RedirectResponse
     {
+<<<<<<< HEAD
         $user = Auth::user();
 
         if (! $user) {
@@ -168,6 +193,30 @@ class Login extends Component implements HasActions, HasForms
             }
         } elseif ($adminRoles->count() > 1) {
             // Più ruoli admin - redirect alla dashboard principale
+=======
+        /** @var UserContract|null $user */
+        $user = Auth::user();
+        if (! $user instanceof UserContract) {
+            return redirect()->to('/');
+        }
+
+        /** @var Collection<int, Role> $roles */
+        $roles = $user->roles()->get();
+        $adminRoles = $roles->filter(
+            static fn (Role $role): bool => str_ends_with($role->name, '::admin')
+        );
+
+        $adminCount = $adminRoles->count();
+        if (1 === $adminCount) {
+            $role = $adminRoles->first();
+            Assert::isInstanceOf($role, Role::class);
+            $moduleName = str_replace('::admin', '', $role->name);
+
+            return redirect()->to("/{$moduleName}/admin");
+        }
+
+        if ($adminCount > 1) {
+>>>>>>> laraxot/develop
             return redirect()->to('/admin');
         }
 

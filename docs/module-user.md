@@ -117,6 +117,7 @@ composer format        # Formatta il codice
 7. Gestire correttamente gli stati dei form
 8. Implementare la validazione dei dati
 
+<<<<<<< HEAD
 ### PHPStan Level 10 Compliance
 1. **Tutti i file devono passare PHPStan Level 10**
 2. **Type guards** per oggetti di tipo mixed
@@ -132,6 +133,8 @@ composer format        # Formatta il codice
 4. **Usare `hasAttribute()` per verificare esistenza**
 5. **Documentazione completa** in `docs/eloquent-properties-best-practices.md`
 
+=======
+>>>>>>> laraxot/develop
 
 ### Versione Incoming
 

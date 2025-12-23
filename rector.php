@@ -7,10 +7,14 @@ use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
 =======
 /*
 >>>>>>> 220cf97b (.)
+=======
+/*
+>>>>>>> laraxot/develop
  * Standard Rector Configuration for Laravel Modules
  *
  * Minimal configuration compatible with base Rector installation
@@ -31,10 +35,14 @@ return static function (RectorConfig $rectorConfig): void {
 
     // PHP version target
 <<<<<<< HEAD
+<<<<<<< HEAD
     $rectorConfig->phpVersion(\Rector\ValueObject\PhpVersion::PHP_81);
 =======
     $rectorConfig->phpVersion(Rector\ValueObject\PhpVersion::PHP_81);
 >>>>>>> 220cf97b (.)
+=======
+    $rectorConfig->phpVersion(Rector\ValueObject\PhpVersion::PHP_81);
+>>>>>>> laraxot/develop
 
     // Rule sets
     $rectorConfig->sets([

@@ -23,10 +23,14 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string|null $created_by
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @method static ModelHasRoleFactory factory($count = null, $state = [])
 =======
  * @method static ModelHasRoleFactory  factory($count = null, $state = [])
 >>>>>>> 220cf97b (.)
+=======
+ * @method static ModelHasRoleFactory  factory($count = null, $state = [])
+>>>>>>> laraxot/develop
  * @method static Builder|ModelHasRole newModelQuery()
  * @method static Builder|ModelHasRole newQuery()
  * @method static Builder|ModelHasRole query()
@@ -49,11 +53,17 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @mixin IdeHelperModelHasRole
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
  *
  * @property ProfileContract|null $deleter
  *
 >>>>>>> 220cf97b (.)
+=======
+ *
+ * @property ProfileContract|null $deleter
+ *
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class ModelHasRole extends BaseMorphPivot

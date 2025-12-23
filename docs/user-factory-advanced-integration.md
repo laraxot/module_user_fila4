@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # UserFactory Advanced Integration - Modulo User & <nome progetto>
+=======
+# UserFactory Advanced Integration - Modulo User & SaluteOra
+>>>>>>> laraxot/develop
 
 ## Post Deep-Study Analysis 
 
@@ -9,7 +13,11 @@ Dopo uno studio approfondito dei modelli User, Patient, Doctor e Admin, l'integr
 ### Hierarchy Mapping
 ```
 BaseUser (User Module)
+<<<<<<< HEAD
 ├── User (<nome progetto>) - STI Base + Business Logic  
+=======
+├── User (SaluteOra) - STI Base + Business Logic  
+>>>>>>> laraxot/develop
     ├── Patient (HasParent) - Healthcare Consumer
     ├── Doctor (HasParent) - Healthcare Provider  
     └── Admin (HasParent) - System Administrator
@@ -17,7 +25,11 @@ BaseUser (User Module)
 
 ### Cross-Module Compatibility Matrix
 
+<<<<<<< HEAD
 | BaseUser Field | <nome progetto> User | Business Logic | Factory Support |
+=======
+| BaseUser Field | SaluteOra User | Business Logic | Factory Support |
+>>>>>>> laraxot/develop
 |----------------|----------------|----------------|-----------------|
 | `name` | `name` | Full name concat | ✅ Complete |
 | `email` | `email` | Authentication | ✅ Complete |
@@ -84,7 +96,11 @@ User::factory()->gdprCompliant()->create();
 // BaseUser (User Module) 
 protected $connection = 'user';
 
+<<<<<<< HEAD
 // <nome progetto> User (Healthcare Domain)
+=======
+// SaluteOra User (Healthcare Domain)
+>>>>>>> laraxot/develop
 protected $connection = 'salute_ora';
 
 // Factory automatically handles connection switching
@@ -115,7 +131,11 @@ public function test_cross_module_compatibility()
     expect($user)->toHaveProperty('password'); 
     expect($user->email_verified_at)->toBeInstanceOf(Carbon::class);
     
+<<<<<<< HEAD
     // <nome progetto> domain contracts
+=======
+    // SaluteOra domain contracts
+>>>>>>> laraxot/develop
     expect($user->type)->toBeInstanceOf(UserTypeEnum::class);
     expect($user->state)->toBeInstanceOf(UserState::class);
 }
@@ -236,7 +256,11 @@ public function run(): void
 - **✅ 85%** Cross-module relations (Studio, Address)
 
 ### Code Quality
+<<<<<<< HEAD
 - **✅ PHPStan level 10**: Zero errors
+=======
+- **✅ PHPStan Level 9**: Zero errors
+>>>>>>> laraxot/develop
 - **✅ PSR-12 Compliant**: Code standards
 - **✅ Strict Types**: Type safety
 - **✅ Complete PHPDoc**: Documentation
@@ -261,7 +285,11 @@ public function run(): void
 - **Reusability**: Base authentication contracts preserved
 - **Testability**: Comprehensive user scenario testing
 
+<<<<<<< HEAD
 ### For <nome progetto> Module  
+=======
+### For SaluteOra Module  
+>>>>>>> laraxot/develop
 - **Domain Focus**: Healthcare-specific data generation
 - **Business Logic**: Real-world scenario testing
 - **Compliance**: GDPR and healthcare regulation support
@@ -280,10 +308,17 @@ public function run(): void
 
 ## Link Documentazione
 
+<<<<<<< HEAD
 ### <nome progetto> Module
 - [Advanced Improvements Analysis](../../<nome progetto>/docs/factories/UserFactory-advanced-improvements-analysis.md)
 - [Implementation Completed](../../<nome progetto>/docs/factories/userfactory_implementation_completed.md)
 - [Model States](../../<nome progetto>/docs/models/states.md)
+=======
+### SaluteOra Module
+- [Advanced Improvements Analysis](../../SaluteOra/docs/factories/UserFactory-advanced-improvements-analysis.md)
+- [Implementation Completed](../../SaluteOra/docs/factories/userfactory_implementation_completed.md)
+- [Model States](../../SaluteOra/docs/models/states.md)
+>>>>>>> laraxot/develop
 
 ### User Module
 - [User Factory Integration](./user_factory_integration.md)
@@ -291,5 +326,9 @@ public function run(): void
 - [BaseUser Architecture](./parental_inheritance.md)
 
 ### Root Documentation  
+<<<<<<< HEAD
 - [UserFactory <nome progetto> Integration](../../../../docs/userfactory_<nome progetto>_integration.md)
+=======
+- [UserFactory SaluteOra Integration](../../../../docs/userfactory_saluteora_integration.md)
+>>>>>>> laraxot/develop
 - [Testing Standards](../../../../docs/testing_standards.md) 

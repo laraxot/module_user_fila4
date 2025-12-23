@@ -38,7 +38,11 @@ return [
         'group' => 'Benutzerdefiniertes CSS',
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 ];
 =======
 ];
 >>>>>>> 220cf97b (.)
+=======
+];
+>>>>>>> laraxot/develop

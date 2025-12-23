@@ -169,6 +169,7 @@ return [
 
 ## Verifiche Post-Correzione
 
+<<<<<<< HEAD
 
 ### 2. Validazione Struttura
 ```bash
@@ -260,3 +261,7 @@ php artisan lang:missing --locale=it,en,de
 
 **Ultimo aggiornamento**: 2025-01-06
 **Autore**: Sistema di correzione automatica
+=======
+### 1. Controllo Conflitti
+```bash
+>>>>>>> laraxot/develop

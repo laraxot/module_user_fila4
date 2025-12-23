@@ -10,6 +10,7 @@ use Modules\User\Tests\TestCase;
 uses(TestCase::class);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function test_can_create_user_with_minimal_data(): void
     {
         $user = User::factory()->create([
@@ -22,6 +23,8 @@ uses(TestCase::class);
             'email' => 'test@example.com',
         ]);
 =======
+=======
+>>>>>>> laraxot/develop
 beforeEach(function (): void {
     $this->user = User::factory()->create([
         'type' => UserType::MasterAdmin,
@@ -35,7 +38,10 @@ test('user can be created', function (): void {
     expect($this->user->email)->toBeString()->not->toBeEmpty();
     expect($this->user->type)->toBe(UserType::MasterAdmin);
 });
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 
 test('user has correct type casting', function (): void {
     expect($this->user->type)->toBeInstanceOf(UserType::class);
@@ -47,6 +53,7 @@ test('user password is hashed', function (): void {
     expect(Hash::check('wrongpassword', $this->user->password))->toBeFalse();
 });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         $user = User::factory()->create($userData);
 
@@ -106,6 +113,8 @@ test('user password is hashed', function (): void {
     {
         $user = User::factory()->create(['email' => 'unique@example.com']);
 =======
+=======
+>>>>>>> laraxot/develop
 test('user can change password', function (): void {
     $this->user->update(['password' => Hash::make('newpassword123')]);
 
@@ -143,7 +152,10 @@ test('user has fillable attributes', function (): void {
 
 test('user has hidden attributes', function (): void {
     $hidden = $this->user->getHidden();
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 
     expect($hidden)->toContain('password');
     expect($hidden)->toContain('remember_token');
@@ -152,6 +164,7 @@ test('user has hidden attributes', function (): void {
 test('user can be found by email', function (): void {
     $foundUser = User::where('email', $this->user->email)->first();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function test_can_find_user_by_name_pattern(): void
     {
@@ -163,10 +176,16 @@ test('user can be found by email', function (): void {
     expect($foundUser->id)->toBe($this->user->id);
 });
 >>>>>>> 220cf97b (.)
+=======
+    expect($foundUser)->toBeInstanceOf(User::class);
+    expect($foundUser->id)->toBe($this->user->id);
+});
+>>>>>>> laraxot/develop
 
 test('user can be found by type', function (): void {
     $admins = User::where('type', UserType::MasterAdmin)->get();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         static::assertCount(2, $doeUsers);
         static::assertTrue($doeUsers->every(fn ($user) => str_contains($user->name, 'Doe')));
@@ -178,6 +197,8 @@ test('user can be found by type', function (): void {
         User::factory()->create(['status' => 'inactive']);
         User::factory()->create(['status' => 'pending']);
 =======
+=======
+>>>>>>> laraxot/develop
     expect($admins->count())->toBeGreaterThanOrEqual(1);
     expect($admins->first()->id)->toBe($this->user->id);
 });
@@ -185,12 +206,16 @@ test('user can be found by type', function (): void {
 test('user can be created with different types', function (): void {
     $boUser = User::factory()->create(['type' => UserType::BoUser]);
     $customerUser = User::factory()->create(['type' => UserType::CustomerUser]);
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 
     expect($boUser->type)->toBe(UserType::BoUser);
     expect($customerUser->type)->toBe(UserType::CustomerUser);
 });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         static::assertCount(1, $activeUsers);
         static::assertSame('active', $activeUsers->first()->status);
@@ -202,6 +227,8 @@ test('user can be created with different types', function (): void {
         User::factory()->create(['type' => 'company']);
         User::factory()->create(['type' => 'organization']);
 =======
+=======
+>>>>>>> laraxot/develop
 test('user has timestamps', function (): void {
     expect($this->user->created_at)->not->toBeNull();
     expect($this->user->updated_at)->not->toBeNull();
@@ -210,12 +237,16 @@ test('user has timestamps', function (): void {
 test('user can access socialite', function (): void {
     expect($this->user->canAccessSocialite())->toBeTrue();
 });
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 
 test('user has connection attribute', function (): void {
     expect($this->user->connection)->toBe('user');
 });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         static::assertCount(1, $individualUsers);
         static::assertSame('individual', $individualUsers->first()->type);
@@ -227,18 +258,24 @@ test('user has connection attribute', function (): void {
         User::factory()->create(['city' => 'Los Angeles']);
         User::factory()->create(['city' => 'Chicago']);
 =======
+=======
+>>>>>>> laraxot/develop
 test('user can be found by name pattern', function (): void {
     User::factory()->create(['name' => 'John Doe']);
     User::factory()->create(['name' => 'Jane Doe']);
     User::factory()->create(['name' => 'Bob Smith']);
 
     $doeUsers = User::where('name', 'like', '%Doe%')->get();
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 
     expect($doeUsers->count())->toBeGreaterThanOrEqual(2);
     expect($doeUsers->every(fn ($user) => str_contains($user->name ?? '', 'Doe')))->toBeTrue();
 });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         static::assertCount(1, $nyUsers);
         static::assertSame('New York', $nyUsers->first()->city);
@@ -248,13 +285,18 @@ test('user can be found by name pattern', function (): void {
     {
         $user = User::factory()->create(['registration_number' => 'REG123456']);
 =======
+=======
+>>>>>>> laraxot/develop
 test('user can be found by language', function (): void {
     User::factory()->create(['lang' => 'en']);
     User::factory()->create(['lang' => 'it']);
     User::factory()->create(['lang' => 'de']);
 
     $englishUsers = User::where('lang', 'en')->get();
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 
     expect($englishUsers->count())->toBeGreaterThanOrEqual(1);
     expect($englishUsers->first()->lang)->toBe('en');
@@ -266,12 +308,16 @@ test('user can be found by active status', function (): void {
     User::factory()->create(['is_active' => true]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function test_can_find_user_by_phone(): void
     {
         $user = User::factory()->create(['phone' => '+1234567890']);
 =======
     $activeUsers = User::where('is_active', true)->get();
 >>>>>>> 220cf97b (.)
+=======
+    $activeUsers = User::where('is_active', true)->get();
+>>>>>>> laraxot/develop
 
     expect($activeUsers->count())->toBeGreaterThanOrEqual(2);
     expect($activeUsers->every(fn ($user) => $user->is_active))->toBeTrue();
@@ -283,6 +329,7 @@ test('user can be found by otp status', function (): void {
     User::factory()->create(['is_otp' => true]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function test_can_find_user_by_language(): void
     {
         User::factory()->create(['lang' => 'en']);
@@ -291,11 +338,15 @@ test('user can be found by otp status', function (): void {
 =======
     $otpUsers = User::where('is_otp', true)->get();
 >>>>>>> 220cf97b (.)
+=======
+    $otpUsers = User::where('is_otp', true)->get();
+>>>>>>> laraxot/develop
 
     expect($otpUsers->count())->toBeGreaterThanOrEqual(2);
     expect($otpUsers->every(fn ($user) => $user->is_otp))->toBeTrue();
 });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         static::assertCount(1, $englishUsers);
         static::assertSame('en', $englishUsers->first()->lang);
@@ -404,6 +455,8 @@ test('user can be found by otp status', function (): void {
     }
 }
 =======
+=======
+>>>>>>> laraxot/develop
 test('user can handle null values', function (): void {
     $user = User::factory()->create([
         'name' => null,
@@ -417,4 +470,7 @@ test('user can handle null values', function (): void {
     expect($user->last_name)->toBeNull();
     expect($user->lang)->toBeNull();
 });
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop

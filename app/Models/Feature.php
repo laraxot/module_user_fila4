@@ -42,11 +42,17 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @mixin IdeHelperFeature
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
  *
  * @property ProfileContract|null $deleter
  *
 >>>>>>> 220cf97b (.)
+=======
+ *
+ * @property ProfileContract|null $deleter
+ *
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class Feature extends BaseModel

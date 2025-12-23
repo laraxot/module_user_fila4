@@ -9,18 +9,24 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Pages;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Forms\Components\DatePicker;
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 use Filament\Widgets\Widget;
 use Filament\Widgets\WidgetConfiguration;
 use Modules\User\Filament\Widgets\RecentLoginsWidget;
 use Modules\User\Filament\Widgets\UsersChartWidget;
 use Modules\Xot\Filament\Pages\XotBaseDashboard;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 
 class Dashboard extends XotBaseDashboard
 {
@@ -42,6 +48,7 @@ class Dashboard extends XotBaseDashboard
         ];
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     #[Override]
     public function getFiltersFormSchema(): array
@@ -56,4 +63,6 @@ class Dashboard extends XotBaseDashboard
     }
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 }

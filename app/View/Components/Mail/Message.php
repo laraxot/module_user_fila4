@@ -24,10 +24,14 @@ class Message extends Component
      * Get the view / contents that represent the component.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function render(): View|Closure|string
 =======
     public function render(): View|\Closure|string
 >>>>>>> 220cf97b (.)
+=======
+    public function render(): View|\Closure|string
+>>>>>>> laraxot/develop
     {
         $metatag = MetatagData::make();
         $view = 'user::components.mail.html.message';

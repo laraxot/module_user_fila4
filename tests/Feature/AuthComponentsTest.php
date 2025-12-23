@@ -2,8 +2,13 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use App\Models\User;
 use Illuminate\Support\Facades\View;
+=======
+use Illuminate\Support\Facades\View;
+use Modules\User\Models\User;
+>>>>>>> laraxot/develop
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;

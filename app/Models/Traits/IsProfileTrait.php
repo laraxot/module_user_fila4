@@ -3,7 +3,11 @@
 declare(strict_types=1);
 
 /**
+<<<<<<< HEAD
  * Modulo User - Trait per il profilo utente
+=======
+ * Modulo User - Trait per il profilo utente.
+>>>>>>> laraxot/develop
  *
  * Questo trait implementa funzionalità comuni per i modelli di profilo utente nell'applicazione,
  * tra cui relazioni con utenti, dispositivi e team, gestione dei ruoli, e accessori per attributi
@@ -20,7 +24,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Models\Traits;
 
+<<<<<<< HEAD
 use Exception;
+=======
+>>>>>>> laraxot/develop
 use Filament\Notifications\Notification;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
@@ -67,16 +74,87 @@ trait IsProfileTrait
      * Utilizza prima i dati del profilo, altrimenti ricade sul nome dell'utente.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param  string|null  $value  Il valore attuale dell'attributo
 =======
      * @param string|null $value Il valore attuale dell'attributo
      *
 >>>>>>> 220cf97b (.)
+=======
+     * @param string|null $value Il valore attuale dell'attributo
+     *
+>>>>>>> laraxot/develop
      * @return string|null Il nome completo dell'utente
      */
     public function getFullNameAttribute(?string $value): ?string
     {
+<<<<<<< HEAD
         if ($value !== null) {
+=======
+        if (null !== $value) {
+>>>>>>> laraxot/develop
+            return $value;
+        }
+
+        $user = $this->user;
+<<<<<<< HEAD
+<<<<<<< HEAD
+        if ($user === null) {
+=======
+        if (null === $user) {
+>>>>>>> 220cf97b (.)
+=======
+        if (null === $user) {
+>>>>>>> laraxot/develop
+            return null;
+        }
+        Assert::isInstanceOf($user, User::class);
+
+        $res = trim(($this->first_name ?? '').' '.($this->last_name ?? ''));
+<<<<<<< HEAD
+<<<<<<< HEAD
+        if ($res !== '') {
+=======
+        if ('' !== $res) {
+>>>>>>> 220cf97b (.)
+=======
+        if ('' !== $res) {
+>>>>>>> laraxot/develop
+            return $res;
+        }
+
+        $userName = $user->getAttribute('name');
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return \is_string($userName) && $userName !== '' ? $userName : null;
+=======
+        return \is_string($userName) && '' !== $userName ? $userName : null;
+>>>>>>> 220cf97b (.)
+=======
+        return \is_string($userName) && '' !== $userName ? $userName : null;
+>>>>>>> laraxot/develop
+    }
+
+    /**
+     * Ottiene il nome dell'utente.
+     * Se non presente nel profilo, lo recupera dall'utente collegato.
+     *
+<<<<<<< HEAD
+     * @param  string|null  $value  Il valore attuale dell'attributo
+=======
+     * @param string|null $value Il valore attuale dell'attributo
+     *
+>>>>>>> laraxot/develop
+     * @return string|null Il nome dell'utente
+     */
+    public function getFirstNameAttribute(?string $value): ?string
+    {
+<<<<<<< HEAD
+        if ($value !== null) {
+=======
+        if (null !== $value) {
+>>>>>>> laraxot/develop
             return $value;
         }
 
@@ -85,49 +163,13 @@ trait IsProfileTrait
         if ($user === null) {
 =======
         if (null === $user) {
->>>>>>> 220cf97b (.)
-            return null;
-        }
-        Assert::isInstanceOf($user, User::class);
-
-        $res = trim(($this->first_name ?? '').' '.($this->last_name ?? ''));
-<<<<<<< HEAD
-        if ($res !== '') {
-=======
-        if ('' !== $res) {
->>>>>>> 220cf97b (.)
-            return $res;
-        }
-
-        $userName = $user->getAttribute('name');
-
-<<<<<<< HEAD
-        return \is_string($userName) && $userName !== '' ? $userName : null;
-=======
-        return \is_string($userName) && '' !== $userName ? $userName : null;
->>>>>>> 220cf97b (.)
-    }
-
-    /**
-     * Ottiene il nome dell'utente.
-     * Se non presente nel profilo, lo recupera dall'utente collegato.
-     *
-     * @param  string|null  $value  Il valore attuale dell'attributo
-     * @return string|null Il nome dell'utente
-     */
-    public function getFirstNameAttribute(?string $value): ?string
-    {
-        if ($value !== null) {
-            return $value;
-        }
-
-        $user = $this->user;
-        if ($user === null) {
+>>>>>>> laraxot/develop
             return null;
         }
         Assert::isInstanceOf($user, User::class);
 
         $firstName = $user->getAttribute('first_name');
+<<<<<<< HEAD
         if (! \is_string($firstName) || $firstName === '') {
             return null;
         }
@@ -138,13 +180,18 @@ trait IsProfileTrait
 
 =======
         $firstName = $user->getAttribute('first_name');
+=======
+>>>>>>> laraxot/develop
         if (! \is_string($firstName) || '' === $firstName) {
             return null;
         }
 
         $this->update(['first_name' => $firstName]);
 
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
         return $firstName;
     }
 
@@ -152,22 +199,36 @@ trait IsProfileTrait
      * Ottiene il cognome dell'utente.
      * Se non presente nel profilo, lo recupera dall'utente collegato.
      *
+<<<<<<< HEAD
      * @param  string|null  $value  Il valore attuale dell'attributo
+=======
+     * @param string|null $value Il valore attuale dell'attributo
+     *
+>>>>>>> laraxot/develop
      * @return string|null Il cognome dell'utente
      */
     public function getLastNameAttribute(?string $value): ?string
     {
+<<<<<<< HEAD
         if ($value !== null) {
+=======
+        if (null !== $value) {
+>>>>>>> laraxot/develop
             return $value;
         }
 
         $user = $this->user;
+<<<<<<< HEAD
         if ($user === null) {
+=======
+        if (null === $user) {
+>>>>>>> laraxot/develop
             return null;
         }
         Assert::isInstanceOf($user, User::class);
 
         $lastName = $user->getAttribute('last_name');
+<<<<<<< HEAD
         if (! \is_string($lastName) || $lastName === '') {
             return null;
         }
@@ -178,13 +239,18 @@ trait IsProfileTrait
 
 =======
         $lastName = $user->getAttribute('last_name');
+=======
+>>>>>>> laraxot/develop
         if (! \is_string($lastName) || '' === $lastName) {
             return null;
         }
 
         $this->update(['last_name' => $lastName]);
 
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
         return $lastName;
     }
 
@@ -195,7 +261,11 @@ trait IsProfileTrait
      */
     public function isSuperAdmin(): bool
     {
+<<<<<<< HEAD
         if ($this->user === null) {
+=======
+        if (null === $this->user) {
+>>>>>>> laraxot/develop
             return false;
         }
 
@@ -209,7 +279,11 @@ trait IsProfileTrait
      */
     public function isNegateSuperAdmin(): bool
     {
+<<<<<<< HEAD
         if ($this->user === null) {
+=======
+        if (null === $this->user) {
+>>>>>>> laraxot/develop
             return false;
         }
 
@@ -221,13 +295,22 @@ trait IsProfileTrait
      * Se l'utente è super-admin, rimuove questo ruolo e assegna negate-super-admin.
      * Se l'utente non è super-admin, assegna super-admin e rimuove negate-super-admin.
      *
+<<<<<<< HEAD
      * @throws Exception Se l'utente non è disponibile
+=======
+     * @throws \Exception Se l'utente non è disponibile
+>>>>>>> laraxot/develop
      */
     public function toggleSuperAdmin(): void
     {
         $user = $this->user;
+<<<<<<< HEAD
         if ($user === null) {
             throw new Exception('['.__LINE__.']['.class_basename($this).']');
+=======
+        if (null === $user) {
+            throw new \Exception('['.__LINE__.']['.class_basename($this).']');
+>>>>>>> laraxot/develop
         }
         Assert::isInstanceOf($user, User::class);
         $to_assign = 'super-admin';
@@ -245,7 +328,11 @@ trait IsProfileTrait
             $role_remove = Role::updateOrCreate(['name' => $to_remove], ['team_id' => null]);
             $user->roles()->attach($role_assign);
             $user->roles()->detach($role_remove);
+<<<<<<< HEAD
         } catch (Exception $e) {
+=======
+        } catch (\Exception $e) {
+>>>>>>> laraxot/develop
             Notification::make()
                 ->title('Exception !')
                 ->danger()
@@ -308,6 +395,7 @@ trait IsProfileTrait
     public function getMobileDeviceTokens(): Collection
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         // PHPStan livello 9 richiede il controllo che il risultato sia del tipo corretto
         return $this->mobileDeviceUsers()
             ->pluck('token')
@@ -315,6 +403,8 @@ trait IsProfileTrait
 
         /** @var Collection<int|string, string> */
 =======
+=======
+>>>>>>> laraxot/develop
         $tokens = $this->mobileDeviceUsers()
             ->pluck('token')
             ->filter(static fn (mixed $value): bool => is_string($value) && '' !== $value)
@@ -322,17 +412,23 @@ trait IsProfileTrait
 
         /* @var Collection<int|string, non-empty-string> $tokens */
         return $tokens;
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
     }
 
     /**
      * Get the user's user_name.
      * Ottiene il nome utente dal modello utente collegato.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return Attribute<string|null, never>
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
      */
     protected function userName(): Attribute
     {
@@ -340,10 +436,14 @@ trait IsProfileTrait
             get: function (): ?string {
                 $user = $this->user;
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if ($user === null) {
 =======
                 if (null === $user) {
 >>>>>>> 220cf97b (.)
+=======
+                if (null === $user) {
+>>>>>>> laraxot/develop
                     return null;
                 }
                 Assert::isInstanceOf($user, User::class);
@@ -351,10 +451,14 @@ trait IsProfileTrait
                 $name = $user->getAttribute('name');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 return \is_string($name) && $name !== '' ? $name : null;
 =======
                 return \is_string($name) && '' !== $name ? $name : null;
 >>>>>>> 220cf97b (.)
+=======
+                return \is_string($name) && '' !== $name ? $name : null;
+>>>>>>> laraxot/develop
             }
         );
     }
@@ -363,10 +467,13 @@ trait IsProfileTrait
      * Get the user's avatar URL.
      * Recupera l'URL dell'avatar dell'utente dalla MediaLibrary.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return Attribute<string, never>
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
      */
     protected function avatar(): Attribute
     {

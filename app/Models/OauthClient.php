@@ -16,6 +16,7 @@ use Modules\Xot\Contracts\UserContract;
  * Modules\User\Models\OauthClient.
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @property string $id
  * @property string|null $user_id
  * @property string $name
@@ -38,6 +39,8 @@ use Modules\Xot\Contracts\UserContract;
  *
  * @method static ClientFactory factory($count = null, $state = [])
 =======
+=======
+>>>>>>> laraxot/develop
  * @property string                            $id
  * @property string|null                       $user_id
  * @property string                            $name
@@ -59,7 +62,10 @@ use Modules\Xot\Contracts\UserContract;
  * @property UserContract|null                 $user
  *
  * @method static ClientFactory       factory($count = null, $state = [])
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
  * @method static Builder|OauthClient newModelQuery()
  * @method static Builder|OauthClient newQuery()
  * @method static Builder|OauthClient query()

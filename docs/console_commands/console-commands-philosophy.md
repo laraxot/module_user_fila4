@@ -461,3 +461,8 @@ private function getPasswordLegacy(): string
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> laraxot/develop

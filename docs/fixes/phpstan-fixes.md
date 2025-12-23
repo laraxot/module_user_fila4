@@ -42,6 +42,7 @@ Il modello `Team` accede direttamente a proprietà che potrebbero non essere dis
 * [phpstan_fixes.md](../../../User/docs/fixes/phpstan_fixes.md)
 * [phpstan_fixes.md](../../../Activity/docs/phpstan_fixes.md)
 
+<<<<<<< HEAD
 ---
 
 ## 17 Novembre 2025 — Allineamento Factory e Trait Profilo
@@ -74,3 +75,5 @@ Queste correzioni garantiscono che:
 - [Contratti User](../contracts/user-contract.md)
 - [Linee Guida PHPStan Level 10](../../../Xot/docs/phpstan-contract-conflicts-resolution.md)
 
+=======
+>>>>>>> laraxot/develop

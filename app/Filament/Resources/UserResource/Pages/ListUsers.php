@@ -20,10 +20,14 @@ class ListUsers extends BaseListUsers
     protected static string $resource = UserResource::class;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getTableColumns(): array
     {
         return [
@@ -41,10 +45,14 @@ class ListUsers extends BaseListUsers
      * @return array<BaseFilter>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getTableFilters(): array
     {
         return [
@@ -61,10 +69,14 @@ class ListUsers extends BaseListUsers
      * @phpstan-ignore-next-line
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getTableActions(): array
     {
         /* @phpstan-ignore-next-line */
@@ -83,10 +95,14 @@ class ListUsers extends BaseListUsers
      * @return array<string, BulkAction>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getTableBulkActions(): array
     {
         return [
@@ -96,10 +112,14 @@ class ListUsers extends BaseListUsers
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     protected function getHeaderWidgets(): array
     {
         return [

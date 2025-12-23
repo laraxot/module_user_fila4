@@ -10,7 +10,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\User\Contracts\TeamContract;
 use Modules\User\Models\Scopes\TenantScope;
 use Modules\User\Models\Tenant;
+<<<<<<< HEAD
 use Throwable;
+=======
+>>>>>>> laraxot/develop
 
 /**
  * @property TeamContract $currentTeam
@@ -58,7 +61,11 @@ trait InteractsWithTenant
     {
         try {
             $this->currentTenant = Filament::getTenant();
+<<<<<<< HEAD
         } catch (Throwable $e) {
+=======
+        } catch (\Throwable $e) {
+>>>>>>> laraxot/develop
             // Se Filament non è disponibile, lascia il tenant come null
             $this->currentTenant = null;
         }
@@ -75,6 +82,7 @@ trait InteractsWithTenant
             // PHPStan Level 10: Verifica se il modello ha tenant_id
             // Uso isFillable() invece di property_exists() per Eloquent magic properties
 <<<<<<< HEAD
+<<<<<<< HEAD
             if ($model !== null && $model instanceof Model && $model->isFillable('tenant_id')) {
                 $tenant = Filament::getTenant();
                 if ($tenant !== null) {
@@ -83,6 +91,11 @@ trait InteractsWithTenant
                 $tenant = Filament::getTenant();
                 if (null !== $tenant) {
 >>>>>>> 220cf97b (.)
+=======
+            if (null !== $model && $model instanceof Model && $model->isFillable('tenant_id')) {
+                $tenant = Filament::getTenant();
+                if (null !== $tenant) {
+>>>>>>> laraxot/develop
                     // Usa setAttribute() invece di assegnazione diretta per PHPStan
                     $model->setAttribute('tenant_id', $tenant->getKey());
                 }

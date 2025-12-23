@@ -11,7 +11,10 @@ use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Actions\Header\AttachRoleAction;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> laraxot/develop
 
 class RolesRelationManager extends XotBaseRelationManager
 {
@@ -24,10 +27,14 @@ class RolesRelationManager extends XotBaseRelationManager
     // {
     // }
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getFormSchema(): array
     {
         return [
@@ -41,10 +48,14 @@ class RolesRelationManager extends XotBaseRelationManager
      * @return array<string, Column>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getTableColumns(): array
     {
         return [
@@ -58,10 +69,14 @@ class RolesRelationManager extends XotBaseRelationManager
      * @return array<string, Action>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getTableHeaderActions(): array
     {
         $xotData = XotData::make();

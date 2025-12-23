@@ -39,7 +39,13 @@ class Change extends Component
         }
 
         $this->user = $authUser;
+<<<<<<< HEAD
         $this->teams = $this->user->allTeams()->toArray();
+=======
+        /** @var \Illuminate\Support\Collection<int, TeamContract> $allTeams */
+        $allTeams = $this->user->allTeams();
+        $this->teams = $allTeams->toArray();
+>>>>>>> laraxot/develop
     }
 
     /**

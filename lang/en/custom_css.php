@@ -38,7 +38,11 @@ return [
         'group' => 'Custom CSS',
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 ];
 =======
 ];
 >>>>>>> 220cf97b (.)
+=======
+];
+>>>>>>> laraxot/develop

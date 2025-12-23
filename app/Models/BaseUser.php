@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
 use Override;
 use Throwable;
 use Exception;
 use DateTime;
+=======
+>>>>>>> laraxot/develop
 use Filament\Models\Contracts\HasName;
 use Filament\Models\Contracts\HasTenants;
 use Filament\Panel;
@@ -31,11 +34,14 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Laravel\Passport\HasApiTokens;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Laravel\Passport\PersonalAccessTokenResult;
 use Laravel\Passport\Token;
 use Laravel\Passport\TransientToken;
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
 use Modules\User\Database\Factories\UserFactory;
 use Modules\User\Models\Traits\HasAuthenticationLogTrait;
 use Modules\User\Models\Traits\HasTeams;
@@ -95,6 +101,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property bool|null                                                 $is_otp
  * @property string|null                                               $type
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @property DateTime|null $password_expires_at
  * @property DateTime|null $email_verified_at
  * @property string|null                                               $remember_token
@@ -102,13 +109,18 @@ use Spatie\Permission\Traits\HasRoles;
  * @property DateTime|null $updated_at
  * @property DateTime|null $deleted_at
 =======
+=======
+>>>>>>> laraxot/develop
  * @property \DateTime|null                                            $password_expires_at
  * @property \DateTime|null                                            $email_verified_at
  * @property string|null                                               $remember_token
  * @property \DateTime|null                                            $created_at
  * @property \DateTime|null                                            $updated_at
  * @property \DateTime|null                                            $deleted_at
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
  * @property string|null                                               $created_by
  * @property string|null                                               $updated_by
  * @property string|null                                               $deleted_by
@@ -151,6 +163,7 @@ use Spatie\Permission\Traits\HasRoles;
 abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, PassportHasApiTokensContract, UserContract
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     use HasApiTokens {
         clients as protected passportClients;
         tokens as protected passportTokens;
@@ -167,16 +180,22 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         removeRole as spatieRemoveRole;
     }
 =======
+=======
+>>>>>>> laraxot/develop
     use HasApiTokens;
     use HasAuthenticationLogTrait;
     use HasChildren;
     use HasPermissions;
     use HasRoles;
+<<<<<<< HEAD
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
     use HasTeams;
     use HasUuids;
     use HasXotFactory;
     use InteractsWithMedia;
+<<<<<<< HEAD
     use HasXotFactory;
     use Notifiable;
     use RelationX;
@@ -215,6 +234,11 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     }
 =======
 >>>>>>> 220cf97b (.)
+=======
+    use Notifiable;
+    use RelationX;
+    use Traits\HasTenants;
+>>>>>>> laraxot/develop
 
     public $incrementing = false;
 
@@ -293,10 +317,14 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             $this->fillable = array_values(array_merge(parent::getFillable(), $this->getFillable()));
             parent::__construct($attributes);
 <<<<<<< HEAD
+<<<<<<< HEAD
         } catch (Throwable $e) {
 =======
         } catch (\Throwable $e) {
 >>>>>>> 220cf97b (.)
+=======
+        } catch (\Throwable $e) {
+>>>>>>> laraxot/develop
             // Fallback in case database connection is not available (e.g., during testing)
             $this->fillable = array_values($this->getFillable());
             // Avoid calling parent constructor if database is not available
@@ -332,10 +360,14 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function profile(): HasOne
     {
         try {
@@ -350,10 +382,14 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             // Utilizziamo una classe che sicuramente esiste nel sistema
             return $this->hasOne(Model::class);
 <<<<<<< HEAD
+<<<<<<< HEAD
         } catch (Exception $e) {
 =======
         } catch (\Exception $e) {
 >>>>>>> 220cf97b (.)
+=======
+        } catch (\Exception $e) {
+>>>>>>> laraxot/develop
             // Fallback: se non riesce a ottenere la classe Profile, usa una relazione generica
             // Questo evita l'errore "Target [Illuminate\Database\Eloquent\Model] is not instantiable"
             // Utilizziamo una classe che sicuramente esiste nel sistema
@@ -378,6 +414,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         $this->assignRole($role);
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     /**
      * @param string $name
@@ -406,6 +443,8 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
 
 =======
 >>>>>>> 220cf97b (.)
+=======
+>>>>>>> laraxot/develop
     public function canAccessPanel(Panel $panel): bool
     {
         // $panel->default('admin');
@@ -483,10 +522,14 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         $socialiteUser = $this->socialiteUsers()->firstWhere(['provider' => $provider]);
         if (null === $socialiteUser) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             throw new Exception('SocialiteUser not found');
 =======
             throw new \Exception('SocialiteUser not found');
 >>>>>>> 220cf97b (.)
+=======
+            throw new \Exception('SocialiteUser not found');
+>>>>>>> laraxot/develop
         }
 
         $res = $socialiteUser->{$field};
@@ -567,10 +610,14 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
 
             return $value;
 <<<<<<< HEAD
+<<<<<<< HEAD
         } catch (Throwable $e) {
 =======
         } catch (\Throwable $e) {
 >>>>>>> 220cf97b (.)
+=======
+        } catch (\Throwable $e) {
+>>>>>>> laraxot/develop
             // If any issue occurs (e.g., missing connection/table), fall back without DB.
             $this->attributes['name'] = $candidate;
 
@@ -589,10 +636,14 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
      * @param array|\Illuminate\Support\Collection|int|SpatieRoleContract|string $roles
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
     #[\Override]
 >>>>>>> 220cf97b (.)
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function hasRole($roles, ?string $guard = null): bool
     {
         // Se è una stringa semplice, utilizziamo il metodo interno tramite relazione roles

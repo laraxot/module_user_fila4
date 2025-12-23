@@ -1,10 +1,15 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 declare(strict_types=1);
 
 >>>>>>> 220cf97b (.)
+=======
+declare(strict_types=1);
+
+>>>>>>> laraxot/develop
 return [
     'actions' => [
         'profile' => [

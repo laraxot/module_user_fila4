@@ -92,7 +92,11 @@ use Webmozart\Assert\Assert;
  *
  * Inspired by Laravel Jetstream but evolved with Laraxot intelligence:
  * - belongsToManyX for auto-discovery
+<<<<<<< HEAD
  * - Strict typing for PHPStan level 10+
+=======
+ * - Strict typing for PHPStan Level 9+
+>>>>>>> laraxot/develop
  * - Runtime validation with Assert
  * - Cross-database support
  * - Explicit pivot models
@@ -339,7 +343,11 @@ trait HasTeams
 
 ### Laraxot Evolution
 - **belongsToManyX**: Auto-discovery intelligente
+<<<<<<< HEAD
 - **Strict typing**: PHPStan level 10+ compliance
+=======
+- **Strict typing**: PHPStan Level 9+ compliance
+>>>>>>> laraxot/develop
 - **Cross-database**: Supporto multi-database
 - **Runtime validation**: Assert per controlli runtime
 - **Explicit pivot models**: TeamUser come modello esplicito
@@ -389,6 +397,7 @@ public function teamRoleName(TeamContract $team): ?string
 }
 ```
 
+<<<<<<< HEAD
 ## HasTeams ✅ **CONFLITTO CONTRATTO RISOLTO - PROBLEMA AUTOINCREMENT RISOLTO**
 **Status:** Trait corretto, problema autoincrement risolto
 **Filosofia:** Jetstream + Laraxot Evolution
@@ -397,10 +406,20 @@ public function teamRoleName(TeamContract $team): ?string
 #### Problema Autoincrement nella Tabella team_user ✅ **RISOLTO**
 Il problema di chiave primaria duplicata nella tabella `team_user` è stato risolto:
 
+=======
+## HasTeams ⚠️ **CONFLITTO CONTRATTO RISOLTO - PROBLEMA TEST DATABASE**
+**Status:** Trait corretto, problema con test database
+**Filosofia:** Jetstream + Laraxot Evolution
+**Ultima modifica:** 10 giugno 2025
+
+#### Problema Database Test ⚠️
+I test falliscono con errore di chiave primaria duplicata nella tabella `team_user`:
+>>>>>>> laraxot/develop
 ```
 SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'PRIMARY'
 ```
 
+<<<<<<< HEAD
 **Causa identificata:** La tabella `team_user` ha `id` come PRIMARY KEY di tipo UUID (`char(36)`), ma il modello `Membership` aveva `$incrementing = true` (default da `BasePivot`), causando un conflitto quando Filament cercava di inserire un nuovo record senza UUID.
 
 **Soluzione implementata:**
@@ -410,6 +429,15 @@ SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key
 4. ✅ Preservati i dati esistenti rinominando `id` a `uuid` durante la migrazione
 
 Vedi [membership-autoincrement-fix.md](./membership-autoincrement-fix.md) per dettagli completi.
+=======
+**Causa identificata:** La tabella `team_user` ha una chiave primaria vuota che causa conflitti durante i test.
+
+**Soluzioni possibili:**
+1. Verificare la struttura della tabella `team_user` 
+2. Assicurarsi che la chiave primaria sia auto-incrementale
+3. Utilizzare database in-memory per i test
+4. Implementare factory per TeamUser con ID corretti
+>>>>>>> laraxot/develop
 
 #### Conflitto HasTeamsContract ✅ **RISOLTO**
 - **teamRole() contratto**: CORRETTO - ora restituisce `?Role` invece di `?string`
