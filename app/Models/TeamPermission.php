@@ -9,27 +9,26 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
-<<<<<<< HEAD
-<<<<<<< HEAD
- * Team Permission Model
- *
- * Represents a permission assigned to a user within a team context.
- *
- * @property string $id
- * @property string $team_id
- * @property string $user_id
- * @property string $permission
- * @property DateTime|null $created_at
- * @property DateTime|null $updated_at
- * @property Team $team
- * @property User $user
-=======
-=======
->>>>>>> laraxot/develop
+ * <<<<<<< HEAD
+ * <<<<<<< HEAD
  * Team Permission Model.
  *
  * Represents a permission assigned to a user within a team context.
  *
+ * @property string        $id
+ * @property string        $team_id
+ * @property string        $user_id
+ * @property string        $permission
+ * @property DateTime|null $created_at
+ * @property DateTime|null $updated_at
+ * @property Team          $team
+ * @property User          $user
+ *                                     =======
+ *                                     =======
+ *                                     >>>>>>> laraxot/develop
+ *                                     Team Permission Model.
+ *
+ * Represents a permission assigned to a user within a team context.
  * @property string         $id
  * @property string         $team_id
  * @property string         $user_id
@@ -38,21 +37,21 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \DateTime|null $updated_at
  * @property Team           $team
  * @property User           $user
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
+ *                                      <<<<<<< HEAD
+ *                                      >>>>>>> 220cf97b (.)
+ *                                      =======
+ *                                      >>>>>>> laraxot/develop
  *
  * @method static Builder<static>|TeamPermission newModelQuery()
  * @method static Builder<static>|TeamPermission newQuery()
  * @method static Builder<static>|TeamPermission query()
  *
  * @mixin IdeHelperTeamPermission
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> laraxot/develop
+ * <<<<<<< HEAD
+ * <<<<<<< HEAD
+ * =======
+ * =======
+ * >>>>>>> laraxot/develop
  *
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
@@ -60,10 +59,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  *
  * @method static \Modules\User\Database\Factories\TeamPermissionFactory factory($count = null, $state = [])
  *
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
+ * <<<<<<< HEAD
+ * >>>>>>> 220cf97b (.)
+ * =======
+ * >>>>>>> laraxot/develop
+ *
  * @mixin \Eloquent
  */
 class TeamPermission extends BaseModel

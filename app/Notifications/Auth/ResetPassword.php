@@ -20,14 +20,14 @@ class ResetPassword extends BaseNotification
 
     /**
      * Get the reset password notification mail message for the given URL.
-<<<<<<< HEAD
-<<<<<<< HEAD
+     * <<<<<<< HEAD
+     * <<<<<<< HEAD.
      *
      * @param mixed $url
-=======
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
+     *                   =======
+     *                   >>>>>>> 220cf97b (.)
+     *                   =======
+     *                   >>>>>>> laraxot/develop
      */
     protected function buildMailMessage($url): MailMessage
     {

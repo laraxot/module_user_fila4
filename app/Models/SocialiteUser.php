@@ -19,21 +19,21 @@ use Modules\Xot\Datas\XotData;
 
 /**
  * Modules\User\Models\SocialiteUser.
-<<<<<<< HEAD
-<<<<<<< HEAD
+ * <<<<<<< HEAD
+ * <<<<<<< HEAD.
  *
- * @property int $id
- * @property string $user_id
- * @property string $provider
- * @property string $provider_id
- * @property string|null $token
- * @property string|null $name
- * @property string|null $email
- * @property string|null $avatar
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $updated_by
- * @property string|null $created_by
+ * @property int               $id
+ * @property string            $user_id
+ * @property string            $provider
+ * @property string            $provider_id
+ * @property string|null       $token
+ * @property string|null       $name
+ * @property string|null       $email
+ * @property string|null       $avatar
+ * @property Carbon|null       $created_at
+ * @property Carbon|null       $updated_at
+ * @property string|null       $updated_by
+ * @property string|null       $created_by
  * @property UserContract|null $user
  *
  * @method static Builder|SocialiteUser newModelQuery()
@@ -62,9 +62,9 @@ use Modules\Xot\Datas\XotData;
  * @method static SocialiteUserFactory factory($count = null, $state = [])
  *
  * @mixin IdeHelperSocialiteUser
-=======
-=======
->>>>>>> laraxot/develop
+ * =======
+ * =======
+ * >>>>>>> laraxot/develop
  *
  * @property int               $id
  * @property string            $user_id
@@ -109,10 +109,11 @@ use Modules\Xot\Datas\XotData;
  *
  * @property ProfileContract|null $deleter
  *
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
+ * <<<<<<< HEAD
+ * >>>>>>> 220cf97b (.)
+ * =======
+ * >>>>>>> laraxot/develop
+ *
  * @mixin \Eloquent
  */
 class SocialiteUser extends BaseModel

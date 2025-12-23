@@ -18,15 +18,16 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static Builder|Membership newQuery()
  * @method static Builder|Membership query()
  *
-<<<<<<< HEAD
-<<<<<<< HEAD
- * @property int $id
-=======
+ * <<<<<<< HEAD
+ * <<<<<<< HEAD
+ *
  * @property int         $id
->>>>>>> 220cf97b (.)
-=======
+ *                                    =======
  * @property int         $id
->>>>>>> laraxot/develop
+ *                                    >>>>>>> 220cf97b (.)
+ *                                    =======
+ * @property int         $id
+ *                                    >>>>>>> laraxot/develop
  * @property string|null $team_id
  * @property string|null $user_id
  * @property Carbon|null $created_at
@@ -54,21 +55,22 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @property ProfileContract|null $updater
  *
  * @mixin IdeHelperMembership
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> laraxot/develop
+ * <<<<<<< HEAD
+ * <<<<<<< HEAD
+ * =======
+ * =======
+ * >>>>>>> laraxot/develop
  *
  * @property ProfileContract|null $deleter
  *
  * @method static \Modules\User\Database\Factories\MembershipFactory factory($count = null, $state = [])
  * @method static Builder<static>|Membership                         whereId($value)
  *
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
+ * <<<<<<< HEAD
+ * >>>>>>> 220cf97b (.)
+ * =======
+ * >>>>>>> laraxot/develop
+ *
  * @mixin \Eloquent
  */
 class Membership extends BasePivot

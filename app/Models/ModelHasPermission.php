@@ -17,15 +17,16 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string $model_type
  * @property string $model_id
  *
-<<<<<<< HEAD
-<<<<<<< HEAD
- * @method static ModelHasPermissionFactory factory($count = null, $state = [])
-=======
+ * <<<<<<< HEAD
+ * <<<<<<< HEAD
+ *
  * @method static ModelHasPermissionFactory  factory($count = null, $state = [])
->>>>>>> 220cf97b (.)
-=======
+ *                                                                               =======
  * @method static ModelHasPermissionFactory  factory($count = null, $state = [])
->>>>>>> laraxot/develop
+ *                                                                               >>>>>>> 220cf97b (.)
+ *                                                                               =======
+ * @method static ModelHasPermissionFactory  factory($count = null, $state = [])
+ *                                                                               >>>>>>> laraxot/develop
  * @method static Builder|ModelHasPermission newModelQuery()
  * @method static Builder|ModelHasPermission newQuery()
  * @method static Builder|ModelHasPermission query()
@@ -46,31 +47,31 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
-<<<<<<< HEAD
-<<<<<<< HEAD
- * @property string|null $team_id
-=======
+ *                                         <<<<<<< HEAD
+ *                                         <<<<<<< HEAD
  * @property string|null          $team_id
->>>>>>> 220cf97b (.)
-=======
+ *                                         =======
  * @property string|null          $team_id
->>>>>>> laraxot/develop
+ *                                         >>>>>>> 220cf97b (.)
+ *                                         =======
+ * @property string|null          $team_id
+ *                                         >>>>>>> laraxot/develop
  *
  * @method static Builder|ModelHasPermission whereTeamId($value)
  *
  * @mixin IdeHelperModelHasPermission
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+ * <<<<<<< HEAD
+ * <<<<<<< HEAD
+ * =======
  *
  * @property ProfileContract|null $deleter
  *
->>>>>>> 220cf97b (.)
-=======
- *
+ * >>>>>>> 220cf97b (.)
+ * =======
  * @property ProfileContract|null $deleter
  *
->>>>>>> laraxot/develop
+ * >>>>>>> laraxot/develop
+ *
  * @mixin \Eloquent
  */
 class ModelHasPermission extends BaseMorphPivot

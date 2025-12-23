@@ -19,21 +19,22 @@ use Spatie\SchemalessAttributes\SchemalessAttributes;
  * @method static Builder|Extra query()
  * @method static Builder|Extra withExtraAttributes()
  *
-<<<<<<< HEAD
-<<<<<<< HEAD
- * @property int $id
- * @property string $model_type
- * @property string $model_id
-=======
+ * <<<<<<< HEAD
+ * <<<<<<< HEAD
+ *
  * @property int         $id
  * @property string      $model_type
  * @property string      $model_id
->>>>>>> 220cf97b (.)
-=======
+ *                                   =======
  * @property int         $id
  * @property string      $model_type
  * @property string      $model_id
->>>>>>> laraxot/develop
+ *                                   >>>>>>> 220cf97b (.)
+ *                                   =======
+ * @property int         $id
+ * @property string      $model_type
+ * @property string      $model_id
+ *                                   >>>>>>> laraxot/develop
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
@@ -58,18 +59,18 @@ use Spatie\SchemalessAttributes\SchemalessAttributes;
  * @method static ExtraFactory factory($count = null, $state = [])
  *
  * @mixin IdeHelperExtra
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+ * <<<<<<< HEAD
+ * <<<<<<< HEAD
+ * =======
  *
  * @property ProfileContract|null $deleter
  *
->>>>>>> 220cf97b (.)
-=======
- *
+ * >>>>>>> 220cf97b (.)
+ * =======
  * @property ProfileContract|null $deleter
  *
->>>>>>> laraxot/develop
+ * >>>>>>> laraxot/develop
+ *
  * @mixin \Eloquent
  */
 final class Extra extends BaseExtra

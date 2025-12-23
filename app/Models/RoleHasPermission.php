@@ -36,18 +36,18 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property ProfileContract|null $updater
  *
  * @mixin IdeHelperRoleHasPermission
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+ * <<<<<<< HEAD
+ * <<<<<<< HEAD
+ * =======
  *
  * @property ProfileContract|null $deleter
  *
->>>>>>> 220cf97b (.)
-=======
- *
+ * >>>>>>> 220cf97b (.)
+ * =======
  * @property ProfileContract|null $deleter
  *
->>>>>>> laraxot/develop
+ * >>>>>>> laraxot/develop
+ *
  * @mixin \Eloquent
  */
 class RoleHasPermission extends BasePivot

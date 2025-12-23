@@ -41,18 +41,18 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|Feature whereValue($value)
  *
  * @mixin IdeHelperFeature
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+ * <<<<<<< HEAD
+ * <<<<<<< HEAD
+ * =======
  *
  * @property ProfileContract|null $deleter
  *
->>>>>>> 220cf97b (.)
-=======
- *
+ * >>>>>>> 220cf97b (.)
+ * =======
  * @property ProfileContract|null $deleter
  *
->>>>>>> laraxot/develop
+ * >>>>>>> laraxot/develop
+ *
  * @mixin \Eloquent
  */
 class Feature extends BaseModel

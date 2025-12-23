@@ -24,8 +24,8 @@ use Webmozart\Assert\Assert;
 
 /**
  * Modules\User\Models\Role.
-<<<<<<< HEAD
-<<<<<<< HEAD
+ * <<<<<<< HEAD
+ * <<<<<<< HEAD.
  *
  * @property string                                      $id
  * @property string                                      $uuid
@@ -68,9 +68,9 @@ use Webmozart\Assert\Assert;
  * @property PermissionRole|null $pivot
  *
  * @mixin IdeHelperRole
-=======
-=======
->>>>>>> laraxot/develop
+ * =======
+ * =======
+ * >>>>>>> laraxot/develop
  *
  * @property string                                      $id
  * @property string                                      $uuid
@@ -123,10 +123,11 @@ use Webmozart\Assert\Assert;
  * @method static static                                       firstOrCreate(array $attributes, array $values = [])
  * @method static static                                       updateOrCreate(array $attributes, array $values = [])
  *
-<<<<<<< HEAD
->>>>>>> 220cf97b (.)
-=======
->>>>>>> laraxot/develop
+ * <<<<<<< HEAD
+ * >>>>>>> 220cf97b (.)
+ * =======
+ * >>>>>>> laraxot/develop
+ *
  * @mixin \Eloquent
  */
 class Role extends SpatieRole

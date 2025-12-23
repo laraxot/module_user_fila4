@@ -43,15 +43,16 @@ final class ChangePasswordAction extends Action
                         ->rule(
                             'required',
                             /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-                             * @param  callable(string): mixed  $get
-=======
+                             * <<<<<<< HEAD
+                             * <<<<<<< HEAD.
+                             *
                              * @param callable(string): mixed $get
->>>>>>> 220cf97b (.)
-=======
+                             *                                     =======
                              * @param callable(string): mixed $get
->>>>>>> laraxot/develop
+                             *                                     >>>>>>> 220cf97b (.)
+                             *                                     =======
+                             * @param callable(string): mixed $get
+                             *                                     >>>>>>> laraxot/develop
                              */
                             static fn (callable $get): bool => (bool) $get('new_password')
                         )
