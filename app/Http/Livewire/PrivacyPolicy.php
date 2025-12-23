@@ -34,9 +34,18 @@ class PrivacyPolicy extends Component
         ];
         $view = view($view_name, $view_params);
 
+<<<<<<< HEAD
         $view->layout('filament::components.layouts.base', [
             'title' => __('filament-jet::registration.privacy_policy'),
         ]);
+=======
+        $view->layout(
+            'filament::components.layouts.base',
+            [
+                'title' => __('filament-jet::registration.privacy_policy'),
+            ]
+        );
+>>>>>>> fbc8f8e (.)
 
         return $view;
     }

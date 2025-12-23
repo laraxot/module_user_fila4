@@ -17,7 +17,10 @@ Aggiungi il tema al tuo `composer.json`:
 ```json
 {
     "require": {
+<<<<<<< HEAD
         "<nome progetto>/theme-one": "^1.0"
+=======
+>>>>>>> fbc8f8e (.)
         "saluteora/theme-one": "^1.0"
     }
 }
@@ -99,7 +102,10 @@ Personalizza la configurazione del tema in `config/theme.php`:
 ```php
 return [
     'name' => 'One',
+<<<<<<< HEAD
     'description' => 'Tema predefinito per ',
+=======
+>>>>>>> fbc8f8e (.)
     'description' => 'Tema predefinito per SaluteOra',
     'version' => '1.0.0',
     // ...

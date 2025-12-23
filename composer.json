@@ -49,9 +49,13 @@
         "socialiteproviders/auth0": "*",
         "spatie/laravel-personal-data-export": "*"
     },
+<<<<<<< HEAD
     "require-dev": {
         
     },
+=======
+    "require-dev": {},
+>>>>>>> fbc8f8e (.)
     "repositories": [
         {
             "type": "path",
@@ -88,4 +92,8 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fbc8f8e (.)
