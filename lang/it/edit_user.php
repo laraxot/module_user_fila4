@@ -1,9 +1,14 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 declare(strict_types=1);
 
 =======
+>>>>>>> laraxot/develop
+=======
+declare(strict_types=1);
+
 >>>>>>> laraxot/develop
 return [
     'actions' => [
