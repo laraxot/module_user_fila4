@@ -7,13 +7,16 @@ namespace Modules\User\Filament\Resources\ProfileResource\Pages;
 use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\ProfileResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
-use Override;
 
 class ListProfiles extends XotBaseListRecords
 {
     protected static string $resource = ProfileResource::class;
 
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableColumns(): array
     {
         return [

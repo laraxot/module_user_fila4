@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Seeder;
 use Modules\User\Models\AuthenticationLog;
 use Modules\User\Models\Device;
@@ -17,6 +19,10 @@ use Modules\User\Models\Role;
 use Modules\User\Models\SocialProvider;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
+<<<<<<< HEAD
+=======
+use Webmozart\Assert\Assert;
+>>>>>>> 220cf97b (.)
 
 /**
  * Seeder per creare grandi quantità di dati per il modulo User.
@@ -275,9 +281,19 @@ class UserMassSeeder extends Seeder
 
         try {
             // Conta utenti
+<<<<<<< HEAD
             /** @phpstan-ignore-next-line */
             $totalUsers = User::count();
             $verifiedUsers = User::whereNotNull('email_verified_at')->count();
+=======
+            $usersQuery = User::query();
+            Assert::isInstanceOf($usersQuery, Builder::class);
+            $totalUsers = $usersQuery->count();
+
+            $verifiedUsersQuery = User::query()->whereNotNull('email_verified_at');
+            Assert::isInstanceOf($verifiedUsersQuery, Builder::class);
+            $verifiedUsers = $verifiedUsersQuery->count();
+>>>>>>> 220cf97b (.)
 
             $this->command->info('│ 👥 Utenti totali:           '.
             str_pad((string) $totalUsers, 6, ' ', STR_PAD_LEFT).
@@ -287,20 +303,40 @@ class UserMassSeeder extends Seeder
                 ' │');
 
             // Conta profili
+<<<<<<< HEAD
             /** @phpstan-ignore-next-line - Static method returns proper count */
             $totalProfiles = Profile::count();
+=======
+            $profilesQuery = Profile::query();
+            Assert::isInstanceOf($profilesQuery, Builder::class);
+            $totalProfiles = $profilesQuery->count();
+>>>>>>> 220cf97b (.)
 
             $this->command->info('│ 👤 Profili totali:          '.
             str_pad((string) $totalProfiles, 6, ' ', STR_PAD_LEFT).
                 ' │');
 
             // Conta ruoli e permessi
+<<<<<<< HEAD
             /** @phpstan-ignore-next-line - Static method returns proper count */
             $totalRoles = Role::count();
             /** @phpstan-ignore-next-line - Static method returns proper count */
             $totalPermissions = Permission::count();
             /** @phpstan-ignore-next-line - Static method returns proper count */
             $totalTeams = Team::count();
+=======
+            $rolesQuery = Role::query();
+            Assert::isInstanceOf($rolesQuery, Builder::class);
+            $totalRoles = $rolesQuery->count();
+
+            $permissionsQuery = Permission::query();
+            Assert::isInstanceOf($permissionsQuery, Builder::class);
+            $totalPermissions = $permissionsQuery->count();
+
+            $teamsQuery = Team::query();
+            Assert::isInstanceOf($teamsQuery, Builder::class);
+            $totalTeams = $teamsQuery->count();
+>>>>>>> 220cf97b (.)
 
             $this->command->info('│ 🔐 Ruoli:                  '.
             str_pad((string) $totalRoles, 6, ' ', STR_PAD_LEFT).
@@ -313,12 +349,26 @@ class UserMassSeeder extends Seeder
                 ' │');
 
             // Conta log e dispositivi
+<<<<<<< HEAD
             /** @phpstan-ignore-next-line - Static method returns proper count */
             $totalLogs = AuthenticationLog::count();
             /** @phpstan-ignore-next-line - Static method returns proper count */
             $totalDevices = Device::count();
             /** @phpstan-ignore-next-line - Static method returns proper count */
             $totalProviders = SocialProvider::count();
+=======
+            $logsQuery = AuthenticationLog::query();
+            Assert::isInstanceOf($logsQuery, Builder::class);
+            $totalLogs = $logsQuery->count();
+
+            $devicesQuery = Device::query();
+            Assert::isInstanceOf($devicesQuery, Builder::class);
+            $totalDevices = $devicesQuery->count();
+
+            $providersQuery = SocialProvider::query();
+            Assert::isInstanceOf($providersQuery, Builder::class);
+            $totalProviders = $providersQuery->count();
+>>>>>>> 220cf97b (.)
 
             $this->command->info('│ 📝 Log autenticazione:      '.
             str_pad((string) $totalLogs, 6, ' ', STR_PAD_LEFT).

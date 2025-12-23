@@ -10,7 +10,6 @@ use Filament\Forms\Components\TextInput;
 use Modules\User\Filament\Resources\BaseProfileResource\Pages\ListProfiles;
 use Modules\User\Models\BaseProfile;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-use Override;
 
 abstract class BaseProfileResource extends XotBaseResource
 {
@@ -20,7 +19,7 @@ abstract class BaseProfileResource extends XotBaseResource
 
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-users';
 
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
@@ -46,13 +45,13 @@ abstract class BaseProfileResource extends XotBaseResource
         ];
     }
 
-    #[Override]
+    #[\Override]
     public static function getRelations(): array
     {
         return [];
     }
 
-    #[Override]
+    #[\Override]
     public static function getPages(): array
     {
         return [

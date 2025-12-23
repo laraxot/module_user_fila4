@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+<<<<<<< HEAD
 use Exception;
 use BackedEnum;
+=======
+>>>>>>> 220cf97b (.)
 use Filament\Support\Components\Component;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
@@ -99,7 +102,11 @@ class EditUserWidget extends XotBaseWidget
                 /** @var array<string, mixed> $result */
                 $result = $model->getAttributes();
                 // Gestisci specificamente gli enum se presenti
+<<<<<<< HEAD
                 if (isset($result['type']) && ($model->type ?? null) instanceof BackedEnum) {
+=======
+                if (isset($result['type']) && ($model->type ?? null) instanceof \BackedEnum) {
+>>>>>>> 220cf97b (.)
                     $result['type'] = $model->type->value;
                 }
 

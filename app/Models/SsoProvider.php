@@ -4,30 +4,44 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
 use Modules\Xot\Models\Traits\HasXotFactory;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+=======
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+>>>>>>> 220cf97b (.)
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Carbon;
+use Modules\Xot\Models\Traits\HasXotFactory;
 
 /**
  * Modules\User\Models\SsoProvider.
  *
- * @property int $id
- * @property string $name
- * @property string $display_name
- * @property string $type
+ * @property int         $id
+ * @property string      $name
+ * @property string      $display_name
+ * @property string      $type
  * @property string|null $entity_id
  * @property string|null $client_id
  * @property string|null $client_secret
  * @property string|null $redirect_url
  * @property string|null $metadata_url
  * @property string|null $scopes
+<<<<<<< HEAD
  * @property array|null $settings
  * @property array|null $domain_whitelist
  * @property array|null $role_mapping
  * @property bool $is_active
+=======
+ * @property array|null  $settings
+ * @property array|null  $domain_whitelist
+ * @property array|null  $role_mapping
+ * @property bool        $is_active
+>>>>>>> 220cf97b (.)
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $created_by
@@ -35,8 +49,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  *
  * @mixin IdeHelperSsoProvider
  *
+<<<<<<< HEAD
  * @property-read Collection<int, User> $users
  * @property-read int|null $users_count
+=======
+ * @property Collection<int, User> $users
+ * @property int|null              $users_count
+>>>>>>> 220cf97b (.)
  *
  * @method static Builder<static>|SsoProvider newModelQuery()
  * @method static Builder<static>|SsoProvider newQuery()
@@ -60,6 +79,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static Builder<static>|SsoProvider whereUpdatedAt($value)
  * @method static Builder<static>|SsoProvider whereUpdatedBy($value)
  *
+<<<<<<< HEAD
+=======
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
+ * @method static \Modules\User\Database\Factories\SsoProviderFactory factory($count = null, $state = [])
+ *
+>>>>>>> 220cf97b (.)
  * @mixin \Eloquent
  */
 class SsoProvider extends BaseModel
@@ -90,14 +118,17 @@ class SsoProvider extends BaseModel
     /**
      * The attributes that should be cast.
      *
-     * @var array<string, string>
+     * @return array<string, string>
      */
-    protected $casts = [
-        'settings' => 'array',
-        'domain_whitelist' => 'array',
-        'role_mapping' => 'array',
-        'is_active' => 'boolean',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'settings' => 'array',
+            'domain_whitelist' => 'array',
+            'role_mapping' => 'array',
+            'is_active' => 'boolean',
+        ];
+    }
 
     /**
      * Get all users associated with this SSO provider.
@@ -117,7 +148,7 @@ class SsoProvider extends BaseModel
         }
 
         $atPos = strrchr($email, '@');
-        if ($atPos === false) {
+        if (false === $atPos) {
             return false;
         }
 
@@ -129,7 +160,8 @@ class SsoProvider extends BaseModel
     /**
      * Map SAML/OIDC roles to application roles.
      *
-     * @param  array<string>  $samlRoles
+     * @param array<string> $samlRoles
+     *
      * @return list<string>
      */
     public function mapRoles(array $samlRoles): array

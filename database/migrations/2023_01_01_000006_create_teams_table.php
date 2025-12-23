@@ -17,6 +17,14 @@ return new class extends XotBaseMigration
     protected ?string $model_class = Team::class;
 
     /**
+<<<<<<< HEAD
+=======
+     * Nome della tabella gestita dalla migrazione.
+     */
+    protected string $table_name = 'teams';
+
+    /**
+>>>>>>> 220cf97b (.)
      * Esegue la migrazione.
      */
     public function up(): void

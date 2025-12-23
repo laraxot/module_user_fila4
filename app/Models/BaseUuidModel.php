@@ -15,10 +15,15 @@ use Modules\Xot\Traits\Updater;
  */
 abstract class BaseUuidModel extends XotBaseUuidModel
 {
+    use HasUuids;
+
     // use Searchable;
     // //use Cachable;
     use HasXotFactory;
+<<<<<<< HEAD
     use HasUuids;
+=======
+>>>>>>> 220cf97b (.)
     use Updater;
 
     /**

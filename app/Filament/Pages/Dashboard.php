@@ -8,18 +8,22 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages;
 
+<<<<<<< HEAD
 use Filament\Forms\Components\DatePicker;
+=======
+>>>>>>> 220cf97b (.)
 use Filament\Widgets\Widget;
 use Filament\Widgets\WidgetConfiguration;
 use Modules\User\Filament\Widgets\RecentLoginsWidget;
 use Modules\User\Filament\Widgets\UsersChartWidget;
 use Modules\Xot\Filament\Pages\XotBaseDashboard;
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> 220cf97b (.)
 
 class Dashboard extends XotBaseDashboard
 {
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-home';
-
     // protected static string $routePath = 'finance';
     // protected static ?string $title = 'Finance dashboard';
     // protected static ?int $navigationSort = 15;
@@ -37,6 +41,7 @@ class Dashboard extends XotBaseDashboard
             RecentLoginsWidget::class,
         ];
     }
+<<<<<<< HEAD
 
     #[Override]
     public function getFiltersFormSchema(): array
@@ -49,4 +54,6 @@ class Dashboard extends XotBaseDashboard
             // ->maxDate(now()),
         ];
     }
+=======
+>>>>>>> 220cf97b (.)
 }

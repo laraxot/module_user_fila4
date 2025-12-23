@@ -13,11 +13,18 @@ use Modules\User\Models\Role;
 use Modules\User\Models\User;
 
 beforeEach(function () {
+<<<<<<< HEAD
     $this->user = User::factory()->create([
+=======
+    $user = User::factory()->create([
+>>>>>>> 220cf97b (.)
         'password' => Hash::make('password123'),
         'is_active' => true,
         'email_verified_at' => now(),
     ]);
+    \assert($user instanceof User);
+    \assert($user instanceof User);
+    $this->user = $user;
 });
 
 describe('User Authentication', function () {
@@ -52,10 +59,16 @@ describe('User Authentication', function () {
     });
 
     it('cannot authenticate inactive user', function () {
+<<<<<<< HEAD
+=======
+        /** @var User $inactiveUser */
+        /** @var User $inactiveUser */
+>>>>>>> 220cf97b (.)
         $inactiveUser = User::factory()->create([
             'password' => Hash::make('password123'),
             'is_active' => false,
         ]);
+        \assert($inactiveUser instanceof User);
 
         $result = Auth::attempt([
             'email' => $inactiveUser->email,
@@ -76,9 +89,15 @@ describe('User Authentication', function () {
 
 describe('User Password Management', function () {
     it('can hash password on creation', function () {
+<<<<<<< HEAD
+=======
+        /** @var User $user */
+        /** @var User $user */
+>>>>>>> 220cf97b (.)
         $user = User::factory()->create([
             'password' => Hash::make('testpassword'),
         ]);
+        \assert($user instanceof User);
 
         expect(Hash::check('testpassword', $user->password))->toBe(true);
     });
@@ -94,9 +113,15 @@ describe('User Password Management', function () {
     });
 
     it('can check password expiration', function () {
+<<<<<<< HEAD
+=======
+        /** @var User $user */
+        /** @var User $user */
+>>>>>>> 220cf97b (.)
         $user = User::factory()->create([
             'password_expires_at' => now()->subDays(1),
         ]);
+        \assert($user instanceof User);
 
         expect($user->password_expires_at->isPast())->toBe(true);
     });
@@ -137,9 +162,14 @@ describe('User Remember Token', function () {
 
 describe('User Email Verification', function () {
     it('can mark email as verified', function () {
+<<<<<<< HEAD
+=======
+        /** @var User $user */
+>>>>>>> 220cf97b (.)
         $user = User::factory()->create([
             'email_verified_at' => null,
         ]);
+        \assert($user instanceof User);
 
         expect($user->email_verified_at)->toBeNull();
 
@@ -149,22 +179,37 @@ describe('User Email Verification', function () {
     });
 
     it('can check if email is verified', function () {
+<<<<<<< HEAD
+=======
+        /** @var User $verifiedUser */
+>>>>>>> 220cf97b (.)
         $verifiedUser = User::factory()->create([
             'email_verified_at' => now(),
         ]);
+        \assert($verifiedUser instanceof User);
 
+<<<<<<< HEAD
+=======
+        /** @var User $unverifiedUser */
+>>>>>>> 220cf97b (.)
         $unverifiedUser = User::factory()->create([
             'email_verified_at' => null,
         ]);
+        \assert($unverifiedUser instanceof User);
 
         expect($verifiedUser->hasVerifiedEmail())->toBe(true);
         expect($unverifiedUser->hasVerifiedEmail())->toBe(false);
     });
 
     it('can send email verification notification', function () {
+<<<<<<< HEAD
+=======
+        /** @var User $user */
+>>>>>>> 220cf97b (.)
         $user = User::factory()->create([
             'email_verified_at' => null,
         ]);
+        \assert($user instanceof User);
 
         Notification::fake();
 
@@ -311,10 +356,15 @@ describe('User Two Factor Authentication', function () {
     });
 
     it('handles otp authentication workflow', function () {
+<<<<<<< HEAD
+=======
+        /** @var User $user */
+>>>>>>> 220cf97b (.)
         $user = User::factory()->create([
             'is_otp' => true,
             'password' => Hash::make('password123'),
         ]);
+        \assert($user instanceof User);
 
         // First step: password authentication
         $result = Auth::attempt([

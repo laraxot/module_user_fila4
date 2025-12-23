@@ -20,4 +20,7 @@ class MockUserWithTeams extends Model
         return 1;
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 220cf97b (.)

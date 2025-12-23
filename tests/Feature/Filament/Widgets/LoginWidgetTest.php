@@ -10,6 +10,8 @@ use Tests\TestCase;
 
 use function Pest\Laravel\assertAuthenticatedAs;
 
+use Tests\TestCase;
+
 uses(TestCase::class);
 
 beforeEach(function (): void {

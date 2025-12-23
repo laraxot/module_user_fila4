@@ -14,6 +14,7 @@ use Modules\User\Http\Livewire\Auth\Passwords\Email;
 use Modules\User\Http\Livewire\Auth\Passwords\Reset;
 use Modules\User\Http\Livewire\Auth\Register;
 use Modules\User\Http\Livewire\Auth\Verify;
+use Webmozart\Assert\Assert;
 
 /*
  * |--------------------------------------------------------------------------
@@ -47,21 +48,23 @@ Route::prefix('{lang}')->group(function (): void {
     Route::middleware('auth')
         ->namespace('\Modules\User\Http\Livewire\Auth')
         ->group(static function (): void {
-            Route::get('email/verify', Verify::class)
-                ->middleware('throttle:6,1')
-                ->name('verification.notice');
+            $route = Route::get('email/verify', Verify::class);
+            Assert::isInstanceOf($route, Illuminate\Routing\Route::class);
+            $route->middleware('throttle:6,1');
+            $route->name('verification.notice');
 
-            Route::get('password/confirm', Confirm::class)->name(
-                'password.confirm',
-            );
+            $route = Route::get('password/confirm', Confirm::class);
+            Assert::isInstanceOf($route, Illuminate\Routing\Route::class);
+            $route->name('password.confirm');
         });
 
     Route::middleware('auth')
         // ->namespace('\Modules\User\Http\Livewire\Auth')
         ->group(static function (): void {
-            Route::get('email/verify/{id}/{hash}', EmailVerificationController::class)
-                ->middleware('signed')
-                ->name('verification.verify');
+            $route = Route::get('email/verify/{id}/{hash}', EmailVerificationController::class);
+            Assert::isInstanceOf($route, Illuminate\Routing\Route::class);
+            $route->middleware('signed');
+            $route->name('verification.verify');
 
             Route::match(['get', 'post'], 'logout', LogoutController::class)->name('logout');
         });

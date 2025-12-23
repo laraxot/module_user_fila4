@@ -57,7 +57,11 @@ final class ChangePasswordHeaderAction extends Action
                         ->rule(
                             'required',
                             /**
+<<<<<<< HEAD
                              * @param  callable(string): mixed  $get
+=======
+                             * @param callable(string): mixed $get
+>>>>>>> 220cf97b (.)
                              */
                             static fn (callable $get): bool => (bool) $get('new_password')
                         )

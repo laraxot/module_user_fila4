@@ -9,12 +9,19 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
 use DateTimeInterface;
+=======
+>>>>>>> 220cf97b (.)
 use Carbon\CarbonInterface;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
+<<<<<<< HEAD
+=======
+use Illuminate\Database\Eloquent\Model;
+>>>>>>> 220cf97b (.)
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\HtmlString;
 use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
@@ -26,7 +33,7 @@ abstract class BaseUserResource extends XotBaseResource
 {
     // protected static ?string $model = \Modules\Xot\Datas\XotData::make()->getUserClass();
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-users';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-users';
 
     // Static property Modules\User\Filament\Resources\UserResource::$enablePasswordUpdates is never read, only written.
     // private static bool|\Closure $enablePasswordUpdates = true;
@@ -43,7 +50,7 @@ abstract class BaseUserResource extends XotBaseResource
     //    static::$extendFormCallback = $callback;
     // }
 
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
@@ -63,11 +70,19 @@ abstract class BaseUserResource extends XotBaseResource
             ])->columnSpan(8),
             'section02' => Section::make([
                 'created_at' => Placeholder::make('created_at')->content(static function ($record) {
+<<<<<<< HEAD
                     if ($record === null || ! $record instanceof Model) {
                         return new HtmlString('&mdash;');
                     }
 
                     if (! isset($record->created_at) || ! ($record->created_at instanceof DateTimeInterface)) {
+=======
+                    if (null === $record || ! $record instanceof Model) {
+                        return new HtmlString('&mdash;');
+                    }
+
+                    if (! isset($record->created_at) || ! ($record->created_at instanceof \DateTimeInterface)) {
+>>>>>>> 220cf97b (.)
                         return new HtmlString('&mdash;');
                     }
 
@@ -91,7 +106,7 @@ abstract class BaseUserResource extends XotBaseResource
      * }
      */
 
-    #[Override]
+    #[\Override]
     public function hasCombinedRelationManagerTabsWithContent(): bool
     {
         return true;

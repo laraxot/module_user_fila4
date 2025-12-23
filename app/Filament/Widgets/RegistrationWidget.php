@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> 220cf97b (.)
 use Filament\Schemas\Components\Component;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
@@ -102,7 +105,11 @@ class RegistrationWidget extends XotBaseWidget
     /**
      * @return array<string, mixed>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getFormFill(): array
     {
         /** @var array<string, mixed> $data */
@@ -115,7 +122,11 @@ class RegistrationWidget extends XotBaseWidget
     /**
      * @return array<int|string, Component>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getFormSchema(): array
     {
         /** @var array<int|string, Component> $schema */

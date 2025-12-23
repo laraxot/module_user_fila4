@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+<<<<<<< HEAD
 use Exception;
+=======
+>>>>>>> 220cf97b (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Grid;
@@ -17,8 +20,11 @@ use Illuminate\Validation\ValidationException;
 use Modules\User\Models\User;
 use Modules\Xot\Actions\Cast\SafeStringCastAction;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
+<<<<<<< HEAD
 use Override;
 use RuntimeException;
+=======
+>>>>>>> 220cf97b (.)
 
 class RegisterWidget extends XotBaseWidget
 {
@@ -42,7 +48,11 @@ class RegisterWidget extends XotBaseWidget
         ]);
     }
 
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getFormSchema(): array
     {
         return [
@@ -128,7 +138,7 @@ class RegisterWidget extends XotBaseWidget
             $this->handleSuccessfulRegistration($user);
         } catch (ValidationException $e) {
             throw $e;
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->handleRegistrationError($e);
         }
     }
@@ -203,7 +213,7 @@ class RegisterWidget extends XotBaseWidget
         $this->redirect(route('dashboard'));
     }
 
-    protected function handleRegistrationError(Exception $e): void
+    protected function handleRegistrationError(\Exception $e): void
     {
         Log::error('Registration failed: '.$e->getMessage(), [
             'exception' => $e,
@@ -212,6 +222,6 @@ class RegisterWidget extends XotBaseWidget
             'user_agent' => request()->userAgent(),
         ]);
 
-        throw new RuntimeException(__('user::auth.registration.error_occurred'));
+        throw new \RuntimeException(__('user::auth.registration.error_occurred'));
     }
 }

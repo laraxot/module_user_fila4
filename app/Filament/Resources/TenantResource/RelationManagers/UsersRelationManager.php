@@ -11,7 +11,6 @@ use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Modules\Xot\Filament\Traits\HasXotTable;
-use Override;
 
 class UsersRelationManager extends XotBaseRelationManager
 {
@@ -24,7 +23,11 @@ class UsersRelationManager extends XotBaseRelationManager
     /**
      * @return array<Component>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getFormSchema(): array
     {
         return [
@@ -37,14 +40,22 @@ class UsersRelationManager extends XotBaseRelationManager
             DateTimePicker::make('email_verified_at')->nullable(),
             TextInput::make('password')
                 ->password()
+<<<<<<< HEAD
                 ->required(fn ($context) => $context === 'create')
+=======
+                ->required(fn ($context) => 'create' === $context)
+>>>>>>> 220cf97b (.)
                 ->minLength(8)
                 ->same('password_confirmation')
                 ->dehydrated(filled(...))
                 ->dehydrateStateUsing(bcrypt(...)),
             TextInput::make('password_confirmation')
                 ->password()
+<<<<<<< HEAD
                 ->required(fn ($context) => $context === 'create')
+=======
+                ->required(fn ($context) => 'create' === $context)
+>>>>>>> 220cf97b (.)
                 ->minLength(8),
         ];
     }
@@ -52,7 +63,11 @@ class UsersRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Column>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableColumns(): array
     {
         return [

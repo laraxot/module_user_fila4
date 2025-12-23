@@ -10,14 +10,17 @@ namespace Modules\User\Filament\Resources\TenantResource\Pages;
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Resources\TenantResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
-use Throwable;
 
 class CreateTenant extends XotBaseCreateRecord
 {
     protected static string $resource = TenantResource::class;
 
     /**
+<<<<<<< HEAD
      * @throws Throwable
+=======
+     * @throws \Throwable
+>>>>>>> 220cf97b (.)
      */
     protected function handleRecordCreation(array $data): Model
     {

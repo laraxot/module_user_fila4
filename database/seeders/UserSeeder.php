@@ -6,6 +6,7 @@ namespace Modules\User\Database\Seeders;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Modules\User\Models\Permission;

@@ -37,4 +37,8 @@ return [
     'navigation' => [
         'group' => 'Custom CSS',
     ],
+<<<<<<< HEAD
 ];
+=======
+];
+>>>>>>> 220cf97b (.)

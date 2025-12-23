@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Observers;
 
+<<<<<<< HEAD
 use Throwable;
+=======
+>>>>>>> 220cf97b (.)
 use Illuminate\Support\Facades\Log;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
+use Webmozart\Assert\Assert;
 
 /**
  * Observer per gestire eventi del modello User.
@@ -32,7 +36,7 @@ class UserObserver
         }
 
         // Evita di creare team duplicati
-        if ($user->personalTeam() !== null) {
+        if (null !== $user->personalTeam()) {
             return;
         }
 
@@ -44,8 +48,15 @@ class UserObserver
                 'personal_team' => true,
             ]);
 
+            Assert::isInstanceOf($personalTeam, Team::class);
+
             // Imposta come current team
+<<<<<<< HEAD
             $user->current_team_id = is_int($personalTeam->id) ? $personalTeam->id : (int) $personalTeam->id;
+=======
+            $teamId = $personalTeam->id;
+            $user->current_team_id = is_numeric($teamId) ? (int) $teamId : null;
+>>>>>>> 220cf97b (.)
             $user->saveQuietly(); // Evita di triggerare eventi ricorsivi
         } catch (Throwable $e) {
             // Log dell'errore ma non bloccare la creazione dell'utente
@@ -66,11 +77,14 @@ class UserObserver
         // Se l'utente ha un personal team, eliminalo
         $personalTeam = $user->personalTeam();
 
-        if ($personalTeam !== null) {
+        if ($personalTeam instanceof Team) {
             try {
-                // @phpstan-ignore-next-line - delete() method exists on Model
                 $personalTeam->delete();
+<<<<<<< HEAD
             } catch (Throwable $e) {
+=======
+            } catch (\Throwable $e) {
+>>>>>>> 220cf97b (.)
                 Log::error('Failed to delete personal team for user', [
                     'user_id' => $user->id,
                     'team_id' => $personalTeam->id,

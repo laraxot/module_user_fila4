@@ -2,17 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Modules\User\Tests\Unit\Models;
-
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\User\Models\Role;
 use Modules\User\Models\Team;
-use Tests\TestCase;
+use Modules\User\Tests\TestCase;
 
-class RoleTest extends TestCase
-{
-    use RefreshDatabase;
+uses(TestCase::class);
 
+<<<<<<< HEAD
     public function test_can_create_role_with_minimal_data(): void
     {
         $role = Role::factory()->create([
@@ -30,14 +26,30 @@ class RoleTest extends TestCase
     public function test_can_create_role_with_all_fields(): void
     {
         $team = Team::factory()->create();
+=======
+test('can create role with minimal data', function (): void {
+    $role = Role::factory()->create([
+        'name' => 'Test Role',
+        'guard_name' => 'web',
+    ]);
 
-        $roleData = [
-            'name' => 'Full Role',
-            'guard_name' => 'web',
-            'team_id' => $team->id,
-            'uuid' => '550e8400-e29b-41d4-a716-446655440000',
-        ];
+    expect($role->id)->not->toBeNull();
+    expect($role->name)->toBe('Test Role');
+    expect($role->guard_name)->toBe('web');
+});
 
+test('can create role with all fields', function (): void {
+    $team = Team::factory()->create();
+>>>>>>> 220cf97b (.)
+
+    $roleData = [
+        'name' => 'Full Role',
+        'guard_name' => 'web',
+        'team_id' => $team->id,
+        'uuid' => '550e8400-e29b-41d4-a716-446655440000',
+    ];
+
+<<<<<<< HEAD
         $role = Role::factory()->create($roleData);
 
         $this->assertDatabaseHas('roles', [
@@ -48,46 +60,66 @@ class RoleTest extends TestCase
             'uuid' => '550e8400-e29b-41d4-a716-446655440000',
         ]);
     }
+=======
+    $role = Role::factory()->create($roleData);
 
-    public function test_role_has_connection_attribute(): void
-    {
-        $role = new Role;
+    expect($role->id)->not->toBeNull();
+    expect($role->name)->toBe('Full Role');
+    expect($role->guard_name)->toBe('web');
+    expect($role->team_id)->toBe($team->id);
+    expect($role->uuid)->toBe('550e8400-e29b-41d4-a716-446655440000');
+});
+>>>>>>> 220cf97b (.)
 
-        static::assertSame('user', $role->connection);
-    }
+test('role has connection attribute', function (): void {
+    $role = new Role();
 
-    public function test_role_has_key_type_attribute(): void
-    {
-        $role = new Role;
+    expect($role->connection)->toBe('user');
+});
 
-        static::assertSame('string', $role->keyType);
-    }
+test('role has key type attribute', function (): void {
+    $role = new Role();
 
-    public function test_role_constants_are_defined(): void
-    {
-        static::assertSame(1, Role::ROLE_ADMINISTRATOR);
-        static::assertSame(2, Role::ROLE_OWNER);
-        static::assertSame(3, Role::ROLE_USER);
-    }
+    expect($role->keyType)->toBe('string');
+});
 
+test('role constants are defined', function (): void {
+    expect(Role::ROLE_ADMINISTRATOR)->toBe(1);
+    expect(Role::ROLE_OWNER)->toBe(2);
+    expect(Role::ROLE_USER)->toBe(3);
+});
+
+<<<<<<< HEAD
     public function test_can_find_role_by_name(): void
     {
         $role = Role::factory()->create(['name' => 'Unique Role Name']);
+=======
+test('can find role by name', function (): void {
+    $role = Role::factory()->create(['name' => 'Unique Role Name']);
+>>>>>>> 220cf97b (.)
 
-        $foundRole = Role::where('name', 'Unique Role Name')->first();
+    $foundRole = Role::where('name', 'Unique Role Name')->first();
 
-        static::assertNotNull($foundRole);
-        static::assertSame($role->id, $foundRole->id);
-    }
+    expect($foundRole)->not->toBeNull();
+    expect($foundRole->id)->toBe($role->id);
+});
 
+<<<<<<< HEAD
     public function test_can_find_role_by_guard_name(): void
     {
         Role::factory()->create(['guard_name' => 'web']);
         Role::factory()->create(['guard_name' => 'api']);
         Role::factory()->create(['guard_name' => 'web']);
+=======
+test('can find role by guard name', function (): void {
+    Role::factory()->create(['guard_name' => 'web']);
+    Role::factory()->create(['guard_name' => 'api']);
+    Role::factory()->create(['guard_name' => 'web']);
+>>>>>>> 220cf97b (.)
 
-        $webRoles = Role::where('guard_name', 'web')->get();
+    $webRoles = Role::where('guard_name', 'web')->get();
 
+<<<<<<< HEAD
         static::assertCount(2, $webRoles);
         static::assertTrue($webRoles->every(fn ($role) => $role->guard_name === 'web'));
     }
@@ -96,32 +128,55 @@ class RoleTest extends TestCase
     {
         $team = Team::factory()->create();
         $role = Role::factory()->create(['team_id' => $team->id]);
+=======
+    expect($webRoles->count())->toBeGreaterThanOrEqual(2);
+    expect($webRoles->every(fn ($role) => 'web' === $role->guard_name))->toBeTrue();
+});
 
-        $foundRole = Role::where('team_id', $team->id)->first();
+test('can find role by team id', function (): void {
+    $team = Team::factory()->create();
+    $role = Role::factory()->create(['team_id' => $team->id]);
+>>>>>>> 220cf97b (.)
 
-        static::assertNotNull($foundRole);
-        static::assertSame($role->id, $foundRole->id);
-    }
+    $foundRole = Role::where('team_id', $team->id)->first();
 
+    expect($foundRole)->not->toBeNull();
+    expect($foundRole->id)->toBe($role->id);
+});
+
+<<<<<<< HEAD
     public function test_can_find_role_by_uuid(): void
     {
         $uuid = '550e8400-e29b-41d4-a716-446655440000';
         $role = Role::factory()->create(['uuid' => $uuid]);
+=======
+test('can find role by uuid', function (): void {
+    $uuid = '550e8400-e29b-41d4-a716-446655440000';
+    $role = Role::factory()->create(['uuid' => $uuid]);
+>>>>>>> 220cf97b (.)
 
-        $foundRole = Role::where('uuid', $uuid)->first();
+    $foundRole = Role::where('uuid', $uuid)->first();
 
-        static::assertNotNull($foundRole);
-        static::assertSame($role->id, $foundRole->id);
-    }
+    expect($foundRole)->not->toBeNull();
+    expect($foundRole->id)->toBe($role->id);
+});
 
+<<<<<<< HEAD
     public function test_can_find_roles_by_name_pattern(): void
     {
         Role::factory()->create(['name' => 'Admin Role']);
         Role::factory()->create(['name' => 'User Role']);
         Role::factory()->create(['name' => 'Manager Role']);
+=======
+test('can find roles by name pattern', function (): void {
+    Role::factory()->create(['name' => 'Admin Role']);
+    Role::factory()->create(['name' => 'User Role']);
+    Role::factory()->create(['name' => 'Manager Role']);
+>>>>>>> 220cf97b (.)
 
-        $adminRoles = Role::where('name', 'like', '%Role%')->get();
+    $adminRoles = Role::where('name', 'like', '%Role%')->get();
 
+<<<<<<< HEAD
         static::assertCount(3, $adminRoles);
         static::assertTrue($adminRoles->every(fn ($role) => str_contains($role->name, 'Role')));
     }
@@ -168,9 +223,49 @@ class RoleTest extends TestCase
             'guard_name' => 'api',
             'team_id' => $team->id,
         ]);
+=======
+    expect($adminRoles->count())->toBeGreaterThanOrEqual(3);
+    expect($adminRoles->every(fn ($role) => str_contains($role->name, 'Role')))->toBeTrue();
+});
 
-        $roles = Role::where('team_id', $team->id)->where('guard_name', 'web')->get();
+test('can update role', function (): void {
+    $role = Role::factory()->create(['name' => 'Old Name']);
 
+    $role->update(['name' => 'New Name']);
+
+    expect($role->fresh()->name)->toBe('New Name');
+});
+
+test('can handle null values', function (): void {
+    $role = Role::factory()->create([
+        'name' => 'Test Role',
+        'guard_name' => 'web',
+        'team_id' => null,
+        'uuid' => null,
+    ]);
+
+    expect($role->team_id)->toBeNull();
+    expect($role->uuid)->toBeNull();
+});
+
+test('can find roles by multiple criteria', function (): void {
+    $team = Team::factory()->create();
+    Role::factory()->create([
+        'name' => 'Admin Role',
+        'guard_name' => 'web',
+        'team_id' => $team->id,
+    ]);
+
+    Role::factory()->create([
+        'name' => 'User Role',
+        'guard_name' => 'api',
+        'team_id' => $team->id,
+    ]);
+>>>>>>> 220cf97b (.)
+
+    $roles = Role::where('team_id', $team->id)->where('guard_name', 'web')->get();
+
+<<<<<<< HEAD
         static::assertCount(1, $roles);
         static::assertSame('Admin Role', $roles->first()->name);
         static::assertSame('web', $roles->first()->guard_name);
@@ -179,37 +274,65 @@ class RoleTest extends TestCase
     public function test_role_has_permissions_relationship(): void
     {
         $role = Role::factory()->create();
+=======
+    expect($roles->count())->toBeGreaterThanOrEqual(1);
+    expect($roles->first()->name)->toBe('Admin Role');
+    expect($roles->first()->guard_name)->toBe('web');
+});
 
-        static::assertTrue(method_exists($role, 'permissions'));
-    }
+test('role has permissions relationship', function (): void {
+    $role = Role::factory()->create();
+>>>>>>> 220cf97b (.)
 
+    expect(method_exists($role, 'permissions'))->toBeTrue();
+});
+
+<<<<<<< HEAD
     public function test_role_has_team_relationship(): void
     {
         $role = Role::factory()->create();
+=======
+test('role has team relationship', function (): void {
+    $role = Role::factory()->create();
+>>>>>>> 220cf97b (.)
 
-        static::assertTrue(method_exists($role, 'team'));
-    }
+    expect(method_exists($role, 'team'))->toBeTrue();
+});
 
+<<<<<<< HEAD
     public function test_role_has_users_relationship(): void
     {
         $role = Role::factory()->create();
+=======
+test('role has users relationship', function (): void {
+    $role = Role::factory()->create();
+>>>>>>> 220cf97b (.)
 
-        static::assertTrue(method_exists($role, 'users'));
-    }
+    expect(method_exists($role, 'users'))->toBeTrue();
+});
 
+<<<<<<< HEAD
     public function test_role_can_use_permission_scopes(): void
     {
         $role = Role::factory()->create();
+=======
+test('role can use permission scopes', function (): void {
+    $role = Role::factory()->create();
+>>>>>>> 220cf97b (.)
 
-        static::assertTrue(method_exists($role, 'permission'));
-        static::assertTrue(method_exists($role, 'withoutPermission'));
-    }
+    expect(method_exists($role, 'permission'))->toBeTrue();
+    expect(method_exists($role, 'withoutPermission'))->toBeTrue();
+});
 
+<<<<<<< HEAD
     public function test_role_can_use_role_scopes(): void
     {
         $role = Role::factory()->create();
+=======
+test('role can use role scopes', function (): void {
+    $role = Role::factory()->create();
+>>>>>>> 220cf97b (.)
 
-        static::assertTrue(method_exists($role, 'role'));
-        static::assertTrue(method_exists($role, 'withoutRole'));
-    }
-}
+    expect(method_exists($role, 'role'))->toBeTrue();
+    expect(method_exists($role, 'withoutRole'))->toBeTrue();
+});

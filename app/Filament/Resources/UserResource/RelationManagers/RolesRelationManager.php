@@ -23,7 +23,11 @@ class RolesRelationManager extends XotBaseRelationManager
     // protected function mutateFormDataBeforeCreate(array $data): array
     // {
     // }
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getFormSchema(): array
     {
         return [
@@ -36,7 +40,11 @@ class RolesRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Column>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableColumns(): array
     {
         return [
@@ -49,7 +57,11 @@ class RolesRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Action>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableHeaderActions(): array
     {
         $xotData = XotData::make();

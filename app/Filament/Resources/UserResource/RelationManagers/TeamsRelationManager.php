@@ -13,6 +13,10 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+<<<<<<< HEAD
+=======
+use Illuminate\Database\Eloquent\Model;
+>>>>>>> 220cf97b (.)
 use Modules\User\Models\User;
 
 class TeamsRelationManager extends RelationManager
@@ -29,7 +33,11 @@ class TeamsRelationManager extends RelationManager
                     ->boolean()
                     ->default(function ($record, $livewire): bool {
                         /**
+<<<<<<< HEAD
                          * @var Model $record
+=======
+                         * @var Model           $record
+>>>>>>> 220cf97b (.)
                          * @var RelationManager $livewire
                          */
                         $user = $livewire->getOwnerRecord();
@@ -45,7 +53,6 @@ class TeamsRelationManager extends RelationManager
                     }),
             ])
             ->filters([
-
             ])
             ->headerActions([
                 AttachAction::make()->schema(fn (AttachAction $action): array => [
@@ -56,7 +63,11 @@ class TeamsRelationManager extends RelationManager
             ->recordActions([
                 DetachAction::make()->after(function ($record, $livewire): void {
                     /**
+<<<<<<< HEAD
                      * @var Model $record
+=======
+                     * @var Model           $record
+>>>>>>> 220cf97b (.)
                      * @var RelationManager $livewire
                      */
                     $user = $livewire->getOwnerRecord();

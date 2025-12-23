@@ -30,9 +30,12 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Laravel\Passport\HasApiTokens;
+<<<<<<< HEAD
 use Laravel\Passport\PersonalAccessTokenResult;
 use Laravel\Passport\Token;
 use Laravel\Passport\TransientToken;
+=======
+>>>>>>> 220cf97b (.)
 use Modules\User\Database\Factories\UserFactory;
 use Modules\User\Models\Traits\HasAuthenticationLogTrait;
 use Modules\User\Models\Traits\HasTeams;
@@ -91,12 +94,21 @@ use Spatie\Permission\Traits\HasRoles;
  * @property bool|null                                                 $is_active
  * @property bool|null                                                 $is_otp
  * @property string|null                                               $type
+<<<<<<< HEAD
  * @property DateTime|null $password_expires_at
  * @property DateTime|null $email_verified_at
  * @property string|null                                               $remember_token
  * @property DateTime|null $created_at
  * @property DateTime|null $updated_at
  * @property DateTime|null $deleted_at
+=======
+ * @property \DateTime|null                                            $password_expires_at
+ * @property \DateTime|null                                            $email_verified_at
+ * @property string|null                                               $remember_token
+ * @property \DateTime|null                                            $created_at
+ * @property \DateTime|null                                            $updated_at
+ * @property \DateTime|null                                            $deleted_at
+>>>>>>> 220cf97b (.)
  * @property string|null                                               $created_by
  * @property string|null                                               $updated_by
  * @property string|null                                               $deleted_by
@@ -138,6 +150,7 @@ use Spatie\Permission\Traits\HasRoles;
  */
 abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, PassportHasApiTokensContract, UserContract
 {
+<<<<<<< HEAD
     use HasApiTokens {
         clients as protected passportClients;
         tokens as protected passportTokens;
@@ -153,13 +166,22 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     use HasRoles {
         removeRole as spatieRemoveRole;
     }
+=======
+    use HasApiTokens;
+    use HasAuthenticationLogTrait;
+    use HasChildren;
+    use HasPermissions;
+    use HasRoles;
+>>>>>>> 220cf97b (.)
     use HasTeams;
     use HasUuids;
+    use HasXotFactory;
     use InteractsWithMedia;
     use HasXotFactory;
     use Notifiable;
     use RelationX;
     use Traits\HasTenants;
+<<<<<<< HEAD
     use HasXotFactory;
 
     #[Override]
@@ -191,6 +213,8 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     {
         return $this->passportTokenCan($scope);
     }
+=======
+>>>>>>> 220cf97b (.)
 
     public $incrementing = false;
 
@@ -268,7 +292,11 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         try {
             $this->fillable = array_values(array_merge(parent::getFillable(), $this->getFillable()));
             parent::__construct($attributes);
+<<<<<<< HEAD
         } catch (Throwable $e) {
+=======
+        } catch (\Throwable $e) {
+>>>>>>> 220cf97b (.)
             // Fallback in case database connection is not available (e.g., during testing)
             $this->fillable = array_values($this->getFillable());
             // Avoid calling parent constructor if database is not available
@@ -303,7 +331,11 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         return $fullName;
     }
 
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function profile(): HasOne
     {
         try {
@@ -317,7 +349,11 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             // Questo evita l'errore "Target [Illuminate\Database\Eloquent\Model] is not instantiable"
             // Utilizziamo una classe che sicuramente esiste nel sistema
             return $this->hasOne(Model::class);
+<<<<<<< HEAD
         } catch (Exception $e) {
+=======
+        } catch (\Exception $e) {
+>>>>>>> 220cf97b (.)
             // Fallback: se non riesce a ottenere la classe Profile, usa una relazione generica
             // Questo evita l'errore "Target [Illuminate\Database\Eloquent\Model] is not instantiable"
             // Utilizziamo una classe che sicuramente esiste nel sistema
@@ -342,6 +378,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         $this->assignRole($role);
     }
 
+<<<<<<< HEAD
     /**
      * @param string $name
      */
@@ -367,6 +404,8 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         return $this;
     }
 
+=======
+>>>>>>> 220cf97b (.)
     public function canAccessPanel(Panel $panel): bool
     {
         // $panel->default('admin');
@@ -443,7 +482,11 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     {
         $socialiteUser = $this->socialiteUsers()->firstWhere(['provider' => $provider]);
         if (null === $socialiteUser) {
+<<<<<<< HEAD
             throw new Exception('SocialiteUser not found');
+=======
+            throw new \Exception('SocialiteUser not found');
+>>>>>>> 220cf97b (.)
         }
 
         $res = $socialiteUser->{$field};
@@ -523,7 +566,11 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             $this->update(['name' => $value]);
 
             return $value;
+<<<<<<< HEAD
         } catch (Throwable $e) {
+=======
+        } catch (\Throwable $e) {
+>>>>>>> 220cf97b (.)
             // If any issue occurs (e.g., missing connection/table), fall back without DB.
             $this->attributes['name'] = $candidate;
 
@@ -541,7 +588,11 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
      *
      * @param array|\Illuminate\Support\Collection|int|SpatieRoleContract|string $roles
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function hasRole($roles, ?string $guard = null): bool
     {
         // Se è una stringa semplice, utilizziamo il metodo interno tramite relazione roles

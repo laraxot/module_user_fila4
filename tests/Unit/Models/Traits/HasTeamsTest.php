@@ -12,7 +12,11 @@ use Modules\User\Models\User;
 use Modules\User\Tests\Unit\Models\Traits\Fixtures\MockUserWithTeams;
 
 beforeEach(function () {
+<<<<<<< HEAD
     $this->user = Mockery::mock(MockUserWithTeams::class)->makePartial();
+=======
+    $this->user = \Mockery::mock(MockUserWithTeams::class)->makePartial();
+>>>>>>> 220cf97b (.)
     $this->user->id = 1;
 
     // Mock del database per i test

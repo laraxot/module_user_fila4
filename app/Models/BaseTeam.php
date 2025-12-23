@@ -17,26 +17,29 @@ use Modules\User\Database\Factories\TeamFactory;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> 220cf97b (.)
 
 /**
  * Modules\User\Models\Team.
  *
- * @property int $id
- * @property int $user_id
- * @property string $name
- * @property int $personal_team
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
+ * @property int                                         $id
+ * @property int                                         $user_id
+ * @property string                                      $name
+ * @property int                                         $personal_team
+ * @property Carbon|null                                 $created_at
+ * @property Carbon|null                                 $updated_at
  * @property EloquentCollection<int, Model&UserContract> $members
- * @property int|null $members_count
- * @property UserContract|null $owner
- * @property EloquentCollection<int, TeamInvitation> $teamInvitations
- * @property int|null $team_invitations_count
+ * @property int|null                                    $members_count
+ * @property UserContract|null                           $owner
+ * @property EloquentCollection<int, TeamInvitation>     $teamInvitations
+ * @property int|null                                    $team_invitations_count
  * @property EloquentCollection<int, Model&UserContract> $users
- * @property int|null $users_count
+ * @property int|null                                    $users_count
  *
- * @method static TeamFactory factory($count = null, $state = [])
+ * @method static TeamFactory  factory($count = null, $state = [])
  * @method static Builder|Team newModelQuery()
  * @method static Builder|Team newQuery()
  * @method static Builder|Team query()
@@ -57,10 +60,10 @@ use Override;
  * @method static Builder|Team whereDeletedBy($value)
  * @method static Builder|Team whereUpdatedBy($value)
  *
- * @property Membership $membership
+ * @property Membership           $membership
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
- * @property string $uuid
+ * @property string               $uuid
  *
  * @method static Builder|Team whereUuid($value)
  *
@@ -137,10 +140,18 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Determina se l'utente specificato appartiene al team.
      *
+<<<<<<< HEAD
      * @param  UserContract  $user  L'utente da verificare
      * @return bool True se l'utente appartiene al team, false altrimenti
      */
     #[Override]
+=======
+     * @param UserContract $user L'utente da verificare
+     *
+     * @return bool True se l'utente appartiene al team, false altrimenti
+     */
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function hasUser(UserContract $user): bool
     {
         // Corretto l'errore di tipo per il metodo contains
@@ -155,7 +166,8 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Determina se l'indirizzo email specificato appartiene a un utente del team.
      *
-     * @param  string  $email  Indirizzo email da verificare
+     * @param string $email Indirizzo email da verificare
+     *
      * @return bool True se un utente con quell'email appartiene al team, false altrimenti
      */
     #[Override]
@@ -175,8 +187,9 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Determina se l'utente specificato ha il permesso indicato sul team.
      *
-     * @param  UserContract  $userContract  L'utente da verificare
-     * @param  string  $permission  Il permesso da controllare
+     * @param UserContract $userContract L'utente da verificare
+     * @param string       $permission   Il permesso da controllare
+     *
      * @return bool True se l'utente ha il permesso, false altrimenti
      */
     #[Override]
@@ -201,7 +214,11 @@ abstract class BaseTeam extends BaseModel implements TeamContract
     /**
      * Rimuove l'utente specificato dal team.
      *
+<<<<<<< HEAD
      * @param  UserContract  $userContract  L'utente da rimuovere dal team
+=======
+     * @param UserContract $userContract L'utente da rimuovere dal team
+>>>>>>> 220cf97b (.)
      */
     #[Override]
     public function removeUser(UserContract $userContract): void

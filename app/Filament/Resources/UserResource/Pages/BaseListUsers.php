@@ -12,7 +12,10 @@ use Modules\User\Filament\Actions\ChangePasswordAction;
 use Modules\User\Filament\Resources\UserResource;
 use Modules\Xot\Filament\Actions\Header\ExportXlsAction;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> 220cf97b (.)
 
 abstract class BaseListUsers extends XotBaseListRecords
 {
@@ -23,7 +26,11 @@ abstract class BaseListUsers extends XotBaseListRecords
      *
      * @return array<string, Column>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableColumns(): array
     {
         return [
@@ -37,7 +44,11 @@ abstract class BaseListUsers extends XotBaseListRecords
      *
      * @return array<BaseFilter>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableFilters(): array
     {
         return [
@@ -59,7 +70,11 @@ abstract class BaseListUsers extends XotBaseListRecords
      * @phpstan-ignore-next-line
      */
     /** @phpstan-ignore-next-line */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableActions(): array
     {
         $actions = [
@@ -79,7 +94,11 @@ abstract class BaseListUsers extends XotBaseListRecords
          * ->icon('heroicon-o-trash')
          * ->action(static fn (UserContract $user) => $user->delete());
          */
+<<<<<<< HEAD
         /** @phpstan-ignore-next-line */
+=======
+        /* @phpstan-ignore-next-line */
+>>>>>>> 220cf97b (.)
     }
 
     /**
@@ -87,7 +106,11 @@ abstract class BaseListUsers extends XotBaseListRecords
      *
      * @return array<string, Action>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     protected function getHeaderActions(): array
     {
         return [

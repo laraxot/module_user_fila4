@@ -14,7 +14,6 @@ use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-use Override;
 
 class ProfileRelationManager extends XotBaseRelationManager
 {
@@ -25,7 +24,11 @@ class ProfileRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Component>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getFormSchema(): array
     {
         return [
@@ -36,7 +39,7 @@ class ProfileRelationManager extends XotBaseRelationManager
         ];
     }
 
-    #[Override]
+    #[\Override]
     public function table(Table $table): Table
     {
         return $table

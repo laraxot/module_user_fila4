@@ -15,6 +15,7 @@ use Modules\Xot\Contracts\UserContract;
 /**
  * Modules\User\Models\OauthClient.
  *
+<<<<<<< HEAD
  * @property string $id
  * @property string|null $user_id
  * @property string $name
@@ -36,6 +37,29 @@ use Modules\Xot\Contracts\UserContract;
  * @property UserContract|null $user
  *
  * @method static ClientFactory factory($count = null, $state = [])
+=======
+ * @property string                            $id
+ * @property string|null                       $user_id
+ * @property string                            $name
+ * @property string|null                       $secret
+ * @property string|null                       $provider
+ * @property string                            $redirect
+ * @property bool                              $personal_access_client
+ * @property bool                              $password_client
+ * @property bool                              $revoked
+ * @property Carbon|null                       $created_at
+ * @property Carbon|null                       $updated_at
+ * @property Collection<int, OauthAuthCode>    $authCodes
+ * @property int|null                          $auth_codes_count
+ * @property array|null                        $grant_types
+ * @property string|null                       $plain_secret
+ * @property array|null                        $scopes
+ * @property Collection<int, OauthAccessToken> $tokens
+ * @property int|null                          $tokens_count
+ * @property UserContract|null                 $user
+ *
+ * @method static ClientFactory       factory($count = null, $state = [])
+>>>>>>> 220cf97b (.)
  * @method static Builder|OauthClient newModelQuery()
  * @method static Builder|OauthClient newQuery()
  * @method static Builder|OauthClient query()

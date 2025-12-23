@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use Modules\Xot\Datas\XotData;
+=======
+>>>>>>> 220cf97b (.)
 use Modules\User\Filament\Clusters\Appearance;
 use Modules\User\Filament\Clusters\Appearance\Pages\Alignment;
 use Modules\User\Filament\Clusters\Appearance\Pages\Background;
@@ -10,10 +13,18 @@ use Modules\User\Filament\Clusters\Appearance\Pages\Colors;
 use Modules\User\Filament\Clusters\Appearance\Pages\CustomCss;
 use Modules\User\Filament\Clusters\Appearance\Pages\Favicon;
 use Modules\User\Filament\Clusters\Appearance\Pages\Logo;
+<<<<<<< HEAD
 use Modules\Xot\Filament\Clusters\XotBaseCluster;
 use Modules\Xot\Filament\Pages\XotBasePage;
 
 /**
+=======
+use Modules\Xot\Datas\XotData;
+use Modules\Xot\Filament\Clusters\XotBaseCluster;
+use Modules\Xot\Filament\Pages\XotBasePage;
+
+/*
+>>>>>>> 220cf97b (.)
  * Test per il Cluster Appearance e le sue Pages.
  *
  * Verifica che:

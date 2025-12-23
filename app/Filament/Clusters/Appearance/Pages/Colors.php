@@ -19,7 +19,11 @@ use Modules\Xot\Filament\Pages\XotBasePage;
  *
  * @property Schema $form
  *
+<<<<<<< HEAD
  * @see \Modules\Xot\Filament\Pages\XotBasePage
+=======
+ * @see XotBasePage
+>>>>>>> 220cf97b (.)
  * @see \Modules\User\docs\errori\class-page-not-found.md
  */
 class Colors extends XotBasePage
@@ -93,7 +97,7 @@ class Colors extends XotBasePage
     }
 
     /**
-     * @param  array<string, mixed>  $data
+     * @param array<string, mixed> $data
      */
     protected function handleRecordUpdate(Model $record, array $data): Model
     {

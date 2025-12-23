@@ -22,9 +22,15 @@ class AuthenticationLogPolicy extends UserBasePolicy
      */
     public function view(UserContract $user, AuthenticationLog $authenticationLog): bool
     {
+<<<<<<< HEAD
         return $user->hasPermissionTo('authentication-log.view') ||
             $user->id === $authenticationLog->authenticatable_id ||
             $user->hasRole('super-admin');
+=======
+        return $user->hasPermissionTo('authentication-log.view')
+            || $user->id === $authenticationLog->authenticatable_id
+            || $user->hasRole('super-admin');
+>>>>>>> 220cf97b (.)
     }
 
     /**

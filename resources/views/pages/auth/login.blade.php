@@ -41,7 +41,11 @@ new class extends Component {
 
 ?>
 
+<<<<<<< HEAD
 <x-layouts.guest>
+=======
+<x-layouts.main>
+>>>>>>> 220cf97b (.)
 
     <div class="flex flex-col items-stretch justify-center w-screen min-h-screen py-10 sm:items-center">
 
@@ -79,4 +83,8 @@ new class extends Component {
 
     </div>
 
+<<<<<<< HEAD
 </x-layouts.guest>
+=======
+</x-layouts.main>
+>>>>>>> 220cf97b (.)

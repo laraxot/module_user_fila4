@@ -15,12 +15,13 @@ use Modules\User\Contracts\TeamContract;
 use Modules\User\Models\BaseUser;
 use Modules\User\Models\Membership;
 use Modules\User\Models\Role;
+use Modules\User\Models\User;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Webmozart\Assert\Assert;
 
 /**
- * Trait HasTeams
+ * Trait HasTeams.
  *
  * Provides team functionality for User models implementing team-based organization.
  * This trait handles team ownership, membership, permissions, and relationships.

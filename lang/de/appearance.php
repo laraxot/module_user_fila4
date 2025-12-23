@@ -9,4 +9,8 @@ return [
         'icon' => 'appearance',
         'sort' => 5,
     ],
+<<<<<<< HEAD
 ];
+=======
+];
+>>>>>>> 220cf97b (.)

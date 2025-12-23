@@ -66,7 +66,12 @@ trait IsProfileTrait
      * Ottiene il nome completo dell'utente.
      * Utilizza prima i dati del profilo, altrimenti ricade sul nome dell'utente.
      *
+<<<<<<< HEAD
      * @param  string|null  $value  Il valore attuale dell'attributo
+=======
+     * @param string|null $value Il valore attuale dell'attributo
+     *
+>>>>>>> 220cf97b (.)
      * @return string|null Il nome completo dell'utente
      */
     public function getFullNameAttribute(?string $value): ?string
@@ -76,19 +81,31 @@ trait IsProfileTrait
         }
 
         $user = $this->user;
+<<<<<<< HEAD
         if ($user === null) {
+=======
+        if (null === $user) {
+>>>>>>> 220cf97b (.)
             return null;
         }
         Assert::isInstanceOf($user, User::class);
 
         $res = trim(($this->first_name ?? '').' '.($this->last_name ?? ''));
+<<<<<<< HEAD
         if ($res !== '') {
+=======
+        if ('' !== $res) {
+>>>>>>> 220cf97b (.)
             return $res;
         }
 
         $userName = $user->getAttribute('name');
 
+<<<<<<< HEAD
         return \is_string($userName) && $userName !== '' ? $userName : null;
+=======
+        return \is_string($userName) && '' !== $userName ? $userName : null;
+>>>>>>> 220cf97b (.)
     }
 
     /**
@@ -114,9 +131,20 @@ trait IsProfileTrait
         if (! \is_string($firstName) || $firstName === '') {
             return null;
         }
+        Assert::isInstanceOf($user, User::class);
+
+<<<<<<< HEAD
+        $this->update(['first_name' => $firstName]);
+
+=======
+        $firstName = $user->getAttribute('first_name');
+        if (! \is_string($firstName) || '' === $firstName) {
+            return null;
+        }
 
         $this->update(['first_name' => $firstName]);
 
+>>>>>>> 220cf97b (.)
         return $firstName;
     }
 
@@ -143,9 +171,20 @@ trait IsProfileTrait
         if (! \is_string($lastName) || $lastName === '') {
             return null;
         }
+        Assert::isInstanceOf($user, User::class);
+
+<<<<<<< HEAD
+        $this->update(['last_name' => $lastName]);
+
+=======
+        $lastName = $user->getAttribute('last_name');
+        if (! \is_string($lastName) || '' === $lastName) {
+            return null;
+        }
 
         $this->update(['last_name' => $lastName]);
 
+>>>>>>> 220cf97b (.)
         return $lastName;
     }
 
@@ -264,37 +303,58 @@ trait IsProfileTrait
     /**
      * Ottiene i token dei dispositivi mobili.
      *
-     * @return Collection<int|string, string>
+     * @return Collection<int|string, non-empty-string>
      */
     public function getMobileDeviceTokens(): Collection
     {
+<<<<<<< HEAD
         // PHPStan livello 9 richiede il controllo che il risultato sia del tipo corretto
         return $this->mobileDeviceUsers()
             ->pluck('token')
             ->filter(fn ($value) => $value !== null && is_string($value));
 
         /** @var Collection<int|string, string> */
+=======
+        $tokens = $this->mobileDeviceUsers()
+            ->pluck('token')
+            ->filter(static fn (mixed $value): bool => is_string($value) && '' !== $value)
+            ->map(static fn (mixed $value): string => (string) $value);
+
+        /* @var Collection<int|string, non-empty-string> $tokens */
+        return $tokens;
+>>>>>>> 220cf97b (.)
     }
 
     /**
      * Get the user's user_name.
      * Ottiene il nome utente dal modello utente collegato.
+<<<<<<< HEAD
      *
      * @return Attribute<string|null, never>
+=======
+>>>>>>> 220cf97b (.)
      */
     protected function userName(): Attribute
     {
         return Attribute::make(
             get: function (): ?string {
                 $user = $this->user;
+<<<<<<< HEAD
                 if ($user === null) {
+=======
+                if (null === $user) {
+>>>>>>> 220cf97b (.)
                     return null;
                 }
                 Assert::isInstanceOf($user, User::class);
 
                 $name = $user->getAttribute('name');
 
+<<<<<<< HEAD
                 return \is_string($name) && $name !== '' ? $name : null;
+=======
+                return \is_string($name) && '' !== $name ? $name : null;
+>>>>>>> 220cf97b (.)
             }
         );
     }
@@ -302,8 +362,11 @@ trait IsProfileTrait
     /**
      * Get the user's avatar URL.
      * Recupera l'URL dell'avatar dell'utente dalla MediaLibrary.
+<<<<<<< HEAD
      *
      * @return Attribute<string, never>
+=======
+>>>>>>> 220cf97b (.)
      */
     protected function avatar(): Attribute
     {

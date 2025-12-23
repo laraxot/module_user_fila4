@@ -36,6 +36,12 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property ProfileContract|null $updater
  *
  * @mixin IdeHelperRoleHasPermission
+<<<<<<< HEAD
+=======
+ *
+ * @property ProfileContract|null $deleter
+ *
+>>>>>>> 220cf97b (.)
  * @mixin \Eloquent
  */
 class RoleHasPermission extends BasePivot

@@ -32,7 +32,7 @@ trait InteractsWithTenant
     public function tenant(): BelongsTo
     {
         $tenant = $this->getTenant();
-        if ($tenant === null) {
+        if (null === $tenant) {
             $this->loadTenantFromSession();
             $tenant = $this->getTenant();
         }
@@ -69,14 +69,20 @@ trait InteractsWithTenant
      */
     protected static function bootInteractsWithTenant(): void
     {
-        static::addGlobalScope(new TenantScope);
+        static::addGlobalScope(new TenantScope());
 
         static::creating(static function ($model): void {
             // PHPStan Level 10: Verifica se il modello ha tenant_id
             // Uso isFillable() invece di property_exists() per Eloquent magic properties
+<<<<<<< HEAD
             if ($model !== null && $model instanceof Model && $model->isFillable('tenant_id')) {
                 $tenant = Filament::getTenant();
                 if ($tenant !== null) {
+=======
+            if (null !== $model && $model instanceof Model && $model->isFillable('tenant_id')) {
+                $tenant = Filament::getTenant();
+                if (null !== $tenant) {
+>>>>>>> 220cf97b (.)
                     // Usa setAttribute() invece di assegnazione diretta per PHPStan
                     $model->setAttribute('tenant_id', $tenant->getKey());
                 }
@@ -90,14 +96,14 @@ trait InteractsWithTenant
     protected function setTenantIdAttribute(?int $value): void
     {
         $tenant = Filament::getTenant();
-        if ($value === null && $tenant !== null) {
+        if (null === $value && null !== $tenant) {
             $tenantId = $tenant->getKey();
             if (is_int($tenantId)) {
                 $value = $tenantId;
             }
         }
 
-        if ($value !== null) {
+        if (null !== $value) {
             $this->attributes['tenant_id'] = $value;
         }
     }
@@ -108,15 +114,15 @@ trait InteractsWithTenant
     protected function applyTenantScope(): void
     {
         $tenant = $this->getTenant();
-        if ($tenant === null) {
+        if (null === $tenant) {
             $this->loadTenantFromSession();
             $tenant = $this->getTenant();
         }
 
-        if ($tenant !== null) {
+        if (null !== $tenant) {
             $tenantId = $tenant->getKey();
-            if ($tenantId !== null) {
-                static::addGlobalScope(new TenantScope);
+            if (null !== $tenantId) {
+                static::addGlobalScope(new TenantScope());
             }
         }
     }

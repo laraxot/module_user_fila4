@@ -10,7 +10,6 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Modules\Xot\Filament\Traits\HasXotTable;
-use Override;
 
 /**
  * Class Modules\User\Filament\Resources\UserResource\RelationManagers\SocialiteUsersRelationManager.
@@ -29,7 +28,11 @@ class SocialiteUsersRelationManager extends XotBaseRelationManager
      *
      * @return array<Component>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getFormSchema(): array
     {
         return [
@@ -60,7 +63,11 @@ class SocialiteUsersRelationManager extends XotBaseRelationManager
      *
      * @return array<TextColumn|ImageColumn>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableColumns(): array
     {
         return [

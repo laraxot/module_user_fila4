@@ -8,13 +8,16 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Modules\User\Filament\Resources\RoleResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
-use Override;
 
 class ListRoles extends XotBaseListRecords
 {
     protected static string $resource = RoleResource::class;
 
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableColumns(): array
     {
         return [
@@ -26,7 +29,11 @@ class ListRoles extends XotBaseListRecords
         ];
     }
 
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableFilters(): array
     {
         return [

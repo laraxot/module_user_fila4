@@ -14,13 +14,16 @@ use Modules\User\Filament\Actions\ChangePasswordAction;
 use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\Xot\Contracts\UserContract;
-use Override;
 
 class ListUsers extends BaseListUsers
 {
     protected static string $resource = UserResource::class;
 
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableColumns(): array
     {
         return [
@@ -37,7 +40,11 @@ class ListUsers extends BaseListUsers
     /**
      * @return array<BaseFilter>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableFilters(): array
     {
         return [
@@ -53,10 +60,14 @@ class ListUsers extends BaseListUsers
     /**
      * @phpstan-ignore-next-line
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableActions(): array
     {
-        /** @phpstan-ignore-next-line */
+        /* @phpstan-ignore-next-line */
         return [
             'change_password' => ChangePasswordAction::make()->tooltip('Cambio Password')->iconButton(),
             ...parent::getTableActions(),
@@ -71,7 +82,11 @@ class ListUsers extends BaseListUsers
     /**
      * @return array<string, BulkAction>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableBulkActions(): array
     {
         return [
@@ -80,7 +95,11 @@ class ListUsers extends BaseListUsers
         ];
     }
 
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     protected function getHeaderWidgets(): array
     {
         return [

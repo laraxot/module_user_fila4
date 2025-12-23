@@ -18,7 +18,6 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-use Override;
 
 class DomainsRelationManager extends XotBaseRelationManager
 {
@@ -27,7 +26,11 @@ class DomainsRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Component>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getFormSchema(): array
     {
         return [
@@ -39,7 +42,7 @@ class DomainsRelationManager extends XotBaseRelationManager
         ];
     }
 
-    #[Override]
+    #[\Override]
     public function table(Table $table): Table
     {
         return $table

@@ -7,22 +7,34 @@ namespace Modules\User\Filament\Pages\Auth;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Forms\Components\TextInput;
+<<<<<<< HEAD
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
 use Filament\Pages\Concerns\InteractsWithFormActions;
 use Filament\Pages\Page;
 use Filament\Schemas\Components\Component;
+=======
+use Filament\Notifications\Notification;
+use Filament\Pages\Concerns\InteractsWithFormActions;
+>>>>>>> 220cf97b (.)
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema as DatabaseSchema;
+<<<<<<< HEAD
 use InvalidArgumentException;
+=======
+>>>>>>> 220cf97b (.)
 use Modules\User\Datas\PasswordData;
 use Modules\User\Events\NewPasswordSet;
 use Modules\User\Http\Response\PasswordResetResponse;
 use Modules\Xot\Contracts\UserContract;
+<<<<<<< HEAD
+=======
+use Modules\Xot\Filament\Pages\XotBasePage;
+>>>>>>> 220cf97b (.)
 use Modules\Xot\Filament\Traits\NavigationPageLabelTrait;
 use Webmozart\Assert\Assert;
 
@@ -31,9 +43,10 @@ use Webmozart\Assert\Assert;
  * @property \Filament\Schemas\Schema $editProfileForm
  * @property \Filament\Schemas\Schema $editPasswordForm
  */
-class PasswordExpired extends Page implements HasForms
+class PasswordExpired extends XotBasePage
 {
     use InteractsWithFormActions;
+<<<<<<< HEAD
     use InteractsWithForms;
     use NavigationPageLabelTrait;
 
@@ -42,6 +55,9 @@ class PasswordExpired extends Page implements HasForms
     public ?string $password = '';
 
     public ?string $passwordConfirmation = '';
+=======
+    use NavigationPageLabelTrait;
+>>>>>>> 220cf97b (.)
 
     /**
      * @var view-string
@@ -50,12 +66,18 @@ class PasswordExpired extends Page implements HasForms
 
     protected static bool $shouldRegisterNavigation = false;
 
+<<<<<<< HEAD
+=======
+    /**
+     * @return array<int, TextInput>
+     */
+>>>>>>> 220cf97b (.)
     public function getFormSchema(): array
     {
-        return [
+        return array_values(array_merge(
             $this->getCurrentPasswordFormComponent(),
-            ...PasswordData::make()->getPasswordFormComponents('password'),
-        ];
+            PasswordData::make()->getPasswordFormComponents('password'),
+        ));
     }
 
     public function getResetPasswordFormAction(): Action
@@ -72,15 +94,19 @@ class PasswordExpired extends Page implements HasForms
     {
         $pwd = PasswordData::make();
         $data = $this->form->getState();
-        Assert::string($current_password = Arr::get($data, 'current_password'));
+        Assert::string($currentPassword = Arr::get($data, 'current_password'));
         Assert::string($password = Arr::get($data, 'password'));
         $user = Auth::user();
-        if ($user === null) {
+        if (null === $user) {
             return null;
         }
 
         // check if current password is correct
+<<<<<<< HEAD
         if ($user->password === null || ! Hash::check($current_password, $user->password)) {
+=======
+        if (null === $user->password || ! Hash::check($currentPassword, $user->password)) {
+>>>>>>> 220cf97b (.)
             Notification::make()
                 ->title(__('user::otp.notifications.wrong_password.title'))
                 ->body(__('user::otp.notifications.wrong_password.body'))
@@ -91,7 +117,7 @@ class PasswordExpired extends Page implements HasForms
         }
 
         // check if new password is different from the current password
-        if ($user->password !== null && Hash::check($password, $user->password)) {
+        if (null !== $user->password && Hash::check($password, $user->password)) {
             Notification::make()
                 ->title(__('user::otp.notifications.same_password.title'))
                 ->body(__('user::otp.notifications.same_password.body'))
@@ -121,7 +147,11 @@ class PasswordExpired extends Page implements HasForms
 
         // Verificare che l'utente esistante e che sia un modello Eloquent
         if (! ($user instanceof Model)) {
+<<<<<<< HEAD
             throw new InvalidArgumentException('L\'utente deve essere un modello Eloquent con il metodo update');
+=======
+            throw new \InvalidArgumentException('L\'utente deve essere un modello Eloquent con il metodo update');
+>>>>>>> 220cf97b (.)
         }
 
         // set password expiry date and time
@@ -133,7 +163,11 @@ class PasswordExpired extends Page implements HasForms
 
         // Verificare che l'utente implementi l'interfaccia UserContract prima di passarlo all'evento
         if (! ($user instanceof UserContract)) {
+<<<<<<< HEAD
             throw new InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
+=======
+            throw new \InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
+>>>>>>> 220cf97b (.)
         }
 
         event(new NewPasswordSet($user));
@@ -146,13 +180,26 @@ class PasswordExpired extends Page implements HasForms
         return new PasswordResetResponse;
     }
 
-    protected function getCurrentPasswordFormComponent(): Component
+    /**
+     * @return array<int, TextInput>
+     */
+    protected function getCurrentPasswordFormComponent(): array
     {
+<<<<<<< HEAD
         return TextInput::make('current_password')
             ->password()
             ->revealable()
             ->required()
             ->validationAttribute(static::trans('fields.current_password.validation_attribute'));
+=======
+        return [
+            TextInput::make('current_password')
+                ->password()
+                ->revealable()
+                ->required()
+                ->validationAttribute(static::trans('fields.current_password.validation_attribute')),
+        ];
+>>>>>>> 220cf97b (.)
     }
 
     /**

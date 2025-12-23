@@ -21,10 +21,15 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\BaseFilter;
 use Filament\Tables\Filters\SelectFilter;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+<<<<<<< HEAD
+=======
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+>>>>>>> 220cf97b (.)
 use Modules\User\Filament\Resources\PermissionResource;
+use Modules\User\Models\Role;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
-use Override;
 use Webmozart\Assert\Assert;
 
 class ListPermissions extends XotBaseListRecords
@@ -34,7 +39,11 @@ class ListPermissions extends XotBaseListRecords
     /**
      * @return array<string, Tables\Columns\Column>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableColumns(): array
     {
         return [
@@ -48,7 +57,11 @@ class ListPermissions extends XotBaseListRecords
     /**
      * @return array<string, BaseFilter>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableFilters(): array
     {
         return [
@@ -65,7 +78,11 @@ class ListPermissions extends XotBaseListRecords
     /**
      * @return array<string, Action|ActionGroup>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableActions(): array
     {
         return [
@@ -78,7 +95,11 @@ class ListPermissions extends XotBaseListRecords
     /**
      * @return array<string, BulkAction>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableBulkActions(): array
     {
         Assert::classExists($roleModel = config('permission.models.role'));
@@ -96,7 +117,10 @@ class ListPermissions extends XotBaseListRecords
                         if (method_exists($record, 'roles')) {
                             /** @var BelongsToMany $rolesRelation */
                             $rolesRelation = $record->roles();
+<<<<<<< HEAD
                             /** @var mixed $roleData */
+=======
+>>>>>>> 220cf97b (.)
                             $roleData = $data['role'];
                             if (is_array($roleData) || is_int($roleData) || is_string($roleData)) {
                                 $rolesRelation->sync($roleData);
@@ -124,7 +148,11 @@ class ListPermissions extends XotBaseListRecords
     /**
      * @return array<string, Action>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     protected function getHeaderActions(): array
     {
         return [

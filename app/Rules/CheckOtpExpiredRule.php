@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Rules;
 
-use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Modules\User\Datas\PasswordData;
 use Modules\User\Models\User;
+use Modules\Xot\Actions\Cast\SafeStringCastAction;
 
 /**
  * Regola di validazione per verificare se un codice OTP è scaduto.
@@ -18,14 +18,19 @@ class CheckOtpExpiredRule implements ValidationRule
 
     public function __construct(
         private User $user,
-    ) {}
+    ) {
+    }
 
     /**
      * Run the validation rule.
      */
-    public function validate(string $_attribute, mixed $_value, Closure $fail): void
+    public function validate(string $_attribute, mixed $_value, \Closure $fail): void
     {
+<<<<<<< HEAD
         if ($this->user->updated_at === null) {
+=======
+        if (null === $this->user->updated_at) {
+>>>>>>> 220cf97b (.)
             $fail($this->message);
 
             return;
@@ -47,6 +52,6 @@ class CheckOtpExpiredRule implements ValidationRule
      */
     public function message(): string
     {
-        return __('user::otp.notifications.otp_expired.body');
+        return SafeStringCastAction::cast(__('user::otp.notifications.otp_expired.body'));
     }
 }

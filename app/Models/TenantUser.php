@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
 use Modules\Xot\Models\Traits\HasXotFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
 use Override;
+=======
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
+use Modules\Xot\Contracts\ProfileContract;
+use Modules\Xot\Models\Traits\HasXotFactory;
+>>>>>>> 220cf97b (.)
 
 /**
  * Modules\User\Models\TenantUser.
@@ -18,7 +25,11 @@ use Override;
  * @method static Builder|TeamUser newQuery()
  * @method static Builder|TeamUser query()
  *
+<<<<<<< HEAD
  * @property int $id
+=======
+ * @property int         $id
+>>>>>>> 220cf97b (.)
  * @property string|null $tenant_id
  * @property string|null $user_id
  * @property Carbon|null $created_at
@@ -45,9 +56,17 @@ use Override;
  * @method static Builder|TenantUser whereTenantId($value)
  *
  * @property ProfileContract|null $creator
+<<<<<<< HEAD
  * @property ProfileContract|null $updater
  *
  * @mixin IdeHelperTenantUser
+=======
+ * @property ProfileContract|null $deleter
+ * @property ProfileContract|null $updater
+ *
+ * @method static \Modules\User\Database\Factories\TenantUserFactory factory($count = null, $state = [])
+ *
+>>>>>>> 220cf97b (.)
  * @mixin \Eloquent
  */
 class TenantUser extends BasePivot
@@ -69,7 +88,11 @@ class TenantUser extends BasePivot
     ];
 
     /** @return array<string, string> */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     protected function casts(): array
     {
         return [

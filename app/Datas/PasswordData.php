@@ -36,7 +36,12 @@ class PasswordData extends Data
         public int $compromisedThreshold = 0,
         public ?string $failMessage = null,
         private ?string $field_name = null,
+<<<<<<< HEAD
     ) {}
+=======
+    ) {
+    }
+>>>>>>> 220cf97b (.)
 
     /**
      * Crea un'istanza della classe PasswordData.
@@ -139,8 +144,6 @@ class PasswordData extends Data
         return FormsTextInput::make($field_name)
             ->password()
             ->required()
-            ->label(__('Password'))
-            ->placeholder(__('Inserisci la tua password'))
             ->validationMessages($this->getValidationMessages())
             ->helperText($this->getHelperText());
     }
@@ -150,17 +153,13 @@ class PasswordData extends Data
      */
     public function getPasswordConfirmationFormComponent(): FormsTextInput
     {
-        if ($this->field_name === null) {
-            throw new RuntimeException(
-                'Il nome del campo password non è stato impostato. Utilizzare setFieldName() prima di chiamare questo metodo.',
-            );
+        if (null === $this->field_name) {
+            throw new \RuntimeException('Il nome del campo password non è stato impostato. Utilizzare setFieldName() prima di chiamare questo metodo.');
         }
 
         return FormsTextInput::make('password_confirmation')
             ->password()
             ->required()
-            ->label(__('Conferma Password'))
-            ->placeholder(__('Conferma la tua password'))
             ->same($this->field_name)
             ->validationMessages($this->getValidationMessages());
     }
@@ -173,7 +172,7 @@ class PasswordData extends Data
     public function getPasswordFormComponents(string $field_name): array
     {
         if (empty($field_name)) {
-            throw new InvalidArgumentException('Il nome del campo password non può essere vuoto');
+            throw new \InvalidArgumentException('Il nome del campo password non può essere vuoto');
         }
 
         $this->setFieldName($field_name);

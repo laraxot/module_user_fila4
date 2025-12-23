@@ -52,7 +52,11 @@ class LoginWidget extends XotBaseWidget
      *
      * @return array<int, Component>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getFormSchema(): array
     {
         return [
@@ -73,7 +77,11 @@ class LoginWidget extends XotBaseWidget
      *
      * @return array<string, mixed>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getFormFill(): array
     {
         return [
@@ -126,7 +134,11 @@ class LoginWidget extends XotBaseWidget
                     $messages = [$messages];
                 }
 
+<<<<<<< HEAD
                 /** @var array<int|string, mixed> $messages */
+=======
+                /* @var array<int|string, mixed> $messages */
+>>>>>>> 220cf97b (.)
                 $this->addError($field, implode(' ', $messages));
             }
         } catch (Exception $e) {
@@ -149,7 +161,11 @@ class LoginWidget extends XotBaseWidget
     /**
      * Get the form model.
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     protected function getFormModel(): ?Model
     {
         return null;

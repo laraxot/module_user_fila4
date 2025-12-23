@@ -12,16 +12,16 @@ use Modules\Xot\Contracts\ProfileContract;
 /**
  * Modules\User\Models\PasswordReset.
  *
- * @property int $id
- * @property string $email
- * @property string $token
+ * @property int         $id
+ * @property string      $email
+ * @property string      $token
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $user_id
  * @property string|null $updated_by
  * @property string|null $created_by
  *
- * @method static PasswordResetFactory factory($count = null, $state = [])
+ * @method static PasswordResetFactory  factory($count = null, $state = [])
  * @method static Builder|PasswordReset newModelQuery()
  * @method static Builder|PasswordReset newQuery()
  * @method static Builder|PasswordReset query()
@@ -36,11 +36,17 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
- * @property string|null $uuid
+ * @property string|null          $uuid
  *
  * @method static Builder<static>|PasswordReset whereUuid($value)
  *
  * @mixin IdeHelperPasswordReset
+<<<<<<< HEAD
+=======
+ *
+ * @property ProfileContract|null $deleter
+ *
+>>>>>>> 220cf97b (.)
  * @mixin \Eloquent
  */
 class PasswordReset extends BaseModel

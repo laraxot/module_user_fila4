@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+<<<<<<< HEAD
 use Override;
 use Exception;
 use Modules\Xot\Contracts\UserContract;
+=======
+>>>>>>> 220cf97b (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Schema;
@@ -17,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
+use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
 use Webmozart\Assert\Assert;
@@ -65,7 +69,11 @@ class PasswordResetConfirmWidget extends XotBaseWidget
      *
      * @return array<string, mixed>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getFormSchema(): array
     {
         return [
@@ -151,7 +159,7 @@ class PasswordResetConfirmWidget extends XotBaseWidget
                 /* @phpstan-ignore argument.type */
                 $this->handleResetError($response);
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->handleResetError('passwords.generic_error');
         }
     }

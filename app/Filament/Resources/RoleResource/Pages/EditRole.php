@@ -52,7 +52,11 @@ class EditRole extends XotBaseEditRecord
     {
         $this->permissions = collect($data)
             ->filter(
+<<<<<<< HEAD
                 static fn ($_permission, $key): bool => (! \in_array($key, ['name', 'guard_name', 'select_all'], false) && Str::contains($key, '_')),
+=======
+                static fn ($_permission, $key): bool => ! \in_array($key, ['name', 'guard_name', 'select_all'], false) && Str::contains($key, '_'),
+>>>>>>> 220cf97b (.)
             )
             ->keys();
 

@@ -11,7 +11,16 @@ use Modules\Xot\Filament\Clusters\XotBaseCluster;
  *
  * ⚠️ IMPORTANTE: Estende XotBaseCluster, MAI Filament\Clusters\Cluster direttamente!
  *
+<<<<<<< HEAD
  * @see \Modules\Xot\Filament\Clusters\XotBaseCluster
  * @see \Modules\User\docs\errori\class-page-not-found.md
  */
 class Appearance extends XotBaseCluster {}
+=======
+ * @see XotBaseCluster
+ * @see \Modules\User\docs\errori\class-page-not-found.md
+ */
+class Appearance extends XotBaseCluster
+{
+}
+>>>>>>> 220cf97b (.)

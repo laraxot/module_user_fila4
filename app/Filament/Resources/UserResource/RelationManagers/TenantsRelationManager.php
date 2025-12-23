@@ -9,7 +9,6 @@ use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\Column;
 use Modules\User\Filament\Resources\TenantResource\Pages\ListTenants;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-use Override;
 
 /**
  * Manages the relationship between users and tenants.
@@ -28,7 +27,11 @@ class TenantsRelationManager extends XotBaseRelationManager
      *
      * @return array<Component>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getFormSchema(): array
     {
         return [
@@ -41,7 +44,11 @@ class TenantsRelationManager extends XotBaseRelationManager
      *
      * @return array<string, Column>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getTableColumns(): array
     {
         $listTenants = app(ListTenants::class);

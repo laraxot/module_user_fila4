@@ -20,7 +20,7 @@ class ViewSocialProvider extends XotBaseViewRecord
     /**
      * @return array<Component>
      */
-    #[Override]
+    #[\Override]
     protected function getInfolistSchema(): array
     {
         return [

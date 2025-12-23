@@ -19,9 +19,15 @@ use Spatie\SchemalessAttributes\SchemalessAttributes;
  * @method static Builder|Extra query()
  * @method static Builder|Extra withExtraAttributes()
  *
+<<<<<<< HEAD
  * @property int $id
  * @property string $model_type
  * @property string $model_id
+=======
+ * @property int         $id
+ * @property string      $model_type
+ * @property string      $model_id
+>>>>>>> 220cf97b (.)
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
@@ -46,6 +52,12 @@ use Spatie\SchemalessAttributes\SchemalessAttributes;
  * @method static ExtraFactory factory($count = null, $state = [])
  *
  * @mixin IdeHelperExtra
+<<<<<<< HEAD
+=======
+ *
+ * @property ProfileContract|null $deleter
+ *
+>>>>>>> 220cf97b (.)
  * @mixin \Eloquent
  */
 final class Extra extends BaseExtra

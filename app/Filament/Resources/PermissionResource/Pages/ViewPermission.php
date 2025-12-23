@@ -17,7 +17,11 @@ class ViewPermission extends XotBaseViewRecord
     /**
      * @return array<int, Component>
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getInfolistSchema(): array
     {
         return [

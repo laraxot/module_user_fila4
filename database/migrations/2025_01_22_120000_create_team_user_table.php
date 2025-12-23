@@ -5,14 +5,22 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
+<<<<<<< HEAD
 /**
+=======
+/*
+>>>>>>> 220cf97b (.)
  * Migrazione per team_user con id autoincrement.
  *
  * Questa migrazione gestisce sia la creazione che l'aggiornamento della tabella team_user.
  * Se la tabella esiste già con id UUID, viene convertita a id autoincrement.
  */
+<<<<<<< HEAD
 return new class() extends XotBaseMigration
 {
+=======
+return new class extends XotBaseMigration {
+>>>>>>> 220cf97b (.)
     /**
      * Nome della tabella gestita dalla migrazione.
      */
@@ -60,17 +68,30 @@ return new class() extends XotBaseMigration
                 table: $table,
                 hasSoftDeletes: true,
             );
+<<<<<<< HEAD
 
+=======
+            /*
+>>>>>>> 220cf97b (.)
             // Aggiungiamo l'indice univoco se non esiste già
             // Verifichiamo tramite query SQL se l'indice esiste
             $connection = $this->getConn()->getConnection();
             $database = $connection->getDatabaseName();
+<<<<<<< HEAD
             /** @var array{count: int}|object{count: int}|null $indexExists */
             $indexExists = $connection->selectOne(
                 "SELECT COUNT(*) as count 
                  FROM information_schema.statistics 
                  WHERE table_schema = ? 
                  AND table_name = ? 
+=======
+            //@var array{count: int}|object{count: int}|null $indexExists
+            $indexExists = $connection->selectOne(
+                "SELECT COUNT(*) as count
+                 FROM information_schema.statistics
+                 WHERE table_schema = ?
+                 AND table_name = ?
+>>>>>>> 220cf97b (.)
                  AND index_name = 'team_user_team_id_user_id_unique'",
                 [$database, $this->table_name]
             );
@@ -85,7 +106,14 @@ return new class() extends XotBaseMigration
             if ($count === 0) {
                 $table->unique(['team_id', 'user_id'], 'team_user_team_id_user_id_unique');
             }
+<<<<<<< HEAD
         });
     }
 };
 
+=======
+            */
+        });
+    }
+};
+>>>>>>> 220cf97b (.)

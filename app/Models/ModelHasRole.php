@@ -8,22 +8,25 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\User\Database\Factories\ModelHasRoleFactory;
 use Modules\Xot\Contracts\ProfileContract;
-use Override;
 
 /**
  * Modules\User\Models\ModelHasRole.
  *
- * @property string $id
- * @property string $role_id
- * @property string $model_type
- * @property string $model_id
- * @property int|null $team_id
+ * @property string      $id
+ * @property string      $role_id
+ * @property string      $model_type
+ * @property string      $model_id
+ * @property int|null    $team_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
  * @property string|null $created_by
  *
+<<<<<<< HEAD
  * @method static ModelHasRoleFactory factory($count = null, $state = [])
+=======
+ * @method static ModelHasRoleFactory  factory($count = null, $state = [])
+>>>>>>> 220cf97b (.)
  * @method static Builder|ModelHasRole newModelQuery()
  * @method static Builder|ModelHasRole newQuery()
  * @method static Builder|ModelHasRole query()
@@ -45,6 +48,12 @@ use Override;
  * @property ProfileContract|null $updater
  *
  * @mixin IdeHelperModelHasRole
+<<<<<<< HEAD
+=======
+ *
+ * @property ProfileContract|null $deleter
+ *
+>>>>>>> 220cf97b (.)
  * @mixin \Eloquent
  */
 class ModelHasRole extends BaseMorphPivot
@@ -77,7 +86,7 @@ class ModelHasRole extends BaseMorphPivot
     }
 
     /** @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [

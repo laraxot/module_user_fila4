@@ -30,7 +30,11 @@ class LoginUserAction
         Assert::notNull($user = $socialiteUser->user, '['.__FILE__.']['.__LINE__.']');
 
         if (! $user instanceof Authenticatable) {
+<<<<<<< HEAD
             throw new LogicException('User instance must implement Authenticatable.');
+=======
+            throw new \LogicException('User instance must implement Authenticatable.');
+>>>>>>> 220cf97b (.)
         }
 
         // PHPStan: assicuriamoci che l'utente sia Authenticatable per il login

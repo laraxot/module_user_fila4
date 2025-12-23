@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\HtmlString;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
-use Override;
 
 /**
  * Password Reset Widget .
@@ -36,7 +35,11 @@ class PasswordResetWidget extends XotBaseWidget
     /**
      * Get the form schema for password reset.
      */
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getFormSchema(): array
     {
         return [
@@ -77,7 +80,7 @@ class PasswordResetWidget extends XotBaseWidget
             'email' => $data['email'],
         ]);
 
-        if ($response === Password::RESET_LINK_SENT) {
+        if (Password::RESET_LINK_SENT === $response) {
             $this->emailSent = true;
 
             Notification::make()

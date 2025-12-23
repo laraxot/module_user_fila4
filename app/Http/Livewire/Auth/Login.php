@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Auth;
 
+<<<<<<< HEAD
 use Exception;
+=======
+>>>>>>> 220cf97b (.)
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Components\Checkbox;
@@ -78,7 +81,7 @@ class Login extends Component implements HasActions, HasForms
             }
 
             $this->addError('data.email', __('Le credenziali fornite non sono corrette..'));
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->addError('data.email', __('Si è verificato un errore durante il login. Riprova più tardi.'));
             report($e);
         }
@@ -104,25 +107,38 @@ class Login extends Component implements HasActions, HasForms
             TextInput::make('email')
                 ->email()
                 ->required()
+<<<<<<< HEAD
                 ->label(__('Email'))
                 ->placeholder(__('Inserisci la tua email'))
+=======
+>>>>>>> 220cf97b (.)
                 ->suffixIcon('heroicon-m-envelope')
                 ->autofocus()
                 ->live()
                 ->afterStateUpdated(fn ($_state) => $this->validateOnly('email'))
                 ->dehydrated(),
+<<<<<<< HEAD
             TextInput::make('password')
                 ->password()
                 ->required()
                 ->label(__('Password'))
                 ->placeholder(__('Inserisci la tua password'))
+=======
+
+            TextInput::make('password')
+                ->password()
+                ->required()
+>>>>>>> 220cf97b (.)
                 ->suffixIcon('heroicon-m-key')
                 ->revealable()
                 ->minLength(8)
                 ->maxLength(255)
                 ->dehydrated(),
             Checkbox::make('remember')
+<<<<<<< HEAD
                 ->label(__('Ricordami'))
+=======
+>>>>>>> 220cf97b (.)
                 ->default(false)
                 ->dehydrated(),
         ];
@@ -142,10 +158,10 @@ class Login extends Component implements HasActions, HasForms
         // Se l'utente ha ruoli admin, redirect al pannello appropriato
         $adminRoles = $user->roles->filter(fn ($role) => str_ends_with($role->name, '::admin'));
 
-        if ($adminRoles->count() === 1) {
+        if (1 === $adminRoles->count()) {
             // Un solo ruolo admin - redirect al modulo specifico
             $role = $adminRoles->first();
-            if ($role !== null) {
+            if (null !== $role) {
                 $moduleName = str_replace('::admin', '', $role->name);
 
                 return redirect()->to("/{$moduleName}/admin");

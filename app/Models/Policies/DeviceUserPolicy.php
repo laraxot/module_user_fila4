@@ -22,9 +22,15 @@ class DeviceUserPolicy extends UserBasePolicy
      */
     public function view(UserContract $user, DeviceUser $deviceUser): bool
     {
+<<<<<<< HEAD
         return $user->hasPermissionTo('device-user.view') ||
             $user->id === $deviceUser->user_id ||
             $user->hasRole('super-admin');
+=======
+        return $user->hasPermissionTo('device-user.view')
+            || $user->id === $deviceUser->user_id
+            || $user->hasRole('super-admin');
+>>>>>>> 220cf97b (.)
     }
 
     /**

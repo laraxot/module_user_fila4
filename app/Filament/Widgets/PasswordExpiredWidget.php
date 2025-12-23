@@ -12,6 +12,10 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Schemas\Components\Component;
+<<<<<<< HEAD
+=======
+use Filament\Schemas\Schema;
+>>>>>>> 220cf97b (.)
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -22,7 +26,10 @@ use Modules\User\Rules\CheckOtpExpiredRule;
 use Modules\Xot\Actions\Cast\SafeStringCastAction;
 use Modules\Xot\Filament\Traits\TransTrait;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> 220cf97b (.)
 
 /**
  * Widget for handling expired password reset.
@@ -57,9 +64,15 @@ class PasswordExpiredWidget extends XotBaseWidget
     /**
      * Get the form schema for password reset.
      *
+<<<<<<< HEAD
      * @return array<int, \Filament\Schemas\Components\Component>
      */
     #[Override]
+=======
+     * @return array<int, Component>
+     */
+    #[\Override]
+>>>>>>> 220cf97b (.)
     public function getFormSchema(): array
     {
         $schema = [
@@ -68,7 +81,11 @@ class PasswordExpiredWidget extends XotBaseWidget
         ];
 
         // Ensure list type for PHPStan Level 10
+<<<<<<< HEAD
         /** @var array<int, \Filament\Schemas\Components\Component> $result */
+=======
+        /** @var array<int, Component> $result */
+>>>>>>> 220cf97b (.)
         $result = array_values($schema);
 
         return $result;

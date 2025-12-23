@@ -8,7 +8,11 @@ use Modules\Xot\Datas\XotData;
 
 describe('ChangeTypeCommand', function () {
     beforeEach(function () {
+<<<<<<< HEAD
         $this->command = new ChangeTypeCommand;
+=======
+        $this->command = new ChangeTypeCommand();
+>>>>>>> 220cf97b (.)
     });
 
     it('can be instantiated', function () {
