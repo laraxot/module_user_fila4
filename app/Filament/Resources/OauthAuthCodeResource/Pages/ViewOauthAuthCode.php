@@ -9,7 +9,6 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\OauthAuthCodeResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
