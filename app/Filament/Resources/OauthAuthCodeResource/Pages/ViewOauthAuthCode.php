@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthAuthCodeResource\Pages;
 
-use Filament\Infolists\Components\Grid;
-use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
+use Illuminate\Database\Eloquent\Model;
+
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\OauthAuthCodeResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
@@ -28,32 +30,44 @@ class ViewOauthAuthCode extends XotBaseViewRecord
                     'code_grid' => Grid::make(2)
                         ->schema([
                             'id' => TextEntry::make('id')
-                                ->formatStateUsing(function ($state) {
-                                    return Str::limit($state, 15, '...');
-                                }),
+                                ->formatStateUsing(fn (mixed $state): string => Str::limit((string) $state, 15, '...')),
                             'client_name' => TextEntry::make('client.name')
-                                ->url(fn ($state, $record) => $record->client?->exists ?
-                                    \Modules\User\Filament\Resources\OauthClientResource::getUrl('view', ['record' => $record->client]) : null),
+                                ->url(function (mixed $state, $record): ?string {
+                                    if (! $record instanceof Model) {
+                                        return null;
+                                    }
+
+                                    $client = $record->getRelationValue('client');
+                                    if (($client instanceof Model) && $client->exists) {
+                                        return \Modules\User\Filament\Resources\OauthClientResource::getUrl('view', ['record' => $client]);
+                                    }
+
+                                    return null;
+                                }),
                         ]),
 
                     'user_grid' => Grid::make(2)
                         ->schema([
                             'user_name' => TextEntry::make('user.name')
-                                ->url(fn ($state, $record) => $record->user?->exists ?
-                                    \Modules\User\Filament\Resources\UserResource::getUrl('view', ['record' => $record->user]) : null),
+                                ->url(function (mixed $state, $record): ?string {
+                                    if (! $record instanceof Model) {
+                                        return null;
+                                    }
+
+                                    $user = $record->getRelationValue('user');
+                                    if (($user instanceof Model) && $user->exists) {
+                                        return \Modules\User\Filament\Resources\UserResource::getUrl('view', ['record' => $user]);
+                                    }
+
+                                    return null;
+                                }),
                         ]),
                 ])->columns(1),
 
             'authorization_details' => Section::make('Authorization Details')
                 ->schema([
                     'scopes' => TextEntry::make('scopes')
-                        ->formatStateUsing(function ($state) {
-                            if (is_array($state)) {
-                                return implode(', ', $state);
-                            }
-
-                            return $state;
-                        })
+                        ->formatStateUsing(fn (mixed $state): string => is_array($state) ? implode(', ', array_map('strval', $state)) : (string) $state)
                         ->columnSpanFull(),
                 ])->columns(1),
 
@@ -61,7 +75,7 @@ class ViewOauthAuthCode extends XotBaseViewRecord
                 ->schema([
                     'status_grid' => Grid::make(2)
                         ->schema([
-                            'revoked' => ToggleEntry::make('revoked'),
+                            'revoked' => IconEntry::make('revoked')->boolean(),
                         ]),
                 ])->columns(1),
 
