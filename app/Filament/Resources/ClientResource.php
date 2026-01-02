@@ -20,9 +20,7 @@ use Laravel\Passport\Client;
 use Laravel\Passport\Passport;
 use Modules\User\Filament\Resources\ClientResource\Pages;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-use N3XT0R\FilamentPassportUi\Application\UseCases\Owners\GetAllOwnersRelationshipUseCase;
-use N3XT0R\FilamentPassportUi\Application\UseCases\Owners\SaveOwnershipRelationUseCase;
-use N3XT0R\FilamentPassportUi\Repositories\ClientRepository;
+
 
 class ClientResource extends XotBaseResource
 {
@@ -48,15 +46,18 @@ class ClientResource extends XotBaseResource
                 ->maxLength(255),
             Select::make('owner')
                 ->options(function (): Collection {
-                    return app(GetAllOwnersRelationshipUseCase::class)->execute();
+                    /** @var GetAllOwnersRelationshipUseCase $useCase */
+                    $useCase = app(GetAllOwnersRelationshipUseCase::class);
+                    return $useCase->execute();
                 })
                 ->saveRelationshipsUsing(function (Client $record, array $data): void {
-                    app(SaveOwnershipRelationUseCase::class)
-                        ->execute(
-                            client: $record,
-                            ownerId: $data['owner'],
-                            actor: Filament::auth()->user()
-                        );
+                    /** @var SaveOwnershipRelationUseCase $useCase */
+                    $useCase = app(SaveOwnershipRelationUseCase::class);
+                    $useCase->execute(
+                        client: $record,
+                        ownerId: $data['owner'],
+                        actor: Filament::auth()->user()
+                    );
                 })
                 ->searchable()
                 ->required(),

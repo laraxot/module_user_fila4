@@ -15,14 +15,14 @@ class ListAuthenticationLogs extends XotBaseListRecords
     protected static string $resource = \Modules\User\Filament\Resources\AuthenticationLogResource::class;
 
     /**
-     * @return array<int, \Filament\Actions\ActionInterface>
+     * @return array<string, \Filament\Actions\Action>
      */
     #[\Override]
     protected function getHeaderActions(): array
     {
         return [
             // Authentication logs are typically system-generated, so no create action
-            // CreateAction::make(),
+            // 'create' => CreateAction::make(),
         ];
     }
 }

@@ -9,6 +9,7 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Laravel\Passport\Client;
 use Modules\User\Filament\Resources\ClientResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
@@ -23,7 +24,6 @@ class ListClients extends XotBaseListRecords
     {
         return [
             'id' => TextColumn::make('id')
-                ->label('Client ID')
                 ->sortable()
                 ->searchable()
                 ->copyable()
@@ -35,13 +35,11 @@ class ListClients extends XotBaseListRecords
                 ->description(fn ($record) => $record->personal_access_client ? 'Personal Access Client' : 'OAuth Client'),
 
             'redirect' => TextColumn::make('redirect')
-                ->label('Redirect URIs')
                 ->limit(50)
                 ->tooltip(fn ($record) => $record->redirect)
                 ->toggleable(),
 
             'revoked' => IconColumn::make('revoked')
-                ->label('Status')
                 ->boolean()
                 ->trueIcon('heroicon-o-x-circle')
                 ->falseIcon('heroicon-o-check-circle')
@@ -50,7 +48,6 @@ class ListClients extends XotBaseListRecords
                 ->sortable(),
 
             'personal_access_client' => IconColumn::make('personal_access_client')
-                ->label('Type')
                 ->boolean()
                 ->trueIcon('heroicon-o-user')
                 ->falseIcon('heroicon-o-users')
@@ -72,18 +69,12 @@ class ListClients extends XotBaseListRecords
     }
 
     /**
-     * @return array<\Filament\Actions\Action>
+     * @return array<string, \Filament\Actions\Action|\Filament\Actions\ActionGroup>
      */
     public function getTableActions(): array
     {
         return [
-            ViewAction::make()
-                ->icon('heroicon-o-eye'),
-            EditAction::make()
-                ->icon('heroicon-o-pencil'),
-            DeleteAction::make()
-                ->icon('heroicon-o-trash')
-                ->requiresConfirmation(),
+            ...parent::getTableActions(),
         ];
     }
 }

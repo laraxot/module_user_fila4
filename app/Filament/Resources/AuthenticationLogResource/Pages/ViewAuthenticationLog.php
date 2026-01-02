@@ -4,88 +4,95 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\AuthenticationLogResource\Pages;
 
-use Filament\Infolists\Components\Grid;
-use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\ToggleEntry;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\AuthenticationLogResource;
+use Modules\User\Models\AuthenticationLog;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
+use function Safe\json_encode;
 
 class ViewAuthenticationLog extends XotBaseViewRecord
 {
     protected static string $resource = AuthenticationLogResource::class;
 
     /**
-     * @return array<int, \Filament\Infolists\Components\Component>
+     * @return array<string, \Filament\Schemas\Components\Component>
      */
     #[\Override]
     protected function getInfolistSchema(): array
     {
         return [
-            Section::make('Authentication Details')
+            'authentication_details' => Section::make('Authentication Details')
                 ->schema([
-                    Grid::make(2)
+                    'details_grid_1' => Grid::make(2)
                         ->schema([
-                            TextEntry::make('id')
-                                ->label('Log ID'),
-                            TextEntry::make('authenticatable_type')
-                                ->label('Authenticatable Type')
-                                ->formatStateUsing(fn ($state) => Str::afterLast($state, '\\')),
+                            'id' => TextEntry::make('id'),
+                            'authenticatable_type' => TextEntry::make('authenticatable_type')
+                                ->formatStateUsing(fn (?string $state): string => $state !== null ? Str::afterLast($state, '\\') : ''),
                         ]),
 
-                    Grid::make(2)
+                    'details_grid_2' => Grid::make(2)
                         ->schema([
-                            TextEntry::make('authenticatable.name')
-                                ->label('User')
-                                ->url(fn ($state, $record) => $record->authenticatable?->exists ?
-                                    \Modules\User\Filament\Resources\UserResource::getUrl('view', ['record' => $record->authenticatable]) : null),
-                            TextEntry::make('ip_address')
-                                ->label('IP Address')
+                            'authenticatable_name' => TextEntry::make('authenticatable.name')
+                                ->url(function (mixed $state, ?Model $record): ?string {
+                                    if (! $record instanceof AuthenticationLog) {
+                                        return null;
+                                    }
+                                    $authenticatable = $record->authenticatable;
+                                    if ($authenticatable !== null && method_exists($authenticatable, 'exists') && $authenticatable->exists) {
+                                        return \Modules\User\Filament\Resources\UserResource::getUrl('view', ['record' => $authenticatable]);
+                                    }
+
+                                    return null;
+                                }),
+                            'ip_address' => TextEntry::make('ip_address')
                                 ->copyable()
                                 ->copyMessage('IP address copied'),
                         ]),
                 ])->columns(1),
 
-            Section::make('User Agent')
+            'user_agent' => Section::make('User Agent')
                 ->schema([
-                    TextEntry::make('user_agent')
-                        ->label('User Agent')
+                    'user_agent' => TextEntry::make('user_agent')
                         ->columnSpanFull(),
                 ])->collapsible(),
 
-            Section::make('Timestamps')
+            'timestamps' => Section::make('Timestamps')
                 ->schema([
-                    Grid::make(3)
+                    'timestamps_grid' => Grid::make(3)
                         ->schema([
-                            TextEntry::make('login_at')
-                                ->label('Login Time')
+                            'login_at' => TextEntry::make('login_at')
                                 ->dateTime(),
-                            TextEntry::make('logout_at')
-                                ->label('Logout Time')
+                            'logout_at' => TextEntry::make('logout_at')
                                 ->dateTime(),
-                            TextEntry::make('created_at')
-                                ->label('Created At')
+                            'created_at' => TextEntry::make('created_at')
                                 ->dateTime(),
                         ]),
                 ])->columns(1),
 
-            Section::make('Status')
+            'status' => Section::make('Status')
                 ->schema([
-                    Grid::make(2)
+                    'status_grid' => Grid::make(2)
                         ->schema([
-                            ToggleEntry::make('login_successful')
-                                ->label('Login Successful'),
-                            ToggleEntry::make('cleared_by_user')
-                                ->label('Cleared by User'),
+                            'login_successful' => ToggleEntry::make('login_successful'),
+                            'cleared_by_user' => ToggleEntry::make('cleared_by_user'),
                         ]),
                 ])->columns(1),
 
-            Section::make('Location')
+            'location' => Section::make('Location')
                 ->schema([
-                    TextEntry::make('location')
-                        ->label('Location Data')
-                        ->formatStateUsing(fn ($state) => $state ? json_encode($state, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) : 'No location data'),
+                    'location_data' => TextEntry::make('location')
+                        ->formatStateUsing(function (mixed $state): string {
+                            if ($state === null || $state === []) {
+                                return 'No location data';
+                            }
+                            /** @var array<string, mixed> $state */
+                            return json_encode($state, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                        }),
                 ])->collapsible(),
         ];
     }

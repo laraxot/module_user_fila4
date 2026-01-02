@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\SocialiteUserResource\Pages;
 
-use Filament\Infolists\Components\Grid;
-use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\SocialiteUserResource;
+use Modules\User\Models\SocialiteUser;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 
 class ViewSocialiteUser extends XotBaseViewRecord
@@ -16,70 +18,70 @@ class ViewSocialiteUser extends XotBaseViewRecord
     protected static string $resource = SocialiteUserResource::class;
 
     /**
-     * @return array<int, \Filament\Infolists\Components\Component>
+     * @return array<string, \Filament\Schemas\Components\Component>
      */
     #[\Override]
     protected function getInfolistSchema(): array
     {
         return [
-            Section::make('User Information')
+            'user_information' => Section::make('User Information')
                 ->schema([
-                    Grid::make(2)
+                    'user_grid' => Grid::make(2)
                         ->schema([
-                            TextEntry::make('user.name')
-                                ->label('User')
-                                ->url(fn ($state, $record) => $record->user?->exists ?
-                                    \Modules\User\Filament\Resources\UserResource::getUrl('view', ['record' => $record->user]) : null),
-                            TextEntry::make('provider')
-                                ->label('Provider')
-                                ->formatStateUsing(fn ($state) => Str::title($state)),
+                            'user_name' => TextEntry::make('user.name')
+                                ->url(function (mixed $state, ?SocialiteUser $record): ?string {
+                                    if ($record === null) {
+                                        return null;
+                                    }
+
+                                    $user = $record->user;
+                                    if (($user instanceof Model) && $user->exists) {
+                                        return \Modules\User\Filament\Resources\UserResource::getUrl('view', ['record' => $user]);
+                                    }
+
+                                    return null;
+                                }),
+                            'provider' => TextEntry::make('provider')
+                                ->formatStateUsing(fn ($state): string => is_string($state) ? Str::title($state) : ''),
                         ]),
 
-                    Grid::make(2)
+                    'provider_grid' => Grid::make(2)
                         ->schema([
-                            TextEntry::make('provider_id')
-                                ->label('Provider ID')
+                            'provider_id' => TextEntry::make('provider_id')
                                 ->copyable()
                                 ->copyMessage('Provider ID copied'),
-                            TextEntry::make('name')
-                                ->label('Name'),
+                            'name' => TextEntry::make('name'),
                         ]),
                 ])->columns(1),
 
-            Section::make('Contact Information')
+            'contact_information' => Section::make('Contact Information')
                 ->schema([
-                    Grid::make(2)
+                    'contact_grid' => Grid::make(2)
                         ->schema([
-                            TextEntry::make('email')
-                                ->label('Email')
+                            'email' => TextEntry::make('email')
                                 ->copyable()
                                 ->copyMessage('Email copied'),
-                            TextEntry::make('avatar')
-                                ->label('Avatar')
+                            'avatar' => TextEntry::make('avatar')
                                 ->url(fn ($state) => $state)
                                 ->openUrlInNewTab(),
                         ]),
                 ])->columns(1),
 
-            Section::make('Tokens')
+            'tokens' => Section::make('Tokens')
                 ->schema([
-                    TextEntry::make('token')
-                        ->label('Access Token')
-                        ->password()
+                    'token' => TextEntry::make('token')
                         ->copyable()
                         ->copyMessage('Token copied'),
                 ])
                 ->collapsible(),
 
-            Section::make('Timestamps')
+            'timestamps' => Section::make('Timestamps')
                 ->schema([
-                    Grid::make(2)
+                    'timestamps_grid' => Grid::make(2)
                         ->schema([
-                            TextEntry::make('created_at')
-                                ->label('Created At')
+                            'created_at' => TextEntry::make('created_at')
                                 ->dateTime(),
-                            TextEntry::make('updated_at')
-                                ->label('Updated At')
+                            'updated_at' => TextEntry::make('updated_at')
                                 ->dateTime(),
                         ]),
                 ])->columns(1),

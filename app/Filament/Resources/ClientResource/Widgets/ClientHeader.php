@@ -15,9 +15,9 @@ class ClientHeader extends XotBaseWidget
 
     protected int|string|array $columnSpan = 'full';
 
-    public function mount(): void
+    public function mount(Client $record): void
     {
-        $this->client = $this->record;
+        $this->client = $record;
     }
 
     public function getFormSchema(): array

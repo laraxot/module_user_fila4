@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TeamInvitationResource\Pages;
 
+use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
@@ -15,13 +16,13 @@ class ListTeamInvitations extends XotBaseListRecords
     protected static string $resource = \Modules\User\Filament\Resources\TeamInvitationResource::class;
 
     /**
-     * @return array<int, \Filament\Actions\ActionInterface>
+     * @return array<string, Action>
      */
     #[\Override]
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            'create' => CreateAction::make(),
         ];
     }
 }

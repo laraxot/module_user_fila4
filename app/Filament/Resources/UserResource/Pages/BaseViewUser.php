@@ -22,7 +22,7 @@ abstract class BaseViewUser extends XotBaseViewRecord
     /**
      * Define the infolist schema for the view.
      *
-     * @return array<string, mixed>
+     * @return array<string, \Filament\Schemas\Components\Component>
      */
     #[\Override]
     public function getInfolistSchema(): array

@@ -38,21 +38,21 @@ class OauthAuthCodeResource extends XotBaseResource
     /**
      * Get the form schema for the resource.
      *
-     * @return array<int, \Filament\Forms\Components\Component>
+     * @return array<string, \Filament\Forms\Components\Component>
      */
     #[\Override]
     public static function getFormSchema(): array
     {
         return [
-            Select::make('user_id')
+            'user_id' => Select::make('user_id')
                 ->relationship('user', 'name')
                 ->searchable(),
-            Select::make('client_id')
+            'client_id' => Select::make('client_id')
                 ->relationship('client', 'name')
                 ->searchable()
                 ->required(),
-            TextInput::make('scopes'),
-            TextInput::make('revoked')
+            'scopes' => TextInput::make('scopes'),
+            'revoked' => TextInput::make('revoked')
                 ->numeric()
                 ->required(),
         ];

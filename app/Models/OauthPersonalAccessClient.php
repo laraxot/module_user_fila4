@@ -6,7 +6,7 @@ namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
-use Laravel\Passport\PersonalAccessClient as PassportPersonalAccessClient;
+use Modules\User\Models\BaseModel;
 
 /**
  * Modules\User\Models\OauthPersonalAccessClient.
@@ -38,14 +38,8 @@ use Laravel\Passport\PersonalAccessClient as PassportPersonalAccessClient;
  * @mixin IdeHelperOauthPersonalAccessClient
  * @mixin \Eloquent
  */
-class OauthPersonalAccessClient extends PassportPersonalAccessClient
+class OauthPersonalAccessClient extends BaseModel
 {
     /** @var string */
-    protected $connection = 'user';
-
-    // protected $primaryKey = 'uuid';
-    /** @var string */
-    protected $keyType = 'string';
-
-    // protected $fillable = ['id', 'client_id'];
+    protected $table = 'oauth_personal_access_clients';
 }

@@ -89,8 +89,9 @@ class OauthClient extends PassportClient implements AuthorizableContract
             return $this->checkPermission($ability);
         }
 
-        /* @var iterable<string> $ability */
-        return $this->hasAnyPermission($ability);
+        /** @var iterable<string> $ability */
+        $permissions = $ability;
+        return $this->hasAnyPermission($permissions);
     }
 
     /**
@@ -137,8 +138,14 @@ class OauthClient extends PassportClient implements AuthorizableContract
      *
      * @param iterable<string> $permissions
      */
+    /**
+     * Check if client has any of the given permissions.
+     *
+     * @param iterable<string> $permissions
+     */
     private function hasAnyPermission(iterable $permissions): bool
     {
+        /** @var iterable<string> $permissions */
         foreach ($permissions as $perm) {
             if ($this->checkPermission($perm)) {
                 return true;

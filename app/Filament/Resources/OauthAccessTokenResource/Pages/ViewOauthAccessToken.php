@@ -12,7 +12,7 @@ class ViewOauthAccessToken extends XotBaseViewRecord
     protected static string $resource = OauthAccessTokenResource::class;
 
     /**
-     * @return array<int, \Filament\Infolists\Components\Component>
+     * @return array<string, \Filament\Schemas\Components\Component>
      */
     #[\Override]
     protected function getInfolistSchema(): array

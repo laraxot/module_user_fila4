@@ -15,37 +15,33 @@ class ViewPasswordReset extends XotBaseViewRecord
     protected static string $resource = PasswordResetResource::class;
 
     /**
-     * @return array<int, \Filament\Infolists\Components\Component>
+     * @return array<string, \Filament\Schemas\Components\Component>
      */
     #[\Override]
     protected function getInfolistSchema(): array
     {
         return [
-            Section::make('Password Reset Information')
+            'password_reset_info' => Section::make('Password Reset Information')
                 ->schema([
-                    Grid::make(2)
+                    'reset_grid' => Grid::make(2)
                         ->schema([
-                            TextEntry::make('email')
-                                ->label('Email')
+                            'email' => TextEntry::make('email')
                                 ->copyable()
                                 ->copyMessage('Email copied'),
-                            TextEntry::make('token')
-                                ->label('Token')
+                            'token' => TextEntry::make('token')
                                 ->copyable()
                                 ->copyMessage('Token copied')
                                 ->columnSpanFull(),
                         ]),
                 ])->columns(1),
 
-            Section::make('Timestamps')
+            'timestamps' => Section::make('Timestamps')
                 ->schema([
-                    Grid::make(2)
+                    'timestamps_grid' => Grid::make(2)
                         ->schema([
-                            TextEntry::make('created_at')
-                                ->label('Created At')
+                            'created_at' => TextEntry::make('created_at')
                                 ->dateTime(),
-                            TextEntry::make('updated_at')
-                                ->label('Updated At')
+                            'updated_at' => TextEntry::make('updated_at')
                                 ->dateTime(),
                         ]),
                 ])->columns(1),

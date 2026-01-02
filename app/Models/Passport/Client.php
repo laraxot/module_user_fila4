@@ -17,7 +17,7 @@ class Client extends PassportClient
      *
      * @return void
      */
-    public function initializeHasUniqueStringIds()
+    public function initializeHasUniqueStringIds(): void
     {
         parent::initializeHasUniqueStringIds();
     }

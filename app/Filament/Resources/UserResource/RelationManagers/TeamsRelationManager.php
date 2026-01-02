@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 use Filament\Forms\Components\TextInput;
-use Filament\Tables\Actions\AttachAction;
-use Filament\Tables\Actions\DetachAction;
-use Filament\Tables\Actions\DetachBulkAction;
+use Filament\Actions\AttachAction;
+use Filament\Actions\DetachAction;
+use Filament\Actions\DetachBulkAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Model;
@@ -30,7 +30,7 @@ class TeamsRelationManager extends XotBaseRelationManager
             'name' => TextColumn::make('name')->searchable()->sortable(),
             'personal_team' => IconColumn::make('personal_team')
                 ->boolean()
-                ->getStateUsing(function (Model $record, $livewire): bool {
+                ->getStateUsing(function (Model $record, self $livewire): bool {
                     /** @var User $user */
                     $user = $livewire->getOwnerRecord();
 
@@ -47,7 +47,7 @@ class TeamsRelationManager extends XotBaseRelationManager
     }
 
     /**
-     * @return array<string, \Filament\Tables\Actions\Action>
+     * @return array<string, \Filament\Actions\Action>
      */
     #[\Override]
     public function getTableHeaderActions(): array
@@ -62,14 +62,14 @@ class TeamsRelationManager extends XotBaseRelationManager
     }
 
     /**
-     * @return array<string, \Filament\Tables\Actions\Action>
+     * @return array<string, \Filament\Actions\Action>
      */
     #[\Override]
     public function getTableActions(): array
     {
         return [
             'detach' => DetachAction::make()
-                ->after(function (Model $record, $livewire): void {
+                ->after(function (Model $record, self $livewire): void {
                     /** @var User $user */
                     $user = $livewire->getOwnerRecord();
 
@@ -85,7 +85,7 @@ class TeamsRelationManager extends XotBaseRelationManager
     }
 
     /**
-     * @return array<string, \Filament\Tables\Actions\BulkAction>
+     * @return array<string, \Filament\Actions\BulkAction>
      */
     #[\Override]
     public function getTableBulkActions(): array

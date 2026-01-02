@@ -10,6 +10,8 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
+use function Safe\json_encode;
+
 /**
  * Class AuthenticationLogsRelationManager.
  */
@@ -42,11 +44,15 @@ class AuthenticationLogsRelationManager extends XotBaseRelationManager
                 ->formatStateUsing(function ($state) {
                     if (is_array($state)) {
                         return collect($state)
-                            ->map(fn ($value, $key) => "{$key}: {$value}")
+                            ->map(fn ($value, $key): string => (string) $key.': '.(string) $value)
                             ->join(', ');
                     }
 
-                    return $state ? json_encode($state) : 'N/A';
+                    if ($state === null) {
+                        return 'N/A';
+                    }
+
+                    return json_encode($state);
                 }),
             'created_at' => TextColumn::make('created_at')
                 ->dateTime()

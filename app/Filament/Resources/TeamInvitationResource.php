@@ -10,6 +10,11 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+<<<<<<< HEAD
+=======
+use Filament\Resources\Pages\PageRegistration;
+use Filament\Support\Components\Component;
+>>>>>>> ad34068d (Refactor AuthenticationLogResource and related pages to improve type hints and schema definitions. Update return types for various methods to ensure consistency and clarity. Enhance URL generation logic for user links and improve state formatting in columns. Clean up unused imports and adjust component schemas for better readability.)
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -38,21 +43,21 @@ class TeamInvitationResource extends XotBaseResource
     /**
      * Get the form schema for the resource.
      *
-     * @return array<int, \Filament\Forms\Components\Component>
+     * @return array<string, Component>
      */
     #[\Override]
     public static function getFormSchema(): array
     {
         return [
-            Select::make('team_id')
+            'team_id' => Select::make('team_id')
                 ->relationship('team', 'name')
                 ->searchable()
                 ->required(),
-            TextInput::make('email')
+            'email' => TextInput::make('email')
                 ->email()
                 ->required()
                 ->maxLength(255),
-            Select::make('role')
+            'role' => Select::make('role')
                 ->options([
                     'admin' => 'Admin',
                     'member' => 'Member',
@@ -126,7 +131,7 @@ class TeamInvitationResource extends XotBaseResource
     /**
      * Get the pages available for the resource.
      *
-     * @return array<string, string>
+     * @return array<string, PageRegistration>
      */
     #[\Override]
     public static function getPages(): array

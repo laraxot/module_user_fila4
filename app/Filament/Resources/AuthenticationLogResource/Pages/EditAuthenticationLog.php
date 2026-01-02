@@ -15,13 +15,13 @@ class EditAuthenticationLog extends XotBaseEditRecord
     protected static string $resource = \Modules\User\Filament\Resources\AuthenticationLogResource::class;
 
     /**
-     * @return array<int, \Filament\Actions\ActionInterface>
+     * @return array<string, \Filament\Actions\Action>
      */
     #[\Override]
     protected function getHeaderActions(): array
     {
         return [
-            DeleteAction::make(),
+            'delete' => DeleteAction::make(),
         ];
     }
 }

@@ -36,20 +36,20 @@ class OauthRefreshTokenResource extends XotBaseResource
     /**
      * Get the form schema for the resource.
      *
-     * @return array<int, \Filament\Forms\Components\Component>
+     * @return array<string, \Filament\Forms\Components\Component>
      */
     #[\Override]
     public static function getFormSchema(): array
     {
         return [
-            Select::make('access_token_id')
+            'access_token_id' => Select::make('access_token_id')
                 ->relationship('accessToken', 'id')
                 ->searchable()
                 ->required(),
-            TextInput::make('revoked')
+            'revoked' => TextInput::make('revoked')
                 ->numeric()
                 ->required(),
-            TextInput::make('expires_at')
+            'expires_at' => TextInput::make('expires_at')
                 ->label('Expires At')
                 ->helperText('Formatted as date/time'),
         ];

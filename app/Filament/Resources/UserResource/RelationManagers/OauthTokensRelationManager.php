@@ -11,6 +11,8 @@ use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
+use function Safe\json_encode;
+
 /**
  * Class OauthTokensRelationManager.
  */
@@ -36,11 +38,15 @@ class OauthTokensRelationManager extends XotBaseRelationManager
                 ->limit(30)
                 ->tooltip(function (TextColumn $column): ?string {
                     $state = $column->getState();
-                    if ($state) {
-                        return is_array($state) ? json_encode($state) : $state;
+                    if ($state === null) {
+                        return null;
                     }
 
-                    return null;
+                    if (is_array($state)) {
+                        return json_encode($state);
+                    }
+
+                    return is_string($state) ? $state : null;
                 }),
             'revoked' => IconColumn::make('revoked')
                 ->boolean()

@@ -5,58 +5,49 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\ClientResource\Pages;
 
 use Filament\Infolists\Components\TextEntry;
-use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
-use Modules\User\Filament\Resources\ClientResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
+use Modules\User\Filament\Resources\ClientResource;
 
 class ViewClient extends XotBaseViewRecord
 {
     protected static string $resource = ClientResource::class;
 
+    /**
+     * @return array<string, \Filament\Schemas\Components\Component>
+     */
     #[\Override]
     protected function getInfolistSchema(): array
     {
         return [
-            'client' => Section::make()->schema([
-                'client_grid' => Grid::make(['default' => 2, 'md' => 3, 'lg' => 4])->schema([
-                    'id' => TextEntry::make('id')->copyable(),
+            'credentials' => Section::make('Client Credentials')
+                ->schema([
+                    'id' => TextEntry::make('id'),
+                    'secret' => TextEntry::make('secret'),
+                ])->columns(2),
+            'configuration' => Section::make('Configuration')
+                ->schema([
                     'name' => TextEntry::make('name'),
-                    'user_id' => TextEntry::make('user_id'),
+                    'user_email' => TextEntry::make('user.email'),
                     'provider' => TextEntry::make('provider'),
                     'redirect' => TextEntry::make('redirect')
-                        ->copyable()
-                        ->url(fn (?string $state): ?string => $state),
-                ]),
-            ]),
-
-            'credentials' => Section::make()->schema([
-                'credentials_grid' => Grid::make(['default' => 1, 'md' => 2])->schema([
-                    'secret' => TextEntry::make('secret')
-                        ->copyable()
-                        ->password(),
-                ]),
-            ]),
-
-            'flags' => Section::make()->schema([
-                'flags_grid' => Grid::make(['default' => 2, 'md' => 4])->schema([
+                        ->listWithLineBreaks(),
+                ])->columns(2),
+            'capabilities' => Section::make('Capabilities')
+                ->schema([
                     'personal_access_client' => TextEntry::make('personal_access_client')
-                        ->formatStateUsing(static fn (mixed $state): string => $state ? '1' : '0'),
+                        ->badge()
+                        ->formatStateUsing(fn (bool $state): string => $state ? 'Yes' : 'No')
+                        ->color(fn (bool $state): string => $state ? 'success' : 'gray'),
                     'password_client' => TextEntry::make('password_client')
-                        ->formatStateUsing(static fn (mixed $state): string => $state ? '1' : '0'),
+                        ->badge()
+                        ->formatStateUsing(fn (bool $state): string => $state ? 'Yes' : 'No')
+                        ->color(fn (bool $state): string => $state ? 'success' : 'gray'),
                     'revoked' => TextEntry::make('revoked')
-                        ->formatStateUsing(static fn (mixed $state): string => $state ? '1' : '0'),
-                ]),
-            ]),
-
-            'meta' => Section::make()->schema([
-                'meta_grid' => Grid::make(['default' => 2, 'md' => 3])->schema([
-                    'created_at' => TextEntry::make('created_at')->dateTime(),
-                    'updated_at' => TextEntry::make('updated_at')->dateTime(),
-                    'created_by' => TextEntry::make('created_by'),
-                    'updated_by' => TextEntry::make('updated_by'),
-                ]),
-            ]),
+                        ->badge()
+                        ->formatStateUsing(fn (bool $state): string => $state ? 'Yes' : 'No')
+                        ->color(fn (bool $state): string => $state ? 'danger' : 'success'),
+                ])->columns(3),
         ];
     }
 }

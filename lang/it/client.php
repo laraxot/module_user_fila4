@@ -16,38 +16,39 @@ return [
     ],
     'fields' => [
         'name' => [
-            'label' => 'name',
-            'description' => 'name',
-            'helper_text' => 'name',
-            'placeholder' => 'name',
+            'label' => 'Nome',
+        ],
+        'user' => [
+            'email' => [
+                'label' => 'Proprietario',
+            ],
         ],
         'create' => [
-            'label' => 'create',
+            'label' => 'Crea',
         ],
         'edit' => [
-            'label' => 'edit',
+            'label' => 'Modifica',
         ],
         'delete' => [
-            'label' => 'delete',
+            'label' => 'Elimina',
         ],
         'toggleColumns' => [
-            'label' => 'toggleColumns',
+            'label' => 'Gestisci Colonne',
         ],
         'reorderRecords' => [
-            'label' => 'reorderRecords',
+            'label' => 'Riordina Record',
         ],
         'resetFilters' => [
-            'label' => 'resetFilters',
+            'label' => 'Reimposta Filtri',
         ],
         'applyFilters' => [
-            'label' => 'applyFilters',
+            'label' => 'Applica Filtri',
         ],
         'openFilters' => [
-            'label' => 'openFilters',
+            'label' => 'Apri Filtri',
         ],
         'recordId' => [
-            'description' => 'recordId',
-            'helper_text' => 'recordId',
+            'label' => 'ID Record',
         ],
     ],
     'plural' => [
@@ -119,12 +120,27 @@ return [
         'logout' => [
             'tooltip' => 'logout',
             'icon' => 'logout',
+            'label' => 'logout',
         ],
         'createAnother' => [
             'tooltip' => 'createAnother',
         ],
         'attachAnother' => [
             'tooltip' => 'attachAnother',
+        ],
+        'profile' => [
+            'tooltip' => 'profile',
+            'icon' => 'profile',
+            'label' => 'profile',
+        ],
+        'view' => [
+            'tooltip' => 'view',
+            'icon' => 'view',
+        ],
+    ],
+    'sections' => [
+        'empty' => [
+            'heading' => 'empty',
         ],
     ],
 ];

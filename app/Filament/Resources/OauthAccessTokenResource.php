@@ -139,27 +139,27 @@ class OauthAccessTokenResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
-            Section::make('OAuth Access Token Information')
+            'oauth_access_token_info' => Section::make('OAuth Access Token Information')
                 ->schema([
-                    Grid::make(2)
+                    'grid_1' => Grid::make(2)
                         ->schema([
-                            Select::make('user_id')
+                            'user_id' => Select::make('user_id')
                                 ->relationship('user', 'name')
                                 ->label('User')
                                 ->searchable(),
-                            Select::make('client_id')
+                            'client_id' => Select::make('client_id')
                                 ->relationship('client', 'name')
                                 ->label('Client')
                                 ->searchable()
                                 ->required(),
                         ]),
 
-                    Grid::make(2)
+                    'grid_2' => Grid::make(2)
                         ->schema([
-                            TextInput::make('name')
+                            'name' => TextInput::make('name')
                                 ->label('Name')
                                 ->maxLength(255),
-                            TextInput::make('scopes')
+                            'scopes' => TextInput::make('scopes')
                                 ->label('Scopes')
                                 ->placeholder('Comma-separated scopes'),
                         ]),

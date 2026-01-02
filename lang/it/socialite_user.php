@@ -44,5 +44,7 @@ return [
     'navigation' => [
         'sort' => 89,
         'icon' => 'socialite user.navigation',
+        'group' => 'socialite user.navigation',
+        'label' => 'socialite user.navigation',
     ],
 ];

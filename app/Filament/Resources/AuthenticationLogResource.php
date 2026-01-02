@@ -4,19 +4,21 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Filament\Actions\Action;
-use Filament\Actions\DeleteAction;
+use Filament\Forms\Components\Component;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Actions\Action;
+use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\AuthenticationLogResource\Pages;
+use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Models\AuthenticationLog;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
@@ -56,7 +58,7 @@ class AuthenticationLogResource extends XotBaseResource
 
                 TextColumn::make('authenticatable_type')
                     ->label('Authenticatable Type')
-                    ->formatStateUsing(fn ($state) => Str::afterLast($state, '\\'))
+                    ->formatStateUsing(fn (?string $state): string => $state !== null ? Str::afterLast($state, '\\') : '')
                     ->searchable()
                     ->sortable(),
 
@@ -64,9 +66,14 @@ class AuthenticationLogResource extends XotBaseResource
                     ->label('User')
                     ->searchable()
                     ->sortable()
-                    ->url(fn ($record) => $record->authenticatable?->exists ?
-                        UserResource::getUrl('view', ['record' => $record->authenticatable]) : null,
-                        shouldOpenInNewTab: true),
+                    ->url(function (AuthenticationLog $record): ?string {
+                        $authenticatable = $record->authenticatable;
+                        if ($authenticatable !== null && $authenticatable->exists) {
+                            return UserResource::getUrl('view', ['record' => $authenticatable]);
+                        }
+
+                        return null;
+                    }, shouldOpenInNewTab: true),
 
                 TextColumn::make('ip_address')
                     ->label('IP Address')
@@ -79,7 +86,7 @@ class AuthenticationLogResource extends XotBaseResource
                 TextColumn::make('user_agent')
                     ->label('User Agent')
                     ->limit(50)
-                    ->tooltip(fn ($record) => $record->user_agent)
+                    ->tooltip(fn (AuthenticationLog $record): ?string => $record->user_agent)
                     ->searchable(isIndividual: true),
 
                 IconColumn::make('login_successful')
@@ -97,10 +104,10 @@ class AuthenticationLogResource extends XotBaseResource
                     ->dateTime()
                     ->sortable(),
 
-                Toggle::make('cleared_by_user')
+                IconColumn::make('cleared_by_user')
                     ->label('Cleared by User')
-                    ->inline(false)
-                    ->disabled(),
+                    ->boolean()
+                    ->sortable(),
             ])
             ->filters([
                 // Filter by login success
@@ -116,18 +123,43 @@ class AuthenticationLogResource extends XotBaseResource
                             ->label('Login Until'),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
+                        /** @var array{login_from?: \DateTimeInterface|string|null, login_until?: \DateTimeInterface|string|null} $data */
                         return $query
-                            ->when($data['login_from'], fn ($query, $date) => $query->whereDate('login_at', '>=', $date))
-                            ->when($data['login_until'], fn ($query, $date) => $query->whereDate('login_at', '<=', $date));
+                            ->when(
+                                isset($data['login_from']),
+                                function (Builder $q) use ($data): Builder {
+                                    /** @var \DateTimeInterface|string $date */
+                                    $date = $data['login_from'];
+                                    return $q->whereDate('login_at', '>=', $date);
+                                }
+                            )
+                            ->when(
+                                isset($data['login_until']),
+                                function (Builder $q) use ($data): Builder {
+                                    /** @var \DateTimeInterface|string $date */
+                                    $date = $data['login_until'];
+                                    return $q->whereDate('login_at', '<=', $date);
+                                }
+                            );
                     }),
             ])
             ->actions([
                 Action::make('view_user')
                     ->label('View User')
                     ->icon('heroicon-o-user')
-                    ->url(fn ($record) => $record->authenticatable?->exists ?
-                        UserResource::getUrl('view', ['record' => $record->authenticatable]) : null)
-                    ->visible(fn ($record) => $record->authenticatable?->exists),
+                    ->url(function (AuthenticationLog $record): ?string {
+                        $authenticatable = $record->authenticatable;
+                        if ($authenticatable !== null && $authenticatable->exists) {
+                            return UserResource::getUrl('view', ['record' => $authenticatable]);
+                        }
+
+                        return null;
+                    })
+                    ->visible(function (AuthenticationLog $record): bool {
+                        $authenticatable = $record->authenticatable;
+
+                        return $authenticatable !== null && $authenticatable->exists;
+                    }),
                 DeleteAction::make(),
             ])
             ->bulkActions([
@@ -146,12 +178,15 @@ class AuthenticationLogResource extends XotBaseResource
         ];
     }
 
+    /**
+     * @return array<string, Component>
+     */
     public static function getFormSchema(): array
     {
         return [
-            Section::make('Authentication Information')
+            'authentication_info_section' => \Filament\Forms\Components\Section::make('Authentication Information')
                 ->schema([
-                    Grid::make(2)
+                    \Filament\Forms\Components\Grid::make(2)
                         ->schema([
                             Select::make('authenticatable_type')
                                 ->label('Authenticatable Type')
@@ -168,7 +203,7 @@ class AuthenticationLogResource extends XotBaseResource
                                 ->numeric(),
                         ]),
 
-                    Grid::make(2)
+                    \Filament\Forms\Components\Grid::make(2)
                         ->schema([
                             TextInput::make('ip_address')
                                 ->label('IP Address')
@@ -181,7 +216,7 @@ class AuthenticationLogResource extends XotBaseResource
                                 ->placeholder('User agent string'),
                         ]),
 
-                    Grid::make(3)
+                    \Filament\Forms\Components\Grid::make(3)
                         ->schema([
                             Toggle::make('login_successful')
                                 ->label('Login Successful')

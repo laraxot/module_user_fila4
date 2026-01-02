@@ -17,41 +17,36 @@ class ViewOauthAuthCode extends XotBaseViewRecord
     protected static string $resource = OauthAuthCodeResource::class;
 
     /**
-     * @return array<int, \Filament\Infolists\Components\Component>
+     * @return array<string, \Filament\Schemas\Components\Component>
      */
     #[\Override]
     protected function getInfolistSchema(): array
     {
         return [
-            Section::make('Authorization Code Information')
+            'authorization_code_info' => Section::make('Authorization Code Information')
                 ->schema([
-                    Grid::make(2)
+                    'code_grid' => Grid::make(2)
                         ->schema([
-                            TextEntry::make('id')
-                                ->label('Auth Code ID')
+                            'id' => TextEntry::make('id')
                                 ->formatStateUsing(function ($state) {
-                                    // Show just first 10 chars of the code for security
                                     return Str::limit($state, 15, '...');
                                 }),
-                            TextEntry::make('client.name')
-                                ->label('Client')
+                            'client_name' => TextEntry::make('client.name')
                                 ->url(fn ($state, $record) => $record->client?->exists ?
                                     \Modules\User\Filament\Resources\OauthClientResource::getUrl('view', ['record' => $record->client]) : null),
                         ]),
 
-                    Grid::make(2)
+                    'user_grid' => Grid::make(2)
                         ->schema([
-                            TextEntry::make('user.name')
-                                ->label('User')
+                            'user_name' => TextEntry::make('user.name')
                                 ->url(fn ($state, $record) => $record->user?->exists ?
                                     \Modules\User\Filament\Resources\UserResource::getUrl('view', ['record' => $record->user]) : null),
                         ]),
                 ])->columns(1),
 
-            Section::make('Authorization Details')
+            'authorization_details' => Section::make('Authorization Details')
                 ->schema([
-                    TextEntry::make('scopes')
-                        ->label('Scopes')
+                    'scopes' => TextEntry::make('scopes')
                         ->formatStateUsing(function ($state) {
                             if (is_array($state)) {
                                 return implode(', ', $state);
@@ -62,24 +57,21 @@ class ViewOauthAuthCode extends XotBaseViewRecord
                         ->columnSpanFull(),
                 ])->columns(1),
 
-            Section::make('Status')
+            'status' => Section::make('Status')
                 ->schema([
-                    Grid::make(2)
+                    'status_grid' => Grid::make(2)
                         ->schema([
-                            ToggleEntry::make('revoked')
-                                ->label('Revoked'),
+                            'revoked' => ToggleEntry::make('revoked'),
                         ]),
                 ])->columns(1),
 
-            Section::make('Timestamps')
+            'timestamps' => Section::make('Timestamps')
                 ->schema([
-                    Grid::make(2)
+                    'timestamps_grid' => Grid::make(2)
                         ->schema([
-                            TextEntry::make('expires_at')
-                                ->label('Expires At')
+                            'expires_at' => TextEntry::make('expires_at')
                                 ->dateTime(),
-                            TextEntry::make('created_at')
-                                ->label('Created At')
+                            'created_at' => TextEntry::make('created_at')
                                 ->dateTime(),
                         ]),
                 ])->columns(1),

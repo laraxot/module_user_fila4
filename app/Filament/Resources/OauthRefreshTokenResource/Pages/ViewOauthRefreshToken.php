@@ -16,43 +16,38 @@ class ViewOauthRefreshToken extends XotBaseViewRecord
     protected static string $resource = OauthRefreshTokenResource::class;
 
     /**
-     * @return array<int, \Filament\Infolists\Components\Component>
+     * @return array<string, \Filament\Schemas\Components\Component>
      */
     #[\Override]
     protected function getInfolistSchema(): array
     {
         return [
-            Section::make('Token Information')
+            'token_information' => Section::make('Token Information')
                 ->schema([
-                    Grid::make(2)
+                    'token_grid' => Grid::make(2)
                         ->schema([
-                            TextEntry::make('id')
-                                ->label('Refresh Token ID'),
-                            TextEntry::make('accessToken.id')
-                                ->label('Access Token ID')
+                            'id' => TextEntry::make('id'),
+                            'access_token_id' => TextEntry::make('accessToken.id')
                                 ->url(fn ($state, $record) => $record->accessToken?->exists ?
                                     \Modules\User\Filament\Resources\OauthAccessTokenResource::getUrl('view', ['record' => $record->accessToken]) : null),
                         ]),
                 ])->columns(1),
 
-            Section::make('Status')
+            'status' => Section::make('Status')
                 ->schema([
-                    Grid::make(2)
+                    'status_grid' => Grid::make(2)
                         ->schema([
-                            ToggleEntry::make('revoked')
-                                ->label('Revoked'),
+                            'revoked' => ToggleEntry::make('revoked'),
                         ]),
                 ])->columns(1),
 
-            Section::make('Timestamps')
+            'timestamps' => Section::make('Timestamps')
                 ->schema([
-                    Grid::make(2)
+                    'timestamps_grid' => Grid::make(2)
                         ->schema([
-                            TextEntry::make('expires_at')
-                                ->label('Expires At')
+                            'expires_at' => TextEntry::make('expires_at')
                                 ->dateTime(),
-                            TextEntry::make('created_at')
-                                ->label('Created At')
+                            'created_at' => TextEntry::make('created_at')
                                 ->dateTime(),
                         ]),
                 ])->columns(1),
