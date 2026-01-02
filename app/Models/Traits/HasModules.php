@@ -20,10 +20,11 @@ trait HasModules
         $roles = $this->roles;
         /** @var array<string, Module> $filteredModules */
         $filteredModules = Arr::where($modules, function ($module, $key) {
-            //$name = $module->getName();
+            // $name = $module->getName();
             $name = is_string($key) ? $key : (string) $key;
             $role_name = Str::of($name)->lower()->append('::admin')->toString();
             $check = $this->hasRole($role_name);
+
             return $check;
         });
         /** @var list<Module> $modulesList */

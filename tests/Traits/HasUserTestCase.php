@@ -7,7 +7,7 @@ namespace Modules\User\Tests\Traits;
 use Modules\User\Models\User;
 
 /**
- * Trait HasUserTestCase
+ * Trait HasUserTestCase.
  *
  * Provides type-safe $user property for Pest test cases.
  * This trait resolves PHPStan property.notFound errors by explicitly

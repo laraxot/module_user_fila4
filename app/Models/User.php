@@ -135,7 +135,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  */
 class User extends BaseUser
 {
-    /** @var string  */
+    /** @var string */
     public $connection = 'user';
 
     #[\Override]
