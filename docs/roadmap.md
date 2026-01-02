@@ -1,438 +1,285 @@
-### Versione HEAD
+# User Module - Complete Roadmap
 
-# Roadmap Modulo User
+## Module Overview
+**Purpose**: Multi-type authentication, authorization, and teams management.
+**Zen**: Three Pillars: Identity Trust (Who are you?), Permission Clarity (What can you do?), and Organizational Context (Where do you work?).
+**Status**: Core module - Advanced authentication and authorization system.
 
-## Funzionalità Future
+### Quality & Compliance
+- **PHPStan**: Level 10 ✅
+- **Laraxot Rules**: Strictly followed (BaseUser implements UserContract, once() memoization, no property_exists).
+- **Security**: OAuth2 Personal access, socialite, device tracking.
 
-### Autenticazione
-1. **Miglioramento OAuth**
-   - Implementazione refresh token automatico
-   - Supporto per più provider social
-   - Gestione avanzata scadenza token
+## 📊 Stato Attuale
 
-2. **Two Factor Authentication**
-   - Supporto per app authenticator
-   - Backup codes
-   - Remember device
+### Metriche
+- **File PHP**: 1046
+- **Test**: 46 (copertura buona)
+- **Documentazione**: 696 file
+- **PHPStan Level 10**: ✅ 0 errori
+- **Models**: 95
+- **Filament Resources**: 112
+- **Actions**: 28
 
-3. **Single Sign-On**
-   - Integrazione con SAML
-   - Supporto per OpenID Connect
-   - Gestione sessioni cross-domain
+### Componenti Principali
+- **Models**: BaseUser, User, Profile, Role, Permission, Team, TeamUser
+- **Filament Resources**: UserResource, TeamResource, RoleResource
+- **Actions**: Authentication, Authorization, Team management
+- **Widgets**: LoginWidget, RegisterWidget, LogoutWidget
 
-### Autorizzazione
-1. **Ruoli e Permessi**
-   - Sistema di ereditarietà ruoli
-   - Permessi dinamici
-   - Audit log autorizzazioni
+## 🚨 TODO e Miglioramenti Identificati
 
-2. **Policy Management**
-   - Editor visuale policy
-   - Testing policy
-   - Documentazione automatica
+### 1. Violazione Architetturale (CRITICA)
+**Problema**: Widget che viola regola "User non può dipendere da moduli specifici"
+**File**: `UserTypeRegistrationsChartWidget` (da spostare)
+**Priorità**: 🔴 CRITICA
+**Stima**: 2-3 ore
 
-3. **Access Control**
-   - IP whitelisting
-   - Geolocation based access
-   - Time-based restrictions
+### 2. Test Coverage
+**Problema**: Alcune aree non coperte da test
+**Priorità**: 🟡 Media
+**Stima**: 10-15 ore
 
-### Profili Utente
-1. **Gestione Profili**
-   - Profili multipli per utente
-   - Custom fields
-   - Import/Export dati
+### 3. Performance Optimization
+**Problema**: Query optimization per large datasets
+**Priorità**: 🟡 Media
+**Stima**: 8-12 ore
 
-2. **Preferenze**
-   - UI customization
-   - Notification preferences
-   - Language preferences
+## 📋 Roadmap Dettagliata
 
-3. **Privacy**
-   - GDPR compliance
-   - Data retention
-   - Privacy settings
+### Fase 1: Correzione Violazioni Architetturali (Settimana 1)
 
-## Miglioramenti Pianificati
+#### 1.1 Spostamento Widget Violante
+**Obiettivo**: Spostare widget da User a modulo specifico
+
+**Task**:
+- [ ] Identificare widget `UserTypeRegistrationsChartWidget`
+- [ ] Analizzare dipendenze
+- [ ] Spostare widget in modulo appropriato (Quaeris?)
+- [ ] Aggiornare namespace
+- [ ] Rimuovere file originale
+- [ ] Verificare pulizia con script controllo
+- [ ] Test regressione
+- [ ] Documentazione
+
+**Dipendenze**: Nessuna
+**Stima**: 2-3 ore
+
+#### 1.2 Audit Completo Dipendenze
+**Obiettivo**: Verificare che User non dipenda da moduli specifici
+
+**Task**:
+- [ ] Analizzare tutti gli import in User
+- [ ] Identificare dipendenze circolari
+- [ ] Verificare che User sia riutilizzabile al 100%
+- [ ] Correggere violazioni
+- [ ] Documentazione
+
+**Dipendenze**: 1.1 completato
+**Stima**: 4-6 ore
+
+### Fase 2: Testing e Qualità (Settimana 2-3)
+
+#### 2.1 Aumentare Copertura Test
+**Obiettivo**: Portare copertura test da ~85% a > 95%
+
+**Task**:
+- [ ] Test unitari per tutti i Models
+- [ ] Test feature per Actions
+- [ ] Test integration per Resources
+- [ ] Test widget authentication
+- [ ] Test team management
+- [ ] Test permission system
+
+**Dipendenze**: Fase 1 completata
+**Stima**: 10-15 ore
+
+#### 2.2 Test Business Logic
+**Obiettivo**: Testare workflow business completo
+
+**Task**:
+- [ ] Test User → Profile workflow
+- [ ] Test User → Team workflow
+- [ ] Test User → Role → Permission workflow
+- [ ] Test Authentication flow
+- [ ] Test Authorization flow
+- [ ] Test Multi-tenant isolation
+
+**Dipendenze**: Fase 1 completata
+**Stima**: 8-12 ore
+
+### Fase 3: Performance e Ottimizzazioni (Settimana 4)
+
+#### 3.1 Query Optimization
+**Obiettivo**: Eliminare N+1 queries e ottimizzare performance
+
+**Task**:
+- [ ] Analizzare query con Laravel Debugbar
+- [ ] Aggiungere eager loading dove necessario
+- [ ] Ottimizzare relazioni User → Profile → Roles
+- [ ] Ottimizzare Team queries
+- [ ] Benchmark performance
+
+**Dipendenze**: Fase 2 completata
+**Stima**: 8-12 ore
+
+#### 3.2 Cache Strategy
+**Obiettivo**: Implementare cache per operazioni costose
+
+**Task**:
+- [ ] Cache per roles e permissions
+- [ ] Cache per team membership
+- [ ] Cache per user profile
+- [ ] Cache invalidation strategy
+- [ ] Cache warming
+
+**Dipendenze**: Fase 2 completata
+**Stima**: 6-10 ore
+
+### Fase 4: Features Avanzate (Settimana 5-6)
+
+#### 4.1 2FA Enhancement
+**Obiettivo**: Migliorare sistema 2FA
+
+**Task**:
+- [ ] Backup codes management
+- [ ] Recovery process migliorato
+- [ ] QR code generation
+- [ ] Test 2FA
+
+**Dipendenze**: Fase 3 completata
+**Stima**: 8-12 ore
+
+#### 4.2 Session Management Avanzato
+**Obiettivo**: Implementare gestione sessioni avanzata
+
+**Task**:
+- [ ] Multi-device session management
+- [ ] Session timeout configurabile
+- [ ] Session activity tracking
+- [ ] Force logout functionality
+- [ ] Test session management
+
+**Dipendenze**: Fase 3 completata
+**Stima**: 10-15 ore
+
+#### 4.3 Audit Trail Completo
+**Obiettivo**: Implementare audit trail completo
+
+**Task**:
+- [ ] Log tutte le azioni utente
+- [ ] Log modifiche profilo
+- [ ] Log cambiamenti permessi
+- [ ] Log accessi
+- [ ] Dashboard audit
+- [ ] Test audit trail
+
+**Dipendenze**: Fase 3 completata
+**Stima**: 12-18 ore
+
+## 🎯 Priorità
+
+### Priorità 1 (Urgente - 1 settimana)
+1. ✅ Spostamento widget violante
+2. ✅ Audit dipendenze
+3. ✅ Verifica riusabilità 100%
+
+### Priorità 2 (Importante - 2-3 settimane)
+1. Testing e qualità
+2. Query optimization
+3. Cache strategy
+
+### Priorità 3 (Miglioramenti - 4-6 settimane)
+1. 2FA enhancement
+2. Session management avanzato
+3. Audit trail completo
+
+## 📈 Metriche Target
+
+### Qualità Codice
+- **PHPStan Level 10**: ✅ 0 errori (già raggiunto)
+- **PHPMD Complexity**: < 10 per metodo
+- **Test Coverage**: > 95% (attuale ~85%)
+- **Riusabilità**: 100% (modulo BASE)
 
 ### Performance
-1. **Ottimizzazione Database**
-   - Query optimization
-   - Indexing strategy
-   - Caching layer
+- **Query Count**: < 5 per pagina
+- **Memory Usage**: < 64MB per operazione
+- **Response Time**: < 200ms per pagina
+- **Cache Hit Rate**: > 80%
 
-2. **API Performance**
-   - Response compression
-   - Batch operations
-   - Rate limiting
+### Architettura
+- **Violazioni Dipendenze**: 0 (zero assoluto)
+- **Moduli Base Riutilizzabili**: 100%
+- **Accoppiamento Cross-Module**: Minimo
+- **Time to Fix Violations**: < 24h
 
-3. **UI Performance**
-   - Lazy loading
-   - Code splitting
-   - Asset optimization
+## 🔗 Dipendenze Inter-Modulo
 
-### Sicurezza
-1. **Hardening**
-   - Security headers
-   - CSRF protection
-   - XSS prevention
+### Dipendenze da Altri Moduli
+- **Xot**: Framework base (dipendenza core)
+- **Tenant**: Multi-tenancy support (opzionale)
 
-2. **Monitoring**
-   - Security logging
-   - Alert system
-   - Audit trail
+### Dipendenze da User
+- **Quaeris**: Estende User per business logic
+- **Altri moduli business**: Estendono User
 
-3. **Compliance**
-   - GDPR updates
-   - Privacy laws
-   - Security standards
+**REGOLA ASSOLUTA**: User NON può dipendere da moduli business specifici!
 
-### UX/UI
-1. **Interface**
-   - Dark mode
-   - Responsive design
-   - Accessibility
+## 📚 Documentazione da Aggiornare
 
-2. **Workflow**
-   - Onboarding flow
-   - Error handling
-   - Success feedback
+1. `docs/philosophy.md` - Aggiornare con nuove decisioni
+2. `docs/README.md` - Aggiornare con nuove funzionalità
+3. `docs/authentication.md` - Aggiornare con 2FA
+4. `docs/authorization.md` - Aggiornare con audit trail
+5. Creare `docs/testing-guide.md` - Guida testing
+6. Creare `docs/performance-guide.md` - Guida performance
 
-3. **Documentation**
-   - User guides
-   - API documentation
-   - Code examples
+## 🧪 Testing Strategy
 
-## Timeline
+### Unit Tests
+- Test per ogni Model
+- Test per ogni Action
+- Test per ogni Widget
+- Test per ogni Policy
 
-### Q1 2024
-- Implementazione refresh token
-- Sistema di ereditarietà ruoli
-- Ottimizzazione query database
+### Feature Tests
+- Test workflow User → Profile
+- Test workflow User → Team
+- Test workflow User → Role → Permission
+- Test Authentication flow
+- Test Authorization flow
 
-### Q2 2024
-- Supporto SAML
-- Editor policy visuale
-- Security hardening
+### Integration Tests
+- Test Resources Filament
+- Test Pages Filament
+- Test Widget rendering
+- Test multi-tenant isolation
 
-### Q3 2024
-- Profili multipli
-- GDPR compliance
-- UI improvements
+## 🚀 Quick Wins (Prima Settimana)
 
-### Q4 2024
-- Geolocation access
-- Performance optimization
-- Documentation updates
+1. ✅ Spostare widget violante (2-3 ore)
+2. ✅ Audit dipendenze (4-6 ore)
+3. ✅ Verificare riusabilità 100% (2-3 ore)
+4. ✅ Aggiungere test mancanti (5-8 ore)
 
-## Contribuire
+**Totale Quick Wins**: 13-20 ore (2-3 giorni)
 
-### Come Contribuire
-1. Fork repository
-2. Crea branch feature
-3. Commit changes
-4. Push branch
-5. Crea Pull Request
+## 📝 Note
 
-### Standard di Codice
-- PSR-12 compliance
-- PHPDoc comments
-- Unit tests
-- Integration tests
+- User è modulo BASE - deve essere riutilizzabile al 100%
+- Nessuna dipendenza da moduli business specifici
+- Tutte le modifiche devono rispettare filosofia DRY + KISS
+- Ogni feature deve essere testata
+- Documentazione sempre aggiornata
+- PHPStan Level 10 sempre mantenuto
 
-### Processo di Review
-1. Code review
-2. Test automation
-3. Documentation
-4. Merge approval
+## 🔗 Collegamenti
 
-## Riferimenti
-
-### Documentazione
-- [Laravel Authentication](https://laravel.com/docs/12.x/authentication)
-- [Laravel Authorization](https://laravel.com/docs/12.x/authorization)
-- [Laravel Security](https://laravel.com/docs/12.x/security)
-
-### Collegamenti Interni
-- [Bottlenecks](bottlenecks.md)
-- [Best Practices](BEST-PRACTICES.md)
-- [Testing](testing.md)
-
-### Versione HEAD
-
-
-### Versione Incoming
-
-- [Documentazione Autenticazione](./authentication.md) - Guida all'autenticazione
-- [Documentazione API](./api.md) - Guida alle API
-- [Integrazione Social](./social-auth.md) - Guida all'integrazione social
-2. Implementazione SSO
-3. Nuove integrazioni social
-
-## Note
-- Priorità alta: 2FA e Testing
-- Focus su sicurezza
-- Mantenere compatibilità con OAuth2
-
-## Collegamenti tra versioni di roadmap.md
-* [roadmap.md](bashscripts/docs/roadmap.md)
-* [roadmap.md](docs/roadmap.md)
-* [roadmap.md](../../../Gdpr/docs/roadmap.md)
-* [roadmap.md](../../../Notify/docs/roadmap.md)
-* [roadmap.md](../../../Xot/docs/roadmap.md)
-* [roadmap.md](../../../Dental/docs/roadmap.md)
-* [roadmap.md](../../../User/docs/roadmap.md)
-* [roadmap.md](../../../UI/docs/roadmap.md)
-* [roadmap.md](../../../Lang/docs/roadmap.md)
-* [roadmap.md](../../../Job/docs/roadmap.md)
-* [roadmap.md](../../../Media/docs/roadmap.md)
-* [roadmap.md](../../../Tenant/docs/roadmap.md)
-* [roadmap.md](../../../Activity/docs/roadmap.md)
-* [roadmap.md](../../../Patient/docs/roadmap.md)
-* [roadmap.md](../../../Cms/docs/roadmap.md)
-* [roadmap.md](../../../../Themes/One/docs/roadmap.md)
-
+- [Filosofia User](./philosophy.md)
+- [Modular Architecture Rules](../Cms/docs/modular-architecture-dependency-rules.md)
+- [Architectural Violation Fix Plan](../Cms/docs/ARCHITECTURAL_VIOLATION_FIX_PLAN.md)
 
 ---
 
-
-### Versione Incoming
-
-# User Module Roadmap
-
-## Module Progress Overview
-Overall Module Completion: 82%
-- Core Features: 100% complete
-- High Priority Features: 55% complete
-- Medium Priority Features: 40% complete
-- Low Priority Features: 25% complete
-- Technical Debt: 45% complete
-
-## Technical Metrics Overview
-
-### Code Quality
-* Maintainability Index: 88/100
-* Cyclomatic Complexity: Avg 2.8
-* Technical Debt Ratio: 6%
-* PHPStan Level: 7 (in progress)
-* Code Duplication: 3.2%
-* Clean Code Score: 92/100
-* Type Safety: 95%
-
-### Performance
-* Average Response Time: 180ms
-* 95th Percentile Response: 350ms
-* Database Query Time: 120ms
-* Cache Hit Rate: 94%
-* Memory Peak Usage: 72MB
-* CPU Utilization: 35%
-* Database Connection Pool: 98% efficient
-
-### Security
-* OWASP Compliance: 98%
-* Security Scan Issues: 0 Critical, 1 Medium
-* Authentication Coverage: 100%
-* Authorization Coverage: 100%
-* Password Policy Compliance: 100%
-* Session Security: 100%
-* CSRF Protection: 100%
-* XSS Protection: 100%
-
-### Testing
-* Overall Test Coverage: 92%
-* Unit Test Pass Rate: 100%
-* Integration Test Pass Rate: 99%
-* E2E Test Pass Rate: 98%
-* Security Test Coverage: 95%
-* Performance Test Coverage: 85%
-* Authentication Test Coverage: 100%
-
-## Completed Features
-
-### Core Features (100%)
-1. [Authentication System](./roadmap/features/authentication-system.md)
-   - User authentication (100%)
-   - Password validation rules (100%)
-   - Status: ✅ Completed
-   - Date: 2025-04-01
-   - Metrics:
-     * Code Coverage: 98%
-     * Security Audit: Passed
-     * Unit Tests: 45/45 passing
-     * Integration Tests: 32/32 passing
-     * Auth Success Rate: 99.9%
-     * Response Time: 85ms avg
-     * Failed Login Protection: 100%
-     * Password Strength: NIST compliant
-     * 2FA Coverage: Ready
-
-2. [User Traits Implementation](./roadmap/features/user-traits.md)
-   - HasTeams trait (100%)
-   - HasTenants trait (100%)
-   - HasAuthenticationLogTrait (100%)
-   - PasswordValidationRules trait (100%)
-   - Status: ✅ Completed
-   - Date: 2025-04-01
-   - Metrics:
-     * Code Coverage: 96%
-     * PHPStan Level: 7
-     * Unit Tests: 38/38 passing
-     * Trait Usage: 100% documented
-     * Type Safety: 100%
-     * Memory Usage: optimized
-     * Integration Tests: 28/28 passing
-     * Documentation Quality: 95%
-
-3. [Team Management](./roadmap/features/team-management.md)
-   - Team CRUD operations (100%)
-   - Team user relationships (100%)
-   - Role management within teams (100%)
-   - Status: ✅ Completed
-   - Date: 2025-04-01
-   - Metrics:
-     * Code Coverage: 95%
-     * Performance: 150ms avg response
-     * Database Queries: Optimized
-     * User Satisfaction: 95%
-     * Cache Efficiency: 92%
-     * Role Assignment Speed: 95ms
-     * Permission Check: 25ms
-     * Scalability: 10k+ teams
-
-4. [Tenant Management](./roadmap/features/tenant-management.md)
-   - Tenant CRUD operations (100%)
-   - Tenant user relationships (100%)
-   - Multi-tenancy support (100%)
-   - Status: ✅ Completed
-   - Date: 2025-04-01
-   - Metrics:
-     * Code Coverage: 97%
-     * Data Isolation: 100%
-     * Performance Impact: <5%
-     * Migration Success: 100%
-     * Database Separation: 100%
-     * Cross-tenant Security: 100%
-     * Tenant Switch Time: 45ms
-     * Resource Isolation: 100%
-
-## In Progress Features
-
-### High Priority (55%)
-1. [PHPStan Level 7 Compliance](./roadmap/features/phpstan-level7-compliance.md)
-   - Add missing return types (70%)
-   - Add missing parameter types (65%)
-   - Fix undefined property access (30%)
-   - Priority: High
-   - Status: In Progress
-   - Target Date: Q2 2025
-   - Metrics:
-     * Files Analyzed: 65/100
-     * Critical Issues: 8
-     * Major Issues: 45
-     * Minor Issues: 120
-
-2. [Authentication Log Enhancement](./roadmap/features/auth-log-enhancement.md)
-   - Improved logging format (60%)
-   - Better notification system (55%)
-   - Advanced filtering (50%)
-   - Priority: High
-   - Status: In Progress
-   - Target Date: Q2 2025
-   - Metrics:
-     * Log Coverage: 85%
-     * Alert Accuracy: 95%
-     * Query Performance: +40%
-
-### Medium Priority (40%)
-1. [Team Permission System Enhancement](./roadmap/features/team-permission-enhancement.md)
-   - Granular permission controls (45%)
-   - Role hierarchy (40%)
-   - Permission inheritance (35%)
-   - Priority: Medium
-   - Status: In Progress
-   - Target Date: Q3 2025
-   - Metrics:
-     * Permission Types: 25/40
-     * Role Types: 8/12
-     * Access Control: 85%
-
-2. [User Profile Enhancement](./roadmap/features/user-profile-enhancement.md)
-   - Extended profile fields (50%)
-   - Custom user settings (35%)
-   - Profile verification system (35%)
-   - Priority: Medium
-   - Status: In Progress
-   - Target Date: Q3 2025
-   - Metrics:
-     * Field Coverage: 50%
-     * Settings Types: 15/30
-     * Verification Rate: 75%
-
-### Low Priority (25%)
-1. [Social Authentication](./roadmap/features/social-authentication.md)
-   - OAuth2 integration (30%)
-   - Multiple provider support (25%)
-   - Profile synchronization (20%)
-   - Priority: Low
-   - Status: In Progress
-   - Target Date: Q4 2025
-   - Metrics:
-     * Providers: 2/8
-     * Auth Success Rate: 95%
-     * Sync Accuracy: 98%
-
-## Technical Debt (45%)
-1. [Legacy Code Cleanup](./roadmap/features/legacy-code-cleanup.md)
-   - Remove app_old directory (60%)
-   - Clean up unused traits (40%)
-   - Update deprecated methods (35%)
-   - Priority: High
-   - Status: In Progress
-   - Target Date: Q2 2025
-   - Metrics:
-     * Code Removed: 15k lines
-     * Complexity Reduction: 25%
-     * Technical Debt: -30%
-
-2. [Documentation Enhancement](./roadmap/features/documentation-enhancement.md)
-   - Complete API documentation (45%)
-   - Update trait usage guidelines (40%)
-   - Add code examples (35%)
-   - Priority: Medium
-   - Status: In Progress
-   - Target Date: Q3 2025
-   - Metrics:
-     * Doc Coverage: 45%
-     * Example Coverage: 40%
-     * Usage Guidelines: 80%
-
-## Technical Metrics
-- Code Quality:
-  * Maintainability Index: 88/100
-  * Cyclomatic Complexity: Avg 2.8
-  * Technical Debt Ratio: 6%
-
-- Performance:
-  * Average Response Time: 180ms
-  * 95th Percentile Response: 350ms
-  * Database Query Time: 120ms
-
-- Security:
-  * OWASP Compliance: 98%
-  * Security Scan Issues: 0 Critical
-  * Authentication Coverage: 100%
-  * Authorization Coverage: 100%
-
-## Dependencies
-- Laravel Framework v10.x
-- Filament Admin Panel v3.x
-- PHPStan v1.x
-- Laravel Teams v2.x
-- Laravel Tenancy v3.x
-- PHP v8.2
-- Laravel Sanctum v3.x
-- Laravel Permission v5.x
-- Laravel Data v3.x
-- Laravel Excel v3.x
-
----
-
+**Filosofia**: User è il modulo BASE più importante - deve essere perfetto, riutilizzabile, e senza dipendenze da moduli business specifici.

@@ -17,6 +17,9 @@ return [
     'fields' => [
         'name' => [
             'label' => 'name',
+            'description' => 'name',
+            'helper_text' => 'name',
+            'placeholder' => 'name',
         ],
         'create' => [
             'label' => 'create',
@@ -41,6 +44,10 @@ return [
         ],
         'openFilters' => [
             'label' => 'openFilters',
+        ],
+        'recordId' => [
+            'description' => 'recordId',
+            'helper_text' => 'recordId',
         ],
     ],
     'plural' => [
@@ -103,6 +110,21 @@ return [
             'icon' => 'detach',
             'label' => 'detach',
             'tooltip' => 'detach',
+        ],
+        'cancel' => [
+            'tooltip' => 'cancel',
+            'icon' => 'cancel',
+            'label' => 'cancel',
+        ],
+        'logout' => [
+            'tooltip' => 'logout',
+            'icon' => 'logout',
+        ],
+        'createAnother' => [
+            'tooltip' => 'createAnother',
+        ],
+        'attachAnother' => [
+            'tooltip' => 'attachAnother',
         ],
     ],
 ];

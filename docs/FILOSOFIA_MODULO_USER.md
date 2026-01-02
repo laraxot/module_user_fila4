@@ -446,7 +446,7 @@ BaseUser implements:
 
 ```json
 {
-  "laravel/passport": "^12.4",
+  "laravel/passport": "*",
   "spatie/laravel-permission": "*",
   "spatie/laravel-media-library": "*",
   "jenssegers/agent": "*",

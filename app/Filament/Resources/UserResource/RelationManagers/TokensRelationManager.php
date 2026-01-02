@@ -4,15 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\CreateAction;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
+use Filament\Tables\Actions\CreateAction;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Table;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 class TokensRelationManager extends XotBaseRelationManager
@@ -30,29 +28,48 @@ class TokensRelationManager extends XotBaseRelationManager
         ];
     }
 
+    /**
+     * @return array<string, \Filament\Tables\Columns\Column>
+     */
     #[\Override]
-    public function table(Table $table): Table
+    public function getTableColumns(): array
     {
-        return $table
-            ->recordTitleAttribute('name')
-            ->columns([
-                TextColumn::make('name'),
-            ])
-            ->filters([])
-            ->headerActions([
-                CreateAction::make(),
-            ])
-            ->recordActions([
-                EditAction::make(),
-                DeleteAction::make(),
-            ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ])
-            ->emptyStateActions([
-                // {{ tableEmptyStateActions }}
-            ]);
+        return [
+            'name' => TextColumn::make('name'),
+        ];
+    }
+
+    /**
+     * @return array<string, \Filament\Tables\Actions\Action>
+     */
+    #[\Override]
+    public function getTableHeaderActions(): array
+    {
+        return [
+            'create' => CreateAction::make(),
+        ];
+    }
+
+    /**
+     * @return array<string, \Filament\Tables\Actions\Action>
+     */
+    #[\Override]
+    public function getTableActions(): array
+    {
+        return [
+            'edit' => EditAction::make(),
+            'delete' => DeleteAction::make(),
+        ];
+    }
+
+    /**
+     * @return array<string, \Filament\Tables\Actions\BulkAction>
+     */
+    #[\Override]
+    public function getTableBulkActions(): array
+    {
+        return [
+            'delete' => DeleteBulkAction::make(),
+        ];
     }
 }

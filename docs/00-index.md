@@ -40,6 +40,9 @@
 - [Login Issue Resolution](./login-issue-resolution-report.md) - Report tecnico risoluzione login
 - [Livewire StatePath Issue](./livewire-form-statepath-issue.md) - Analisi problemi binding
 - [Migration Primary Key Fix](./migration-primary-key-fix.md) - Fix PRIMARY KEY constraint team_user
+- [Migration DRY Violations Report](./migration-dry-violations-report.md) - Report on duplicate table migrations
+- [Migration Philosophy Violations](./migration-philosophy-violations.md) - Analysis of migration philosophy violations
+- [Migration Philosophy Strategy](./migration-philosophy-strategy.md) - Proper migration approach according to Laraxot philosophy
 
 ### 📊 Code Quality
 - [PHPStan Analysis](./phpstan-analysis.md) - PHPStan reports

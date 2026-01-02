@@ -25,9 +25,9 @@ use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Laravel\Passport\Contracts\OAuthenticatable;
 use Laravel\Passport\HasApiTokens;
 use Modules\User\Database\Factories\UserFactory;
-use Modules\Xot\Contracts\PassportHasApiTokensContract;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
@@ -125,21 +125,22 @@ use Spatie\Permission\Contracts\Role as SpatieRoleContract;
  *
  * @mixin \Eloquent
  */
-abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, PassportHasApiTokensContract, UserContract
+abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, UserContract, OAuthenticatable
 {
     use HasApiTokens;
     use HasChildren;
     use HasUuids;
+    use HasXotFactory;
     use InteractsWithMedia;
     use Notifiable;
-    use HasXotFactory;
-    use XotTraits\RelationX;
-    use Traits\HasSpatiePermission;
-    use Traits\HasModules;
-    use Traits\HasTenants;
     use Traits\HasAuthenticationLogTrait;
+    use Traits\HasModules;
+    use Traits\HasSpatiePermission;
     use Traits\HasTeams;
+    use Traits\HasTenants;
+    use XotTraits\RelationX;
 
+    /** @var bool */
     public $incrementing = false;
 
     /** @var Pivot|null */
@@ -532,5 +533,15 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             'created_by' => 'string',
             'deleted_by' => 'string',
         ];
+    }
+
+    /**
+     * User possiede molti Clients OAuth (per autenticazione API).
+     *
+     * @return MorphMany<OauthClient, $this>
+     */
+    public function clients(): MorphMany
+    {
+        return $this->morphMany(OauthClient::class, 'owner');
     }
 }

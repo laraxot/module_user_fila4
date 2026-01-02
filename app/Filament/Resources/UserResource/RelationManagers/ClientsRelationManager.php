@@ -30,29 +30,6 @@ class ClientsRelationManager extends XotBaseRelationManager
         ];
     }
 
-    #[\Override]
-    public function table(Table $table): Table
-    {
-        return $table
-            ->recordTitleAttribute('name')
-            ->columns([
-                TextColumn::make('name'),
-            ])
-            ->filters([])
-            ->headerActions([
-                CreateAction::make(),
-            ])
-            ->recordActions([
-                EditAction::make(),
-                DeleteAction::make(),
-            ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ])
-            ->emptyStateActions([
-                // {{ tableEmptyStateActions }}
-            ]);
-    }
+    
+    
 }
