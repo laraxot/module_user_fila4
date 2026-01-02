@@ -12,7 +12,6 @@ use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
  */
 class ListOauthAccessTokens extends XotBaseListRecords
 {
-
     protected static string $resource = \Modules\User\Filament\Resources\OauthAccessTokenResource::class;
 
     /**

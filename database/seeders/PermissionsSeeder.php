@@ -23,7 +23,7 @@ class PermissionsSeeder extends Seeder
             'create_doctors' => 'Può creare medici',
             'edit_doctors' => 'Può modificare i medici',
             'delete_doctors' => 'Può eliminare i medici',
-            
+
             // Authentication Log permissions
             'authentication-log.view.any' => 'Può visualizzare tutti gli accessi di autenticazione',
             'authentication-log.view' => 'Può visualizzare i propri accessi di autenticazione',
@@ -32,7 +32,7 @@ class PermissionsSeeder extends Seeder
             'authentication-log.delete' => 'Può eliminare accessi di autenticazione',
             'authentication-log.restore' => 'Può ripristinare accessi di autenticazione eliminati',
             'authentication-log.force-delete' => 'Può eliminare permanentemente accessi di autenticazione',
-            
+
             // OAuth Access Token permissions
             'oauth-access-token.view.any' => 'Può visualizzare tutti i token di accesso OAuth',
             'oauth-access-token.view' => 'Può visualizzare i propri token di accesso OAuth',
@@ -41,7 +41,7 @@ class PermissionsSeeder extends Seeder
             'oauth-access-token.delete' => 'Può eliminare token di accesso OAuth',
             'oauth-access-token.restore' => 'Può ripristinare token di accesso OAuth eliminati',
             'oauth-access-token.force-delete' => 'Può eliminare permanentemente token di accesso OAuth',
-            
+
             // OAuth Refresh Token permissions
             'oauth-refresh-token.view.any' => 'Può visualizzare tutti i token di refresh OAuth',
             'oauth-refresh-token.view' => 'Può visualizzare i propri token di refresh OAuth',
@@ -50,7 +50,7 @@ class PermissionsSeeder extends Seeder
             'oauth-refresh-token.delete' => 'Può eliminare token di refresh OAuth',
             'oauth-refresh-token.restore' => 'Può ripristinare token di refresh OAuth eliminati',
             'oauth-refresh-token.force-delete' => 'Può eliminare permanentemente token di refresh OAuth',
-            
+
             // OAuth Auth Code permissions
             'oauth-auth-code.view.any' => 'Può visualizzare tutti i codici di autorizzazione OAuth',
             'oauth-auth-code.view' => 'Può visualizzare i propri codici di autorizzazione OAuth',

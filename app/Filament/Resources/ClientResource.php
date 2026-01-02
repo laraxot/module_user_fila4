@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use BackedEnum;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -15,22 +14,19 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Laravel\Passport\Client;
 use Laravel\Passport\Passport;
-use Modules\Xot\Filament\Resources\XotBaseResource;
 use Modules\User\Filament\Resources\ClientResource\Pages;
-
+use Modules\Xot\Filament\Resources\XotBaseResource;
 use N3XT0R\FilamentPassportUi\Application\UseCases\Owners\GetAllOwnersRelationshipUseCase;
 use N3XT0R\FilamentPassportUi\Application\UseCases\Owners\SaveOwnershipRelationUseCase;
 use N3XT0R\FilamentPassportUi\Repositories\ClientRepository;
-use UnitEnum;
 
 class ClientResource extends XotBaseResource
 {
-    //use HasResourceFormComponents;
+    // use HasResourceFormComponents;
 
     protected static ?string $recordTitleAttribute = 'name';
     protected static string|\UnitEnum|null $navigationGroup = 'filament-passport-ui::passport-ui.navigation.group';
@@ -38,9 +34,9 @@ class ClientResource extends XotBaseResource
     protected static ?string $modelLabel = 'OAuth Client';
     protected static ?string $pluralModelLabel = 'OAuth Clients';
 
-    
     /**
      * Get the form schema for the resource (XotBaseResource pattern).
+     *
      * @return array<string, \Filament\Schemas\Components\Component>
      */
     public static function getFormSchema(): array
@@ -66,7 +62,7 @@ class ClientResource extends XotBaseResource
                 ->required(),
         ];
 
-        /**
+        /*
          * merge getResourceFormComponents if enabled
          */
         if (static::isResourceFormComponentsEnabled()) {
@@ -78,8 +74,6 @@ class ClientResource extends XotBaseResource
 
     /**
      * Build the table for the resource.
-     * @param Table $table
-     * @return Table
      */
     public static function table(Table $table): Table
     {
@@ -106,7 +100,6 @@ class ClientResource extends XotBaseResource
 
     /**
      * Get the model class for the resource from Passport.
-     * @return string
      */
     public static function getModel(): string
     {
@@ -127,13 +120,13 @@ class ClientResource extends XotBaseResource
      * Get the amount of clients for the navigation badge.
      * @return string|null
      */
-    //public static function getNavigationBadge(): ?string
-    //{
+    // public static function getNavigationBadge(): ?string
+    // {
     //    return (string)app(ClientRepository::class)->count();
-    //}
+    // }
 
     /**
-     * Check if resource form components are enabled
+     * Check if resource form components are enabled.
      */
     protected static function isResourceFormComponentsEnabled(): bool
     {
@@ -142,8 +135,7 @@ class ClientResource extends XotBaseResource
     }
 
     /**
-     * Get resource form components
-     * @return array
+     * Get resource form components.
      */
     protected static function getResourceFormComponents(): array
     {

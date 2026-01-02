@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\ClientResource\Widgets;
 
-use Filament\Forms\Schema;
 use Laravel\Passport\Client;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
 
@@ -14,7 +13,7 @@ class ClientHeader extends XotBaseWidget
 
     public Client $client;
 
-    protected int | string | array $columnSpan = 'full';
+    protected int|string|array $columnSpan = 'full';
 
     public function mount(): void
     {

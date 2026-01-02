@@ -35,15 +35,15 @@ class ViewOauthAuthCode extends XotBaseViewRecord
                                 }),
                             TextEntry::make('client.name')
                                 ->label('Client')
-                                ->url(fn ($state, $record) => $record->client?->exists ? 
+                                ->url(fn ($state, $record) => $record->client?->exists ?
                                     \Modules\User\Filament\Resources\OauthClientResource::getUrl('view', ['record' => $record->client]) : null),
                         ]),
-                    
+
                     Grid::make(2)
                         ->schema([
                             TextEntry::make('user.name')
                                 ->label('User')
-                                ->url(fn ($state, $record) => $record->user?->exists ? 
+                                ->url(fn ($state, $record) => $record->user?->exists ?
                                     \Modules\User\Filament\Resources\UserResource::getUrl('view', ['record' => $record->user]) : null),
                         ]),
                 ])->columns(1),
@@ -56,6 +56,7 @@ class ViewOauthAuthCode extends XotBaseViewRecord
                             if (is_array($state)) {
                                 return implode(', ', $state);
                             }
+
                             return $state;
                         })
                         ->columnSpanFull(),

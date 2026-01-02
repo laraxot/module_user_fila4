@@ -30,7 +30,7 @@ class ViewOauthRefreshToken extends XotBaseViewRecord
                                 ->label('Refresh Token ID'),
                             TextEntry::make('accessToken.id')
                                 ->label('Access Token ID')
-                                ->url(fn ($state, $record) => $record->accessToken?->exists ? 
+                                ->url(fn ($state, $record) => $record->accessToken?->exists ?
                                     \Modules\User\Filament\Resources\OauthAccessTokenResource::getUrl('view', ['record' => $record->accessToken]) : null),
                         ]),
                 ])->columns(1),

@@ -12,7 +12,6 @@ use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
  */
 class EditSocialiteUser extends XotBaseEditRecord
 {
-
     protected static string $resource = \Modules\User\Filament\Resources\SocialiteUserResource::class;
 
     /**

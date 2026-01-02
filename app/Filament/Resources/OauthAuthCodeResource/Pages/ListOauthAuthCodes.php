@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\OauthAuthCodeResource\Pages;
 
 use Filament\Actions\CreateAction;
-use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Modules\User\Filament\Resources\OauthAuthCodeResource;
+use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 class ListOauthAuthCodes extends XotBaseListRecords
 {

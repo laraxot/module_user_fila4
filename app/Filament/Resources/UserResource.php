@@ -22,14 +22,14 @@ use Modules\User\Filament\Resources\UserResource\RelationManagers\Authentication
 use Modules\User\Filament\Resources\UserResource\RelationManagers\OauthTokensRelationManager;
 use Modules\User\Filament\Resources\UserResource\RelationManagers\SocialiteUsersRelationManager;
 use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
-use Modules\Xot\Filament\Resources\XotBaseResource;
 use Modules\Xot\Datas\XotData;
+use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class UserResource extends XotBaseResource
 {
     // protected static ?string $model = \Modules\Xot\Datas\XotData::make()->getUserClass();
 
-    //protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-users';
+    // protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-users';
 
     // Static property Modules\User\Filament\Resources\UserResource::$enablePasswordUpdates is never read, only written.
     // private static bool|\Closure $enablePasswordUpdates = true;

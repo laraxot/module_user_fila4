@@ -39,7 +39,7 @@ class OauthTokensRelationManager extends XotBaseRelationManager
                     if ($state) {
                         return is_array($state) ? json_encode($state) : $state;
                     }
-                    
+
                     return null;
                 }),
             'revoked' => IconColumn::make('revoked')
@@ -55,10 +55,10 @@ class OauthTokensRelationManager extends XotBaseRelationManager
                     if ($state instanceof Carbon) {
                         $now = Carbon::now();
                         if ($state->lt($now)) {
-                            return $state->format('Y-m-d H:i:s') . ' (Expired)';
+                            return $state->format('Y-m-d H:i:s').' (Expired)';
                         }
                     }
-                    
+
                     return $state instanceof Carbon ? $state->format('Y-m-d H:i:s') : 'N/A';
                 }),
         ];

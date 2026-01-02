@@ -9,7 +9,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -58,7 +57,7 @@ class OauthRefreshTokenResource extends XotBaseResource
 
     /**
      * Extend table callback for the resource.
-     * 
+     *
      * @return array<string, mixed>
      */
     public static function extendTableCallback(): array
@@ -98,7 +97,7 @@ class OauthRefreshTokenResource extends XotBaseResource
                     DeleteBulkAction::make(),
                 ]),
             ],
-            'default_sort' => ['created_at', 'desc']
+            'default_sort' => ['created_at', 'desc'],
         ];
     }
 

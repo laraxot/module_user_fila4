@@ -60,7 +60,7 @@ class OauthAuthCodeResource extends XotBaseResource
 
     /**
      * Extend table callback for the resource.
-     * 
+     *
      * @return array<string, mixed>
      */
     public static function extendTableCallback(): array
@@ -93,7 +93,7 @@ class OauthAuthCodeResource extends XotBaseResource
                         if ($state) {
                             return is_array($state) ? json_encode($state) : $state;
                         }
-                        
+
                         return null;
                     })
                     ->toggleable(),
@@ -121,7 +121,7 @@ class OauthAuthCodeResource extends XotBaseResource
                     DeleteBulkAction::make(),
                 ]),
             ],
-            'default_sort' => ['created_at', 'desc']
+            'default_sort' => ['created_at', 'desc'],
         ];
     }
 

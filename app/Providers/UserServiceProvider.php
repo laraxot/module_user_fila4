@@ -37,7 +37,7 @@ class UserServiceProvider extends XotBaseServiceProvider
     {
         parent::boot();
         $this->registerAuthenticationProviders();
-        //$this->registerEventListener();
+        // $this->registerEventListener();
         $this->registerPasswordRules();
         $this->registerPulse();
         $this->registerMailsNotification();
@@ -47,7 +47,7 @@ class UserServiceProvider extends XotBaseServiceProvider
     public function register(): void
     {
         parent::register();
-        //$this->registerTeamModelBindings();
+        // $this->registerTeamModelBindings();
     }
 
     public function registerMailsNotification(): void
@@ -149,7 +149,7 @@ class UserServiceProvider extends XotBaseServiceProvider
 
     /*
      * Register the team model bindings.
-     
+
     protected function registerTeamModelBindings(): void
     {
         $this->app->bind('team_user_model', fn () => TeamUser::class);
@@ -162,10 +162,10 @@ class UserServiceProvider extends XotBaseServiceProvider
     {
         $this->registerSocialite();
     }
-     /*
+    /*
     protected function registerEventListener(): void
     {
-        $this->app->register(EventServiceProvider::class);
+       $this->app->register(EventServiceProvider::class);
     }
     */
 
@@ -173,6 +173,4 @@ class UserServiceProvider extends XotBaseServiceProvider
     {
         $this->app->register(SocialiteServiceProvider::class);
     }
-
-   
 }

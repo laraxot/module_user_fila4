@@ -101,10 +101,10 @@ class TeamInvitationResource extends XotBaseResource
                         if ($state instanceof Carbon) {
                             $now = Carbon::now();
                             if ($state->lt($now)) {
-                                return $state->format('Y-m-d H:i:s') . ' (Expired)';
+                                return $state->format('Y-m-d H:i:s').' (Expired)';
                             }
                         }
-                        
+
                         return $state instanceof Carbon ? $state->format('Y-m-d H:i:s') : 'N/A';
                     }),
             ])

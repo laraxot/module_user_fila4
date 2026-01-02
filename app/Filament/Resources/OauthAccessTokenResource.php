@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use BackedEnum;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -58,8 +57,8 @@ class OauthAccessTokenResource extends XotBaseResource
                     ->label('User')
                     ->searchable()
                     ->sortable()
-                    ->url(fn ($record) => $record->user?->exists ? 
-                        \Modules\User\Filament\Resources\UserResource::getUrl('view', ['record' => $record->user]) : null, 
+                    ->url(fn ($record) => $record->user?->exists ?
+                        UserResource::getUrl('view', ['record' => $record->user]) : null,
                         shouldOpenInNewTab: true),
 
                 TextColumn::make('client.name')
@@ -79,6 +78,7 @@ class OauthAccessTokenResource extends XotBaseResource
                         if ($state) {
                             return is_array($state) ? json_encode($state) : $state;
                         }
+
                         return null;
                     }),
 
@@ -100,20 +100,20 @@ class OauthAccessTokenResource extends XotBaseResource
                         if ($state instanceof Carbon) {
                             $now = Carbon::now();
                             if ($state->lt($now)) {
-                                return $state->format('Y-m-d H:i:s') . ' (Expired)';
+                                return $state->format('Y-m-d H:i:s').' (Expired)';
                             }
                         }
-                        
+
                         return $state instanceof Carbon ? $state->format('Y-m-d H:i:s') : 'N/A';
                     }),
             ])
             ->filters([
                 \Filament\Tables\Filters\Filter::make('revoked')
                     ->query(fn (Builder $query) => $query->where('revoked', true)),
-                
+
                 \Filament\Tables\Filters\Filter::make('expired')
                     ->query(fn (Builder $query) => $query->where('expires_at', '<', now())),
-                
+
                 \Filament\Tables\Filters\Filter::make('valid')
                     ->query(fn (Builder $query) => $query->where('revoked', false)->where('expires_at', '>', now())),
             ])

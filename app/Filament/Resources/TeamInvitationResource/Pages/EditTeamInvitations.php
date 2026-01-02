@@ -12,7 +12,6 @@ use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
  */
 class EditTeamInvitations extends XotBaseEditRecord
 {
-
     protected static string $resource = \Modules\User\Filament\Resources\TeamInvitationResource::class;
 
     /**

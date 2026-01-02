@@ -9,8 +9,8 @@ use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
-use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Modules\User\Filament\Resources\ClientResource;
+use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 class ListClients extends XotBaseListRecords
 {
@@ -32,12 +32,12 @@ class ListClients extends XotBaseListRecords
             'name' => TextColumn::make('name')
                 ->sortable()
                 ->searchable()
-                ->description(fn($record) => $record->personal_access_client ? 'Personal Access Client' : 'OAuth Client'),
+                ->description(fn ($record) => $record->personal_access_client ? 'Personal Access Client' : 'OAuth Client'),
 
             'redirect' => TextColumn::make('redirect')
                 ->label('Redirect URIs')
                 ->limit(50)
-                ->tooltip(fn($record) => $record->redirect)
+                ->tooltip(fn ($record) => $record->redirect)
                 ->toggleable(),
 
             'revoked' => IconColumn::make('revoked')
@@ -56,7 +56,7 @@ class ListClients extends XotBaseListRecords
                 ->falseIcon('heroicon-o-users')
                 ->trueColor('info')
                 ->falseColor('gray')
-                ->tooltip(fn($record) => $record->personal_access_client ? 'Personal Access' : 'OAuth Client')
+                ->tooltip(fn ($record) => $record->personal_access_client ? 'Personal Access' : 'OAuth Client')
                 ->toggleable(),
 
             'created_at' => TextColumn::make('created_at')

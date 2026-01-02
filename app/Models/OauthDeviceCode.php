@@ -7,8 +7,8 @@ namespace Modules\User\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Carbon;
-use Laravel\Passport\DeviceCode as PassportDeviceCode;
 use Laravel\Passport\Database\Factories\ClientFactory;
+use Laravel\Passport\DeviceCode as PassportDeviceCode;
 use Modules\Xot\Contracts\UserContract;
 
 /**

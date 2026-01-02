@@ -98,7 +98,7 @@ class SocialiteUserResource extends XotBaseResource
                         if ($state) {
                             return view('filament.components.avatar', ['url' => $state])->render();
                         }
-                        
+
                         return 'No Avatar';
                     })
                     ->html(),

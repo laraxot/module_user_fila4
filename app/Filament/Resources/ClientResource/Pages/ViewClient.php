@@ -4,18 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\ClientResource\Pages;
 
-use Modules\User\Filament\Resources\ClientResource;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
+use Modules\User\Filament\Resources\ClientResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
-use Override;
 
 class ViewClient extends XotBaseViewRecord
 {
     protected static string $resource = ClientResource::class;
 
-    #[Override]
+    #[\Override]
     protected function getInfolistSchema(): array
     {
         return [

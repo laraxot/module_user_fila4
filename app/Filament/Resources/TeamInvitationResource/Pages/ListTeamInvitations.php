@@ -12,7 +12,6 @@ use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
  */
 class ListTeamInvitations extends XotBaseListRecords
 {
-
     protected static string $resource = \Modules\User\Filament\Resources\TeamInvitationResource::class;
 
     /**

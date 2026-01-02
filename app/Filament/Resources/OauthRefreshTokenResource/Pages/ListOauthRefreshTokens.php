@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\OauthRefreshTokenResource\Pages;
 
 use Filament\Actions\CreateAction;
-use Filament\Resources\Pages\ListRecords;
-use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Modules\User\Filament\Resources\OauthRefreshTokenResource;
+use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 class ListOauthRefreshTokens extends XotBaseListRecords
 {

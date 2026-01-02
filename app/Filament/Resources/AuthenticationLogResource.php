@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use BackedEnum;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -65,8 +64,8 @@ class AuthenticationLogResource extends XotBaseResource
                     ->label('User')
                     ->searchable()
                     ->sortable()
-                    ->url(fn ($record) => $record->authenticatable?->exists ? 
-                        \Modules\User\Filament\Resources\UserResource::getUrl('view', ['record' => $record->authenticatable]) : null, 
+                    ->url(fn ($record) => $record->authenticatable?->exists ?
+                        UserResource::getUrl('view', ['record' => $record->authenticatable]) : null,
                         shouldOpenInNewTab: true),
 
                 TextColumn::make('ip_address')
@@ -126,8 +125,8 @@ class AuthenticationLogResource extends XotBaseResource
                 Action::make('view_user')
                     ->label('View User')
                     ->icon('heroicon-o-user')
-                    ->url(fn ($record) => $record->authenticatable?->exists ? 
-                        \Modules\User\Filament\Resources\UserResource::getUrl('view', ['record' => $record->authenticatable]) : null)
+                    ->url(fn ($record) => $record->authenticatable?->exists ?
+                        UserResource::getUrl('view', ['record' => $record->authenticatable]) : null)
                     ->visible(fn ($record) => $record->authenticatable?->exists),
                 DeleteAction::make(),
             ])
@@ -162,7 +161,7 @@ class AuthenticationLogResource extends XotBaseResource
                                 ])
                                 ->required()
                                 ->searchable(),
-                            
+
                             TextInput::make('authenticatable_id')
                                 ->label('Authenticatable ID')
                                 ->required()

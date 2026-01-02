@@ -45,7 +45,7 @@ class AuthenticationLogsRelationManager extends XotBaseRelationManager
                             ->map(fn ($value, $key) => "{$key}: {$value}")
                             ->join(', ');
                     }
-                    
+
                     return $state ? json_encode($state) : 'N/A';
                 }),
             'created_at' => TextColumn::make('created_at')

@@ -28,13 +28,13 @@ class ViewSocialiteUser extends XotBaseViewRecord
                         ->schema([
                             TextEntry::make('user.name')
                                 ->label('User')
-                                ->url(fn ($state, $record) => $record->user?->exists ? 
+                                ->url(fn ($state, $record) => $record->user?->exists ?
                                     \Modules\User\Filament\Resources\UserResource::getUrl('view', ['record' => $record->user]) : null),
                             TextEntry::make('provider')
                                 ->label('Provider')
                                 ->formatStateUsing(fn ($state) => Str::title($state)),
                         ]),
-                    
+
                     Grid::make(2)
                         ->schema([
                             TextEntry::make('provider_id')
