@@ -28,11 +28,15 @@ class ListClients extends XotBaseListRecords
             'name' => TextColumn::make('name')
                 ->sortable()
                 ->searchable()
-                ->description(fn ($record) => $record->personal_access_client ? 'Personal Access Client' : 'OAuth Client'),
+                ->description(function (Client $record): string {
+                    return $record->personal_access_client ? 'Personal Access Client' : 'OAuth Client';
+                }),
 
             'redirect' => TextColumn::make('redirect')
                 ->limit(50)
-                ->tooltip(fn ($record) => $record->redirect)
+                ->tooltip(function (Client $record): string {
+                    return $record->redirect ?? '';
+                })
                 ->toggleable(),
 
             'revoked' => IconColumn::make('revoked')
@@ -49,7 +53,9 @@ class ListClients extends XotBaseListRecords
                 ->falseIcon('heroicon-o-users')
                 ->trueColor('info')
                 ->falseColor('gray')
-                ->tooltip(fn ($record) => $record->personal_access_client ? 'Personal Access' : 'OAuth Client')
+                ->tooltip(function (Client $record): string {
+                    return $record->personal_access_client ? 'Personal Access' : 'OAuth Client';
+                })
                 ->toggleable(),
 
             'created_at' => TextColumn::make('created_at')

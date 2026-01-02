@@ -10,11 +10,8 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-<<<<<<< HEAD
-=======
 use Filament\Resources\Pages\PageRegistration;
 use Filament\Support\Components\Component;
->>>>>>> ad34068d (Refactor AuthenticationLogResource and related pages to improve type hints and schema definitions. Update return types for various methods to ensure consistency and clarity. Enhance URL generation logic for user links and improve state formatting in columns. Clean up unused imports and adjust component schemas for better readability.)
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -131,7 +128,7 @@ class TeamInvitationResource extends XotBaseResource
     /**
      * Get the pages available for the resource.
      *
-     * @return array<string, PageRegistration>
+     * @return array<string, string>
      */
     #[\Override]
     public static function getPages(): array

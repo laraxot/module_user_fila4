@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+<<<<<<< HEAD
 use Filament\Actions\Action;
 use Filament\Actions\DeleteAction;
 use Filament\Forms\Components\Component;
@@ -12,6 +13,16 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+=======
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
+use Filament\Actions\Action;
+use Filament\Actions\DeleteAction;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
+use Filament\Support\Components\Component;
+>>>>>>> 1ac7d694 (docs: Add PHPStan corrections summary and refactor Filament schemas for improved type safety and consistency.")
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -122,6 +133,7 @@ class AuthenticationLogResource extends XotBaseResource
                             ->label('Login Until'),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
+<<<<<<< HEAD
                         /* @var array{login_from?: \DateTimeInterface|string|null, login_until?: \DateTimeInterface|string|null} $data */
                         return $query
                             ->when(
@@ -129,15 +141,35 @@ class AuthenticationLogResource extends XotBaseResource
                                 function (Builder $q) use ($data): Builder {
                                     /** @var \DateTimeInterface|string $date */
                                     $date = $data['login_from'];
+=======
+                        $loginFrom = $data['login_from'] ?? null;
+                        $loginUntil = $data['login_until'] ?? null;
+
+                        return $query
+                            ->when(
+                                $loginFrom,
+                                function (Builder $q, mixed $date): Builder {
+                                    if (!\is_string($date) && !$date instanceof \DateTimeInterface) {
+                                        return $q;
+                                    }
+>>>>>>> 1ac7d694 (docs: Add PHPStan corrections summary and refactor Filament schemas for improved type safety and consistency.")
 
                                     return $q->whereDate('login_at', '>=', $date);
                                 }
                             )
                             ->when(
+<<<<<<< HEAD
                                 isset($data['login_until']),
                                 function (Builder $q) use ($data): Builder {
                                     /** @var \DateTimeInterface|string $date */
                                     $date = $data['login_until'];
+=======
+                                $loginUntil,
+                                function (Builder $q, mixed $date): Builder {
+                                    if (!\is_string($date) && !$date instanceof \DateTimeInterface) {
+                                        return $q;
+                                    }
+>>>>>>> 1ac7d694 (docs: Add PHPStan corrections summary and refactor Filament schemas for improved type safety and consistency.")
 
                                     return $q->whereDate('login_at', '<=', $date);
                                 }

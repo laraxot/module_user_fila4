@@ -99,15 +99,15 @@ class PasswordResetResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
-            Section::make('Password Reset Information')
+            'password_reset_info' => Section::make('Password Reset Information')
                 ->schema([
-                    TextInput::make('email')
+                    'email' => TextInput::make('email')
                         ->label('Email')
                         ->email()
                         ->required()
                         ->maxLength(255),
 
-                    TextInput::make('token')
+                    'token' => TextInput::make('token')
                         ->label('Token')
                         ->required()
                         ->maxLength(255),

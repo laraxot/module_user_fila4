@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\AuthenticationLogResource\Pages;
 
 use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Components\ToggleEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Illuminate\Database\Eloquent\Model;
@@ -79,8 +78,14 @@ class ViewAuthenticationLog extends XotBaseViewRecord
                 ->schema([
                     'status_grid' => Grid::make(2)
                         ->schema([
-                            'login_successful' => ToggleEntry::make('login_successful'),
-                            'cleared_by_user' => ToggleEntry::make('cleared_by_user'),
+                            'login_successful' => TextEntry::make('login_successful')
+                                ->badge()
+                                ->formatStateUsing(fn (bool $state): string => $state ? 'Yes' : 'No')
+                                ->color(fn (bool $state): string => $state ? 'success' : 'gray'),
+                            'cleared_by_user' => TextEntry::make('cleared_by_user')
+                                ->badge()
+                                ->formatStateUsing(fn (bool $state): string => $state ? 'Yes' : 'No')
+                                ->color(fn (bool $state): string => $state ? 'success' : 'gray'),
                         ]),
                 ])->columns(1),
 

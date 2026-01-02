@@ -37,17 +37,17 @@ class SocialiteUserResource extends XotBaseResource
     /**
      * Get the form schema for the resource.
      *
-     * @return array<int, \Filament\Forms\Components\Component>
+     * @return array<string, \Filament\Forms\Components\Component>
      */
     #[\Override]
     public static function getFormSchema(): array
     {
         return [
-            Select::make('user_id')
+            'user_id' => Select::make('user_id')
                 ->relationship('user', 'name')
                 ->searchable()
                 ->required(),
-            Select::make('provider')
+            'provider' => Select::make('provider')
                 ->options([
                     'google' => 'Google',
                     'facebook' => 'Facebook',
@@ -59,16 +59,16 @@ class SocialiteUserResource extends XotBaseResource
                 ])
                 ->searchable()
                 ->required(),
-            TextInput::make('provider_id')
+            'provider_id' => TextInput::make('provider_id')
                 ->required()
                 ->maxLength(255),
-            TextInput::make('provider_token')
+            'provider_token' => TextInput::make('provider_token')
                 ->maxLength(255)
                 ->password(),
-            TextInput::make('provider_refresh_token')
+            'provider_refresh_token' => TextInput::make('provider_refresh_token')
                 ->maxLength(255)
                 ->password(),
-            TextInput::make('provider_avatar')
+            'provider_avatar' => TextInput::make('provider_avatar')
                 ->maxLength(255),
         ];
     }

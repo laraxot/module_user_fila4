@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthRefreshTokenResource\Pages;
 
-use Filament\Infolists\Components\Grid;
-use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Components\ToggleEntry;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
+use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Resources\OauthRefreshTokenResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 
@@ -28,8 +29,18 @@ class ViewOauthRefreshToken extends XotBaseViewRecord
                         ->schema([
                             'id' => TextEntry::make('id'),
                             'access_token_id' => TextEntry::make('accessToken.id')
-                                ->url(fn ($state, $record) => $record->accessToken?->exists ?
-                                    \Modules\User\Filament\Resources\OauthAccessTokenResource::getUrl('view', ['record' => $record->accessToken]) : null),
+                                ->url(function (mixed $state, $record): ?string {
+                                    if (! $record instanceof Model) {
+                                        return null;
+                                    }
+
+                                    $accessToken = $record->getRelationValue('accessToken');
+                                    if (($accessToken instanceof Model) && $accessToken->exists) {
+                                        return \Modules\User\Filament\Resources\OauthAccessTokenResource::getUrl('view', ['record' => $accessToken]);
+                                    }
+
+                                    return null;
+                                }),
                         ]),
                 ])->columns(1),
 
@@ -37,7 +48,7 @@ class ViewOauthRefreshToken extends XotBaseViewRecord
                 ->schema([
                     'status_grid' => Grid::make(2)
                         ->schema([
-                            'revoked' => ToggleEntry::make('revoked'),
+                            'revoked' => IconEntry::make('revoked')->boolean(),
                         ]),
                 ])->columns(1),
 

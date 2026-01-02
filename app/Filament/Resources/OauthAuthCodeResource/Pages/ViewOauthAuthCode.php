@@ -7,7 +7,7 @@ namespace Modules\User\Filament\Resources\OauthAuthCodeResource\Pages;
 use Filament\Infolists\Components\Grid;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Components\ToggleEntry;
+use Filament\Infolists\Components\TextEntry;
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\OauthAuthCodeResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
