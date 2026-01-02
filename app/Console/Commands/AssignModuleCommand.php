@@ -7,15 +7,14 @@ namespace Modules\User\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Str;
-
-use function Laravel\Prompts\multiselect;
-use function Laravel\Prompts\text;
-
 use Modules\User\Models\Role;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Nwidart\Modules\Facades\Module;
 use Symfony\Component\Console\Input\InputOption;
+
+use function Laravel\Prompts\multiselect;
+use function Laravel\Prompts\text;
 
 class AssignModuleCommand extends Command
 {
@@ -60,7 +59,8 @@ class AssignModuleCommand extends Command
         $modules_opts = array_combine($modules_opts, $modules_opts);
 
         // Get user's current module roles
-        $userModuleRoles = $this->getUserModuleRoles($user);
+        //$userModuleRoles = $this->getUserModuleRoles($user);
+        $userModuleRoles = $user->getModules();
         $currentModules = array_keys($userModuleRoles);
 
         // Show current modules as default selected
@@ -121,16 +121,16 @@ class AssignModuleCommand extends Command
         ];
     }
 
-    /**
+    /*
      * Get user's current module roles.
      *
      * @return array<string, string>
-     */
+
     private function getUserModuleRoles(UserContract $user): array
     {
         $moduleRoles = [];
 
-        /** @var Collection<int, Role> $roles */
+        //@var Collection<int, Role> $roles
         $roles = $user->roles()->get();
         foreach ($roles as $role) {
             if (Str::endsWith($role->name, '::admin')) {
@@ -141,4 +141,5 @@ class AssignModuleCommand extends Command
 
         return $moduleRoles;
     }
+        */
 }

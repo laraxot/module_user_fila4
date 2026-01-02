@@ -27,18 +27,16 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Laravel\Passport\HasApiTokens;
 use Modules\User\Database\Factories\UserFactory;
-use Modules\User\Models\Traits\HasAuthenticationLogTrait;
-use Modules\User\Models\Traits\HasTeams;
 use Modules\Xot\Contracts\PassportHasApiTokensContract;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
-use Modules\Xot\Models\Traits\HasXotFactory;
-use Modules\Xot\Models\Traits\RelationX;
 use Parental\HasChildren;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Contracts\Role as SpatieRoleContract;
+use Modules\Xot\Models\Traits as XotTraits;
+use Modules\Xot\Models\Traits\HasXotFactory;
 use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -132,17 +130,17 @@ use Spatie\Permission\Traits\HasRoles;
 abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, PassportHasApiTokensContract, UserContract
 {
     use HasApiTokens;
-    use HasAuthenticationLogTrait;
     use HasChildren;
-    use HasPermissions;
-    use HasRoles;
-    use HasTeams;
     use HasUuids;
-    use HasXotFactory;
     use InteractsWithMedia;
     use Notifiable;
-    use RelationX;
+    use HasXotFactory;
+    use XotTraits\RelationX;
+    use Traits\HasSpatiePermission;
+    use Traits\HasModules;
     use Traits\HasTenants;
+    use Traits\HasAuthenticationLogTrait;
+    use Traits\HasTeams;
 
     public $incrementing = false;
 

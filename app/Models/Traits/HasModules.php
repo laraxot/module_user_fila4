@@ -18,6 +18,7 @@ trait HasModules
     {
         $modules = ModuleFacade::getOrdered();
         $roles = $this->roles;
+
         /** @var array<string, Module> $filteredModules */
         $filteredModules = Arr::where($modules, function ($module, $key) {
             // $name = $module->getName();
