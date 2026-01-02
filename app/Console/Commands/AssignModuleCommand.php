@@ -7,14 +7,15 @@ namespace Modules\User\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Str;
+
+use function Laravel\Prompts\multiselect;
+use function Laravel\Prompts\text;
+
 use Modules\User\Models\Role;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 use Nwidart\Modules\Facades\Module;
 use Symfony\Component\Console\Input\InputOption;
-
-use function Laravel\Prompts\multiselect;
-use function Laravel\Prompts\text;
 
 class AssignModuleCommand extends Command
 {
@@ -59,7 +60,7 @@ class AssignModuleCommand extends Command
         $modules_opts = array_combine($modules_opts, $modules_opts);
 
         // Get user's current module roles
-        //$userModuleRoles = $this->getUserModuleRoles($user);
+        // $userModuleRoles = $this->getUserModuleRoles($user);
         $userModuleRoles = $user->getModules();
         $currentModules = array_keys($userModuleRoles);
 

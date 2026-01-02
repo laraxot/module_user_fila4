@@ -15,7 +15,7 @@ class PasswordDataLabelsTest extends TestCase
     /**
      * Test that PasswordData generates components with correct labels.
      */
-    public function test_password_data_labels_are_translated(): void
+    public function testPasswordDataLabelsAreTranslated(): void
     {
         // Arrange
         // We ensure we are in a known locale
@@ -41,11 +41,11 @@ class PasswordDataLabelsTest extends TestCase
     /**
      * Test that Login form components have correct labels.
      */
-    public function test_login_form_labels_are_translated(): void
+    public function testLoginFormLabelsAreTranslated(): void
     {
         // Assemble
         app()->setLocale('it');
-        $component = new Login;
+        $component = new Login();
 
         // Act
         // We simulate the form creation.
@@ -70,9 +70,9 @@ class PasswordDataLabelsTest extends TestCase
         $components = $form->getComponents();
 
         // Find components
-        $email = collect($components)->first(fn ($c) => $c->getName() === 'email');
-        $password = collect($components)->first(fn ($c) => $c->getName() === 'password');
-        $remember = collect($components)->first(fn ($c) => $c->getName() === 'remember');
+        $email = collect($components)->first(fn ($c) => 'email' === $c->getName());
+        $password = collect($components)->first(fn ($c) => 'password' === $c->getName());
+        $remember = collect($components)->first(fn ($c) => 'remember' === $c->getName());
 
         // Assert
         $this->assertNotNull($email);
