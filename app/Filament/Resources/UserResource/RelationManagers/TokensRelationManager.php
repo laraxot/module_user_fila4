@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
-use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Components\Component;
 use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\TextColumn;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 

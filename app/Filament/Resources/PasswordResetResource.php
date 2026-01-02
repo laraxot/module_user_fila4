@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Filament\Actions\DeleteAction;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
-use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;

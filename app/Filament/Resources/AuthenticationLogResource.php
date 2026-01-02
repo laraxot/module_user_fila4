@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Filament\Actions\Action;
+use Filament\Actions\DeleteAction;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Actions\Action;
-use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;

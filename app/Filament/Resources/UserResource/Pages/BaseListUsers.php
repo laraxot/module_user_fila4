@@ -53,7 +53,7 @@ abstract class BaseListUsers extends XotBaseListRecords
     /**
      * Get table actions for user records.
      *
-     * @return array<string, \Filament\Actions\Action|\Filament\Actions\ActionGroup>
+     * @return array<string, Action|\Filament\Actions\ActionGroup>
      *
      * @phpstan-ignore-next-line
      */
