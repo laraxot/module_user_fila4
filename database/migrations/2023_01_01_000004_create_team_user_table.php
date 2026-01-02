@@ -20,7 +20,7 @@ return new class extends XotBaseMigration {
         $this->tableCreate(static function (Blueprint $table): void {
             // Rimuoviamo l'id auto-increment e usiamo chiave composita per tabella pivot
             $table->foreignId('team_id');
-            $table->uuid('user_id')->nullable();
+            $table->uuid('user_id'); // NOT NULL perché parte della PRIMARY KEY
             $table->string('role')->nullable();
 
             // Chiave primaria composita per tabella pivot

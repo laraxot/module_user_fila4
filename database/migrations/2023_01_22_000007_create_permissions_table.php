@@ -23,17 +23,28 @@ return new class extends XotBaseMigration {
         // -- CREATE --
         $this->tableCreate(static function (Blueprint $table): void {
             $table->bigIncrements('id');
-            // permission id
             $table->string('name');
-            // For MySQL 8.0 use string('name', 125);
             $table->string('guard_name');
-            // For MySQL 8.0 use string('guard_name', 125);
             $table->unique(['name', 'guard_name']);
         });
         // -- UPDATE --
         $this->tableUpdate(function (Blueprint $table): void {
-            // $this->updateUser($table);
-            $this->updateTimestamps($table);
+            // Usa Schema::hasColumn direttamente per verificare esistenza
+            $tableName = 'permissions';
+            if (! \Illuminate\Support\Facades\Schema::connection('user')->hasColumn($tableName, 'created_at') 
+                && ! \Illuminate\Support\Facades\Schema::connection('user')->hasColumn($tableName, 'updated_at')) {
+                $this->updateTimestamps($table);
+            } else {
+                // Se i timestamp esistono già, aggiungi solo i campi user se mancanti
+                $xot = \Modules\Xot\Datas\XotData::make();
+                $userClass = $xot->getUserClass();
+                if (! \Illuminate\Support\Facades\Schema::connection('user')->hasColumn($tableName, 'updated_by')) {
+                    $table->foreignIdFor($userClass, 'updated_by')->nullable();
+                }
+                if (! \Illuminate\Support\Facades\Schema::connection('user')->hasColumn($tableName, 'created_by')) {
+                    $table->foreignIdFor($userClass, 'created_by')->nullable();
+                }
+            }
         });
     }
 };

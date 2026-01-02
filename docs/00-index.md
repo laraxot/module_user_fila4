@@ -39,6 +39,7 @@
 - [LoginWidget Form Data Binding Fix](./login-widget-fix.md) - Fix per campi form non popolati
 - [Login Issue Resolution](./login-issue-resolution-report.md) - Report tecnico risoluzione login
 - [Livewire StatePath Issue](./livewire-form-statepath-issue.md) - Analisi problemi binding
+- [Migration Primary Key Fix](./migration-primary-key-fix.md) - Fix PRIMARY KEY constraint team_user
 
 ### 📊 Code Quality
 - [PHPStan Analysis](./phpstan-analysis.md) - PHPStan reports
