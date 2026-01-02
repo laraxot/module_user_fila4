@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\EditAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
@@ -55,7 +55,7 @@ class AuthenticationLogsRelationManager extends XotBaseRelationManager
     }
 
     /**
-     * @return array<string, \Filament\Tables\Actions\Action>
+     * @return array<string, \Filament\Actions\Action>
      */
     #[\Override]
     public function getTableActions(): array

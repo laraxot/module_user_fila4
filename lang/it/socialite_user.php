@@ -41,4 +41,8 @@ return [
             'label' => 'toggleColumns',
         ],
     ],
+    'navigation' => [
+        'sort' => 89,
+        'icon' => 'socialite user.navigation',
+    ],
 ];

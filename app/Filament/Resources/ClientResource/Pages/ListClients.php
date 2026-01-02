@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\ClientResource\Pages;
 
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\ViewAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\ClientResource;
@@ -72,7 +72,7 @@ class ListClients extends XotBaseListRecords
     }
 
     /**
-     * @return array<\Filament\Tables\Actions\Action>
+     * @return array<\Filament\Actions\Action>
      */
     public function getTableActions(): array
     {

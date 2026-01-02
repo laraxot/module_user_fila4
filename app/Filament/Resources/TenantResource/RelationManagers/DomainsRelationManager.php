@@ -9,10 +9,10 @@ namespace Modules\User\Filament\Resources\TenantResource\RelationManagers;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
-use Filament\Tables\Actions\CreateAction;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\EditAction;
+use Filament\Actions\CreateAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
@@ -54,7 +54,7 @@ class DomainsRelationManager extends XotBaseRelationManager
     }
 
     /**
-     * @return array<string, \Filament\Tables\Actions\Action>
+     * @return array<string, \Filament\Actions\Action>
      */
     #[\Override]
     public function getTableHeaderActions(): array
@@ -65,7 +65,7 @@ class DomainsRelationManager extends XotBaseRelationManager
     }
 
     /**
-     * @return array<string, \Filament\Tables\Actions\Action>
+     * @return array<string, \Filament\Actions\Action>
      */
     #[\Override]
     public function getTableActions(): array
@@ -77,7 +77,7 @@ class DomainsRelationManager extends XotBaseRelationManager
     }
 
     /**
-     * @return array<string, \Filament\Tables\Actions\BulkAction>
+     * @return array<string, \Filament\Actions\BulkAction>
      */
     #[\Override]
     public function getTableBulkActions(): array
