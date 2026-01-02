@@ -4,12 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\ClientResource\Pages;
 
-use Filament\Actions\DeleteAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
-use Laravel\Passport\Client;
 use Modules\User\Filament\Resources\ClientResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 

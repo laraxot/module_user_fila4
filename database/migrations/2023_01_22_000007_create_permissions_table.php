@@ -17,16 +17,16 @@ return new class extends XotBaseMigration {
     {
         // -- CACHE --
         try {
-            if (app()->bound(\Illuminate\Contracts\Cache\Factory::class)) {
-                $cache = app(\Illuminate\Contracts\Cache\Factory::class);
+            if (app()->bound(Illuminate\Contracts\Cache\Factory::class)) {
+                $cache = app(Illuminate\Contracts\Cache\Factory::class);
                 $cache_store = config('permission.cache.store');
                 $cache_key = config('permission.cache.key');
                 /** @var string|null $store */
                 $store = 'default' !== $cache_store ? $cache_store : null;
-                /** @var string $cache_key */
+                /* @var string $cache_key */
                 $cache->store($store)->forget($cache_key);
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
         }
 
         // -- CREATE --

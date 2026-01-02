@@ -21,7 +21,6 @@ use Laravel\Passport\Passport;
 use Modules\User\Filament\Resources\ClientResource\Pages;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
-
 class ClientResource extends XotBaseResource
 {
     // use HasResourceFormComponents;
@@ -48,6 +47,7 @@ class ClientResource extends XotBaseResource
                 ->options(function (): Collection {
                     /** @var GetAllOwnersRelationshipUseCase $useCase */
                     $useCase = app(GetAllOwnersRelationshipUseCase::class);
+
                     return $useCase->execute();
                 })
                 ->saveRelationshipsUsing(function (Client $record, array $data): void {

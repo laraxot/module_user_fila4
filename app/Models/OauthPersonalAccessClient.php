@@ -6,7 +6,6 @@ namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
-use Modules\User\Models\BaseModel;
 
 /**
  * Modules\User\Models\OauthPersonalAccessClient.

@@ -6,8 +6,8 @@ namespace Modules\User\Filament\Resources\ClientResource\Pages;
 
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Section;
-use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 use Modules\User\Filament\Resources\ClientResource;
+use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 
 class ViewClient extends XotBaseViewRecord
 {

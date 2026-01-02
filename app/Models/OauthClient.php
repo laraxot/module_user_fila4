@@ -91,6 +91,7 @@ class OauthClient extends PassportClient implements AuthorizableContract
 
         /** @var iterable<string> $ability */
         $permissions = $ability;
+
         return $this->hasAnyPermission($permissions);
     }
 
