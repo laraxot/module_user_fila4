@@ -8,8 +8,10 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\Component;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Resources\Pages\PageRegistration;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -37,7 +39,7 @@ class SocialiteUserResource extends XotBaseResource
     /**
      * Get the form schema for the resource.
      *
-     * @return array<string, \Filament\Forms\Components\Component>
+     * @return array<string, \Filament\Forms\Components\Select|\Filament\Forms\Components\TextInput>
      */
     #[\Override]
     public static function getFormSchema(): array
@@ -94,9 +96,11 @@ class SocialiteUserResource extends XotBaseResource
                     ->searchable(),
                 TextColumn::make('provider_avatar')
                     ->label('Avatar')
-                    ->formatStateUsing(function ($state) {
+                    ->formatStateUsing(function (mixed $state): string {
                         if ($state) {
-                            return view('filament.components.avatar', ['url' => $state])->render();
+                            /** @phpstan-var view-string $viewString */
+                            $viewString = 'filament.components.avatar';
+                            return view($viewString, ['url' => (string) $state])->render();
                         }
 
                         return 'No Avatar';
@@ -125,7 +129,7 @@ class SocialiteUserResource extends XotBaseResource
     /**
      * Get the pages available for the resource.
      *
-     * @return array<string, string>
+     * @return array<string, PageRegistration>
      */
     #[\Override]
     public static function getPages(): array

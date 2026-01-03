@@ -7,8 +7,10 @@ namespace Modules\User\Filament\Resources;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
+use Filament\Forms\Components\Component;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Resources\Pages\PageRegistration;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -17,6 +19,7 @@ use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\OauthAuthCodeResource\Pages;
 use Modules\User\Models\OauthAuthCode;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+use function Safe\json_encode;
 
 /**
  * Class OauthAuthCodeResource.
@@ -38,7 +41,7 @@ class OauthAuthCodeResource extends XotBaseResource
     /**
      * Get the form schema for the resource.
      *
-     * @return array<string, \Filament\Forms\Components\Component>
+     * @return array<string, \Filament\Forms\Components\Select|\Filament\Forms\Components\TextInput>
      */
     #[\Override]
     public static function getFormSchema(): array
@@ -68,45 +71,43 @@ class OauthAuthCodeResource extends XotBaseResource
         return [
             'columns' => [
                 TextColumn::make('id')
-                    ->label('Auth Code ID')
                     ->searchable()
                     ->sortable()
-                    ->formatStateUsing(function ($state) {
-                        // Show just first 10 chars of the code for security
+                    ->formatStateUsing(function (mixed $state): string {
+                        if (! is_string($state)) {
+                            return '';
+                        }
                         return Str::limit($state, 15, '...');
                     }),
                 TextColumn::make('user.name')
-                    ->label('User')
                     ->searchable()
                     ->sortable()
                     ->toggleable(),
                 TextColumn::make('client.name')
-                    ->label('Client')
                     ->searchable()
                     ->sortable()
                     ->toggleable(),
                 TextColumn::make('scopes')
-                    ->label('Scopes')
                     ->limit(30)
                     ->tooltip(function (TextColumn $column): ?string {
                         $state = $column->getState();
-                        if ($state) {
-                            return is_array($state) ? json_encode($state) : $state;
+                        if ($state === null) {
+                            return null;
                         }
-
-                        return null;
+                        if (is_array($state)) {
+                            /** @var array<string, mixed> $state */
+                            return json_encode($state);
+                        }
+                        return is_string($state) ? $state : null;
                     })
                     ->toggleable(),
                 IconColumn::make('revoked')
-                    ->label('Revoked')
                     ->boolean()
                     ->color(fn (bool $state): string => $state ? 'danger' : 'success'),
                 TextColumn::make('expires_at')
-                    ->label('Expires At')
                     ->dateTime()
                     ->sortable(),
                 TextColumn::make('created_at')
-                    ->label('Created')
                     ->dateTime()
                     ->sortable(),
             ],
@@ -128,7 +129,7 @@ class OauthAuthCodeResource extends XotBaseResource
     /**
      * Get the pages available for the resource.
      *
-     * @return array<string, string>
+     * @return array<string, PageRegistration>
      */
     #[\Override]
     public static function getPages(): array

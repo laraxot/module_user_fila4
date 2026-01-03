@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\SocialiteUserResource\Pages;
 
+use Filament\Actions\Action;
 use Filament\Actions\DeleteAction;
 use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
 
@@ -15,13 +16,13 @@ class EditSocialiteUser extends XotBaseEditRecord
     protected static string $resource = \Modules\User\Filament\Resources\SocialiteUserResource::class;
 
     /**
-     * @return array<int, \Filament\Actions\ActionInterface>
+     * @return array<string, Action>
      */
     #[\Override]
     protected function getHeaderActions(): array
     {
         return [
-            DeleteAction::make(),
+            'delete' => \Filament\Actions\DeleteAction::make(),
         ];
     }
 }

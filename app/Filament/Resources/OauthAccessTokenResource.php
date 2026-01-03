@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 use Filament\Actions\DeleteAction;
-use Filament\Forms\Components\Grid;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Component;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -17,6 +18,7 @@ use Illuminate\Support\Carbon;
 use Modules\User\Filament\Resources\OauthAccessTokenResource\Pages;
 use Modules\User\Models\OauthAccessToken;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+use function Safe\json_encode;
 
 class OauthAccessTokenResource extends XotBaseResource
 {
@@ -48,63 +50,67 @@ class OauthAccessTokenResource extends XotBaseResource
         return $table
             ->columns([
                 TextColumn::make('id')
-                    ->label('ID')
                     ->searchable()
                     ->sortable()
                     ->copyable(),
 
                 TextColumn::make('user.name')
-                    ->label('User')
                     ->searchable()
                     ->sortable()
-                    ->url(fn ($record) => $record->user?->exists ?
-                        UserResource::getUrl('view', ['record' => $record->user]) : null,
-                        shouldOpenInNewTab: true),
+                    ->url(function (mixed $record): ?string {
+                        if (! $record instanceof \Modules\User\Models\OauthAccessToken) {
+                            return null;
+                        }
+                        $user = $record->user;
+                        if ($user !== null && method_exists($user, 'exists') && $user->exists) {
+                            return UserResource::getUrl('view', ['record' => $user]);
+                        }
+                        return null;
+                    })
+                    ->openUrlInNewTab(),
 
                 TextColumn::make('client.name')
-                    ->label('Client')
                     ->searchable()
                     ->sortable(),
 
                 TextColumn::make('name')
-                    ->label('Name')
                     ->searchable()
                     ->sortable(),
 
                 TextColumn::make('scopes')
-                    ->label('Scopes')
                     ->limit(30)
-                    ->tooltip(function ($state) {
-                        if ($state) {
-                            return is_array($state) ? json_encode($state) : $state;
+                    ->tooltip(function (mixed $state): ?string {
+                        if ($state === null) {
+                            return null;
                         }
-
-                        return null;
+                        if (is_array($state)) {
+                            /** @var array<string, mixed> $state */
+                            return json_encode($state);
+                        }
+                        return is_string($state) ? $state : null;
                     }),
 
                 IconColumn::make('revoked')
-                    ->label('Revoked')
                     ->boolean()
                     ->color(fn (bool $state): string => $state ? 'danger' : 'success'),
 
                 TextColumn::make('created_at')
-                    ->label('Created')
                     ->dateTime()
                     ->sortable(),
 
                 TextColumn::make('expires_at')
-                    ->label('Expires')
                     ->dateTime()
                     ->sortable()
-                    ->formatStateUsing(function ($state) {
+                    ->formatStateUsing(function (mixed $state): string {
                         if ($state instanceof Carbon) {
                             $now = Carbon::now();
                             if ($state->lt($now)) {
                                 return $state->format('Y-m-d H:i:s').' (Expired)';
                             }
+                            return $state->format('Y-m-d H:i:s');
                         }
 
-                        return $state instanceof Carbon ? $state->format('Y-m-d H:i:s') : 'N/A';
+                        return 'N/A';
                     }),
             ])
             ->filters([
@@ -136,6 +142,9 @@ class OauthAccessTokenResource extends XotBaseResource
         ];
     }
 
+    /**
+     * @return array<string, Component>
+     */
     public static function getFormSchema(): array
     {
         return [
@@ -145,11 +154,9 @@ class OauthAccessTokenResource extends XotBaseResource
                         ->schema([
                             'user_id' => Select::make('user_id')
                                 ->relationship('user', 'name')
-                                ->label('User')
                                 ->searchable(),
                             'client_id' => Select::make('client_id')
                                 ->relationship('client', 'name')
-                                ->label('Client')
                                 ->searchable()
                                 ->required(),
                         ]),
@@ -157,11 +164,8 @@ class OauthAccessTokenResource extends XotBaseResource
                     'grid_2' => Grid::make(2)
                         ->schema([
                             'name' => TextInput::make('name')
-                                ->label('Name')
                                 ->maxLength(255),
-                            'scopes' => TextInput::make('scopes')
-                                ->label('Scopes')
-                                ->placeholder('Comma-separated scopes'),
+                            'scopes' => TextInput::make('scopes'),
                         ]),
                 ]),
         ];

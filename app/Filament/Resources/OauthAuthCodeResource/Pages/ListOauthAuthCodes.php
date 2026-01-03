@@ -13,7 +13,7 @@ class ListOauthAuthCodes extends XotBaseListRecords
     protected static string $resource = OauthAuthCodeResource::class;
 
     /**
-     * @return array<int, \Filament\Actions\ActionInterface>
+     * @return array<string, \Filament\Actions\Action>
      */
     #[\Override]
     protected function getHeaderActions(): array

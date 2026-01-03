@@ -6,6 +6,7 @@ namespace Modules\User\Filament\Resources\ClientResource\Pages;
 
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Laravel\Passport\Client;
 use Modules\User\Filament\Resources\ClientResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
@@ -29,13 +30,13 @@ class ListClients extends XotBaseListRecords
                 ->sortable()
                 ->searchable()
                 ->description(function (Client $record): string {
-                    return $record->personal_access_client ? 'Personal Access Client' : 'OAuth Client';
+                    return isset($record->personal_access_client) && $record->personal_access_client ? 'Personal Access Client' : 'OAuth Client';
                 }),
 
             'redirect' => TextColumn::make('redirect')
                 ->limit(50)
                 ->tooltip(function (Client $record): string {
-                    return $record->redirect ?? '';
+                    return (string) ($record->redirect ?? '');
                 })
                 ->toggleable(),
 
@@ -54,7 +55,7 @@ class ListClients extends XotBaseListRecords
                 ->trueColor('info')
                 ->falseColor('gray')
                 ->tooltip(function (Client $record): string {
-                    return $record->personal_access_client ? 'Personal Access' : 'OAuth Client';
+                    return isset($record->personal_access_client) && $record->personal_access_client ? 'Personal Access' : 'OAuth Client';
                 })
                 ->toggleable(),
 

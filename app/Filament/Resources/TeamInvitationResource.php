@@ -127,7 +127,7 @@ class TeamInvitationResource extends XotBaseResource
     /**
      * Get the pages available for the resource.
      *
-     * @return array<string, string>
+     * @return array<string, PageRegistration>
      */
     #[\Override]
     public static function getPages(): array

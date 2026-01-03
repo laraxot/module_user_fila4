@@ -6,9 +6,11 @@ namespace Modules\User\Filament\Resources;
 
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Tables\Actions\BulkActionGroup;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Resources\Pages\PageRegistration;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Tables\Columns\IconColumn; // Already there, but explicitly for boolean()
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -36,22 +38,20 @@ class OauthRefreshTokenResource extends XotBaseResource
     /**
      * Get the form schema for the resource.
      *
-     * @return array<string, \Filament\Forms\Components\Component>
+     * @return array<string, \Filament\Forms\Components\Select|\Filament\Forms\Components\TextInput>
      */
     #[\Override]
     public static function getFormSchema(): array
     {
         return [
-            'access_token_id' => Select::make('access_token_id')
+            'access_token_id' => \Filament\Forms\Components\Select::make('access_token_id')
                 ->relationship('accessToken', 'id')
                 ->searchable()
                 ->required(),
-            'revoked' => TextInput::make('revoked')
+            'revoked' => \Filament\Forms\Components\TextInput::make('revoked')
                 ->numeric()
                 ->required(),
-            'expires_at' => TextInput::make('expires_at')
-                ->label('Expires At')
-                ->helperText('Formatted as date/time'),
+            'expires_at' => \Filament\Forms\Components\TextInput::make('expires_at'),
         ];
     }
 
@@ -65,24 +65,19 @@ class OauthRefreshTokenResource extends XotBaseResource
         return [
             'columns' => [
                 TextColumn::make('id')
-                    ->label('Token ID')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('accessToken.id')
-                    ->label('Access Token')
                     ->searchable()
                     ->sortable()
                     ->toggleable(),
-                TextColumn::make('revoked')
-                    ->label('Revoked')
+                IconColumn::make('revoked')
                     ->boolean()
                     ->sortable(),
                 TextColumn::make('expires_at')
-                    ->label('Expires At')
                     ->dateTime()
                     ->sortable(),
                 TextColumn::make('created_at')
-                    ->label('Created')
                     ->dateTime()
                     ->sortable(),
             ],
@@ -104,7 +99,7 @@ class OauthRefreshTokenResource extends XotBaseResource
     /**
      * Get the pages available for the resource.
      *
-     * @return array<string, string>
+     * @return array<string, PageRegistration>
      */
     #[\Override]
     public static function getPages(): array

@@ -4,17 +4,20 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 
 /**
  * Modules\User\Models\OauthPersonalAccessClient.
  *
- * @property string           $uuid
- * @property string           $client_id
- * @property Carbon|null      $created_at
- * @property Carbon|null      $updated_at
- * @property OauthClient|null $client
+ * @property string $uuid
+ * @property string $client_id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property int $id
  *
  * @method static Builder|OauthPersonalAccessClient newModelQuery()
  * @method static Builder|OauthPersonalAccessClient newQuery()
@@ -23,21 +26,13 @@ use Illuminate\Support\Carbon;
  * @method static Builder|OauthPersonalAccessClient whereCreatedAt($value)
  * @method static Builder|OauthPersonalAccessClient whereUpdatedAt($value)
  * @method static Builder|OauthPersonalAccessClient whereUuid($value)
- *
- * @property int $id
- *
  * @method static Builder|OauthPersonalAccessClient whereId($value)
- *
- * @property string|null $updated_by
- * @property string|null $created_by
- *
  * @method static Builder|OauthPersonalAccessClient whereCreatedBy($value)
  * @method static Builder|OauthPersonalAccessClient whereUpdatedBy($value)
  *
- * @mixin IdeHelperOauthPersonalAccessClient
  * @mixin \Eloquent
  */
-class OauthPersonalAccessClient extends BaseModel
+class OauthPersonalAccessClient extends Model
 {
     /** @var string */
     protected $table = 'oauth_personal_access_clients';

@@ -24,9 +24,8 @@ trait HasModules
             // $name = $module->getName();
             $name = is_string($key) ? $key : (string) $key;
             $role_name = Str::of($name)->lower()->append('::admin')->toString();
-            $check = $this->hasRole($role_name);
 
-            return $check;
+            return $this->hasRole($role_name);
         });
         /** @var list<Module> $modulesList */
         $modulesList = array_values($filteredModules);

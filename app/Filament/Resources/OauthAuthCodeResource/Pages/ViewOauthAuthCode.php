@@ -38,7 +38,7 @@ class ViewOauthAuthCode extends XotBaseViewRecord
 
                                     $client = $record->getRelationValue('client');
                                     if (($client instanceof Model) && $client->exists) {
-                                        return \Modules\User\Filament\Resources\OauthClientResource::getUrl('view', ['record' => $client]);
+                                        return \Modules\User\Filament\Resources\ClientResource::getUrl('view', ['record' => $client]);
                                     }
 
                                     return null;
@@ -66,7 +66,13 @@ class ViewOauthAuthCode extends XotBaseViewRecord
             'authorization_details' => Section::make('Authorization Details')
                 ->schema([
                     'scopes' => TextEntry::make('scopes')
-                        ->formatStateUsing(fn (mixed $state): string => is_array($state) ? implode(', ', array_map('strval', $state)) : (string) $state)
+                        ->formatStateUsing(function (mixed $state): string {
+                            if (is_array($state)) {
+                                /** @var array<int|string, mixed> $state */
+                                return implode(', ', array_map(fn (mixed $item): string => (string) $item, $state));
+                            }
+                            return (string) $state;
+                        })
                         ->columnSpanFull(),
                 ])->columns(1),
 

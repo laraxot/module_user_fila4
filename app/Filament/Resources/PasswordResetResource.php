@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
-use Filament\Forms\Components\Section;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Component;
+use Filament\Schemas\Components\Section;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder; // Added
 use Modules\User\Filament\Resources\PasswordResetResource\Pages;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
@@ -43,22 +47,19 @@ class PasswordResetResource extends XotBaseResource
         return $table
             ->columns([
                 TextColumn::make('email')
-                    ->label('Email')
                     ->searchable()
                     ->sortable()
                     ->copyable()
                     ->copyMessage('Email copied'),
 
                 TextColumn::make('token')
-                    ->label('Token')
                     ->searchable()
                     ->limit(20)
-                    ->tooltip(fn ($record) => $record->token)
+                    ->tooltip(fn (\Modules\User\Models\PasswordReset $record): string => $record->token)
                     ->copyable()
                     ->copyMessage('Token copied'),
 
                 TextColumn::make('created_at')
-                    ->label('Created At')
                     ->dateTime()
                     ->sortable(),
             ])
@@ -66,23 +67,37 @@ class PasswordResetResource extends XotBaseResource
                 // Filter by date range
                 \Filament\Tables\Filters\Filter::make('created_date')
                     ->form([
-                        \Filament\Forms\Components\DatePicker::make('created_from')
-                            ->label('Created From'),
-                        \Filament\Forms\Components\DatePicker::make('created_until')
-                            ->label('Created Until'),
+                        DatePicker::make('created_from'),
+                        DatePicker::make('created_until'),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
                         return $query
-                            ->when($data['created_from'], fn ($query, $date) => $query->whereDate('created_at', '>=', $date))
-                            ->when($data['created_until'], fn ($query, $date) => $query->whereDate('created_at', '<=', $date));
+                            ->when(
+                                $data['created_from'],
+                                function (Builder $q, mixed $date): Builder {
+                                    if (is_string($date) || $date instanceof \DateTimeInterface) {
+                                        return $q->whereDate('created_at', '>=', $date);
+                                    }
+                                    return $q;
+                                }
+                            )
+                            ->when(
+                                $data['created_until'],
+                                function (Builder $q, mixed $date): Builder {
+                                    if (is_string($date) || $date instanceof \DateTimeInterface) {
+                                        return $q->whereDate('created_at', '<=', $date);
+                                    }
+                                    return $q;
+                                }
+                            );
                     }),
             ])
             ->actions([
                 DeleteAction::make(),
             ])
             ->bulkActions([
-                \Filament\Actions\BulkActionGroup::make([
-                    \Filament\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ])
             ->defaultSort('created_at', 'desc');
@@ -96,19 +111,20 @@ class PasswordResetResource extends XotBaseResource
         ];
     }
 
+    /**
+     * @return array<string, \Filament\Schemas\Components\Component>
+     */
     public static function getFormSchema(): array
     {
         return [
             'password_reset_info' => Section::make('Password Reset Information')
                 ->schema([
                     'email' => TextInput::make('email')
-                        ->label('Email')
                         ->email()
                         ->required()
                         ->maxLength(255),
 
                     'token' => TextInput::make('token')
-                        ->label('Token')
                         ->required()
                         ->maxLength(255),
                 ]),
