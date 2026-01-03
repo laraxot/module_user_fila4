@@ -8,7 +8,6 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Forms\Components\Component;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Pages\PageRegistration;
@@ -39,7 +38,7 @@ class SocialiteUserResource extends XotBaseResource
     /**
      * Get the form schema for the resource.
      *
-     * @return array<string, \Filament\Forms\Components\Select|\Filament\Forms\Components\TextInput>
+     * @return array<string, Select|TextInput>
      */
     #[\Override]
     public static function getFormSchema(): array
@@ -100,6 +99,7 @@ class SocialiteUserResource extends XotBaseResource
                         if ($state) {
                             /** @phpstan-var view-string $viewString */
                             $viewString = 'filament.components.avatar';
+
                             return view($viewString, ['url' => (string) $state])->render();
                         }
 

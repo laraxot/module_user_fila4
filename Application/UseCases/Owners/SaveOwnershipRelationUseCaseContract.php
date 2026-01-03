@@ -10,8 +10,6 @@ interface SaveOwnershipRelationUseCaseContract
 {
     /**
      * Execute the use case to save ownership relation.
-     *
-     * @param mixed $actor
      */
     public function execute(Client $client, int $ownerId, mixed $actor): void;
 }

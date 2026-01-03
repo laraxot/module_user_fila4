@@ -7,7 +7,6 @@ namespace Modules\User\Filament\Resources;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Forms\Components\Component;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Pages\PageRegistration;
@@ -19,6 +18,7 @@ use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\OauthAuthCodeResource\Pages;
 use Modules\User\Models\OauthAuthCode;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+
 use function Safe\json_encode;
 
 /**
@@ -41,7 +41,7 @@ class OauthAuthCodeResource extends XotBaseResource
     /**
      * Get the form schema for the resource.
      *
-     * @return array<string, \Filament\Forms\Components\Select|\Filament\Forms\Components\TextInput>
+     * @return array<string, Select|TextInput>
      */
     #[\Override]
     public static function getFormSchema(): array
@@ -77,6 +77,7 @@ class OauthAuthCodeResource extends XotBaseResource
                         if (! is_string($state)) {
                             return '';
                         }
+
                         return Str::limit($state, 15, '...');
                     }),
                 TextColumn::make('user.name')
@@ -91,13 +92,14 @@ class OauthAuthCodeResource extends XotBaseResource
                     ->limit(30)
                     ->tooltip(function (TextColumn $column): ?string {
                         $state = $column->getState();
-                        if ($state === null) {
+                        if (null === $state) {
                             return null;
                         }
                         if (is_array($state)) {
-                            /** @var array<string, mixed> $state */
+                            /* @var array<string, mixed> $state */
                             return json_encode($state);
                         }
+
                         return is_string($state) ? $state : null;
                     })
                     ->toggleable(),

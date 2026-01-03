@@ -36,19 +36,20 @@ class ClientResource extends XotBaseResource
     /**
      * Get the form schema for the resource (XotBaseResource pattern).
      *
-     * @return array<string, \Filament\Forms\Components\Field>
+     * @return array<string, Field>
      */
     public static function getFormSchema(): array
     {
         $components = [
-            'name' => \Filament\Forms\Components\TextInput::make('name')
+            'name' => TextInput::make('name')
                 ->unique('clients', 'name')
                 ->required()
                 ->maxLength(255),
-            'owner' => \Filament\Forms\Components\Select::make('owner')
+            'owner' => Select::make('owner')
                 ->options(function (): Collection {
                     /** @var GetAllOwnersRelationshipUseCaseContract $useCase */
                     $useCase = app(GetAllOwnersRelationshipUseCaseContract::class);
+
                     return $useCase->execute();
                 })
                 ->saveRelationshipsUsing(function (Client $record, array $data): void {
@@ -69,12 +70,12 @@ class ClientResource extends XotBaseResource
          */
         if (static::isResourceFormComponentsEnabled()) {
             $additionalComponents = static::getResourceFormComponents();
-            /** @var array<string, \Filament\Forms\Components\Field> $additionalComponents */
-            /** @var array<string, \Filament\Forms\Components\Field> $components */
+            /** @var array<string, Field> $additionalComponents */
+            /** @var array<string, Field> $components */
             $components = array_merge($components, $additionalComponents);
         }
 
-        /** @var array<string, \Filament\Forms\Components\Field> $components */
+        /* @var array<string, \Filament\Forms\Components\Field> $components */
         return $components;
     }
 
