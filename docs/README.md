@@ -31,6 +31,44 @@ Il modulo supporta diversi tipi di utenti con logiche specifiche:
 - **TeamResource**: Gestione team
 - **TenantResource**: Gestione tenant
 
+## Copertura Filament (Policy + Matrice)
+
+### Litigata (DRY/KISS) e decisione vincente
+
+Due approcci possibili:
+
+- **Approccio A**: una `Resource` per ogni `Model`.
+- **Approccio B**: `Resource` solo per modelli "operativi" (business/admin), mentre i modelli tecnici/pivot restano gestiti tramite `RelationManager` o non esposti in UI.
+
+Vince **Approccio B**: riduce superficie di sicurezza, evita CRUD inutili, mantiene la UI pulita e aderisce alla filosofia Laraxot/Xot.
+
+### Matrice sintetica (principali)
+
+- **User**: `UserResource` (model dinamico via `XotData::getUserClass()`)
+- **Profile**: `ProfileResource`
+- **Team**: `TeamResource` (model dinamico via `XotData::getTeamClass()`)
+- **Tenant**: `TenantResource` (model dinamico via `XotData::getTenantClass()`)
+- **Role**: `RoleResource`
+- **Permission**: `PermissionResource`
+- **AuthenticationLog**: `AuthenticationLogResource`
+- **SocialProvider**: `SocialProviderResource`
+- **SocialiteUser**: `SocialiteUserResource`
+- **Device**: `DeviceResource`
+- **Feature**: `FeatureResource`
+- **PasswordReset**: `PasswordResetResource`
+- **OAuth**:
+  - `ClientResource` (Passport client model)
+  - `OauthAccessTokenResource`
+  - `OauthAuthCodeResource`
+  - `OauthRefreshTokenResource`
+- **SSO**: `SsoProviderResource`
+
+### Regola pratica
+
+- **Se un modello è pivot/base/tecnico**: niente `Resource` dedicata.
+- **Se serve gestione dentro un contesto**: usare `RelationManager` nella `Resource` principale.
+- **Se è un'entità configurabile da admin**: creare `Resource` dedicata.
+
 ### Widget e Pagine
 - **LoginWidget**: Form di login multi-tipo
 - **UserStatsWidget**: Statistiche utenti
