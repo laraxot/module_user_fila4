@@ -4,21 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-<<<<<<< HEAD
-=======
 use Override;
 use Modules\User\Filament\Resources\OauthRefreshTokenResource\Pages\ListOauthRefreshTokens;
 use Modules\User\Filament\Resources\OauthRefreshTokenResource\Pages\ViewOauthRefreshToken;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Pages\PageRegistration;
->>>>>>> 00be2866 (.)
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Resources\Pages\PageRegistration;
+
 use Filament\Tables\Columns\IconColumn; // Already there, but explicitly for boolean()
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;

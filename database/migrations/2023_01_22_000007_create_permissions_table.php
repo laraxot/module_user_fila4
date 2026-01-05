@@ -6,6 +6,7 @@ use Illuminate\Contracts\Cache\Factory;
 use Illuminate\Database\Schema\Blueprint;
 // ---- models ---
 use Modules\Xot\Database\Migrations\XotBaseMigration;
+use Webmozart\Assert\Assert;
 
 /*
  * Class CreatePermissionsTable.
@@ -24,8 +25,10 @@ return new class extends XotBaseMigration {
                 $cache_key = config('permission.cache.key');
                 /** @var string|null $store */
                 $store = 'default' !== $cache_store ? $cache_store : null;
-                /* @var string $cache_key */
-                $cache->store($store)->forget($cache_key);
+                /** @var string $cache_key */
+                if (is_string($cache_key)) {
+                    $cache->store($store)->forget($cache_key);
+                }
             }
         } catch (Exception $e) {
         }

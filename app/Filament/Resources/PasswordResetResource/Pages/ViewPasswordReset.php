@@ -4,16 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\PasswordResetResource\Pages;
 
-<<<<<<< HEAD
-use Filament\Infolists\Components\TextEntry;
-=======
 use Override;
-use Filament\Schemas\Components\Component;
->>>>>>> 00be2866 (.)
-use Filament\Schemas\Components\Grid;
-use Filament\Schemas\Components\Section;
 use Modules\User\Filament\Resources\PasswordResetResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Component;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
 
 class ViewPasswordReset extends XotBaseViewRecord
 {
@@ -28,12 +25,12 @@ class ViewPasswordReset extends XotBaseViewRecord
         return [
             'password_reset_info' => Section::make('Password Reset Information')
                 ->schema([
-                    'reset_grid' => Grid::make(2)
+                    Grid::make(2)
                         ->schema([
-                            'email' => TextEntry::make('email')
+                            TextEntry::make('email')
                                 ->copyable()
                                 ->copyMessage('Email copied'),
-                            'token' => TextEntry::make('token')
+                            TextEntry::make('token')
                                 ->copyable()
                                 ->copyMessage('Token copied')
                                 ->columnSpanFull(),
@@ -42,11 +39,11 @@ class ViewPasswordReset extends XotBaseViewRecord
 
             'timestamps' => Section::make('Timestamps')
                 ->schema([
-                    'timestamps_grid' => Grid::make(2)
+                    Grid::make(2)
                         ->schema([
-                            'created_at' => TextEntry::make('created_at')
+                            TextEntry::make('created_at')
                                 ->dateTime(),
-                            'updated_at' => TextEntry::make('updated_at')
+                            TextEntry::make('updated_at')
                                 ->dateTime(),
                         ]),
                 ])->columns(1),

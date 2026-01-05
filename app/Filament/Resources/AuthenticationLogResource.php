@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-<<<<<<< HEAD
 use Filament\Actions\Action;
 use Filament\Actions\DeleteAction;
-=======
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\DatePicker;
 use DateTimeInterface;
@@ -16,7 +14,6 @@ use Filament\Actions\DeleteBulkAction;
 use Modules\User\Filament\Resources\AuthenticationLogResource\Pages\ListAuthenticationLogs;
 use Modules\User\Filament\Resources\AuthenticationLogResource\Pages\ViewAuthenticationLog;
 use Modules\User\Models\User;
->>>>>>> 00be2866 (.)
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -138,11 +135,7 @@ class AuthenticationLogResource extends XotBaseResource
                             ->when(
                                 $loginFrom,
                                 function (Builder $q, mixed $date): Builder {
-<<<<<<< HEAD
                                     if (! \is_string($date) && ! $date instanceof \DateTimeInterface) {
-=======
-                                    if (!\is_string($date) && !$date instanceof DateTimeInterface) {
->>>>>>> 00be2866 (.)
                                         return $q;
                                     }
 
@@ -152,11 +145,7 @@ class AuthenticationLogResource extends XotBaseResource
                             ->when(
                                 $loginUntil,
                                 function (Builder $q, mixed $date): Builder {
-<<<<<<< HEAD
                                     if (! \is_string($date) && ! $date instanceof \DateTimeInterface) {
-=======
-                                    if (!\is_string($date) && !$date instanceof DateTimeInterface) {
->>>>>>> 00be2866 (.)
                                         return $q;
                                     }
 
