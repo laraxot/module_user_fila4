@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use DateTime;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -20,8 +19,8 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string         $team_id
  * @property string         $user_id
  * @property string         $permission
- * @property DateTime|null $created_at
- * @property DateTime|null $updated_at
+ * @property \DateTime|null $created_at
+ * @property \DateTime|null $updated_at
  * @property Team           $team
  * @property User           $user
  *

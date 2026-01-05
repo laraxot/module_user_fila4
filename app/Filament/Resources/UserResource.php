@@ -9,13 +9,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Override;
-use DateTimeInterface;
-use Filament\Resources\RelationManagers\RelationManager;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
+use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Components\Section;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
@@ -51,7 +49,7 @@ class UserResource extends XotBaseResource
     //    static::$extendFormCallback = $callback;
     // }
 
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
@@ -91,7 +89,7 @@ class UserResource extends XotBaseResource
                     if ($createdAt instanceof CarbonInterface) {
                         return $createdAt->diffForHumans();
                     }
-                    if ($createdAt instanceof DateTimeInterface) {
+                    if ($createdAt instanceof \DateTimeInterface) {
                         return $createdAt->format('Y-m-d H:i:s');
                     }
 
@@ -113,7 +111,7 @@ class UserResource extends XotBaseResource
      * }
      */
 
-    #[Override]
+    #[\Override]
     public function hasCombinedRelationManagerTabsWithContent(): bool
     {
         return true;
@@ -124,7 +122,7 @@ class UserResource extends XotBaseResource
      *
      * @return class-string<Model>
      */
-    #[Override]
+    #[\Override]
     public static function getModel(): string
     {
         $xot = XotData::make();
@@ -138,7 +136,7 @@ class UserResource extends XotBaseResource
      *
      * @return array<int, class-string<RelationManager>>
      */
-    #[Override]
+    #[\Override]
     public static function getRelations(): array
     {
         return [

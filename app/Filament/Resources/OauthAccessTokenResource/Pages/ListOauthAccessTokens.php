@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthAccessTokenResource\Pages;
 
+use Filament\Actions\Action;
+use Filament\Actions\CreateAction; // Added
 use Modules\User\Filament\Resources\OauthAccessTokenResource;
-use Override;
-use Filament\Actions\Action; // Added
-use Filament\Actions\CreateAction;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 /**
@@ -20,7 +19,7 @@ class ListOauthAccessTokens extends XotBaseListRecords
     /**
      * @return array<string, Action>
      */
-    #[Override]
+    #[\Override]
     protected function getHeaderActions(): array
     {
         return [

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
-use Override;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
@@ -36,7 +35,7 @@ class PasswordResetWidget extends XotBaseWidget
     /**
      * Get the form schema for password reset.
      */
-    #[Override]
+    #[\Override]
     public function getFormSchema(): array
     {
         return [

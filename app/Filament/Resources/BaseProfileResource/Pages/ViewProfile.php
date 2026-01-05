@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\BaseProfileResource\Pages;
 
-use Override;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Flex;
@@ -22,7 +21,7 @@ class ViewProfile extends XotBaseViewRecord
     /**
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public function getInfolistSchema(): array
     {
         return [

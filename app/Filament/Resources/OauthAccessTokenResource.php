@@ -4,12 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Filament\Tables\Filters\Filter;
 use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
-use Modules\User\Filament\Resources\OauthAccessTokenResource\Pages\ListOauthAccessTokens;
-use Modules\User\Filament\Resources\OauthAccessTokenResource\Pages\ViewOauthAccessToken;
 use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
@@ -17,10 +14,12 @@ use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
-use Modules\User\Filament\Resources\OauthAccessTokenResource\Pages;
+use Modules\User\Filament\Resources\OauthAccessTokenResource\Pages\ListOauthAccessTokens;
+use Modules\User\Filament\Resources\OauthAccessTokenResource\Pages\ViewOauthAccessToken;
 use Modules\User\Models\OauthAccessToken;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
@@ -30,7 +29,7 @@ class OauthAccessTokenResource extends XotBaseResource
 {
     protected static ?string $model = OauthAccessToken::class;
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-key';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-key';
 
     protected static ?int $navigationSort = 5;
 

@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Providers;
 
-use Modules\User\Models\OauthToken;
-use Modules\User\Models\OauthRefreshToken;
-use Modules\User\Models\OauthAuthCode;
-use Modules\User\Models\OauthClient;
-use Modules\User\Models\OauthDeviceCode;
 use Carbon\CarbonInterval;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
-use Modules\User\Models;
+use Modules\User\Models\OauthAuthCode;
+use Modules\User\Models\OauthClient;
+use Modules\User\Models\OauthDeviceCode;
+use Modules\User\Models\OauthRefreshToken;
+use Modules\User\Models\OauthToken;
 
 class PassportServiceProvider extends ServiceProvider
 {

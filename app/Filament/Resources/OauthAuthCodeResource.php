@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Override;
-use Modules\User\Filament\Resources\OauthAuthCodeResource\Pages\ListOauthAuthCodes;
-use Modules\User\Filament\Resources\OauthAuthCodeResource\Pages\ViewOauthAuthCode;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -19,6 +16,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\OauthAuthCodeResource\Pages;
+use Modules\User\Filament\Resources\OauthAuthCodeResource\Pages\ListOauthAuthCodes;
+use Modules\User\Filament\Resources\OauthAuthCodeResource\Pages\ViewOauthAuthCode;
 use Modules\User\Models\OauthAuthCode;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
@@ -37,14 +36,14 @@ class OauthAuthCodeResource extends XotBaseResource
 
     protected static ?string $pluralModelLabel = 'OAuth Authorization Codes';
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-code-bracket';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-code-bracket';
 
     /**
      * Get the form schema for the resource.
      *
      * @return array<string, Select|TextInput>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
@@ -134,7 +133,7 @@ class OauthAuthCodeResource extends XotBaseResource
      *
      * @return array<string, PageRegistration>
      */
-    #[Override]
+    #[\Override]
     public static function getPages(): array
     {
         return [
@@ -146,7 +145,7 @@ class OauthAuthCodeResource extends XotBaseResource
     /**
      * Modify the Eloquent query used to retrieve the records.
      */
-    #[Override]
+    #[\Override]
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()->with(['user', 'client']);

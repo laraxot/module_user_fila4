@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\ClientResource\Pages;
 
-use Override;
-use Filament\Schemas\Components\Component;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Section;
 use Modules\User\Filament\Resources\ClientResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
@@ -18,7 +17,7 @@ class ViewClient extends XotBaseViewRecord
     /**
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     protected function getInfolistSchema(): array
     {
         return [

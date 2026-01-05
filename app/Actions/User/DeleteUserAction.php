@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Actions\User;
 
-use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Models\User;
@@ -39,7 +38,7 @@ class DeleteUserAction
                 'success' => true,
                 'message' => 'Account eliminato con successo',
             ];
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return [
                 'success' => false,
                 'message' => 'Si è verificato un errore durante l\'eliminazione dell\'account',

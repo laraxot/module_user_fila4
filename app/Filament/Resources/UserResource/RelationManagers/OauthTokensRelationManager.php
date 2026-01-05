@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
-use Override;
-use Filament\Tables\Columns\Column;
 use Filament\Actions\Action;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
+use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Carbon;
@@ -28,7 +27,7 @@ class OauthTokensRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Column>
      */
-    #[Override]
+    #[\Override]
     public function getTableColumns(): array
     {
         return [
@@ -76,7 +75,7 @@ class OauthTokensRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Action>
      */
-    #[Override]
+    #[\Override]
     public function getTableActions(): array
     {
         return [

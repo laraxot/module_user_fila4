@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthClientResource\Pages;
 
-use Modules\User\Filament\Resources\OauthClientResource;
 use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
+use Modules\User\Filament\Resources\OauthClientResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 /**

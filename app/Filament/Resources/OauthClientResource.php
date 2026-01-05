@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Filament\Forms\Components\Grid;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
@@ -29,8 +27,6 @@ class OauthClientResource extends XotBaseResource
 
     /**
      * Schema del form per la risorsa.
-     *
-     * @return array
      */
     public static function getFormSchema(): array
     {
@@ -81,4 +77,3 @@ class OauthClientResource extends XotBaseResource
         return parent::getEloquentQuery()->with(['user']);
     }
 }
-

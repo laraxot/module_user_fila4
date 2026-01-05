@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthAuthCodeResource\Pages;
 
-use Override;
 use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
 use Modules\User\Filament\Resources\OauthAuthCodeResource;
@@ -17,7 +16,7 @@ class ListOauthAuthCodes extends XotBaseListRecords
     /**
      * @return array<string, Action>
      */
-    #[Override]
+    #[\Override]
     protected function getHeaderActions(): array
     {
         return [

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\View\Components\Mail;
 
-use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use Modules\Xot\Datas\MetatagData;
@@ -24,7 +23,7 @@ class Message extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): View|Closure|string
+    public function render(): View|\Closure|string
     {
         $metatag = MetatagData::make();
         $view = 'user::components.mail.html.message';

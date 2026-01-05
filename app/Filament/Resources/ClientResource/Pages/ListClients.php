@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\ClientResource\Pages;
 
-use Filament\Tables\Columns\Column;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
+use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Laravel\Passport\Client;

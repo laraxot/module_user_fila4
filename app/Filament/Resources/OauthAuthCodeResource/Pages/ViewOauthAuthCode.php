@@ -4,17 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthAuthCodeResource\Pages;
 
-use Override;
-use Modules\User\Filament\Resources\ClientResource;
-use Modules\User\Filament\Resources\UserResource;
-use Filament\Schemas\Components\Component;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Modules\User\Filament\Resources\ClientResource;
 use Modules\User\Filament\Resources\OauthAuthCodeResource;
+use Modules\User\Filament\Resources\UserResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 
 class ViewOauthAuthCode extends XotBaseViewRecord
@@ -24,7 +23,7 @@ class ViewOauthAuthCode extends XotBaseViewRecord
     /**
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     protected function getInfolistSchema(): array
     {
         return [

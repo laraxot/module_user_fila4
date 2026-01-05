@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
-use Exception;
-use Throwable;
-use RuntimeException;
 use Filament\Actions\Action;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\View;
@@ -76,13 +73,13 @@ class LogoutWidget extends XotBaseWidget
      *
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public function getFormSchema(): array
     {
         $view = 'filament.widgets.auth.logout-message';
         // @phpstan-ignore-next-line
         if (! view()->exists($view)) {
-            throw new Exception('View '.$view.' not found');
+            throw new \Exception('View '.$view.' not found');
         }
 
         return [
@@ -102,7 +99,7 @@ class LogoutWidget extends XotBaseWidget
      * 6. Logs the operation
      * 7. Handles redirection with proper localization
      *
-     * @throws RuntimeException If the logout process fails
+     * @throws \RuntimeException If the logout process fails
      */
     public function logout(): void
     {
@@ -122,7 +119,7 @@ class LogoutWidget extends XotBaseWidget
             $this->dispatchPostLogoutEvent();
             $this->logLogoutSuccess($user);
             $this->redirectAfterLogout();
-        } catch (Throwable $e) {
+        } catch (\Throwable $e) {
             $this->handleLogoutError($e);
         }
     }
@@ -132,7 +129,7 @@ class LogoutWidget extends XotBaseWidget
      *
      * @return array<string, Action>
      */
-    #[Override]
+    #[\Override]
     public function getFormActions(): array
     {
         return [
@@ -245,9 +242,9 @@ class LogoutWidget extends XotBaseWidget
     /**
      * Handle any errors that occur during logout.
      *
-     * @throws RuntimeException
+     * @throws \RuntimeException
      */
-    protected function handleLogoutError(Throwable $e): void
+    protected function handleLogoutError(\Throwable $e): void
     {
         Log::error('Logout error: '.$e->getMessage(), [
             'exception' => $e::class,

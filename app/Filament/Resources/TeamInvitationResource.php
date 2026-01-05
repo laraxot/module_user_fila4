@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Override;
-use Modules\User\Filament\Resources\TeamInvitationResource\Pages\ListTeamInvitations;
-use Modules\User\Filament\Resources\TeamInvitationResource\Pages\EditTeamInvitations;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -20,6 +17,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\User\Filament\Resources\TeamInvitationResource\Pages;
+use Modules\User\Filament\Resources\TeamInvitationResource\Pages\EditTeamInvitations;
+use Modules\User\Filament\Resources\TeamInvitationResource\Pages\ListTeamInvitations;
 use Modules\User\Models\TeamInvitation;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
@@ -36,14 +35,14 @@ class TeamInvitationResource extends XotBaseResource
 
     protected static ?string $pluralModelLabel = 'Team Invitations';
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-envelope';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-envelope';
 
     /**
      * Get the form schema for the resource.
      *
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
@@ -70,7 +69,7 @@ class TeamInvitationResource extends XotBaseResource
     /**
      * Configure the table for the resource.
      */
-    #[Override]
+    #[\Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -131,7 +130,7 @@ class TeamInvitationResource extends XotBaseResource
      *
      * @return array<string, PageRegistration>
      */
-    #[Override]
+    #[\Override]
     public static function getPages(): array
     {
         return [
@@ -143,7 +142,7 @@ class TeamInvitationResource extends XotBaseResource
     /**
      * Modify the Eloquent query used to retrieve the records.
      */
-    #[Override]
+    #[\Override]
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()->with(['team']);

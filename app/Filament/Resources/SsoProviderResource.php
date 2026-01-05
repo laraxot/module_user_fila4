@@ -4,21 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Override;
-use Modules\User\Filament\Resources\SsoProviderResource\Pages\ListSsoProviders;
-use Modules\User\Filament\Resources\SsoProviderResource\Pages\CreateSsoProvider;
-use Modules\User\Filament\Resources\SsoProviderResource\Pages\ViewSsoProvider;
-use Modules\User\Filament\Resources\SsoProviderResource\Pages\EditSsoProvider;
-use Filament\Support\Components\Component;
-use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Resources\Pages\PageRegistration;
+use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Support\Components\Component;
 use Filament\Tables\Table;
-use Modules\User\Filament\Resources\SsoProviderResource\Pages;
+use Modules\User\Filament\Resources\SsoProviderResource\Pages\CreateSsoProvider;
+use Modules\User\Filament\Resources\SsoProviderResource\Pages\EditSsoProvider;
+use Modules\User\Filament\Resources\SsoProviderResource\Pages\ListSsoProviders;
+use Modules\User\Filament\Resources\SsoProviderResource\Pages\ViewSsoProvider;
 use Modules\User\Filament\Resources\SsoProviderResource\RelationManagers\UsersRelationManager;
 use Modules\User\Models\SsoProvider;
 use Modules\Xot\Filament\Resources\XotBaseResource;
@@ -29,12 +27,12 @@ class SsoProviderResource extends XotBaseResource
 
     protected static ?string $recordTitleAttribute = 'display_name';
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-identification';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-identification';
 
     /**
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
@@ -70,7 +68,7 @@ class SsoProviderResource extends XotBaseResource
         ];
     }
 
-    #[Override]
+    #[\Override]
     public static function table(Table $table): Table
     {
         return $table;
@@ -79,7 +77,7 @@ class SsoProviderResource extends XotBaseResource
     /**
      * @return array<string, class-string<RelationManager>>
      */
-    #[Override]
+    #[\Override]
     public static function getRelations(): array
     {
         return [
@@ -90,7 +88,7 @@ class SsoProviderResource extends XotBaseResource
     /**
      * @return array<string, PageRegistration>
      */
-    #[Override]
+    #[\Override]
     public static function getPages(): array
     {
         return [

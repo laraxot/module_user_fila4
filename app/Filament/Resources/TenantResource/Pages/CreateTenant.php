@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\Pages;
 
-use Throwable;
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Filament\Resources\TenantResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
@@ -17,7 +16,7 @@ class CreateTenant extends XotBaseCreateRecord
     protected static string $resource = TenantResource::class;
 
     /**
-     * @throws Throwable
+     * @throws \Throwable
      */
     protected function handleRecordCreation(array $data): Model
     {

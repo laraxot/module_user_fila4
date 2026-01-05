@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\RelationManagers;
 
-use Override;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
@@ -24,7 +23,7 @@ class UsersRelationManager extends XotBaseRelationManager
     /**
      * @return array<Component>
      */
-    #[Override]
+    #[\Override]
     public function getFormSchema(): array
     {
         return [
@@ -52,7 +51,7 @@ class UsersRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Column>
      */
-    #[Override]
+    #[\Override]
     public function getTableColumns(): array
     {
         return [

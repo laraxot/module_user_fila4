@@ -7,8 +7,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\RelationManagers;
 
-use Override;
-use Filament\Tables\Columns\Column;
 use Filament\Actions\Action;
 use Filament\Actions\BulkAction;
 use Filament\Actions\CreateAction;
@@ -17,6 +15,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
+use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
@@ -30,7 +29,7 @@ class DomainsRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public function getFormSchema(): array
     {
         return [
@@ -45,7 +44,7 @@ class DomainsRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Column>
      */
-    #[Override]
+    #[\Override]
     public function getTableColumns(): array
     {
         return [
@@ -60,7 +59,7 @@ class DomainsRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Action>
      */
-    #[Override]
+    #[\Override]
     public function getTableHeaderActions(): array
     {
         return [
@@ -71,7 +70,7 @@ class DomainsRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Action>
      */
-    #[Override]
+    #[\Override]
     public function getTableActions(): array
     {
         return [
@@ -83,7 +82,7 @@ class DomainsRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, BulkAction>
      */
-    #[Override]
+    #[\Override]
     public function getTableBulkActions(): array
     {
         return [

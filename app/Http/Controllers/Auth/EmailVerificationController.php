@@ -20,7 +20,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Controllers\Auth;
 
-use InvalidArgumentException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -53,7 +52,7 @@ class EmailVerificationController extends Controller
 
         // Verificare che l'utente implementi l'interfaccia MustVerifyEmail
         if (! ($user instanceof MustVerifyEmail)) {
-            throw new InvalidArgumentException('L\'utente deve implementare l\'interfaccia MustVerifyEmail');
+            throw new \InvalidArgumentException('L\'utente deve implementare l\'interfaccia MustVerifyEmail');
         }
 
         event(new Verified($user));

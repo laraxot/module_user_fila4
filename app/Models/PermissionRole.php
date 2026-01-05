@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Override;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
@@ -57,7 +56,7 @@ class PermissionRole extends BasePivot
     }
 
     /** @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         $parent = parent::casts();

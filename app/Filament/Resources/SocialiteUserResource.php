@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Override;
-use Modules\User\Filament\Resources\SocialiteUserResource\Pages\ListSocialiteUsers;
-use Modules\User\Filament\Resources\SocialiteUserResource\Pages\EditSocialiteUser;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -18,6 +15,8 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\User\Filament\Resources\SocialiteUserResource\Pages;
+use Modules\User\Filament\Resources\SocialiteUserResource\Pages\EditSocialiteUser;
+use Modules\User\Filament\Resources\SocialiteUserResource\Pages\ListSocialiteUsers;
 use Modules\User\Models\SocialiteUser;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
@@ -34,14 +33,14 @@ class SocialiteUserResource extends XotBaseResource
 
     protected static ?string $pluralModelLabel = 'Social Authentications';
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-user';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-user';
 
     /**
      * Get the form schema for the resource.
      *
      * @return array<string, Select|TextInput>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
@@ -78,7 +77,7 @@ class SocialiteUserResource extends XotBaseResource
     /**
      * Configure the table for the resource.
      */
-    #[Override]
+    #[\Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -132,7 +131,7 @@ class SocialiteUserResource extends XotBaseResource
      *
      * @return array<string, PageRegistration>
      */
-    #[Override]
+    #[\Override]
     public static function getPages(): array
     {
         return [
@@ -144,7 +143,7 @@ class SocialiteUserResource extends XotBaseResource
     /**
      * Modify the Eloquent query used to retrieve the records.
      */
-    #[Override]
+    #[\Override]
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()->with(['user']);

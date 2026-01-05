@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models\Traits;
 
-use Throwable;
 use Filament\Facades\Filament;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -58,7 +57,7 @@ trait InteractsWithTenant
     {
         try {
             $this->currentTenant = Filament::getTenant();
-        } catch (Throwable $e) {
+        } catch (\Throwable $e) {
             // Se Filament non è disponibile, lascia il tenant come null
             $this->currentTenant = null;
         }

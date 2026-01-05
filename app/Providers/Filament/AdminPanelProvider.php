@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Providers\Filament;
 
-use Override;
 use Filament\Panel;
 use Filament\Support\Facades\FilamentView;
 use Illuminate\Support\Facades\Blade;
@@ -18,7 +17,7 @@ class AdminPanelProvider extends XotBasePanelProvider
 {
     protected string $module = 'User';
 
-    #[Override]
+    #[\Override]
     public function panel(Panel $panel): Panel
     {
         $panel = parent::panel($panel);

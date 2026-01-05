@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
-use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Schema;
@@ -24,7 +23,7 @@ class ForgotPasswordWidget extends XotBaseWidget
      *
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public function getFormSchema(): array
     {
         return [

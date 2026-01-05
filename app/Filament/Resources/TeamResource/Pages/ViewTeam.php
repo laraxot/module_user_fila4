@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TeamResource\Pages;
 
-use Override;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Section;
@@ -19,7 +18,7 @@ class ViewTeam extends XotBaseViewRecord
     /**
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public function getInfolistSchema(): array
     {
         return [

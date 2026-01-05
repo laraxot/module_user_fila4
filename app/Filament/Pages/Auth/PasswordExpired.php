@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Pages\Auth;
 
-use InvalidArgumentException;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Forms\Components\TextInput;
@@ -114,7 +113,7 @@ class PasswordExpired extends XotBasePage
 
         // Verificare che l'utente esistante e che sia un modello Eloquent
         if (! ($user instanceof Model)) {
-            throw new InvalidArgumentException('L\'utente deve essere un modello Eloquent con il metodo update');
+            throw new \InvalidArgumentException('L\'utente deve essere un modello Eloquent con il metodo update');
         }
 
         // set password expiry date and time
@@ -126,7 +125,7 @@ class PasswordExpired extends XotBasePage
 
         // Verificare che l'utente implementi l'interfaccia UserContract prima di passarlo all'evento
         if (! ($user instanceof UserContract)) {
-            throw new InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
+            throw new \InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
         }
 
         event(new NewPasswordSet($user));

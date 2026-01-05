@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthRefreshTokenResource\Pages;
 
-use Override;
-use Modules\User\Filament\Resources\OauthAccessTokenResource;
-use Filament\Schemas\Components\Component;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Illuminate\Database\Eloquent\Model;
+use Modules\User\Filament\Resources\OauthAccessTokenResource;
 use Modules\User\Filament\Resources\OauthRefreshTokenResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 
@@ -22,7 +21,7 @@ class ViewOauthRefreshToken extends XotBaseViewRecord
     /**
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     protected function getInfolistSchema(): array
     {
         return [

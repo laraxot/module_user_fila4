@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthAccessTokenResource\Pages;
 
-use Modules\User\Filament\Resources\OauthAccessTokenResource;
-use Override;
 use Filament\Actions\Action;
 use Filament\Actions\DeleteAction;
+use Modules\User\Filament\Resources\OauthAccessTokenResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
 
 /**
@@ -20,7 +19,7 @@ class EditOauthAccessTokens extends XotBaseEditRecord
     /**
      * @return array<string, Action>
      */
-    #[Override]
+    #[\Override]
     protected function getHeaderActions(): array
     {
         return [

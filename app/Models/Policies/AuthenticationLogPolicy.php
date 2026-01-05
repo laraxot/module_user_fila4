@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models\Policies;
 
-use Throwable;
 use Modules\User\Models\AuthenticationLog;
 use Modules\User\Models\Permission;
 use Modules\Xot\Contracts\UserContract;
@@ -24,7 +23,7 @@ class AuthenticationLogPolicy extends UserBasePolicy
 
         try {
             return $user->hasPermissionTo($permission);
-        } catch (Throwable) {
+        } catch (\Throwable) {
             return false;
         }
     }

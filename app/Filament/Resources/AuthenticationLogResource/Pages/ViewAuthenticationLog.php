@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\AuthenticationLogResource\Pages;
 
-use Override;
-use Modules\User\Filament\Resources\UserResource;
-use Filament\Schemas\Components\Component;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\AuthenticationLogResource;
+use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Models\AuthenticationLog;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 
@@ -25,7 +24,7 @@ class ViewAuthenticationLog extends XotBaseViewRecord
     /**
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     protected function getInfolistSchema(): array
     {
         return [

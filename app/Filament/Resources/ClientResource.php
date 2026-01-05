@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Modules\User\Filament\Resources\ClientResource\Pages\ListClients;
-use Modules\User\Filament\Resources\ClientResource\Pages\ViewClient;
-use Modules\User\Filament\Resources\ClientResource\Pages\EditClient;
-use Modules\User\Filament\Resources\ClientResource\Pages\CreateClient;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -24,7 +20,10 @@ use Laravel\Passport\Client;
 use Laravel\Passport\Passport;
 use Modules\User\Application\UseCases\Owners\GetAllOwnersRelationshipUseCaseContract;
 use Modules\User\Application\UseCases\Owners\SaveOwnershipRelationUseCaseContract;
-use Modules\User\Filament\Resources\ClientResource\Pages;
+use Modules\User\Filament\Resources\ClientResource\Pages\CreateClient;
+use Modules\User\Filament\Resources\ClientResource\Pages\EditClient;
+use Modules\User\Filament\Resources\ClientResource\Pages\ListClients;
+use Modules\User\Filament\Resources\ClientResource\Pages\ViewClient;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class ClientResource extends XotBaseResource
@@ -32,7 +31,7 @@ class ClientResource extends XotBaseResource
     // use HasResourceFormComponents;
 
     protected static ?string $recordTitleAttribute = 'name';
-    protected static string | \BackedEnum | null $navigationIcon = Heroicon::OutlinedKey;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedKey;
     protected static ?string $modelLabel = 'OAuth Client';
     protected static ?string $pluralModelLabel = 'OAuth Clients';
 

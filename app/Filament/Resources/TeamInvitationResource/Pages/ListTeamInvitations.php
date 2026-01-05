@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TeamInvitationResource\Pages;
 
-use Modules\User\Filament\Resources\TeamInvitationResource;
-use Override;
 use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
+use Modules\User\Filament\Resources\TeamInvitationResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 /**
@@ -20,7 +19,7 @@ class ListTeamInvitations extends XotBaseListRecords
     /**
      * @return array<string, Action>
      */
-    #[Override]
+    #[\Override]
     protected function getHeaderActions(): array
     {
         return [
