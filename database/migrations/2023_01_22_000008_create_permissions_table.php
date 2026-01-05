@@ -7,7 +7,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /*
- * Class CreateRolesTable.
+ * Class CreatePermissionsTable.
  */
 return new class extends XotBaseMigration {
     /**
@@ -17,19 +17,17 @@ return new class extends XotBaseMigration {
     {
         // -- CREATE --
         $this->tableCreate(static function (Blueprint $table): void {
-            $table->id();
-            $table->foreignId('team_id')->nullable()->index();
+            $table->bigIncrements('id');
+            // permission id
             $table->string('name');
-            $table->string('guard_name')->default('web');
+            // For MySQL 8.0 use string('name', 125);
+            $table->string('guard_name');
+            // For MySQL 8.0 use string('guard_name', 125);
+            $table->unique(['name', 'guard_name']);
         });
         // -- UPDATE --
         $this->tableUpdate(function (Blueprint $table): void {
-            if (! $this->hasColumn('id')) {
-                $table->id();
-            }
-            if (! $this->hasColumn('team_id')) {
-                $table->foreignId('team_id')->nullable()->index();
-            }
+            // $this->updateUser($table);
             $this->updateTimestamps($table);
         });
     }
