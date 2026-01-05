@@ -14,4 +14,3 @@ class CreateOauthClient extends XotBaseCreateRecord
 {
     protected static string $resource = OauthClientResource::class;
 }
-

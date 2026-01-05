@@ -9,7 +9,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Grid as SchemaGrid;
 use Illuminate\Database\Eloquent\Builder;
 use Laravel\Passport\Client;
-use Modules\User\Filament\Resources\OauthClientResource\Pages;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 use Modules\Xot\Filament\Schemas\Components\XotBaseSection;
 

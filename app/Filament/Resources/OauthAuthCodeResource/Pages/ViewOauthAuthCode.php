@@ -9,7 +9,6 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\OauthAuthCodeResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
@@ -69,9 +68,10 @@ class ViewOauthAuthCode extends XotBaseViewRecord
                     'scopes' => TextEntry::make('scopes')
                         ->formatStateUsing(function (mixed $state): string {
                             if (is_array($state)) {
-                                /** @var array<int|string, mixed> $state */
+                                /* @var array<int|string, mixed> $state */
                                 return implode(', ', array_map(fn (mixed $item): string => (string) $item, $state));
                             }
+
                             return (string) $state;
                         })
                         ->columnSpanFull(),

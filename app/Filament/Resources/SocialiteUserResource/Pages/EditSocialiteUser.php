@@ -22,7 +22,7 @@ class EditSocialiteUser extends XotBaseEditRecord
     protected function getHeaderActions(): array
     {
         return [
-            'delete' => \Filament\Actions\DeleteAction::make(),
+            'delete' => DeleteAction::make(),
         ];
     }
 }

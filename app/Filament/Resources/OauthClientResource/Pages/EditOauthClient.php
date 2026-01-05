@@ -14,4 +14,3 @@ class EditOauthClient extends XotBaseEditRecord
 {
     protected static string $resource = OauthClientResource::class;
 }
-

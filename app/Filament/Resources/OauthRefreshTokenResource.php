@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Resources\Pages\PageRegistration;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Resources\Pages\PageRegistration;
 use Filament\Tables\Columns\IconColumn; // Already there, but explicitly for boolean()
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -36,20 +36,20 @@ class OauthRefreshTokenResource extends XotBaseResource
     /**
      * Get the form schema for the resource.
      *
-     * @return array<string, \Filament\Forms\Components\Select|\Filament\Forms\Components\TextInput>
+     * @return array<string, Select|TextInput>
      */
     #[\Override]
     public static function getFormSchema(): array
     {
         return [
-            'access_token_id' => \Filament\Forms\Components\Select::make('access_token_id')
+            'access_token_id' => Select::make('access_token_id')
                 ->relationship('accessToken', 'id')
                 ->searchable()
                 ->required(),
-            'revoked' => \Filament\Forms\Components\TextInput::make('revoked')
+            'revoked' => TextInput::make('revoked')
                 ->numeric()
                 ->required(),
-            'expires_at' => \Filament\Forms\Components\TextInput::make('expires_at'),
+            'expires_at' => TextInput::make('expires_at'),
         ];
     }
 

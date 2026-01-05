@@ -173,7 +173,7 @@ class OauthClient extends PassportClient implements AuthorizableContract
     /**
      * @return MorphTo<AuthUser, $this>
      *
-     * @phpstan-return MorphTo<\Illuminate\Foundation\Auth\User, $this>
+     * @phpstan-return MorphTo<AuthUser, $this>
      */
     public function owner(): MorphTo
     {

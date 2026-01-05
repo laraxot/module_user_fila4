@@ -11,21 +11,21 @@ namespace Modules\User\Filament\Resources;
 
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
-use Modules\Xot\Datas\XotData;
-use Illuminate\Support\HtmlString;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Database\Eloquent\Model;
+use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
-use Filament\Forms\Components\Placeholder;
-use Modules\Xot\Filament\Resources\XotBaseResource;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\HtmlString;
 use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
-use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
+use Modules\User\Filament\Resources\UserResource\RelationManagers\AuthenticationLogsRelationManager;
 use Modules\User\Filament\Resources\UserResource\RelationManagers\ClientsRelationManager;
-use Modules\User\Filament\Resources\UserResource\RelationManagers\TenantsRelationManager;
 use Modules\User\Filament\Resources\UserResource\RelationManagers\OauthTokensRelationManager;
 use Modules\User\Filament\Resources\UserResource\RelationManagers\SocialiteUsersRelationManager;
-use Modules\User\Filament\Resources\UserResource\RelationManagers\AuthenticationLogsRelationManager;
+use Modules\User\Filament\Resources\UserResource\RelationManagers\TenantsRelationManager;
+use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
+use Modules\Xot\Datas\XotData;
+use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class UserResource extends XotBaseResource
 {

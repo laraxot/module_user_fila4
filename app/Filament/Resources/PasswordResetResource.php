@@ -76,6 +76,7 @@ class PasswordResetResource extends XotBaseResource
                                     if (is_string($date) || $date instanceof \DateTimeInterface) {
                                         return $q->whereDate('created_at', '>=', $date);
                                     }
+
                                     return $q;
                                 }
                             )
@@ -85,6 +86,7 @@ class PasswordResetResource extends XotBaseResource
                                     if (is_string($date) || $date instanceof \DateTimeInterface) {
                                         return $q->whereDate('created_at', '<=', $date);
                                     }
+
                                     return $q;
                                 }
                             );
@@ -110,7 +112,7 @@ class PasswordResetResource extends XotBaseResource
     }
 
     /**
-     * @return array<string, \Filament\Schemas\Components\Component>
+     * @return array<string, Component>
      */
     public static function getFormSchema(): array
     {

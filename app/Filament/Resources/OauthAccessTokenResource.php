@@ -18,6 +18,7 @@ use Illuminate\Support\Carbon;
 use Modules\User\Filament\Resources\OauthAccessTokenResource\Pages;
 use Modules\User\Models\OauthAccessToken;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+
 use function Safe\json_encode;
 
 class OauthAccessTokenResource extends XotBaseResource
@@ -56,13 +57,14 @@ class OauthAccessTokenResource extends XotBaseResource
                     ->searchable()
                     ->sortable()
                     ->url(function (mixed $record): ?string {
-                        if (! $record instanceof \Modules\User\Models\OauthAccessToken) {
+                        if (! $record instanceof OauthAccessToken) {
                             return null;
                         }
                         $user = $record->user;
-                        if ($user !== null && method_exists($user, 'exists') && $user->exists) {
+                        if (null !== $user && method_exists($user, 'exists') && $user->exists) {
                             return UserResource::getUrl('view', ['record' => $user]);
                         }
+
                         return null;
                     })
                     ->openUrlInNewTab(),
@@ -78,13 +80,14 @@ class OauthAccessTokenResource extends XotBaseResource
                 TextColumn::make('scopes')
                     ->limit(30)
                     ->tooltip(function (mixed $state): ?string {
-                        if ($state === null) {
+                        if (null === $state) {
                             return null;
                         }
                         if (is_array($state)) {
-                            /** @var array<string, mixed> $state */
+                            /* @var array<string, mixed> $state */
                             return json_encode($state);
                         }
+
                         return is_string($state) ? $state : null;
                     }),
 
@@ -105,6 +108,7 @@ class OauthAccessTokenResource extends XotBaseResource
                             if ($state->lt($now)) {
                                 return $state->format('Y-m-d H:i:s').' (Expired)';
                             }
+
                             return $state->format('Y-m-d H:i:s');
                         }
 
