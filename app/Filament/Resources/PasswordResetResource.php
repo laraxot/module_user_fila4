@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Modules\User\Models\PasswordReset;
+use Filament\Tables\Filters\Filter;
+use DateTimeInterface;
+use Modules\User\Filament\Resources\PasswordResetResource\Pages\ListPasswordResets;
+use Modules\User\Filament\Resources\PasswordResetResource\Pages\ViewPasswordReset;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -19,9 +24,9 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class PasswordResetResource extends XotBaseResource
 {
-    protected static ?string $model = \Modules\User\Models\PasswordReset::class;
+    protected static ?string $model = PasswordReset::class;
 
-    protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-key';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-key';
 
     protected static ?int $navigationSort = 4;
 
@@ -53,7 +58,7 @@ class PasswordResetResource extends XotBaseResource
                 TextColumn::make('token')
                     ->searchable()
                     ->limit(20)
-                    ->tooltip(fn (\Modules\User\Models\PasswordReset $record): string => $record->token)
+                    ->tooltip(fn (PasswordReset $record): string => $record->token)
                     ->copyable()
                     ->copyMessage('Token copied'),
 
@@ -63,8 +68,8 @@ class PasswordResetResource extends XotBaseResource
             ])
             ->filters([
                 // Filter by date range
-                \Filament\Tables\Filters\Filter::make('created_date')
-                    ->form([
+                Filter::make('created_date')
+                    ->schema([
                         DatePicker::make('created_from'),
                         DatePicker::make('created_until'),
                     ])
@@ -73,7 +78,7 @@ class PasswordResetResource extends XotBaseResource
                             ->when(
                                 $data['created_from'],
                                 function (Builder $q, mixed $date): Builder {
-                                    if (is_string($date) || $date instanceof \DateTimeInterface) {
+                                    if (is_string($date) || $date instanceof DateTimeInterface) {
                                         return $q->whereDate('created_at', '>=', $date);
                                     }
 
@@ -83,7 +88,7 @@ class PasswordResetResource extends XotBaseResource
                             ->when(
                                 $data['created_until'],
                                 function (Builder $q, mixed $date): Builder {
-                                    if (is_string($date) || $date instanceof \DateTimeInterface) {
+                                    if (is_string($date) || $date instanceof DateTimeInterface) {
                                         return $q->whereDate('created_at', '<=', $date);
                                     }
 
@@ -92,10 +97,10 @@ class PasswordResetResource extends XotBaseResource
                             );
                     }),
             ])
-            ->actions([
+            ->recordActions([
                 DeleteAction::make(),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
@@ -106,8 +111,8 @@ class PasswordResetResource extends XotBaseResource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPasswordResets::route('/'),
-            'view' => Pages\ViewPasswordReset::route('/{record}'),
+            'index' => ListPasswordResets::route('/'),
+            'view' => ViewPasswordReset::route('/{record}'),
         ];
     }
 

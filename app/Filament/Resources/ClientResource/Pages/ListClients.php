@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\ClientResource\Pages;
 
+use Filament\Tables\Columns\Column;
+use Filament\Actions\Action;
+use Filament\Actions\ActionGroup;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Laravel\Passport\Client;
@@ -15,7 +18,7 @@ class ListClients extends XotBaseListRecords
     protected static string $resource = ClientResource::class;
 
     /**
-     * @return array<string, \Filament\Tables\Columns\Column>
+     * @return array<string, Column>
      */
     public function getTableColumns(): array
     {
@@ -72,7 +75,7 @@ class ListClients extends XotBaseListRecords
     }
 
     /**
-     * @return array<string, \Filament\Actions\Action|\Filament\Actions\ActionGroup>
+     * @return array<string, Action|ActionGroup>
      */
     public function getTableActions(): array
     {

@@ -4,6 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+<<<<<<< HEAD
+=======
+use Override;
+use Modules\User\Filament\Resources\OauthRefreshTokenResource\Pages\ListOauthRefreshTokens;
+use Modules\User\Filament\Resources\OauthRefreshTokenResource\Pages\ViewOauthRefreshToken;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Resources\Pages\PageRegistration;
+>>>>>>> 00be2866 (.)
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -31,14 +40,14 @@ class OauthRefreshTokenResource extends XotBaseResource
 
     protected static ?string $pluralModelLabel = 'OAuth Refresh Tokens';
 
-    protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-arrow-path';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-arrow-path';
 
     /**
      * Get the form schema for the resource.
      *
      * @return array<string, Select|TextInput>
      */
-    #[\Override]
+    #[Override]
     public static function getFormSchema(): array
     {
         return [
@@ -99,19 +108,19 @@ class OauthRefreshTokenResource extends XotBaseResource
      *
      * @return array<string, PageRegistration>
      */
-    #[\Override]
+    #[Override]
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListOauthRefreshTokens::route('/'),
-            'view' => Pages\ViewOauthRefreshToken::route('/{record}'),
+            'index' => ListOauthRefreshTokens::route('/'),
+            'view' => ViewOauthRefreshToken::route('/{record}'),
         ];
     }
 
     /**
      * Modify the Eloquent query used to retrieve the records.
      */
-    #[\Override]
+    #[Override]
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()->with(['accessToken']);

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\AuthenticationLogResource\Pages;
 
+use Override;
+use Modules\User\Filament\Resources\UserResource;
+use Filament\Schemas\Components\Component;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
@@ -20,9 +23,9 @@ class ViewAuthenticationLog extends XotBaseViewRecord
     protected static string $resource = AuthenticationLogResource::class;
 
     /**
-     * @return array<string, \Filament\Schemas\Components\Component>
+     * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     protected function getInfolistSchema(): array
     {
         return [
@@ -44,7 +47,7 @@ class ViewAuthenticationLog extends XotBaseViewRecord
                                     }
                                     $authenticatable = $record->authenticatable;
                                     if (null !== $authenticatable && method_exists($authenticatable, 'exists') && $authenticatable->exists) {
-                                        return \Modules\User\Filament\Resources\UserResource::getUrl('view', ['record' => $authenticatable]);
+                                        return UserResource::getUrl('view', ['record' => $authenticatable]);
                                     }
 
                                     return null;

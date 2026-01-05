@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Providers;
 
+use Modules\User\Models\OauthToken;
+use Modules\User\Models\OauthRefreshToken;
+use Modules\User\Models\OauthAuthCode;
+use Modules\User\Models\OauthClient;
+use Modules\User\Models\OauthDeviceCode;
 use Carbon\CarbonInterval;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
@@ -31,11 +36,11 @@ class PassportServiceProvider extends ServiceProvider
         Passport::refreshTokensExpireIn(CarbonInterval::days(30));
         Passport::personalAccessTokensExpireIn(CarbonInterval::months(6));
 
-        Passport::useTokenModel(Models\OauthToken::class);
-        Passport::useRefreshTokenModel(Models\OauthRefreshToken::class);
-        Passport::useAuthCodeModel(Models\OauthAuthCode::class);
-        Passport::useClientModel(Models\OauthClient::class);
-        Passport::useDeviceCodeModel(Models\OauthDeviceCode::class);
+        Passport::useTokenModel(OauthToken::class);
+        Passport::useRefreshTokenModel(OauthRefreshToken::class);
+        Passport::useAuthCodeModel(OauthAuthCode::class);
+        Passport::useClientModel(OauthClient::class);
+        Passport::useDeviceCodeModel(OauthDeviceCode::class);
         Passport::enablePasswordGrant();
 
         Passport::tokensCan([

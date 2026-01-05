@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+use Override;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Facades\Filament;
@@ -58,7 +59,7 @@ class PasswordExpiredWidget extends XotBaseWidget
      *
      * @return array<int, Component>
      */
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         $schema = [
@@ -186,7 +187,7 @@ class PasswordExpiredWidget extends XotBaseWidget
      *
      * @return array<int, Action|ActionGroup>
      */
-    #[\Override]
+    #[Override]
     protected function getFormActions(): array
     {
         return [

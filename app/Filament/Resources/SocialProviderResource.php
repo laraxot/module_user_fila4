@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Override;
 use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -27,7 +28,7 @@ class SocialProviderResource extends XotBaseResource
     /**
      * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     public static function getFormSchema(): array
     {
         return [
@@ -69,13 +70,13 @@ class SocialProviderResource extends XotBaseResource
         ];
     }
 
-    #[\Override]
+    #[Override]
     public static function getRelations(): array
     {
         return [];
     }
 
-    #[\Override]
+    #[Override]
     public static function getPages(): array
     {
         return [

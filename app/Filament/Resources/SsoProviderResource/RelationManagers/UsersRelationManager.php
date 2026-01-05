@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\SsoProviderResource\RelationManagers;
 
+use Override;
+use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 use Modules\Xot\Filament\Traits\HasXotTable;
@@ -17,9 +19,9 @@ class UsersRelationManager extends XotBaseRelationManager
     protected static ?string $recordTitleAttribute = 'name';
 
     /**
-     * @return array<string, \Filament\Tables\Columns\Column>
+     * @return array<string, Column>
      */
-    #[\Override]
+    #[Override]
     public function getTableColumns(): array
     {
         return [

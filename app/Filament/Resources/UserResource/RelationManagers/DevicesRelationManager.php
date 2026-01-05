@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
+use Override;
+use Filament\Tables\Columns\Column;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\TextColumn;
@@ -16,7 +18,7 @@ class DevicesRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         return [
@@ -25,9 +27,9 @@ class DevicesRelationManager extends XotBaseRelationManager
     }
 
     /**
-     * @return array<string, \Filament\Tables\Columns\Column>
+     * @return array<string, Column>
      */
-    #[\Override]
+    #[Override]
     public function getTableColumns(): array
     {
         return [

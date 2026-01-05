@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\PasswordResetResource\Pages;
 
+<<<<<<< HEAD
 use Filament\Infolists\Components\TextEntry;
+=======
+use Override;
+use Filament\Schemas\Components\Component;
+>>>>>>> 00be2866 (.)
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Modules\User\Filament\Resources\PasswordResetResource;
@@ -15,9 +20,9 @@ class ViewPasswordReset extends XotBaseViewRecord
     protected static string $resource = PasswordResetResource::class;
 
     /**
-     * @return array<string, \Filament\Schemas\Components\Component>
+     * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     protected function getInfolistSchema(): array
     {
         return [

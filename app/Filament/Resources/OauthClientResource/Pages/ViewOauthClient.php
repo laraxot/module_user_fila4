@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthClientResource\Pages;
 
+use Modules\User\Filament\Resources\OauthClientResource;
+use Filament\Schemas\Components\Component;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
@@ -14,7 +16,7 @@ use Modules\Xot\Filament\Schemas\Components\XotBaseSection;
  */
 class ViewOauthClient extends XotBaseViewRecord
 {
-    protected static string $resource = \Modules\User\Filament\Resources\OauthClientResource::class;
+    protected static string $resource = OauthClientResource::class;
 
     /**
      * Schema dell'infolist per la visualizzazione dei dettagli.
@@ -24,7 +26,7 @@ class ViewOauthClient extends XotBaseViewRecord
     /**
      * Schema dell'infolist per la visualizzazione dei dettagli.
      *
-     * @return array<string, \Filament\Schemas\Components\Component>
+     * @return array<string, Component>
      */
     protected function getInfolistSchema(): array
     {

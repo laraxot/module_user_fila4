@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+use Override;
+use Exception;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Schema;
@@ -63,7 +65,7 @@ class PasswordResetConfirmWidget extends XotBaseWidget
      *
      * @return array<string, mixed>
      */
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         return [
@@ -149,7 +151,7 @@ class PasswordResetConfirmWidget extends XotBaseWidget
                 /* @phpstan-ignore argument.type */
                 $this->handleResetError($response);
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->handleResetError('passwords.generic_error');
         }
     }

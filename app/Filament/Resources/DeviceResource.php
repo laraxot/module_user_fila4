@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Override;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -14,7 +15,7 @@ class DeviceResource extends XotBaseResource
 {
     protected static ?string $model = Device::class;
 
-    #[\Override]
+    #[Override]
     public static function getFormSchema(): array
     {
         return [

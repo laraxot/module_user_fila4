@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+use Override;
+use Exception;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Notifications\Notification;
@@ -50,7 +52,7 @@ class LoginWidget extends XotBaseWidget
      *
      * @return array<int, Component>
      */
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         return [
@@ -71,7 +73,7 @@ class LoginWidget extends XotBaseWidget
      *
      * @return array<string, mixed>
      */
-    #[\Override]
+    #[Override]
     public function getFormFill(): array
     {
         return [
@@ -83,7 +85,7 @@ class LoginWidget extends XotBaseWidget
     /**
      * Handle login form submission.
      */
-    #[\Override]
+    #[Override]
     public function save(): void
     {
         try {
@@ -125,7 +127,7 @@ class LoginWidget extends XotBaseWidget
                 /* @var array<int|string, mixed> $messages */
                 $this->addError($field, implode(' ', $messages));
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             report($e);
 
             Notification::make()
@@ -145,7 +147,7 @@ class LoginWidget extends XotBaseWidget
     /**
      * Get the form model.
      */
-    #[\Override]
+    #[Override]
     protected function getFormModel(): ?Model
     {
         return null;

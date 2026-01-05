@@ -4,8 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+<<<<<<< HEAD
 use Filament\Actions\Action;
 use Filament\Actions\DeleteAction;
+=======
+use Filament\Tables\Filters\Filter;
+use Filament\Forms\Components\DatePicker;
+use DateTimeInterface;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use Modules\User\Filament\Resources\AuthenticationLogResource\Pages\ListAuthenticationLogs;
+use Modules\User\Filament\Resources\AuthenticationLogResource\Pages\ViewAuthenticationLog;
+use Modules\User\Models\User;
+>>>>>>> 00be2866 (.)
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -25,7 +36,7 @@ class AuthenticationLogResource extends XotBaseResource
 {
     protected static ?string $model = AuthenticationLog::class;
 
-    protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-shield-check';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-shield-check';
 
     protected static ?int $navigationSort = 3;
 
@@ -108,15 +119,15 @@ class AuthenticationLogResource extends XotBaseResource
             ])
             ->filters([
                 // Filter by login success
-                \Filament\Tables\Filters\Filter::make('login_successful')
+                Filter::make('login_successful')
                     ->query(fn (Builder $query): Builder => $query->where('login_successful', true)),
 
                 // Filter by date range
-                \Filament\Tables\Filters\Filter::make('login_date')
-                    ->form([
-                        \Filament\Forms\Components\DatePicker::make('login_from')
+                Filter::make('login_date')
+                    ->schema([
+                        DatePicker::make('login_from')
                             ->label('Login From'),
-                        \Filament\Forms\Components\DatePicker::make('login_until')
+                        DatePicker::make('login_until')
                             ->label('Login Until'),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
@@ -127,7 +138,11 @@ class AuthenticationLogResource extends XotBaseResource
                             ->when(
                                 $loginFrom,
                                 function (Builder $q, mixed $date): Builder {
+<<<<<<< HEAD
                                     if (! \is_string($date) && ! $date instanceof \DateTimeInterface) {
+=======
+                                    if (!\is_string($date) && !$date instanceof DateTimeInterface) {
+>>>>>>> 00be2866 (.)
                                         return $q;
                                     }
 
@@ -137,7 +152,11 @@ class AuthenticationLogResource extends XotBaseResource
                             ->when(
                                 $loginUntil,
                                 function (Builder $q, mixed $date): Builder {
+<<<<<<< HEAD
                                     if (! \is_string($date) && ! $date instanceof \DateTimeInterface) {
+=======
+                                    if (!\is_string($date) && !$date instanceof DateTimeInterface) {
+>>>>>>> 00be2866 (.)
                                         return $q;
                                     }
 
@@ -146,7 +165,7 @@ class AuthenticationLogResource extends XotBaseResource
                             );
                     }),
             ])
-            ->actions([
+            ->recordActions([
                 Action::make('view_user')
                     ->label('View User')
                     ->icon('heroicon-o-user')
@@ -165,9 +184,9 @@ class AuthenticationLogResource extends XotBaseResource
                     }),
                 DeleteAction::make(),
             ])
-            ->bulkActions([
-                \Filament\Actions\BulkActionGroup::make([
-                    \Filament\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ])
             ->defaultSort('login_at', 'desc');
@@ -176,8 +195,8 @@ class AuthenticationLogResource extends XotBaseResource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListAuthenticationLogs::route('/'),
-            'view' => Pages\ViewAuthenticationLog::route('/{record}'),
+            'index' => ListAuthenticationLogs::route('/'),
+            'view' => ViewAuthenticationLog::route('/{record}'),
         ];
     }
 
@@ -194,7 +213,7 @@ class AuthenticationLogResource extends XotBaseResource
                             Select::make('authenticatable_type')
                                 ->label('Authenticatable Type')
                                 ->options([
-                                    \Modules\User\Models\User::class => 'User',
+                                    User::class => 'User',
                                     // Add other authenticatable types as needed
                                 ])
                                 ->required()

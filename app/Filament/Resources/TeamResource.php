@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Override;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Datas\XotData;
@@ -16,7 +17,7 @@ class TeamResource extends XotBaseResource
      *
      * @return class-string<Model>
      */
-    #[\Override]
+    #[Override]
     public static function getModel(): string
     {
         $xot = XotData::make();
@@ -25,7 +26,7 @@ class TeamResource extends XotBaseResource
         return $xot->getTeamClass();
     }
 
-    #[\Override]
+    #[Override]
     public static function getFormSchema(): array
     {
         return [

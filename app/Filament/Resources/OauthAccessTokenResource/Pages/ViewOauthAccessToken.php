@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthAccessTokenResource\Pages;
 
+use Override;
+use Filament\Schemas\Components\Component;
 use Modules\User\Filament\Resources\OauthAccessTokenResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 
@@ -12,9 +14,9 @@ class ViewOauthAccessToken extends XotBaseViewRecord
     protected static string $resource = OauthAccessTokenResource::class;
 
     /**
-     * @return array<string, \Filament\Schemas\Components\Component>
+     * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     protected function getInfolistSchema(): array
     {
         return [];

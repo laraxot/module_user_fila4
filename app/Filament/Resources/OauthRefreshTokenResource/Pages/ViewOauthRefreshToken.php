@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthRefreshTokenResource\Pages;
 
+use Override;
+use Modules\User\Filament\Resources\OauthAccessTokenResource;
+use Filament\Schemas\Components\Component;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
@@ -17,9 +20,9 @@ class ViewOauthRefreshToken extends XotBaseViewRecord
     protected static string $resource = OauthRefreshTokenResource::class;
 
     /**
-     * @return array<string, \Filament\Schemas\Components\Component>
+     * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     protected function getInfolistSchema(): array
     {
         return [
@@ -36,7 +39,7 @@ class ViewOauthRefreshToken extends XotBaseViewRecord
 
                                     $accessToken = $record->getRelationValue('accessToken');
                                     if (($accessToken instanceof Model) && $accessToken->exists) {
-                                        return \Modules\User\Filament\Resources\OauthAccessTokenResource::getUrl('view', ['record' => $accessToken]);
+                                        return OauthAccessTokenResource::getUrl('view', ['record' => $accessToken]);
                                     }
 
                                     return null;

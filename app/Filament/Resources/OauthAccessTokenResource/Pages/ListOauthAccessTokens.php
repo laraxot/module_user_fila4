@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthAccessTokenResource\Pages;
 
+use Modules\User\Filament\Resources\OauthAccessTokenResource;
+use Override;
 use Filament\Actions\Action; // Added
 use Filament\Actions\CreateAction;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
@@ -13,12 +15,12 @@ use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
  */
 class ListOauthAccessTokens extends XotBaseListRecords
 {
-    protected static string $resource = \Modules\User\Filament\Resources\OauthAccessTokenResource::class;
+    protected static string $resource = OauthAccessTokenResource::class;
 
     /**
      * @return array<string, Action>
      */
-    #[\Override]
+    #[Override]
     protected function getHeaderActions(): array
     {
         return [

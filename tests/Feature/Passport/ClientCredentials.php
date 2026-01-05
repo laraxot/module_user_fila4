@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Laravel\Passport\Client;
 use Laravel\Passport\ClientRepository;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
@@ -9,7 +10,7 @@ use Modules\User\Tests\TestCase;
 uses(TestCase::class);
 
 /**
- * @return array{client: Laravel\Passport\Client, secret: string}
+ * @return array{client: Client, secret: string}
  */
 function createPassportClient(): array
 {

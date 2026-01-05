@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
+use Override;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Modules\User\Filament\Resources\RoleResource;
@@ -13,7 +14,7 @@ class ListRoles extends XotBaseListRecords
 {
     protected static string $resource = RoleResource::class;
 
-    #[\Override]
+    #[Override]
     public function getTableColumns(): array
     {
         return [
@@ -25,7 +26,7 @@ class ListRoles extends XotBaseListRecords
         ];
     }
 
-    #[\Override]
+    #[Override]
     public function getTableFilters(): array
     {
         return [

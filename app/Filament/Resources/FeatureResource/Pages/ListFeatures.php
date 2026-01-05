@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\FeatureResource\Pages;
 
+use Override;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
@@ -17,7 +18,7 @@ class ListFeatures extends XotBaseListRecords
     /**
      * @return array<string, Column>
      */
-    #[\Override]
+    #[Override]
     public function getTableColumns(): array
     {
         return [

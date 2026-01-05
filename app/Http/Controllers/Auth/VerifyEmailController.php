@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Controllers\Auth;
 
+use InvalidArgumentException;
 use App\Http\Controllers\Controller;
 use Filament\Facades\Filament;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -28,7 +29,7 @@ class VerifyEmailController extends Controller
         // Ottieni il valore hash in modo sicuro
         $routeHash = $request->route('hash');
         if (null === $routeHash) {
-            throw new \InvalidArgumentException('Hash di verifica mancante');
+            throw new InvalidArgumentException('Hash di verifica mancante');
         }
 
         $stringRouteHash = is_string($routeHash) ? $routeHash : '';
@@ -54,7 +55,7 @@ class VerifyEmailController extends Controller
 
         // Verificare che l'utente implementi l'interfaccia MustVerifyEmail
         if (! ($user instanceof MustVerifyEmail)) {
-            throw new \InvalidArgumentException('L\'utente deve implementare l\'interfaccia MustVerifyEmail');
+            throw new InvalidArgumentException('L\'utente deve implementare l\'interfaccia MustVerifyEmail');
         }
 
         event(new Verified($user));

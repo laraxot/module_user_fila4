@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\Pages;
 
+use Override;
 use Filament\Actions\Action;
 use Filament\Actions\BulkAction;
 use Filament\Actions\DeleteBulkAction;
@@ -19,7 +20,7 @@ class ListUsers extends BaseListUsers
 {
     protected static string $resource = UserResource::class;
 
-    #[\Override]
+    #[Override]
     public function getTableColumns(): array
     {
         return [
@@ -36,7 +37,7 @@ class ListUsers extends BaseListUsers
     /**
      * @return array<BaseFilter>
      */
-    #[\Override]
+    #[Override]
     public function getTableFilters(): array
     {
         return [
@@ -52,7 +53,7 @@ class ListUsers extends BaseListUsers
     /**
      * @phpstan-ignore-next-line
      */
-    #[\Override]
+    #[Override]
     public function getTableActions(): array
     {
         /* @phpstan-ignore-next-line */
@@ -70,7 +71,7 @@ class ListUsers extends BaseListUsers
     /**
      * @return array<string, BulkAction>
      */
-    #[\Override]
+    #[Override]
     public function getTableBulkActions(): array
     {
         return [
@@ -79,7 +80,7 @@ class ListUsers extends BaseListUsers
         ];
     }
 
-    #[\Override]
+    #[Override]
     protected function getHeaderWidgets(): array
     {
         return [

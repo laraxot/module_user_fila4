@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets\Auth;
 
+use Override;
+use Exception;
 use Filament\Actions\Action;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\View;
@@ -44,13 +46,13 @@ class LogoutWidget extends XotBaseWidget
      *
      * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         $view = 'filament.widgets.auth.logout-message';
         // @phpstan-ignore-next-line
         if (! view()->exists($view)) {
-            throw new \Exception('View '.$view.' not found');
+            throw new Exception('View '.$view.' not found');
         }
 
         return [
@@ -63,7 +65,7 @@ class LogoutWidget extends XotBaseWidget
      *
      * @return array<Action>
      */
-    #[\Override]
+    #[Override]
     public function getFormActions(): array
     {
         return [

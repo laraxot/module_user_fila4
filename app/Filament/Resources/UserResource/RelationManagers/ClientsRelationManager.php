@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
+use Override;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -24,7 +25,7 @@ class ClientsRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     public function getFormSchema(): array
     {
         return [
@@ -37,7 +38,7 @@ class ClientsRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Column>
      */
-    #[\Override]
+    #[Override]
     public function getTableColumns(): array
     {
         return [
@@ -58,7 +59,7 @@ class ClientsRelationManager extends XotBaseRelationManager
     /**
      * @return array<string, Action>
      */
-    #[\Override]
+    #[Override]
     public function getTableHeaderActions(): array
     {
         /** @var array<string, Action> $actions */
@@ -67,7 +68,7 @@ class ClientsRelationManager extends XotBaseRelationManager
         $actions['associateExistingClient'] = Action::make('associateExistingClient')
             ->label('Associa client esistente')
             ->icon('heroicon-o-link')
-            ->form([
+            ->schema([
                 Select::make('client_id')
                     ->label('Client')
                     ->searchable()

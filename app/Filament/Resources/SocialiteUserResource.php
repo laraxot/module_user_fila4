@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Override;
+use Modules\User\Filament\Resources\SocialiteUserResource\Pages\ListSocialiteUsers;
+use Modules\User\Filament\Resources\SocialiteUserResource\Pages\EditSocialiteUser;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -31,14 +34,14 @@ class SocialiteUserResource extends XotBaseResource
 
     protected static ?string $pluralModelLabel = 'Social Authentications';
 
-    protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-user';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-user';
 
     /**
      * Get the form schema for the resource.
      *
      * @return array<string, Select|TextInput>
      */
-    #[\Override]
+    #[Override]
     public static function getFormSchema(): array
     {
         return [
@@ -75,7 +78,7 @@ class SocialiteUserResource extends XotBaseResource
     /**
      * Configure the table for the resource.
      */
-    #[\Override]
+    #[Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -112,11 +115,11 @@ class SocialiteUserResource extends XotBaseResource
             ->filters([
                 // Add filters for provider type
             ])
-            ->actions([
+            ->recordActions([
                 EditAction::make(),
                 DeleteAction::make(),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
@@ -129,19 +132,19 @@ class SocialiteUserResource extends XotBaseResource
      *
      * @return array<string, PageRegistration>
      */
-    #[\Override]
+    #[Override]
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSocialiteUsers::route('/'),
-            'edit' => Pages\EditSocialiteUser::route('/{record}/edit'),
+            'index' => ListSocialiteUsers::route('/'),
+            'edit' => EditSocialiteUser::route('/{record}/edit'),
         ];
     }
 
     /**
      * Modify the Eloquent query used to retrieve the records.
      */
-    #[\Override]
+    #[Override]
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()->with(['user']);

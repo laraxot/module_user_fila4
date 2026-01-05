@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Filament\Tables\Filters\Filter;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use Modules\User\Filament\Resources\OauthAccessTokenResource\Pages\ListOauthAccessTokens;
+use Modules\User\Filament\Resources\OauthAccessTokenResource\Pages\ViewOauthAccessToken;
 use Filament\Actions\DeleteAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -25,7 +30,7 @@ class OauthAccessTokenResource extends XotBaseResource
 {
     protected static ?string $model = OauthAccessToken::class;
 
-    protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-key';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-key';
 
     protected static ?int $navigationSort = 5;
 
@@ -116,21 +121,21 @@ class OauthAccessTokenResource extends XotBaseResource
                     }),
             ])
             ->filters([
-                \Filament\Tables\Filters\Filter::make('revoked')
+                Filter::make('revoked')
                     ->query(fn (Builder $query) => $query->where('revoked', true)),
 
-                \Filament\Tables\Filters\Filter::make('expired')
+                Filter::make('expired')
                     ->query(fn (Builder $query) => $query->where('expires_at', '<', now())),
 
-                \Filament\Tables\Filters\Filter::make('valid')
+                Filter::make('valid')
                     ->query(fn (Builder $query) => $query->where('revoked', false)->where('expires_at', '>', now())),
             ])
-            ->actions([
+            ->recordActions([
                 DeleteAction::make(),
             ])
-            ->bulkActions([
-                \Filament\Actions\BulkActionGroup::make([
-                    \Filament\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ])
             ->defaultSort('created_at', 'desc');
@@ -139,8 +144,8 @@ class OauthAccessTokenResource extends XotBaseResource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListOauthAccessTokens::route('/'),
-            'view' => Pages\ViewOauthAccessToken::route('/{record}'),
+            'index' => ListOauthAccessTokens::route('/'),
+            'view' => ViewOauthAccessToken::route('/{record}'),
         ];
     }
 

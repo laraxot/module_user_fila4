@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TeamInvitationResource\Pages;
 
+use Modules\User\Filament\Resources\TeamInvitationResource;
+use Override;
 use Filament\Actions\Action;
 use Filament\Actions\DeleteAction;
 use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
@@ -13,12 +15,12 @@ use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
  */
 class EditTeamInvitations extends XotBaseEditRecord
 {
-    protected static string $resource = \Modules\User\Filament\Resources\TeamInvitationResource::class;
+    protected static string $resource = TeamInvitationResource::class;
 
     /**
      * @return array<string, Action>
      */
-    #[\Override]
+    #[Override]
     protected function getHeaderActions(): array
     {
         return [

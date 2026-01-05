@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Components\Grid as SchemaGrid;
 use Illuminate\Database\Eloquent\Builder;
 use Laravel\Passport\Client;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-use Modules\Xot\Filament\Schemas\Components\XotBaseSection;
 
 /**
  * Class OauthClientResource.
@@ -30,14 +30,14 @@ class OauthClientResource extends XotBaseResource
     /**
      * Schema del form per la risorsa.
      *
-     * @return array<string, Modules\Xot\Filament\Schemas\Components\XotBaseSection>
+     * @return array
      */
     public static function getFormSchema(): array
     {
         return [
-            XotBaseSection::make('OAuth Client Information')
+            \Filament\Schemas\Components\Section::make('OAuth Client Information')
                 ->schema([
-                    SchemaGrid::make(2)
+                    \Filament\Schemas\Components\Grid::make(2)
                         ->schema([
                             TextInput::make('name')
                                 ->required()
@@ -46,7 +46,7 @@ class OauthClientResource extends XotBaseResource
                                 ->relationship('user', 'name')
                                 ->searchable(),
                         ]),
-                    SchemaGrid::make(2)
+                    \Filament\Schemas\Components\Grid::make(2)
                         ->schema([
                             TextInput::make('redirect')
                                 ->maxLength(2000),
@@ -54,7 +54,7 @@ class OauthClientResource extends XotBaseResource
                                 ->password()
                                 ->maxLength(100),
                         ]),
-                    SchemaGrid::make(3)
+                    \Filament\Schemas\Components\Grid::make(3)
                         ->schema([
                             Select::make('provider')
                                 ->options([
@@ -81,3 +81,4 @@ class OauthClientResource extends XotBaseResource
         return parent::getEloquentQuery()->with(['user']);
     }
 }
+

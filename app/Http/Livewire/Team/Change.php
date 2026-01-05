@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire\Team;
 
+use InvalidArgumentException;
+use Illuminate\Support\Collection;
 use Filament\Facades\Filament;
 use Filament\Notifications\Notification;
 use Illuminate\Contracts\Foundation\Application;
@@ -35,11 +37,11 @@ class Change extends Component
 
         // Verifica che l'utente implementi l'interfaccia UserContract
         if (! ($authUser instanceof UserContract)) {
-            throw new \InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
+            throw new InvalidArgumentException('L\'utente deve implementare l\'interfaccia UserContract');
         }
 
         $this->user = $authUser;
-        /** @var \Illuminate\Support\Collection<int, TeamContract> $allTeams */
+        /** @var Collection<int, TeamContract> $allTeams */
         $allTeams = $this->user->allTeams();
         $this->teams = $allTeams->toArray();
     }

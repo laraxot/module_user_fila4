@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models\Policies;
 
+use Exception;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Support\Str;
 use Modules\User\Models\Permission;
@@ -35,7 +36,7 @@ abstract class UserPermissionBasePolicy
 
         try {
             Permission::firstOrCreate(['name' => $permission_name]);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             // dddx($e);
         }
         if ($user->hasPermissionTo($permission_name)) {

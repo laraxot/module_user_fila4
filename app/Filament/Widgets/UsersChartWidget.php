@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Widgets;
 
+use Exception;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
@@ -88,7 +89,7 @@ class UsersChartWidget extends ChartWidget implements HasActions, HasForms
             if ($startDate->diffInDays($endDate, true) > 90) {
                 $startDate = $endDate->copy()->subDays(90);
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return [];
         }
 

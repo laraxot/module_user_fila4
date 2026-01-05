@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TenantResource\Pages;
 
+use Override;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\TenantResource;
@@ -20,7 +21,7 @@ class ListTenants extends XotBaseListRecords
     /**
      * Definisce le colonne della tabella per la lista tenant.
      */
-    #[\Override]
+    #[Override]
     public function getTableColumns(): array
     {
         return [

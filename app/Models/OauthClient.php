@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Override;
+use Spatie\Permission\Exceptions\PermissionDoesNotExist;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -84,7 +86,7 @@ class OauthClient extends PassportClient implements AuthorizableContract
      *
      * @param iterable|string $ability
      */
-    #[\Override]
+    #[Override]
     public function can($ability, mixed $arguments = []): bool
     {
         if (is_string($ability)) {
@@ -165,7 +167,7 @@ class OauthClient extends PassportClient implements AuthorizableContract
     {
         try {
             return $this->hasPermissionTo($permission);
-        } catch (\Spatie\Permission\Exceptions\PermissionDoesNotExist) {
+        } catch (PermissionDoesNotExist) {
             return false;
         }
     }

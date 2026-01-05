@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\AuthenticationLogResource\Pages;
 
+use Modules\User\Filament\Resources\AuthenticationLogResource;
+use Override;
+use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
@@ -12,12 +15,12 @@ use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
  */
 class ListAuthenticationLogs extends XotBaseListRecords
 {
-    protected static string $resource = \Modules\User\Filament\Resources\AuthenticationLogResource::class;
+    protected static string $resource = AuthenticationLogResource::class;
 
     /**
-     * @return array<string, \Filament\Actions\Action>
+     * @return array<string, Action>
      */
-    #[\Override]
+    #[Override]
     protected function getHeaderActions(): array
     {
         return [

@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Override;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Modules\User\Filament\Resources\PermissionResource\Pages\CreatePermission;
@@ -19,11 +20,11 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class PermissionResource extends XotBaseResource
 {
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-lock-closed';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-lock-closed';
 
     protected static ?string $model = Permission::class;
 
-    #[\Override]
+    #[Override]
     public static function getFormSchema(): array
     {
         return [
@@ -33,13 +34,13 @@ class PermissionResource extends XotBaseResource
         ];
     }
 
-    #[\Override]
+    #[Override]
     public static function getRelations(): array
     {
         return [];
     }
 
-    #[\Override]
+    #[Override]
     public static function getPages(): array
     {
         return [

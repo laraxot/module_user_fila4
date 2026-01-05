@@ -4,6 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Modules\User\Models\Traits\HasAuthenticationLogTrait;
+use Modules\User\Models\Traits\HasModules;
+use Modules\User\Models\Traits\HasSpatiePermission;
+use Modules\User\Models\Traits\HasTeams;
+use Throwable;
+use Override;
+use Exception;
+use DateTime;
 use Filament\Models\Contracts\HasName;
 use Filament\Models\Contracts\HasTenants;
 use Filament\Panel;
@@ -82,12 +90,12 @@ use Spatie\Permission\Contracts\Role as SpatieRoleContract;
  * @property bool|null                                                 $is_active
  * @property bool|null                                                 $is_otp
  * @property string|null                                               $type
- * @property \DateTime|null                                            $password_expires_at
- * @property \DateTime|null                                            $email_verified_at
+ * @property DateTime|null $password_expires_at
+ * @property DateTime|null $email_verified_at
  * @property string|null                                               $remember_token
- * @property \DateTime|null                                            $created_at
- * @property \DateTime|null                                            $updated_at
- * @property \DateTime|null                                            $deleted_at
+ * @property DateTime|null $created_at
+ * @property DateTime|null $updated_at
+ * @property DateTime|null $deleted_at
  * @property string|null                                               $created_by
  * @property string|null                                               $updated_by
  * @property string|null                                               $deleted_by
@@ -139,10 +147,10 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     use HasXotFactory;
     use InteractsWithMedia;
     use Notifiable;
-    use Traits\HasAuthenticationLogTrait;
-    use Traits\HasModules;
-    use Traits\HasSpatiePermission;
-    use Traits\HasTeams;
+    use HasAuthenticationLogTrait;
+    use HasModules;
+    use HasSpatiePermission;
+    use HasTeams;
     use Traits\HasTenants;
     use XotTraits\RelationX;
 
@@ -240,7 +248,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         try {
             $this->fillable = array_values(array_merge(parent::getFillable(), $this->getFillable()));
             parent::__construct($attributes);
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             // Fallback in case database connection is not available (e.g., during testing)
             $this->fillable = array_values($this->getFillable());
             // Avoid calling parent constructor if database is not available
@@ -275,7 +283,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         return $fullName;
     }
 
-    #[\Override]
+    #[Override]
     public function profile(): HasOne
     {
         try {
@@ -289,7 +297,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             // Questo evita l'errore "Target [Illuminate\Database\Eloquent\Model] is not instantiable"
             // Utilizziamo una classe che sicuramente esiste nel sistema
             return $this->hasOne(Model::class);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             // Fallback: se non riesce a ottenere la classe Profile, usa una relazione generica
             // Questo evita l'errore "Target [Illuminate\Database\Eloquent\Model] is not instantiable"
             // Utilizziamo una classe che sicuramente esiste nel sistema
@@ -390,7 +398,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     {
         $socialiteUser = $this->socialiteUsers()->firstWhere(['provider' => $provider]);
         if (null === $socialiteUser) {
-            throw new \Exception('SocialiteUser not found');
+            throw new Exception('SocialiteUser not found');
         }
 
         $res = $socialiteUser->{$field};
@@ -470,7 +478,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             $this->update(['name' => $value]);
 
             return $value;
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             // If any issue occurs (e.g., missing connection/table), fall back without DB.
             $this->attributes['name'] = $candidate;
 
@@ -488,7 +496,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
      *
      * @param array|\Illuminate\Support\Collection|int|SpatieRoleContract|string $roles
      */
-    #[\Override]
+    #[Override]
     public function hasRole($roles, ?string $guard = null): bool
     {
         // Se Ã¨ una stringa semplice, utilizziamo il metodo interno tramite relazione roles

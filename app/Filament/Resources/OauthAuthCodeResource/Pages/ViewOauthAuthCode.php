@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthAuthCodeResource\Pages;
 
+use Override;
+use Modules\User\Filament\Resources\ClientResource;
+use Modules\User\Filament\Resources\UserResource;
+use Filament\Schemas\Components\Component;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
@@ -18,9 +22,9 @@ class ViewOauthAuthCode extends XotBaseViewRecord
     protected static string $resource = OauthAuthCodeResource::class;
 
     /**
-     * @return array<string, \Filament\Schemas\Components\Component>
+     * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     protected function getInfolistSchema(): array
     {
         return [
@@ -38,7 +42,7 @@ class ViewOauthAuthCode extends XotBaseViewRecord
 
                                     $client = $record->getRelationValue('client');
                                     if (($client instanceof Model) && $client->exists) {
-                                        return \Modules\User\Filament\Resources\ClientResource::getUrl('view', ['record' => $client]);
+                                        return ClientResource::getUrl('view', ['record' => $client]);
                                     }
 
                                     return null;
@@ -55,7 +59,7 @@ class ViewOauthAuthCode extends XotBaseViewRecord
 
                                     $user = $record->getRelationValue('user');
                                     if (($user instanceof Model) && $user->exists) {
-                                        return \Modules\User\Filament\Resources\UserResource::getUrl('view', ['record' => $user]);
+                                        return UserResource::getUrl('view', ['record' => $user]);
                                     }
 
                                     return null;

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\SocialiteUserResource\Pages;
 
+use Override;
+use Modules\User\Filament\Resources\UserResource;
+use Filament\Schemas\Components\Component;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
@@ -18,9 +21,9 @@ class ViewSocialiteUser extends XotBaseViewRecord
     protected static string $resource = SocialiteUserResource::class;
 
     /**
-     * @return array<string, \Filament\Schemas\Components\Component>
+     * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     protected function getInfolistSchema(): array
     {
         return [
@@ -36,7 +39,7 @@ class ViewSocialiteUser extends XotBaseViewRecord
 
                                     $user = $record->user;
                                     if (($user instanceof Model) && $user->exists) {
-                                        return \Modules\User\Filament\Resources\UserResource::getUrl('view', ['record' => $user]);
+                                        return UserResource::getUrl('view', ['record' => $user]);
                                     }
 
                                     return null;

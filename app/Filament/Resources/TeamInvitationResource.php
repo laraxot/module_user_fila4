@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Override;
+use Modules\User\Filament\Resources\TeamInvitationResource\Pages\ListTeamInvitations;
+use Modules\User\Filament\Resources\TeamInvitationResource\Pages\EditTeamInvitations;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -33,14 +36,14 @@ class TeamInvitationResource extends XotBaseResource
 
     protected static ?string $pluralModelLabel = 'Team Invitations';
 
-    protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-envelope';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-envelope';
 
     /**
      * Get the form schema for the resource.
      *
      * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     public static function getFormSchema(): array
     {
         return [
@@ -67,7 +70,7 @@ class TeamInvitationResource extends XotBaseResource
     /**
      * Configure the table for the resource.
      */
-    #[\Override]
+    #[Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -111,11 +114,11 @@ class TeamInvitationResource extends XotBaseResource
             ->filters([
                 // Add filters for role, team, expiration status
             ])
-            ->actions([
+            ->recordActions([
                 EditAction::make(),
                 DeleteAction::make(),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
@@ -128,19 +131,19 @@ class TeamInvitationResource extends XotBaseResource
      *
      * @return array<string, PageRegistration>
      */
-    #[\Override]
+    #[Override]
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListTeamInvitations::route('/'),
-            'edit' => Pages\EditTeamInvitations::route('/{record}/edit'),
+            'index' => ListTeamInvitations::route('/'),
+            'edit' => EditTeamInvitations::route('/{record}/edit'),
         ];
     }
 
     /**
      * Modify the Eloquent query used to retrieve the records.
      */
-    #[\Override]
+    #[Override]
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()->with(['team']);

@@ -4,6 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Override;
+use Modules\User\Filament\Resources\SsoProviderResource\Pages\ListSsoProviders;
+use Modules\User\Filament\Resources\SsoProviderResource\Pages\CreateSsoProvider;
+use Modules\User\Filament\Resources\SsoProviderResource\Pages\ViewSsoProvider;
+use Modules\User\Filament\Resources\SsoProviderResource\Pages\EditSsoProvider;
+use Filament\Support\Components\Component;
+use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -22,12 +29,12 @@ class SsoProviderResource extends XotBaseResource
 
     protected static ?string $recordTitleAttribute = 'display_name';
 
-    protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-identification';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-identification';
 
     /**
-     * @return array<string, \Filament\Support\Components\Component>
+     * @return array<string, Component>
      */
-    #[\Override]
+    #[Override]
     public static function getFormSchema(): array
     {
         return [
@@ -63,16 +70,16 @@ class SsoProviderResource extends XotBaseResource
         ];
     }
 
-    #[\Override]
+    #[Override]
     public static function table(Table $table): Table
     {
         return $table;
     }
 
     /**
-     * @return array<string, class-string<\Filament\Resources\RelationManagers\RelationManager>>
+     * @return array<string, class-string<RelationManager>>
      */
-    #[\Override]
+    #[Override]
     public static function getRelations(): array
     {
         return [
@@ -83,14 +90,14 @@ class SsoProviderResource extends XotBaseResource
     /**
      * @return array<string, PageRegistration>
      */
-    #[\Override]
+    #[Override]
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSsoProviders::route('/'),
-            'create' => Pages\CreateSsoProvider::route('/create'),
-            'view' => Pages\ViewSsoProvider::route('/{record}'),
-            'edit' => Pages\EditSsoProvider::route('/{record}/edit'),
+            'index' => ListSsoProviders::route('/'),
+            'create' => CreateSsoProvider::route('/create'),
+            'view' => ViewSsoProvider::route('/{record}'),
+            'edit' => EditSsoProvider::route('/{record}/edit'),
         ];
     }
 }

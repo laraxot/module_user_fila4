@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Datas;
 
+use RuntimeException;
+use InvalidArgumentException;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TextInput as FormsTextInput;
 use Illuminate\Validation\Rules\Password;
@@ -148,7 +150,7 @@ class PasswordData extends Data
     public function getPasswordConfirmationFormComponent(): FormsTextInput
     {
         if (null === $this->field_name) {
-            throw new \RuntimeException('Il nome del campo password non è stato impostato. Utilizzare setFieldName() prima di chiamare questo metodo.');
+            throw new RuntimeException('Il nome del campo password non è stato impostato. Utilizzare setFieldName() prima di chiamare questo metodo.');
         }
 
         return FormsTextInput::make('password_confirmation')
@@ -166,7 +168,7 @@ class PasswordData extends Data
     public function getPasswordFormComponents(string $field_name): array
     {
         if (empty($field_name)) {
-            throw new \InvalidArgumentException('Il nome del campo password non può essere vuoto');
+            throw new InvalidArgumentException('Il nome del campo password non può essere vuoto');
         }
 
         $this->setFieldName($field_name);

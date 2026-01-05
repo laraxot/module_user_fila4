@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
+use Override;
+use Filament\Tables\Columns\Column;
+use Filament\Actions\Action;
+use Filament\Actions\BulkAction;
 use Filament\Actions\AttachAction;
 use Filament\Actions\DetachAction;
 use Filament\Actions\DetachBulkAction;
@@ -21,9 +25,9 @@ class TeamsRelationManager extends XotBaseRelationManager
     protected static ?string $recordTitleAttribute = 'name';
 
     /**
-     * @return array<string, \Filament\Tables\Columns\Column>
+     * @return array<string, Column>
      */
-    #[\Override]
+    #[Override]
     public function getTableColumns(): array
     {
         return [
@@ -47,14 +51,14 @@ class TeamsRelationManager extends XotBaseRelationManager
     }
 
     /**
-     * @return array<string, \Filament\Actions\Action>
+     * @return array<string, Action>
      */
-    #[\Override]
+    #[Override]
     public function getTableHeaderActions(): array
     {
         return [
             'attach' => AttachAction::make()
-                ->form(fn (AttachAction $action): array => [
+                ->schema(fn (AttachAction $action): array => [
                     $action->getRecordSelect(),
                     TextInput::make('role')->default('editor')->required(),
                 ]),
@@ -62,9 +66,9 @@ class TeamsRelationManager extends XotBaseRelationManager
     }
 
     /**
-     * @return array<string, \Filament\Actions\Action>
+     * @return array<string, Action>
      */
-    #[\Override]
+    #[Override]
     public function getTableActions(): array
     {
         return [
@@ -85,9 +89,9 @@ class TeamsRelationManager extends XotBaseRelationManager
     }
 
     /**
-     * @return array<string, \Filament\Actions\BulkAction>
+     * @return array<string, BulkAction>
      */
-    #[\Override]
+    #[Override]
     public function getTableBulkActions(): array
     {
         return [
