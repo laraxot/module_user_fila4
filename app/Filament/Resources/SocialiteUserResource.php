@@ -8,6 +8,10 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+<<<<<<< HEAD
+=======
+use Filament\Forms\Components\Component;
+>>>>>>> cf5d6db (.)
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Pages\PageRegistration;
@@ -38,7 +42,11 @@ class SocialiteUserResource extends XotBaseResource
     /**
      * Get the form schema for the resource.
      *
+<<<<<<< HEAD
      * @return array<string, Select|TextInput>
+=======
+     * @return array<string, \Filament\Forms\Components\Select|\Filament\Forms\Components\TextInput>
+>>>>>>> cf5d6db (.)
      */
     #[\Override]
     public static function getFormSchema(): array
@@ -99,7 +107,10 @@ class SocialiteUserResource extends XotBaseResource
                         if ($state) {
                             /** @phpstan-var view-string $viewString */
                             $viewString = 'filament.components.avatar';
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf5d6db (.)
                             return view($viewString, ['url' => (string) $state])->render();
                         }
 

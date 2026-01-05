@@ -4,20 +4,34 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+=======
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+>>>>>>> cf5d6db (.)
 use Illuminate\Support\Carbon;
 
 /**
  * Modules\User\Models\OauthPersonalAccessClient.
  *
+<<<<<<< HEAD
  * @property string      $uuid
  * @property string      $client_id
+=======
+ * @property string $uuid
+ * @property string $client_id
+>>>>>>> cf5d6db (.)
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
  * @property string|null $created_by
+<<<<<<< HEAD
  * @property int         $id
+=======
+ * @property int $id
+>>>>>>> cf5d6db (.)
  *
  * @method static Builder|OauthPersonalAccessClient newModelQuery()
  * @method static Builder|OauthPersonalAccessClient newQuery()

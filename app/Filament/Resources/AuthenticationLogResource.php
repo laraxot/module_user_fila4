@@ -4,11 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+<<<<<<< HEAD
 use Filament\Actions\Action;
 use Filament\Actions\DeleteAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+=======
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
+use Filament\Actions\Action;
+use Filament\Actions\DeleteAction;
+>>>>>>> cf5d6db (.)
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Support\Components\Component;
@@ -129,7 +137,11 @@ class AuthenticationLogResource extends XotBaseResource
                             ->when(
                                 $loginFrom,
                                 function (Builder $q, mixed $date): Builder {
+<<<<<<< HEAD
                                     if (! \is_string($date) && ! $date instanceof \DateTimeInterface) {
+=======
+                                    if (!\is_string($date) && !$date instanceof \DateTimeInterface) {
+>>>>>>> cf5d6db (.)
                                         return $q;
                                     }
 
@@ -139,7 +151,11 @@ class AuthenticationLogResource extends XotBaseResource
                             ->when(
                                 $loginUntil,
                                 function (Builder $q, mixed $date): Builder {
+<<<<<<< HEAD
                                     if (! \is_string($date) && ! $date instanceof \DateTimeInterface) {
+=======
+                                    if (!\is_string($date) && !$date instanceof \DateTimeInterface) {
+>>>>>>> cf5d6db (.)
                                         return $q;
                                     }
 

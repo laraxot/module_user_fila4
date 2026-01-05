@@ -23,7 +23,11 @@ return new class extends XotBaseMigration {
                 $cache_key = config('permission.cache.key');
                 /** @var string|null $store */
                 $store = 'default' !== $cache_store ? $cache_store : null;
+<<<<<<< HEAD
                 /* @var string $cache_key */
+=======
+                /** @var string $cache_key */
+>>>>>>> cf5d6db (.)
                 $cache->store($store)->forget($cache_key);
             }
         } catch (Exception $e) {

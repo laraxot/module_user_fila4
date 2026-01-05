@@ -4,9 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\PasswordResetResource\Pages;
 
+<<<<<<< HEAD
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
+=======
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
+use Filament\Infolists\Components\TextEntry;
+>>>>>>> cf5d6db (.)
 use Modules\User\Filament\Resources\PasswordResetResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 

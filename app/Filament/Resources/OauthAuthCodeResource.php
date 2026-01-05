@@ -7,6 +7,10 @@ namespace Modules\User\Filament\Resources;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
+<<<<<<< HEAD
+=======
+use Filament\Forms\Components\Component;
+>>>>>>> cf5d6db (.)
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Pages\PageRegistration;
@@ -18,7 +22,10 @@ use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\OauthAuthCodeResource\Pages;
 use Modules\User\Models\OauthAuthCode;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf5d6db (.)
 use function Safe\json_encode;
 
 /**
@@ -41,7 +48,11 @@ class OauthAuthCodeResource extends XotBaseResource
     /**
      * Get the form schema for the resource.
      *
+<<<<<<< HEAD
      * @return array<string, Select|TextInput>
+=======
+     * @return array<string, \Filament\Forms\Components\Select|\Filament\Forms\Components\TextInput>
+>>>>>>> cf5d6db (.)
      */
     #[\Override]
     public static function getFormSchema(): array
@@ -77,7 +88,10 @@ class OauthAuthCodeResource extends XotBaseResource
                         if (! is_string($state)) {
                             return '';
                         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf5d6db (.)
                         return Str::limit($state, 15, '...');
                     }),
                 TextColumn::make('user.name')
@@ -92,6 +106,7 @@ class OauthAuthCodeResource extends XotBaseResource
                     ->limit(30)
                     ->tooltip(function (TextColumn $column): ?string {
                         $state = $column->getState();
+<<<<<<< HEAD
                         if (null === $state) {
                             return null;
                         }
@@ -100,6 +115,15 @@ class OauthAuthCodeResource extends XotBaseResource
                             return json_encode($state);
                         }
 
+=======
+                        if ($state === null) {
+                            return null;
+                        }
+                        if (is_array($state)) {
+                            /** @var array<string, mixed> $state */
+                            return json_encode($state);
+                        }
+>>>>>>> cf5d6db (.)
                         return is_string($state) ? $state : null;
                     })
                     ->toggleable(),

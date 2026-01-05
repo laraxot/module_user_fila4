@@ -102,6 +102,14 @@ return [
                 'false' => 'No',
             ],
         ],
+<<<<<<< HEAD
+=======
+        'team' => [
+            'name' => [
+                'label' => 'team.name',
+            ],
+        ],
+>>>>>>> cf5d6db (.)
     ],
     'actions' => [
         'create' => [

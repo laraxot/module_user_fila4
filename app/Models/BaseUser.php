@@ -27,6 +27,11 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Laravel\Passport\Contracts\OAuthenticatable;
 use Laravel\Passport\HasApiTokens;
+<<<<<<< HEAD
+=======
+use Laravel\Passport\PersonalAccessTokenResult;
+use Laravel\Passport\Contracts\ScopeAuthorizable;
+>>>>>>> cf5d6db (.)
 use Modules\User\Database\Factories\UserFactory;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
@@ -127,7 +132,15 @@ use Spatie\Permission\Contracts\Role as SpatieRoleContract;
  */
 abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, UserContract, OAuthenticatable
 {
+<<<<<<< HEAD
     use HasApiTokens;
+=======
+    use HasApiTokens {
+        HasApiTokens::tokenCan as protected passportTokenCan;
+        HasApiTokens::createToken as protected passportCreateToken;
+        HasApiTokens::withAccessToken as protected passportWithAccessToken;
+    }
+>>>>>>> cf5d6db (.)
     use HasChildren;
     use HasUuids;
     use HasXotFactory;
@@ -146,6 +159,26 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     /** @var Pivot|null */
     public $pivot;
 
+<<<<<<< HEAD
+=======
+    public function tokenCan(string $scope): bool
+    {
+        return $this->passportTokenCan($scope);
+    }
+
+    public function createToken(string $name, array $scopes = []): PersonalAccessTokenResult
+    {
+        return $this->passportCreateToken($name, $scopes);
+    }
+
+    public function withAccessToken(?ScopeAuthorizable $accessToken): static
+    {
+        $this->passportWithAccessToken($accessToken);
+
+        return $this;
+    }
+
+>>>>>>> cf5d6db (.)
     /** @var string */
     protected $connection = 'user';
 
@@ -277,7 +310,11 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     /**
      * Verifica se l'utente ha il ruolo di super-admin.
      *
+<<<<<<< HEAD
      * @return bool True se l'utente è super-admin, altrimenti false
+=======
+     * @return bool True se l'utente Ã¨ super-admin, altrimenti false
+>>>>>>> cf5d6db (.)
      */
     public function isSuperAdmin(): bool
     {
@@ -468,7 +505,11 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     #[\Override]
     public function hasRole($roles, ?string $guard = null): bool
     {
+<<<<<<< HEAD
         // Se è una stringa semplice, utilizziamo il metodo interno tramite relazione roles
+=======
+        // Se Ã¨ una stringa semplice, utilizziamo il metodo interno tramite relazione roles
+>>>>>>> cf5d6db (.)
         if (\is_string($roles)) {
             return once(fn (): bool => $this->roles()->where('name', $roles)->exists());
         }

@@ -10,6 +10,10 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+<<<<<<< HEAD
+=======
+use Filament\Resources\Pages\PageRegistration;
+>>>>>>> cf5d6db (.)
 use Filament\Support\Components\Component;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
