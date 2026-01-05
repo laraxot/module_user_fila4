@@ -36,34 +36,34 @@ class OauthClientResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
-            'oauth_info' => XotBaseSection::make('OAuth Client Information')
+            XotBaseSection::make('OAuth Client Information')
                 ->schema([
-                    'grid_1' => Grid::make(2)
+                    SchemaGrid::make(2)
                         ->schema([
-                            'name' => TextInput::make('name')
+                            TextInput::make('name')
                                 ->required()
                                 ->maxLength(255),
-                            'user_id' => Select::make('user_id')
+                            Select::make('user_id')
                                 ->relationship('user', 'name')
                                 ->searchable(),
                         ]),
-                    'grid_2' => Grid::make(2)
+                    SchemaGrid::make(2)
                         ->schema([
-                            'redirect' => TextInput::make('redirect')
+                            TextInput::make('redirect')
                                 ->maxLength(2000),
-                            'secret' => TextInput::make('secret')
+                            TextInput::make('secret')
                                 ->password()
                                 ->maxLength(100),
                         ]),
-                    'grid_3' => Grid::make(3)
+                    SchemaGrid::make(3)
                         ->schema([
-                            'provider' => Select::make('provider')
+                            Select::make('provider')
                                 ->options([
                                     'users' => 'Users',
                                 ]),
-                            'personal_access_client' => TextInput::make('personal_access_client')
+                            TextInput::make('personal_access_client')
                                 ->numeric(),
-                            'password_client' => TextInput::make('password_client')
+                            TextInput::make('password_client')
                                 ->numeric(),
                         ]),
                 ])
