@@ -84,11 +84,7 @@ Parameter #1 $callback of method Illuminate\Support\Collection::map() expects ca
 - **Safe Type Casting**: All form data now uses `safeStringCast()` method
 - **Proper Type Declarations**: All methods have proper parameter and return types
 - **PHPDoc Annotations**: Comprehensive documentation for complex types
-<<<<<<< HEAD
 - **PHPStan Compliance**: Full compliance with PHPStan level 10
-=======
-- **PHPStan Compliance**: Full compliance with PHPStan level 9
->>>>>>> laraxot/develop
 
 ### 2. Security Improvements
 

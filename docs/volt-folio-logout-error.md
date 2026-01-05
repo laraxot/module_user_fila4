@@ -1,24 +1,22 @@
-<<<<<<< HEAD
 # Errore nel Logout con Volt e Folio
 
 ## Il Problema
-Il file `logout.blade.php` non funziona correttamente perché:
+Il file `logout.blade.php` può presentare problemi di funzionamento o errori di direttive mancanti.
 
+### 1. Errori Comuni
 1. **Layout Errato**: 
    - Si usa `<x-layouts.app>` invece di `<x-layout>`
-   - Il layout corretto è definito nel tema TwentyOne
+   - Il layout corretto è solitamente definito nel tema (es. TwentyOne)
 
-2. **Direttiva Volt Non Necessaria**:
-   - La pagina è una pagina Folio, non un componente Volt
-   - Il logout può essere gestito con un form standard
+2. **VoltDirectiveMissingException**:
+   - Quando si usano azioni Volt in una pagina Folio, può comparire: `Livewire\Volt\Exceptions\VoltDirectiveMissingException`
+   - Il messaggio di errore è: `The [@volt] directive is required when using Volt anonymous components in Folio pages.`
 
-3. **Gestione Sessione Non Ottimale**:
-   - Il reindirizzamento JavaScript non è la soluzione migliore
-   - Meglio gestire il reindirizzamento lato server
+## Soluzioni
 
-## Soluzione Corretta
+### 1. Pagina di Logout Standard (Folio)
+Se non hai bisogno di logica Livewire complessa nella pagina stessa, usa un form standard:
 
-### 1. Pagina di Logout (logout.blade.php)
 ```blade
 <x-layout>
     <x-slot:title>
@@ -57,7 +55,9 @@ Il file `logout.blade.php` non funziona correttamente perché:
 </x-layout>
 ```
 
-### 2. LogoutAction.php
+### 2. Gestione Azione Logout (Volt class-based)
+Definisci l'azione in un file separato o nella pagina stessa. Se usi Volt in Folio:
+
 ```php
 <?php
 
@@ -83,87 +83,30 @@ final class LogoutAction
 }
 ```
 
-## Perché Questa Soluzione Funziona
+### 3. Risoluzione `VoltDirectiveMissingException`
+Se la tua pagina Folio utilizza componenti anonimi Volt o logica Livewire direttamente nel file `.blade.php`:
 
-1. **Separazione delle Responsabilità**:
-   - Folio gestisce il routing e la visualizzazione
-   - Volt gestisce l'azione di logout
-   - Il form standard gestisce l'invio della richiesta
-
-2. **Sicurezza**:
-   - CSRF token incluso
-   - Sessione gestita correttamente
-   - Middleware auth applicato
-
-3. **UX Migliorata**:
-   - Conferma prima del logout
-   - Possibilità di annullare
-   - Feedback visivo chiaro
+1. **Aggiungi la direttiva `@volt` come prima riga** del file:
+   
+   ```blade
+   @volt
+   <?php
+   use function Livewire\Volt\{state, mount};
+   // ...
+   ?>
+   <div>
+       <!-- UI -->
+   </div>
+   @endvolt
+   ```
 
 ## Best Practices
-
-1. **Layout**:
-   - Usare sempre il layout corretto del tema
-   - Non mischiare diversi sistemi di layout
-
-2. **Routing**:
-   - Lasciare che Folio gestisca il routing delle pagine
-   - Usare Volt solo per le azioni
-
-3. **Sessione**:
-   - Gestire il reindirizzamento lato server
-   - Evitare JavaScript per operazioni critiche
+- **Layout**: Usare sempre il layout corretto del tema.
+- **Routing**: Lasciare che Folio gestisca il routing delle pagine, usare Volt per le azioni e l'interattività.
+- **Sicurezza**: Includi sempre il CSRF token nei form di logout.
+- **Sessione**: Gestire il reindirizzamento lato server ed evitare JavaScript per operazioni critiche.
 
 ## Collegamenti
 - [Best Practices Folio](./ROUTING_BEST_PRACTICES.md)
 - [Best Practices Volt](./VOLT_BEST_PRACTICES.md)
-- [Gestione Sessione](./SESSION_MANAGEMENT.md) 
-=======
-# Errore Volt/Folio: `VoltDirectiveMissingException` su logout
-
-## Descrizione dell'errore
-Quando si crea una pagina con azioni Volt/Livewire (es. logout) all'interno di una pagina Folio (file-based routing), può comparire il seguente errore:
-
-```
-Livewire\Volt\Exceptions\VoltDirectiveMissingException
-The [@volt] directive is required when using Volt anonymous components in Folio pages. The directive is missing in [.../logout.blade.php].
-```
-
-## Causa
-Folio richiede che tutte le pagine che usano Volt (azioni, state, ecc.) includano la direttiva `@volt` all'inizio del file Blade. Senza questa direttiva, Volt non può "montare" correttamente la logica Livewire associata alla pagina.
-
-## Come risolvere
-1. **Aggiungi la direttiva `@volt` come prima riga del file Blade** che utilizza Volt/Livewire:
-   
-   ```blade
-   @volt
-   ...
-   ```
-2. **Verifica che tutte le pagine Folio che usano state, mount, azioni Livewire, ecc. abbiano `@volt` come prima riga.**
-3. **Non serve altro:** la direttiva `@volt` è sufficiente per abilitare Volt nella pagina.
-
-## Esempio di fix
-Prima (sbagliato):
-```blade
-<?php
-use function Livewire\Volt\{state, mount};
-// ...
-```
-
-Dopo (corretto):
-```blade
-@volt
-<?php
-use function Livewire\Volt\{state, mount};
-// ...
-```
-
-## Best practice
-- Ricordati sempre di aggiungere `@volt` in tutte le Folio pages che usano logica Volt/Livewire.
-- Documenta questa regola nelle guide interne del team.
-
----
-
-**Errore risolto: aggiungi `@volt` come prima riga!**
-=======
->>>>>>> laraxot/develop
+- [Gestione Sessione](./SESSION_MANAGEMENT.md)
