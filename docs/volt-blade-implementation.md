@@ -23,11 +23,7 @@ Per i form complessi , l'approccio raccomandato è utilizzare i widget Filament 
 ## Struttura delle Directory
 
 ```
-<<<<<<< HEAD
-/var/www/html/<nome progetto>/laravel/
-=======
 /var/www/html/saluteora/laravel/
->>>>>>> laraxot/develop
 ├── Modules/
 │   └── User/
 │       └── app/

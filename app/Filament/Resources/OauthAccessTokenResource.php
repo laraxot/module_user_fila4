@@ -18,10 +18,6 @@ use Illuminate\Support\Carbon;
 use Modules\User\Filament\Resources\OauthAccessTokenResource\Pages;
 use Modules\User\Models\OauthAccessToken;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-<<<<<<< HEAD
-
-=======
->>>>>>> cf5d6db (.)
 use function Safe\json_encode;
 
 class OauthAccessTokenResource extends XotBaseResource
@@ -29,8 +25,6 @@ class OauthAccessTokenResource extends XotBaseResource
     protected static ?string $model = OauthAccessToken::class;
 
     protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-key';
-
-    protected static string|\UnitEnum|null $navigationGroup = 'API';
 
     protected static ?int $navigationSort = 5;
 
@@ -62,16 +56,6 @@ class OauthAccessTokenResource extends XotBaseResource
                     ->searchable()
                     ->sortable()
                     ->url(function (mixed $record): ?string {
-<<<<<<< HEAD
-                        if (! $record instanceof OauthAccessToken) {
-                            return null;
-                        }
-                        $user = $record->user;
-                        if (null !== $user && method_exists($user, 'exists') && $user->exists) {
-                            return UserResource::getUrl('view', ['record' => $user]);
-                        }
-
-=======
                         if (! $record instanceof \Modules\User\Models\OauthAccessToken) {
                             return null;
                         }
@@ -79,7 +63,6 @@ class OauthAccessTokenResource extends XotBaseResource
                         if ($user !== null && method_exists($user, 'exists') && $user->exists) {
                             return UserResource::getUrl('view', ['record' => $user]);
                         }
->>>>>>> cf5d6db (.)
                         return null;
                     })
                     ->openUrlInNewTab(),
@@ -95,16 +78,6 @@ class OauthAccessTokenResource extends XotBaseResource
                 TextColumn::make('scopes')
                     ->limit(30)
                     ->tooltip(function (mixed $state): ?string {
-<<<<<<< HEAD
-                        if (null === $state) {
-                            return null;
-                        }
-                        if (is_array($state)) {
-                            /* @var array<string, mixed> $state */
-                            return json_encode($state);
-                        }
-
-=======
                         if ($state === null) {
                             return null;
                         }
@@ -112,7 +85,6 @@ class OauthAccessTokenResource extends XotBaseResource
                             /** @var array<string, mixed> $state */
                             return json_encode($state);
                         }
->>>>>>> cf5d6db (.)
                         return is_string($state) ? $state : null;
                     }),
 
@@ -133,10 +105,6 @@ class OauthAccessTokenResource extends XotBaseResource
                             if ($state->lt($now)) {
                                 return $state->format('Y-m-d H:i:s').' (Expired)';
                             }
-<<<<<<< HEAD
-
-=======
->>>>>>> cf5d6db (.)
                             return $state->format('Y-m-d H:i:s');
                         }
 

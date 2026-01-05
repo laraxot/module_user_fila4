@@ -109,23 +109,5 @@ Questo errore è **GRAVISSIMO** perché:
 4. ⏳ Aggiornare seeder per utilizzare le nuove factory
 5. ⏳ Documentare pattern e best practice
 
-<<<<<<< HEAD
-# 2bis. Override `newFactory()`
-Quando un modello ha bisogno di una factory dedicata (es. `PermissionFactory`), **non**
-si sovrascrive il metodo pubblico `factory()`. Al contrario, si implementa:
-
-```php
-protected static function newFactory(): PermissionFactory
-{
-    return PermissionFactory::new();
-}
-```
-
-Questo mantiene compatibilità con Laravel 12 e con il trait `HasFactory`.
-
-*Creato: 2025-01-06*  
-*Ultimo aggiornamento: 2025-11-17*
-=======
 *Creato: 2025-01-06*
 *Ultimo aggiornamento: 2025-01-06*
->>>>>>> laraxot/develop

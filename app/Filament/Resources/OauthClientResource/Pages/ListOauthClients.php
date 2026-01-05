@@ -17,12 +17,12 @@ class ListOauthClients extends XotBaseListRecords
     /**
      * Get the header actions.
      *
-     * @return array<int, \Filament\Actions\ActionInterface>
+     * @return array<string, \Filament\Actions\Action>
      */
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            'create' => CreateAction::make(),
         ];
     }
 }

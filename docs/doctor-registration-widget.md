@@ -2,20 +2,12 @@
 
 ## Panoramica
 
-<<<<<<< HEAD
-Il widget di registrazione del dottore (`RegistrationWidget.php`) è un componente fondamentale nel processo di registrazione degli odontoiatri in <nome progetto>. Questo documento descrive la sua implementazione corretta e come deve essere integrato con il sistema di gestione degli stati tramite `spatie/laravel-model-states`.
-=======
 Il widget di registrazione del dottore (`RegistrationWidget.php`) è un componente fondamentale nel processo di registrazione degli odontoiatri in SaluteOra. Questo documento descrive la sua implementazione corretta e come deve essere integrato con il sistema di gestione degli stati tramite `spatie/laravel-model-states`.
->>>>>>> laraxot/develop
 
 ## Posizione del File
 
 ```
-<<<<<<< HEAD
-/var/www/html/<nome progetto>/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php
-=======
 /var/www/html/saluteora/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php
->>>>>>> laraxot/develop
 ```
 
 ## Architettura
@@ -199,31 +191,18 @@ class MailTemplatesTableSeeder extends Seeder
             ],
             [
                 'subject' => [
-<<<<<<< HEAD
-                    'it' => 'Registrazione in attesa di moderazione - <nome progetto>',
-                    'en' => 'Registration pending moderation - <nome progetto>'
-=======
                     'it' => 'Registrazione in attesa di moderazione - SaluteOra',
                     'en' => 'Registration pending moderation - SaluteOra'
->>>>>>> laraxot/develop
                 ],
                 'html_template' => [
                     'it' => '<p>Gentile {{ full_name }},</p>
 <p>La tua richiesta di registrazione è stata ricevuta e sarà esaminata dal nostro team.</p>
 <p>Riceverai un\'email quando la tua registrazione sarà stata moderata.</p>
-<<<<<<< HEAD
-<p>Cordiali saluti,<br>Il team di <nome progetto></p>',
-                    'en' => '<p>Dear {{ full_name }},</p>
-<p>Your registration request has been received and will be reviewed by our team.</p>
-<p>You will receive an email when your registration has been moderated.</p>
-<p>Best regards,<br>The <nome progetto> Team</p>'
-=======
 <p>Cordiali saluti,<br>Il team di SaluteOra</p>',
                     'en' => '<p>Dear {{ full_name }},</p>
 <p>Your registration request has been received and will be reviewed by our team.</p>
 <p>You will receive an email when your registration has been moderated.</p>
 <p>Best regards,<br>The SaluteOra Team</p>'
->>>>>>> laraxot/develop
                 ],
                 'text_template' => [
                     'it' => 'Gentile {{ full_name }},
@@ -233,11 +212,7 @@ La tua richiesta di registrazione è stata ricevuta e sarà esaminata dal nostro
 Riceverai un\'email quando la tua registrazione sarà stata moderata.
 
 Cordiali saluti,
-<<<<<<< HEAD
-Il team di <nome progetto>',
-=======
 Il team di SaluteOra',
->>>>>>> laraxot/develop
                     'en' => 'Dear {{ full_name }},
 
 Your registration request has been received and will be reviewed by our team.
@@ -245,11 +220,7 @@ Your registration request has been received and will be reviewed by our team.
 You will receive an email when your registration has been moderated.
 
 Best regards,
-<<<<<<< HEAD
-The <nome progetto> Team'
-=======
 The SaluteOra Team'
->>>>>>> laraxot/develop
                 ]
             ]
         );
@@ -269,14 +240,7 @@ The SaluteOra Team'
 
 ## Collegamenti Bidirezionali
 
-<<<<<<< HEAD
-- [Email Doctor Registration](/var/www/html/<nome progetto>/docs/email-doctor-registration.md)
-- [Registrazione Odontoiatra](/var/www/html/<nome progetto>/docs/roadmap_frontoffice/13-registrazione-odontoiatra.md)
-- [DoctorResource](/var/www/html/<nome progetto>/laravel/Modules/Patient/app/Filament/Resources/DoctorResource.php)
-- [RegistrationWidget](/var/www/html/<nome progetto>/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php)
-=======
 - [Email Doctor Registration](/var/www/html/saluteora/docs/email-doctor-registration.md)
 - [Registrazione Odontoiatra](/var/www/html/saluteora/docs/roadmap_frontoffice/13-registrazione-odontoiatra.md)
 - [DoctorResource](/var/www/html/saluteora/laravel/Modules/Patient/app/Filament/Resources/DoctorResource.php)
 - [RegistrationWidget](/var/www/html/saluteora/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php)
->>>>>>> laraxot/develop

@@ -22,11 +22,7 @@ class EditOauthAccessTokens extends XotBaseEditRecord
     protected function getHeaderActions(): array
     {
         return [
-<<<<<<< HEAD
-            'delete' => DeleteAction::make(),
-=======
             'delete' => \Filament\Actions\DeleteAction::make(),
->>>>>>> cf5d6db (.)
         ];
     }
 }

@@ -1,19 +1,10 @@
 # RegistrationWidget FileUpload Error Fix
 
 ## Problema Identificato
-<<<<<<< HEAD
-
-=======
->>>>>>> laraxot/develop
 ### Errore
 ```
 ErrorException
 foreach() argument must be of type array|object, string given
-<<<<<<< HEAD
-```
-
-=======
->>>>>>> laraxot/develop
 ### Causa
 Il problema si verifica quando:
 1. Un utente già registrato accede alla pagina di registrazione con email e token validi
@@ -21,28 +12,12 @@ Il problema si verifica quando:
 3. I campi file upload (`health_card`, `identity_document`, `isee_certificate`, `pregnancy_certificate`) vengono restituiti come stringhe (percorsi file)
 4. Filament si aspetta array per i componenti `FileUpload` e tenta di iterarli con `foreach()`
 5. L'iterazione fallisce perché trova stringhe invece di array
-<<<<<<< HEAD
-
-### Stack Trace
-```
-Filament\Forms\Components\BaseFileUpload:740 getUploadedFiles
-Filament\Forms\Concerns\SupportsFileUploadFields:39 getUploadedFiles
-```
-
-## Soluzione Implementata ✅
-
-### 1. Correzione in `RegistrationWidget.getFormFill()` ✅
-
-Il metodo è stato modificato per convertire i campi file upload da stringhe ad array quando il modello esiste:
-
-=======
 ### Stack Trace
 Filament\Forms\Components\BaseFileUpload:740 getUploadedFiles
 Filament\Forms\Concerns\SupportsFileUploadFields:39 getUploadedFiles
 ## Soluzione Implementata ✅
 ### 1. Correzione in `RegistrationWidget.getFormFill()` ✅
 Il metodo è stato modificato per convertire i campi file upload da stringhe ad array quando il modello esiste:
->>>>>>> laraxot/develop
 ```php
 public function getFormFill(): array
 {
@@ -59,35 +34,16 @@ public function getFormFill(): array
                     $data[$attachment] = [$data[$attachment]];
                 }
             }
-<<<<<<< HEAD
-            
-=======
->>>>>>> laraxot/develop
             return $data;
         } catch (\Exception $e) {
             // Gestione errori con stessa logica per gli attributi...
         }
     }
-<<<<<<< HEAD
-    
-    // Logica per nuovi modelli rimane invariata...
-}
-```
-
-**Status**: ✅ **COMPLETATO** - Implementato in `laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php`
-
-### 2. Miglioramento in `XotBaseResource.getAttachmentsSchema()` ✅
-
-Il metodo `formatStateUsing` è stato migliorato per gestire sia stringhe che array:
-
-```php
-=======
     // Logica per nuovi modelli rimane invariata...
 }
 **Status**: ✅ **COMPLETATO** - Implementato in `laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php`
 ### 2. Miglioramento in `XotBaseResource.getAttachmentsSchema()` ✅
 Il metodo `formatStateUsing` è stato migliorato per gestire sia stringhe che array:
->>>>>>> laraxot/develop
 ->formatStateUsing(function ($state, $set) use ($attachment) {
     // CORREZIONE BUG: Gestisci sia stringhe che array per compatibilità
     if (is_string($state)) {
@@ -99,50 +55,17 @@ Il metodo `formatStateUsing` è stato migliorato per gestire sia stringhe che ar
     } else {
         // Se è null o altro tipo, inizializza array vuoto
         $sessionFiles = [];
-<<<<<<< HEAD
-    }
-    
-    $set($attachment, $sessionFiles);
-    return $sessionFiles;
-})
-```
-
-**Status**: ✅ **COMPLETATO** - Implementato in `laravel/Modules/Xot/app/Filament/Resources/XotBaseResource.php`
-
-## Context del Bug
-
-=======
     $set($attachment, $sessionFiles);
     return $sessionFiles;
 })
 **Status**: ✅ **COMPLETATO** - Implementato in `laravel/Modules/Xot/app/Filament/Resources/XotBaseResource.php`
 ## Context del Bug
->>>>>>> laraxot/develop
 ### Scenario che Causa l'Errore
 1. **Registrazione Iniziale**: Paziente inizia registrazione, carica documenti, dati salvati nel database
 2. **Interruzione**: Processo interrotto (browser chiuso, errore, ecc.)
 3. **Ritorno**: Paziente accede nuovamente con link email contenente token
 4. **Caricamento Dati**: `getFormFill()` carica dati esistenti dal database
 5. **Errore**: Filament riceve stringhe invece di array per file upload
-<<<<<<< HEAD
-
-### Dati nel Database
-I campi file upload sono salvati come stringhe (percorsi):
-```php
-"health_card" => "session-uploads/abc123/file.pdf"
-"identity_document" => "session-uploads/abc123/document.pdf"
-```
-
-### Attesa di Filament
-I componenti `FileUpload` si aspettano array:
-```php
-"health_card" => ["session-uploads/abc123/file.pdf"]
-"identity_document" => ["session-uploads/abc123/document.pdf"]
-```
-
-## Test di Regressione
-
-=======
 ### Dati nel Database
 I campi file upload sono salvati come stringhe (percorsi):
 "health_card" => "session-uploads/abc123/file.pdf"
@@ -152,26 +75,11 @@ I componenti `FileUpload` si aspettano array:
 "health_card" => ["session-uploads/abc123/file.pdf"]
 "identity_document" => ["session-uploads/abc123/document.pdf"]
 ## Test di Regressione
->>>>>>> laraxot/develop
 ### Scenari da Testare
 1. **Nuova Registrazione**: Verifica che upload funzioni per nuovi utenti
 2. **Registrazione Ripresa**: Verifica che utenti esistenti possano completare registrazione
 3. **Modifica File**: Verifica che upload di nuovi file sostituisca quelli esistenti
 4. **Wizard Navigation**: Verifica navigazione tra step senza perdere file
-<<<<<<< HEAD
-
-### Comandi Test
-```bash
-cd /var/www/html/_bases/base_techplanner_fila3_mono/laravel
-cd /var/www/html/_bases/base_<nome progetto>/laravel
-cd /var/www/html/_bases/base_techplanner_fila3_mono/laravel
-php artisan test --filter=RegistrationWidget
-./vendor/bin/phpstan analyze Modules/User/app/Filament/Widgets/RegistrationWidget.php --level=9
-```
-
-### Test Manuale per Verifica
-
-=======
 ### Comandi Test
 ```bash
 cd /var/www/html/_bases/base_techplanner_fila3_mono/laravel
@@ -179,85 +87,41 @@ cd /var/www/html/_bases/base_saluteora/laravel
 php artisan test --filter=RegistrationWidget
 ./vendor/bin/phpstan analyze Modules/User/app/Filament/Widgets/RegistrationWidget.php --level=9
 ### Test Manuale per Verifica
->>>>>>> laraxot/develop
 1. **Test Nuova Registrazione**:
    ```
    URL: /it/auth/patient/register?email=test@example.com&token=new_token
    Azione: Compilare form e caricare documenti
    Risultato Atteso: Upload funziona senza errori
-<<<<<<< HEAD
-   ```
-
-2. **Test Registrazione Esistente**:
-   ```
-   URL: /it/auth/patient/register?email=existing@example.com&token=valid_token
-   Azione: Accedere con token di utente esistente
-   Risultato Atteso: Form caricato con documenti esistenti, NO errore foreach()
-   ```
-
-## Note PHPStan
-
-⚠️ **Warning PHPStan**: Il metodo `getAttachmentsSchema()` presenta un warning PHPStan riguardo alla proprietà `$attachments` nel modello. Questo è dovuto al fatto che PHPStan non riconosce automaticamente le proprietà statiche dinamiche sui modelli.
-
-=======
 2. **Test Registrazione Esistente**:
    URL: /it/auth/patient/register?email=existing@example.com&token=valid_token
    Azione: Accedere con token di utente esistente
    Risultato Atteso: Form caricato con documenti esistenti, NO errore foreach()
 ## Note PHPStan
 ⚠️ **Warning PHPStan**: Il metodo `getAttachmentsSchema()` presenta un warning PHPStan riguardo alla proprietà `$attachments` nel modello. Questo è dovuto al fatto che PHPStan non riconosce automaticamente le proprietà statiche dinamiche sui modelli.
->>>>>>> laraxot/develop
 **Soluzioni Provate**:
 - `property_exists()` check
 - Reflection API
 - `@phpstan-ignore` annotations
-<<<<<<< HEAD
-
 **Risultato**: Il warning persiste ma il codice funziona correttamente in runtime. Questa è una limitazione di PHPStan nell'analisi statica di proprietà dinamiche.
-
-=======
-**Risultato**: Il warning persiste ma il codice funziona correttamente in runtime. Questa è una limitazione di PHPStan nell'analisi statica di proprietà dinamiche.
->>>>>>> laraxot/develop
 **Raccomandazione**: Ignorare questo specifico warning PHPStan in quanto:
 1. Il codice è funzionalmente corretto
 2. Include fallback sicuri (array vuoto se proprietà non esiste)
 3. È testato e funzionante in produzione
-<<<<<<< HEAD
-
-## Pattern Applicato
-
-### Principio
-**Conversione Trasparente**: Convertire automaticamente stringhe in array per compatibilità con componenti Filament senza modificare il comportamento esistente.
-
-=======
 ## Pattern Applicato
 ### Principio
 **Conversione Trasparente**: Convertire automaticamente stringhe in array per compatibilità con componenti Filament senza modificare il comportamento esistente.
->>>>>>> laraxot/develop
 ### Applicabilità
 Questo pattern può essere riutilizzato in altri widget che:
 - Caricano dati esistenti con campi file upload
 - Usano `model->toArray()` per pre-popolare form
 - Estendono `XotBaseWidget` con gestione file
-<<<<<<< HEAD
-
 ## Best Practice Emergenti
-
-=======
-## Best Practice Emergenti
->>>>>>> laraxot/develop
 1. **Gestione File Upload in Widget**: Sempre verificare il tipo di dato per campi file
 2. **Backward Compatibility**: Supportare sia stringhe che array per flessibilità
 3. **Error Handling**: Includere try/catch per conversioni di tipo
 4. **Documentation**: Documentare edge case per file upload in widget registration
 5. **PHPStan Limitations**: Documentare quando warnings PHPStan sono accettabili per proprietà dinamiche
-<<<<<<< HEAD
-
 ## Status Implementazione
-
-=======
-## Status Implementazione
->>>>>>> laraxot/develop
 | Componente | Status | Dettagli |
 |------------|--------|----------|
 | RegistrationWidget.getFormFill() | ✅ Completato | Conversione string→array per file upload |
@@ -265,19 +129,6 @@ Questo pattern può essere riutilizzato in altri widget che:
 | Documentazione | ✅ Completato | Questo documento |
 | Test Automatici | ⏳ Pending | Da implementare |
 | Test Manuali | ⏳ Pending | Da eseguire |
-<<<<<<< HEAD
-
-## Collegamenti
-
-- [RegistrationWidget.php](../../app/Filament/Widgets/RegistrationWidget.php) - Widget corretto
-- [XotBaseResource.php](../../../Xot/app/Filament/Resources/XotBaseResource.php) - Schema attachments migliorato
-- [PatientResource.php](../../../<nome modulo>/app/Filament/Resources/PatientResource.php) - Risorsa paziente
-- [PatientResource.php](../../../<nome progetto>/app/Filament/Resources/PatientResource.php) - Risorsa paziente
-- [Widget Error Troubleshooting](../../../Xot/docs/troubleshooting/widget-errors.md) - Guide generali
-
----
-
-=======
 ## Collegamenti
 - [RegistrationWidget.php](../../app/Filament/Widgets/RegistrationWidget.php) - Widget corretto
 - [XotBaseResource.php](../../../Xot/app/Filament/Resources/XotBaseResource.php) - Schema attachments migliorato
@@ -286,14 +137,9 @@ Questo pattern può essere riutilizzato in altri widget che:
 - [Widget Error Troubleshooting](../../../Xot/docs/troubleshooting/widget-errors.md) - Guide generali
 - [Widget Error Troubleshooting](../../../Xot/project_docs/troubleshooting/widget-errors.md) - Guide generali
 ---
->>>>>>> laraxot/develop
 **Creato**: 2025-01-07  
 **Aggiornato**: 2025-01-07  
 **Autore**: AI Assistant  
 **Tipo**: Bug Fix Documentation  
 **Priorità**: Critica (blocca registrazione paziente)  
-<<<<<<< HEAD
 **Status**: ✅ **RISOLTO** 
-=======
-**Status**: ✅ **RISOLTO** 
->>>>>>> laraxot/develop

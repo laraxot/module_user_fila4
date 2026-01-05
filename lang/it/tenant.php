@@ -87,14 +87,11 @@ return [
             'placeholder' => 'recordId',
             'label' => 'recordId',
         ],
-<<<<<<< HEAD
-=======
         'primary_color' => [
             'description' => 'primary_color',
             'helper_text' => 'primary_color',
             'placeholder' => 'primary_color',
         ],
->>>>>>> cf5d6db (.)
     ],
     'actions' => [
         'import' => [
@@ -126,50 +123,32 @@ return [
         'attachAnother' => [
             'icon' => 'attachAnother',
             'label' => 'attachAnother',
-<<<<<<< HEAD
-=======
             'tooltip' => 'attachAnother',
->>>>>>> cf5d6db (.)
         ],
         'submit' => [
             'icon' => 'submit',
             'label' => 'submit',
-<<<<<<< HEAD
-=======
             'tooltip' => 'submit',
->>>>>>> cf5d6db (.)
         ],
         'detach' => [
             'icon' => 'detach',
             'label' => 'detach',
-<<<<<<< HEAD
-=======
             'tooltip' => 'detach',
->>>>>>> cf5d6db (.)
         ],
         'edit' => [
             'label' => 'edit',
             'icon' => 'edit',
-<<<<<<< HEAD
-=======
             'tooltip' => 'edit',
->>>>>>> cf5d6db (.)
         ],
         'attach' => [
             'label' => 'attach',
             'icon' => 'attach',
-<<<<<<< HEAD
-=======
             'tooltip' => 'attach',
->>>>>>> cf5d6db (.)
         ],
         'create' => [
             'label' => 'create',
             'icon' => 'ui-create',
-<<<<<<< HEAD
-=======
             'tooltip' => 'create',
->>>>>>> cf5d6db (.)
         ],
         'applyFilters' => [
             'label' => 'applyFilters',
@@ -194,18 +173,12 @@ return [
         'layout' => [
             'icon' => 'layout',
             'label' => 'layout',
-<<<<<<< HEAD
-=======
             'tooltip' => 'layout',
->>>>>>> cf5d6db (.)
         ],
         'delete' => [
             'icon' => 'delete',
             'label' => 'delete',
-<<<<<<< HEAD
-=======
             'tooltip' => 'delete',
->>>>>>> cf5d6db (.)
         ],
         'logout' => [
             'icon' => 'logout',
@@ -218,14 +191,11 @@ return [
         ],
         'view' => [
             'icon' => 'view',
-<<<<<<< HEAD
-=======
             'tooltip' => 'view',
             'label' => 'view',
         ],
         'save' => [
             'tooltip' => 'save',
->>>>>>> cf5d6db (.)
         ],
     ],
     'label' => 'tenant',

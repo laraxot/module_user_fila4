@@ -7,13 +7,9 @@ namespace Modules\User\Models;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-<<<<<<< HEAD
-use Illuminate\Foundation\Auth\Access\Authorizable;
-=======
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Foundation\Auth\User as AuthUser;
->>>>>>> cf5d6db (.)
 use Illuminate\Support\Carbon;
 use Laravel\Passport\Client as PassportClient;
 use Laravel\Passport\Database\Factories\ClientFactory;
@@ -173,8 +169,6 @@ class OauthClient extends PassportClient implements AuthorizableContract
             return false;
         }
     }
-<<<<<<< HEAD
-=======
 
     /**
      * @return MorphTo<AuthUser, $this>
@@ -185,5 +179,4 @@ class OauthClient extends PassportClient implements AuthorizableContract
     {
         return parent::owner();
     }
->>>>>>> cf5d6db (.)
 }

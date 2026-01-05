@@ -10,10 +10,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-<<<<<<< HEAD
-=======
 use Filament\Resources\Pages\PageRegistration;
->>>>>>> cf5d6db (.)
 use Filament\Support\Components\Component;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -37,8 +34,6 @@ class TeamInvitationResource extends XotBaseResource
     protected static ?string $pluralModelLabel = 'Team Invitations';
 
     protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-envelope';
-
-    protected static \UnitEnum|string|null $navigationGroup = 'Teams';
 
     /**
      * Get the form schema for the resource.

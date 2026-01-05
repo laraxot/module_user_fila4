@@ -28,7 +28,6 @@ class ClientResource extends XotBaseResource
     // use HasResourceFormComponents;
 
     protected static ?string $recordTitleAttribute = 'name';
-    protected static string|\UnitEnum|null $navigationGroup = 'filament-passport-ui::passport-ui.navigation.group';
     protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedKey;
     protected static ?string $modelLabel = 'OAuth Client';
     protected static ?string $pluralModelLabel = 'OAuth Clients';
@@ -36,26 +35,11 @@ class ClientResource extends XotBaseResource
     /**
      * Get the form schema for the resource (XotBaseResource pattern).
      *
-<<<<<<< HEAD
-     * @return array<string, Field>
-=======
      * @return array<string, \Filament\Forms\Components\Field>
->>>>>>> cf5d6db (.)
      */
     public static function getFormSchema(): array
     {
         $components = [
-<<<<<<< HEAD
-            'name' => TextInput::make('name')
-                ->unique('clients', 'name')
-                ->required()
-                ->maxLength(255),
-            'owner' => Select::make('owner')
-                ->options(function (): Collection {
-                    /** @var GetAllOwnersRelationshipUseCaseContract $useCase */
-                    $useCase = app(GetAllOwnersRelationshipUseCaseContract::class);
-
-=======
             'name' => \Filament\Forms\Components\TextInput::make('name')
                 ->unique('clients', 'name')
                 ->required()
@@ -64,7 +48,6 @@ class ClientResource extends XotBaseResource
                 ->options(function (): Collection {
                     /** @var GetAllOwnersRelationshipUseCaseContract $useCase */
                     $useCase = app(GetAllOwnersRelationshipUseCaseContract::class);
->>>>>>> cf5d6db (.)
                     return $useCase->execute();
                 })
                 ->saveRelationshipsUsing(function (Client $record, array $data): void {
@@ -85,21 +68,12 @@ class ClientResource extends XotBaseResource
          */
         if (static::isResourceFormComponentsEnabled()) {
             $additionalComponents = static::getResourceFormComponents();
-<<<<<<< HEAD
-            /** @var array<string, Field> $additionalComponents */
-            /** @var array<string, Field> $components */
-            $components = array_merge($components, $additionalComponents);
-        }
-
-        /* @var array<string, \Filament\Forms\Components\Field> $components */
-=======
             /** @var array<string, \Filament\Forms\Components\Field> $additionalComponents */
             /** @var array<string, \Filament\Forms\Components\Field> $components */
             $components = array_merge($components, $additionalComponents);
         }
 
         /** @var array<string, \Filament\Forms\Components\Field> $components */
->>>>>>> cf5d6db (.)
         return $components;
     }
 
@@ -162,8 +136,4 @@ class ClientResource extends XotBaseResource
     {
         return [];
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> cf5d6db (.)

@@ -36,10 +36,7 @@ class PassportServiceProvider extends ServiceProvider
         Passport::useAuthCodeModel(Models\OauthAuthCode::class);
         Passport::useClientModel(Models\OauthClient::class);
         Passport::useDeviceCodeModel(Models\OauthDeviceCode::class);
-<<<<<<< HEAD
-=======
         Passport::enablePasswordGrant();
->>>>>>> cf5d6db (.)
 
         Passport::tokensCan([
             'view-user' => 'View user information',

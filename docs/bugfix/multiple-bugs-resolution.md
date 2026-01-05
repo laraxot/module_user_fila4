@@ -168,11 +168,7 @@ public function render(): View
 
 ### 3. Conflitti Git
 
-```bash
-grep -r "<<<<<<< HEAD" laravel/Modules/User/
 
-✅ 0 conflitti trovati
-```
 
 **Status**: Tutti i conflitti risolti
 

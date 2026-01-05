@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
-<<<<<<< HEAD
-use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Components\Component;
-=======
 use Filament\Actions\Action;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -17,18 +13,14 @@ use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Foundation\Auth\User as AuthUser;
 use Modules\User\Models\OauthClient;
->>>>>>> cf5d6db (.)
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 class ClientsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'clients';
 
-<<<<<<< HEAD
-=======
     protected static ?string $recordTitleAttribute = 'name';
 
->>>>>>> cf5d6db (.)
     /**
      * @return array<string, Component>
      */
@@ -36,11 +28,6 @@ class ClientsRelationManager extends XotBaseRelationManager
     public function getFormSchema(): array
     {
         return [
-<<<<<<< HEAD
-            'name' => TextInput::make('name')->required()->maxLength(255),
-        ];
-    }
-=======
             'name' => TextInput::make('name')
                 ->required()
                 ->maxLength(255),
@@ -148,5 +135,4 @@ class ClientsRelationManager extends XotBaseRelationManager
 
         return $actions;
     }
->>>>>>> cf5d6db (.)
 }

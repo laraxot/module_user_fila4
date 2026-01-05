@@ -117,24 +117,6 @@ composer format        # Formatta il codice
 7. Gestire correttamente gli stati dei form
 8. Implementare la validazione dei dati
 
-<<<<<<< HEAD
-### PHPStan Level 10 Compliance
-1. **Tutti i file devono passare PHPStan Level 10**
-2. **Type guards** per oggetti di tipo mixed
-3. **PHPDoc completo** per tutte le classi e metodi
-4. **Interface segregation** per comportamenti specifici
-5. **Verifica regolare** con `./vendor/bin/phpstan analyse Modules/User --level=10`
-6. **Documentazione aggiornata** in `docs/phpstan-level10-fixes.md`
-
-### Eloquent Properties Best Practices
-1. **MAI usare `property_exists()` con modelli Eloquent**
-2. **Usare `isset()` per proprietà magiche**
-3. **Usare `getAttribute()` per accesso sicuro**
-4. **Usare `hasAttribute()` per verificare esistenza**
-5. **Documentazione completa** in `docs/eloquent-properties-best-practices.md`
-
-=======
->>>>>>> laraxot/develop
 
 ### Versione Incoming
 

@@ -50,8 +50,6 @@ return [
         'recordId' => [
             'label' => 'ID Record',
         ],
-<<<<<<< HEAD
-=======
         'client_id' => [
             'description' => 'client_id',
             'helper_text' => 'client_id',
@@ -64,7 +62,6 @@ return [
         'id' => [
             'label' => 'id',
         ],
->>>>>>> cf5d6db (.)
     ],
     'plural' => [
         'model' => [
@@ -152,8 +149,6 @@ return [
             'tooltip' => 'view',
             'icon' => 'view',
         ],
-<<<<<<< HEAD
-=======
         'submit' => [
             'tooltip' => 'submit',
             'icon' => 'submit',
@@ -164,7 +159,6 @@ return [
             'icon' => 'associateExistingClient',
             'label' => 'associateExistingClient',
         ],
->>>>>>> cf5d6db (.)
     ],
     'sections' => [
         'empty' => [

@@ -24,8 +24,6 @@ class SsoProviderResource extends XotBaseResource
 
     protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-identification';
 
-    protected static \UnitEnum|string|null $navigationGroup = 'Authentication';
-
     /**
      * @return array<string, \Filament\Support\Components\Component>
      */

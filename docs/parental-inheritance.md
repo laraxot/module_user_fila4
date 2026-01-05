@@ -79,15 +79,6 @@ abstract class BaseUser extends Authenticatable
 }
 ```
 
-<<<<<<< HEAD
-#### 2. User del Modulo Specifico (es. <nome progetto>)
-
-```php
-namespace Modules\<nome progetto>\Models;
-
-use Modules\User\Models\BaseUser;
-use Modules\<nome progetto>\Enums\UserTypeEnum;
-=======
 #### 2. User del Modulo Specifico (es. SaluteOra)
 
 ```php
@@ -95,7 +86,6 @@ namespace Modules\SaluteOra\Models;
 
 use Modules\User\Models\BaseUser;
 use Modules\SaluteOra\Enums\UserTypeEnum;
->>>>>>> laraxot/develop
 
 class User extends BaseUser
 {
@@ -103,11 +93,7 @@ class User extends BaseUser
     protected $connection = 'salute_ora';
 
     /**
-<<<<<<< HEAD
-     * Mappatura dei tipi specifici del progetto <nome progetto>
-=======
      * Mappatura dei tipi specifici del progetto SaluteOra
->>>>>>> laraxot/develop
      */
     protected $childTypes = [
         'admin' => Admin::class,
@@ -130,11 +116,7 @@ class User extends BaseUser
 #### 3. Modelli Figli del Modulo Specifico
 
 ```php
-<<<<<<< HEAD
-namespace Modules\<nome progetto>\Models;
-=======
 namespace Modules\SaluteOra\Models;
->>>>>>> laraxot/develop
 
 use Parental\HasParent;
 
@@ -293,20 +275,12 @@ class UserTypeCommandTest extends TestCase
 }
 
 // Test nel modulo specifico
-<<<<<<< HEAD
-class <nome progetto>UserTypeCommandTest extends TestCase
-=======
 class SaluteOraUserTypeCommandTest extends TestCase
->>>>>>> laraxot/develop
 {
     /** @test */
     public function it_works_with_salute_ora_types()
     {
-<<<<<<< HEAD
-        // Test con tipi specifici di <nome progetto>
-=======
         // Test con tipi specifici di SaluteOra
->>>>>>> laraxot/develop
     }
 }
 ```
@@ -346,10 +320,6 @@ $typeValue = is_object($user->type) && method_exists($user->type, 'value')
 - [Documentazione Parental](https://github.com/tighten/parental)
 - [Laravel Single Table Inheritance](https://laravel.com/docs/eloquent-relationships#polymorphic-relationships)
 - [Modulo User - Architettura Base](./user-architecture.md)
-<<<<<<< HEAD
-- [<nome progetto> - Implementazione STI](../../<nome progetto>/docs/user-types.md)
-=======
 - [SaluteOra - Implementazione STI](../../SaluteOra/docs/user-types.md)
->>>>>>> laraxot/develop
 
 *Ultimo aggiornamento: Dicembre 2024*

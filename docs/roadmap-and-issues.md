@@ -3,11 +3,7 @@
 **Modulo**: User (Authentication, Authorization, Profiles)  
 **Data Analisi**: 1 Ottobre 2025  
 **Maintainer**: Team FixCity  
-<<<<<<< HEAD
-**Status PHPStan**: ⚠️ 95 errori (level 10)
-=======
 **Status PHPStan**: ⚠️ 95 errori (Level 9)
->>>>>>> laraxot/develop
 
 ---
 
@@ -251,11 +247,7 @@ php artisan queue:prune-failed --hours=48
 - [ ] Cleanup PHPStan suppressions
 
 **Totale**: ~6 ore  
-<<<<<<< HEAD
-**Risultato**: ✅ 0 errori PHPStan level 10
-=======
 **Risultato**: ✅ 0 errori PHPStan Level 9
->>>>>>> laraxot/develop
 
 ---
 

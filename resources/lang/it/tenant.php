@@ -40,11 +40,7 @@ return [
             'helper_text' => 'Indirizzo del tenant',
         ],
         'primary_color' => [
-<<<<<<< HEAD
-            'label' => 'Colore Primario',
-=======
             'label' => 'primary_color',
->>>>>>> cf5d6db (.)
             'helper_text' => 'Colore primario del tenant',
         ],
         'secondary_color' => [
@@ -68,8 +64,6 @@ return [
             'icon' => 'heroicon-o-trash',
             'color' => 'danger',
         ],
-<<<<<<< HEAD
-=======
         'reorderRecords' => [
             'tooltip' => 'reorderRecords',
         ],
@@ -82,6 +76,5 @@ return [
         'detach' => [
             'tooltip' => 'detach',
         ],
->>>>>>> cf5d6db (.)
     ],
 ];

@@ -4,21 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-<<<<<<< HEAD
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Resources\Pages\PageRegistration;
-=======
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Pages\PageRegistration;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
->>>>>>> cf5d6db (.)
 use Filament\Tables\Columns\IconColumn; // Already there, but explicitly for boolean()
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -42,31 +33,15 @@ class OauthRefreshTokenResource extends XotBaseResource
 
     protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-arrow-path';
 
-    protected static \UnitEnum|string|null $navigationGroup = 'API';
-
     /**
      * Get the form schema for the resource.
      *
-<<<<<<< HEAD
-     * @return array<string, Select|TextInput>
-=======
      * @return array<string, \Filament\Forms\Components\Select|\Filament\Forms\Components\TextInput>
->>>>>>> cf5d6db (.)
      */
     #[\Override]
     public static function getFormSchema(): array
     {
         return [
-<<<<<<< HEAD
-            'access_token_id' => Select::make('access_token_id')
-                ->relationship('accessToken', 'id')
-                ->searchable()
-                ->required(),
-            'revoked' => TextInput::make('revoked')
-                ->numeric()
-                ->required(),
-            'expires_at' => TextInput::make('expires_at'),
-=======
             'access_token_id' => \Filament\Forms\Components\Select::make('access_token_id')
                 ->relationship('accessToken', 'id')
                 ->searchable()
@@ -75,7 +50,6 @@ class OauthRefreshTokenResource extends XotBaseResource
                 ->numeric()
                 ->required(),
             'expires_at' => \Filament\Forms\Components\TextInput::make('expires_at'),
->>>>>>> cf5d6db (.)
         ];
     }
 
