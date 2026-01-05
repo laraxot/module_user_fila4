@@ -5,15 +5,10 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 use Filament\Actions\Action;
-use Filament\Actions\DeleteAction;
-use Filament\Tables\Filters\Filter;
-use Filament\Forms\Components\DatePicker;
-use DateTimeInterface;
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
-use Modules\User\Filament\Resources\AuthenticationLogResource\Pages\ListAuthenticationLogs;
-use Modules\User\Filament\Resources\AuthenticationLogResource\Pages\ViewAuthenticationLog;
-use Modules\User\Models\User;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -22,18 +17,21 @@ use Filament\Schemas\Components\Section;
 use Filament\Support\Components\Component;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
-use Modules\User\Filament\Resources\AuthenticationLogResource\Pages;
+use Modules\User\Filament\Resources\AuthenticationLogResource\Pages\ListAuthenticationLogs;
+use Modules\User\Filament\Resources\AuthenticationLogResource\Pages\ViewAuthenticationLog;
 use Modules\User\Models\AuthenticationLog;
+use Modules\User\Models\User;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class AuthenticationLogResource extends XotBaseResource
 {
     protected static ?string $model = AuthenticationLog::class;
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-shield-check';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-shield-check';
 
     protected static ?int $navigationSort = 3;
 

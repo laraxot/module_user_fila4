@@ -6,7 +6,6 @@ use Illuminate\Contracts\Cache\Factory;
 use Illuminate\Database\Schema\Blueprint;
 // ---- models ---
 use Modules\Xot\Database\Migrations\XotBaseMigration;
-use Webmozart\Assert\Assert;
 
 /*
  * Class CreatePermissionsTable.

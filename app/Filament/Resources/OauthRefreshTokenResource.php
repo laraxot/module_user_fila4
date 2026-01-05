@@ -4,21 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Override;
-use Modules\User\Filament\Resources\OauthRefreshTokenResource\Pages\ListOauthRefreshTokens;
-use Modules\User\Filament\Resources\OauthRefreshTokenResource\Pages\ViewOauthRefreshToken;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Resources\Pages\PageRegistration;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
-
-use Filament\Tables\Columns\IconColumn; // Already there, but explicitly for boolean()
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Resources\Pages\PageRegistration;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Table;
+use Filament\Tables\Table; // Already there, but explicitly for boolean()
 use Illuminate\Database\Eloquent\Builder;
 use Modules\User\Filament\Resources\OauthRefreshTokenResource\Pages;
+use Modules\User\Filament\Resources\OauthRefreshTokenResource\Pages\ListOauthRefreshTokens;
+use Modules\User\Filament\Resources\OauthRefreshTokenResource\Pages\ViewOauthRefreshToken;
 use Modules\User\Models\OauthRefreshToken;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
@@ -35,14 +33,14 @@ class OauthRefreshTokenResource extends XotBaseResource
 
     protected static ?string $pluralModelLabel = 'OAuth Refresh Tokens';
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-arrow-path';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-arrow-path';
 
     /**
      * Get the form schema for the resource.
      *
      * @return array<string, Select|TextInput>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
@@ -103,7 +101,7 @@ class OauthRefreshTokenResource extends XotBaseResource
      *
      * @return array<string, PageRegistration>
      */
-    #[Override]
+    #[\Override]
     public static function getPages(): array
     {
         return [
@@ -115,7 +113,7 @@ class OauthRefreshTokenResource extends XotBaseResource
     /**
      * Modify the Eloquent query used to retrieve the records.
      */
-    #[Override]
+    #[\Override]
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()->with(['accessToken']);
