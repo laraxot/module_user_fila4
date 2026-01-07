@@ -51,8 +51,6 @@ class RolesRelationManager extends XotBaseRelationManager
     #[\Override]
     public function getTableHeaderActions(): array
     {
-        $xotData = XotData::make();
-
         /** @var array<string, Action> $parentActions */
         $parentActions = parent::getTableHeaderActions();
 

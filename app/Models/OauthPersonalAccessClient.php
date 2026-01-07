@@ -5,8 +5,18 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
+=======
+<<<<<<< HEAD
+use Illuminate\Database\Eloquent\Model;
+=======
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+>>>>>>> 939bd20e2 (.)
+>>>>>>> 9d7e4c81 (.)
 use Illuminate\Support\Carbon;
+use Modules\Xot\Models\Traits\HasXotFactory;
+use Modules\User\Models\BaseModel;
 
 /**
  * Modules\User\Models\OauthPersonalAccessClient.
@@ -17,7 +27,16 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
  * @property string|null $created_by
+<<<<<<< HEAD
  * @property int         $id
+=======
+<<<<<<< HEAD
+ * @property int         $id
+=======
+ * @property int $id
+ * @property-read OauthClient|null $client
+>>>>>>> 939bd20e2 (.)
+>>>>>>> 9d7e4c81 (.)
  *
  * @method static Builder|OauthPersonalAccessClient newModelQuery()
  * @method static Builder|OauthPersonalAccessClient newQuery()
@@ -32,8 +51,22 @@ use Illuminate\Support\Carbon;
  *
  * @mixin \Eloquent
  */
-class OauthPersonalAccessClient extends Model
+class OauthPersonalAccessClient extends BaseModel
 {
+    use HasXotFactory;
+
     /** @var string */
     protected $table = 'oauth_personal_access_clients';
+
+    /**
+     * Get the OAuth client that this personal access client belongs to.
+     *
+     * @return BelongsTo<OauthClient, $this>
+     *
+     * @phpstan-return BelongsTo<OauthClient, $this>
+     */
+    public function client(): BelongsTo
+    {
+        return $this->belongsTo(OauthClient::class, 'client_id');
+    }
 }

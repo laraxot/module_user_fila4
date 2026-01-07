@@ -91,16 +91,19 @@ Questi modelli sono tipicamente meglio esposti come `RelationManagers` dentro ri
 
 #### 1. Resource Organization
 
+```text
 User Module Resources:
 ├── Core Entities (User, Profile, Team, Tenant)
 ├── Security (Permission, Role, Authentication)
-├── OAuth (Client, Token Management) 
+├── OAuth (Client, Token Management)
 ├── Team Management (Team, Invitation, Membership)
 └── Support (Feature, SocialProvider)
+```
 
 #### 2. Resource Inheritance Pattern
 
 All resources extend `XotBaseResource` following Laraxot architecture:
+
 - Consistent UI patterns
 - Standardized form schemas
 - Shared table configurations
@@ -109,8 +112,9 @@ All resources extend `XotBaseResource` following Laraxot architecture:
 #### 3. Model Relationships
 
 Resources should reflect the actual Eloquent relationships:
+
 - Users ↔ Roles (Many-to-Many)
-- Users ↔ Teams (Many-to-Many) 
+- Users ↔ Teams (Many-to-Many)
 - Users ↔ Tenants (Many-to-Many)
 - OAuth Clients ↔ Tokens (One-to-Many)
 
@@ -127,16 +131,16 @@ Resources should reflect the actual Eloquent relationships:
 
 #### MEDIUM PRIORITY (Operational Value)
 
-5. **OauthRefreshToken** - Token lifecycle
-6. **Notification** - User communication
-7. **TeamUser** - Team membership
-8. **TenantUser** - Multi-tenancy
+1. **OauthRefreshToken** - Token lifecycle
+2. **Notification** - User communication
+3. **TeamUser** - Team membership
+4. **TenantUser** - Multi-tenancy
 
 #### LOW PRIORITY (Support Functions)
 
-9. **OauthAuthCode**, **OauthDeviceCode** - Internal OAuth
-10. **PasswordReset** - Password management
-11. **PermissionRole**, **PermissionUser**, **RoleHasPermission** - Internal relations
+1. **OauthAuthCode**, **OauthDeviceCode** - Internal OAuth
+2. **PasswordReset** - Password management
+3. **PermissionRole**, **PermissionUser**, **RoleHasPermission** - Internal relations
 
 ## 🚀 Implementation Strategy
 
@@ -197,14 +201,13 @@ Motivo: nel modulo `User` molte classi in `Models/` sono basi (`Base*`), pivot/j
 
 ### Immediate Action Items
 
-1. **Non aggiungere Resource “per ogni tabella”**: molte sono pivot/support e vanno gestite via `RelationManagers`.
-2. **Aggiungere Resource solo se c'è un caso d'uso admin reale** (operazioni, filtri, revoche, auditing, moderazione).
-3. **Per OAuth**: copertura base già presente (`ClientResource`, `OauthAccessTokenResource`, `OauthRefreshTokenResource`, `OauthAuthCodeResource`). Valutare solo `OauthDeviceCode` e `OauthPersonalAccessClient` se servono in backoffice.
-4. **Per SSO/Notifications**: valutare Resource dedicate solo se gli admin devono configurare/provider/recipient/strategie.
+1. Non aggiungere Resource “per ogni tabella”: molte sono pivot/support e vanno gestite via `RelationManagers`.
+2. Aggiungere Resource solo se c'è un caso d'uso admin reale (operazioni, filtri, revoche, auditing, moderazione).
+3. Per OAuth: copertura base già presente (`ClientResource`, `OauthAccessTokenResource`, `OauthRefreshTokenResource`, `OauthAuthCodeResource`). Valutare solo `OauthDeviceCode` e `OauthPersonalAccessClient` se servono in backoffice.
+4. Per SSO/Notifications: valutare Resource dedicate solo se gli admin devono configurare/provider/recipient/strategie.
 
 ### Future Considerations
 
-1. **Relation Managers**: Add relevant relations to existing resources
-2. **Pivot Resources**: Consider creating resources for important many-to-many relationships
-3. **Custom Actions**: Add bulk operations for token management
-This analysis provides a comprehensive roadmap for implementing missing Filament resources in the User module following DRY and KISS principles while maintaining consistency with the Laraxot architecture.
+1. Relation Managers: Add relevant relations to existing resources
+2. Pivot Resources: Consider creating resources for important many-to-many relationships
+3. Custom Actions: Add bulk operations for token management

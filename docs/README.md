@@ -7,12 +7,15 @@ Il modulo User gestisce il sistema completo di autenticazione, autorizzazione e 
 ## Business Logic
 
 ### Sistema Multi-Tipo Utenti
+
 Il modulo supporta diversi tipi di utenti con logiche specifiche:
+
 - **Doctor**: Professionisti sanitari con specializzazioni
 - **Patient**: Utenti del sistema sanitario
 - **Admin**: Amministratori con permessi granulari
 
 ### Autenticazione Avanzata
+
 - Autenticazione multi-tipo con validazione specifica
 - Sistema di ruoli e permessi basato su Spatie Laravel Permission
 - Gestione team e collaborazioni
@@ -21,11 +24,13 @@ Il modulo supporta diversi tipi di utenti con logiche specifiche:
 ## Componenti Principali
 
 ### Modelli
+
 - **User**: Modello base con Single Table Inheritance (STI)
 - **Team**: Gestione team di lavoro
 - **Tenant**: Supporto multi-tenancy
 
 ### Filament Resources
+
 - **UserResource**: CRUD completo utenti
 - **RoleResource**: Gestione ruoli e permessi
 - **TeamResource**: Gestione team
@@ -57,10 +62,12 @@ Vince **Approccio B**: riduce superficie di sicurezza, evita CRUD inutili, manti
 - **Feature**: `FeatureResource`
 - **PasswordReset**: `PasswordResetResource`
 - **OAuth**:
+
   - `ClientResource` (Passport client model)
   - `OauthAccessTokenResource`
   - `OauthAuthCodeResource`
   - `OauthRefreshTokenResource`
+
 - **SSO**: `SsoProviderResource`
 
 ### Regola pratica
@@ -70,6 +77,7 @@ Vince **Approccio B**: riduce superficie di sicurezza, evita CRUD inutili, manti
 - **Se è un'entità configurabile da admin**: creare `Resource` dedicata.
 
 ### Widget e Pagine
+
 - **LoginWidget**: Form di login multi-tipo
 - **UserStatsWidget**: Statistiche utenti
 - **SecurityAlertsWidget**: Allerte sicurezza
@@ -79,6 +87,7 @@ Vince **Approccio B**: riduce superficie di sicurezza, evita CRUD inutili, manti
 ## 🔧 Correzioni Recenti
 
 ### PHPStan Level 10 Compliance
+
 - ✅ **LogoutWidget.php**: Corretto tipo `view-string` per proprietà `$view`
 - ✅ **EditUserWidget.php**:
   - Aggiunto type narrowing per `$model` e `$action` properties
@@ -96,6 +105,7 @@ Vince **Approccio B**: riduce superficie di sicurezza, evita CRUD inutili, manti
   - Gestito correttamente chiamata dinamica a `execute()` method
 
 ### Merge Conflicts Risolti
+
 - ✅ **Docs**: Risolti conflitti Git nella cartella `docs/`
 - ✅ **EditProfile.php**: Rimossi marker Git
 - ✅ **PasswordResetConfirmWidget.php**:
@@ -105,6 +115,7 @@ Vince **Approccio B**: riduce superficie di sicurezza, evita CRUD inutili, manti
   - Corretta logica auto-login dopo reset password
 
 ### Pattern Corretti
+
 ```php
 // ❌ PRIMA (merge conflict)
 if ($this->currentState !== 'form') {
@@ -119,7 +130,9 @@ if ($this->currentState !== 'form') {
 ```
 
 ### File Locking Applicato
+
 Tutti i file del modulo User ora seguono il **File Locking Pattern**:
+
 - Prima di modificare: `touch file.php.lock`
 - Se lock esiste: SKIPPA
 - Dopo modifica: `rm file.php.lock`
@@ -129,12 +142,14 @@ Tutti i file del modulo User ora seguono il **File Locking Pattern**:
 ## Architettura Tecnica
 
 ### Pattern Implementati
+
 - **Single Table Inheritance**: Per tipi utente diversi
 - **Repository Pattern**: Per accesso dati
 - **Service Layer**: Per logica business
 - **Event-Driven**: Per notifiche e audit
 
 ### Integrazione con Altri Moduli
+
 - **Activity**: Tracciamento completo modifiche
 - **Lang**: Sistema traduzioni completo
 - **Xot**: Estensione classi base
@@ -142,11 +157,14 @@ Tutti i file del modulo User ora seguono il **File Locking Pattern**:
 ## Configurazione
 
 ### File di Configurazione
+
 - `config/user.php`: Configurazioni principali
 - Variabili ambiente per sicurezza e performance
 
 ### Traduzioni
+
 Struttura completa in:
+
 - `lang/it/`: Italiano (principale)
 - `lang/en/`: Inglese
 - `lang/de/`: Tedesco
@@ -154,11 +172,13 @@ Struttura completa in:
 ## Testing
 
 ### Test Coverage
+
 - Unit test per logica business
 - Feature test per flussi completi
 - Test autenticazione e autorizzazione
 
 ### Comandi Test
+
 ```bash
 php artisan test --filter=User
 php artisan test --filter=AuthenticationTest
@@ -168,17 +188,19 @@ php artisan test --filter=RolePermissionTest
 ## Collegamenti
 
 ### Documentazione Interna
+
 - [Troubleshooting Login Component](./troubleshooting-login-component.md)
 - [Filament Filters and Widgets](./filament-filters-and-widgets.md)
 
 ### Documentazione Moduli Correlati
+
 - [Modulo Xot Service Provider Architecture](../xot/docs/service-provider-architecture.md)
 - [Modulo Lang Translation System](../lang/docs/README.md)
 
 ### Documentazione Esterna
+
 - [Spatie Laravel Permission](https://spatie.be/docs/laravel-permission)
 - [Filament Documentation](https://filamentphp.com/docs)
 - [Laravel Multi-Tenancy](https://tenancyforlaravel.com/)
 
-*Ultimo aggiornamento: Sistema di documentazione automatica*
-
+Ultimo aggiornamento: il sistema di documentazione automatica è stato aggiornato.
