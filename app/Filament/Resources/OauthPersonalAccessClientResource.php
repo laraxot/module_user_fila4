@@ -70,7 +70,7 @@ final class OauthPersonalAccessClientResource extends XotBaseResource
     /**
      * Get the table columns for the resource.
      *
-     * @return array<string, \Filament\Tables\Columns\Column>
+     * @return array<string, Tables\Columns\Column>
      */
     public static function getTableColumns(): array
     {
@@ -97,7 +97,7 @@ final class OauthPersonalAccessClientResource extends XotBaseResource
     /**
      * Get the table filters for the resource.
      *
-     * @return array<string, \Filament\Tables\Filters\BaseFilter>
+     * @return array<string, Tables\Filters\BaseFilter>
      */
     public static function getTableFilters(): array
     {

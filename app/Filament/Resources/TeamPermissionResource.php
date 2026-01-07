@@ -11,13 +11,10 @@ use Filament\Actions\EditAction;
 use Filament\Forms\Components\Field;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Resources\Pages\PageRegistration;
 use Filament\Schemas\Components\Section;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Modules\User\Models\Team;
 use Modules\User\Models\TeamPermission;
-use Modules\Xot\Datas\XotData;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class TeamPermissionResource extends XotBaseResource
@@ -48,7 +45,7 @@ class TeamPermissionResource extends XotBaseResource
     /**
      * Get the form schema for the resource (XotBaseResource pattern).
      *
-     * @return array<string, \Filament\Forms\Components\Field|\Filament\Schemas\Components\Section>
+     * @return array<string, Field|Section>
      */
     public static function getFormSchema(): array
     {
@@ -90,9 +87,10 @@ class TeamPermissionResource extends XotBaseResource
                             return null;
                         }
                         $team = $record->team;
-                        if ($team !== null && method_exists($team, 'exists') && $team->exists) {
+                        if (null !== $team && method_exists($team, 'exists') && $team->exists) {
                             return TeamResource::getUrl('view', ['record' => $team]);
                         }
+
                         return null;
                     })
                     ->openUrlInNewTab(),
@@ -105,9 +103,10 @@ class TeamPermissionResource extends XotBaseResource
                             return null;
                         }
                         $user = $record->user;
-                        if ($user !== null && method_exists($user, 'exists') && $user->exists) {
+                        if (null !== $user && method_exists($user, 'exists') && $user->exists) {
                             return UserResource::getUrl('view', ['record' => $user]);
                         }
+
                         return null;
                     })
                     ->openUrlInNewTab(),
