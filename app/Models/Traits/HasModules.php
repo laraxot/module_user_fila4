@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models\Traits;
 
+<<<<<<< HEAD
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Nwidart\Modules\Facades\Module as ModuleFacade;
@@ -32,4 +33,22 @@ trait HasModules
 
         return $modulesList;
     }
+=======
+trait HasModules
+{
+    /*
+    public function getModules(): Collection
+    {
+        // @var \Illuminate\Database\Eloquent\Collection<int, \Spatie\Permission\Models\Role> $roles
+        $roles = $this->roles()->get();
+
+        return $roles->filter(function ($item): bool {
+            $name = $item->name;
+            Assert::string($name);
+
+            return Str::endsWith($name, '::admin');
+        });
+    }
+    */
+>>>>>>> b98f28f9 (.)
 }

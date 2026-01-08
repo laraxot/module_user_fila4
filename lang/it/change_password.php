@@ -14,4 +14,9 @@ return [
             'label' => 'Cambia password',
         ],
     ],
+    'actions' => [
+        'cancel' => [
+            'tooltip' => 'cancel',
+        ],
+    ],
 ];
