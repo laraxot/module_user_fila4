@@ -21,7 +21,6 @@ use Modules\User\Filament\Clusters\Passport\Resources\OauthPersonalAccessClientR
 use Modules\User\Filament\Clusters\Passport\Resources\OauthPersonalAccessClientResource\Pages\ViewOauthPersonalAccessClient;
 use Modules\User\Models\OauthPersonalAccessClient;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-use Override;
 
 /**
  * Class OauthPersonalAccessClientResource.
@@ -43,7 +42,7 @@ final class OauthPersonalAccessClientResource extends XotBaseResource
     /**
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
@@ -144,7 +143,7 @@ final class OauthPersonalAccessClientResource extends XotBaseResource
     /**
      * @return array<string, \Filament\Resources\Pages\PageRegistration>
      */
-    #[Override]
+    #[\Override]
     public static function getPages(): array
     {
         return [

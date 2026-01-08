@@ -22,7 +22,6 @@ use Modules\User\Filament\Clusters\Passport\Resources\OauthRefreshTokenResource\
 use Modules\User\Filament\Clusters\Passport\Resources\OauthRefreshTokenResource\Pages\ViewOauthRefreshToken;
 use Modules\User\Models\OauthRefreshToken;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-use Override;
 
 class OauthRefreshTokenResource extends XotBaseResource
 {
@@ -43,7 +42,7 @@ class OauthRefreshTokenResource extends XotBaseResource
      *
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
@@ -102,7 +101,7 @@ class OauthRefreshTokenResource extends XotBaseResource
     /**
      * @return array<string, \Filament\Resources\Pages\PageRegistration>
      */
-    #[Override]
+    #[\Override]
     public static function getPages(): array
     {
         return [
@@ -114,7 +113,7 @@ class OauthRefreshTokenResource extends XotBaseResource
     /**
      * Modify the Eloquent query used to retrieve the records.
      */
-    #[Override]
+    #[\Override]
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()->with(['accessToken']);

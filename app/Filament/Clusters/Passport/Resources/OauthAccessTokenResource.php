@@ -25,7 +25,6 @@ use Modules\User\Filament\Clusters\Passport\Resources\OauthAccessTokenResource\P
 use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Models\OauthAccessToken;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-use Override;
 
 use function Safe\json_encode;
 
@@ -71,7 +70,7 @@ class OauthAccessTokenResource extends XotBaseResource
                             return null;
                         }
                         $user = $record->user;
-                        if ($user !== null && method_exists($user, 'exists') && $user->exists) {
+                        if (null !== $user && method_exists($user, 'exists') && $user->exists) {
                             return UserResource::getUrl('view', ['record' => $user]);
                         }
 
@@ -90,7 +89,7 @@ class OauthAccessTokenResource extends XotBaseResource
                 TextColumn::make('scopes')
                     ->limit(30)
                     ->tooltip(function (mixed $state): ?string {
-                        if ($state === null) {
+                        if (null === $state) {
                             return null;
                         }
                         if (is_array($state)) {
@@ -149,7 +148,7 @@ class OauthAccessTokenResource extends XotBaseResource
     /**
      * @return array<string, \Filament\Resources\Pages\PageRegistration>
      */
-    #[Override]
+    #[\Override]
     public static function getPages(): array
     {
         return [
@@ -162,7 +161,7 @@ class OauthAccessTokenResource extends XotBaseResource
     /**
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
