@@ -39,6 +39,7 @@ class PassportServiceProvider extends ServiceProvider
         Passport::useRefreshTokenModel(OauthRefreshToken::class);
         Passport::useAuthCodeModel(OauthAuthCode::class);
         Passport::useClientModel(OauthClient::class);
+
         Passport::useDeviceCodeModel(OauthDeviceCode::class);
         Passport::enablePasswordGrant();
 

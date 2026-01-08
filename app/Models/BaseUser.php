@@ -176,9 +176,21 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
 =======
 >>>>>>> dd73b41a (.)
 
+    public function tokenCant(string $scope): bool
+    {
+        return ! $this->tokenCan($scope);
+    }
+
     public function createToken(string $name, array $scopes = []): PersonalAccessTokenResult
     {
         return $this->passportCreateToken($name, $scopes);
+    }
+
+    public function currentAccessToken(): ?ScopeAuthorizable
+    {
+        $token = $this->token();
+
+        return ($token instanceof ScopeAuthorizable) ? $token : null;
     }
 
     public function withAccessToken(?ScopeAuthorizable $accessToken): static
@@ -186,6 +198,11 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         $this->passportWithAccessToken($accessToken);
 
         return $this;
+    }
+
+    public function getProviderName(): string
+    {
+        return (string) ($this->getAttribute('provider') ?? config('auth.guards.api.provider', 'users'));
     }
 
     /** @var string */
