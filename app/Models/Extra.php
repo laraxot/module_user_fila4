@@ -59,15 +59,14 @@ use Spatie\SchemalessAttributes\SchemalessAttributes;
  * @method static ExtraFactory factory($count = null, $state = [])
  *
  * @mixin IdeHelperExtra
-<<<<<<< HEAD
+ * <<<<<<< HEAD
  *
  * @property ProfileContract|null $deleter
  *
-=======
+ * =======
  * <<<<<<< HEAD
  * <<<<<<< HEAD
  * =======
- *
  * @property ProfileContract|null $deleter
  *
  * >>>>>>> 220cf97b (.)
@@ -76,7 +75,8 @@ use Spatie\SchemalessAttributes\SchemalessAttributes;
  *
  * >>>>>>> laraxot/develop
  *
->>>>>>> dd73b41a (.)
+ * >>>>>>> dd73b41a (.)
+ *
  * @mixin \Eloquent
  */
 final class Extra extends BaseExtra

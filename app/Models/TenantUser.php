@@ -47,11 +47,12 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @property ProfileContract|null $deleter
  * @property ProfileContract|null $updater
  *
-<<<<<<< HEAD
- * @method static TenantUserFactory factory($count = null, $state = [])
-=======
+ * <<<<<<< HEAD
+ *
+ * @method static TenantUserFactory                                  factory($count = null, $state = [])
+ *                                                                                                       =======
  * @method static \Modules\User\Database\Factories\TenantUserFactory factory($count = null, $state = [])
->>>>>>> dd73b41a (.)
+ *                                                                                                       >>>>>>> dd73b41a (.)
  *
  * @mixin \Eloquent
  */

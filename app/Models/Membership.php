@@ -56,18 +56,18 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @property ProfileContract|null $updater
  *
  * @mixin IdeHelperMembership
-<<<<<<< HEAD
+ * <<<<<<< HEAD
  *
  * @property ProfileContract|null $deleter
  *
  * @method static MembershipFactory          factory($count = null, $state = [])
  * @method static Builder<static>|Membership whereId($value)
-=======
- * <<<<<<< HEAD
- * <<<<<<< HEAD
- * =======
- * =======
- * >>>>>>> laraxot/develop
+ *                                                                               =======
+ *                                                                               <<<<<<< HEAD
+ *                                                                               <<<<<<< HEAD
+ *                                                                               =======
+ *                                                                               =======
+ *                                                                               >>>>>>> laraxot/develop
  *
  * @property ProfileContract|null $deleter
  *
@@ -78,7 +78,7 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * >>>>>>> 220cf97b (.)
  * =======
  * >>>>>>> laraxot/develop
->>>>>>> dd73b41a (.)
+ * >>>>>>> dd73b41a (.)
  *
  * @mixin \Eloquent
  */

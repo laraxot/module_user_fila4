@@ -56,11 +56,12 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  *
  * @property ProfileContract|null $deleter
  *
-<<<<<<< HEAD
- * @method static DeviceUserFactory factory($count = null, $state = [])
-=======
+ * <<<<<<< HEAD
+ *
+ * @method static DeviceUserFactory                                  factory($count = null, $state = [])
+ *                                                                                                       =======
  * @method static \Modules\User\Database\Factories\DeviceUserFactory factory($count = null, $state = [])
->>>>>>> dd73b41a (.)
+ *                                                                                                       >>>>>>> dd73b41a (.)
  *
  * @mixin \Eloquent
  */

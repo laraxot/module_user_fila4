@@ -43,15 +43,14 @@ use Webmozart\Assert\Assert;
  * @method static Builder|PermissionRole whereUpdatedBy($value)
  *
  * @mixin IdeHelperPermissionRole
-<<<<<<< HEAD
+ * <<<<<<< HEAD
  *
  * @property ProfileContract|null $deleter
  *
-=======
+ * =======
  * <<<<<<< HEAD
  * <<<<<<< HEAD
  * =======
- *
  * @property ProfileContract|null $deleter
  *
  * >>>>>>> 220cf97b (.)
@@ -60,7 +59,8 @@ use Webmozart\Assert\Assert;
  *
  * >>>>>>> laraxot/develop
  *
->>>>>>> dd73b41a (.)
+ * >>>>>>> dd73b41a (.)
+ *
  * @mixin \Eloquent
  */
 class PermissionRole extends BasePivot

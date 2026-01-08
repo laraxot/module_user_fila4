@@ -61,19 +61,21 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static Builder<static>|SsoProvider whereUpdatedAt($value)
  * @method static Builder<static>|SsoProvider whereUpdatedBy($value)
  *
-<<<<<<< HEAD
+ * <<<<<<< HEAD
+ *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $deleter
  * @property ProfileContract|null $updater
  *
  * @method static SsoProviderFactory factory($count = null, $state = [])
-=======
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ *                                                                       =======
+ *
+ * @property ProfileContract|null $creator
+ * @property ProfileContract|null $deleter
+ * @property ProfileContract|null $updater
  *
  * @method static \Modules\User\Database\Factories\SsoProviderFactory factory($count = null, $state = [])
->>>>>>> dd73b41a (.)
+ *                                                                                                        >>>>>>> dd73b41a (.)
  *
  * @mixin \Eloquent
  */

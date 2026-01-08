@@ -27,15 +27,14 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|PermissionUser query()
  *
  * @mixin IdeHelperPermissionUser
-<<<<<<< HEAD
+ * <<<<<<< HEAD
  *
  * @property ProfileContract|null $deleter
  *
-=======
+ * =======
  * <<<<<<< HEAD
  * <<<<<<< HEAD
  * =======
- *
  * @property ProfileContract|null $deleter
  *
  * >>>>>>> 220cf97b (.)
@@ -44,7 +43,8 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * >>>>>>> laraxot/develop
  *
->>>>>>> dd73b41a (.)
+ * >>>>>>> dd73b41a (.)
+ *
  * @mixin \Eloquent
  */
 class PermissionUser extends ModelHasPermission

@@ -41,17 +41,17 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|DeviceProfile query()
  *
  * @mixin IdeHelperDeviceProfile
-<<<<<<< HEAD
+ * <<<<<<< HEAD
  *
  * @property ProfileContract|null $deleter
  *
  * @method static DeviceProfileFactory factory($count = null, $state = [])
-=======
- * <<<<<<< HEAD
- * <<<<<<< HEAD
- * =======
- * =======
- * >>>>>>> laraxot/develop
+ *                                                                         =======
+ *                                                                         <<<<<<< HEAD
+ *                                                                         <<<<<<< HEAD
+ *                                                                         =======
+ *                                                                         =======
+ *                                                                         >>>>>>> laraxot/develop
  *
  * @property ProfileContract|null $deleter
  *
@@ -61,7 +61,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * >>>>>>> 220cf97b (.)
  * =======
  * >>>>>>> laraxot/develop
->>>>>>> dd73b41a (.)
+ * >>>>>>> dd73b41a (.)
  *
  * @mixin \Eloquent
  */

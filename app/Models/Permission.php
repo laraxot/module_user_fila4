@@ -13,7 +13,8 @@ use Modules\Xot\Models\Traits\RelationX;
 use Spatie\Permission\Models\Permission as SpatiePermission;
 
 /**
-<<<<<<< HEAD
+ * <<<<<<< HEAD.
+ *
  * @property int                         $id
  * @property string                      $name
  * @property string                      $guard_name
@@ -45,20 +46,21 @@ use Spatie\Permission\Models\Permission as SpatiePermission;
  * @method static Builder<static>|Permission withoutRole($roles, $guard = null)
  * @method static static                     firstOrCreate(array $attributes, array $values = [])
  * @method static static                     updateOrCreate(array $attributes, array $values = [])
-=======
- * @property int                                                       $id
- * @property string                                                    $name
- * @property string                                                    $guard_name
- * @property \Illuminate\Support\Carbon|null                           $created_at
- * @property \Illuminate\Support\Carbon|null                           $updated_at
- * @property string|null                                               $updated_by
- * @property string|null                                               $created_by
- * @property \Illuminate\Database\Eloquent\Collection<int, Permission> $permissions
- * @property int|null                                                  $permissions_count
- * @property \Illuminate\Database\Eloquent\Collection<int, Role>       $roles
- * @property int|null                                                  $roles_count
- * @property \Illuminate\Database\Eloquent\Collection<int, User>       $users
- * @property int|null                                                  $users_count
+ *                                                                                                 =======
+ *
+ * @property int                         $id
+ * @property string                      $name
+ * @property string                      $guard_name
+ * @property Carbon|null                 $created_at
+ * @property Carbon|null                 $updated_at
+ * @property string|null                 $updated_by
+ * @property string|null                 $created_by
+ * @property Collection<int, Permission> $permissions
+ * @property int|null                    $permissions_count
+ * @property Collection<int, Role>       $roles
+ * @property int|null                    $roles_count
+ * @property Collection<int, User>       $users
+ * @property int|null                    $users_count
  *
  * @method static \Modules\User\Database\Factories\PermissionFactory       factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Permission newModelQuery()
@@ -77,7 +79,7 @@ use Spatie\Permission\Models\Permission as SpatiePermission;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Permission withoutRole($roles, $guard = null)
  * @method static static                                                   firstOrCreate(array $attributes, array $values = [])
  * @method static static                                                   updateOrCreate(array $attributes, array $values = [])
->>>>>>> dd73b41a (.)
+ *                                                                                                                               >>>>>>> dd73b41a (.)
  *
  * @mixin \Eloquent
  */

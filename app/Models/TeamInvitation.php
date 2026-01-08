@@ -54,15 +54,14 @@ use Modules\Xot\Datas\XotData;
  * @property ProfileContract|null $updater
  *
  * @mixin IdeHelperTeamInvitation
-<<<<<<< HEAD
+ * <<<<<<< HEAD
  *
  * @property ProfileContract|null $deleter
  *
-=======
+ * =======
  * =======
  * =======
  * >>>>>>> laraxot/develop
- *
  * @property int               $id
  * @property string|null       $team_id
  * @property string            $email
@@ -107,7 +106,8 @@ use Modules\Xot\Datas\XotData;
  * =======
  * >>>>>>> laraxot/develop
  *
->>>>>>> dd73b41a (.)
+ * >>>>>>> dd73b41a (.)
+ *
  * @mixin \Eloquent
  */
 class TeamInvitation extends BaseModel

@@ -62,15 +62,14 @@ use Modules\Xot\Datas\XotData;
  * @method static SocialiteUserFactory factory($count = null, $state = [])
  *
  * @mixin IdeHelperSocialiteUser
-<<<<<<< HEAD
+ * <<<<<<< HEAD
  *
  * @property ProfileContract|null $deleter
  *
-=======
+ * =======
  * =======
  * =======
  * >>>>>>> laraxot/develop
- *
  * @property int               $id
  * @property string            $user_id
  * @property string            $provider
@@ -119,7 +118,8 @@ use Modules\Xot\Datas\XotData;
  * =======
  * >>>>>>> laraxot/develop
  *
->>>>>>> dd73b41a (.)
+ * >>>>>>> dd73b41a (.)
+ *
  * @mixin \Eloquent
  */
 class SocialiteUser extends BaseModel

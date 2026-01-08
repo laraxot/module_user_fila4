@@ -81,11 +81,11 @@ use Modules\Xot\Contracts\UserContract;
  * @method static Builder<static>|OauthAccessToken whereDeletedAt($value)
  * @method static Builder<static>|OauthAccessToken whereDeletedBy($value)
  * @method static Builder<static>|OauthAccessToken whereUpdatedBy($value)
-<<<<<<< HEAD
+ *                                                                                                       <<<<<<< HEAD
  * @method static static                           create(array $attributes = [])
  * @method static static                           firstOrCreate(array $attributes, array $values = [])
  * @method static static                           updateOrCreate(array $attributes, array $values = [])
-=======
+ *                                                                                                       =======
  *                                                                                                       <<<<<<< HEAD
  *                                                                                                       <<<<<<< HEAD
  *                                                                                                       =======
@@ -98,7 +98,7 @@ use Modules\Xot\Contracts\UserContract;
  * @method static static                           firstOrCreate(array $attributes, array $values = [])
  * @method static static                           updateOrCreate(array $attributes, array $values = [])
  *                                                                                                       >>>>>>> laraxot/develop
->>>>>>> dd73b41a (.)
+ *                                                                                                       >>>>>>> dd73b41a (.)
  *
  * @mixin IdeHelperOauthAccessToken
  * @mixin \Eloquent

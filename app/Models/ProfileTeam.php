@@ -69,29 +69,30 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|ProfileTeam whereUserId($value)
  *
  * @mixin IdeHelperProfileTeam
-<<<<<<< HEAD
-=======
+ * <<<<<<< HEAD
+ * =======
  * <<<<<<< HEAD
  * <<<<<<< HEAD
  * =======
  * =======
  * >>>>>>> laraxot/develop
->>>>>>> dd73b41a (.)
+ * >>>>>>> dd73b41a (.)
  *
  * @property ProfileContract|null $deleter
  * @property Team|null            $team
  * @property User|null            $user
  *
-<<<<<<< HEAD
- * @method static ProfileTeamFactory factory($count = null, $state = [])
-=======
+ * <<<<<<< HEAD
+ *
+ * @method static ProfileTeamFactory                                  factory($count = null, $state = [])
+ *                                                                                                        =======
  * @method static \Modules\User\Database\Factories\ProfileTeamFactory factory($count = null, $state = [])
  *
  * <<<<<<< HEAD
  * >>>>>>> 220cf97b (.)
  * =======
  * >>>>>>> laraxot/develop
->>>>>>> dd73b41a (.)
+ * >>>>>>> dd73b41a (.)
  *
  * @mixin \Eloquent
  */

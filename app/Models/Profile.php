@@ -127,7 +127,7 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * @method static Builder<static>|Profile withoutRole($roles, $guard = null)
  *
  * @mixin IdeHelperProfile
-<<<<<<< HEAD
+ * <<<<<<< HEAD
  *
  * @property string|null          $user_id
  * @property Carbon|null          $created_at
@@ -137,22 +137,21 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * @property Carbon|null          $deleted_at
  * @property string|null          $deleted_by
  * @property ProfileContract|null $deleter
-=======
- * <<<<<<< HEAD
- * <<<<<<< HEAD
- * =======
- * =======
- * >>>>>>> laraxot/develop
- *
- * @property string|null                     $user_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string|null                     $updated_by
- * @property string|null                     $created_by
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property string|null                     $deleted_by
- * @property ProfileContract|null            $deleter
->>>>>>> dd73b41a (.)
+ *                                            =======
+ *                                            <<<<<<< HEAD
+ *                                            <<<<<<< HEAD
+ *                                            =======
+ *                                            =======
+ *                                            >>>>>>> laraxot/develop
+ * @property string|null          $user_id
+ * @property Carbon|null          $created_at
+ * @property Carbon|null          $updated_at
+ * @property string|null          $updated_by
+ * @property string|null          $created_by
+ * @property Carbon|null          $deleted_at
+ * @property string|null          $deleted_by
+ * @property ProfileContract|null $deleter
+ *                                            >>>>>>> dd73b41a (.)
  *
  * @method static Builder<static>|Profile whereBio($value)
  * @method static Builder<static>|Profile whereCreatedAt($value)
@@ -168,14 +167,15 @@ use Spatie\SchemalessAttributes\SchemalessAttributesTrait as HasSchemalessAttrib
  * @method static Builder<static>|Profile whereUpdatedBy($value)
  * @method static Builder<static>|Profile whereUserId($value)
  *
-<<<<<<< HEAD
-=======
+ * <<<<<<< HEAD
+ * =======
  * <<<<<<< HEAD
  * >>>>>>> 220cf97b (.)
  * =======
  * >>>>>>> laraxot/develop
  *
->>>>>>> dd73b41a (.)
+ * >>>>>>> dd73b41a (.)
+ *
  * @mixin \Eloquent
  */
 class Profile extends BaseProfile implements HasMedia

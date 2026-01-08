@@ -53,15 +53,14 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property ProfileContract|null $updater
  *
  * @mixin IdeHelperModelHasRole
-<<<<<<< HEAD
+ * <<<<<<< HEAD
  *
  * @property ProfileContract|null $deleter
  *
-=======
+ * =======
  * <<<<<<< HEAD
  * <<<<<<< HEAD
  * =======
- *
  * @property ProfileContract|null $deleter
  *
  * >>>>>>> 220cf97b (.)
@@ -70,7 +69,8 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * >>>>>>> laraxot/develop
  *
->>>>>>> dd73b41a (.)
+ * >>>>>>> dd73b41a (.)
+ *
  * @mixin \Eloquent
  */
 class ModelHasRole extends BaseMorphPivot

@@ -69,8 +69,8 @@ use Webmozart\Assert\Assert;
  * @property PermissionRole|null $pivot
  *
  * @mixin IdeHelperRole
-<<<<<<< HEAD
-=======
+ * <<<<<<< HEAD
+ * =======
  * =======
  * =======
  * >>>>>>> laraxot/develop
@@ -116,18 +116,19 @@ use Webmozart\Assert\Assert;
  * @property PermissionRole|null $pivot
  *
  * @mixin IdeHelperRole
->>>>>>> dd73b41a (.)
+ * >>>>>>> dd73b41a (.)
  *
  * @property string|null $display_name
  * @property string|null $description
  *
-<<<<<<< HEAD
- * @method static RoleFactory          factory($count = null, $state = [])
- * @method static Builder<static>|Role whereDescription($value)
- * @method static Builder<static>|Role whereDisplayName($value)
- * @method static static               firstOrCreate(array $attributes, array $values = [])
- * @method static static               updateOrCreate(array $attributes, array $values = [])
-=======
+ * <<<<<<< HEAD
+ *
+ * @method static RoleFactory                                  factory($count = null, $state = [])
+ * @method static Builder<static>|Role                         whereDescription($value)
+ * @method static Builder<static>|Role                         whereDisplayName($value)
+ * @method static static                                       firstOrCreate(array $attributes, array $values = [])
+ * @method static static                                       updateOrCreate(array $attributes, array $values = [])
+ *                                                                                                                   =======
  * @method static \Modules\User\Database\Factories\RoleFactory factory($count = null, $state = [])
  * @method static Builder<static>|Role                         whereDescription($value)
  * @method static Builder<static>|Role                         whereDisplayName($value)
@@ -138,7 +139,7 @@ use Webmozart\Assert\Assert;
  * >>>>>>> 220cf97b (.)
  * =======
  * >>>>>>> laraxot/develop
->>>>>>> dd73b41a (.)
+ * >>>>>>> dd73b41a (.)
  *
  * @mixin \Eloquent
  */

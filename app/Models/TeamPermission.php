@@ -49,23 +49,23 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|TeamPermission query()
  *
  * @mixin IdeHelperTeamPermission
-<<<<<<< HEAD
+ * <<<<<<< HEAD
  *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $deleter
  * @property ProfileContract|null $updater
  *
  * @method static TeamPermissionFactory factory($count = null, $state = [])
-=======
- * <<<<<<< HEAD
- * <<<<<<< HEAD
- * =======
- * =======
- * >>>>>>> laraxot/develop
+ *                                                                          =======
+ *                                                                          <<<<<<< HEAD
+ *                                                                          <<<<<<< HEAD
+ *                                                                          =======
+ *                                                                          =======
+ *                                                                          >>>>>>> laraxot/develop
  *
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property ProfileContract|null $creator
+ * @property ProfileContract|null $deleter
+ * @property ProfileContract|null $updater
  *
  * @method static \Modules\User\Database\Factories\TeamPermissionFactory factory($count = null, $state = [])
  *
@@ -73,7 +73,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * >>>>>>> 220cf97b (.)
  * =======
  * >>>>>>> laraxot/develop
->>>>>>> dd73b41a (.)
+ * >>>>>>> dd73b41a (.)
  *
  * @mixin \Eloquent
  */

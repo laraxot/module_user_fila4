@@ -34,7 +34,8 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  *
  * @mixin IdeHelperTenant
  *
-<<<<<<< HEAD
+ * <<<<<<< HEAD
+ *
  * @property string               $id
  * @property string               $name
  * @property string|null          $slug
@@ -45,18 +46,18 @@ use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
  * @property Carbon|null          $updated_at
  * @property Carbon|null          $deleted_at
  * @property ProfileContract|null $deleter
-=======
- * @property string                          $id
- * @property string                          $name
- * @property string|null                     $slug
- * @property string|null                     $domain
- * @property string|null                     $database
- * @property int                             $is_active
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property ProfileContract|null            $deleter
->>>>>>> dd73b41a (.)
+ *                                            =======
+ * @property string               $id
+ * @property string               $name
+ * @property string|null          $slug
+ * @property string|null          $domain
+ * @property string|null          $database
+ * @property int                  $is_active
+ * @property Carbon|null          $created_at
+ * @property Carbon|null          $updated_at
+ * @property Carbon|null          $deleted_at
+ * @property ProfileContract|null $deleter
+ *                                            >>>>>>> dd73b41a (.)
  *
  * @method static Builder<static>|Tenant whereCreatedAt($value)
  * @method static Builder<static>|Tenant whereDatabase($value)
