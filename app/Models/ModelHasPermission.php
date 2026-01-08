@@ -17,7 +17,16 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string $model_type
  * @property string $model_id
  *
+ * <<<<<<< HEAD
+ * <<<<<<< HEAD
+ *
  * @method static ModelHasPermissionFactory  factory($count = null, $state = [])
+ *                                                                               =======
+ * @method static ModelHasPermissionFactory  factory($count = null, $state = [])
+ *                                                                               >>>>>>> 220cf97b (.)
+ *                                                                               =======
+ * @method static ModelHasPermissionFactory  factory($count = null, $state = [])
+ *                                                                               >>>>>>> laraxot/develop
  * @method static Builder|ModelHasPermission newModelQuery()
  * @method static Builder|ModelHasPermission newQuery()
  * @method static Builder|ModelHasPermission query()
@@ -38,14 +47,37 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+ *                                         <<<<<<< HEAD
+ *                                         <<<<<<< HEAD
  * @property string|null          $team_id
+ *                                         =======
+ * @property string|null          $team_id
+ *                                         >>>>>>> 220cf97b (.)
+ *                                         =======
+ * @property string|null          $team_id
+ *                                         >>>>>>> laraxot/develop
  *
  * @method static Builder|ModelHasPermission whereTeamId($value)
  *
  * @mixin IdeHelperModelHasPermission
+<<<<<<< HEAD
  *
  * @property ProfileContract|null $deleter
  *
+=======
+ * <<<<<<< HEAD
+ * <<<<<<< HEAD
+ * =======
+ *
+ * @property ProfileContract|null $deleter
+ *
+ * >>>>>>> 220cf97b (.)
+ * =======
+ * @property ProfileContract|null $deleter
+ *
+ * >>>>>>> laraxot/develop
+ *
+>>>>>>> dd73b41a (.)
  * @mixin \Eloquent
  */
 class ModelHasPermission extends BaseMorphPivot

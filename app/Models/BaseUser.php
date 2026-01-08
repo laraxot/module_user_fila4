@@ -28,7 +28,10 @@ use Illuminate\Support\Str;
 use Laravel\Passport\Contracts\OAuthenticatable;
 use Laravel\Passport\Contracts\ScopeAuthorizable;
 use Laravel\Passport\HasApiTokens;
+<<<<<<< HEAD
 use Laravel\Passport\PersonalAccessTokenResult;
+=======
+>>>>>>> dd73b41a (.)
 use Modules\User\Database\Factories\UserFactory;
 use Modules\User\Models\Traits\HasAuthenticationLogTrait;
 use Modules\User\Models\Traits\HasModules;
@@ -133,12 +136,21 @@ use Spatie\Permission\Contracts\Role as SpatieRoleContract;
  */
 abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, UserContract, OAuthenticatable
 {
+<<<<<<< HEAD
     use HasApiTokens {
         HasApiTokens::tokenCan as protected passportTokenCan;
         HasApiTokens::createToken as protected passportCreateToken;
         HasApiTokens::withAccessToken as protected passportWithAccessToken;
     }
     use HasChildren;
+=======
+    use HasApiTokens;
+    use HasAuthenticationLogTrait;
+    use HasChildren;
+    use HasPermissions;
+    use HasRoles;
+    use HasTeams;
+>>>>>>> dd73b41a (.)
     use HasUuids;
     use HasXotFactory;
     use InteractsWithMedia;
@@ -148,6 +160,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     use HasSpatiePermission;
     use HasTeams;
     use Traits\HasTenants;
+<<<<<<< HEAD
     use XotTraits\RelationX;
 
     /** @var bool */
@@ -160,6 +173,8 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     {
         return $this->passportTokenCan($scope);
     }
+=======
+>>>>>>> dd73b41a (.)
 
     public function createToken(string $name, array $scopes = []): PersonalAccessTokenResult
     {

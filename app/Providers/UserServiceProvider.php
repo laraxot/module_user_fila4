@@ -47,7 +47,11 @@ class UserServiceProvider extends XotBaseServiceProvider
     public function register(): void
     {
         parent::register();
+<<<<<<< HEAD
         // $this->registerTeamModelBindings();
+=======
+        $this->registerTeamModelBindings();
+>>>>>>> dd73b41a (.)
     }
 
     public function registerMailsNotification(): void
@@ -173,4 +177,22 @@ class UserServiceProvider extends XotBaseServiceProvider
     {
         $this->app->register(SocialiteServiceProvider::class);
     }
+<<<<<<< HEAD
+=======
+
+    private function registerPassport(): void
+    {
+        if (method_exists(Passport::class, 'routes')) {
+            Passport::routes();
+        }
+
+        Passport::tokensExpireIn(now()->addDays(1));
+        Passport::refreshTokensExpireIn(now()->addDays(30));
+        Passport::personalAccessTokensExpireIn(now()->addMonths(6));
+        Passport::tokensCan([
+            'view-user' => 'View user information',
+            'core-technicians' => 'the technicians can ',
+        ]);
+    }
+>>>>>>> dd73b41a (.)
 }

@@ -10,9 +10,16 @@ use Filament\Actions\BulkAction;
 use Filament\Actions\DetachAction;
 use Filament\Actions\DetachBulkAction;
 use Filament\Forms\Components\TextInput;
+<<<<<<< HEAD
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+=======
+use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
+>>>>>>> dd73b41a (.)
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Models\User;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
@@ -29,6 +36,7 @@ class TeamsRelationManager extends XotBaseRelationManager
     #[\Override]
     public function getTableColumns(): array
     {
+<<<<<<< HEAD
         return [
             'name' => TextColumn::make('name')->searchable()->sortable(),
             'personal_team' => IconColumn::make('personal_team')
@@ -36,6 +44,20 @@ class TeamsRelationManager extends XotBaseRelationManager
                 ->getStateUsing(function (Model $record, self $livewire): bool {
                     /** @var User $user */
                     $user = $livewire->getOwnerRecord();
+=======
+        return $table
+            ->recordTitleAttribute('name')
+            ->columns([
+                TextColumn::make('name')->searchable()->sortable(),
+                IconColumn::make('personal_team')
+                    ->boolean()
+                    ->default(function ($record, $livewire): bool {
+                        /**
+                         * @var Model           $record
+                         * @var RelationManager $livewire
+                         */
+                        $user = $livewire->getOwnerRecord();
+>>>>>>> dd73b41a (.)
 
                     if (! $user instanceof User) {
                         return false;
@@ -84,7 +106,14 @@ class TeamsRelationManager extends XotBaseRelationManager
                         'current_team_id' => null,
                     ]);
                 }),
+<<<<<<< HEAD
         ];
+=======
+            ])
+            ->toolbarActions([
+                DetachBulkAction::make(),
+            ]);
+>>>>>>> dd73b41a (.)
     }
 
     /**
@@ -94,7 +123,13 @@ class TeamsRelationManager extends XotBaseRelationManager
     public function getTableBulkActions(): array
     {
         return [
+<<<<<<< HEAD
             'detach' => DetachBulkAction::make(),
+=======
+            TextColumn::make('name')->searchable()->sortable(),
+            TextColumn::make('personal_team')->sortable(),
+            TextColumn::make('created_at')->dateTime()->sortable(),
+>>>>>>> dd73b41a (.)
         ];
     }
 }

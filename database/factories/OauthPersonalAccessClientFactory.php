@@ -10,6 +10,11 @@ use Modules\User\Models\OauthPersonalAccessClient;
 /**
  * OauthPersonalAccessClient Factory.
  *
+ * <<<<<<< HEAD
+ *
+ * =======
+ * >>>>>>> laraxot/develop
+ *
  * @extends Factory<OauthPersonalAccessClient>
  */
 class OauthPersonalAccessClientFactory extends Factory

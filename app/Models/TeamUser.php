@@ -53,7 +53,11 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property Team|null            $team
  * @property User|null            $user
  *
+<<<<<<< HEAD
  * @method static TeamUserFactory factory($count = null, $state = [])
+=======
+ * @method static \Modules\User\Database\Factories\TeamUserFactory factory($count = null, $state = [])
+>>>>>>> dd73b41a (.)
  *
  * @mixin \Eloquent
  */

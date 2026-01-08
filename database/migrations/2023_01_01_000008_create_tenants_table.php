@@ -9,6 +9,10 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 return new class extends XotBaseMigration {
     protected ?string $model_class = Tenant::class;
 
+<<<<<<< HEAD
+=======
+return new class extends Migration {
+>>>>>>> dd73b41a (.)
     /**
      * Esegue la migrazione.
      */

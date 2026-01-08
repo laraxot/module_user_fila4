@@ -11,9 +11,12 @@ use Laravel\Passport\Passport;
 use Modules\User\Models\Permission;
 use Modules\User\Models\Role;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 use Modules\User\Tests\Traits\HasUserTestCase;
 
 uses(HasUserTestCase::class);
+=======
+>>>>>>> dd73b41a (.)
 
 beforeEach(function () {
     $user = User::factory()->create([

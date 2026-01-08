@@ -6,12 +6,16 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\User\Models\Authentication;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
+<<<<<<< HEAD
 return new class extends XotBaseMigration {
     protected ?string $model_class = Authentication::class;
 
     /**
      * Esegue la migrazione.
      */
+=======
+return new class extends Migration {
+>>>>>>> dd73b41a (.)
     public function up(): void
     {
         // -- CREATE --
