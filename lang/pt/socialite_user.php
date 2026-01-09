@@ -5,13 +5,13 @@ declare(strict_types=1);
 return [
     'fields' => [
         'provider' => [
-            'label' => 'Provider',
+            'label' => 'Provedor',
         ],
         'provider_id' => [
-            'label' => 'Provider ID',
+            'label' => 'ID do Provedor',
         ],
         'name' => [
-            'label' => 'Name',
+            'label' => 'Nome',
         ],
         'email' => [
             'label' => 'Email',
@@ -20,31 +20,31 @@ return [
             'label' => 'Avatar',
         ],
         'create' => [
-            'label' => 'Create',
+            'label' => 'Criar',
         ],
         'attach' => [
-            'label' => 'Attach',
+            'label' => 'Anexar',
         ],
         'layout' => [
             'label' => 'Layout',
         ],
         'view' => [
-            'label' => 'View',
+            'label' => 'Ver',
         ],
         'edit' => [
-            'label' => 'Edit',
+            'label' => 'Editar',
         ],
         'detach' => [
-            'label' => 'Detach',
+            'label' => 'Desanexar',
         ],
         'toggleColumns' => [
-            'label' => 'Toggle Columns',
+            'label' => 'Alternar Colunas',
         ],
     ],
     'navigation' => [
         'sort' => 89,
         'icon' => 'heroicon-o-user-circle',
-        'group' => 'Authentication',
-        'label' => 'Socialite Users',
+        'group' => 'Autenticação',
+        'label' => 'Usuários Socialite',
     ],
 ];

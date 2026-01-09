@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
-        'group' => 'Authentication',
+        'group' => 'Authentifizierung',
         'icon' => 'heroicon-o-shield-exclamation',
-        'label' => 'Authentication Logs',
+        'label' => 'Authentifizierungsprotokolle',
         'sort' => 5,
     ],
     'actions' => [
         'reorderRecords' => [
-            'tooltip' => 'Reorder Records',
+            'tooltip' => 'Datensätze Neu Anordnen',
             'icon' => 'reorderRecords',
-            'label' => 'Reorder Records',
+            'label' => 'Datensätze Neu Anordnen',
         ],
     ],
 ];

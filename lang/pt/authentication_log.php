@@ -4,50 +4,50 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
-        'group' => 'Authentification',
+        'group' => 'Autenticação',
         'icon' => 'heroicon-o-shield-exclamation',
-        'label' => 'Journaux d\'Authentification',
+        'label' => 'Registros de Autenticação',
         'sort' => 5,
     ],
-    'label' => 'Journal d\'Authentification',
-    'plural_label' => 'Journaux d\'Authentification',
+    'label' => 'Registro de Autenticação',
+    'plural_label' => 'Registros de Autenticação',
     'fields' => [
         'id' => [
             'label' => 'ID',
         ],
         'user_id' => [
-            'label' => 'Utilisateur',
+            'label' => 'Usuário',
         ],
         'ip_address' => [
-            'label' => 'Adresse IP',
+            'label' => 'Endereço IP',
         ],
         'user_agent' => [
             'label' => 'User Agent',
         ],
         'login_at' => [
-            'label' => 'Connexion le',
+            'label' => 'Acesso Em',
         ],
         'logout_at' => [
-            'label' => 'Déconnexion le',
+            'label' => 'Desconexão Em',
         ],
         'login_method' => [
-            'label' => 'Méthode de connexion',
+            'label' => 'Método de Acesso',
         ],
         'success' => [
-            'label' => 'Succès',
+            'label' => 'Sucesso',
         ],
     ],
     'actions' => [
         'reorderRecords' => [
-            'tooltip' => 'Réorganiser les Enregistrements',
+            'tooltip' => 'Reordenar Registros',
             'icon' => 'reorderRecords',
-            'label' => 'Réorganiser les Enregistrements',
+            'label' => 'Reordenar Registros',
         ],
         'view_details' => [
-            'label' => 'Voir les détails',
+            'label' => 'Ver Detalhes',
         ],
         'export_logs' => [
-            'label' => 'Exporter les journaux',
+            'label' => 'Exportar Registros',
         ],
     ],
 ];

@@ -34,25 +34,6 @@ class OauthAccessTokenResource extends XotBaseResource
 
     protected static ?string $model = OauthAccessToken::class;
 
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-key';
-
-    protected static ?int $navigationSort = 5;
-
-    public static function getNavigationLabel(): string
-    {
-        return __('OAuth Access Tokens');
-    }
-
-    public static function getPluralLabel(): string
-    {
-        return __('OAuth Access Tokens');
-    }
-
-    public static function getModelLabel(): string
-    {
-        return __('OAuth Access Token');
-    }
-
     public static function table(Table $table): Table
     {
         return $table
