@@ -5,15 +5,12 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-<<<<<<< HEAD
 /*
  * Migrazione per team_user con id autoincrement.
  *
  * Questa migrazione gestisce sia la creazione che l'aggiornamento della tabella team_user.
  * Se la tabella esiste già con id UUID, viene convertita a id autoincrement.
  */
-=======
->>>>>>> dd73b41a (.)
 return new class extends XotBaseMigration {
     /**
      * Nome della tabella gestita dalla migrazione.

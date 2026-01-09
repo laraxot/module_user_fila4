@@ -57,15 +57,9 @@ class Password extends XotBasePage
     /**
      * Definisce la struttura dello schema.
      *
-     * <<<<<<< HEAD
-     *
      * @param Schema $schema Lo schema da configurare
-     * @param Schema $schema Il form da configurare
      *
      * @return Schema Lo schema configurato
-     *                =======
-     * @return Schema Il form configurato
-     *                >>>>>>> dd73b41a (.)
      */
     public function schema(Schema $schema): Schema
     {

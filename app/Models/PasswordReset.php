@@ -41,23 +41,8 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|PasswordReset whereUuid($value)
  *
  * @mixin IdeHelperPasswordReset
- * <<<<<<< HEAD
  *
  * @property ProfileContract|null $deleter
- *
- * =======
- * <<<<<<< HEAD
- * <<<<<<< HEAD
- * =======
- * @property ProfileContract|null $deleter
- *
- * >>>>>>> 220cf97b (.)
- * =======
- * @property ProfileContract|null $deleter
- *
- * >>>>>>> laraxot/develop
- *
- * >>>>>>> dd73b41a (.)
  *
  * @mixin \Eloquent
  */

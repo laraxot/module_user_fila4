@@ -10,14 +10,6 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 return new class extends XotBaseMigration {
-<<<<<<< HEAD
-=======
-    /**
-     * Nome della tabella gestita dalla migrazione.
-     */
-    protected string $table_name = 'teams';
-
->>>>>>> dd73b41a (.)
     /**
      * Esegue la migrazione.
      */

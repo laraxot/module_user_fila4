@@ -28,12 +28,7 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  *
  * @mixin IdeHelperNotification
  *
- * <<<<<<< HEAD
- *
- * @method static NotificationFactory                                  factory($count = null, $state = [])
- *                                                                                                         =======
- * @method static \Modules\User\Database\Factories\NotificationFactory factory($count = null, $state = [])
- *                                                                                                         >>>>>>> dd73b41a (.)
+ * @method static NotificationFactory factory($count = null, $state = [])
  *
  * @mixin \Eloquent
  */

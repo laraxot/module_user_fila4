@@ -40,11 +40,7 @@ class Change extends Component
         }
 
         $this->user = $authUser;
-<<<<<<< HEAD
         /** @var Collection<int, TeamContract> $allTeams */
-=======
-        /** @var \Illuminate\Support\Collection<int, TeamContract> $allTeams */
->>>>>>> b98f28f9 (.)
         $allTeams = $this->user->allTeams();
         $this->teams = $allTeams->toArray();
     }
@@ -61,7 +57,7 @@ class Change extends Component
         if (! $this->user->switchTeam($team)) {
             abort(403);
         }
-        if (null !== $team) {
+        if ($team !== null) {
             // TeamSwitched::dispatch($team->fresh(), $this->user);
             TeamSwitched::dispatch($team, $this->user);
         }
@@ -83,7 +79,7 @@ class Change extends Component
         $view_params = [
             'view' => $view,
         ];
-        if ([] === $this->teams) {
+        if ($this->teams === []) {
             $view = 'ui::livewire.empty';
         }
 

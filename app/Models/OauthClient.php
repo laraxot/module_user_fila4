@@ -7,9 +7,7 @@ namespace Modules\User\Models;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Foundation\Auth\Access\Authorizable;
-use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Support\Carbon;
 use Laravel\Passport\Client as PassportClient;
 use Laravel\Passport\Database\Factories\ClientFactory;
@@ -19,34 +17,6 @@ use Spatie\Permission\Traits\HasRoles;
 
 /**
  * Modules\User\Models\OauthClient.
- *
- * <<<<<<< HEAD
- * <<<<<<< HEAD
- *
- * @property string                            $id
- * @property string|null                       $user_id
- * @property string                            $name
- * @property string|null                       $secret
- * @property string|null                       $provider
- * @property string                            $redirect
- * @property bool                              $personal_access_client
- * @property bool                              $password_client
- * @property bool                              $revoked
- * @property Carbon|null                       $created_at
- * @property Carbon|null                       $updated_at
- * @property Collection<int, OauthAuthCode>    $authCodes
- * @property int|null                          $auth_codes_count
- * @property array|null                        $grant_types
- * @property string|null                       $plain_secret
- * @property array|null                        $scopes
- * @property Collection<int, OauthAccessToken> $tokens
- * @property int|null                          $tokens_count
- * @property UserContract|null                 $user
- *
- * @method static ClientFactory factory($count = null, $state = [])
- *                                                                  =======
- *                                                                  =======
- *                                                                  >>>>>>> laraxot/develop
  *
  * @property string                            $id
  * @property string|null                       $user_id
@@ -69,10 +39,6 @@ use Spatie\Permission\Traits\HasRoles;
  * @property UserContract|null                 $user
  *
  * @method static ClientFactory       factory($count = null, $state = [])
- *                                                                        <<<<<<< HEAD
- *                                                                        >>>>>>> 220cf97b (.)
- *                                                                        =======
- *                                                                        >>>>>>> laraxot/develop
  * @method static Builder|OauthClient newModelQuery()
  * @method static Builder|OauthClient newQuery()
  * @method static Builder|OauthClient query()
@@ -101,10 +67,7 @@ class OauthClient extends PassportClient implements AuthorizableContract
 {
     use Authorizable;
     use HasRoles;
-    /** @var string */
-    protected $connection = 'user';
 
-<<<<<<< HEAD
     /**
      * The name of the guard for Spatie Permission.
      * REQUIRED BY Spatie\Permission\Traits\HasRoles - MUST be public.
@@ -112,6 +75,8 @@ class OauthClient extends PassportClient implements AuthorizableContract
      * @var string
      */
     public $guard_name = 'api';
+    /** @var string */
+    protected $connection = 'user';
 
     /**
      * Determine if the entity has a given ability.
@@ -203,22 +168,4 @@ class OauthClient extends PassportClient implements AuthorizableContract
             return false;
         }
     }
-
-    /**
-     * @return MorphTo<AuthUser, $this>
-     *
-     * @phpstan-return MorphTo<AuthUser, $this>
-     */
-    public function owner(): MorphTo
-    {
-        return parent::owner();
-    }
-=======
-    /*
-     * protected $fillable = [
-     * 'id', 'user_id', 'name', 'secret', 'provider', 'redirect',
-     * 'personal_access_client', 'password_client', 'revoked',
-     * ];
-     */
->>>>>>> dd73b41a (.)
 }

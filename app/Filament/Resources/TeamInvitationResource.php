@@ -16,7 +16,6 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
-use Modules\User\Filament\Resources\TeamInvitationResource\Pages;
 use Modules\User\Filament\Resources\TeamInvitationResource\Pages\EditTeamInvitations;
 use Modules\User\Filament\Resources\TeamInvitationResource\Pages\ListTeamInvitations;
 use Modules\User\Models\TeamInvitation;
@@ -28,14 +27,6 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 class TeamInvitationResource extends XotBaseResource
 {
     protected static ?string $model = TeamInvitation::class;
-
-    protected static ?string $recordTitleAttribute = 'email';
-
-    protected static ?string $modelLabel = 'Team Invitation';
-
-    protected static ?string $pluralModelLabel = 'Team Invitations';
-
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-envelope';
 
     /**
      * Get the form schema for the resource.

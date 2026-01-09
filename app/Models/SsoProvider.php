@@ -61,21 +61,11 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @method static Builder<static>|SsoProvider whereUpdatedAt($value)
  * @method static Builder<static>|SsoProvider whereUpdatedBy($value)
  *
- * <<<<<<< HEAD
- *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $deleter
  * @property ProfileContract|null $updater
  *
  * @method static SsoProviderFactory factory($count = null, $state = [])
- *                                                                       =======
- *
- * @property ProfileContract|null $creator
- * @property ProfileContract|null $deleter
- * @property ProfileContract|null $updater
- *
- * @method static \Modules\User\Database\Factories\SsoProviderFactory factory($count = null, $state = [])
- *                                                                                                        >>>>>>> dd73b41a (.)
  *
  * @mixin \Eloquent
  */
@@ -105,21 +95,6 @@ class SsoProvider extends BaseModel
     ];
 
     /**
-     * The attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'settings' => 'array',
-            'domain_whitelist' => 'array',
-            'role_mapping' => 'array',
-            'is_active' => 'boolean',
-        ];
-    }
-
-    /**
      * Get all users associated with this SSO provider.
      */
     public function users(): HasMany
@@ -137,7 +112,7 @@ class SsoProvider extends BaseModel
         }
 
         $atPos = strrchr($email, '@');
-        if (false === $atPos) {
+        if ($atPos === false) {
             return false;
         }
 
@@ -165,5 +140,20 @@ class SsoProvider extends BaseModel
         }
 
         return $roles;
+    }
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'settings' => 'array',
+            'domain_whitelist' => 'array',
+            'role_mapping' => 'array',
+            'is_active' => 'boolean',
+        ];
     }
 }

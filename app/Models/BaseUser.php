@@ -11,7 +11,6 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -28,10 +27,7 @@ use Illuminate\Support\Str;
 use Laravel\Passport\Contracts\OAuthenticatable;
 use Laravel\Passport\Contracts\ScopeAuthorizable;
 use Laravel\Passport\HasApiTokens;
-<<<<<<< HEAD
 use Laravel\Passport\PersonalAccessTokenResult;
-=======
->>>>>>> dd73b41a (.)
 use Modules\User\Database\Factories\UserFactory;
 use Modules\User\Models\Traits\HasAuthenticationLogTrait;
 use Modules\User\Models\Traits\HasModules;
@@ -136,21 +132,12 @@ use Spatie\Permission\Contracts\Role as SpatieRoleContract;
  */
 abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, UserContract, OAuthenticatable
 {
-<<<<<<< HEAD
     use HasApiTokens {
         HasApiTokens::tokenCan as protected passportTokenCan;
         HasApiTokens::createToken as protected passportCreateToken;
         HasApiTokens::withAccessToken as protected passportWithAccessToken;
     }
     use HasChildren;
-=======
-    use HasApiTokens;
-    use HasAuthenticationLogTrait;
-    use HasChildren;
-    use HasPermissions;
-    use HasRoles;
-    use HasTeams;
->>>>>>> dd73b41a (.)
     use HasUuids;
     use HasXotFactory;
     use InteractsWithMedia;
@@ -160,7 +147,6 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     use HasSpatiePermission;
     use HasTeams;
     use Traits\HasTenants;
-<<<<<<< HEAD
     use XotTraits\RelationX;
 
     /** @var bool */
@@ -168,42 +154,6 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
 
     /** @var Pivot|null */
     public $pivot;
-
-    public function tokenCan(string $scope): bool
-    {
-        return $this->passportTokenCan($scope);
-    }
-=======
->>>>>>> dd73b41a (.)
-
-    public function tokenCant(string $scope): bool
-    {
-        return ! $this->tokenCan($scope);
-    }
-
-    public function createToken(string $name, array $scopes = []): PersonalAccessTokenResult
-    {
-        return $this->passportCreateToken($name, $scopes);
-    }
-
-    public function currentAccessToken(): ?ScopeAuthorizable
-    {
-        $token = $this->token();
-
-        return ($token instanceof ScopeAuthorizable) ? $token : null;
-    }
-
-    public function withAccessToken(?ScopeAuthorizable $accessToken): static
-    {
-        $this->passportWithAccessToken($accessToken);
-
-        return $this;
-    }
-
-    public function getProviderName(): string
-    {
-        return (string) ($this->getAttribute('provider') ?? config('auth.guards.api.provider', 'users'));
-    }
 
     /** @var string */
     protected $connection = 'user';
@@ -284,6 +234,40 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         }
     }
 
+    public function tokenCan(string $scope): bool
+    {
+        return $this->passportTokenCan($scope);
+    }
+
+    public function tokenCant(string $scope): bool
+    {
+        return ! $this->tokenCan($scope);
+    }
+
+    public function createToken(string $name, array $scopes = []): PersonalAccessTokenResult
+    {
+        return $this->passportCreateToken($name, $scopes);
+    }
+
+    public function currentAccessToken(): ?ScopeAuthorizable
+    {
+        $token = $this->token();
+
+        return $token instanceof ScopeAuthorizable ? $token : null;
+    }
+
+    public function withAccessToken(?ScopeAuthorizable $accessToken): static
+    {
+        $this->passportWithAccessToken($accessToken);
+
+        return $this;
+    }
+
+    public function getProviderName(): string
+    {
+        return (string) ($this->getAttribute('provider') ?? config('auth.guards.api.provider', 'users'));
+    }
+
     public function canAccessFilament(?Panel $panel = null): bool
     {
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;
@@ -353,7 +337,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     public function canAccessPanel(Panel $panel): bool
     {
         // $panel->default('admin');
-        if ('admin' !== $panel->getId()) {
+        if ($panel->getId() !== 'admin') {
             $role = $panel->getId();
             /*
              * $xot = XotData::make();
@@ -425,7 +409,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     public function getProviderField(string $provider, string $field): string
     {
         $socialiteUser = $this->socialiteUsers()->firstWhere(['provider' => $provider]);
-        if (null === $socialiteUser) {
+        if ($socialiteUser === null) {
             throw new \Exception('SocialiteUser not found');
         }
 
@@ -458,22 +442,22 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
 
     public function getFullNameAttribute(?string $value): string
     {
-        if (null !== $value) {
+        if ($value !== null) {
             return $value;
         }
 
         $fullName = trim(($this->first_name ?? '').' '.($this->last_name ?? ''));
 
-        return '' !== $fullName ? $fullName : ($this->email ?? 'User');
+        return $fullName !== '' ? $fullName : ($this->email ?? 'User');
     }
 
     public function getNameAttribute(?string $value): string
     {
-        if (null !== $value) {
+        if ($value !== null) {
             return $value;
         }
 
-        if (null === $this->getKey()) {
+        if ($this->getKey() === null) {
             return $this->email ?? 'User';
         }
 
@@ -488,7 +472,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
                 return true;
             }
 
-            return \PHP_SAPI === 'cli' && ('testing' === getenv('APP_ENV') || 'testing' === getenv('ENV'));
+            return \PHP_SAPI === 'cli' && (getenv('APP_ENV') === 'testing' || getenv('ENV') === 'testing');
         })();
         if ($isTesting) {
             // Do not call update() here to avoid hitting the database.
@@ -499,7 +483,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
 
         try {
             $value = $candidate;
-            while (null !== self::firstWhere(['name' => $value])) {
+            while (self::firstWhere(['name' => $value]) !== null) {
                 ++$i;
                 $value = $name.'-'.$i;
             }
@@ -571,6 +555,16 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         $this->attributes['password'] = $value;
     }
 
+    /**
+     * User possiede molti Clients OAuth (per autenticazione API).
+     *
+     * @return MorphMany<OauthClient, $this>
+     */
+    public function clients(): MorphMany
+    {
+        return $this->morphMany(OauthClient::class, 'owner');
+    }
+
     /** @return array<string, string> */
     protected function casts(): array
     {
@@ -592,15 +586,5 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
             'created_by' => 'string',
             'deleted_by' => 'string',
         ];
-    }
-
-    /**
-     * User possiede molti Clients OAuth (per autenticazione API).
-     *
-     * @return MorphMany<OauthClient, $this>
-     */
-    public function clients(): MorphMany
-    {
-        return $this->morphMany(OauthClient::class, 'owner');
     }
 }

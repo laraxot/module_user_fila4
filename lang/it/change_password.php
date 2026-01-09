@@ -14,12 +14,4 @@ return [
             'label' => 'Cambia password',
         ],
     ],
-<<<<<<< HEAD
-    'actions' => [
-        'cancel' => [
-            'tooltip' => 'cancel',
-        ],
-    ],
-=======
->>>>>>> dd73b41a (.)
 ];

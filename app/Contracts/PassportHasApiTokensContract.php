@@ -52,24 +52,12 @@ interface PassportHasApiTokensContract
     /**
      * Create a new personal access token for the user.
      *
-     * @param string             $name
      * @param array<int, string> $scopes
-     *
-     * @return PersonalAccessTokenResult
      */
-    public function createToken($name, array $scopes = []);
+    public function createToken(string $name, array $scopes = []): PersonalAccessTokenResult;
 
     /**
      * Set the current access token for the user.
-<<<<<<< HEAD
      */
     public function withAccessToken(Token|TransientToken|null $accessToken): static;
-=======
-     *
-     * @param Token|TransientToken $accessToken
-     *
-     * @return $this
-     */
-    public function withAccessToken($accessToken);
->>>>>>> dd73b41a (.)
 }

@@ -17,16 +17,7 @@ use Webmozart\Assert\Assert;
  * @method static Builder|PermissionRole newQuery()
  * @method static Builder|PermissionRole query()
  *
- * <<<<<<< HEAD
- * <<<<<<< HEAD
- *
  * @property string      $id
- *                                      =======
- * @property string      $id
- *                                      >>>>>>> 220cf97b (.)
- *                                      =======
- * @property string      $id
- *                                      >>>>>>> laraxot/develop
  * @property string|null $permission_id
  * @property string|null $role_id
  * @property Carbon|null $created_at
@@ -43,23 +34,8 @@ use Webmozart\Assert\Assert;
  * @method static Builder|PermissionRole whereUpdatedBy($value)
  *
  * @mixin IdeHelperPermissionRole
- * <<<<<<< HEAD
  *
  * @property ProfileContract|null $deleter
- *
- * =======
- * <<<<<<< HEAD
- * <<<<<<< HEAD
- * =======
- * @property ProfileContract|null $deleter
- *
- * >>>>>>> 220cf97b (.)
- * =======
- * @property ProfileContract|null $deleter
- *
- * >>>>>>> laraxot/develop
- *
- * >>>>>>> dd73b41a (.)
  *
  * @mixin \Eloquent
  */
