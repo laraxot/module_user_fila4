@@ -37,7 +37,7 @@ class Confirm extends Component
          */
         $view = 'pub_theme::livewire.auth.passwords.confirm';
 
-        /** @var Factory|View $result */
+        /* @var Factory|View $result */
         return view($view)->extends('pub_theme::layouts.auth');
     }
 }

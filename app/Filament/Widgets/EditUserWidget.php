@@ -125,7 +125,7 @@ class EditUserWidget extends XotBaseWidget
         $schema = $this->resource::getFormSchemaWidget();
         Assert::isArray($schema, 'Schema must be array');
 
-        /** @var array<int|string, Component> $result */
+        /* @var array<int|string, Component> $result */
         return $schema;
     }
 
@@ -165,14 +165,14 @@ class EditUserWidget extends XotBaseWidget
         /** @var class-string<Model> $modelClass */
         $modelClass = $this->model;
         if ($userId) {
-            /** @var Model $user */
+            /* @var Model $user */
             return $this->model::findOrFail($userId);
         }
 
         // Se non è specificato un userId, usa l'utente correntemente autenticato
         $currentUser = Auth::user();
         if ($currentUser && \is_string($this->model) && $currentUser instanceof $this->model) {
-            /** @var Model $user */
+            /* @var Model $user */
             return $currentUser;
         }
 
@@ -184,14 +184,14 @@ class EditUserWidget extends XotBaseWidget
                 $user = $query->first();
 
                 if ($user instanceof Model) {
-                    /** @var Model $user */
+                    /* @var Model $user */
                     return $user;
                 }
             }
         }
 
         // Ultimo fallback: nuovo modello
-        /** @var Model $user */
+        /* @var Model $user */
         return app($this->model);
     }
 }

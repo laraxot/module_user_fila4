@@ -27,7 +27,8 @@ trait HasModules
 
             return $this->hasRole($role_name);
         });
-        /** @var list<Module> $modulesList */
+
+        /* @var list<Module> $modulesList */
         return array_values($filteredModules);
     }
 }

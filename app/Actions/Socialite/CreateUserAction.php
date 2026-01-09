@@ -63,7 +63,7 @@ class CreateUserAction
         );
 
         // Return the refreshed user instance
-        /** @var UserContract $refreshedUser */
+        /* @var UserContract $refreshedUser */
         return $newlyCreatedUser->refresh();
     }
 }
