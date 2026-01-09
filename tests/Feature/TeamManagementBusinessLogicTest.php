@@ -9,8 +9,7 @@ use Modules\User\Tests\TestCase;
 
 uses(TestCase::class);
 
-it('can create team', function (): void
-{
+it('can create team', function (): void {
     // Arrange
     $teamData = [
         'name' => 'Studio Dentistico Milano',
@@ -36,8 +35,7 @@ it('can create team', function (): void
     expect($team->personal_team)->toBeFalse();
 });
 
-it('can add user to team', function (): void
-{
+it('can add user to team', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $user = User::factory()->create();
@@ -59,8 +57,7 @@ it('can add user to team', function (): void
     expect($user->belongsToTeam($team))->toBeTrue();
 });
 
-it('can remove user from team', function (): void
-{
+it('can remove user from team', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $user = User::factory()->create();
@@ -79,8 +76,7 @@ it('can remove user from team', function (): void
     expect($user->belongsToTeam($team))->toBeFalse();
 });
 
-it('can assign team role to user', function (): void
-{
+it('can assign team role to user', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $user = User::factory()->create();
@@ -99,8 +95,7 @@ it('can assign team role to user', function (): void
     expect($team->users()->find($user->id)->pivot->role)->toBe('admin');
 });
 
-it('can assign team permissions to user', function (): void
-{
+it('can assign team permissions to user', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $user = User::factory()->create();
@@ -121,8 +116,7 @@ it('can assign team permissions to user', function (): void
         ->toHaveCount(3);
 });
 
-it('can check user team permissions', function (): void
-{
+it('can check user team permissions', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $user = User::factory()->create();
@@ -139,8 +133,7 @@ it('can check user team permissions', function (): void
     expect($team->userHasPermission($user, 'delete'))->toBeFalse();
 });
 
-it('can create team invitation', function (): void
-{
+it('can create team invitation', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $inviter = User::factory()->create();
@@ -173,8 +166,7 @@ it('can create team invitation', function (): void
     expect($invitation->email)->toBe('invited@example.com');
 });
 
-it('can accept team invitation', function (): void
-{
+it('can accept team invitation', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $inviter = User::factory()->create();
@@ -204,8 +196,7 @@ it('can accept team invitation', function (): void
     ], 'user');
 });
 
-it('can decline team invitation', function (): void
-{
+it('can decline team invitation', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $inviter = User::factory()->create();
@@ -226,8 +217,7 @@ it('can decline team invitation', function (): void
     ], 'user');
 });
 
-it('can create team membership', function (): void
-{
+it('can create team membership', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $user = User::factory()->create();
@@ -259,8 +249,7 @@ it('can create team membership', function (): void
     expect($membership->role)->toBe('member');
 });
 
-it('can update team membership', function (): void
-{
+it('can update team membership', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $user = User::factory()->create();
@@ -287,8 +276,7 @@ it('can update team membership', function (): void
     expect($membership->fresh()->permissions)->toContain('delete');
 });
 
-it('can remove team membership', function (): void
-{
+it('can remove team membership', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $user = User::factory()->create();
@@ -309,8 +297,7 @@ it('can remove team membership', function (): void
     expect($team->hasUser($user))->toBeFalse();
 });
 
-it('can create team permission', function (): void
-{
+it('can create team permission', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $permissionData = [
@@ -334,8 +321,7 @@ it('can create team permission', function (): void
     expect($permission->name)->toBe('patients.manage');
 });
 
-it('can assign permission to team role', function (): void
-{
+it('can assign permission to team role', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $permission = $team->permissions()->create([
@@ -356,8 +342,7 @@ it('can assign permission to team role', function (): void
     ], 'user');
 });
 
-it('can check team user role', function (): void
-{
+it('can check team user role', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $user = User::factory()->create();
@@ -369,8 +354,7 @@ it('can check team user role', function (): void
     expect($team->getUserRole($user))->toBe('admin');
 });
 
-it('can get team members', function (): void
-{
+it('can get team members', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $user1 = User::factory()->create();
@@ -390,8 +374,7 @@ it('can get team members', function (): void
         ->toContain([$user1, $user2, $user3]);
 });
 
-it('can get team admins', function (): void
-{
+it('can get team admins', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $admin1 = User::factory()->create();
@@ -412,8 +395,7 @@ it('can get team admins', function (): void
         ->not()->toContain($member);
 });
 
-it('can get team members by role', function (): void
-{
+it('can get team members by role', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $doctor1 = User::factory()->create();
@@ -435,8 +417,7 @@ it('can get team members by role', function (): void
     expect($nurses)->toContain($nurse);
 });
 
-it('can check team is personal', function (): void
-{
+it('can check team is personal', function (): void {
     // Arrange
     $personalTeam = Team::factory()->create(['personal_team' => true]);
     $regularTeam = Team::factory()->create(['personal_team' => false]);
@@ -446,8 +427,7 @@ it('can check team is personal', function (): void
     expect($regularTeam->personal_team)->toBeFalse();
 });
 
-it('can check team has user with permission', function (): void
-{
+it('can check team has user with permission', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $user = User::factory()->create();
@@ -464,8 +444,7 @@ it('can check team has user with permission', function (): void
     expect($team->hasUserWithPermission($user, 'delete'))->toBeFalse();
 });
 
-it('can get team invitations', function (): void
-{
+it('can get team invitations', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $inviter = User::factory()->create();
@@ -493,8 +472,7 @@ it('can get team invitations', function (): void
         ->toContain([$invitation1, $invitation2]);
 });
 
-it('can get pending team invitations', function (): void
-{
+it('can get pending team invitations', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $inviter = User::factory()->create();
@@ -525,8 +503,7 @@ it('can get pending team invitations', function (): void
         ->not()->toContain($acceptedInvitation);
 });
 
-it('can get team statistics', function (): void
-{
+it('can get team statistics', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $user1 = User::factory()->create();
@@ -548,8 +525,7 @@ it('can get team statistics', function (): void
     expect($memberCount)->toBe(2);
 });
 
-it('can validate team slug uniqueness', function (): void
-{
+it('can validate team slug uniqueness', function (): void {
     // Arrange
     Team::factory()->create(['slug' => 'unique-team']);
 
@@ -563,8 +539,7 @@ it('can validate team slug uniqueness', function (): void
     ]);
 });
 
-it('can handle team soft delete', function (): void
-{
+it('can handle team soft delete', function (): void {
     // Arrange
     $team = Team::factory()->create();
 
@@ -576,8 +551,7 @@ it('can handle team soft delete', function (): void
     $this->assertDatabaseHas('teams', ['id' => $team->id]);
 });
 
-it('can restore soft deleted team', function (): void
-{
+it('can restore soft deleted team', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $team->delete();
@@ -590,8 +564,7 @@ it('can restore soft deleted team', function (): void
     $this->assertDatabaseHas('teams', ['id' => $team->id]);
 });
 
-it('can force delete team', function (): void
-{
+it('can force delete team', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $user = User::factory()->create();

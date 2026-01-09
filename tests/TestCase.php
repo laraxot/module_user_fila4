@@ -21,7 +21,7 @@ abstract class TestCase extends BaseTestCase
 
         // Boot theme for pub_theme:: view resolution
         config(['xra.pub_theme' => 'Meetup']);
-        config(['xra.main_module' => 'User']); 
+        config(['xra.main_module' => 'User']);
         config(['xra.register_pub_theme' => true]);
         config(['app.key' => 'base64:Z/I+QUCmk9w7XQogD8eDwZdO5TM2sT7JPCiji05hrn8=']);
         config(['pulse.storage.database.connection' => 'xot']);
@@ -35,7 +35,7 @@ abstract class TestCase extends BaseTestCase
 
         // Unifichiamo le connessioni per usare lo stesso database in memoria condiviso.
         $dbName = 'file:memdb_'.Str::random(10).'?mode=memory&cache=shared';
-        
+
         $connections = [
             'sqlite',
             'mysql',
@@ -67,7 +67,7 @@ abstract class TestCase extends BaseTestCase
             try {
                 $pdo = DB::connection($conn)->getPdo();
                 if (method_exists($pdo, 'sqliteCreateFunction')) {
-                    $pdo->sqliteCreateFunction('md5', static fn (?string $value): ?string => $value === null ? null : md5($value));
+                    $pdo->sqliteCreateFunction('md5', static fn (?string $value): ?string => null === $value ? null : md5($value));
                     $pdo->sqliteCreateFunction('unhex', static fn (?string $value): ?string => $value);
                 }
             } catch (\Throwable) {
@@ -82,7 +82,7 @@ abstract class TestCase extends BaseTestCase
         $this->app->register(\Modules\Cms\Providers\FolioVoltServiceProvider::class);
 
         // Specific module migrations
-        $this->artisan('module:migrate', ['module' => 'Xot', '--force' => true]); 
+        $this->artisan('module:migrate', ['module' => 'Xot', '--force' => true]);
         $this->artisan('module:migrate', ['module' => 'User', '--force' => true]);
         $this->artisan('module:migrate', ['module' => 'Media', '--force' => true]);
         $this->artisan('module:migrate', ['module' => 'Tenant', '--force' => true]);
