@@ -11,8 +11,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Support\Collection;
 use Modules\User\Contracts\TeamContract;
-use Modules\User\Models\Membership;
 use Modules\User\Models\Role;
+use Modules\User\Models\TeamUser;
 use Modules\User\Models\User;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
@@ -27,7 +27,7 @@ use Modules\Xot\Datas\XotData;
  * @property int|null                      $current_team_id
  * @property Collection<int, TeamContract> $teams
  * @property Collection<int, TeamContract> $ownedTeams
- * @property Collection<int, Membership>   $teamUsers
+ * @property Collection<int, TeamUser>   $teamUsers
  * @property UserContract|null             $owner
  */
 trait HasTeams
@@ -174,6 +174,19 @@ trait HasTeams
     }
 
     /**
+     * Get all of the team's users including its owner.
+     *
+     * @return Collection<int, User>
+     */
+    public function allTeamUsers(): Collection
+    {
+        // Ensure we have fresh data for the teams and their users
+        return $this->teams->load('users')->flatMap(function ($team) {
+            return $team->users;
+        })->unique('id');
+    }
+
+    /**
      * Determine if the given user is on the team.
      */
     public function hasTeamMember(UserContract $user): bool
@@ -272,11 +285,11 @@ trait HasTeams
     /**
      * Get all team users.
      *
-     * @return HasMany<Membership, $this>
+     * @return HasMany<TeamUser, $this>
      */
     public function teamUsers(): HasMany
     {
-        return $this->hasMany(Membership::class, 'user_id');
+        return $this->hasMany(TeamUser::class, 'user_id');
     }
 
     /**
@@ -325,7 +338,7 @@ trait HasTeams
 
         // Permissions from Pivot
         /** @var Model|Pivot|null $teamUser */
-        $teamUser = $this->teamUsers()->where('team_id', $team->id)->first();
+        $teamUser = $this->teamUsers()->where('team_id', (string) $team->id)->first();
         if (null !== $teamUser) {
             $pivotPermissions = $teamUser->getAttribute('permissions');
             if (is_array($pivotPermissions)) {
@@ -427,7 +440,9 @@ trait HasTeams
         $xot = XotData::make();
         $teamClass = $xot->getTeamClass();
 
-        return $this->belongsToMany($teamClass, 'team_user', 'user_id', 'team_id')->using(Membership::class);
+        return $this->belongsToMany($teamClass, 'team_user', 'user_id', 'team_id')
+            ->using(TeamUser::class)
+            ->withPivot(['role', 'permissions']);
     }
 
     /**
