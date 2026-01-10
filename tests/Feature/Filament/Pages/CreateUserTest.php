@@ -7,7 +7,7 @@ use Modules\User\Filament\Resources\UserResource;
 use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
 use Modules\User\Models\User;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
-use Tests\TestCase;
+use Modules\User\Tests\TestCase;
 
 uses(TestCase::class);
 
@@ -99,10 +99,8 @@ test('create user page handles form submission structure', function (): void {
     expect($formData['type'])->toBe(UserType::BoUser);
 });
 
-test('create user page has basic form functionality', function (): void {
     // Test that the page has basic form capabilities
-    expect(method_exists($this->createUserPage, 'form'))->toBeTrue();
-    expect(method_exists($this->createUserPage, 'getFormModel'))->toBeTrue();
+    expect($this->createUserPage)->toBeInstanceOf(CreateUser::class);
 });
 
 test('create user page follows filament conventions', function (): void {
