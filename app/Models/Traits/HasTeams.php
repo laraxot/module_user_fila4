@@ -27,7 +27,7 @@ use Modules\Xot\Datas\XotData;
  * @property int|null                      $current_team_id
  * @property Collection<int, TeamContract> $teams
  * @property Collection<int, TeamContract> $ownedTeams
- * @property Collection<int, TeamUser>   $teamUsers
+ * @property Collection<int, TeamUser>     $teamUsers
  * @property UserContract|null             $owner
  */
 trait HasTeams

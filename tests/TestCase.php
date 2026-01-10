@@ -6,8 +6,6 @@ namespace Modules\User\Tests;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use Modules\Xot\Tests\CreatesApplication;
 
 /**
@@ -16,8 +14,8 @@ use Modules\Xot\Tests\CreatesApplication;
  * Uses MySQL from .env.testing (NOT SQLite).
  *
  * @property \Modules\User\Models\Permission $permission
- * @property \Modules\User\Models\Role $role
- * @property \Modules\User\Models\Tenant $tenant
+ * @property \Modules\User\Models\Role       $role
+ * @property \Modules\User\Models\Tenant     $tenant
  */
 abstract class TestCase extends BaseTestCase
 {
@@ -55,7 +53,7 @@ abstract class TestCase extends BaseTestCase
             'main_module' => 'User',
         ]);
 
-        if (!self::$migrated) {
+        if (! self::$migrated) {
             $this->artisan('module:migrate', ['module' => 'Xot', '--force' => true]);
             $this->artisan('module:migrate', ['module' => 'User', '--force' => true]);
             $this->artisan('module:migrate', ['module' => 'Cms', '--force' => true]);
