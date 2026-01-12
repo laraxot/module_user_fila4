@@ -23,21 +23,22 @@ use Webmozart\Assert\Assert;
 /**
  * Modules\User\Models\Role.
  *
-<<<<<<< HEAD
- * @property int $id
-=======
- * @property string $id
- * @property string $uuid
- * @property string|null $team_id
- * @property string $name
- * @property string $guard_name
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property Collection<int, Permission> $permissions
- * @property int|null $permissions_count
- * @property Team|null $team
+ * <<<<<<< HEAD
+ *
+ * @property int                                         $id
+ *                                                                          =======
+ * @property string                                      $id
+ * @property string                                      $uuid
+ * @property string|null                                 $team_id
+ * @property string                                      $name
+ * @property string                                      $guard_name
+ * @property Carbon|null                                 $created_at
+ * @property Carbon|null                                 $updated_at
+ * @property Collection<int, Permission>                 $permissions
+ * @property int|null                                    $permissions_count
+ * @property Team|null                                   $team
  * @property EloquentCollection<int, Model&UserContract> $users
- * @property int|null $users_count
+ * @property int|null                                    $users_count
  *
  * @method static Builder|Role newModelQuery()
  * @method static Builder|Role newQuery()
@@ -50,7 +51,8 @@ use Webmozart\Assert\Assert;
  * @method static Builder|Role whereUpdatedAt($value)
  * @method static Builder|Role whereUuid($value)
  *
->>>>>>> 32e772a8 (.)
+ * >>>>>>> 32e772a8 (.)
+ *
  * @property int $id
  *
  * @method static Builder|Role whereId($value)
@@ -72,11 +74,11 @@ use Webmozart\Assert\Assert;
  * @property string|null $display_name
  * @property string|null $description
  *
- * @method static RoleFactory factory($count = null, $state = [])
+ * @method static RoleFactory          factory($count = null, $state = [])
  * @method static Builder<static>|Role whereDescription($value)
  * @method static Builder<static>|Role whereDisplayName($value)
- * @method static static firstOrCreate(array $attributes, array $values = [])
- * @method static static updateOrCreate(array $attributes, array $values = [])
+ * @method static static               firstOrCreate(array $attributes, array $values = [])
+ * @method static static               updateOrCreate(array $attributes, array $values = [])
  *
  * @mixin \Eloquent
  */

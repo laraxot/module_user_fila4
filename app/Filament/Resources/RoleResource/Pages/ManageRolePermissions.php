@@ -24,8 +24,6 @@ class ManageRolePermissions extends ManageRelatedRecords
 
     protected static string $relationship = 'permissions';
 
-
-
     public function getFormSchema(): array
     {
         return [

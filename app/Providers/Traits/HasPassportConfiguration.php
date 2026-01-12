@@ -16,9 +16,8 @@ use Webmozart\Assert\Assert;
 trait HasPassportConfiguration
 {
     /**
-     * Configurazione completa di Passport
-     * 
-     * @return void
+     * Configurazione completa di Passport.
+     *
      * @throws \RuntimeException Se la configurazione fallisce
      */
     protected function configurePassport(): void
@@ -29,18 +28,12 @@ trait HasPassportConfiguration
             $this->configureScopes();
             $this->configureRoutes();
         } catch (\Exception $e) {
-            throw new \RuntimeException(
-                "Failed to configure Passport: {$e->getMessage()}",
-                0,
-                $e
-            );
+            throw new \RuntimeException("Failed to configure Passport: {$e->getMessage()}", 0, $e);
         }
     }
 
     /**
-     * Configurazione dei modelli OAuth
-     * 
-     * @return void
+     * Configurazione dei modelli OAuth.
      */
     protected function configureModels(): void
     {
@@ -51,9 +44,7 @@ trait HasPassportConfiguration
     }
 
     /**
-     * Configurazione delle scadenze dei token
-     * 
-     * @return void
+     * Configurazione delle scadenze dei token.
      */
     protected function configureTokens(): void
     {
@@ -72,9 +63,7 @@ trait HasPassportConfiguration
     }
 
     /**
-     * Configurazione degli scope OAuth
-     * 
-     * @return void
+     * Configurazione degli scope OAuth.
      */
     protected function configureScopes(): void
     {
@@ -90,14 +79,12 @@ trait HasPassportConfiguration
             Assert::stringNotEmpty($value);
         }
 
-        /** @var array<string, string> $scopes */
+        /* @var array<string, string> $scopes */
         Passport::tokensCan($scopes);
     }
 
     /**
-     * Configurazione delle rotte OAuth
-     * 
-     * @return void
+     * Configurazione delle rotte OAuth.
      */
     protected function configureRoutes(): void
     {

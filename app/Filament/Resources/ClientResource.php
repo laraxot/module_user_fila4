@@ -66,11 +66,11 @@ class ClientResource extends XotBaseResource
     {
         $model = Passport::clientModel();
         if (! is_string($model) || ! class_exists($model)) {
-            /** @var class-string<\Illuminate\Database\Eloquent\Model> */
+            /* @var class-string<\Illuminate\Database\Eloquent\Model> */
             return Client::class;
         }
 
-        /** @var class-string<\Illuminate\Database\Eloquent\Model> */
+        /* @var class-string<\Illuminate\Database\Eloquent\Model> */
         return $model;
     }
 

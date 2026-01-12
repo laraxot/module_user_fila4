@@ -27,8 +27,6 @@ final class OauthClientResource extends XotBaseResource
 
     protected static ?string $recordTitleAttribute = 'name';
 
-
-
     /**
      * Schema del form per la creazione e modifica.
      *
