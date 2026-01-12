@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-<<<<<<< HEAD
-=======
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -13,19 +11,15 @@ use Filament\Actions\EditAction;
 use Filament\Actions\Action as FilamentAction;
 use Filament\Actions\ActionGroup;
 use Filament\Forms\Components\Field;
->>>>>>> fa4b6559 (.)
 use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Resources\Pages\PageRegistration;
-<<<<<<< HEAD
-=======
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
->>>>>>> fa4b6559 (.)
 use Modules\User\Filament\Resources\SsoProviderResource\Pages;
 use Modules\User\Filament\Resources\SsoProviderResource\RelationManagers\UsersRelationManager;
 use Modules\User\Models\SsoProvider;
@@ -35,10 +29,6 @@ class SsoProviderResource extends XotBaseResource
 {
     protected static ?string $model = SsoProvider::class;
 
-<<<<<<< HEAD
-    /**
-     * @return array<string, \Filament\Support\Components\Component>
-=======
     protected static ?string $recordTitleAttribute = 'display_name';
 
     protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-identification';
@@ -47,7 +37,6 @@ class SsoProviderResource extends XotBaseResource
 
     /**
      * @return array<string, Field>
->>>>>>> fa4b6559 (.)
      */
     #[\Override]
     public static function getFormSchema(): array
@@ -84,9 +73,6 @@ class SsoProviderResource extends XotBaseResource
             'is_active' => Toggle::make('is_active'),
         ];
     }
-
-<<<<<<< HEAD
-=======
     /**
      * @return array<string, TextColumn|IconColumn>
      */
@@ -136,8 +122,6 @@ class SsoProviderResource extends XotBaseResource
             ]),
         ];
     }
-
->>>>>>> fa4b6559 (.)
     /**
      * @return array<string, class-string<\Filament\Resources\RelationManagers\RelationManager>>
      */

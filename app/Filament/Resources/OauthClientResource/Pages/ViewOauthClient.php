@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthClientResource\Pages;
 
-<<<<<<< HEAD
 use Filament\Actions\Action;
-=======
->>>>>>> fa4b6559 (.)
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Component;
@@ -29,7 +26,6 @@ class ViewOauthClient extends XotBaseViewRecord
      *
      * @return array<string, Action|\Filament\Actions\ActionGroup>
      */
-<<<<<<< HEAD
     protected function getHeaderActions(): array
     {
         $actions = parent::getHeaderActions();
@@ -37,7 +33,7 @@ class ViewOauthClient extends XotBaseViewRecord
         /** @var OauthClient|null $record */
         $record = $this->record;
 
-        if (null !== $record && ! $record->revoked) {
+        if ($record !== null && ! $record->revoked) {
             $actions['revoke'] = Action::make('revoke')
                 ->label(__('user::actions.oauth.revoke_client.label'))
                 ->icon('heroicon-o-x-circle')
@@ -63,8 +59,6 @@ class ViewOauthClient extends XotBaseViewRecord
      *
      * @return array<string, Component>
      */
-=======
->>>>>>> fa4b6559 (.)
     protected function getInfolistSchema(): array
     {
         return [
