@@ -9,11 +9,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Resources\Pages\PageRegistration;
 use Filament\Support\Components\Component;
 use Illuminate\Database\Eloquent\Builder;
-<<<<<<< HEAD
 use Illuminate\Support\Carbon;
-=======
-use Modules\User\Filament\Resources\TeamInvitationResource\Pages;
->>>>>>> 32e772a8 (.)
 use Modules\User\Filament\Resources\TeamInvitationResource\Pages\EditTeamInvitations;
 use Modules\User\Filament\Resources\TeamInvitationResource\Pages\ListTeamInvitations;
 use Modules\User\Models\TeamInvitation;
@@ -26,11 +22,7 @@ class TeamInvitationResource extends XotBaseResource
 {
     protected static ?string $model = TeamInvitation::class;
 
-<<<<<<< HEAD
-=======
-    protected static ?string $recordTitleAttribute = 'email';
 
->>>>>>> 32e772a8 (.)
     /**
      * Get the form schema for the resource.
      *

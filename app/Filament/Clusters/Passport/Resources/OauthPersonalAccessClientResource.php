@@ -4,9 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Clusters\Passport\Resources;
 
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
 use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Section;
+use Filament\Tables;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\User\Filament\Clusters\Passport;
 use Modules\User\Filament\Clusters\Passport\Resources\OauthPersonalAccessClientResource\Pages\CreateOauthPersonalAccessClient;
@@ -25,13 +31,7 @@ final class OauthPersonalAccessClientResource extends XotBaseResource
 
     protected static ?string $model = OauthPersonalAccessClient::class;
 
-<<<<<<< HEAD:app/Filament/Clusters/Passport/Resources/OauthPersonalAccessClientResource.php
-=======
-    protected static ?string $recordTitleAttribute = 'id';
 
-
-
->>>>>>> 32e772a8 (.):app/Filament/Resources/OauthPersonalAccessClientResource.php
     /**
      * @return array<string, Component>
      */
@@ -52,8 +52,7 @@ final class OauthPersonalAccessClientResource extends XotBaseResource
         ];
     }
 
-    /**
-<<<<<<< HEAD:app/Filament/Clusters/Passport/Resources/OauthPersonalAccessClientResource.php
+     /**
      * Define the table for the resource.
      */
     public static function table(Table $table): Table
@@ -149,8 +148,6 @@ final class OauthPersonalAccessClientResource extends XotBaseResource
     }
 
     /**
-=======
->>>>>>> 32e772a8 (.):app/Filament/Resources/OauthPersonalAccessClientResource.php
      * Configure the model query.
      */
     public static function getEloquentQuery(): Builder

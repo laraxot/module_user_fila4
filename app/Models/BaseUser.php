@@ -26,7 +26,9 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Laravel\Passport\Contracts\OAuthenticatable;
+use Laravel\Passport\Contracts\ScopeAuthorizable;
 use Laravel\Passport\HasApiTokens;
+use Laravel\Passport\PersonalAccessTokenResult;
 use Modules\User\Database\Factories\UserFactory;
 use Modules\User\Models\Traits\HasAuthenticationLogTrait;
 use Modules\User\Models\Traits\HasModules;
@@ -40,7 +42,6 @@ use Modules\Xot\Models\Traits\HasXotFactory;
 use Parental\HasChildren;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\Permission\Contracts\Role as SpatieRoleContract;
 
 /**
  * Base User Model.
@@ -141,14 +142,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     use HasXotFactory;
     use InteractsWithMedia;
     use Notifiable;
-<<<<<<< HEAD
-    use HasAuthenticationLogTrait;
-    use HasModules;
-    use HasSpatiePermission;
-    use HasTeams;
     use SoftDeletes;
-=======
->>>>>>> 32e772a8 (.)
     use Traits\HasTenants;
     use XotTraits\RelationX;
 
@@ -234,36 +228,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         }
     }
 
-    public function tokenCan(string $scope): bool
-    {
-        return $this->passportTokenCan($scope);
-    }
-
-    public function tokenCant(string $scope): bool
-    {
-        return ! $this->tokenCan($scope);
-    }
-
-    public function createToken(string $name, array $scopes = []): PersonalAccessTokenResult
-    {
-        return $this->passportCreateToken($name, $scopes);
-    }
-
-    public function currentAccessToken(): ?ScopeAuthorizable
-    {
-        $token = $this->token();
-
-        return $token instanceof ScopeAuthorizable ? $token : null;
-    }
-
-    public function withAccessToken(?ScopeAuthorizable $accessToken): static
-    {
-        $this->passportWithAccessToken($accessToken);
-
-        return $this;
-    }
-
-    public function getProviderName(): string
+        public function getProviderName(): string
     {
         return (string) ($this->getAttribute('provider') ?? config('auth.guards.api.provider', 'users'));
     }
@@ -502,49 +467,11 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     /**
      * Check if the user has a specific role.
      *
-     * @param  array|\Illuminate\Support\Collection|int|SpatieRoleContract|string  $roles
+     * NOTE: This method has been moved to trait HasSpatiePermission.
+     * If you need role checking functionality, use the trait method instead.
+     *
+     * @see \Modules\User\Models\Traits\HasSpatiePermission::hasRole()
      */
-    #[\Override]
-    public function hasRole($roles, ?string $guard = null): bool
-    {
-        // Se Ã¨ una stringa semplice, utilizziamo il metodo interno tramite relazione roles
-        if (\is_string($roles)) {
-            return $this->roles()->where('name', $roles)->exists();
-        }
-
-        // Per gli altri tipi, implementiamo una logica di base
-        if (\is_array($roles) || $roles instanceof \Illuminate\Support\Collection) {
-            foreach ($roles as $role) {
-                // Se $role è a sua volta un array, chiamiamo ricorsivamente
-                if (\is_array($role) || $role instanceof \Illuminate\Support\Collection) {
-                    if ($this->hasRole($role, $guard)) {
-                        return true;
-                    }
-
-                    continue;
-                }
-
-                // Type narrowing per $role
-                $roleParam = \is_string($role) || \is_int($role) || $role instanceof SpatieRoleContract ? $role : (string) $role;
-                if ($this->hasRole($roleParam, $guard)) {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        if ($roles instanceof SpatieRoleContract) {
-            return $this->roles()->where('roles.id', $roles->id)->exists();
-        }
-
-        if (\is_int($roles) || \is_string($roles)) {
-            return $this->roles()->where('roles.id', (string) $roles)->exists();
-        }
-
-        return false;
-    }
-
     public function setPasswordAttribute(?string $value): void
     {
         if (empty($value)) {

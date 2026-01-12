@@ -7,20 +7,10 @@ use Illuminate\Support\Facades\Hash;
 use Livewire\Livewire;
 use Modules\User\Filament\Pages\MyProfilePage;
 use Modules\User\Models\User;
-<<<<<<< HEAD
 use Modules\User\Providers\Filament\AdminPanelProvider;
 use Modules\User\Tests\TestCase;
 
 use function Pest\Laravel\actingAs;
-=======
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\Xot\Contracts\UserContract;
-use Modules\Xot\Datas\XotData;
-use Tests\TestCase;
-
-use function Pest\Laravel\actingAs;
-use function Pest\Laravel\post;
->>>>>>> 32e772a8 (.)
 
 uses(TestCase::class);
 

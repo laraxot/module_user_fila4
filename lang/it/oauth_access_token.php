@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
-<<<<<<< HEAD
         'label' => 'Token di accesso OAuth',
         'group' => 'OAuth',
         'icon' => 'heroicon-o-key',
@@ -42,14 +41,6 @@ return [
         'refresh' => [
             'label' => 'Aggiorna',
         ],
-=======
-        'label' => 'OAuth Access Tokens',
-        'group' => 'API',
-        'icon' => 'heroicon-o-key',
-        'sort' => 62,
->>>>>>> 32e772a8 (.)
-    ],
-    'actions' => [
         'logout' => [
             'tooltip' => 'logout',
         ],

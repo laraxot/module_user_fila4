@@ -24,11 +24,7 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class TenantResource extends XotBaseResource
 {
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 32e772a8 (.)
     /**
      * Get the model class name for this resource.
      *

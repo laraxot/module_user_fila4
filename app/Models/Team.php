@@ -71,7 +71,6 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @mixin \Eloquent
  */
-<<<<<<< HEAD
 class Team extends BaseTeam
 {
     use SoftDeletes;
@@ -107,6 +106,3 @@ class Team extends BaseTeam
         return $this->hasMany(TeamPermission::class);
     }
 }
-=======
-class Team extends BaseTeam {}
->>>>>>> 32e772a8 (.)

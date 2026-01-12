@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 use Filament\Forms\Components\Field;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Laravel\Passport\Client;
 use Laravel\Passport\Passport;
@@ -13,13 +12,13 @@ use Modules\User\Filament\Resources\ClientResource\Pages\CreateClient;
 use Modules\User\Filament\Resources\ClientResource\Pages\EditClient;
 use Modules\User\Filament\Resources\ClientResource\Pages\ListClients;
 use Modules\User\Filament\Resources\ClientResource\Pages\ViewClient;
+use Modules\Xot\Filament\Forms\Components\XotBaseSelect;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class ClientResource extends XotBaseResource
 {
+    protected static string $resource = ClientResource::class;
     // use HasResourceFormComponents;
-
-    protected static ?string $recordTitleAttribute = 'name';
 
     /**
      * ⚠️ IMPORTANTE: NavigationIcon è gestito automaticamente da NavigationLabelTrait
@@ -37,7 +36,7 @@ class ClientResource extends XotBaseResource
                 ->unique('clients', 'name')
                 ->required()
                 ->maxLength(255),
-            'user_id' => Select::make('user_id')
+            'user_id' => XotBaseSelect::make('user_id')
                 ->relationship('user', 'name')
                 ->searchable()
                 ->required(),

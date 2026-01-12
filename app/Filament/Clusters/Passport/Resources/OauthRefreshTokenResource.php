@@ -29,8 +29,6 @@ class OauthRefreshTokenResource extends XotBaseResource
 
     protected static ?string $model = OauthRefreshToken::class;
 
-<<<<<<< HEAD:app/Filament/Clusters/Passport/Resources/OauthRefreshTokenResource.php
-=======
     protected static ?string $recordTitleAttribute = 'id';
 
     /**
@@ -38,8 +36,6 @@ class OauthRefreshTokenResource extends XotBaseResource
      * automaticamente da NavigationLabelTrait e Filament v4 tramite i file di traduzione.
      * NON definire queste proprietà qui!
      */
-
->>>>>>> 32e772a8 (.):app/Filament/Resources/OauthRefreshTokenResource.php
     /**
      * Get the form schema for the resource.
      *

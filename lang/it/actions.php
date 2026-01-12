@@ -45,4 +45,9 @@ return [
             'error' => 'Errore durante la creazione del client',
         ],
     ],
+    'navigation' => [],
+    'label' => '',
+    'plural_label' => '',
+    'fields' => [],
+    'actions' => [],
 ];

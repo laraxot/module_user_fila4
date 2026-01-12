@@ -15,28 +15,7 @@ class TeamPermissionResource extends XotBaseResource
 {
     protected static ?string $model = TeamPermission::class;
 
-<<<<<<< HEAD
-    protected static string|\UnitEnum|null $navigationGroup = 'Gestione Utenti';
 
-    protected static ?int $navigationSort = 15;
-
-    public static function getNavigationLabel(): string
-    {
-        return __('user::team_permission.navigation.label');
-    }
-
-    public static function getPluralLabel(): string
-    {
-        return __('user::team_permission.navigation.plural');
-    }
-
-    public static function getModelLabel(): string
-    {
-        return __('user::team_permission.navigation.name');
-    }
-
-=======
->>>>>>> 32e772a8 (.)
     /**
      * Get the form schema for the resource (XotBaseResource pattern).
      *

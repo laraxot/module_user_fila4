@@ -67,12 +67,7 @@ class OauthClient extends PassportClient implements AuthorizableContract
 {
     use Authorizable;
     use HasRoles;
-<<<<<<< HEAD
-=======
 
-    /** @var string */
-    protected $connection = 'user';
->>>>>>> 32e772a8 (.)
 
     /**
      * The name of the guard for Spatie Permission.

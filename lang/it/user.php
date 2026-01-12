@@ -678,4 +678,5 @@ return [
             'label' => 'empty',
         ],
     ],
+    'plural_label' => '',
 ];

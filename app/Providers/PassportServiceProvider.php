@@ -69,19 +69,9 @@ class PassportServiceProvider extends ServiceProvider
         $tokens = config('user.passport.tokens', []);
         Assert::isArray($tokens);
 
-<<<<<<< HEAD
-        Passport::useTokenModel(OauthToken::class);
-        Passport::useRefreshTokenModel(OauthRefreshToken::class);
-        Passport::useAuthCodeModel(OauthAuthCode::class);
-        Passport::useClientModel(OauthClient::class);
-
-        Passport::useDeviceCodeModel(OauthDeviceCode::class);
-        Passport::enablePasswordGrant();
-=======
         Passport::tokensExpireIn(
             CarbonInterval::days((int) ($tokens['access_token'] ?? 15))
         );
->>>>>>> 32e772a8 (.)
 
         Passport::refreshTokensExpireIn(
             CarbonInterval::days((int) ($tokens['refresh_token'] ?? 30))

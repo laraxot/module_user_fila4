@@ -8,7 +8,6 @@ use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Section;
 use Illuminate\Database\Eloquent\Builder;
-use Modules\User\Filament\Resources\TenantUserResource\Pages;
 use Modules\User\Models\TenantUser;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
@@ -19,13 +18,6 @@ final class TenantUserResource extends XotBaseResource
 {
     protected static ?string $model = TenantUser::class;
 
-<<<<<<< HEAD
-=======
-    protected static ?string $recordTitleAttribute = 'id';
-
-
-
->>>>>>> 32e772a8 (.)
     /**
      * @return array<string, Component>
      */
@@ -58,21 +50,6 @@ final class TenantUserResource extends XotBaseResource
                         ->helperText('Role of the user in the tenant'),
                 ])
                 ->columns(2),
-        ];
-    }
-
-    /**
-     * Define the pages available for the resource.
-     *
-     * @return array<string, PageRegistration>
-     */
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListTenantUsers::route('/'),
-            'create' => Pages\CreateTenantUser::route('/create'),
-            'view' => Pages\ViewTenantUser::route('/{record}'),
-            'edit' => Pages\EditTenantUser::route('/{record}/edit'),
         ];
     }
 

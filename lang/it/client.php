@@ -165,4 +165,6 @@ return [
             'heading' => 'empty',
         ],
     ],
+    'label' => '',
+    'plural_label' => '',
 ];

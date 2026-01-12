@@ -10,16 +10,8 @@ use Modules\User\Tests\TestCase;
 
 uses(TestCase::class);
 
-<<<<<<< HEAD
 describe('HasTeams Trait CurrentTeam', function () {
     it('currentTeam does not crash when user has no teams', function () {
-=======
-    /**
-     * Test che currentTeam() non crashi quando l'utente non ha team.
-     */
-    public function test_current_team_does_not_crash_without_teams(): void
-    {
->>>>>>> 32e772a8 (.)
         // Arrange: Crea un utente senza team
         $user = User::factory()->create([
             'name' => 'Test User',
@@ -33,15 +25,7 @@ describe('HasTeams Trait CurrentTeam', function () {
         expect($currentTeam)->toBeNull();
     });
 
-<<<<<<< HEAD
     it('currentTeam is side effect free', function () {
-=======
-    /**
-     * Test che currentTeam() non modifichi il database durante l'accesso.
-     */
-    public function test_current_team_is_side_effect_free(): void
-    {
->>>>>>> 32e772a8 (.)
         // Arrange: Crea un utente senza current_team_id
         $user = User::factory()->create([
             'name' => 'Test User',
@@ -60,15 +44,7 @@ describe('HasTeams Trait CurrentTeam', function () {
         expect($currentTeam2)->toBeNull();
     });
 
-<<<<<<< HEAD
     it('currentTeam can access personal team when available', function () {
-=======
-    /**
-     * Test che initializeCurrentTeam() imposti correttamente il personal team.
-     */
-    public function test_initialize_current_team_sets_personal_team(): void
-    {
->>>>>>> 32e772a8 (.)
         // Arrange: Crea un utente con un personal team
         $user = User::factory()->create([
             'name' => 'Test User',
@@ -86,7 +62,6 @@ describe('HasTeams Trait CurrentTeam', function () {
         $user->save();
         $user->refresh();
 
-<<<<<<< HEAD
         $currentTeam = $user->currentTeam;
 
         // Assert: currentTeam dovrebbe essere il personal team
@@ -95,13 +70,6 @@ describe('HasTeams Trait CurrentTeam', function () {
     });
 
     it('currentTeam does not override existing current_team_id', function () {
-=======
-    /**
-     * Test che initializeCurrentTeam() non modifichi un current_team_id già impostato.
-     */
-    public function test_initialize_current_team_does_not_override_existing(): void
-    {
->>>>>>> 32e772a8 (.)
         // Arrange: Crea un utente con un team già impostato
         $user = User::factory()->create([
             'name' => 'Test User',
@@ -132,17 +100,8 @@ describe('HasTeams Trait CurrentTeam', function () {
         expect($currentTeam)->not->toBeNull();
     });
 
-<<<<<<< HEAD
     it('switchTeam can change current team', function () {
         // Arrange: Crea un utente con due team
-=======
-    /**
-     * Test che initializeCurrentTeam() imposti il primo team disponibile se non c'è personal team.
-     */
-    public function test_initialize_current_team_sets_first_available_team(): void
-    {
-        // Arrange: Crea un utente con un team non-personal
->>>>>>> 32e772a8 (.)
         $user = User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
@@ -154,30 +113,10 @@ describe('HasTeams Trait CurrentTeam', function () {
             'personal_team' => false,
         ]);
 
-<<<<<<< HEAD
         $team2 = Team::factory()->create([
             'user_id' => $user->id,
             'name' => 'Team 2',
             'personal_team' => true,
-=======
-        // Act: Inizializza il current team
-        $user->initializeCurrentTeam();
-
-        // Assert: current_team_id dovrebbe essere impostato al team disponibile
-        $user->refresh();
-        $this->assertEquals($team->id, $user->current_team_id);
-    }
-
-    /**
-     * Test che initializeCurrentTeam() non crashi se l'utente non ha team.
-     */
-    public function test_initialize_current_team_handles_no_teams(): void
-    {
-        // Arrange: Crea un utente senza team
-        $user = User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
->>>>>>> 32e772a8 (.)
         ]);
 
         // Assicura che l'utente appartenga a entrambi i team
@@ -193,15 +132,7 @@ describe('HasTeams Trait CurrentTeam', function () {
         expect((string) $user->current_team_id)->toBe((string) $team1->id);
     });
 
-<<<<<<< HEAD
     it('currentTeam does not cause N+1 queries', function () {
-=======
-    /**
-     * Test che l'accesso a currentTeam non causi query N+1.
-     */
-    public function test_current_team_does_not_cause_n_plus_one_queries(): void
-    {
->>>>>>> 32e772a8 (.)
         // Arrange: Crea un utente con un team
         $user = User::factory()->create([
             'name' => 'Test User',

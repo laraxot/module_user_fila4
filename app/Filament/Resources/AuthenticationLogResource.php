@@ -31,23 +31,7 @@ class AuthenticationLogResource extends XotBaseResource
 {
     protected static ?string $model = AuthenticationLog::class;
 
-<<<<<<< HEAD
-    protected static ?int $navigationSort = 3;
 
-    public static function getNavigationLabel(): string
-    {
-        return __('Authentication Logs');
-    }
-
-    public static function getPluralLabel(): string
-    {
-        return __('Authentication Logs');
-    }
-
-    public static function getModelLabel(): string
-    {
-        return __('Authentication Log');
-    }
 
     public static function table(Table $table): Table
     {
@@ -177,9 +161,6 @@ class AuthenticationLogResource extends XotBaseResource
             ])
             ->defaultSort('login_at', 'desc');
     }
-=======
-
->>>>>>> 32e772a8 (.)
 
     public static function getPages(): array
     {

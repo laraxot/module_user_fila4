@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Component;
-use Filament\Schemas\Components\Section;
 use Illuminate\Database\Eloquent\Builder;
-use Modules\User\Filament\Resources\TeamUserResource\Pages;
 use Modules\User\Models\TeamUser;
+use Modules\Xot\Filament\Forms\Components\XotBaseSelect;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+use Modules\Xot\Filament\Schemas\Components\XotBaseSection;
 
 /**
  * Class TeamUserResource.
@@ -19,13 +18,6 @@ final class TeamUserResource extends XotBaseResource
 {
     protected static ?string $model = TeamUser::class;
 
-<<<<<<< HEAD
-=======
-    protected static ?string $recordTitleAttribute = 'id';
-
-
-
->>>>>>> 32e772a8 (.)
     /**
      * @return array<string, Component>
      */
@@ -33,19 +25,19 @@ final class TeamUserResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
-            'team_user' => Section::make('Team User Information')
+            'team_user' => XotBaseSection::make('Team User Information')
                 ->schema([
-                    'team_id' => Select::make('team_id')
+                    'team_id' => XotBaseSelect::make('team_id')
                         ->label('Team')
                         ->relationship('team', 'name')
                         ->required()
                         ->searchable(),
-                    'user_id' => Select::make('user_id')
+                    'user_id' => XotBaseSelect::make('user_id')
                         ->label('User')
                         ->relationship('user', 'name')
                         ->required()
                         ->searchable(),
-                    'role' => Select::make('role')
+                    'role' => XotBaseSelect::make('role')
                         ->label('Role')
                         ->options([
                             'admin' => 'Admin',
@@ -57,21 +49,6 @@ final class TeamUserResource extends XotBaseResource
                         ->helperText('Role of the user in the team'),
                 ])
                 ->columns(2),
-        ];
-    }
-
-    /**
-     * Define the pages available for the resource.
-     *
-     * @return array<string, PageRegistration>
-     */
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListTeamUsers::route('/'),
-            'create' => Pages\CreateTeamUser::route('/create'),
-            'view' => Pages\ViewTeamUser::route('/{record}'),
-            'edit' => Pages\EditTeamUser::route('/{record}/edit'),
         ];
     }
 

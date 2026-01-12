@@ -20,11 +20,7 @@ class SocialiteUserResource extends XotBaseResource
 {
     protected static ?string $model = SocialiteUser::class;
 
-<<<<<<< HEAD
-=======
-    protected static ?string $recordTitleAttribute = 'provider';
 
->>>>>>> 32e772a8 (.)
     /**
      * Get the form schema for the resource.
      *
