@@ -428,6 +428,9 @@ return [
             'label' => 'save',
             'tooltip' => 'save',
         ],
+        'submit' => [
+            'tooltip' => 'submit',
+        ],
     ],
     'messages' => [
         'created' => 'Utente creato con successo',

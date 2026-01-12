@@ -29,7 +29,7 @@ return new class extends XotBaseMigration {
             $table->uuid('user_id')->nullable()->index();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->string('role')->nullable();
-            $table->text('permissions')->nullable();
+            $table->json('permissions')->nullable();
 
             // Indice univoco per evitare duplicati team_id + user_id
             $table->unique(['team_id', 'user_id']);
@@ -63,7 +63,7 @@ return new class extends XotBaseMigration {
             }
 
             if (! $this->hasColumn('permissions')) {
-                $table->text('permissions')->nullable();
+                $table->json('permissions')->nullable();
             }
 
             if (! $this->hasColumn('joined_at')) {

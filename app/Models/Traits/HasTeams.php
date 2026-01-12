@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Schema;
 use Modules\User\Contracts\TeamContract;
 use Modules\User\Models\Role;
 use Modules\User\Models\TeamUser;
@@ -458,13 +459,21 @@ trait HasTeams
         $xot = XotData::make();
         $teamClass = $xot->getTeamClass();
 
-        return $this->belongsToMany($teamClass, 'team_user', 'user_id', 'team_id')
-            ->using(TeamUser::class)
-            ->withPivot(['role', 'permissions']);
+        $relation = $this->belongsToMany($teamClass, 'team_user', 'user_id', 'team_id')
+            ->using(TeamUser::class);
+
+        // Verifica la colonna permissions usando la connessione corretta
+        $connectionName = $this->getConnectionName();
+        if (Schema::connection($connectionName)->hasColumn('team_user', 'permissions')) {
+            return $relation->withPivot(['role', 'permissions']);
+        }
+
+        return $relation->withPivot(['role']);
     }
 
     /**
-     * Invite a user to a team.
+     * Get all of the teams that the user owns.
+     *
      */
     public function inviteToTeam(UserContract $user, TeamContract $team): bool
     {

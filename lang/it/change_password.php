@@ -17,5 +17,9 @@ return [
     'navigation' => [],
     'label' => '',
     'plural_label' => '',
-    'actions' => [],
+    'actions' => [
+        'cancel' => [
+            'tooltip' => 'cancel',
+        ],
+    ],
 ];
