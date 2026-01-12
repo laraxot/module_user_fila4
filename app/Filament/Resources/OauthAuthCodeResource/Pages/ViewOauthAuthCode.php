@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthAuthCodeResource\Pages;
 
+use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Component;
 use Modules\User\Filament\Resources\OauthAuthCodeResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
-use Filament\Schemas\Components\Component;
-use Filament\Infolists\Components\TextEntry;
 use Modules\Xot\Filament\Schemas\Components\XotBaseSection;
 
 class ViewOauthAuthCode extends XotBaseViewRecord
