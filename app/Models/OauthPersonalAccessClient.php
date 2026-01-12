@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+<<<<<<< HEAD
+=======
+use Illuminate\Database\Eloquent\Model;
+>>>>>>> fa4b6559 (.)
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Models\Traits\HasXotFactory;
@@ -12,6 +16,7 @@ use Modules\Xot\Models\Traits\HasXotFactory;
 /**
  * OAuth Personal Access Client model.
  *
+<<<<<<< HEAD
  * <<<<<<< HEAD
  *
  * @property string           $uuid
@@ -31,6 +36,16 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @property int              $id
  * @property OauthClient|null $client
  *                                        >>>>>>> 32e772a8 (.)
+=======
+ * @property string      $uuid
+ * @property string      $client_id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property int $id
+ * @property-read OauthClient|null $client
+>>>>>>> fa4b6559 (.)
  *
  * @method static Builder|OauthPersonalAccessClient newModelQuery()
  * @method static Builder|OauthPersonalAccessClient newQuery()

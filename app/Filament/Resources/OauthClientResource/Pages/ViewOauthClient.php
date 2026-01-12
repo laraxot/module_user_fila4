@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthClientResource\Pages;
 
+<<<<<<< HEAD
 use Filament\Actions\Action;
+=======
+>>>>>>> fa4b6559 (.)
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Component;
@@ -26,6 +29,7 @@ class ViewOauthClient extends XotBaseViewRecord
      *
      * @return array<string, Action|\Filament\Actions\ActionGroup>
      */
+<<<<<<< HEAD
     protected function getHeaderActions(): array
     {
         $actions = parent::getHeaderActions();
@@ -59,6 +63,8 @@ class ViewOauthClient extends XotBaseViewRecord
      *
      * @return array<string, Component>
      */
+=======
+>>>>>>> fa4b6559 (.)
     protected function getInfolistSchema(): array
     {
         return [

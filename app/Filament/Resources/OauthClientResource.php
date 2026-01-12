@@ -4,12 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+<<<<<<< HEAD
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Grid;
 use Filament\Tables;
+=======
+use Filament\Forms\Components\Field;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+>>>>>>> fa4b6559 (.)
 use Illuminate\Database\Eloquent\Builder;
 use Laravel\Passport\Client;
 use Modules\Xot\Filament\Resources\XotBaseResource;
@@ -21,12 +27,17 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
  * direttamente! Segue il pattern DRY: solo getFormSchema() necessario,
  * table() e metodi table* gestiti automaticamente.
  */
+<<<<<<< HEAD
 final class OauthClientResource extends XotBaseResource
+=======
+class OauthClientResource extends XotBaseResource
+>>>>>>> fa4b6559 (.)
 {
     protected static ?string $model = Client::class;
 
     protected static ?string $recordTitleAttribute = 'name';
 
+<<<<<<< HEAD
     /**
      * Schema del form per la creazione e modifica.
      *
@@ -60,12 +71,21 @@ final class OauthClientResource extends XotBaseResource
 
     /**
      * Get the table columns.
+=======
+    protected static ?string $modelLabel = 'OAuth Client';
+
+    protected static ?string $pluralModelLabel = 'OAuth Clients';
+
+    /**
+     * Schema del form per la risorsa.
+>>>>>>> fa4b6559 (.)
      *
-     * @return array<string, Tables\Columns\Column>
+     * @return array<string, Field>
      */
-    public static function getTableColumns(): array
+    public static function getFormSchema(): array
     {
         return [
+<<<<<<< HEAD
             'name' => Tables\Columns\TextColumn::make('name')
                 ->label('Client Name')
                 ->searchable()
@@ -82,6 +102,27 @@ final class OauthClientResource extends XotBaseResource
                 ->boolean(),
             'revoked' => Tables\Columns\IconColumn::make('revoked')
                 ->boolean(),
+=======
+            'name' => TextInput::make('name')
+                ->required()
+                ->maxLength(255),
+            'user_id' => Select::make('user_id')
+                ->relationship('user', 'name')
+                ->searchable(),
+            'redirect' => TextInput::make('redirect')
+                ->maxLength(2000),
+            'secret' => TextInput::make('secret')
+                ->password()
+                ->maxLength(100),
+            'provider' => Select::make('provider')
+                ->options([
+                    'users' => 'Users',
+                ]),
+            'personal_access_client' => TextInput::make('personal_access_client')
+                ->numeric(),
+            'password_client' => TextInput::make('password_client')
+                ->numeric(),
+>>>>>>> fa4b6559 (.)
         ];
     }
 

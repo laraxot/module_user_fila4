@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthClientResource\Pages;
 
+<<<<<<< HEAD
 use Filament\Actions\Action;
 use Modules\User\Actions\Passport\RevokeClientAction;
 use Modules\User\Filament\Resources\OauthClientResource;
 use Modules\User\Models\OauthClient;
+=======
+use Modules\User\Filament\Resources\OauthClientResource;
+>>>>>>> fa4b6559 (.)
 use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
 
 /**

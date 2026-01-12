@@ -4,12 +4,28 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+<<<<<<< HEAD
+=======
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\Action as FilamentAction;
+use Filament\Actions\ActionGroup;
+use Filament\Forms\Components\Field;
+>>>>>>> fa4b6559 (.)
 use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Resources\Pages\PageRegistration;
+<<<<<<< HEAD
+=======
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
+>>>>>>> fa4b6559 (.)
 use Modules\User\Filament\Resources\SsoProviderResource\Pages;
 use Modules\User\Filament\Resources\SsoProviderResource\RelationManagers\UsersRelationManager;
 use Modules\User\Models\SsoProvider;
@@ -19,8 +35,19 @@ class SsoProviderResource extends XotBaseResource
 {
     protected static ?string $model = SsoProvider::class;
 
+<<<<<<< HEAD
     /**
      * @return array<string, \Filament\Support\Components\Component>
+=======
+    protected static ?string $recordTitleAttribute = 'display_name';
+
+    protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-identification';
+
+    protected static \UnitEnum|string|null $navigationGroup = 'Authentication';
+
+    /**
+     * @return array<string, Field>
+>>>>>>> fa4b6559 (.)
      */
     #[\Override]
     public static function getFormSchema(): array
@@ -58,6 +85,59 @@ class SsoProviderResource extends XotBaseResource
         ];
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * @return array<string, TextColumn|IconColumn>
+     */
+    public static function getTableColumns(): array
+    {
+        return [
+            'name' => TextColumn::make('name')
+                ->searchable()
+                ->sortable(),
+            'display_name' => TextColumn::make('display_name')
+                ->searchable()
+                ->sortable(),
+            'type' => TextColumn::make('type')
+                ->searchable()
+                ->sortable(),
+            'is_active' => IconColumn::make('is_active')
+                ->boolean()
+                ->sortable(),
+            'created_at' => TextColumn::make('created_at')
+                ->dateTime()
+                ->sortable(),
+            'updated_at' => TextColumn::make('updated_at')
+                ->dateTime()
+                ->sortable(),
+        ];
+    }
+
+    /**
+     * @return array<string, \Filament\Actions\EditAction|\Filament\Actions\DeleteAction>
+     */
+    public static function getTableActions(): array
+    {
+        return [
+            'edit' => EditAction::make(),
+            'delete' => DeleteAction::make(),
+        ];
+    }
+
+    /**
+     * @return array<string, BulkActionGroup>
+     */
+    public static function getTableBulkActions(): array
+    {
+        return [
+            'group' => BulkActionGroup::make([
+                DeleteBulkAction::make(),
+            ]),
+        ];
+    }
+
+>>>>>>> fa4b6559 (.)
     /**
      * @return array<string, class-string<\Filament\Resources\RelationManagers\RelationManager>>
      */
