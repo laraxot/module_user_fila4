@@ -9,7 +9,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Resources\Pages\PageRegistration;
 use Filament\Support\Components\Component;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Carbon;
 use Modules\User\Filament\Resources\TeamInvitationResource\Pages\EditTeamInvitations;
 use Modules\User\Filament\Resources\TeamInvitationResource\Pages\ListTeamInvitations;
 use Modules\User\Models\TeamInvitation;
@@ -21,7 +20,6 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 class TeamInvitationResource extends XotBaseResource
 {
     protected static ?string $model = TeamInvitation::class;
-
 
     /**
      * Get the form schema for the resource.

@@ -31,8 +31,6 @@ class AuthenticationLogResource extends XotBaseResource
 {
     protected static ?string $model = AuthenticationLog::class;
 
-
-
     public static function table(Table $table): Table
     {
         return $table

@@ -24,7 +24,6 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class TenantResource extends XotBaseResource
 {
-
     /**
      * Get the model class name for this resource.
      *
@@ -65,7 +64,7 @@ class TenantResource extends XotBaseResource
                         ->helperText('Inserisci il nome del tenant'),
                     TextInput::make('slug')
                         ->required()
-                        ->disabled(fn ($context) => $context !== 'create')
+                        ->disabled(fn ($context) => 'create' !== $context)
                         ->unique(
                             table: 'tenants',
                             ignoreRecord: true,
@@ -73,7 +72,7 @@ class TenantResource extends XotBaseResource
                         ->helperText('Lo slug verrà generato automaticamente dal nome'),
                     TextInput::make('domain')
                         ->required()
-                        ->visible(fn ($context) => $context === 'create')
+                        ->visible(fn ($context) => 'create' === $context)
                         ->unique(
                             table: 'domains',
                             ignoreRecord: true,

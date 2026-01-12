@@ -31,7 +31,6 @@ final class OauthPersonalAccessClientResource extends XotBaseResource
 
     protected static ?string $model = OauthPersonalAccessClient::class;
 
-
     /**
      * @return array<string, Component>
      */
@@ -52,7 +51,7 @@ final class OauthPersonalAccessClientResource extends XotBaseResource
         ];
     }
 
-     /**
+    /**
      * Define the table for the resource.
      */
     public static function table(Table $table): Table

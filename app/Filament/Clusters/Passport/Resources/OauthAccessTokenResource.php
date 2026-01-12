@@ -124,7 +124,8 @@ class OauthAccessTokenResource extends XotBaseResource
                 ]),
             ])
                         ->defaultSort('created_at', 'desc');
-                }
+    }
+
     /**
      * @return array<string, \Filament\Resources\Pages\PageRegistration>
      */
