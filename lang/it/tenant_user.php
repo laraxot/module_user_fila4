@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
+<<<<<<< HEAD
         'label' => 'Utente del tenant',
         'group' => 'Tenant',
         'icon' => 'heroicon-o-user-circle',
@@ -38,5 +39,16 @@ return [
         'remove_user' => [
             'label' => 'Rimuovi utente',
         ],
+=======
+        'name' => 'Utente Tenant',
+        'plural' => 'Utenti Tenant',
+        'label' => 'Utenti Tenant',
+        'group' => [
+            'name' => 'Tenants',
+            'description' => 'Gestione degli utenti associati ai tenant',
+        ],
+        'sort' => 87,
+        'icon' => 'heroicon-o-building-office',
+>>>>>>> 32e772a8 (.)
     ],
 ];

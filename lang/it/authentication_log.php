@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
+<<<<<<< HEAD
         'label' => 'Log di autenticazione',
         'group' => 'Sicurezza',
         'icon' => 'heroicon-o-lock-closed',
@@ -36,6 +37,12 @@ return [
         'success' => [
             'label' => 'Successo',
         ],
+=======
+        'label' => 'Authentication Logs',
+        'group' => 'Authentication',
+        'icon' => 'heroicon-o-shield-check',
+        'sort' => 5,
+>>>>>>> 32e772a8 (.)
     ],
     'actions' => [
         'view_details' => [

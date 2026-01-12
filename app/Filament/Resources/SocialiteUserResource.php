@@ -4,15 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Pages\PageRegistration;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\User\Filament\Resources\SocialiteUserResource\Pages\EditSocialiteUser;
 use Modules\User\Filament\Resources\SocialiteUserResource\Pages\ListSocialiteUsers;
@@ -26,6 +20,11 @@ class SocialiteUserResource extends XotBaseResource
 {
     protected static ?string $model = SocialiteUser::class;
 
+<<<<<<< HEAD
+=======
+    protected static ?string $recordTitleAttribute = 'provider';
+
+>>>>>>> 32e772a8 (.)
     /**
      * Get the form schema for the resource.
      *
@@ -63,58 +62,6 @@ class SocialiteUserResource extends XotBaseResource
             'provider_avatar' => TextInput::make('provider_avatar')
                 ->maxLength(255),
         ];
-    }
-
-    /**
-     * Configure the table for the resource.
-     */
-    #[\Override]
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->columns([
-                TextColumn::make('user.name')
-                    ->label('User')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('provider')
-                    ->label('Provider')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('provider_id')
-                    ->label('Provider ID')
-                    ->searchable(),
-                TextColumn::make('provider_avatar')
-                    ->label('Avatar')
-                    ->formatStateUsing(function (mixed $state): string {
-                        if ($state) {
-                            /** @phpstan-var view-string $viewString */
-                            $viewString = 'filament.components.avatar';
-
-                            return view($viewString, ['url' => (string) $state])->render();
-                        }
-
-                        return 'No Avatar';
-                    })
-                    ->html(),
-                TextColumn::make('created_at')
-                    ->label('Connected At')
-                    ->dateTime()
-                    ->sortable(),
-            ])
-            ->filters([
-                // Add filters for provider type
-            ])
-            ->recordActions([
-                EditAction::make(),
-                DeleteAction::make(),
-            ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ])
-            ->defaultSort('created_at', 'desc');
     }
 
     /**

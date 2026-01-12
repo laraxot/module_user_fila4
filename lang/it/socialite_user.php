@@ -43,6 +43,7 @@ return [
             'label' => 'Scade il',
         ],
     ],
+<<<<<<< HEAD
     'actions' => [
         'link_provider' => [
             'label' => 'Collega provider',
@@ -50,5 +51,12 @@ return [
         'unlink_provider' => [
             'label' => 'Scollega provider',
         ],
+=======
+    'navigation' => [
+        'sort' => 89,
+        'icon' => 'heroicon-o-user',
+        'group' => 'Authentication',
+        'label' => 'Social Authentications',
+>>>>>>> 32e772a8 (.)
     ],
 ];

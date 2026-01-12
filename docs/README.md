@@ -379,6 +379,7 @@ $user->revokeDevice($deviceId);
 - Permission grouping
 - Role assignment
 
+<<<<<<< HEAD
 #### TeamResource
 **Purpose**: Team management interface
 
@@ -390,6 +391,26 @@ $user->revokeDevice($deviceId);
 
 #### TenantResource
 **Purpose**: Tenant management interface
+=======
+- **User**: `UserResource` (model dinamico via `XotData::getUserClass()`)
+- **Profile**: `ProfileResource`
+- **Team**: `TeamResource` (model dinamico via `XotData::getTeamClass()`)
+- **Tenant**: `TenantResource` (model dinamico via `XotData::getTenantClass()`)
+- **Role**: `RoleResource`
+- **Permission**: `PermissionResource`
+- **AuthenticationLog**: `AuthenticationLogResource`
+- **SocialProvider**: `SocialProviderResource`
+- **SocialiteUser**: `SocialiteUserResource`
+- **Device**: `DeviceResource`
+- **Feature**: `FeatureResource`
+- **PasswordReset**: `PasswordResetResource`
+- **OAuth**:
+  - `ClientResource` (Passport client model)
+  - `OauthAccessTokenResource`
+  - `OauthAuthCodeResource`
+  - `OauthRefreshTokenResource`
+- **SSO**: `SsoProviderResource`
+>>>>>>> 32e772a8 (.)
 
 **Features**:
 - Tenant creation and configuration
@@ -425,8 +446,20 @@ $user->revokeDevice($deviceId);
 - Account lockouts
 - Recent authentication logs
 
+<<<<<<< HEAD
 #### EditProfile Page
 **Purpose**: User profile editing interface
+=======
+- ✅ **Docs**: Risolti conflitti Git nella cartella `docs/`
+
+- ✅ **EditProfile.php**: Rimossi marker Git
+
+- ✅ **PasswordResetConfirmWidget.php**:
+  - Rimossi import duplicati
+  - Corrette proprietà duplicate
+  - Fixato metodo `confirmPasswordReset()` con if duplicati
+  - Corretta logica auto-login dopo reset password
+>>>>>>> 32e772a8 (.)
 
 **Features**:
 - Personal information editing
@@ -534,8 +567,19 @@ return [
     // User model configuration
     'user_model' => \Modules\User\Models\User::class,
 
+<<<<<<< HEAD
     // Profile configuration
     'profile_model' => \Modules\User\Models\Profile::class,
+=======
+#### Architettura e Filosofia
+- [Filosofia Modulo User](./FILOSOFIA_MODULO_USER.md) - Logica, politica, business logic, filosofia, zen
+- [Service Provider Architecture](./SERVICE_PROVIDER_ARCHITECTURE.md) - Module Pattern, DRY, Separation of Concerns
+- [Passport Integration](./PASSPORT_INTEGRATION.md) - Laravel Passport integrazione completa, filosofia, best practices
+
+#### Guide Tecniche
+- [Troubleshooting Login Component](./troubleshooting-login-component.md)
+- [Filament Filters and Widgets](./filament-filters-and-widgets.md)
+>>>>>>> 32e772a8 (.)
 
     // Authentication configuration
     'auth' => [

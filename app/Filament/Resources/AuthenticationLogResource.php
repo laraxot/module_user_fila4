@@ -31,6 +31,7 @@ class AuthenticationLogResource extends XotBaseResource
 {
     protected static ?string $model = AuthenticationLog::class;
 
+<<<<<<< HEAD
     protected static ?int $navigationSort = 3;
 
     public static function getNavigationLabel(): string
@@ -176,6 +177,9 @@ class AuthenticationLogResource extends XotBaseResource
             ])
             ->defaultSort('login_at', 'desc');
     }
+=======
+
+>>>>>>> 32e772a8 (.)
 
     public static function getPages(): array
     {

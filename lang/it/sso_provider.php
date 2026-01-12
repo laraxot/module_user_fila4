@@ -5,6 +5,7 @@ declare(strict_types=1);
 return [
     'navigation' => [
         'label' => 'Provider SSO',
+<<<<<<< HEAD
         'group' => 'Autenticazione',
         'icon' => 'heroicon-o-shield-check',
         'sort' => 41,
@@ -50,5 +51,10 @@ return [
         'test_connection' => [
             'label' => 'Test connessione',
         ],
+=======
+        'group' => 'Authentication',
+        'icon' => 'heroicon-o-identification',
+        'sort' => 3,
+>>>>>>> 32e772a8 (.)
     ],
 ];

@@ -11,4 +11,17 @@ use Laravel\Passport\Client as PassportClient;
  */
 class Client extends PassportClient
 {
+<<<<<<< HEAD
+=======
+    /**
+     * Initialize the trait.
+     * Overriding to match Laravel 12 HasUuids trait signature (removing : void).
+     */
+    public function initializeHasUniqueStringIds(): void
+    {
+        if (method_exists(parent::class, 'initializeHasUniqueStringIds')) {
+            parent::initializeHasUniqueStringIds();
+        }
+    }
+>>>>>>> 32e772a8 (.)
 }

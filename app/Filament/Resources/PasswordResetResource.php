@@ -4,16 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\DeleteBulkAction;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Section;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Filters\Filter;
-use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\User\Filament\Resources\PasswordResetResource\Pages\ListPasswordResets;
 use Modules\User\Filament\Resources\PasswordResetResource\Pages\ViewPasswordReset;
@@ -24,6 +18,7 @@ class PasswordResetResource extends XotBaseResource
 {
     protected static ?string $model = PasswordReset::class;
 
+<<<<<<< HEAD
     protected static ?int $navigationSort = 4;
 
     public static function getNavigationLabel(): string
@@ -104,6 +99,8 @@ class PasswordResetResource extends XotBaseResource
             ->defaultSort('created_at', 'desc');
     }
 
+=======
+>>>>>>> 32e772a8 (.)
     public static function getPages(): array
     {
         return [
@@ -130,5 +127,10 @@ class PasswordResetResource extends XotBaseResource
                         ->maxLength(255),
                 ]),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery();
     }
 }

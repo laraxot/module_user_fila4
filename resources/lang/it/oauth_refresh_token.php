@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
+<<<<<<< HEAD
         'label' => 'Token di aggiornamento OAuth',
         'group' => 'OAuth',
         'icon' => 'heroicon-o-arrow-path',
@@ -29,5 +30,11 @@ return [
         'revoke' => [
             'label' => 'Revoca',
         ],
+=======
+        'label' => 'Token di Refresh OAuth',
+        'group' => 'Token di Refresh OAuth',
+        'icon' => 'heroicon-o-arrow-path',
+        'sort' => 63,
+>>>>>>> 32e772a8 (.)
     ],
 ];

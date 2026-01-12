@@ -33,8 +33,6 @@ class MyProfilePage extends XotBasePage
 
     public ?array $passwordData = [];
 
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
-
     protected string $view = 'user::filament.pages.my-profile';
 
     protected static bool $shouldRegisterNavigation = false;
@@ -43,11 +41,6 @@ class MyProfilePage extends XotBasePage
     // {
     //     return filament('filament-breezy')->slug();
     // }
-
-    public static function getNavigationLabel(): string
-    {
-        return __('user::profile.profile');
-    }
 
     public function mount(): void
     {
@@ -262,7 +255,7 @@ class MyProfilePage extends XotBasePage
     // ...
 
     /**
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      */
     protected function handleRecordUpdate(Model $record, array $data): Model
     {

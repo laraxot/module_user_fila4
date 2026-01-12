@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
+<<<<<<< HEAD
         'label' => 'Invito al team',
         'group' => 'Team',
         'icon' => 'heroicon-o-user-plus',
@@ -44,5 +45,11 @@ return [
         'cancel_invitation' => [
             'label' => 'Annulla invito',
         ],
+=======
+        'label' => 'Team Invitations',
+        'group' => 'Teams',
+        'icon' => 'heroicon-o-envelope',
+        'sort' => 34,
+>>>>>>> 32e772a8 (.)
     ],
 ];

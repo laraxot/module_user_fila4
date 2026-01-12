@@ -43,9 +43,6 @@ Modules/User/
 │   │   ├── OauthPersonalAccessClient.php
 │   │   └── OauthRefreshToken.php
 │   ├── Providers/
-│   │   ├── Traits/
-│   │   │   ├── HasPassportConfiguration.php
-│   │   │   └── HasSocialiteConfiguration.php
 │   │   ├── UserServiceProvider.php
 │   │   ├── EventServiceProvider.php
 │   │   ├── RouteServiceProvider.php
@@ -145,103 +142,7 @@ class LoginPage extends XotBasePage
 }
 ```
 
-## Analisi: Trait vs Service Provider per Passport
 
-### 1. Posizionamento dei Trait
-
-#### 1.1 Struttura Proposta
-```
-Modules/User/app/Providers/
-├── Traits/
-│   ├── HasPassportConfiguration.php
-│   └── HasSocialiteConfiguration.php
-```
-
-#### 1.2 Motivazione
-- I trait sono strettamente legati ai Service Provider
-- Mantengono la coesione con il codice che li utilizza
-- Facilitano la scoperta del codice
-- Seguono il principio di prossimità
-
-### 2. Vantaggi del Trait rispetto al Service Provider
-
-1. **Flessibilità**
-   - Riutilizzabile in diversi provider
-   - Non richiede registrazione nel container
-   - Più facile da testare in isolamento
-
-2. **Manutenibilità**
-   - Logica di configurazione centralizzata
-   - Più facile da aggiornare
-   - Riduce la duplicazione del codice
-
-3. **Performance**
-   - Nessun overhead di bootstrap
-   - Caricamento lazy
-   - Minore consumo di memoria
-
-### 3. Implementazione del Trait
-
-```php
-// In Modules/User/app/Providers/Traits/HasPassportConfiguration.php
-namespace Modules\User\Providers\Traits;
-
-use Laravel\Passport\Passport;
-use Illuminate\Support\Collection;
-
-trait HasPassportConfiguration
-{
-    protected function configurePassport(): void
-    {
-        $this->configureModels();
-        $this->configureTokens();
-        $this->configureScopes();
-    }
-
-    protected function configureModels(): void
-    {
-        Passport::useTokenModel(OauthAccessToken::class);
-        Passport::useClientModel(OauthClient::class);
-        Passport::useAuthCodeModel(OauthAuthCode::class);
-        Passport::usePersonalAccessClientModel(OauthPersonalAccessClient::class);
-        Passport::useRefreshTokenModel(OauthRefreshToken::class);
-    }
-
-    protected function configureTokens(): void
-    {
-        Passport::tokensExpireIn(now()->addDays(1));
-        Passport::refreshTokensExpireIn(now()->addDays(30));
-        Passport::personalAccessTokensExpireIn(now()->addMonths(6));
-    }
-
-    protected function configureScopes(): void
-    {
-        Passport::tokensCan([
-            'view-user' => 'View user information',
-            'core-technicians' => 'the technicians can ',
-        ]);
-    }
-}
-```
-
-### 4. Utilizzo nel Service Provider
-
-```php
-// In Modules/User/app/Providers/UserServiceProvider.php
-namespace Modules\User\Providers;
-
-use Modules\User\Providers\Traits\HasPassportConfiguration;
-
-class UserServiceProvider extends XotBaseServiceProvider
-{
-    use HasPassportConfiguration;
-
-    public function boot(): void
-    {
-        $this->configurePassport();
-    }
-}
-```
 
 ## Documentazione Collegata
 
@@ -268,6 +169,8 @@ class UserServiceProvider extends XotBaseServiceProvider
 ## Introduzione
 
 Laravel Passport fornisce un sistema OAuth2 completo per API authentication. In architetture modulari, l'integrazione richiede alcune attenzioni particolari per garantire che provider, migrazioni e configurazioni siano correttamente riconosciuti in ogni modulo.
+
+In questa architettura modulare, la configurazione di servizi complessi come Passport e Socialite avviene tramite **Service Providers dedicati all'interno di ciascun modulo**. Questo approccio garantisce una chiara separazione delle responsabilità, migliore manutenibilità e allineamento con la filosofia modulare del progetto.
 
 Un modulo di autenticazione ben strutturato dovrebbe supportare:
 - Autenticazione OAuth2 completa
@@ -348,20 +251,14 @@ Un punto di discussione importante riguarda l'opportunità di implementare un Se
    - Potenziale disallineamento con le convenzioni del progetto
    - Rischio di incompatibilità con altri moduli
 
-### Raccomandazione
 
-**Considerando l'architettura attuale del progetto che utilizza Filament per il backoffice e Folio+Volt per il frontoffice, si consiglia di NON implementare un PassportServiceProvider dedicato** per i seguenti motivi:
 
-1. La configurazione di Passport è relativamente semplice e può essere gestita efficacemente all'interno del UserServiceProvider esistente
 
-2. L'architettura basata su Filament e Folio+Volt già fornisce una separazione chiara delle responsabilità, rendendo meno necessaria un'ulteriore suddivisione
 
-3. L'aggiunta di un provider dedicato introdurrebbe complessità non necessaria in un sistema che già privilegia la generazione automatica delle rotte
 
-4. La manutenibilità può essere migliorata utilizzando metodi ben documentati all'interno del provider esistente, senza necessità di file aggiuntivi
 
-5. In caso di crescita della complessità della configurazione di Passport o Socialite in futuro, si potrebbe considerare l'estrazione in trait dedicati prima di passare a provider separati
 
+<<<<<<< HEAD
 Questa raccomandazione è in linea con il principio di "non aggiungere complessità fino a quando non è necessario" e con l'approccio architetturale del progetto che favorisce l'automazione e la convenzione sulla configurazione esplicita.
 
 ### Approccio con Trait: Analisi Approfondita
@@ -694,6 +591,8 @@ Il service provider dedicato potrebbe essere considerato solo in scenari molto s
 - Si richiede una separazione completa per motivi di sicurezza
 
 ---
+=======
+>>>>>>> 32e772a8 (.)
 
 # Analisi Architetturale: Provider Dedicati vs Configurazione Centralizzata
 
@@ -896,83 +795,38 @@ Nonostante i potenziali svantaggi in termini di complessità e performance, i be
 
 ---
 
-## Filosofia dei Trait: Un Approccio Zen alla Configurazione
+## Rationale for Dedicated Service Providers (Lessons Learned)
 
-> "Il trait è come l'acqua: si adatta al contenitore che lo ospita, ma mantiene la sua essenza" - Principio Zen della Programmazione
+The decision to utilize dedicated Service Providers for Passport and Socialite within modules, rather than integrating configuration through traits or directly into the main UserServiceProvider, is a direct consequence of practical challenges encountered during development and a deeper adherence to modular principles.
 
-### Il Trait come Soluzione Intermedia
+**Key Rationales:**
 
-```php
-// In Modules/User/app/Providers/Traits/HasPassportConfiguration.php
-namespace Modules\User\Providers\Traits;
+1.  **PHPStan Compatibility Issues:**
+    *   Initial attempts to encapsulate Passport configuration within a trait (`HasPassportConfiguration`) led to persistent and unresolvable static analysis errors with PHPStan. Specifically, methods exposed via traits and called from the UserServiceProvider were often reported as "undefined" by PHPStan, despite correct runtime behavior.
+    *   This hindered code quality efforts and introduced unnecessary complexity in static analysis workflows, requiring workarounds (like adding `// @phpstan-ignore-next-line`) that compromise the integrity of the analysis.
 
-use Laravel\Passport\Passport;
-use Illuminate\Support\Collection;
+2.  **Strict Modular Architecture:**
+    *   The project strictly adheres to a modular architecture where each module (`Modules/User` in this case) is self-contained and manages its own dependencies and configurations.
+    *   The `module.json` file serves as the primary manifest for a module's services, including its Service Providers. Centralizing configuration within dedicated Service Providers allows for clear declaration and registration within the module's own `module.json`, aligning with the principle that "user is a module and has its own module.json and composer.json."
 
-trait HasPassportConfiguration
-{
-    /**
-     * La configurazione è come un giardino zen: ogni elemento ha il suo posto
-     */
-    protected function configurePassport(): void
-    {
-        $this->configureModels();
-        $this->configureTokens();
-        $this->configureScopes();
-    }
+3.  **Clearer Separation of Concerns:**
+    *   Dedicated Service Providers (`PassportServiceProvider`, `SocialiteServiceProvider`) offer a more explicit and intuitive separation of concerns. Each provider is solely responsible for a specific domain (Passport or Socialite), making the codebase easier to understand, navigate, and maintain.
+    *   This avoids bloating the main `UserServiceProvider` with too many responsibilities.
 
-    /**
-     * I modelli sono come le pietre del giardino: solide e immutabili
-     */
-    protected function configureModels(): void
-    {
-        Passport::useTokenModel(OauthAccessToken::class);
-        Passport::useClientModel(OauthClient::class);
-        Passport::useAuthCodeModel(OauthAuthCode::class);
-        Passport::usePersonalAccessClientModel(OauthPersonalAccessClient::class);
-        Passport::useRefreshTokenModel(OauthRefreshToken::class);
-    }
+4.  **Improved Testability and Maintainability:**
+    *   Smaller, more focused Service Providers are easier to test in isolation.
+    *   Future updates or modifications to Passport or Socialite configurations can be managed within their respective providers without impacting unrelated parts of the module.
 
-    /**
-     * I token sono come le foglie: nascono, vivono e muoiono
-     */
-    protected function configureTokens(): void
-    {
-        Passport::tokensExpireIn(now()->addDays(1));
-        Passport::refreshTokensExpireIn(now()->addDays(30));
-        Passport::personalAccessTokensExpireIn(now()->addMonths(6));
-    }
+5.  **Alignment with Project Conventions:**
+    *   This approach aligns with the established pattern of separating concerns into dedicated providers (e.g., `EventServiceProvider`, `RouteServiceProvider`, `AdminPanelProvider`) already present within the module structure.
 
-    /**
-     * Gli scope sono come i sentieri del giardino: definiscono i percorsi possibili
-     */
-    protected function configureScopes(): void
-    {
-        Passport::tokensCan([
-            'view-user' => 'View user information',
-            'core-technicians' => 'the technicians can ',
-        ]);
-    }
-}
-```
+In conclusion, while traits offer certain benefits, the practical challenges with static analysis and the strong architectural mandate for modularity make dedicated Service Providers the unequivocally superior choice for managing Passport and Socialite configurations in this project. This decision prioritizes robust static analysis, clear modular boundaries, and long-term maintainability over the perceived "simplicity" of traits in a complex modular context.
 
-### Filosofia e Principi
 
-1. **Il Principio del Vuoto (空)**
-   - Il trait non occupa spazio nella gerarchia delle classi
-   - Come il vuoto zen, permette alla configurazione di fluire naturalmente
-   - Non impone una struttura rigida, ma si adatta al contesto
 
-2. **Il Principio dell'Unità (一)**
-   - Unifica la configurazione in un unico punto
-   - Mantiene la coerenza come un fiume che scorre
-   - Evita la frammentazione della conoscenza
 
-3. **Il Principio della Trasformazione (変)**
-   - Permette alla configurazione di evolversi gradualmente
-   - Come il bambù, si piega ma non si spezza
-   - Facilita la manutenzione e gli aggiornamenti
 
+<<<<<<< HEAD
 ### Vantaggi Filosofici
 
 1. **Armonia con l'Esistente**
@@ -1662,3 +1516,6 @@ trait HasPassportConfiguration
 * [passport.md](../../Tenant/docs/it/config/passport.md)
 
 ---
+=======
+
+>>>>>>> 32e772a8 (.)

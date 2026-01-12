@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
+<<<<<<< HEAD
         'label' => 'Reimpostazione password',
         'group' => 'Sicurezza',
         'icon' => 'heroicon-o-key',
@@ -32,5 +33,16 @@ return [
         'view_request' => [
             'label' => 'Visualizza richiesta',
         ],
+=======
+        'name' => 'Reset Password',
+        'plural' => 'Reset Password',
+        'label' => 'Reset Password',
+        'group' => [
+            'name' => 'Sicurezza',
+            'description' => 'Gestione dei reset password e recupero credenziali',
+        ],
+        'sort' => 4,
+        'icon' => 'heroicon-o-key',
+>>>>>>> 32e772a8 (.)
     ],
 ];

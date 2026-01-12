@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
+<<<<<<< HEAD
         'label' => 'Log di Autenticazione',
         'plural' => 'Log di Autenticazione',
         'icon' => 'heroicon-o-shield-check',
@@ -28,6 +29,15 @@ return [
         'view_user' => [
             'label' => 'Visualizza Utente',
             'icon' => 'heroicon-o-user',
+=======
+        'group' => 'Log Autenticazione',
+        'icon' => 'heroicon-o-shield-check',
+        'sort' => 91,
+    ],
+    'actions' => [
+        'reorderRecords' => [
+            'tooltip' => 'Riordina Record',
+>>>>>>> 32e772a8 (.)
         ],
     ],
 ];

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
+<<<<<<< HEAD
         'label' => 'Client OAuth',
         'group' => 'OAuth',
         'icon' => 'heroicon-o-key',
@@ -52,6 +53,21 @@ return [
         ],
         'revoke' => [
             'label' => 'Revoca',
+=======
+        'label' => 'OAuth Clients',
+        'group' => 'API',
+        'icon' => 'heroicon-o-key',
+        'sort' => 89,
+    ],
+    'actions' => [
+        'logout' => [
+            'tooltip' => 'logout',
+        ],
+    ],
+    'fields' => [
+        'password_client' => [
+            'description' => 'password_client',
+>>>>>>> 32e772a8 (.)
         ],
     ],
 ];

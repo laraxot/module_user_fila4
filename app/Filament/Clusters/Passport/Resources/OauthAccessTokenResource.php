@@ -34,6 +34,7 @@ class OauthAccessTokenResource extends XotBaseResource
 
     protected static ?string $model = OauthAccessToken::class;
 
+<<<<<<< HEAD:app/Filament/Clusters/Passport/Resources/OauthAccessTokenResource.php
     public static function table(Table $table): Table
     {
         return $table
@@ -125,6 +126,9 @@ class OauthAccessTokenResource extends XotBaseResource
             ])
             ->defaultSort('created_at', 'desc');
     }
+=======
+
+>>>>>>> 32e772a8 (.):app/Filament/Resources/OauthAccessTokenResource.php
 
     /**
      * @return array<string, \Filament\Resources\Pages\PageRegistration>

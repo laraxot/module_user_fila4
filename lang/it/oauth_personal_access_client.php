@@ -50,6 +50,7 @@ return [
             'error' => 'Errore durante l\'eliminazione del Personal Access Client',
             'confirmation' => 'Sei sicuro di voler eliminare questo Personal Access Client?',
         ],
+<<<<<<< HEAD
         'logout' => [
             'tooltip' => 'logout',
             'icon' => 'logout',
@@ -63,6 +64,10 @@ return [
         'reorderRecords' => [
             'tooltip' => 'reorderRecords',
             'icon' => 'reorderRecords',
+=======
+        'openColumnManager' => [
+            'tooltip' => 'openColumnManager',
+>>>>>>> 32e772a8 (.)
         ],
     ],
 ];

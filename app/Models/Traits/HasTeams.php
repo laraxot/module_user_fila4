@@ -23,12 +23,17 @@ use Modules\Xot\Datas\XotData;
  * Provides team functionality for User models implementing team-based organization.
  * This trait handles team ownership, membership, permissions, and relationships.
  *
- * @property TeamContract                  $currentTeam
- * @property int|null                      $current_team_id
+ * @property TeamContract $currentTeam
+ * @property int|null $current_team_id
  * @property Collection<int, TeamContract> $teams
  * @property Collection<int, TeamContract> $ownedTeams
+<<<<<<< HEAD
  * @property Collection<int, TeamUser>     $teamUsers
  * @property UserContract|null             $owner
+=======
+ * @property Collection<int, Membership> $teamUsers
+ * @property UserContract|null $owner
+>>>>>>> 32e772a8 (.)
  */
 trait HasTeams
 {
@@ -70,7 +75,12 @@ trait HasTeams
      */
     public function belongsToTeam(?TeamContract $team): bool
     {
+<<<<<<< HEAD
         if (null === $team) {
+=======
+        $found = $this->teams()->where('teams.id', $team->id)->first();
+        if ($found === null) {
+>>>>>>> 32e772a8 (.)
             return false;
         }
 
@@ -162,11 +172,11 @@ trait HasTeams
             // Membership always extends Model, check only if user attribute exists
             $user = $membership->getAttribute('user');
 
-            return null !== $user ? $user : null;
+            return $user !== null ? $user : null;
         })->filter();
 
         $owner = $this->owner;
-        if (null !== $owner && $owner instanceof User) {
+        if ($owner !== null && $owner instanceof User) {
             return $users->merge([$owner]);
         }
 
@@ -198,13 +208,13 @@ trait HasTeams
             if (\is_object($memberUser) && method_exists($memberUser, 'getKey')) {
                 $memberUserKey = $memberUser->getKey();
 
-                return null !== $memberUserKey && $memberUserKey === $user->getKey();
+                return $memberUserKey !== null && $memberUserKey === $user->getKey();
             }
 
             return false;
         });
 
-        if (null !== $userFound) {
+        if ($userFound !== null) {
             return true;
         }
 
@@ -243,6 +253,7 @@ trait HasTeams
 
         $teamRole = $this->teamRole($team);
 
+<<<<<<< HEAD
         return null !== $teamRole && $teamRole->name === $role;
     }
 
@@ -254,6 +265,9 @@ trait HasTeams
         $role = $this->teamRole($team);
 
         return $role?->name ?? 'Unknown';
+=======
+        return $teamRole !== null && isset($teamRole->name) && $teamRole->name === $role;
+>>>>>>> 32e772a8 (.)
     }
 
     /**
@@ -264,6 +278,18 @@ trait HasTeams
     public function currentTeam(): BelongsTo
     {
         $xot = XotData::make();
+<<<<<<< HEAD
+=======
+        if ($this->current_team_id === null && $this->id) {
+            $this->switchTeam($this->personalTeam());
+        }
+
+        if ($this->allTeams()->isEmpty() && $this->getKey() !== null) {
+            $this->current_team_id = null;
+            $this->save();
+        }
+
+>>>>>>> 32e772a8 (.)
         $teamClass = $xot->getTeamClass();
 
         return $this->belongsTo($teamClass, 'current_team_id');
@@ -304,7 +330,7 @@ trait HasTeams
         /** @var Model|Pivot|null $teamUser */
         $teamUser = $this->teamUsers()->where('team_id', $team->id)->first();
 
-        if (null === $teamUser) {
+        if ($teamUser === null) {
             return null;
         }
 
@@ -330,10 +356,15 @@ trait HasTeams
     {
         $permissions = [];
 
+<<<<<<< HEAD
         // Permissions from Role
         $role = $this->teamRole($team);
         if (null !== $role && $role->permissions) {
             $permissions = $role->permissions->pluck('name')->values()->toArray();
+=======
+        if ($role === null || ! $role->permissions) {
+            return [];
+>>>>>>> 32e772a8 (.)
         }
 
         // Permissions from Pivot
@@ -389,11 +420,16 @@ trait HasTeams
      */
     public function switchTeam(?TeamContract $team): bool
     {
+<<<<<<< HEAD
         if (null === $team) {
             $this->current_team_id = null;
             $this->save();
 
             return true;
+=======
+        if ($team === null) {
+            return false;
+>>>>>>> 32e772a8 (.)
         }
 
         if (! $this->belongsToTeam($team)) {
@@ -411,7 +447,7 @@ trait HasTeams
      */
     public function isCurrentTeam(TeamContract $team): bool
     {
-        if (null === $this->currentTeam) {
+        if ($this->currentTeam === null) {
             return false;
         }
 
@@ -427,7 +463,11 @@ trait HasTeams
             return false;
         }
 
+<<<<<<< HEAD
         return (string) $this->getKey() === (string) $team->user_id;
+=======
+        return $found !== null;
+>>>>>>> 32e772a8 (.)
     }
 
     /**

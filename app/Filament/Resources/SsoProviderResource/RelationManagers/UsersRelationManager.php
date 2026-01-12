@@ -7,12 +7,12 @@ namespace Modules\User\Filament\Resources\SsoProviderResource\RelationManagers;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
-use Modules\Xot\Filament\Traits\HasXotTable;
 
+/**
+ * Users Relation Manager for SSO Provider Resource.
+ */
 class UsersRelationManager extends XotBaseRelationManager
 {
-    use HasXotTable;
-
     protected static string $relationship = 'users';
 
     protected static ?string $recordTitleAttribute = 'name';

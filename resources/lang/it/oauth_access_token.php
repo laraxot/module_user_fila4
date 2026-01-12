@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
+<<<<<<< HEAD
         'label' => 'Token di accesso OAuth',
         'group' => 'OAuth',
         'icon' => 'heroicon-o-key',
@@ -41,5 +42,10 @@ return [
         'refresh' => [
             'label' => 'Aggiorna',
         ],
+=======
+        'group' => 'Token di Accesso OAuth',
+        'icon' => 'heroicon-o-key',
+        'sort' => 9,
+>>>>>>> 32e772a8 (.)
     ],
 ];

@@ -6,7 +6,11 @@ use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Filament\Widgets\LoginWidget;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 use Modules\User\Tests\TestCase;
+=======
+use Tests\TestCase;
+>>>>>>> 32e772a8 (.)
 
 use function Pest\Laravel\assertAuthenticatedAs;
 
