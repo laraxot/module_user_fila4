@@ -8,8 +8,6 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Actions\Action as FilamentAction;
-use Filament\Actions\ActionGroup;
 use Filament\Forms\Components\Field;
 use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Select;
@@ -19,7 +17,6 @@ use Filament\Forms\Components\Toggle;
 use Filament\Resources\Pages\PageRegistration;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Table;
 use Modules\User\Filament\Resources\SsoProviderResource\Pages;
 use Modules\User\Filament\Resources\SsoProviderResource\RelationManagers\UsersRelationManager;
 use Modules\User\Models\SsoProvider;
@@ -73,6 +70,7 @@ class SsoProviderResource extends XotBaseResource
             'is_active' => Toggle::make('is_active'),
         ];
     }
+
     /**
      * @return array<string, TextColumn|IconColumn>
      */
@@ -101,7 +99,7 @@ class SsoProviderResource extends XotBaseResource
     }
 
     /**
-     * @return array<string, \Filament\Actions\EditAction|\Filament\Actions\DeleteAction>
+     * @return array<string, EditAction|DeleteAction>
      */
     public static function getTableActions(): array
     {
@@ -122,6 +120,7 @@ class SsoProviderResource extends XotBaseResource
             ]),
         ];
     }
+
     /**
      * @return array<string, class-string<\Filament\Resources\RelationManagers\RelationManager>>
      */
