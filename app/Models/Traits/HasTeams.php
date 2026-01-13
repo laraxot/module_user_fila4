@@ -24,12 +24,12 @@ use Modules\Xot\Datas\XotData;
  * Provides team functionality for User models implementing team-based organization.
  * This trait handles team ownership, membership, permissions, and relationships.
  *
- * @property TeamContract $currentTeam
- * @property int|null $current_team_id
+ * @property TeamContract                  $currentTeam
+ * @property int|null                      $current_team_id
  * @property Collection<int, TeamContract> $teams
  * @property Collection<int, TeamContract> $ownedTeams
- * @property Collection<int, TeamUser> $teamUsers
- * @property XotUserContract|null $owner
+ * @property Collection<int, TeamUser>     $teamUsers
+ * @property XotUserContract|null          $owner
  */
 trait HasTeams
 {
@@ -163,11 +163,11 @@ trait HasTeams
             // Membership always extends Model, check only if user attribute exists
             $user = $membership->getAttribute('user');
 
-            return $user !== null ? $user : null;
+            return null !== $user ? $user : null;
         })->filter();
 
         $owner = $this->owner;
-        if ($owner !== null && $owner instanceof User) {
+        if (null !== $owner && $owner instanceof User) {
             return $users->merge([$owner]);
         }
 
@@ -199,13 +199,13 @@ trait HasTeams
             if ($memberUser instanceof Model) {
                 $memberUserKey = $memberUser->getKey();
 
-                return $memberUserKey !== null && $memberUserKey === $user->getKey();
+                return null !== $memberUserKey && $memberUserKey === $user->getKey();
             }
 
             return false;
         });
 
-        if ($userFound !== null) {
+        if (null !== $userFound) {
             return true;
         }
 
@@ -309,7 +309,7 @@ trait HasTeams
         /** @var Model|Pivot|null $teamUser */
         $teamUser = $this->teamUsers()->where('team_id', $team->id)->first();
 
-        if ($teamUser === null) {
+        if (null === $teamUser) {
             return null;
         }
 
@@ -346,7 +346,7 @@ trait HasTeams
 
             $permissions = array_values(array_filter(
                 $rolePermissionNames,
-                static fn (string $value): bool => $value !== ''
+                static fn (string $value): bool => '' !== $value
             ));
         }
 
@@ -362,7 +362,7 @@ trait HasTeams
                     $permissions,
                     array_values(array_filter(
                         $pivotPermissionNames,
-                        static fn (string $value): bool => $value !== ''
+                        static fn (string $value): bool => '' !== $value
                     ))
                 );
             }
@@ -436,7 +436,7 @@ trait HasTeams
      */
     public function isCurrentTeam(TeamContract $team): bool
     {
-        if ($this->currentTeam === null) {
+        if (null === $this->currentTeam) {
             return false;
         }
 
@@ -451,6 +451,7 @@ trait HasTeams
         if (null === $team) {
             return false;
         }
+
         return $this->id === $team->user_id;
     }
 

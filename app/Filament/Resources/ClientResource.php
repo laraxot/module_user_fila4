@@ -74,7 +74,7 @@ class ClientResource extends XotBaseResource
 
         Assert::subclassOf($model, \Illuminate\Database\Eloquent\Model::class);
 
-        /** @var class-string<\Illuminate\Database\Eloquent\Model> $model */
+        /* @var class-string<\Illuminate\Database\Eloquent\Model> $model */
         return $model;
     }
 

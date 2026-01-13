@@ -26,7 +26,6 @@ class SsoProviderResource extends XotBaseResource
 {
     protected static ?string $model = SsoProvider::class;
 
-
     /**
      * @return array<string, Field>
      */

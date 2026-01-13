@@ -22,7 +22,6 @@ class OauthClientResource extends XotBaseResource
 {
     protected static ?string $model = Client::class;
 
-
     /**
      * Schema del form per la risorsa.
      *
