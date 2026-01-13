@@ -8,6 +8,11 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+<<<<<<< HEAD
+=======
+use Filament\Actions\Action as FilamentAction;
+use Filament\Actions\ActionGroup;
+>>>>>>> 5aac2b68 (.)
 use Filament\Forms\Components\Field;
 use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Select;
@@ -17,6 +22,10 @@ use Filament\Forms\Components\Toggle;
 use Filament\Resources\Pages\PageRegistration;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+<<<<<<< HEAD
+=======
+use Filament\Tables\Table;
+>>>>>>> 5aac2b68 (.)
 use Modules\User\Filament\Resources\SsoProviderResource\Pages;
 use Modules\User\Filament\Resources\SsoProviderResource\RelationManagers\UsersRelationManager;
 use Modules\User\Models\SsoProvider;
@@ -26,6 +35,15 @@ class SsoProviderResource extends XotBaseResource
 {
     protected static ?string $model = SsoProvider::class;
 
+<<<<<<< HEAD
+=======
+    protected static ?string $recordTitleAttribute = 'display_name';
+
+    protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-identification';
+
+    protected static \UnitEnum|string|null $navigationGroup = 'Authentication';
+
+>>>>>>> 5aac2b68 (.)
     /**
      * @return array<string, Field>
      */
@@ -64,7 +82,10 @@ class SsoProviderResource extends XotBaseResource
             'is_active' => Toggle::make('is_active'),
         ];
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5aac2b68 (.)
     /**
      * @return array<string, TextColumn|IconColumn>
      */
@@ -93,7 +114,11 @@ class SsoProviderResource extends XotBaseResource
     }
 
     /**
+<<<<<<< HEAD
      * @return array<string, EditAction|DeleteAction>
+=======
+     * @return array<string, \Filament\Actions\EditAction|\Filament\Actions\DeleteAction>
+>>>>>>> 5aac2b68 (.)
      */
     public static function getTableActions(): array
     {
@@ -114,7 +139,10 @@ class SsoProviderResource extends XotBaseResource
             ]),
         ];
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5aac2b68 (.)
     /**
      * @return array<string, class-string<\Filament\Resources\RelationManagers\RelationManager>>
      */

@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Schema;
 use Modules\User\Contracts\TeamContract;
 use Modules\User\Models\Role;
 use Modules\User\Models\TeamUser;
@@ -28,7 +29,11 @@ use Modules\Xot\Datas\XotData;
  * @property Collection<int, TeamContract> $teams
  * @property Collection<int, TeamContract> $ownedTeams
  * @property Collection<int, TeamUser>     $teamUsers
+<<<<<<< HEAD
  * @property XotUserContract|null          $owner
+=======
+ * @property UserContract|null             $owner
+>>>>>>> 5aac2b68 (.)
  */
 trait HasTeams
 {
@@ -338,6 +343,7 @@ trait HasTeams
         // Permissions from Role
         $role = $this->teamRole($team);
         if (null !== $role && $role->permissions) {
+<<<<<<< HEAD
             /** @var \Illuminate\Database\Eloquent\Collection<int, \Spatie\Permission\Models\Permission> $permissionsCollection */
             $permissionsCollection = $role->permissions;
             /** @var array<string> $rolePermissionNames */
@@ -346,6 +352,13 @@ trait HasTeams
             $permissions = array_values(array_filter(
                 $rolePermissionNames,
                 static fn (string $value): bool => '' !== $value
+=======
+            $rolePermissionNames = $role->permissions->pluck('name')->toArray();
+
+            $permissions = array_values(array_filter(
+                $rolePermissionNames,
+                static fn (mixed $value): bool => \is_string($value) && '' !== $value
+>>>>>>> 5aac2b68 (.)
             ));
         }
 
@@ -361,16 +374,24 @@ trait HasTeams
                     $permissions,
                     array_values(array_filter(
                         $pivotPermissionNames,
+<<<<<<< HEAD
                         static fn (string $value): bool => '' !== $value
+=======
+                        static fn (mixed $value): bool => \is_string($value) && '' !== $value
+>>>>>>> 5aac2b68 (.)
                     ))
                 );
             }
         }
 
+<<<<<<< HEAD
         /** @var array<int, string> $result */
         $result = array_values(array_unique($permissions));
 
         return $result;
+=======
+        return array_values(array_unique($permissions));
+>>>>>>> 5aac2b68 (.)
     }
 
     /**
@@ -451,20 +472,41 @@ trait HasTeams
             return false;
         }
 
+<<<<<<< HEAD
         return $this->id === $team->user_id;
+=======
+        return (string) $this->getKey() === (string) $team->user_id;
+>>>>>>> 5aac2b68 (.)
     }
 
     /**
      * Get all of the teams the user belongs to.
      *
+<<<<<<< HEAD
      * @return BelongsToMany<Model&TeamContract, $this, TeamUser, 'pivot'>
+=======
+     * @return BelongsToMany<Model&TeamContract, $this, TeamUser>
+>>>>>>> 5aac2b68 (.)
      */
     public function teams(): BelongsToMany
     {
         $xot = XotData::make();
         $teamClass = $xot->getTeamClass();
 
+<<<<<<< HEAD
         return $this->belongsToManyX($teamClass);
+=======
+        $relation = $this->belongsToMany($teamClass, 'team_user', 'user_id', 'team_id')
+            ->using(TeamUser::class);
+
+        // Verifica la colonna permissions usando la connessione corretta
+        $connectionName = $this->getConnectionName();
+        if (Schema::connection($connectionName)->hasColumn('team_user', 'permissions')) {
+            return $relation->withPivot(['role', 'permissions']);
+        }
+
+        return $relation->withPivot(['role']);
+>>>>>>> 5aac2b68 (.)
     }
 
     /**

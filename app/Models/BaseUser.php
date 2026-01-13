@@ -25,13 +25,13 @@ use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Laravel\Passport\Contracts\OAuthenticatable;
 use Laravel\Passport\HasApiTokens;
 use Modules\User\Database\Factories\UserFactory;
 use Modules\User\Models\Traits\HasAuthenticationLogTrait;
 use Modules\User\Models\Traits\HasModules;
 use Modules\User\Models\Traits\HasSpatiePermission;
 use Modules\User\Models\Traits\HasTeams;
-use Modules\Xot\Contracts\PassportHasApiTokensContract;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
@@ -128,12 +128,17 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  *
  * @mixin \Eloquent
  */
-abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, PassportHasApiTokensContract, UserContract
+abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, OAuthenticatable, UserContract
 {
     use HasApiTokens {
+<<<<<<< HEAD
         createToken as traitCreateToken;
     }
 
+=======
+        createToken as TraitCreateToken;
+    }
+>>>>>>> 5aac2b68 (.)
     use HasAuthenticationLogTrait;
     use HasChildren;
     use HasModules;
@@ -147,6 +152,7 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     use Traits\HasTenants;
     use XotTraits\RelationX;
 
+<<<<<<< HEAD
     public function createToken(string $name, array $scopes = []): \Laravel\Passport\PersonalAccessTokenResult
     {
         /* @var \Laravel\Passport\PersonalAccessTokenResult */
@@ -165,6 +171,8 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         return $this;
     }
 
+=======
+>>>>>>> 5aac2b68 (.)
     /** @var bool */
     public $incrementing = false;
 
@@ -247,6 +255,20 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         }
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * Create a new personal access token for the user.
+     *
+     * @param string             $name
+     * @param array<int, string> $scopes
+     */
+    public function createToken(string $name, array $scopes = []): \Laravel\Passport\PersonalAccessTokenResult
+    {
+        return $this->TraitCreateToken($name, $scopes);
+    }
+
+>>>>>>> 5aac2b68 (.)
     public function getProviderName(): string
     {
         return (string) ($this->getAttribute('provider') ?? config('auth.guards.api.provider', 'users'));

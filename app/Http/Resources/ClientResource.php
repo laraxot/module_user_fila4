@@ -9,8 +9,11 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use Modules\User\Models\OauthClient as Client;
 
 /**
+<<<<<<< HEAD
  * @property \Modules\User\Models\User|null $owner
  *
+=======
+>>>>>>> 5aac2b68 (.)
  * @mixin Client
  */
 final class ClientResource extends JsonResource
@@ -27,7 +30,11 @@ final class ClientResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'owner' => $this->when(
+<<<<<<< HEAD
                 isset($this->owner),
+=======
+                null !== $this->owner,
+>>>>>>> 5aac2b68 (.)
                 fn (): OwnerResource => new OwnerResource($this->owner)
             ),
         ];

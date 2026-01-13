@@ -53,12 +53,15 @@ class ViewOauthClient extends XotBaseViewRecord
 
         return $actions;
     }
+<<<<<<< HEAD
 
     /**
      * Schema dell'infolist per la visualizzazione dei dettagli.
      *
      * @return array<string, Component>
      */
+=======
+>>>>>>> 5aac2b68 (.)
     protected function getInfolistSchema(): array
     {
         return [

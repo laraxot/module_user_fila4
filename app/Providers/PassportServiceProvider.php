@@ -92,6 +92,7 @@ class PassportServiceProvider extends ServiceProvider
 
         $tokenModel = $models['token'] ?? OauthToken::class;
         Assert::stringNotEmpty($tokenModel);
+<<<<<<< HEAD
         Assert::classExists($tokenModel);
         /** @var class-string<\Laravel\Passport\Token> $tokenModel */
         $tokenModelClass = $tokenModel;
@@ -126,6 +127,30 @@ class PassportServiceProvider extends ServiceProvider
             /** @var class-string<\Laravel\Passport\DeviceCode> $deviceCodeModel */
             $deviceCodeModelClass = $deviceCodeModel;
             Passport::useDeviceCodeModel($deviceCodeModelClass);
+=======
+        $refreshTokenModel = $models['refresh_token'] ?? OauthRefreshToken::class;
+        Assert::stringNotEmpty($refreshTokenModel);
+        $authCodeModel = $models['auth_code'] ?? OauthAuthCode::class;
+        Assert::stringNotEmpty($authCodeModel);
+
+        $clientModel = config('user.passport.client_model', OauthClient::class);
+        Assert::stringNotEmpty($clientModel);
+
+        /** @var class-string<\Laravel\Passport\Token> $tokenModel */
+        Passport::useTokenModel($tokenModel);
+        /** @var class-string<\Laravel\Passport\RefreshToken> $refreshTokenModel */
+        Passport::useRefreshTokenModel($refreshTokenModel);
+        /** @var class-string<\Laravel\Passport\AuthCode> $authCodeModel */
+        Passport::useAuthCodeModel($authCodeModel);
+        /** @var class-string<\Laravel\Passport\Client> $clientModel */
+        Passport::useClientModel($clientModel);
+
+        if (method_exists(Passport::class, 'useDeviceCodeModel')) {
+            $deviceCodeModel = $models['device_code'] ?? OauthDeviceCode::class;
+            Assert::stringNotEmpty($deviceCodeModel);
+            /** @var class-string<\Laravel\Passport\DeviceCode> $deviceCodeModel */
+            Passport::useDeviceCodeModel($deviceCodeModel);
+>>>>>>> 5aac2b68 (.)
         }
     }
 
@@ -153,10 +178,15 @@ class PassportServiceProvider extends ServiceProvider
         }
 
         if (! empty($scopes)) {
+<<<<<<< HEAD
             // PHPStan: dopo i controlli Assert, l'array è garantito essere array<string, string>
             /** @var array<string, string> $typedScopes */
             $typedScopes = $scopes;
             Passport::tokensCan($typedScopes);
+=======
+            /** @var array<string, string> $scopes */
+            Passport::tokensCan($scopes);
+>>>>>>> 5aac2b68 (.)
         }
     }
 

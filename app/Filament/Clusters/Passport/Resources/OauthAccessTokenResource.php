@@ -123,7 +123,11 @@ class OauthAccessTokenResource extends XotBaseResource
                     DeleteBulkAction::make(),
                 ]),
             ])
+<<<<<<< HEAD
             ->defaultSort('created_at', 'desc');
+=======
+                        ->defaultSort('created_at', 'desc');
+>>>>>>> 5aac2b68 (.)
     }
 
     /**
