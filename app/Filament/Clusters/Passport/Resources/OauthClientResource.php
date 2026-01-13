@@ -20,6 +20,10 @@ use Modules\User\Filament\Clusters\Passport\Resources\OauthClientResource\Pages\
 use Modules\User\Filament\Clusters\Passport\Resources\OauthClientResource\Pages\ListOauthClients;
 use Modules\User\Filament\Clusters\Passport\Resources\OauthClientResource\Pages\ViewOauthClient;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+<<<<<<< HEAD
+=======
+use Webmozart\Assert\Assert;
+>>>>>>> 2880e04a (.)
 
 class OauthClientResource extends XotBaseResource
 {
@@ -81,10 +85,28 @@ class OauthClientResource extends XotBaseResource
 
     /**
      * Get the model class for the resource from Passport.
+<<<<<<< HEAD
      */
     public static function getModel(): string
     {
         return LaravelPassport::clientModel();
+=======
+     *
+     * @return class-string<\Illuminate\Database\Eloquent\Model>
+     */
+    public static function getModel(): string
+    {
+        $model = LaravelPassport::clientModel();
+        // @phpstan-ignore-next-line
+        if (! class_exists($model)) {
+            return \Modules\User\Models\OauthClient::class;
+        }
+
+        Assert::subclassOf($model, \Illuminate\Database\Eloquent\Model::class);
+
+        /** @var class-string<\Illuminate\Database\Eloquent\Model> $model */
+        return $model;
+>>>>>>> 2880e04a (.)
     }
 
     public static function getPages(): array

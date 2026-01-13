@@ -26,12 +26,15 @@ class SsoProviderResource extends XotBaseResource
 {
     protected static ?string $model = SsoProvider::class;
 
+<<<<<<< HEAD
     protected static ?string $recordTitleAttribute = 'display_name';
 
     protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-identification';
 
     protected static \UnitEnum|string|null $navigationGroup = 'Authentication';
 
+=======
+>>>>>>> 2880e04a (.)
     /**
      * @return array<string, Field>
      */

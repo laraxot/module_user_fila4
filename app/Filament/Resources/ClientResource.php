@@ -14,6 +14,10 @@ use Modules\User\Filament\Resources\ClientResource\Pages\ListClients;
 use Modules\User\Filament\Resources\ClientResource\Pages\ViewClient;
 use Modules\Xot\Filament\Forms\Components\XotBaseSelect;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+<<<<<<< HEAD
+=======
+use Webmozart\Assert\Assert;
+>>>>>>> 2880e04a (.)
 
 class ClientResource extends XotBaseResource
 {
@@ -61,15 +65,30 @@ class ClientResource extends XotBaseResource
      *
      * @return class-string<\Illuminate\Database\Eloquent\Model>
      */
+<<<<<<< HEAD
+=======
+    /**
+     * @return class-string<\Illuminate\Database\Eloquent\Model>
+     */
+>>>>>>> 2880e04a (.)
     public static function getModel(): string
     {
         $model = Passport::clientModel();
         if (! is_string($model) || ! class_exists($model)) {
+<<<<<<< HEAD
             /* @var class-string<\Illuminate\Database\Eloquent\Model> */
             return Client::class;
         }
 
         /* @var class-string<\Illuminate\Database\Eloquent\Model> */
+=======
+            return Client::class;
+        }
+
+        Assert::subclassOf($model, \Illuminate\Database\Eloquent\Model::class);
+
+        /** @var class-string<\Illuminate\Database\Eloquent\Model> $model */
+>>>>>>> 2880e04a (.)
         return $model;
     }
 

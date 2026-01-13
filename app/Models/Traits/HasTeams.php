@@ -24,12 +24,17 @@ use Modules\Xot\Datas\XotData;
  * Provides team functionality for User models implementing team-based organization.
  * This trait handles team ownership, membership, permissions, and relationships.
  *
- * @property TeamContract                  $currentTeam
- * @property int|null                      $current_team_id
+ * @property TeamContract $currentTeam
+ * @property int|null $current_team_id
  * @property Collection<int, TeamContract> $teams
  * @property Collection<int, TeamContract> $ownedTeams
+<<<<<<< HEAD
  * @property Collection<int, TeamUser>     $teamUsers
  * @property UserContract|null             $owner
+=======
+ * @property Collection<int, TeamUser> $teamUsers
+ * @property UserContract|null $owner
+>>>>>>> 2880e04a (.)
  */
 trait HasTeams
 {
@@ -71,7 +76,11 @@ trait HasTeams
      */
     public function belongsToTeam(?TeamContract $team): bool
     {
+<<<<<<< HEAD
         if (null === $team) {
+=======
+        if ($team === null) {
+>>>>>>> 2880e04a (.)
             return false;
         }
 
@@ -163,11 +172,11 @@ trait HasTeams
             // Membership always extends Model, check only if user attribute exists
             $user = $membership->getAttribute('user');
 
-            return null !== $user ? $user : null;
+            return $user !== null ? $user : null;
         })->filter();
 
         $owner = $this->owner;
-        if (null !== $owner && $owner instanceof User) {
+        if ($owner !== null && $owner instanceof User) {
             return $users->merge([$owner]);
         }
 
@@ -199,13 +208,13 @@ trait HasTeams
             if ($memberUser instanceof Model) {
                 $memberUserKey = $memberUser->getKey();
 
-                return null !== $memberUserKey && $memberUserKey === $user->getKey();
+                return $memberUserKey !== null && $memberUserKey === $user->getKey();
             }
 
             return false;
         });
 
-        if (null !== $userFound) {
+        if ($userFound !== null) {
             return true;
         }
 
@@ -244,7 +253,11 @@ trait HasTeams
 
         $teamRole = $this->teamRole($team);
 
+<<<<<<< HEAD
         return null !== $teamRole && $teamRole->name === $role;
+=======
+        return $teamRole !== null && $teamRole->name === $role;
+>>>>>>> 2880e04a (.)
     }
 
     /**
@@ -254,7 +267,11 @@ trait HasTeams
     {
         $role = $this->teamRole($team);
 
+<<<<<<< HEAD
         if (null === $role) {
+=======
+        if ($role === null) {
+>>>>>>> 2880e04a (.)
             return 'Unknown';
         }
 
@@ -309,7 +326,7 @@ trait HasTeams
         /** @var Model|Pivot|null $teamUser */
         $teamUser = $this->teamUsers()->where('team_id', $team->id)->first();
 
-        if (null === $teamUser) {
+        if ($teamUser === null) {
             return null;
         }
 
@@ -338,19 +355,35 @@ trait HasTeams
 
         // Permissions from Role
         $role = $this->teamRole($team);
+<<<<<<< HEAD
         if (null !== $role && $role->permissions) {
             $rolePermissionNames = $role->permissions->pluck('name')->toArray();
 
             $permissions = array_values(array_filter(
                 $rolePermissionNames,
                 static fn (mixed $value): bool => \is_string($value) && '' !== $value
+=======
+        if ($role !== null && $role->permissions) {
+            /** @var \Illuminate\Database\Eloquent\Collection<int, \Spatie\Permission\Models\Permission> $permissionsCollection */
+            $permissionsCollection = $role->permissions;
+            /** @var array<string> $rolePermissionNames */
+            $rolePermissionNames = $permissionsCollection->pluck('name')->toArray();
+
+            $permissions = array_values(array_filter(
+                $rolePermissionNames,
+                static fn (string $value): bool => $value !== ''
+>>>>>>> 2880e04a (.)
             ));
         }
 
         // Permissions from Pivot
         /** @var Model|Pivot|null $teamUser */
         $teamUser = $this->teamUsers()->where('team_id', (string) $team->id)->first();
+<<<<<<< HEAD
         if (null !== $teamUser) {
+=======
+        if ($teamUser !== null) {
+>>>>>>> 2880e04a (.)
             $pivotPermissions = $teamUser->getAttribute('permissions');
             if (is_array($pivotPermissions)) {
                 $pivotPermissionNames = array_keys(array_filter($pivotPermissions));
@@ -359,13 +392,24 @@ trait HasTeams
                     $permissions,
                     array_values(array_filter(
                         $pivotPermissionNames,
+<<<<<<< HEAD
                         static fn (mixed $value): bool => \is_string($value) && '' !== $value
+=======
+                        static fn (string $value): bool => $value !== ''
+>>>>>>> 2880e04a (.)
                     ))
                 );
             }
         }
 
+<<<<<<< HEAD
         return array_values(array_unique($permissions));
+=======
+        /** @var array<int, string> $result */
+        $result = array_values(array_unique($permissions));
+
+        return $result;
+>>>>>>> 2880e04a (.)
     }
 
     /**
@@ -392,19 +436,31 @@ trait HasTeams
      */
     public function initializeCurrentTeam(): void
     {
+<<<<<<< HEAD
         if (null !== $this->current_team_id) {
+=======
+        if ($this->current_team_id !== null) {
+>>>>>>> 2880e04a (.)
             return;
         }
 
         $team = $this->personalTeam();
+<<<<<<< HEAD
         if (null === $team) {
+=======
+        if ($team === null) {
+>>>>>>> 2880e04a (.)
             $teamCandidate = $this->allTeams()->first();
             if ($teamCandidate instanceof TeamContract) {
                 $team = $teamCandidate;
             }
         }
 
+<<<<<<< HEAD
         if (null !== $team) {
+=======
+        if ($team !== null) {
+>>>>>>> 2880e04a (.)
             $this->switchTeam($team);
         }
     }
@@ -430,7 +486,7 @@ trait HasTeams
      */
     public function isCurrentTeam(TeamContract $team): bool
     {
-        if (null === $this->currentTeam) {
+        if ($this->currentTeam === null) {
             return false;
         }
 
@@ -442,7 +498,11 @@ trait HasTeams
      */
     public function ownsTeam(?TeamContract $team): bool
     {
+<<<<<<< HEAD
         if (null === $team) {
+=======
+        if ($team === null) {
+>>>>>>> 2880e04a (.)
             return false;
         }
 

@@ -42,7 +42,11 @@ class AuthenticationLogResource extends XotBaseResource
 
                 TextColumn::make('authenticatable_type')
                     ->label('Authenticatable Type')
+<<<<<<< HEAD
                     ->formatStateUsing(fn (?string $state): string => null !== $state ? Str::afterLast($state, '\\') : '')
+=======
+                    ->formatStateUsing(fn (?string $state): string => $state !== null ? Str::afterLast($state, '\\') : '')
+>>>>>>> 2880e04a (.)
                     ->searchable()
                     ->sortable(),
 
@@ -52,7 +56,11 @@ class AuthenticationLogResource extends XotBaseResource
                     ->sortable()
                     ->url(function (AuthenticationLog $record): ?string {
                         $authenticatable = $record->authenticatable;
+<<<<<<< HEAD
                         if (null !== $authenticatable && $authenticatable->exists) {
+=======
+                        if ($authenticatable !== null && $authenticatable->exists) {
+>>>>>>> 2880e04a (.)
                             return UserResource::getUrl('view', ['record' => $authenticatable]);
                         }
 
@@ -139,7 +147,11 @@ class AuthenticationLogResource extends XotBaseResource
                     ->icon('heroicon-o-user')
                     ->url(function (AuthenticationLog $record): ?string {
                         $authenticatable = $record->authenticatable;
+<<<<<<< HEAD
                         if (null !== $authenticatable && $authenticatable->exists) {
+=======
+                        if ($authenticatable !== null && $authenticatable->exists) {
+>>>>>>> 2880e04a (.)
                             return UserResource::getUrl('view', ['record' => $authenticatable]);
                         }
 
@@ -148,7 +160,11 @@ class AuthenticationLogResource extends XotBaseResource
                     ->visible(function (AuthenticationLog $record): bool {
                         $authenticatable = $record->authenticatable;
 
+<<<<<<< HEAD
                         return null !== $authenticatable && $authenticatable->exists;
+=======
+                        return $authenticatable !== null && $authenticatable->exists;
+>>>>>>> 2880e04a (.)
                     }),
                 DeleteAction::make(),
             ])
