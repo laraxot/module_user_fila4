@@ -13,7 +13,6 @@ use Modules\Xot\Contracts\UserContract;
 /**
  * Modules\User\Models\OauthAccessToken.
  *
- *
  * @property string            $id
  * @property string|null       $user_id
  * @property string            $client_id

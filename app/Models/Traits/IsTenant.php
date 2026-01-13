@@ -33,6 +33,4 @@ trait IsTenant
 
         // ->as('membership')
     }
-
-    
 }

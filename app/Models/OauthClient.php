@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Support\Carbon;
-use Spatie\Permission\Traits\HasRoles;
-use Modules\Xot\Contracts\UserContract;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Laravel\Passport\Client as PassportClient;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Foundation\Auth\Access\Authorizable;
+use Illuminate\Support\Carbon;
+use Laravel\Passport\Client as PassportClient;
 use Laravel\Passport\Database\Factories\ClientFactory;
+use Modules\Xot\Contracts\UserContract;
 use Spatie\Permission\Exceptions\PermissionDoesNotExist;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * Modules\User\Models\OauthClient.
@@ -178,7 +178,7 @@ class OauthClient extends PassportClient implements AuthorizableContract
      */
     public function owner(): MorphTo
     {
-        /** @var MorphTo<\Illuminate\Foundation\Auth\User, $this> */
+        /* @var MorphTo<\Illuminate\Foundation\Auth\User, $this> */
         return $this->morphTo();
     }
 }

@@ -12,7 +12,6 @@ use Modules\Xot\Models\Traits\HasXotFactory;
 /**
  * OAuth Personal Access Client model.
  *
- *
  * @property string           $uuid
  * @property string           $client_id
  * @property Carbon|null      $created_at

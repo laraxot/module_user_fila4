@@ -63,7 +63,6 @@ use Webmozart\Assert\Assert;
  * @method static Builder|Role whereUpdatedAt($value)
  * @method static Builder|Role whereUuid($value)
  *
- *
  * @property int $id
  *
  * @method static Builder|Role whereId($value)
