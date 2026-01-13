@@ -343,7 +343,7 @@ Questo URL viene incluso nell'email solo se la moderazione è stata approvata.
 
 Il template dell'email si trova in:
 ```
-/var/www/html/<nome progetto>/laravel/Modules/Patient/resources/views/emails/doctor-registration-moderated.blade.php
+Modules/Patient/resources/views/emails/doctor-registration-moderated.blade.php
 ```
 
 Il template visualizza:
@@ -398,7 +398,7 @@ Il template visualizza:
 Il processo di registrazione iniziale del dottore utilizza il widget di registrazione generico che si trova in:
 
 ```
-/var/www/html/<nome progetto>/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php
+Modules/User/app/Filament/Widgets/RegistrationWidget.php
 ```
 
 Questo widget è progettato per gestire la registrazione di diversi tipi di utenti, non solo i dottori. Per maggiori dettagli sul funzionamento del widget e su come completarlo correttamente, consultare la [documentazione del widget di registrazione](./registration-widget.md).

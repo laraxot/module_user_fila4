@@ -12,31 +12,17 @@ use Modules\Xot\Contracts\ProfileContract;
 /**
  * Modules\User\Models\ModelHasRole.
  *
- * <<<<<<< HEAD
- *
- * @property string      $id
- * @property string      $role_id
- * @property string      $model_type
- * @property string      $model_id
- * @property int|null    $team_id
- *                                   =======
- * @property string      $id
- * @property string      $role_id
- * @property string      $model_type
- * @property string      $model_id
- * @property int|null    $team_id
- *                                   >>>>>>> 2880e04a (.)
+ * @property string $id
+ * @property string $role_id
+ * @property string $model_type
+ * @property string $model_id
+ * @property int|null $team_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
  * @property string|null $created_by
  *
- * <<<<<<< HEAD
- *
  * @method static ModelHasRoleFactory  factory($count = null, $state = [])
- *                                                                         =======
- * @method static ModelHasRoleFactory  factory($count = null, $state = [])
- *                                                                         >>>>>>> 2880e04a (.)
  * @method static Builder|ModelHasRole newModelQuery()
  * @method static Builder|ModelHasRole newQuery()
  * @method static Builder|ModelHasRole query()

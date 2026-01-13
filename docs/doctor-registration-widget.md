@@ -7,7 +7,7 @@ Il widget di registrazione del dottore (`RegistrationWidget.php`) è un componen
 ## Posizione del File
 
 ```
-/var/www/html/<nome progetto>/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php
+Modules/User/app/Filament/Widgets/RegistrationWidget.php
 ```
 
 ## Architettura
@@ -240,7 +240,7 @@ The <nome progetto> Team'
 
 ## Collegamenti Bidirezionali
 
-- [Email Doctor Registration](/var/www/html/<nome progetto>/docs/email-doctor-registration.md)
-- [Registrazione Odontoiatra](/var/www/html/<nome progetto>/docs/roadmap_frontoffice/13-registrazione-odontoiatra.md)
-- [DoctorResource](/var/www/html/<nome progetto>/laravel/Modules/Patient/app/Filament/Resources/DoctorResource.php)
-- [RegistrationWidget](/var/www/html/<nome progetto>/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php)
+- [Email Doctor Registration](docs/email-doctor-registration.md)
+- [Registrazione Odontoiatra](docs/roadmap_frontoffice/13-registrazione-odontoiatra.md)
+- [DoctorResource](Modules/Patient/app/Filament/Resources/DoctorResource.php)
+- [RegistrationWidget](Modules/User/app/Filament/Widgets/RegistrationWidget.php)

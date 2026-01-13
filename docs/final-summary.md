@@ -102,7 +102,7 @@ Completed comprehensive analysis, refactoring, and documentation of the User mod
    - Linked new documentation files
    - Reorganized Collegamenti section
 
-2. `/var/www/_bases/base_techplanner_fila4_mono/CLAUDE.md`
+2. `CLAUDE.md`
    - Added Rule 8: NEVER Redeclare Inherited Traits
    - Added Rule 9: Single Responsibility for ServiceProviders
    - Documented XotBase patterns

@@ -458,23 +458,14 @@ trait HasTeams
     /**
      * Get all of the teams the user belongs to.
      *
-     * @return BelongsToMany<Model&TeamContract, $this>
+     * @return BelongsToMany<Model&TeamContract, $this, TeamUser, 'pivot'>
      */
     public function teams(): BelongsToMany
     {
         $xot = XotData::make();
         $teamClass = $xot->getTeamClass();
 
-        $relation = $this->belongsToMany($teamClass, 'team_user', 'user_id', 'team_id')
-            ->using(TeamUser::class);
-
-        // Verifica la colonna permissions usando la connessione corretta
-        $connectionName = $this->getConnectionName();
-        if (Schema::connection($connectionName)->hasColumn('team_user', 'permissions')) {
-            return $relation->withPivot(['role', 'permissions']);
-        }
-
-        return $relation->withPivot(['role']);
+        return $this->belongsToManyX($teamClass);
     }
 
     /**

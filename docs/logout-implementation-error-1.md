@@ -11,7 +11,7 @@
 
 ## Errore Identificato
 
-L'implementazione attuale del file `/var/www/html/<nome progetto>/laravel/Themes/One/resources/views/pages/auth/logout.blade.php` presenta i seguenti problemi:
+L'implementazione attuale del file `Themes/One/resources/views/pages/auth/logout.blade.php` presenta i seguenti problemi:
 
 1. **Approccio non ottimale**: L'implementazione attuale utilizza Volt per gestire il logout, ma richiede una conferma da parte dell'utente, aggiungendo un passaggio non necessario al processo di logout.
 

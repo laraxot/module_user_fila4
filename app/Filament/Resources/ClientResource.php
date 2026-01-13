@@ -68,7 +68,7 @@ class ClientResource extends XotBaseResource
     public static function getModel(): string
     {
         $model = Passport::clientModel();
-        if (! is_string($model) || ! class_exists($model)) {
+        if (! class_exists($model)) {
             return Client::class;
         }
 

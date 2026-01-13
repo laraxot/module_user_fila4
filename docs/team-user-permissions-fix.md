@@ -100,9 +100,9 @@ php artisan optimize:clear
 
 ## Related Files
 
-- [`Modules/User/database/migrations/2026_01_12_120000_create_team_user_table.php`](file:///var/www/_bases/base_techplanner_fila4_mono/laravel/Modules/User/database/migrations/2026_01_12_120000_create_team_user_table.php)
-- [`Modules/User/app/Models/Traits/HasTeams.php`](file:///var/www/_bases/base_techplanner_fila4_mono/laravel/Modules/User/app/Models/Traits/HasTeams.php#L465-L469)
-- [`Modules/User/docs/laraxot-migration-philosophy.md`](file:///var/www/_bases/base_techplanner_fila4_mono/laravel/Modules/User/docs/laraxot-migration-philosophy.md)
+- [`Modules/User/database/migrations/2026_01_12_120000_create_team_user_table.php`](file://Modules/User/database/migrations/2026_01_12_120000_create_team_user_table.php)
+- [`Modules/User/app/Models/Traits/HasTeams.php`](file://Modules/User/app/Models/Traits/HasTeams.php#L465-L469)
+- [`Modules/User/docs/laraxot-migration-philosophy.md`](file://Modules/User/docs/laraxot-migration-philosophy.md)
 
 ## Updated Memory Rules
 

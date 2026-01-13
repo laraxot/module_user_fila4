@@ -23,9 +23,6 @@ use Webmozart\Assert\Assert;
 /**
  * Modules\User\Models\Role.
  *
- * <<<<<<< HEAD
- * <<<<<<< HEAD
- *
  * @property int                                                                                      $id
  *                                                                                                                       =======
  * @property string                                                                                   $id
@@ -66,7 +63,6 @@ use Webmozart\Assert\Assert;
  * @method static Builder|Role whereUpdatedAt($value)
  * @method static Builder|Role whereUuid($value)
  *
- * >>>>>>> 32e772a8 (.)
  *
  * @property int $id
  *

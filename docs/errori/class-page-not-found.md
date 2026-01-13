@@ -181,7 +181,7 @@ class Colors extends XotBasePage
 ### Step 1: Identificare Files Violazione
 
 ```bash
-cd /var/www/html/ptvx/laravel
+cd laravel
 
 # Trova tutti i file che importano Page direttamente
 grep -r "use Filament\\\\Pages\\\\Page" Modules/User/app/Filament/Clusters/ --include="*.php"

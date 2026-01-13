@@ -11,7 +11,7 @@
 
 ## Errore Fondamentale Identificato
 
-L'implementazione attuale del file `/var/www/html/<nome progetto>/laravel/Themes/One/resources/views/pages/auth/logout.blade.php` è corretta nella sua struttura di base, ma presenta alcune limitazioni:
+L'implementazione attuale del file `Themes/One/resources/views/pages/auth/logout.blade.php` è corretta nella sua struttura di base, ma presenta alcune limitazioni:
 
 ```php
 <?php
@@ -123,7 +123,7 @@ Questi errori evidenziano l'importanza di:
 
 ## Errore Fondamentale Identificato
 
-L'implementazione attuale del file `/var/www/html/<nome progetto>/laravel/Themes/One/resources/views/pages/auth/logout.blade.php` è corretta nella sua struttura di base, ma presenta alcune limitazioni:
+L'implementazione attuale del file `Themes/One/resources/views/pages/auth/logout.blade.php` è corretta nella sua struttura di base, ma presenta alcune limitazioni:
 
 ```php
 <?php

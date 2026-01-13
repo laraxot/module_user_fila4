@@ -82,8 +82,8 @@ I componenti `FileUpload` si aspettano array:
 4. **Wizard Navigation**: Verifica navigazione tra step senza perdere file
 ### Comandi Test
 ```bash
-cd /var/www/html/_bases/base_techplanner_fila3_mono/laravel
-cd /var/www/html/_bases/base_<nome progetto>/laravel
+cd laravel
+cd laravel
 php artisan test --filter=RegistrationWidget
 ./vendor/bin/phpstan analyze Modules/User/app/Filament/Widgets/RegistrationWidget.php --level=9
 ### Test Manuale per Verifica

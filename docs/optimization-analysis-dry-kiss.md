@@ -198,9 +198,9 @@ trait HasStandardTranslationsTrait
 3. Refactoring Filament Resources
 
 ## 🔗 Collegamenti Correlati
-- [UserBasePolicy.php](/var/www/html/_bases/base_quaeris_fila3_mono/laravel/Modules/User/app/Models/Policies/UserBasePolicy.php)
-- [BaseUser.php](/var/www/html/_bases/base_quaeris_fila3_mono/laravel/Modules/User/app/Models/BaseUser.php)
-- [Trait Analysis - HasTenants](/var/www/html/_bases/base_quaeris_fila3_mono/laravel/Modules/User/app/Models/Traits/HasTenants.php)
+- [UserBasePolicy.php](Modules/User/app/Models/Policies/UserBasePolicy.php)
+- [BaseUser.php](Modules/User/app/Models/BaseUser.php)
+- [Trait Analysis - HasTenants](Modules/User/app/Models/Traits/HasTenants.php)
 
 ---
 *Analisi completata con principi DRY + KISS | Data: $(date)*
