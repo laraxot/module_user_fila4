@@ -68,17 +68,6 @@ class OauthClient extends PassportClient implements AuthorizableContract
 {
     use Authorizable;
     use HasRoles;
-<<<<<<< HEAD
-=======
-
-    /**
-     * The name of the guard for Spatie Permission.
-     * REQUIRED BY Spatie\Permission\Traits\HasRoles - MUST be public.
-     *
-     * @var string
-     */
-    public $guard_name = 'api';
->>>>>>> 2880e04a (.)
 
     /**
      * The name of the guard for Spatie Permission.
@@ -93,11 +82,7 @@ class OauthClient extends PassportClient implements AuthorizableContract
     /**
      * Determine if the entity has a given ability.
      *
-<<<<<<< HEAD
-     * @param iterable|string $ability
-=======
      * @param  iterable|string  $ability
->>>>>>> 2880e04a (.)
      */
     #[\Override]
     public function can($ability, mixed $arguments = []): bool
@@ -115,13 +100,8 @@ class OauthClient extends PassportClient implements AuthorizableContract
     /**
      * Determine if the entity does not have a given ability.
      *
-<<<<<<< HEAD
-     * @param iterable<string>|string $ability
-     * @param array<mixed>            $arguments
-=======
      * @param  iterable<string>|string  $ability
      * @param  array<mixed>  $arguments
->>>>>>> 2880e04a (.)
      */
     public function cant($ability, $arguments = []): bool
     {
@@ -131,13 +111,8 @@ class OauthClient extends PassportClient implements AuthorizableContract
     /**
      * Determine if the entity does not have a given ability.
      *
-<<<<<<< HEAD
-     * @param iterable<string>|string $ability
-     * @param array<mixed>            $arguments
-=======
      * @param  iterable<string>|string  $ability
      * @param  array<mixed>  $arguments
->>>>>>> 2880e04a (.)
      */
     public function cannot($ability, $arguments = []): bool
     {
@@ -147,13 +122,8 @@ class OauthClient extends PassportClient implements AuthorizableContract
     /**
      * Determine if the entity has any of the given abilities.
      *
-<<<<<<< HEAD
-     * @param iterable<string> $abilities
-     * @param array<mixed>     $arguments
-=======
      * @param  iterable<string>  $abilities
      * @param  array<mixed>  $arguments
->>>>>>> 2880e04a (.)
      */
     public function canAny($abilities, $arguments = []): bool
     {
@@ -169,20 +139,12 @@ class OauthClient extends PassportClient implements AuthorizableContract
     /**
      * Check if client has any of the given permissions.
      *
-<<<<<<< HEAD
-     * @param iterable<string> $permissions
-=======
      * @param  iterable<string>  $permissions
->>>>>>> 2880e04a (.)
      */
     /**
      * Check if client has any of the given permissions.
      *
-<<<<<<< HEAD
-     * @param iterable<string> $permissions
-=======
      * @param  iterable<string>  $permissions
->>>>>>> 2880e04a (.)
      */
     private function hasAnyPermission(iterable $permissions): bool
     {
@@ -207,8 +169,6 @@ class OauthClient extends PassportClient implements AuthorizableContract
             return false;
         }
     }
-<<<<<<< HEAD
-=======
 
     /**
      * Get the owner of the OAuth client (morphTo relationship).
@@ -217,5 +177,4 @@ class OauthClient extends PassportClient implements AuthorizableContract
     {
         return $this->morphTo();
     }
->>>>>>> 2880e04a (.)
 }

@@ -347,7 +347,7 @@ $user->revokeDevice($deviceId);
 
 #### UserResource
 **Purpose**: Complete CRUD interface for user management
-<<<<<<< HEAD
+
 
 **Features**:
 - User creation and editing
@@ -380,7 +380,6 @@ $user->revokeDevice($deviceId);
 - Permission grouping
 - Role assignment
 
-<<<<<<< HEAD
 #### TeamResource
 **Purpose**: Team management interface
 
@@ -392,7 +391,6 @@ $user->revokeDevice($deviceId);
 
 #### TenantResource
 **Purpose**: Tenant management interface
-=======
 - **User**: `UserResource` (model dinamico via `XotData::getUserClass()`)
 - **Profile**: `ProfileResource`
 - **Team**: `TeamResource` (model dinamico via `XotData::getTeamClass()`)
@@ -411,7 +409,6 @@ $user->revokeDevice($deviceId);
   - `OauthAuthCodeResource`
   - `OauthRefreshTokenResource`
 - **SSO**: `SsoProviderResource`
->>>>>>> 32e772a8 (.)
 
 **Features**:
 - Tenant creation and configuration
@@ -516,8 +513,6 @@ $user->revokeDevice($deviceId);
 - Account lockouts
 - Recent authentication logs
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 #### EditProfile Page
 **Purpose**: User profile editing interface
 =======
@@ -641,9 +636,6 @@ php artisan cache:clear
 return [
     // User model configuration
     'user_model' => \Modules\User\Models\User::class,
-
-<<<<<<< HEAD
-<<<<<<< HEAD
     // Profile configuration
     'profile_model' => \Modules\User\Models\Profile::class,
 =======

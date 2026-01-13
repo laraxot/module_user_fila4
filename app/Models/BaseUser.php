@@ -25,7 +25,7 @@ use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use Laravel\Passport\Contracts\OAuthenticatable;
+use Modules\Xot\Contracts\PassportHasApiTokensContract;
 use Laravel\Passport\HasApiTokens;
 use Modules\User\Database\Factories\UserFactory;
 use Modules\User\Models\Traits\HasAuthenticationLogTrait;
@@ -128,11 +128,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  *
  * @mixin \Eloquent
  */
-<<<<<<< HEAD
-abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, OAuthenticatable, UserContract
-=======
-abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, UserContract
->>>>>>> 2880e04a (.)
+abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, PassportHasApiTokensContract, UserContract
 {
     use HasApiTokens {
         createToken as traitCreateToken;
@@ -142,6 +138,18 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     {
         /** @var \Laravel\Passport\PersonalAccessTokenResult */
         return $this->traitCreateToken($name, $scopes);
+    }
+
+    public function tokenCan(string $scope): bool
+    {
+        return $this->accessToken !== null && $this->accessToken->can($scope);
+    }
+
+    public function withAccessToken(\Laravel\Passport\Token|\Laravel\Passport\TransientToken|null $accessToken): static
+    {
+        $this->accessToken = $accessToken;
+
+        return $this;
     }
 
     use HasAuthenticationLogTrait;

@@ -19,11 +19,6 @@ return [
             'description' => 'password_client',
         ],
     ],
-<<<<<<< HEAD
-    'label' => '',
-    'plural_label' => '',
-=======
     'label' => 'OAuth Client',
     'plural_label' => 'OAuth Clients',
->>>>>>> 2880e04a (.)
 ];

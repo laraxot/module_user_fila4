@@ -22,15 +22,7 @@ class OauthClientResource extends XotBaseResource
 {
     protected static ?string $model = Client::class;
 
-<<<<<<< HEAD
-    protected static ?string $recordTitleAttribute = 'name';
 
-    protected static ?string $modelLabel = 'OAuth Client';
-
-    protected static ?string $pluralModelLabel = 'OAuth Clients';
-
-=======
->>>>>>> 2880e04a (.)
     /**
      * Schema del form per la risorsa.
      *

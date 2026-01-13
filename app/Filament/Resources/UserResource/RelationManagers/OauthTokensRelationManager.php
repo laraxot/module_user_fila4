@@ -40,11 +40,7 @@ class OauthTokensRelationManager extends XotBaseRelationManager
                 ->limit(30)
                 ->tooltip(function (TextColumn $column): ?string {
                     $state = $column->getState();
-<<<<<<< HEAD
-                    if (null === $state) {
-=======
                     if ($state === null) {
->>>>>>> 2880e04a (.)
                         return null;
                     }
 

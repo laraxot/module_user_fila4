@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # PHPStan Level Max Errors Roadmap - User Module
 
 **Date**: 2026-01-12
@@ -62,7 +61,6 @@
 - **Fix `BaseUser`**: Resolved critical merge conflicts restoring the model integrity.
 
 **Next Step**: Run `phpstan analyse Modules/User` and start Phase 1.
-=======
 # PHPStan Level 10 Errors Roadmap - Modulo User
 
 **Data**: 2026-01-12  
@@ -220,4 +218,3 @@
 **Approccio**: Analisi approfondita - errori diversi richiedono comprensione business logic  
 **Priorità**: Media (13 errori, alcuni richiedono verifica modelli)  
 **Tempo stimato**: 45 minuti
->>>>>>> 2880e04a (.)

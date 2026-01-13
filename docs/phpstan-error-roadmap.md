@@ -4,11 +4,7 @@
 This document outlines the roadmap for resolving PHPStan errors in the User module, particularly addressing the Git conflict markers that are preventing proper static analysis.
 
 ## Current Issues Identified
-<<<<<<< HEAD
-1. **Git Conflict Markers**: Multiple files in the User module contain unresolved Git conflict markers (`<<<<<<< HEAD`, `=======`, `>>>>>>>`)
-=======
 1. **Git Conflict Markers**: Multiple files in the User module contain unresolved Git conflict markers
->>>>>>> 2880e04a (.)
 2. **Service Provider Registration**: The `PassportServiceProvider` had a Git conflict in the token expiration configuration
 3. **Bootstrapping Error**: Larastan cannot bootstrap the application due to parse errors from Git conflicts
 

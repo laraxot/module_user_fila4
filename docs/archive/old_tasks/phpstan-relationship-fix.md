@@ -70,19 +70,11 @@ public function latestAuthentication(): MorphOne
 Per **tutte le relazioni Eloquent** in trait e modelli:
 - Utilizzare `$this` come secondo parametro template per relazioni che lo richiedono
 - Seguire la documentazione PHPStan per template covariance
-<<<<<<< HEAD
 - Verificare sempre con PHPStan level 10 dopo modifiche
-=======
-- Verificare sempre con PHPStan Level 9 dopo modifiche
->>>>>>> laraxot/develop
 
 ## Collegamenti
 
 - [PHPStan Template Covariance](https://phpstan.org/blog/whats-up-with-template-covariant)
-<<<<<<< HEAD
 - [Eloquent Relationships](https://laravel.com/docs/12.x/eloquent-relationships)
-=======
-- [Eloquent Relationships](https://laravel.com/project_docs/12.x/eloquent-relationships)
->>>>>>> laraxot/develop
 
 *Ultimo aggiornamento: gennaio 2025*
