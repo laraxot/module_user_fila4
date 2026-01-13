@@ -23,7 +23,7 @@ use Modules\Xot\Contracts\UserContract;
  * @property Carbon|null       $updated_at
  * @property Carbon|null       $expires_at
  * @property OauthClient|null  $client
-<<<<<<< HEAD
+ *                                         <<<<<<< HEAD
  * @property string            $id
  * @property string|null       $user_id
  * @property string            $client_id
@@ -34,8 +34,8 @@ use Modules\Xot\Contracts\UserContract;
  * @property Carbon|null       $updated_at
  * @property Carbon|null       $expires_at
  * @property OauthClient|null  $client
-=======
->>>>>>> 5aac2b68 (.)
+ *                                         =======
+ *                                         >>>>>>> 5aac2b68 (.)
  * @property UserContract|null $user
  *
  * @method static Builder|OauthAccessToken newModelQuery()
@@ -56,13 +56,13 @@ use Modules\Xot\Contracts\UserContract;
  * @property string|null            $created_by
  * @property string|null            $deleted_at
  * @property string|null            $deleted_by
-<<<<<<< HEAD
+ *                                                <<<<<<< HEAD
  * @property string|null            $updated_by
  * @property string|null            $created_by
  * @property string|null            $deleted_at
  * @property string|null            $deleted_by
-=======
->>>>>>> 5aac2b68 (.)
+ *                                                =======
+ *                                                >>>>>>> 5aac2b68 (.)
  *
  * @method static Builder<static>|OauthAccessToken whereCreatedBy($value)
  * @method static Builder<static>|OauthAccessToken whereDeletedAt($value)
@@ -71,12 +71,12 @@ use Modules\Xot\Contracts\UserContract;
  * @method static static                           create(array $attributes = [])
  * @method static static                           firstOrCreate(array $attributes, array $values = [])
  * @method static static                           updateOrCreate(array $attributes, array $values = [])
-<<<<<<< HEAD
+ *                                                                                                       <<<<<<< HEAD
  * @method static static                           create(array $attributes = [])
  * @method static static                           firstOrCreate(array $attributes, array $values = [])
  * @method static static                           updateOrCreate(array $attributes, array $values = [])
-=======
->>>>>>> 5aac2b68 (.)
+ *                                                                                                       =======
+ *                                                                                                       >>>>>>> 5aac2b68 (.)
  *
  * @mixin IdeHelperOauthAccessToken
  * @mixin \Eloquent
