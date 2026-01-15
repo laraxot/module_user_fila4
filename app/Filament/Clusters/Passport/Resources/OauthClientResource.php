@@ -10,6 +10,7 @@ use Filament\Actions\EditAction;
 use Filament\Forms\Components\Field;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Notifications\Notification;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
@@ -25,6 +26,8 @@ use Webmozart\Assert\Assert;
 class OauthClientResource extends XotBaseResource
 {
     protected static ?string $cluster = Passport::class;
+
+
 
     // use HasResourceFormComponents;
 
@@ -70,10 +73,6 @@ class OauthClientResource extends XotBaseResource
                     ->dateTime(),
                 TextColumn::make('updated_at')
                     ->dateTime(),
-            ])
-            ->recordActions([
-                EditAction::make(),
-                DeleteAction::make(),
             ])
             ->toolbarActions([
                 DeleteBulkAction::make(),

@@ -5,16 +5,36 @@ declare(strict_types=1);
 return [
     'navigation' => [
         'label' => 'OAuth Authorization Codes',
-        'group' => 'API',
+        'group' => '',
         'icon' => 'heroicon-o-code-bracket',
         'sort' => 31,
     ],
-    'actions' => [
-        'logout' => [
-            'tooltip' => 'logout',
+    'label' => 'Codice di autorizzazione OAuth',
+    'plural_label' => 'Codici di autorizzazione OAuth',
+    'fields' => [
+        'id' => [
+            'label' => 'ID',
+        ],
+        'user_id' => [
+            'label' => 'Utente',
+        ],
+        'client_id' => [
+            'label' => 'Client',
+        ],
+        'scopes' => [
+            'label' => 'Ambiti',
+        ],
+        'revoked' => [
+            'label' => 'Revocato',
+        ],
+        'expires_at' => [
+            'label' => 'Scade il',
         ],
     ],
-    'label' => '',
-    'plural_label' => '',
-    'fields' => [],
+    'actions' => [
+        'revoke' => [
+            'label' => 'Revoca',
+            'success' => 'Codice di autorizzazione revocato con successo',
+        ],
+    ],
 ];

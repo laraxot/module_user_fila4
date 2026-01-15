@@ -7,10 +7,7 @@ return [
         'name' => 'Personal Access Client',
         'plural' => 'Personal Access Clients',
         'label' => 'Personal Access Client',
-        'group' => [
-            'name' => 'API',
-            'description' => 'Gestione OAuth Personal Access Clients',
-        ],
+        'group' =>  '',
         'sort' => 6,
         'icon' => 'heroicon-o-key',
     ],
@@ -52,6 +49,10 @@ return [
         ],
         'openColumnManager' => [
             'tooltip' => 'openColumnManager',
+        ],
+        'logout' => [
+            'tooltip' => 'logout',
+            'icon' => 'logout',
         ],
     ],
     'label' => '',
