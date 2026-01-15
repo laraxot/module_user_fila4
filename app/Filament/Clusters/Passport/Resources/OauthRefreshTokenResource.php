@@ -51,7 +51,8 @@ class OauthRefreshTokenResource extends XotBaseResource
                 ]),
         ];
     }
-    public static function table(\Filament\Tables\Table $table): \Filament\Tables\Table
+
+    public static function table(Table $table): Table
     {
         return $table
             ->columns([

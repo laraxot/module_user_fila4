@@ -8,7 +8,6 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Forms\Components\Field;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Notifications\Notification;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
@@ -24,8 +23,6 @@ use Webmozart\Assert\Assert;
 class OauthClientResource extends XotBaseResource
 {
     protected static ?string $cluster = Passport::class;
-
-
 
     // use HasResourceFormComponents;
 
