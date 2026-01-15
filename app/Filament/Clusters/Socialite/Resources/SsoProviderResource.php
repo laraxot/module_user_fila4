@@ -67,6 +67,7 @@ class SsoProviderResource extends XotBaseResource
             'is_active' => Toggle::make('is_active'),
         ];
     }
+
     /**
      * @return array<string, TextColumn|IconColumn>
      */
@@ -116,6 +117,7 @@ class SsoProviderResource extends XotBaseResource
             ]),
         ];
     }
+
     /**
      * @return array<string, class-string<\Filament\Resources\RelationManagers\RelationManager>>
      */
