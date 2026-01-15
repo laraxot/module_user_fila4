@@ -83,6 +83,5 @@ return [
         'refresh_token' => Modules\User\Models\OauthRefreshToken::class,
         'auth_code' => Modules\User\Models\OauthAuthCode::class,
         'personal_access_client' => Modules\User\Models\OauthPersonalAccessClient::class,
-        'device_code' => Modules\User\Models\OauthDeviceCode::class,
     ],
 ];

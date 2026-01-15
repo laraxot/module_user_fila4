@@ -12,11 +12,14 @@ use Modules\Xot\Models\Traits\HasXotFactory;
 /**
  * OAuth Personal Access Client model.
  *
+<<<<<<< Updated upstream
  * <<<<<<< HEAD
  * =======
  *
  * >>>>>>> 024bfed1 (.)
  *
+=======
+>>>>>>> Stashed changes
  * @property string           $uuid
  * @property string           $client_id
  * @property Carbon|null      $created_at
@@ -32,11 +35,15 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @property string|null      $created_by
  * @property int              $id
  * @property OauthClient|null $client
+<<<<<<< Updated upstream
  *                                        <<<<<<< HEAD
  * @property string           $uuid
  *                                        =======
  * @property string           $uuid
  *                                        >>>>>>> 024bfed1 (.)
+=======
+ * @property string           $uuid
+>>>>>>> Stashed changes
  * @property string           $client_id
  * @property Carbon|null      $created_at
  * @property Carbon|null      $updated_at

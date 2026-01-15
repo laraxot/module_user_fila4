@@ -23,11 +23,14 @@ use Webmozart\Assert\Assert;
 /**
  * Modules\User\Models\Role.
  *
+<<<<<<< Updated upstream
  * <<<<<<< HEAD
  * =======
  *
  * >>>>>>> 024bfed1 (.)
  *
+=======
+>>>>>>> Stashed changes
  * @property int                                                                                      $id
  *                                                                                                                       =======
  * @property string                                                                                   $id

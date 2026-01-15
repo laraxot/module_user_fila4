@@ -29,14 +29,10 @@ class PassportDashboard extends XotBasePage
 
     public bool $isRunning = false;
 
-    protected $listeners = [
-        'refresh-component' => '$refresh',
-        'artisan-command.started' => 'handleCommandStarted',
-        'artisan-command.output' => 'handleCommandOutput',
-        'artisan-command.completed' => 'handleCommandCompleted',
-        'artisan-command.failed' => 'handleCommandFailed',
-        'artisan-command.error' => 'handleCommandError',
-    ];
+    #[On('refresh-component')]
+    public function refresh(): void
+    {
+    }
 
     public function executeCommand(string $command): void
     {
