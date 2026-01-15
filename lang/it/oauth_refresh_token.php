@@ -7,7 +7,7 @@ return [
         'name' => 'OAuth Refresh Token',
         'plural' => 'OAuth Refresh Tokens',
         'label' => 'OAuth Refresh Tokens',
-        'group' =>  '',
+        'group' => '',
         'icon' => 'heroicon-o-arrow-path',
         'sort' => 27,
     ],

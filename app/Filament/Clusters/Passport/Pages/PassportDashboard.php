@@ -4,12 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Clusters\Passport\Pages;
 
-use Exception;
 use Filament\Actions\Action;
 use Filament\Notifications\Notification;
-use Filament\Support\Enums\IconPosition;
 use Livewire\Attributes\On;
-use Illuminate\Support\Facades\Storage;
 use Modules\User\Filament\Clusters\Passport;
 use Modules\Xot\Actions\ExecuteArtisanCommandAction;
 use Modules\Xot\Filament\Pages\XotBasePage;
@@ -17,8 +14,6 @@ use Modules\Xot\Filament\Pages\XotBasePage;
 class PassportDashboard extends XotBasePage
 {
     protected static ?string $cluster = Passport::class;
-
-
 
     protected string $view = 'user::filament.pages.passport-dashboard';
 
@@ -51,7 +46,7 @@ class PassportDashboard extends XotBasePage
 
         try {
             app(ExecuteArtisanCommandAction::class)->execute($command);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             Notification::make()
                 ->title('Error executing command')
                 ->body($e->getMessage())

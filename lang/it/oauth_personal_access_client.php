@@ -7,7 +7,7 @@ return [
         'name' => 'Personal Access Client',
         'plural' => 'Personal Access Clients',
         'label' => 'Personal Access Client',
-        'group' =>  '',
+        'group' => '',
         'sort' => 6,
         'icon' => 'heroicon-o-key',
     ],

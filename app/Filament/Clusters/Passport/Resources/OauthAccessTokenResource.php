@@ -33,7 +33,7 @@ class OauthAccessTokenResource extends XotBaseResource
 
     protected static ?string $model = OauthAccessToken::class;
 
-    public static function table(\Filament\Tables\Table $table): \Filament\Tables\Table
+    public static function table(Table $table): Table
     {
         return $table
             ->columns([
@@ -105,13 +105,13 @@ class OauthAccessTokenResource extends XotBaseResource
                     }),
             ])
             ->filters([
-                \Filament\Tables\Filters\Filter::make('revoked')
+                Filter::make('revoked')
                     ->query(fn (Builder $query) => $query->where('revoked', true)),
 
-                \Filament\Tables\Filters\Filter::make('expired')
+                Filter::make('expired')
                     ->query(fn (Builder $query) => $query->where('expires_at', '<', now())),
 
-                \Filament\Tables\Filters\Filter::make('valid')
+                Filter::make('valid')
                     ->query(fn (Builder $query) => $query->where('revoked', false)->where('expires_at', '>', now())),
             ])
             ->recordActions([
