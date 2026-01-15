@@ -7,12 +7,9 @@ namespace Modules\User\Filament\Resources\OauthAuthCodeResource\Pages;
 use Modules\User\Filament\Resources\OauthAuthCodeResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
-<<<<<<< HEAD
-=======
 /**
  * Class ListOauthAuthCodes.
  */
->>>>>>> 5aac2b68 (.)
 class ListOauthAuthCodes extends XotBaseListRecords
 {
     protected static string $resource = OauthAuthCodeResource::class;

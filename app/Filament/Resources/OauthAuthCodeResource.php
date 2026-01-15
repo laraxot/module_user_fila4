@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-<<<<<<< HEAD
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -23,25 +22,6 @@ use Modules\User\Models\OauthAuthCode;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
 use function Safe\json_encode;
-=======
-use Filament\Tables\Table;
-use Illuminate\Support\Str;
-use function Safe\json_encode;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\BulkActionGroup;
-use Filament\Forms\Components\Select;
-use Filament\Actions\DeleteBulkAction;
-use Modules\User\Models\OauthAuthCode;
-use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\TextInput;
-use Illuminate\Database\Eloquent\Builder;
-use Filament\Resources\Pages\PageRegistration;
-use Modules\Xot\Filament\Resources\XotBaseResource;
-use Modules\User\Filament\Resources\OauthAuthCodeResource\Pages;
-use Modules\User\Filament\Clusters\Passport\Resources\OauthAuthCodeResource\Pages\ViewOauthAuthCode;
-use Modules\User\Filament\Clusters\Passport\Resources\OauthAuthCodeResource\Pages\ListOauthAuthCodes;
->>>>>>> 5aac2b68 (.)
 
 /**
  * Class OauthAuthCodeResource.

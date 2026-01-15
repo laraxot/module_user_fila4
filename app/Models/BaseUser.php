@@ -130,15 +130,8 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  */
 abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, OAuthenticatable, UserContract
 {
-    use HasApiTokens {
-<<<<<<< HEAD
-        createToken as traitCreateToken;
-    }
+    use HasApiTokens;
 
-=======
-        createToken as TraitCreateToken;
-    }
->>>>>>> 5aac2b68 (.)
     use HasAuthenticationLogTrait;
     use HasChildren;
     use HasModules;
@@ -152,27 +145,6 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
     use Traits\HasTenants;
     use XotTraits\RelationX;
 
-<<<<<<< HEAD
-    public function createToken(string $name, array $scopes = []): \Laravel\Passport\PersonalAccessTokenResult
-    {
-        /* @var \Laravel\Passport\PersonalAccessTokenResult */
-        return $this->traitCreateToken($name, $scopes);
-    }
-
-    public function tokenCan(string $scope): bool
-    {
-        return null !== $this->accessToken && $this->accessToken->can($scope);
-    }
-
-    public function withAccessToken(\Laravel\Passport\Token|\Laravel\Passport\TransientToken|null $accessToken): static
-    {
-        $this->accessToken = $accessToken;
-
-        return $this;
-    }
-
-=======
->>>>>>> 5aac2b68 (.)
     /** @var bool */
     public $incrementing = false;
 
@@ -255,20 +227,6 @@ abstract class BaseUser extends Authenticatable implements HasMedia, HasName, Ha
         }
     }
 
-<<<<<<< HEAD
-=======
-    /**
-     * Create a new personal access token for the user.
-     *
-     * @param string             $name
-     * @param array<int, string> $scopes
-     */
-    public function createToken(string $name, array $scopes = []): \Laravel\Passport\PersonalAccessTokenResult
-    {
-        return $this->TraitCreateToken($name, $scopes);
-    }
-
->>>>>>> 5aac2b68 (.)
     public function getProviderName(): string
     {
         return (string) ($this->getAttribute('provider') ?? config('auth.guards.api.provider', 'users'));

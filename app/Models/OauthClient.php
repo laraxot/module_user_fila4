@@ -7,10 +7,7 @@ namespace Modules\User\Models;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-=======
->>>>>>> 5aac2b68 (.)
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Support\Carbon;
 use Laravel\Passport\Client as PassportClient;
@@ -173,18 +170,4 @@ class OauthClient extends PassportClient implements AuthorizableContract
             return false;
         }
     }
-<<<<<<< HEAD
-
-    /**
-     * Get the owner of the OAuth client (morphTo relationship).
-     *
-     * @return MorphTo<\Illuminate\Foundation\Auth\User, $this>
-     */
-    public function owner(): MorphTo
-    {
-        /* @var MorphTo<\Illuminate\Foundation\Auth\User, $this> */
-        return $this->morphTo();
-    }
-=======
->>>>>>> 5aac2b68 (.)
 }

@@ -17,10 +17,7 @@ class Client extends PassportClient
      */
     public function initializeHasUniqueStringIds(): void
     {
-<<<<<<< HEAD
         // @phpstan-ignore-next-line method_exists check per compatibilità versioni Laravel
-=======
->>>>>>> 5aac2b68 (.)
         if (method_exists(parent::class, 'initializeHasUniqueStringIds')) {
             parent::initializeHasUniqueStringIds();
         }

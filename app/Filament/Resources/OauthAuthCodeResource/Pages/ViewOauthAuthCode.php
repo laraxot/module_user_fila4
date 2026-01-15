@@ -4,27 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\OauthAuthCodeResource\Pages;
 
-<<<<<<< HEAD
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Component;
 use Modules\User\Filament\Resources\OauthAuthCodeResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 use Modules\Xot\Filament\Schemas\Components\XotBaseSection;
 
-=======
-use Modules\User\Filament\Resources\OauthAuthCodeResource;
-use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
-
-/**
- * Class ViewOauthAuthCode.
- */
->>>>>>> 5aac2b68 (.)
 class ViewOauthAuthCode extends XotBaseViewRecord
 {
     protected static string $resource = OauthAuthCodeResource::class;
 
     /**
-<<<<<<< HEAD
      * @return array<string, Component>
      */
     protected function getInfolistSchema(): array
@@ -41,12 +31,5 @@ class ViewOauthAuthCode extends XotBaseViewRecord
                     'created_at' => TextEntry::make('created_at'),
                 ]),
         ];
-=======
-     * @return array<string, \Filament\Schemas\Components\Component>
-     */
-    protected function getInfolistSchema(): array
-    {
-        return [];
->>>>>>> 5aac2b68 (.)
     }
 }
