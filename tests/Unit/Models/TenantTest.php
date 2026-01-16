@@ -14,7 +14,7 @@ it('can create tenant with minimal data', function () {
     ]);
 
     expect($tenant)->toBeInstanceOf(Tenant::class);
-    
+
     $this->assertDatabaseHas('tenants', [
         'id' => $tenant->id,
         'name' => 'Test Tenant',
@@ -60,6 +60,7 @@ it('tenant has soft deletes', function () {
 it('can restore soft deleted tenant', function () {
     if (! method_exists(Tenant::class, 'withTrashed')) {
         $this->markTestSkipped('SoftDeletes trait not present on Tenant model');
+
         return;
     }
 

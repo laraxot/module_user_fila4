@@ -5,7 +5,6 @@ declare(strict_types=1);
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\ValidationException;
 use Modules\User\Models\Permission;
 use Modules\User\Models\Profile;
 use Modules\User\Models\Role;
@@ -41,7 +40,7 @@ it('can create user with profile', function () {
     // Assert
     expect($user)->toBeInstanceOf(User::class);
     expect($profile)->toBeInstanceOf(Profile::class);
-    
+
     $this->assertDatabaseHas('users', [
         'id' => $user->id,
         'name' => 'Mario Rossi',
@@ -462,7 +461,7 @@ it('can validate user email uniqueness', function () {
     User::factory()->create(['email' => 'test@example.com']);
 
     // Act & Assert
-    expect(fn() => User::create([
+    expect(fn () => User::create([
         'name' => 'Another User',
         'email' => 'test@example.com', // Same email
         'password' => Hash::make('password123'),
