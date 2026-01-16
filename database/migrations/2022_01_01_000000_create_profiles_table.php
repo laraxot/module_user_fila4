@@ -55,19 +55,19 @@ return new class extends XotBaseMigration {
                 $table->string('phone')->nullable()->after('email');
             }
             if (! $this->hasColumn('avatar')) {
-                $table->string('avatar')->nullable()->after('bio');
+                $table->string('avatar')->nullable();
             }
             if (! $this->hasColumn('timezone')) {
-                $table->string('timezone')->nullable()->after('avatar');
+                $table->string('timezone')->nullable();
             }
             if (! $this->hasColumn('locale')) {
-                $table->string('locale')->nullable()->after('timezone');
+                $table->string('locale')->nullable();
             }
             if (! $this->hasColumn('preferences')) {
-                $table->json('preferences')->nullable()->after('locale');
+                $table->json('preferences')->nullable();
             }
             if (! $this->hasColumn('status')) {
-                $table->string('status')->nullable()->after('preferences');
+                $table->string('status')->nullable();
             }
         });
     }

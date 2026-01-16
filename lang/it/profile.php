@@ -61,6 +61,11 @@ return [
         'photo' => [
             'label' => 'photo',
         ],
+        'user' => [
+            'name' => [
+                'label' => 'user.name',
+            ],
+        ],
     ],
     'actions' => [
         'edit' => [

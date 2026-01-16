@@ -2,272 +2,248 @@
 
 declare(strict_types=1);
 
-namespace Modules\User\Tests\Unit\Models;
-
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Modules\User\Models\Tenant;
 use Tests\TestCase;
 
-class TenantTest extends TestCase
-{
-    use RefreshDatabase;
+uses(TestCase::class, DatabaseTransactions::class);
 
-    public function testCanCreateTenantWithMinimalData(): void
-    {
-        $tenant = Tenant::factory()->create([
-            'name' => 'Test Tenant',
-        ]);
+it('can create tenant with minimal data', function () {
+    $tenant = Tenant::factory()->create([
+        'name' => 'Test Tenant',
+    ]);
 
-        $this->assertDatabaseHas('tenants', [
-            'id' => $tenant->id,
-            'name' => 'Test Tenant',
-        ]);
+    expect($tenant)->toBeInstanceOf(Tenant::class);
+    
+    $this->assertDatabaseHas('tenants', [
+        'id' => $tenant->id,
+        'name' => 'Test Tenant',
+    ]);
+});
+
+it('can create tenant with all fields', function () {
+    $tenantData = [
+        'name' => 'Full Tenant',
+        'slug' => 'full-tenant',
+        'domain' => 'fulltenant.com',
+        'database' => 'fulltenant_db',
+        'settings' => ['theme' => 'dark', 'features' => ['chat', 'analytics']],
+        'is_active' => true,
+        'trial_ends_at' => now()->addDays(30),
+    ];
+
+    $tenant = Tenant::factory()->create($tenantData);
+
+    $this->assertDatabaseHas('tenants', [
+        'id' => $tenant->id,
+        'name' => 'Full Tenant',
+        'slug' => 'full-tenant',
+        'domain' => 'fulltenant.com',
+        'database' => 'fulltenant_db',
+        'is_active' => true,
+    ]);
+
+    expect($tenant->settings)->toBeArray()
+        ->and($tenant->settings)->toEqual(['theme' => 'dark', 'features' => ['chat', 'analytics']]);
+});
+
+it('tenant has soft deletes', function () {
+    $tenant = Tenant::factory()->create();
+    $tenantId = $tenant->id;
+
+    $tenant->delete();
+
+    $this->assertSoftDeleted('tenants', ['id' => $tenantId]);
+    $this->assertDatabaseMissing('tenants', ['id' => $tenantId]);
+});
+
+it('can restore soft deleted tenant', function () {
+    if (! method_exists(Tenant::class, 'withTrashed')) {
+        $this->markTestSkipped('SoftDeletes trait not present on Tenant model');
+        return;
     }
 
-    public function testCanCreateTenantWithAllFields(): void
-    {
-        $tenantData = [
-            'name' => 'Full Tenant',
-            'slug' => 'full-tenant',
-            'domain' => 'fulltenant.com',
-            'database' => 'fulltenant_db',
-            'settings' => ['theme' => 'dark', 'features' => ['chat', 'analytics']],
-            'is_active' => true,
-            'trial_ends_at' => now()->addDays(30),
-        ];
+    $tenant = Tenant::factory()->create();
+    $tenantId = $tenant->id;
 
-        $tenant = Tenant::factory()->create($tenantData);
+    $tenant->delete();
+    $this->assertSoftDeleted('tenants', ['id' => $tenantId]);
 
-        $this->assertDatabaseHas('tenants', [
-            'id' => $tenant->id,
-            'name' => 'Full Tenant',
-            'slug' => 'full-tenant',
-            'domain' => 'fulltenant.com',
-            'database' => 'fulltenant_db',
-            'is_active' => true,
-        ]);
+    /** @var Tenant $restoredTenant */
+    $restoredTenant = Tenant::withTrashed()->find($tenantId);
+    $restoredTenant->restore();
 
-        // Verifica campi JSON
-        static::assertSame(['theme' => 'dark', 'features' => ['chat', 'analytics']], $tenant->settings);
-    }
+    $this->assertDatabaseHas('tenants', ['id' => $tenantId]);
+    expect($restoredTenant->deleted_at)->toBeNull();
+});
 
-    public function testTenantHasSoftDeletes(): void
-    {
-        $tenant = Tenant::factory()->create();
-        $tenantId = $tenant->id;
+it('can find tenant by name', function () {
+    $tenant = Tenant::factory()->create(['name' => 'Unique Tenant Name']);
 
-        $tenant->delete();
+    $foundTenant = Tenant::where('name', 'Unique Tenant Name')->first();
 
-        $this->assertSoftDeleted('tenants', ['id' => $tenantId]);
-        $this->assertDatabaseMissing('tenants', ['id' => $tenantId]);
-    }
+    expect($foundTenant)->not()->toBeNull()
+        ->and($foundTenant->id)->toBe($tenant->id);
+});
 
-    public function testCanRestoreSoftDeletedTenant(): void
-    {
-        if (! method_exists(Tenant::class, 'withTrashed')) {
-            $this->markTestSkipped('SoftDeletes trait not present on Tenant model');
+it('can find tenant by slug', function () {
+    $tenant = Tenant::factory()->create(['slug' => 'unique-tenant']);
 
-            return;
-        }
+    $foundTenant = Tenant::where('slug', 'unique-tenant')->first();
 
-        $tenant = Tenant::factory()->create();
-        $tenantId = $tenant->id;
+    expect($foundTenant)->not()->toBeNull()
+        ->and($foundTenant->id)->toBe($tenant->id);
+});
 
-        $tenant->delete();
-        $this->assertSoftDeleted('tenants', ['id' => $tenantId]);
+it('can find tenant by domain', function () {
+    $tenant = Tenant::factory()->create(['domain' => 'uniquetenant.com']);
 
-        /** @var Tenant $restoredTenant */
-        $restoredTenant = Tenant::withTrashed()->find($tenantId);
-        $restoredTenant->restore();
+    $foundTenant = Tenant::where('domain', 'uniquetenant.com')->first();
 
-        $this->assertDatabaseHas('tenants', ['id' => $tenantId]);
-        static::assertNull($restoredTenant->deleted_at);
-    }
+    expect($foundTenant)->not()->toBeNull()
+        ->and($foundTenant->id)->toBe($tenant->id);
+});
 
-    public function testCanFindTenantByName(): void
-    {
-        $tenant = Tenant::factory()->create(['name' => 'Unique Tenant Name']);
+it('can find tenant by database', function () {
+    $tenant = Tenant::factory()->create(['database' => 'unique_db']);
 
-        $foundTenant = Tenant::where('name', 'Unique Tenant Name')->first();
+    $foundTenant = Tenant::where('database', 'unique_db')->first();
 
-        static::assertNotNull($foundTenant);
-        static::assertSame($tenant->id, $foundTenant->id);
-    }
+    expect($foundTenant)->not()->toBeNull()
+        ->and($foundTenant->id)->toBe($tenant->id);
+});
 
-    public function testCanFindTenantBySlug(): void
-    {
-        $tenant = Tenant::factory()->create(['slug' => 'unique-tenant']);
+it('can find active tenants', function () {
+    Tenant::factory()->create(['is_active' => true]);
+    Tenant::factory()->create(['is_active' => false]);
+    Tenant::factory()->create(['is_active' => true]);
 
-        $foundTenant = Tenant::where('slug', 'unique-tenant')->first();
+    $activeTenants = Tenant::where('is_active', true)->get();
 
-        static::assertNotNull($foundTenant);
-        static::assertSame($tenant->id, $foundTenant->id);
-    }
+    expect($activeTenants)->toHaveCount(2)
+        ->and($activeTenants->every(fn ($tenant) => $tenant->is_active))->toBeTrue();
+});
 
-    public function testCanFindTenantByDomain(): void
-    {
-        $tenant = Tenant::factory()->create(['domain' => 'uniquetenant.com']);
+it('can find tenants by name pattern', function () {
+    Tenant::factory()->create(['name' => 'Development Company']);
+    Tenant::factory()->create(['name' => 'Marketing Agency']);
+    Tenant::factory()->create(['name' => 'Sales Corporation']);
 
-        $foundTenant = Tenant::where('domain', 'uniquetenant.com')->first();
+    $companyTenants = Tenant::where('name', 'like', '%Company%')->get();
 
-        static::assertNotNull($foundTenant);
-        static::assertSame($tenant->id, $foundTenant->id);
-    }
+    expect($companyTenants)->toHaveCount(1)
+        ->and($companyTenants->every(fn ($tenant) => str_contains($tenant->name, 'Company')))->toBeTrue();
+});
 
-    public function testCanFindTenantByDatabase(): void
-    {
-        $tenant = Tenant::factory()->create(['database' => 'unique_db']);
+it('can find tenants by domain pattern', function () {
+    Tenant::factory()->create(['domain' => 'dev.example.com']);
+    Tenant::factory()->create(['domain' => 'staging.example.com']);
+    Tenant::factory()->create(['domain' => 'prod.example.com']);
 
-        $foundTenant = Tenant::where('database', 'unique_db')->first();
+    $exampleTenants = Tenant::where('domain', 'like', '%.example.com')->get();
 
-        static::assertNotNull($foundTenant);
-        static::assertSame($tenant->id, $foundTenant->id);
-    }
+    expect($exampleTenants)->toHaveCount(3)
+        ->and($exampleTenants->every(fn ($tenant) => str_ends_with($tenant->domain, '.example.com')))->toBeTrue();
+});
 
-    public function testCanFindActiveTenants(): void
-    {
-        Tenant::factory()->create(['is_active' => true]);
-        Tenant::factory()->create(['is_active' => false]);
-        Tenant::factory()->create(['is_active' => true]);
+it('can update tenant', function () {
+    $tenant = Tenant::factory()->create(['name' => 'Old Name']);
 
-        $activeTenants = Tenant::where('is_active', true)->get();
+    $tenant->update(['name' => 'New Name']);
 
-        static::assertCount(2, $activeTenants);
-        static::assertTrue($activeTenants->every(fn ($tenant) => $tenant->is_active));
-    }
+    $this->assertDatabaseHas('tenants', [
+        'id' => $tenant->id,
+        'name' => 'New Name',
+    ]);
+});
 
-    public function testCanFindTenantsByNamePattern(): void
-    {
-        Tenant::factory()->create(['name' => 'Development Company']);
-        Tenant::factory()->create(['name' => 'Marketing Agency']);
-        Tenant::factory()->create(['name' => 'Sales Corporation']);
+it('can handle null values', function () {
+    $tenant = Tenant::factory()->create([
+        'name' => 'Test Tenant',
+        'slug' => null,
+        'domain' => null,
+        'database' => null,
+    ]);
 
-        $companyTenants = Tenant::where('name', 'like', '%Company%')->get();
+    $this->assertDatabaseHas('tenants', [
+        'id' => $tenant->id,
+        'slug' => null,
+        'domain' => null,
+        'database' => null,
+    ]);
+});
 
-        static::assertCount(1, $companyTenants);
-        static::assertTrue($companyTenants->every(fn ($tenant) => str_contains($tenant->name, 'Company')));
-    }
+it('can find tenants by multiple criteria', function () {
+    Tenant::factory()->create([
+        'name' => 'Active Company',
+        'is_active' => true,
+        'domain' => 'active.com',
+    ]);
 
-    public function testCanFindTenantsByDomainPattern(): void
-    {
-        Tenant::factory()->create(['domain' => 'dev.example.com']);
-        Tenant::factory()->create(['domain' => 'staging.example.com']);
-        Tenant::factory()->create(['domain' => 'prod.example.com']);
+    Tenant::factory()->create([
+        'name' => 'Inactive Company',
+        'is_active' => false,
+        'domain' => 'inactive.com',
+    ]);
 
-        $exampleTenants = Tenant::where('domain', 'like', '%.example.com')->get();
+    $tenants = Tenant::where('is_active', true)->where('domain', 'like', '%.com')->get();
 
-        static::assertCount(3, $exampleTenants);
-        static::assertTrue($exampleTenants->every(fn ($tenant) => str_ends_with($tenant->domain, '.example.com')));
-    }
+    expect($tenants)->toHaveCount(1)
+        ->and($tenants->first()->name)->toBe('Active Company')
+        ->and($tenants->first()->is_active)->toBeTrue();
+});
 
-    public function testCanUpdateTenant(): void
-    {
-        $tenant = Tenant::factory()->create(['name' => 'Old Name']);
+it('tenant has users relationship', function () {
+    $tenant = Tenant::factory()->create();
 
-        $tenant->update(['name' => 'New Name']);
+    expect(method_exists($tenant, 'users'))->toBeTrue();
+});
 
-        $this->assertDatabaseHas('tenants', [
-            'id' => $tenant->id,
-            'name' => 'New Name',
-        ]);
-    }
+it('tenant has members relationship', function () {
+    $tenant = Tenant::factory()->create();
 
-    public function testCanHandleNullValues(): void
-    {
-        $tenant = Tenant::factory()->create([
-            'name' => 'Test Tenant',
-            'slug' => null,
-            'domain' => null,
-            'database' => null,
-        ]);
+    expect(method_exists($tenant, 'members'))->toBeTrue();
+});
 
-        $this->assertDatabaseHas('tenants', [
-            'id' => $tenant->id,
-            'slug' => null,
-            'domain' => null,
-            'database' => null,
-        ]);
-    }
+it('tenant has media relationship', function () {
+    $tenant = Tenant::factory()->create();
 
-    public function testCanFindTenantsByMultipleCriteria(): void
-    {
-        Tenant::factory()->create([
-            'name' => 'Active Company',
-            'is_active' => true,
-            'domain' => 'active.com',
-        ]);
+    expect(method_exists($tenant, 'media'))->toBeTrue();
+});
 
-        Tenant::factory()->create([
-            'name' => 'Inactive Company',
-            'is_active' => false,
-            'domain' => 'inactive.com',
-        ]);
+it('tenant has factory', function () {
+    $tenant = Tenant::factory()->create();
 
-        $tenants = Tenant::where('is_active', true)->where('domain', 'like', '%.com')->get();
+    expect($tenant->id)->not()->toBeNull()
+        ->and($tenant)->toBeInstanceOf(Tenant::class);
+});
 
-        static::assertCount(1, $tenants);
-        static::assertSame('Active Company', $tenants->first()->name);
-        static::assertTrue($tenants->first()->is_active);
-    }
+it('can find tenants by trial status', function () {
+    $activeTenant = Tenant::factory()->create([
+        'trial_ends_at' => now()->addDays(30),
+    ]);
 
-    public function testTenantHasUsersRelationship(): void
-    {
-        $tenant = Tenant::factory()->create();
+    $expiredTenant = Tenant::factory()->create([
+        'trial_ends_at' => now()->subDays(1),
+    ]);
 
-        static::assertTrue(method_exists($tenant, 'users'));
-    }
+    $activeTrials = Tenant::where('trial_ends_at', '>', now())->get();
 
-    public function testTenantHasMembersRelationship(): void
-    {
-        $tenant = Tenant::factory()->create();
+    expect($activeTrials)->toHaveCount(1)
+        ->and($activeTrials->first()->id)->toBe($activeTenant->id);
+});
 
-        static::assertTrue(method_exists($tenant, 'members'));
-    }
+it('can find tenants by settings value', function () {
+    Tenant::factory()->create([
+        'settings' => ['theme' => 'dark', 'features' => ['chat']],
+    ]);
 
-    public function testTenantHasMediaRelationship(): void
-    {
-        $tenant = Tenant::factory()->create();
+    Tenant::factory()->create([
+        'settings' => ['theme' => 'light', 'features' => ['analytics']],
+    ]);
 
-        static::assertTrue(method_exists($tenant, 'media'));
-    }
+    $darkThemeTenants = Tenant::whereJsonContains('settings->theme', 'dark')->get();
 
-    public function testTenantHasFactory(): void
-    {
-        $tenant = Tenant::factory()->create();
-
-        static::assertNotNull($tenant->id);
-        static::assertInstanceOf(Tenant::class, $tenant);
-    }
-
-    public function testCanFindTenantsByTrialStatus(): void
-    {
-        $activeTenant = Tenant::factory()->create([
-            'trial_ends_at' => now()->addDays(30),
-        ]);
-
-        $expiredTenant = Tenant::factory()->create([
-            'trial_ends_at' => now()->subDays(1),
-        ]);
-
-        $activeTrials = Tenant::where('trial_ends_at', '>', now())->get();
-
-        static::assertCount(1, $activeTrials);
-        static::assertSame($activeTenant->id, $activeTrials->first()->id);
-    }
-
-    public function testCanFindTenantsBySettingsValue(): void
-    {
-        Tenant::factory()->create([
-            'settings' => ['theme' => 'dark', 'features' => ['chat']],
-        ]);
-
-        Tenant::factory()->create([
-            'settings' => ['theme' => 'light', 'features' => ['analytics']],
-        ]);
-
-        $darkThemeTenants = Tenant::whereJsonContains('settings->theme', 'dark')->get();
-
-        static::assertCount(1, $darkThemeTenants);
-        static::assertSame('dark', $darkThemeTenants->first()->settings['theme']);
-    }
-}
+    expect($darkThemeTenants)->toHaveCount(1)
+        ->and($darkThemeTenants->first()->settings['theme'])->toBe('dark');
+});

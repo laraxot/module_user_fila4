@@ -17,5 +17,9 @@ return [
     'label' => '',
     'plural_label' => '',
     'fields' => [],
-    'actions' => [],
+    'actions' => [
+        'openColumnManager' => [
+            'tooltip' => 'openColumnManager',
+        ],
+    ],
 ];
