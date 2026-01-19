@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+uses(\Modules\User\Tests\TestCase::class);
+
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Models\Permission;

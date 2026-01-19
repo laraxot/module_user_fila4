@@ -26,18 +26,24 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $firstNames = ['Mario', 'Luigi', 'Giuseppe', 'Antonio', 'Marco', 'Francesco'];
+        $lastNames = ['Rossi', 'Verdi', 'Bianchi', 'Russo', 'Ferrari', 'Esposito'];
+
+        $firstName = $firstNames[array_rand($firstNames)];
+        $lastName = $lastNames[array_rand($lastNames)];
+
         return [
-            'first_name' => fake()->firstName(),
-            'last_name' => fake()->lastName(),
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
+            'first_name' => $firstName,
+            'last_name' => $lastName,
+            'name' => $firstName.' '.$lastName,
+            'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
-            'lang' => fake()->randomElement(['it', 'en', 'de']),
+            'lang' => ['it', 'en', 'de'][array_rand(['it', 'en', 'de'])],
             'is_active' => true,
             'is_otp' => false,
-            'password_expires_at' => fake()->optional()->dateTimeBetween('now', '+1 year'),
+            'password_expires_at' => (random_int(1, 10) > 3) ? now()->addDays(random_int(1, 365)) : null, // Optional with ~70% probability
         ];
     }
 

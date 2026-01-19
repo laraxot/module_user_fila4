@@ -41,8 +41,8 @@ class RoleFactory extends Factory
             'developer' => 'Developer',
         ];
 
-        $role = $this->faker->randomElement($roles);
-        $name = array_search($role, $roles, strict: true);
+        $roleKeys = array_keys($roles);
+        $name = $roleKeys[array_rand($roleKeys)];
 
         return [
             'name' => $name,

@@ -199,62 +199,62 @@ describe('User Email Verification', function () {
 
 describe('User Authorization', function () {
     it('can assign and check roles', function () {
-        $adminRole = Role::factory()->create(['name' => 'admin']);
-        $editorRole = Role::factory()->create(['name' => 'editor']);
+        $adminRole = Role::factory()->create();
+        $editorRole = Role::factory()->create();
 
         $this->user->assignRole($adminRole);
 
-        expect($this->user->hasRole('admin'))->toBe(true);
-        expect($this->user->hasRole('editor'))->toBe(false);
+        expect($this->user->hasRole($adminRole->name))->toBe(true);
+        expect($this->user->hasRole($editorRole->name))->toBe(false);
         expect($this->user->hasRole($adminRole))->toBe(true);
     });
 
     it('can assign and check permissions', function () {
-        $editPermission = Permission::factory()->create(['name' => 'edit posts']);
-        $deletePermission = Permission::factory()->create(['name' => 'delete posts']);
+        $editPermission = Permission::factory()->create();
+        $deletePermission = Permission::factory()->create();
 
         $this->user->givePermissionTo($editPermission);
 
-        expect($this->user->hasPermissionTo('edit posts'))->toBe(true);
-        expect($this->user->hasPermissionTo('delete posts'))->toBe(false);
+        expect($this->user->hasPermissionTo($editPermission->name))->toBe(true);
+        expect($this->user->hasPermissionTo($deletePermission->name))->toBe(false);
         expect($this->user->hasPermissionTo($editPermission))->toBe(true);
     });
 
     it('can inherit permissions from roles', function () {
-        $role = Role::factory()->create(['name' => 'editor']);
-        $permission = Permission::factory()->create(['name' => 'edit posts']);
+        $role = Role::factory()->create();
+        $permission = Permission::factory()->create();
 
         $role->givePermissionTo($permission);
         $this->user->assignRole($role);
 
-        expect($this->user->hasPermissionTo('edit posts'))->toBe(true);
+        expect($this->user->hasPermissionTo($permission->name))->toBe(true);
     });
 
     it('can check multiple permissions', function () {
-        $permission1 = Permission::factory()->create(['name' => 'edit posts']);
-        $permission2 = Permission::factory()->create(['name' => 'delete posts']);
+        $permission1 = Permission::factory()->create();
+        $permission2 = Permission::factory()->create();
 
         $this->user->givePermissionTo([$permission1, $permission2]);
 
-        expect($this->user->hasAllPermissions(['edit posts', 'delete posts']))->toBe(true);
-        expect($this->user->hasAnyPermission(['edit posts', 'publish posts']))->toBe(true);
+        expect($this->user->hasAllPermissions([$permission1->name, $permission2->name]))->toBe(true);
+        expect($this->user->hasAnyPermission([$permission1->name, 'publish posts']))->toBe(true);
     });
 
     it('can remove roles and permissions', function () {
-        $role = Role::factory()->create(['name' => 'editor']);
-        $permission = Permission::factory()->create(['name' => 'edit posts']);
+        $role = Role::factory()->create();
+        $permission = Permission::factory()->create();
 
         $this->user->assignRole($role);
         $this->user->givePermissionTo($permission);
 
-        expect($this->user->hasRole('editor'))->toBe(true);
-        expect($this->user->hasPermissionTo('edit posts'))->toBe(true);
+        expect($this->user->hasRole($role->name))->toBe(true);
+        expect($this->user->hasPermissionTo($permission->name))->toBe(true);
 
         $this->user->removeRole($role);
         $this->user->revokePermissionTo($permission);
 
-        expect($this->user->hasRole('editor'))->toBe(false);
-        expect($this->user->hasPermissionTo('edit posts'))->toBe(false);
+        expect($this->user->hasRole($role->name))->toBe(false);
+        expect($this->user->hasPermissionTo($permission->name))->toBe(false);
     });
 });
 

@@ -9,7 +9,7 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /*
  * Class CreateLiveuserUsersTable.
  */
-return new class extends XotBaseMigration {
+return new class () extends XotBaseMigration {
     /**
      * Run the migrations.
      */
@@ -83,6 +83,14 @@ return new class extends XotBaseMigration {
             }
             if (! $this->hasColumn('two_factor_confirmed_at')) {
                 $table->timestamp('two_factor_confirmed_at')->nullable()->after('two_factor_recovery_codes');
+            }
+
+            if (! $this->hasColumn('uuid')) {
+                $table->uuid('uuid')->nullable()->after('password_expires_at');
+            }
+
+            if (! $this->hasColumn('full_name')) {
+                $table->string('full_name')->virtualAs('CONCAT(first_name, " ", last_name)')->after('uuid');
             }
 
             if ($this->hasColumn('password')) {

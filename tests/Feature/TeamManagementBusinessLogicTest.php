@@ -63,9 +63,12 @@ it('can remove user from team', function (): void {
     $team->users()->detach($user->id);
 
     // Assert
+    $userKey = $user->getKey();
+    $userIdForPivot = is_numeric($userKey) ? (int) $userKey : (string) $userKey;
+
     $this->assertDatabaseMissing('team_user', [
         'team_id' => $team->id,
-        'user_id' => $user->id,
+        'user_id' => $userIdForPivot,
     ], 'user');
 
     expect($team->hasUser($user))->toBeFalse();
@@ -105,6 +108,11 @@ it('can assign team permissions to user', function (): void {
     // Act
     $userPermissions = $team->teamUsers()->where('user_id', $user->id)->first()->permissions;
 
+    // Decode if it's a string (JSON stored in DB)
+    if (is_string($userPermissions)) {
+        $userPermissions = json_decode($userPermissions, true);
+    }
+
     // Assert
     expect($userPermissions)
         ->toBeArray()
@@ -117,11 +125,11 @@ it('can check user team permissions', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $user = User::factory()->create();
-    $permissions = ['read', 'write'];
+    $permissions = ['read' => true, 'write' => true];
 
     $team->users()->attach($user->id, [
         'role' => 'member',
-        'permissions' => json_encode(['read' => true, 'write' => true]),
+        'permissions' => json_encode($permissions),
     ]);
 
     // Act & Assert
@@ -310,11 +318,11 @@ it('can check team has user with permission', function (): void {
     // Arrange
     $team = Team::factory()->create();
     $user = User::factory()->create();
-    $permissions = ['read', 'write'];
+    $permissions = ['read' => true, 'write' => true];
 
     $team->users()->attach($user->id, [
         'role' => 'member',
-        'permissions' => json_encode(['read' => true, 'write' => true]),
+        'permissions' => json_encode($permissions),
     ]);
 
     // Act & Assert
@@ -439,9 +447,9 @@ it('can force delete team', function (): void {
     $team->forceDelete();
 
     // Assert
-    $this->assertDatabaseMissing('teams', ['id' => $team->id]);
+    $this->assertDatabaseMissing('teams', ['id' => $team->id], 'user');
     $this->assertDatabaseMissing('team_user', [
         'team_id' => $team->id,
         'user_id' => $user->id,
-    ]);
+    ], 'user');
 });

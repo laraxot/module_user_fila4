@@ -9,7 +9,7 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-return new class extends XotBaseMigration {
+return new class () extends XotBaseMigration {
     /**
      * Esegue la migrazione.
      */
@@ -44,6 +44,22 @@ return new class extends XotBaseMigration {
 
             if (! $this->hasColumn('owner_id')) {
                 $table->uuid('owner_id')->nullable()->after('id');
+            }
+
+            if (! $this->hasColumn('slug')) {
+                $table->string('slug')->nullable()->unique();
+            }
+
+            if (! $this->hasColumn('description')) {
+                $table->text('description')->nullable();
+            }
+
+            if (! $this->hasColumn('avatar_path')) {
+                $table->string('avatar_path')->nullable();
+            }
+
+            if (! $this->hasColumn('settings')) {
+                $table->json('settings')->nullable();
             }
 
             $this->updateTimestamps($table, true);

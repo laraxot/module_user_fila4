@@ -115,6 +115,7 @@ return [
         'reorderRecords' => [
             'icon' => 'reorderRecords',
             'label' => 'reorderRecords',
+            'tooltip' => 'reorderRecords',
         ],
         'cancel' => [
             'icon' => 'ui-cancel',
@@ -183,6 +184,7 @@ return [
         'logout' => [
             'icon' => 'logout',
             'label' => 'logout',
+            'tooltip' => 'logout',
         ],
         'profile' => [
             'icon' => 'profile',
@@ -200,4 +202,9 @@ return [
     ],
     'label' => 'tenant',
     'plural_label' => '',
+    'sections' => [
+        'empty' => [
+            'heading' => 'empty',
+        ],
+    ],
 ];

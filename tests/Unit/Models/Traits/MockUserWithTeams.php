@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+
 namespace Modules\User\Tests\Unit\Models\Traits;
 
 use Illuminate\Database\Eloquent\Model;

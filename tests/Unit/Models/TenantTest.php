@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+namespace Modules\User\Tests\Unit\Models;
+
 use Modules\User\Models\Tenant;
-use Tests\TestCase;
+use Modules\User\Tests\TestCase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 uses(TestCase::class, DatabaseTransactions::class);
 
@@ -18,7 +20,7 @@ it('can create tenant with minimal data', function () {
     $this->assertDatabaseHas('tenants', [
         'id' => $tenant->id,
         'name' => 'Test Tenant',
-    ]);
+    ], 'user');
 });
 
 it('can create tenant with all fields', function () {
@@ -41,7 +43,7 @@ it('can create tenant with all fields', function () {
         'domain' => 'fulltenant.com',
         'database' => 'fulltenant_db',
         'is_active' => true,
-    ]);
+    ], 'user');
 
     expect($tenant->settings)->toBeArray()
         ->and($tenant->settings)->toEqual(['theme' => 'dark', 'features' => ['chat', 'analytics']]);
@@ -53,8 +55,8 @@ it('tenant has soft deletes', function () {
 
     $tenant->delete();
 
-    $this->assertSoftDeleted('tenants', ['id' => $tenantId]);
-    $this->assertDatabaseMissing('tenants', ['id' => $tenantId]);
+    $this->assertSoftDeleted('tenants', ['id' => $tenantId], null, 'deleted_at', 'user');
+    $this->assertDatabaseMissing('tenants', ['id' => $tenantId], 'user');
 });
 
 it('can restore soft deleted tenant', function () {
@@ -74,7 +76,7 @@ it('can restore soft deleted tenant', function () {
     $restoredTenant = Tenant::withTrashed()->find($tenantId);
     $restoredTenant->restore();
 
-    $this->assertDatabaseHas('tenants', ['id' => $tenantId]);
+    $this->assertDatabaseHas('tenants', ['id' => $tenantId], 'user');
     expect($restoredTenant->deleted_at)->toBeNull();
 });
 
@@ -155,7 +157,7 @@ it('can update tenant', function () {
     $this->assertDatabaseHas('tenants', [
         'id' => $tenant->id,
         'name' => 'New Name',
-    ]);
+    ], 'user');
 });
 
 it('can handle null values', function () {
@@ -171,7 +173,7 @@ it('can handle null values', function () {
         'slug' => null,
         'domain' => null,
         'database' => null,
-    ]);
+    ], 'user');
 });
 
 it('can find tenants by multiple criteria', function () {

@@ -6,8 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-return new class extends XotBaseMigration
-{
+return new class () extends XotBaseMigration {
     /**
      * Nome della tabella.
      */
@@ -18,26 +17,27 @@ return new class extends XotBaseMigration
      */
     public function up(): void
     {
-        // Verifica se la tabella esiste già
-        if ($this->hasTable($this->table_name)) {
-            echo 'Tabella ['.$this->table_name.'] già esistente'.PHP_EOL;
-            return;
-        }
-
-        // Crea la tabella
-        Schema::create($this->table_name, function (Blueprint $table) {
+        // -- CREATE --
+        $this->tableCreate(function (Blueprint $table): void {
             $table->string('id')->primary();
             $table->string('name');
             $table->string('slug')->unique()->nullable();
             $table->string('domain')->nullable();
             $table->string('database')->nullable();
             $table->boolean('is_active')->default(true);
-            $table->timestamps();
-            $table->softDeletes();
+            $table->dateTime('trial_ends_at')->nullable();
+            $table->json('settings')->nullable();
         });
-        
-        echo 'Tabella ['.$this->table_name.'] creata con successo!'.PHP_EOL;
+
+        // -- UPDATE --
+        $this->tableUpdate(function (Blueprint $table): void {
+            if (! $this->hasColumn('settings')) {
+                $table->json('settings')->nullable();
+            }
+            $this->updateTimestamps(
+                table: $table,
+                hasSoftDeletes: true,
+            );
+        });
     }
-    
-    // ✅ NO down() method - Filosofia Laraxot: forward-only migrations!
 };

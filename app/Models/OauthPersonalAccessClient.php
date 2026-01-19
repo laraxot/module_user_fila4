@@ -22,6 +22,7 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * =======
  * >>>>>>> Stashed changes
  *
+<<<<<<< Updated upstream
  * =======
  * >>>>>>> Stashed changes
  *
@@ -39,10 +40,29 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @property string|null      $updated_by
  * @property string|null      $created_by
  * @property int              $id
+=======
+=======
+>>>>>>> Stashed changes
+ * @property string $uuid
+ * @property string $client_id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property int $id
+ * @property string $uuid
+ * @property string $client_id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property int $id
+>>>>>>> Stashed changes
  * @property OauthClient|null $client
  *                                        <<<<<<< Updated upstream
  *                                        <<<<<<< Updated upstream
  *                                        <<<<<<< HEAD
+<<<<<<< Updated upstream
  * @property string           $uuid
  *                                        =======
  * @property string           $uuid
@@ -59,6 +79,22 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @property string|null      $updated_by
  * @property string|null      $created_by
  * @property int              $id
+=======
+ * @property string $uuid
+ *                        =======
+ * @property string $uuid
+ *                        >>>>>>> 024bfed1 (.)
+ *                        =======
+ * @property string $uuid
+ *                        >>>>>>> Stashed changes
+ * @property string $uuid
+ * @property string $client_id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property int $id
+>>>>>>> Stashed changes
  * @property OauthClient|null $client
  *
  * @method static Builder|OauthPersonalAccessClient newModelQuery()

@@ -2,16 +2,14 @@
 
 declare(strict_types=1);
 
+uses(\Modules\User\Tests\TestCase::class);
+
 use Illuminate\Database\QueryException;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Hash;
 use Modules\User\Models\Permission;
 use Modules\User\Models\Profile;
 use Modules\User\Models\Role;
 use Modules\User\Models\User;
-use Tests\TestCase;
-
-uses(TestCase::class, DatabaseTransactions::class);
 
 beforeEach(function () {
     // Set up any common data needed for tests

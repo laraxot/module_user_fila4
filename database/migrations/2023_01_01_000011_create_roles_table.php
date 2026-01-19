@@ -9,7 +9,7 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /*
  * Class CreateRolesTable.
  */
-return new class extends XotBaseMigration {
+return new class () extends XotBaseMigration {
     /**
      * Run the migrations.
      */
@@ -30,6 +30,15 @@ return new class extends XotBaseMigration {
             if (! $this->hasColumn('team_id')) {
                 $table->foreignId('team_id')->nullable()->index();
             }
+
+            if (! $this->hasColumn('display_name')) {
+                $table->string('display_name')->nullable();
+            }
+
+            if (! $this->hasColumn('description')) {
+                $table->text('description')->nullable();
+            }
+
             $this->updateTimestamps($table);
         });
     }

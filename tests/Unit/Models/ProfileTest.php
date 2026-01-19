@@ -24,7 +24,7 @@ test('can create profile with minimal data', function (): void {
         'last_name' => 'Doe',
         'user_name' => 'johndoe',
         'email' => 'john@example.com',
-    ]);
+    ], 'user');
 });
 
 test('can create profile with all fields', function (): void {
@@ -57,7 +57,7 @@ test('can create profile with all fields', function (): void {
         'timezone' => 'UTC',
         'locale' => 'en',
         'status' => 'active',
-    ]);
+    ], 'user');
 
     // Verifica campi JSON
     expect($profile->preferences)->toBe(['theme' => 'dark', 'notifications' => true]);
@@ -167,7 +167,7 @@ test('can update profile', function (): void {
     $this->assertDatabaseHas('profiles', [
         'id' => $profile->id,
         'first_name' => 'New Name',
-    ]);
+    ], 'user');
 });
 
 test('can handle null values', function (): void {
@@ -190,7 +190,7 @@ test('can handle null values', function (): void {
         'avatar' => null,
         'timezone' => null,
         'locale' => null,
-    ]);
+    ], 'user');
 });
 
 test('can find profiles by multiple criteria', function (): void {

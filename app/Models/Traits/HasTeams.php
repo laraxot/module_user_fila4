@@ -355,7 +355,14 @@ trait HasTeams
         if (null !== $teamUser) {
             $pivotPermissions = $teamUser->getAttribute('permissions');
             if (is_array($pivotPermissions)) {
-                $pivotPermissionNames = array_keys(array_filter($pivotPermissions));
+                // Support both formats:
+                // - map: ['read' => true, 'write' => true]
+                // - list: ['read', 'write']
+                $isList = array_values($pivotPermissions) === $pivotPermissions;
+
+                $pivotPermissionNames = $isList
+                    ? array_values(array_filter($pivotPermissions, static fn ($value): bool => is_string($value) && $value !== ''))
+                    : array_keys(array_filter($pivotPermissions));
 
                 $permissions = array_merge(
                     $permissions,

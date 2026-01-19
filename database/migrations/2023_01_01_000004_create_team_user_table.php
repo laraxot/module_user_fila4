@@ -11,7 +11,7 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
  * Questa migrazione gestisce sia la creazione che l'aggiornamento della tabella team_user.
  * Se la tabella esiste già con id UUID, viene convertita a id autoincrement.
  */
-return new class extends XotBaseMigration {
+return new class () extends XotBaseMigration {
     /**
      * Nome della tabella gestita dalla migrazione.
      */
@@ -52,6 +52,14 @@ return new class extends XotBaseMigration {
 
                 // Impostiamo la nuova PRIMARY KEY su id
                 $this->query('ALTER TABLE `'.$this->table_name.'` ADD PRIMARY KEY (`id`)');
+            }
+
+            if (! $this->hasColumn('permissions')) {
+                $table->json('permissions')->nullable();
+            }
+
+            if (! $this->hasColumn('joined_at')) {
+                $table->timestamp('joined_at')->nullable();
             }
 
             // Aggiorniamo i timestamp e soft deletes

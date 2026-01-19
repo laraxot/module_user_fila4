@@ -118,4 +118,13 @@ abstract class BaseTenant extends BaseModel implements HasAvatar, HasMedia, Tena
     //     $this->save();
     //     return $slug;
     // }
+
+    /** @return array<string, string> */
+    protected function casts(): array
+    {
+        return array_merge(parent::casts(), [
+            'trial_ends_at' => 'datetime',
+            'settings' => 'array',
+        ]);
+    }
 }
