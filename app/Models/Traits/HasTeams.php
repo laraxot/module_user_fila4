@@ -361,7 +361,7 @@ trait HasTeams
                 $isList = array_values($pivotPermissions) === $pivotPermissions;
 
                 $pivotPermissionNames = $isList
-                    ? array_values(array_filter($pivotPermissions, static fn ($value): bool => is_string($value) && $value !== ''))
+                    ? array_values(array_filter($pivotPermissions, static fn ($value): bool => is_string($value) && '' !== $value))
                     : array_keys(array_filter($pivotPermissions));
 
                 $permissions = array_merge(

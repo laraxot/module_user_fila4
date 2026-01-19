@@ -13,7 +13,7 @@ use Modules\User\Models\Permission;
 use Modules\User\Models\Role;
 use Modules\User\Models\User;
 
-uses(\Modules\User\Tests\TestCase::class);
+uses(Modules\User\Tests\TestCase::class);
 
 beforeEach(function () {
     $this->admin = User::factory()->create();

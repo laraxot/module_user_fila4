@@ -5,7 +5,6 @@ declare(strict_types=1);
 use Illuminate\Support\Facades\View;
 use Modules\User\Models\User;
 
-use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 
 uses(Modules\User\Tests\TestCase::class);
@@ -24,7 +23,7 @@ describe('Auth Components Tests', function (): void {
 
     test('login page loads correctly', function (): void {
         // The route exists and works correctly when assets are built
-        if (\Illuminate\Support\Facades\Route::has('login')) {
+        if (Illuminate\Support\Facades\Route::has('login')) {
             get(route('login'))->assertStatus(302); // Redirects to /admin/login by default
         } else {
             $this->markTestSkipped('Login route not defined');
@@ -33,7 +32,7 @@ describe('Auth Components Tests', function (): void {
 
     test('register page loads correctly', function (): void {
         // The route exists and works correctly when assets are built
-        if (\Illuminate\Support\Facades\Route::has('register')) {
+        if (Illuminate\Support\Facades\Route::has('register')) {
             get(route('register'))->assertOk();
         } else {
             $this->markTestSkipped('Register route not defined');

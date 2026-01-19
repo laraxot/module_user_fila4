@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Unit\Models;
 
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Modules\User\Models\Tenant;
 use Modules\User\Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 uses(TestCase::class, DatabaseTransactions::class);
 

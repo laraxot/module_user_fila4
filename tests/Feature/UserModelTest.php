@@ -2,19 +2,13 @@
 
 declare(strict_types=1);
 
-uses(\Modules\User\Tests\TestCase::class);
+uses(TestCase::class);
 
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Modules\User\Models\Permission;
-use Modules\User\Models\Role;
-use Modules\User\Models\Team;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
-use Spatie\MediaLibrary\HasMedia;
 
 beforeEach(function () {
     // Clean setup before each test
@@ -26,7 +20,7 @@ describe('User Model Creation', function () {
             'name' => 'Test User',
             'first_name' => 'Test',
             'last_name' => 'User',
-            'email' => 'test-' . uniqid() . '@example.com',
+            'email' => 'test-'.uniqid().'@example.com',
             'password' => bcrypt('password'),
             'lang' => 'it',
             'is_active' => true,
@@ -46,10 +40,10 @@ describe('User Model Creation', function () {
     it('generates uuid for id', function () {
         $user = User::create([
             'name' => 'Test User',
-            'email' => 'test-' . uniqid() . '@example.com',
+            'email' => 'test-'.uniqid().'@example.com',
             'password' => bcrypt('password'),
         ]);
-        
+
         expect($user->id)->toBeString()->toHaveLength(36); // UUID format
     });
 
@@ -68,7 +62,7 @@ describe('User Model Creation', function () {
             'name' => 'Mass Assigned User',
             'first_name' => 'Mass',
             'last_name' => 'Assigned',
-            'email' => 'mass-' . uniqid() . '@example.com',
+            'email' => 'mass-'.uniqid().'@example.com',
             'lang' => 'en',
             'is_active' => true,
         ];
@@ -87,7 +81,7 @@ describe('User Relationships', function () {
     beforeEach(function () {
         $this->user = User::create([
             'name' => 'Test User',
-            'email' => 'test-' . uniqid() . '@example.com',
+            'email' => 'test-'.uniqid().'@example.com',
             'password' => bcrypt('password'),
         ]);
     });
@@ -115,9 +109,9 @@ describe('User Relationships', function () {
 
 describe('User Scopes and Queries', function () {
     it('can filter by language', function () {
-        User::create(['lang' => 'it', 'email' => 'test1-' . uniqid() . '@example.com', 'password' => bcrypt('password')]);
-        User::create(['lang' => 'en', 'email' => 'test2-' . uniqid() . '@example.com', 'password' => bcrypt('password')]);
-        User::create(['lang' => 'it', 'email' => 'test3-' . uniqid() . '@example.com', 'password' => bcrypt('password')]);
+        User::create(['lang' => 'it', 'email' => 'test1-'.uniqid().'@example.com', 'password' => bcrypt('password')]);
+        User::create(['lang' => 'en', 'email' => 'test2-'.uniqid().'@example.com', 'password' => bcrypt('password')]);
+        User::create(['lang' => 'it', 'email' => 'test3-'.uniqid().'@example.com', 'password' => bcrypt('password')]);
 
         $italianUsers = User::where('lang', 'it')->get();
 
@@ -126,9 +120,9 @@ describe('User Scopes and Queries', function () {
     });
 
     it('can filter by active status', function () {
-        User::create(['is_active' => true, 'email' => 'active1-' . uniqid() . '@example.com', 'password' => bcrypt('password')]);
-        User::create(['is_active' => false, 'email' => 'inactive-' . uniqid() . '@example.com', 'password' => bcrypt('password')]);
-        User::create(['is_active' => true, 'email' => 'active2-' . uniqid() . '@example.com', 'password' => bcrypt('password')]);
+        User::create(['is_active' => true, 'email' => 'active1-'.uniqid().'@example.com', 'password' => bcrypt('password')]);
+        User::create(['is_active' => false, 'email' => 'inactive-'.uniqid().'@example.com', 'password' => bcrypt('password')]);
+        User::create(['is_active' => true, 'email' => 'active2-'.uniqid().'@example.com', 'password' => bcrypt('password')]);
 
         $activeUsers = User::where('is_active', true)->get();
 
@@ -137,9 +131,9 @@ describe('User Scopes and Queries', function () {
     });
 
     it('can order by name', function () {
-        $user3 = User::create(['name' => 'Zebra', 'email' => 'zebra-' . uniqid() . '@example.com', 'password' => bcrypt('password')]);
-        $user1 = User::create(['name' => 'Alpha', 'email' => 'alpha-' . uniqid() . '@example.com', 'password' => bcrypt('password')]);
-        $user2 = User::create(['name' => 'Beta', 'email' => 'beta-' . uniqid() . '@example.com', 'password' => bcrypt('password')]);
+        $user3 = User::create(['name' => 'Zebra', 'email' => 'zebra-'.uniqid().'@example.com', 'password' => bcrypt('password')]);
+        $user1 = User::create(['name' => 'Alpha', 'email' => 'alpha-'.uniqid().'@example.com', 'password' => bcrypt('password')]);
+        $user2 = User::create(['name' => 'Beta', 'email' => 'beta-'.uniqid().'@example.com', 'password' => bcrypt('password')]);
 
         $users = User::orderBy('name')->get();
 
@@ -152,56 +146,56 @@ describe('User Soft Deletes', function () {
     it('can handle soft deletes if supported', function () {
         $user = User::create([
             'name' => 'Test User',
-            'email' => 'soft-' . uniqid() . '@example.com',
+            'email' => 'soft-'.uniqid().'@example.com',
             'password' => bcrypt('password'),
         ]);
-        
+
         $user->delete();
-        
+
         $this->assertSoftDeleted('users', ['id' => $user->id]);
     });
 
     it('can handle restore after soft delete if supported', function () {
         $user = User::create([
             'name' => 'Test User',
-            'email' => 'restore-' . uniqid() . '@example.com',
+            'email' => 'restore-'.uniqid().'@example.com',
             'password' => bcrypt('password'),
         ]);
-        
+
         $user->delete();
         $user->restore();
-        
+
         $this->assertNotSoftDeleted('users', ['id' => $user->id]);
     });
 
     it('can handle force delete if supported', function () {
         $user = User::create([
             'name' => 'Test User',
-            'email' => 'force-' . uniqid() . '@example.com',
+            'email' => 'force-'.uniqid().'@example.com',
             'password' => bcrypt('password'),
         ]);
-        
+
         $user->forceDelete();
-        
+
         $this->assertDatabaseMissing('users', ['id' => $user->id]);
     });
 
     it('excludes soft deleted records from normal queries', function () {
         $user1 = User::create([
             'name' => 'Test User 1',
-            'email' => 'exclude1-' . uniqid() . '@example.com',
+            'email' => 'exclude1-'.uniqid().'@example.com',
             'password' => bcrypt('password'),
         ]);
         $user2 = User::create([
             'name' => 'Test User 2',
-            'email' => 'exclude2-' . uniqid() . '@example.com',
+            'email' => 'exclude2-'.uniqid().'@example.com',
             'password' => bcrypt('password'),
         ]);
-        
+
         $user2->delete();
-        
+
         $users = User::all();
-        
+
         expect($users)->toHaveCount(1);
         expect($users->first()->id)->toBe($user1->id);
     });
@@ -212,7 +206,7 @@ describe('User Attributes and Methods', function () {
         $this->user = User::create([
             'first_name' => 'John',
             'last_name' => 'Doe',
-            'email' => 'john.doe-' . uniqid() . '@example.com',
+            'email' => 'john.doe-'.uniqid().'@example.com',
             'lang' => 'en',
             'is_active' => true,
             'password' => bcrypt('password'),
@@ -221,7 +215,7 @@ describe('User Attributes and Methods', function () {
 
     it('has full name attribute', function () {
         // Test if full_name attribute exists and works
-        $fullName = $this->user->first_name . ' ' . $this->user->last_name;
+        $fullName = $this->user->first_name.' '.$this->user->last_name;
         expect($fullName)->toBe('John Doe');
     });
 
