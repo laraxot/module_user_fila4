@@ -131,7 +131,6 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 abstract class BaseUser extends Authenticatable implements HasMedia, HasName, HasTenants, MustVerifyEmail, OAuthenticatable, UserContract
 {
     use HasApiTokens;
-
     use HasAuthenticationLogTrait;
     use HasChildren;
     use HasModules;
