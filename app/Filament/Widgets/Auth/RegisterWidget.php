@@ -22,11 +22,11 @@ use Modules\Xot\Filament\Widgets\XotBaseWidget;
 
 class RegisterWidget extends XotBaseWidget
 {
-    //protected string $view = 'pub_theme::filament.widgets.auth.register';
-    
-    //protected static ?int $sort = 2;
+    // protected string $view = 'pub_theme::filament.widgets.auth.register';
 
-    //protected static ?int $sort = 2;
+    // protected static ?int $sort = 2;
+
+    // protected static ?int $sort = 2;
 
     protected static ?string $maxHeight = '600px';
 
@@ -156,7 +156,7 @@ class RegisterWidget extends XotBaseWidget
         try {
             $formData = $this->form->getState();
             $this->validateGDPRConsent($formData);
-            
+
             $validatedData = $this->validateForm($formData);
             $this->logRegistrationAttempt($formData);
 
@@ -187,6 +187,7 @@ class RegisterWidget extends XotBaseWidget
      * Validate GDPR consent requirements.
      *
      * @param array<string, mixed> $formData
+     *
      * @throws ValidationException
      */
     protected function validateGDPRConsent(array $formData): void
@@ -208,6 +209,7 @@ class RegisterWidget extends XotBaseWidget
 
     /**
      * @param array<string, mixed> $formData
+     *
      * @return array<string, mixed>
      */
     protected function validateForm(array $formData): array
@@ -256,7 +258,6 @@ class RegisterWidget extends XotBaseWidget
     }
 
     /**
-     * @param User $user
      * @param array<string, mixed> $formData
      */
     protected function afterUserCreated(User $user, array $formData): void
