@@ -10,7 +10,7 @@ use Spatie\LaravelData\Data;
 
 /**
  * Classe per la gestione delle configurazioni delle password.
- * 
+ *
  * Implementa il pattern Singleton con configurazione tenant-aware.
  * Fornisce componenti form pre-configurati per consistenza e DRY.
  */
@@ -44,12 +44,12 @@ class PasswordData extends Data
         if (! self::$instance) {
             /** @var array<string, mixed> $data */
             $data = TenantService::getConfig('password');
-            
-            if (!is_array($data)) {
+
+            if (! is_array($data)) {
                 // Fallback a valori di default se il tenant non ha configurazione
                 $data = self::getDefaultConfig();
             }
-            
+
             self::$instance = self::from($data);
         }
 
@@ -125,7 +125,7 @@ class PasswordData extends Data
     public function getHelperText(): string
     {
         $rules = [];
-        
+
         if ($this->mixedCase) {
             $rules[] = __('user::password.rules.mixed_case');
         }
@@ -150,10 +150,10 @@ class PasswordData extends Data
 
         // Formatta le regole in una frase leggibile
         $rulesText = strtolower(implode(', ', $rules));
-        
+
         return __('user::password.helper_with_rules', [
             'min' => $this->min,
-            'rules' => $rulesText
+            'rules' => $rulesText,
         ]);
     }
 
@@ -164,7 +164,7 @@ class PasswordData extends Data
     public function setFieldName(string $field_name): self
     {
         $this->field_name = $field_name;
-        
+
         return $this;
     }
 
@@ -175,7 +175,7 @@ class PasswordData extends Data
     public function getPasswordFormComponent(string $field_name): \Filament\Forms\Components\TextInput
     {
         $this->setFieldName($field_name);
-        
+
         return \Filament\Forms\Components\TextInput::make($field_name)
             ->password()
             ->required()
@@ -192,16 +192,13 @@ class PasswordData extends Data
     public function getPasswordConfirmationFormComponent(): \Filament\Forms\Components\TextInput
     {
         if (null === $this->field_name) {
-            throw new \RuntimeException(
-                'Il nome del campo password non è stato impostato. ' .
-                'Utilizzare setFieldName() prima di chiamare questo metodo.'
-            );
+            throw new \RuntimeException('Il nome del campo password non è stato impostato. Utilizzare setFieldName() prima di chiamare questo metodo.');
         }
 
         return \Filament\Forms\Components\TextInput::make('password_confirmation')
             ->password()
             ->required()
-            ->rule('confirmed:' . $this->field_name)
+            ->rule('confirmed:'.$this->field_name)
             ->validationMessages($this->getValidationMessages())
             ->autocomplete('new-password')
             ->dehydrated(false);
@@ -226,7 +223,7 @@ class PasswordData extends Data
     public static function getFormSchema(): array
     {
         $instance = self::make();
-        
+
         return [
             'password' => \Filament\Forms\Components\TextInput::make('password')
                 ->password()

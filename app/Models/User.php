@@ -142,7 +142,6 @@ class User extends BaseUser
     public $connection = 'user';
 
     /** @var array<string, class-string> */
-
     protected $childTypes = [
         'master_admin' => User::class,
         'backoffice_user' => User::class,

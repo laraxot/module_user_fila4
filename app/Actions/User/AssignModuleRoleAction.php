@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Actions\User;
 
+use Modules\User\Models\User;
 use Spatie\Permission\Models\Role;
-use Spatie\QueueableAction\QueueableAction;
-use Modules\User\Models\User; // Assuming User model is the one calling this action
+use Spatie\QueueableAction\QueueableAction; // Assuming User model is the one calling this action
 
 class AssignModuleRoleAction
 {
