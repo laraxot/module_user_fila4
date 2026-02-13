@@ -78,26 +78,9 @@ class RegisterWidget extends XotBaseWidget
                     'password_section' => Section::make('Sicurezza')
                         ->description('Crea una password sicura per il tuo account')
                         ->schema([
-                            'password_grid' => Grid::make(2)->schema([
-                                'password' => TextInput::make('password')
-                                    ->password()
-                                    ->required()
-                                    ->rule(PasswordData::make()->getPasswordRule())
-                                    ->validationMessages([
-                                        'password.regex' => __('user::auth.validation.password.complexity'),
-                                    ])
-                                    ->autocomplete('new-password')
-                                    ->confirmed()
-                                    ->extraInputAttributes(['class' => 'text-lg', 'minlength' => '8']),
-                                'password_confirmation' => TextInput::make('password_confirmation')
-                                    ->password()
-                                    ->required()
-                                    ->string()
-                                    ->autocomplete('new-password')
-                                    ->dehydrated(false)
-                                    ->same('password')
-                                    ->extraInputAttributes(['class' => 'text-lg']),
-                            ]),
+                            'password_grid' => Grid::make(2)->schema(
+                                PasswordData::make()->getPasswordFormComponents('password')
+                            ),
                         ]),
                 ]),
             'gdpr' => Section::make('Consensi e Privacy')
